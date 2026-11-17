@@ -19,6 +19,18 @@ Accepted destination: public `jaharris87/crucible-astro`, BSD-3-Clause. Do not r
 
 Distinguish accepted requirements, verified facts, recommendations, assumptions and open questions. Interfaces and later method choices remain provisional unless the decision register says otherwise. Create shared abstractions when actual implementations need them.
 
+## Local reference discovery
+
+When background is needed, consult optional ignored `.local/REFERENCES.md` and its
+relevant existing workspace/science/bibliography/proposal guides before asking for
+information already accessible. Read selectively; verify consequential claims in
+original papers or the relevant producer code. Keep reference projects read-only
+and distinguish their conventions from CRUCIBLE's adopted policy. If a locator or
+selected artifact is unavailable, state the specific gap; do not assume access or
+invent evidence. [Local reference setup](docs/EVIDENCE.md#optional-local-reference-discovery)
+explains copying the locator into a new worktree; references are not runtime,
+installation or CI dependencies.
+
 ## Scientific safeguards
 
 CCSN particle trajectories are the initial emphasis (D-002). Explore both targets, starting with the qualified instantaneous-RHS identity/full-state path (D-003); finite-step prediction needs its own later interval/history contract. These directions do not qualify any dataset. D-004–D-009 remain open; no scientific decision blocks B04's synthetic demonstration.

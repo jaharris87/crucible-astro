@@ -94,3 +94,16 @@ The [live closeout record](https://github.com/jaharris87/crucible-astro/issues/4
 records final CI/review usage, merge reservation and final budget without treating
 this pre-merge snapshot as completion. No repeat of already-passing local software
 tests is needed for these reporting-only changes.
+
+### B04 initial review and authorized reference-routing delta
+
+Draft CI 44170690344 passed 42 tests at `dc514bb`; 19 seconds × 4 CPUs =
+**76 charged**, unused 2,324 released. Fresh Sol High initial exact-candidate
+review passed with no findings; **110 charged**, unused 10 released. Total
+**2,052 charged**. The maintainer then added a bounded reference-discovery task:
+ignored local locator plus AGENTS/EVIDENCE/handoff routing and worktree-copy
+instructions, no scientific investigation. Preserve the initial review; it does
+not cover this later delta. Reserve **60 lead preparation/checks + 60 focused
+Sol High review + 2,400 changed-head CI = 2,520**; total **4,572/7,200**.
+Path availability, links, copy behavior, ignored/tracked exclusions and unchanged
+historical records must pass. Final reconciliation remains in the linked live record.

@@ -58,6 +58,20 @@ own exact-candidate human merge decision; earlier B03 delegation does not cover 
 
 All 21 startup files, original Phase 0A review/inventories/archive and transition records are preserved byte-for-byte in ignored `.local/phase-0b-startup/`; relocations and archive hash are in [BOOTSTRAP](BOOTSTRAP.md#local-provenance-preservation). Public historical receipts are labeled portable adaptations; later edits/code do not inherit the old review. Raw B02 receipts are in ignored `.local/b02/`. Reference code/data/PDFs were not changed or published.
 
+## Reference entry point for the next agent
+
+Use optional ignored `.local/REFERENCES.md` first when scientific background or
+project context is needed. The primary checkout's locator records current verified
+read-only Genesis, chemical-implementation and XNet development/upstream locations,
+and routes to existing guides/indexes without duplicating them. A copy was made
+available in the B04 worktree using explicit paths. Ignored files do not accompany
+future checkouts; follow [the copy recipe](EVIDENCE.md#optional-local-reference-discovery),
+recheck availability and report specific gaps. The locator and referenced material
+remain local-only and are not installation/runtime/CI dependencies. This bounded
+reference-discovery addition belongs to B04 PR #7 and requires focused Sol High
+review on the updated candidate; the live closeout record supplies its result.
+No new scientific investigation or reference-project edits occurred.
+
 ## Budget, limitations and next authorized action
 
 [Verification ledger](VERIFICATION.md) contains measured local checks and conservative
@@ -71,7 +85,7 @@ Verified protection: `fast-checks` from GitHub Actions app 15368 required on an 
 Next: complete B04 required final-head CI, fresh Sol High independent review and
 findings disposition, then present its concrete human merge checkpoint. After
 human merge, verify merged-result CI and update [the live closeout record](https://github.com/jaharris87/crucible-astro/issues/4#issuecomment-6960154582),
-close issue #4/milestone and the native goal only if all exits hold, then stop.
+close issue #4. Complete the maintainer-authorized [audit follow-up #8](https://github.com/jaharris87/crucible-astro/issues/8) before closing the milestone and native goal; all exits and added closeout work must hold, then stop.
 This link keeps the handoff resumable without claiming post-merge facts in a
 pre-merge commit. Original/merged evidence and remaining limitations stay durable.
 
