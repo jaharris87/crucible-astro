@@ -49,8 +49,12 @@ Original Phase 0A files/review/inventories, startup archive and bootstrap receip
 remain preserved locally; see [BOOTSTRAP](BOOTSTRAP.md#local-provenance-preservation)
 and [TRANSITION](TRANSITION.md). The two external reports and proposed patches
 are retained unchanged in ignored local audit preservation, with hashes in the
-portable dispositions. Auditor worktrees contain user work and must not be
-pruned as empty scratch. No reference source/data/PDFs were changed or published.
+portable dispositions. The maintainer clarified that auditor workspaces were
+temporary evaluation scratch. After evaluation and initial independent review,
+their reports/patches were verified against the retained snapshots; both scratch
+checkouts and the Claude scratch branch were removed. Small ignored receipts
+remain, not permanent workspace archives. No reference source/data/PDFs were
+changed or published.
 Dated reports remain snapshots; subsequent receipts belong in the live issue/PR.
 
 ## Reference entry point
