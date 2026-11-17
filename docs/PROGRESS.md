@@ -19,7 +19,7 @@ Updated 2026-11-17. **Phase 0B active.** [GitHub milestone](https://github.com/j
 | Local issue | Phase | Dependencies | Status / next gate | Linked PRs |
 | --- | --- | --- | --- | --- |
 | [B01 #1 — Repository](https://github.com/jaharris87/crucible-astro/issues/1) | 0B | D-001 confirmed | Complete; seed `c3846a4`, [closeout](https://github.com/jaharris87/crucible-astro/issues/1#issuecomment-6958852938) | None — explicit seed exception |
-| [B02 #2 — Package/checks](https://github.com/jaharris87/crucible-astro/issues/2) | 0B | B01 complete | Draft review; local checks passed, independent review/human merge pending | [PR #5](https://github.com/jaharris87/crucible-astro/pull/5) |
+| [B02 #2 — Package/checks](https://github.com/jaharris87/crucible-astro/issues/2) | 0B | B01 complete | Repair review; B02-R1 fixed locally, focused verification/human merge pending | [PR #5](https://github.com/jaharris87/crucible-astro/pull/5) |
 | [B03 #3 — CI/progress/reporting](https://github.com/jaharris87/crucible-astro/issues/3) | 0B | B01/B02 | Local workflow/template preparation; live CI/protection/review pending B02 integration | None |
 | [B04 #4 — Validator](https://github.com/jaharris87/crucible-astro/issues/4) | 0B | B02/B03 | Contract investigated; implementation and full cycle pending | None |
 
