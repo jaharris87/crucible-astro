@@ -38,3 +38,21 @@ Before pushing the corrected candidate (temporary probe removed), reserve the ne
 Run [44167409103](https://github.com/jaharris87/crucible-astro/actions/runs/44167409103), head `d17825b`, tested merge `306b8aa`, passed locked noneditable setup, lint/format and 2 tests without skips. Full job18s ×4CPUs = **72 CPU-seconds charged**; unused2,328 released. Peak test RSS41,052KiB.
 
 Charge the full **120 CPU-second lead allowance** for source/settings/identity/receipt/checkpoint work (measured CLI user+system plus conservatively bounded unmeasured edit/push overhead); no remaining lead reservation. After 1,150 prior +44 initial CI +72 corrected CI +120 lead = **1,386 charged**. Before final documentation-receipt push reserve **2,400** for its required CI; reserve **120** for the fresh independent B03 workflow/policy review. Latest total **1,386 charged +2,520 reserved =3,906/7,200**. This final CI is caused by new reporting/evidence changes and required by the adopted workflow, not an unchanged manual rerun. Reconcile actual usage before any next run.
+
+## B03 closeout reconciliation and B04 local reservation
+
+The lead's [PR #6 closeout](https://github.com/jaharris87/crucible-astro/pull/6#issuecomment-6959958285)
+supersedes the pending figures above: final B03 CI **44**, fresh review **110**,
+merged CI **56**, local integration **30** CPU-seconds. Added to 1,386 this is
+**1,626 charged / 7,200**, with no outstanding B03 reservations. These are
+reconciliations, not new B04 charges.
+
+Before B04 software verification, reserve **240 CPU-seconds** for test-first
+failure, small standard-library validator, lint/format, targeted set-comparison
+mutation/restoration, final controls and one clean committed noneditable locked
+reproduction. Existing Python 3.12.9/uv 0.10.11/cache, serial tests, no downloads,
+GPU, training, real data or CI. Measure child CPU and peak RSS; generated scratch
+stays under 100 MiB, excluding environments/caches. macOS hard memory enforcement
+is unavailable; report measured usage without claiming enforcement. Current
+charge plus reservation: **1,866 / 7,200 CPU-seconds**. Stop before the allocation
+is exhausted. This worker does not push, launch CI, independently review or merge.
