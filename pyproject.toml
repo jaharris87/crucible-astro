@@ -9,6 +9,7 @@ description = "Reproducible learning and reduced modeling of astrophysical react
 readme = "README.md"
 requires-python = ">=3.12,<3.13"
 license = "BSD-3-Clause"
+license-files = ["LICENSE"]
 dependencies = []
 
 [dependency-groups]

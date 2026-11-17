@@ -7,6 +7,10 @@ not independent review. Branch: `bootstrap/b02-package`. Integration base:
 Candidate identity is the commit containing this record; final head/base must
 be copied to the PR record when published. Draft [PR #5](https://github.com/jaharris87/crucible-astro/pull/5) now exists; no CI or human merge is claimed.
 
+The original implementation/check and lead-reconciliation records below are
+preserved historical evidence. The B02-R1 repair section supersedes earlier
+freshness statements for its changed configuration and new regression test.
+
 ## Declared environment
 
 Local platform: Darwin arm64, 16 logical CPUs. Python 3.12.9 and uv 0.10.11;
@@ -123,10 +127,53 @@ evaluated.
 
 ## Remaining gates
 
-Lead publication as a draft PR, exact-pushed-candidate fresh independent review,
-finding dispositions, human merge decision and merged-result verification
-remain required. B03 provides CI later; this B02 candidate has no CI.
+Lead publication of the repair to the existing draft PR, exact-pushed-candidate
+focused independent verification, final finding disposition, human merge
+decision and merged-result verification remain required. B03 provides CI
+later; this B02 candidate has no CI.
 
 ## Lead reconciliation and self-review
 
 Lead inspected the full B02 diff, resolved lock, clean-install/import raw receipts and failure/control logs, and reconciled README, progress, handoff and bootstrap status with actual GitHub records. Executable inputs retain the hashes above; no software rerun for descriptive documentation edits. Lead reconciliation check passed: 29 tracked files screened, 113 local links and 22 anchors resolved, no absolute machine-path/credential-pattern errors, and all five executable/configuration/lock/test inputs byte-equal to the tested commit. Measured check CPU time was 0.0102 seconds. The PR discussion is the source of record for exact final head/base and independent review, avoiding a self-referential commit hash in the candidate.
+
+## B02-R1 repair: installed license preservation
+
+Original finding, P2/high confidence: **“The noneditable distribution drops the
+BSD copyright and license text.”** Fresh-context read-only `gpt-6.1-sol`, high
+reasoning, reviewed head `44326c682100572b79774dab67bee4ff5173584d` against base
+`c3846a4660e5915fe56c115202d9b1581a2319fd`. The original finding and evidence
+were [preserved in PR #5 before repair](https://github.com/jaharris87/crucible-astro/pull/5#issuecomment-6959156535).
+The initial reviewer reported no other consequential finding; this was not
+acceptance or a human merge decision.
+
+The reviewer found `License-Expression: BSD-3-Clause` in installed METADATA,
+but no `License-File` field or LICENSE/notice in RECORD. The root LICENSE has
+the accepted UT-Battelle notice and full redistribution terms. Author
+disposition: **agree; repair required**. No reviewed finding was erased or
+converted to an approval.
+
+Repair is limited to `project.license-files = ["LICENSE"]` and one installed-
+distribution regression. The test requires the expression and `License-File`
+metadata, the LICENSE entry in installed RECORD, and exact installed bytes
+matching the root LICENSE. The existing initializer/import contract is
+unchanged. No additional dependency or scientific code is introduced.
+
+Before changing package configuration, the new regression ran against the
+retained old noneditable installation in `.local/b02/clean/`, with that
+environment's Python and pytest, using:
+
+```sh
+python -B -m pytest -q -p no:cacheprovider tests/test_distribution.py --basetemp=.local/b02/scratch/repair/old
+```
+
+Observed: exit 1, `1 failed in 0.02s`; exact failure was
+`installed.metadata.get_all("License-File")` returning `None` instead of
+`["LICENSE"]`. The old installation is retained unchanged. This verifies
+that the new regression detects the original packaging failure.
+
+Fresh committed-source clone, rebuilt noneditable installation, license
+inspection and applicable final checks are pending before repair handoff.
+The ledger reserved 120 CPU-seconds for repair and a separate 60 for focused
+independent verification before these runs. The combined lead accounting was
+corrected to an 800 CPU-second envelope; original check observations remain
+preserved. No push, focused review, ready transition, CI or merge is claimed.
