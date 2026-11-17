@@ -202,6 +202,15 @@ reference versions differ; no silent substitution is permitted. Prepare and revi
 the isolated source candidate before building/running. No evaluator/build/producer
 or NSE execution has occurred yet. Original raw/reference trees stay unchanged.
 
+### Proposed next reference-label scope
+
+The [147-record proposal](phase1/NEXT_RHS_SUBSET.md) separates scientific task/
+exclusion acceptance from additional execution permission. D-017 is exhausted by
+its three completed evaluations. No broader label generation or qualification is
+implied. The maintainer's subsequent [parent/role attribution](phase1/PARENT_PROVENANCE.md)
+provides one identified simulation and production roles, not dataset licensing or
+historical build proof. D-004/D-005/D-007 remain open for the named qualified scope.
+
 ## Scientific decisions and current evidence gates
 
 On 2026-11-17 the [S01 audit packet](phase1/S01_AUDIT.md) and

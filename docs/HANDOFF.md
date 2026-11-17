@@ -37,7 +37,13 @@ were retained in primary ignored audit storage before worktree archival.
 
 [D-017/#14](https://github.com/jaharris87/crucible-astro/issues/14) has an isolated
 [PR #16 source candidate](https://github.com/jaharris87/crucible-astro/pull/16);
-review must pass before any Fortran build/evaluation. [S03 #15](https://github.com/jaharris87/crucible-astro/issues/15)
+initial source review and focused execution-evidence review passed. Exactly
+three authorized evaluations completed under reviewed source `7ea920b`; final
+doc/report head is `9deafc1`. The first Python-3.6 prebuild failure was preserved;
+no Fortran ran there. Supported helper setup then built/ran successfully. No
+additional calls are authorized by D-017; human merge/integration remain pending.
+[Proposal #18](https://github.com/jaharris87/crucible-astro/issues/18) is a separate
+147-state source-table-filtered reference-label scope, still unauthorized/unqualified. [S03 #15](https://github.com/jaharris87/crucible-astro/issues/15)
 is active for bounded [coverage/benchmark preparation](phase1/BENCHMARK.md).
 There are no scientific partition memberships or final-test authority.
 
@@ -78,22 +84,23 @@ simulation independence or representative NS1/NS3 coverage is established.
 The maintainer accepted only the three-pair quarantined ingestion semantics
 before S02 and supplied the original Perlmutter location (kept local). Bounded
 read-only inventory recovered input symlink locations and small metadata/network
-candidates; the extrema symlink is dangling but not consumed by the inspected runtime. No producer execution was performed. [S01](phase1/S01_AUDIT.md) tracks subsequent recovery limits.
+candidates; the extrema symlink is dangling but not consumed by the inspected runtime. Only the later D-017 three-state diagnostic executed; originals were unchanged. [S01](phase1/S01_AUDIT.md) tracks subsequent recovery limits.
 [Diagnostic #14](https://github.com/jaharris87/crucible-astro/issues/14) is now
 explicitly authorized by D-017: isolated reviewed evaluator, then three-state
 build/RHS evaluation only. The maintainer selected the upstream XNet EOS sources;
 their local fingerprints are retained without claiming historical equivalence.
-An isolated Sol High worker is preparing the source candidate; review precedes
-any build/run. No producer execution has occurred.
+An isolated Sol High worker prepared the source candidate; independent source
+review preceded the successful build/run. The exact three-state execution is complete; no further evaluations occurred.
 D-004/D-005/D-007 remain open physical/benchmark contracts; no threshold or energy
 choice is forced from structural observations. Missing semantics/provenance is
-not successful completion. If recovery fails, prepare a concrete separately
-authorized tiny producer/accepted-state RHS check after its inputs are known.
+not successful completion. The completed diagnostic does not authorize broader
+reference-label generation; the next finite subset requires its own decision.
 
-Next: independently review the exact evaluator source, then run only the
-three authorized states with full input/build/output binding and failure evidence.
-Complete S03 coverage/decision-sheet review while the parent/run/custodian questions
-are pending. No final split or tolerance is accepted. Any new source candidate
+Next: present the reviewed exact diagnostic candidate for human merge; verify
+any merge. The maintainer supplied the single parent and production roles, now
+recorded in [parent evidence](phase1/PARENT_PROVENANCE.md); rights remain unresolved.
+Present the [147-record next-subset proposal](phase1/NEXT_RHS_SUBSET.md) for separate
+scientific contract and execution decisions; it is not generated or authorized. No final split or tolerance is accepted. Any new source candidate
 merge requires a concrete human decision; the #13 delegation is exhausted by its
 completed merge. Keep milestone #2 and the native goal open through the actual
 scientific acceptance and reviewed integration exits.

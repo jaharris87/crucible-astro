@@ -210,3 +210,19 @@ version/card and parent links; [extraction proposal](S02_EXTRACTION_PROPOSAL.md)
 is bounded and not bulk-conversion authority. S02 proceeds only within the accepted quarantine; S03 remains gated on its
 scientific and ingestion prerequisites. Final-test partitions and scientific
 thresholds are not being manufactured from these three inspected pairs.
+
+## Subsequent lineage and diagnostic evidence
+
+The maintainer has identified one [parent simulation and production chain](PARENT_PROVENANCE.md),
+with original-paper corroboration of the named model and explicit limits. Additional
+selected-input checks reproduce all three initial time/T/rho tuples; A is another
+NSE fallback, while C's ordinary name mapping/normalization is independently
+reproduced to floating-point summation precision. Exact source/raw/input hashes
+and local recipes retain these checks. No original NSE solver was rerun.
+
+The separately authorized three-state diagnostic completed with unchanged input
+bits and finite outputs; its [portable report](https://github.com/jaharris87/crucible-astro/pull/16)
+records stored/fresh differences, the new-reference/historical-EOS distinction,
+FFN extrapolation and all review/run limits. Original RHS labels and the current
+artifact remain unqualified. [A new 147-record candidate](NEXT_RHS_SUBSET.md) is
+proposed, not generated, accepted or authorized for additional execution.

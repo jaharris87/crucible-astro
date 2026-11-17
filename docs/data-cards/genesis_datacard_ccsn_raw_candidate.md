@@ -1,6 +1,6 @@
 # Datacard for the CCSN raw candidate collection
 
-Last updated: **2026-11-17**. Card version **0.2.0**, dataset local alias
+Last updated: **2026-11-17**. Card version **0.3.0**, dataset local alias
 `ccsn-raw-candidate`; no public dataset release/version has been established.
 **Living narrative draft; not qualified for training, reference evaluation or
 final-test use.** This card describes raw outputs, not a derived training dataset.
@@ -39,19 +39,26 @@ parent provenance. The lightweight inventory found 42,362 binary/text pairs,
 about 220 GB including other files. Only three pairs (1384 records) were decoded
 for this audit. This is not representative coverage of CCSN or NSM/r-process.
 
-The maintainer supplied the local collection. Original producer authors, dataset
-creator/contributors, generating facilities/funding, timestamps and responsible
-data custodian remain to be established; repository copyright/sponsorship cannot
-be substituted for dataset ownership. Small candidate control/network/mapping files were subsequently recovered from
-the maintainer-supplied original remote location. Initial composition/history
-targets exist there; an extrema link is dangling. Their historical run
-association remains unproven. For one audited tracer, recovered initial abundances are all zero: the inspected
-source therefore uses NSE initialization even below its separate NSE-advance
-temperature threshold. Initial composition Ye agrees with the appended initial
-Ye, which differs from the history Ye. No initial NSE solve was reproduced.
-These are distinct source-conditioned quantities, not a fixed-Ye contract.
-The current bundled source is a modified
-XNet snapshot, not a proven generating build. See the [provenance gaps](../phase1/S01_AUDIT.md#producer-evidence-and-missing-associations).
+The maintainer identifies the parent as **Chimera D9.6-SN160-3D**, used in
+Sandoval et al. (2021) and Neopane et al. (2026). [Original-paper checks and
+production attribution](../phase1/PARENT_PROVENANCE.md) distinguish reported
+lineage from independently corroborated model facts. This is one identified
+hydrodynamic parent, not simulation-independent coverage from two publications.
+
+The maintainer attributes simulation production to Eric Lentz; XNet source to
+Raph Hix and J. Austin Harris; workflow tooling to Andre Sieverding; and this
+post-processing execution to James Ternullo. Formal data-custodian/retention and
+reuse/release documentation remain unestablished. Participation in the same
+Genesis ENACT-AI research group does not supply an inferred dataset license.
+
+Recovered controls, network/mapping candidates and selected input slices
+corroborate all three pairs' initial time/T/rho. A/B use the inspected NSE
+initialization fallback; C's mapped/normalized initialization is reproduced to
+floating-point precision. The dangling extrema link is not a demonstrated runtime
+dependency. Candidate processed tables have zero active neutrino reactions;
+historical generating inputs/build association remains distinct. A separately
+reviewed three-state fresh-RHS diagnostic is complete, with all scientific masks
+still false; see [its evidence](https://github.com/jaharris87/crucible-astro/pull/16).
 
 This portable card is authorized for public project documentation. Dataset
 sensitivity/release markings and reuse rights have not been established by the
@@ -150,13 +157,15 @@ evaluation and inference use are not qualified now.** No Phase 2 work is authori
 The [S03 coverage/decision sheet](../phase1/BENCHMARK.md) reports observed ranges
 and grouping/eligibility gaps. No benchmark membership, final-test use, preprocessing fit or numerical scientific
 tolerance is accepted. Related tracers, snapshots and derived copies must stay
-together under a justified grouping rule. The number and identity of independent
-parent simulations remain unverified; if only one is established, any pilot must
-be labeled within-simulation exploration. Sampling bias, unbound generating/history
+together under a justified grouping rule. The collection has one maintainer-identified
+parent; any pilot must be labeled within-simulation exploration and cannot claim
+simulation-independent generalization. Sampling bias, unbound generating/history
 conditions, NSE/initial placeholders, unmeasured RHS alignment and missing broader
 CCSN/NSM coverage prevent general scientific claims. Human review is required.
 
-Change log: **0.2.0, 2026-11-17** — linked the integrated quarantined
+Change log: **0.3.0, 2026-11-17** — added maintainer-reported parent/roles,
+original-paper corroboration and completed diagnostic status; no qualification
+or license inferred. **0.2.0, 2026-11-17** — linked the integrated quarantined
 extraction and S03 coverage/decision sheet; raw collection identity unchanged.
 **0.1.0, 2026-11-17** — initial raw-collection narrative card from
 the official released template; bounded audit and open rights/provenance gates.

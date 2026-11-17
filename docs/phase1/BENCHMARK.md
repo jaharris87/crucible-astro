@@ -53,6 +53,11 @@ reference convergence/error budget.
 | Metrics | Propose signed physical-unit component differences, absolute-error distributions by species/trajectory/regime, and explicit failure/eligible denominators | Accept weighting, relative/log floors, aggregates and observable-specific thresholds with reasons before final-test use |
 | Cost | No inference/integration speedup measured; label-audit runtime is not surrogate performance | Later matched task/reference/hardware/timing boundaries; no Phase 2 measurements now |
 
+The [next-subset proposal](NEXT_RHS_SUBSET.md) counts 147 ordinary records inside
+the candidate FFN grid and 49 outside, without qualifying either set. A new
+scientific contract and additional execution permission are requested separately;
+the completed three-state diagnostic grants no further calls.
+
 No numerical scientific tolerance is inferred from source convergence controls,
 observed normalization residuals, passing CI or a future three-state difference.
 Use the [validation contract](../VALIDATION.md#benchmark-definition-and-partitions)
@@ -70,14 +75,17 @@ output digest. These are storage/lineage identities, not independent physical gr
 
 Before scientific partition construction, recover the parent hydrodynamic
 simulation/run, tracer identity, reruns/variants and relationships among neighboring
-or derived trajectories. All three current parent identities remain unverified.
+or derived trajectories. The maintainer identifies one parent, [Chimera D9.6-SN160-3D](PARENT_PROVENANCE.md),
+corroborated as a named model in both cited papers. Exact historical build and
+related-run/family relationships remain unresolved; two papers are not two parents.
 Slab numbers, aliases and shared file containers cannot supply independence.
-Conservatively keep the unresolved collection together in quarantine for engineering
-use; this does not assert that its actual physical parent count is one.
+Keep the still-unqualified collection together in quarantine for current
+engineering use. The immutable extraction metadata predates the parent identification;
+a separate local overlay/card records that update without rewriting its bytes.
 
 Primary recommendation after qualification is **parent/family-disjoint holdout**,
-with enough qualified independent groups for the intended allocation. If only one
-parent is confirmed, the maintainer may instead accept an explicitly narrower
+with enough qualified independent groups for the intended allocation. For this single identified
+parent, the maintainer may instead accept an explicitly narrower
 within-simulation trajectory-family estimand and justified grouping rule. That
 cannot demonstrate simulation-level generalization. Random neighboring-row splits
 and A/B/C-as-independent-parent splits are not acceptable shortcuts.
