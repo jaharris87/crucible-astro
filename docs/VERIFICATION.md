@@ -56,3 +56,27 @@ stays under 100 MiB, excluding environments/caches. macOS hard memory enforcemen
 is unavailable; report measured usage without claiming enforcement. Current
 charge plus reservation: **1,866 / 7,200 CPU-seconds**. Stop before the allocation
 is exhausted. This worker does not push, launch CI, independently review or merge.
+
+### B04 worker reconciliation and lead reservation
+
+B04 local source candidate `89d9dd1946f1da7d2342ca51557ad8a90dd806e6` passed
+40 validator controls and a clean locked noneditable 42-test suite with no skips,
+lint/format, full packaged-license inventory and root import audit. Initial stub
+failure and targeted ordered-to-set mutation failure were observed and retained;
+restoration was byte-identical. [B04 evidence](bootstrap/B04-EVIDENCE.md) binds
+source/input hashes, commands, failures/controls and raw local receipt labels.
+
+Sixteen measured commands used **1.806492 child CPU-seconds**, **2.306943 seconds
+wall**, maximum child RSS **48,873,472 bytes** (test max **46,759,936**); generated
+clone/scratch/receipts excluding environments/caches were **4,698,308 bytes**
+before the documentation receipt. macOS hard memory/scratch enforcement is not
+claimed; eventual Linux CI still must run. Worker conservatively charges **120
+CPU-seconds**, including unmeasured setup/edit/inspection/commit/receipt overhead
+under elapsed-times-16-logical-CPU accounting. Unused **120** of the worker's
+original 240 reservation is released. No push, CI, independent review or merge.
+
+Latest phase charge: **1,746 / 7,200 CPU-seconds** (1,626 prior +120 B04 worker).
+Per lead instruction, separately reserve **120 CPU-seconds** for lead source/docs/
+remote reconciliation: **1,866 charged+reserved / 7,200**. No CI or independent
+review reservation is included. The next CI launch must be separately reserved
+and its predecessor reconciled. Human merge/merged-result checks remain pending.
