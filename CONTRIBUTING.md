@@ -23,8 +23,11 @@ uv run pytest
 
 The default editable setup deliberately skips one installed-license inventory
 assertion; metadata is still checked. The noneditable verification below must
-pass it without a skip. The package has no runtime dependencies; pytest and Ruff
-are the only development dependencies. JSON handling uses the standard library.
+pass it without a skip. The S02 extraction module uses pinned h5py (and its
+locked NumPy dependency) for HDF5 output. The root package remains inert; pytest and Ruff are
+the development dependencies. JSON handling uses the standard library. See the
+[quarantined reader contract](docs/phase1/S02_READER.md) for the explicit local
+resolver/recipe and scientific exclusions. Private data are never CI inputs.
 
 ## Isolated reproduction
 

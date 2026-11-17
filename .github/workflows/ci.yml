@@ -46,6 +46,8 @@ jobs:
         run: |
           uv run --no-sync ruff check .
           uv run --no-sync ruff format --check .
+      # Includes public hand-specified XNet/HDF5 extraction controls only.
+      # No private resolver, raw records or producer execution is required.
       - name: Run serial tests
         run: |
           scratch="$RUNNER_TEMP/crucible-test-scratch"
