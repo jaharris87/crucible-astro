@@ -99,8 +99,10 @@ of the generating inputs. Weak reactions remain active; fixed Ye is not justifie
 Condensed species output has repeated identities in inspected text and cannot be
 used as an authoritative multi-species selection. Full binary Y has a separate
 ordered species header. Source energy is an internal-step diagnostic, not
-deposited heating or an instantaneous energy RHS. No raw data cleaning, physical
-conversion, clipping, producer execution or bulk extraction has been performed.
+deposited heating or an instantaneous energy RHS. Original raw data have not been
+cleaned, clipped or physically converted. The separate quarantined HDF5 extraction and authorized three-state RHS diagnostic
+are complete; neither regenerates original trajectories or performs an NSE solve.
+No bulk collection conversion has occurred.
 
 Related software is the inspected XNet snapshot; the CRUCIBLE production reader
 is in [merged PR #13](https://github.com/jaharris87/crucible-astro/pull/13), integrated as quarantined ingestion only. The [audit](../phase1/S01_AUDIT.md) links source locations,
