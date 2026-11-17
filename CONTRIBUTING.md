@@ -58,13 +58,13 @@ Before verification, estimate resource use and update
 1 GiB per test process and 100 MiB generated test scratch; environments/caches
 are excluded from the scratch cap. Run tests serially, keep scratch bounded,
 measure process CPU/peak memory, and stop before a cap is exceeded. CI jobs
-are configured for a maximum 10-minute timeout; B03 execution remains pending.
-The proposed one-job `fast-checks` workflow runs on draft PRs to main and pushes
+have a maximum 10-minute timeout. B03 has demonstrated draft CI execution.
+The one-job `fast-checks` workflow runs on draft PRs to main and pushes
 to main. It uses `uv sync --locked --no-editable` so both packaging tests run
 without the editable inventory skip, followed by the same lint/format/test path.
 Linux CI is configured to enforce a 1 GiB address-space limit per test process
 and a 100 MiB tmpfs for scratch, and log CPU/peak RSS/scratch evidence; these
-controls are untested until the retained live B03 demonstration. Use TMPDIR or
+controls ran successfully in the retained [B03 draft demonstration](docs/bootstrap/B03-EVIDENCE.md). Use TMPDIR or
 pytest temporary fixtures for generated test scratch. Preserve intentional failure evidence
 and restore temporary probes; do not leave a failing probe in the candidate.
 See [B02 evidence](docs/bootstrap/B02-EVIDENCE.md) for the actual local results

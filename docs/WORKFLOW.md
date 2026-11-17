@@ -63,19 +63,20 @@ required. Model availability limitations must remain explicit.
 
 Where GitHub permissions/plan support it, propose PR-required protection, named required fast checks, and stale-approval dismissal. Verify actual settings in bootstrap; these controls support but do not replace explicit exact-SHA records or human scientific judgment. GitHub documents [stale review and latest-push controls](https://docs.github.com/en/repositories/configuring-branches-and-merges-in-your-repository/managing-protected-branches/about-protected-branches). If a single-maintainer repository cannot require a distinct human approval, keep the maintainer merge record and independent agent evidence; do not pretend an agent comment is a GitHub human approval or silently bypass an unmet required check.
 
-### Planned bootstrap protection
+### Bootstrap protection
 
-For this sole-human-maintainer repository, propose PR-required protection of
-`main`, the actual named `fast-checks` check after observing it, strict up-to-date
-checks, stale-review dismissal, resolved conversations, and blocked force pushes
-and deletion. Keep automatic merge disabled. If a separate human approval cannot
-be satisfied, use zero separately required approvals while retaining the explicit
-human merge decision and fresh independent agent evidence. These are proposed
-settings, not verified controls. The orchestrator must record available plan/access
-constraints and settings authority, preserve any stronger existing controls, and
-verify effective settings. Using the accepted sole-maintainer provision needs no
-additional approval just for zero separate approvals; unresolved consequential
-settings choices still go to the maintainer. No unmet check may be bypassed.
+Verified during B03 on 2026-11-17: `main` requires a PR and the named
+`fast-checks` check from GitHub Actions app 15368, with strict up-to-date checks
+and administrator enforcement. Stale approvals are dismissed, conversations
+must be resolved, force pushes/deletion are blocked, and auto-merge is disabled.
+The repository has one human maintainer; zero separate approving reviews and no
+distinct latest-push approval are required by GitHub. The adopted single-maintainer
+provision still requires fresh exact-SHA independent agent evidence and an explicit
+human merge decision; an agent comment is not a human approval. See [B03 evidence](bootstrap/B03-EVIDENCE.md)
+and [PR #6](https://github.com/jaharris87/crucible-astro/pull/6) for actual readback
+and check identities. Preserve stronger controls if settings change; report any
+unavailable control or consequential weakening before proceeding. No unmet check
+may be bypassed.
 
 ## Proportionate risk review
 

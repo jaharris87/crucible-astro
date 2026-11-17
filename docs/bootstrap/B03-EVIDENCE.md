@@ -10,7 +10,7 @@ Date: 2026-11-17; [issue #3](https://github.com/jaharris87/crucible-astro/issues
 `5d81381ddfde28cb6f86980e616d7c5065bae768`, human-merged PR #5. This worktree is
 isolated; the root checkout was read-only to this worker. The final local head is
 reported at commit handoff; a future PR must record full head/base and tested merge
-identities. B03 PR: **None**; no push/CI/settings/merge in this pass.
+identities. Initial worker preparation had no PR/CI/settings change. Lead continuation is now [draft PR #6](https://github.com/jaharris87/crucible-astro/pull/6); the live record below supersedes pending items in the historical local preparation.
 
 Files: workflow, one issue form, PR template; AGENTS, WORKFLOW, AGENT_BRIEFS,
 DECISIONS, HANDOFF, PROGRESS, README, CONTRIBUTING, initial status report,
@@ -29,7 +29,7 @@ no persisted checkout credentials, timeout ten minutes, serial tests and disable
 pytest plugin autoload remain. It logs actual CPU allocation, PR head/base,
 event source/checkout/merge parents, GNU time peak RSS/CPU and scratch use/capacity.
 A 1 GiB address-space limit and 100 MiB designated scratch tmpfs are configured,
-not yet executed or verified on Linux. Software tests must use TMPDIR/pytest
+verified in the live Linux draft demonstration below. Software tests must use TMPDIR/pytest
 scratch; dependency environments/caches are outside the scratch budget.
 
 D-012 implements all eight accepted points in canonical [Model selection and
@@ -39,7 +39,7 @@ Phase 0B**, without changing current assignments. Future routine Astra defaults
 are superseded; historical executed assignments remain accurate. Fresh Sol High
 review of the final pushed policy/code candidate is still required.
 
-The planned single-maintainer protections are [explicit proposals](../WORKFLOW.md#planned-bootstrap-protection),
+The single-maintainer protections are [recorded controls](../WORKFLOW.md#bootstrap-protection),
 including actual observed named check, strict freshness, PR requirement,
 stale-review dismissal, conversations resolved, force/deletion blocks and no
 auto-merge. Zero separate required approvals may address the sole-human limit;
@@ -84,3 +84,20 @@ workflow; preserve findings/dispositions and focused verification if needed.
 Then readiness, explicit human merge and merged-result checks remain. Do not
 claim B03/Phase 0B completion before these exits. Scientific results remain
 **not yet evaluated**. No model substitution or Astra invocation in this pass.
+
+## Live draft CI and protection evidence
+
+On 2026-11-17, draft PR #6 head `7c90e2f1d562bd64f6290a800e33b2519d4131a4` against base `5d81381ddfde28cb6f86980e616d7c5065bae768` triggered [run 44166765762](https://github.com/jaharris87/crucible-astro/actions/runs/44166765762), event `pull_request`, while still draft. `fast-checks` tested synthetic merge `25d196841a7e965bd75b7632c4746877101cf670`; logged parents are that exact base and head. Checkout, interpreter/setup, locked noneditable installation and lint/format passed. Pytest failed only for `tests/test_ci_control.py::test_ci_detects_controlled_failure`, with `AssertionError: B03 controlled CI failure`; **1 failed, 2 passed**, exit 1. The final candidate removes this temporary probe; no final-pass claim is made from the intentional failure. Subsequent passing status and exact head/base/merge are retained in the PR discussion/checks before independent review/readiness.
+
+Effective token permissions in the job log were **Contents: read; Metadata: read**. Runner reported **4 logical CPUs**. Full job 20:12:12–20:12:23 UTC = **11 seconds × 4 = 44 CPU-seconds**, replacing the 2,400 reservation. Test command measured 0.76 user + 0.05 system seconds, peak RSS **40,980 KiB** (41,963,520 bytes). The inherited 1 GiB address-space setting succeeded; mounted scratch capacity was **104,857,600 bytes**, `du` reported **84 bytes**. This is engineering evidence only.
+
+Before settings mutation, main protection returned 404 (unprotected). The first PUT supplied both legacy `contexts` and `checks` and was rejected with HTTP 422; no protection was created. Retrying with only app-bound `checks` succeeded, followed by independent GET readback:
+
+- required check `fast-checks`, app ID **15368** (`github-actions`), `strict: true`;
+- `enforce_admins: true`; `dismiss_stale_reviews: true`;
+- `required_approving_review_count: 0`, `require_last_push_approval: false`, `require_code_owner_reviews: false` for the single human maintainer;
+- conversation resolution required, force pushes and deletion disabled.
+
+Repository defaults are read-only workflow permissions, no workflow PR approval permission, and auto-merge disabled. No stronger prior controls were overwritten. Zero GitHub approvals do not replace the explicit human merge checkpoint or independent agent evidence. No unmet check may be bypassed.
+
+The CLI's initial run-log fetch tried its default cache outside the sandbox and failed; rerunning with a task-local `XDG_CACHE_HOME` succeeded without global configuration changes. Raw CI/protection receipts are retained in the original checkout's ignored `.local/b03/`. Full job/run links preserve public evidence. Lead inspected the complete diff and exact policy against the maintainer's eight points; clarified “existing investigation or Sol analysis” and explicitly avoided repeated investigations/unnecessary context before the first live run. Model policy review remains pending a fresh Sol High reviewer.

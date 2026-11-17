@@ -1,6 +1,6 @@
 # CRUCIBLE Phase 0B handoff
 
-Date: 2026-11-17. **Phase 0B active; B01/B02 complete; B03 active local candidate;
+Date: 2026-11-17. **Phase 0B active; B01/B02 complete; B03 in draft PR #6;
 B04 not implemented.** Native goal remains active and incomplete until all exits
 hold. No Phase 1, real-data ingestion or model work is authorized.
 
@@ -29,14 +29,8 @@ B01’s one-time seed exception does not authorize later direct-to-main changes.
   dependencies. Normal editable setup checks metadata but skips copied-license
   inventory because uv omits those files there; noneditable acceptance passes
   both tests without skips. B03 CI uses noneditable setup. macOS hard memory
-  enforcement was unavailable; Linux CI controls remain untested.
-- [B03 #3](https://github.com/jaharris87/crucible-astro/issues/3), branch
-  `bootstrap/b03-ci`, managed worktree `b03-ci-preparation`, is rebased on the
-  exact B02 merge above. [Local evidence](bootstrap/B03-EVIDENCE.md) covers source,
-  templates, reporting and future D-012 policy. PR: **None**. No B03 CI or
-  settings change has run. `fast-checks` is proposed, not yet observed/required.
-  Exact final local head is supplied by the worker handoff; the eventual PR
-  record must bind final head/base before independent review.
+  enforcement was unavailable; Linux CI controls ran in B03; measured details are in its evidence.
+- [B03 #3](https://github.com/jaharris87/crucible-astro/issues/3), [draft PR #6](https://github.com/jaharris87/crucible-astro/pull/6), branch `bootstrap/b03-ci`, managed worktree `b03-ci-preparation`, base `5d81381ddfde28cb6f86980e616d7c5065bae768`. [Evidence](bootstrap/B03-EVIDENCE.md) records configuration, reporting, D-012 and the intended failing draft CI run. The temporary probe is removed in this candidate; final passing check and fresh review remain required before human handoff. The PR discussion/checks bind subsequent outcomes to exact head/base/tested merge identities. `main` protection is configured and read back; see below.
 - [B04 #4](https://github.com/jaharris87/crucible-astro/issues/4) has a
   [contract investigation](https://github.com/jaharris87/crucible-astro/issues/4#issuecomment-6958940130)
   only; no validator/test/mutation implementation. It awaits integrated B03.
@@ -53,25 +47,11 @@ All 21 startup files, original Phase 0A review/inventories/archive and transitio
 
 ## Budget, limitations and next authorized action
 
-[Verification ledger](VERIFICATION.md): 1,150 CPU-seconds charged including this
-worker’s 40-second pass; 120 remains reserved separately for lead checks. B02
-integration is finally reconciled to 60 (provisional 40 is historical); prior B03
-preparation 30 is counted once. This worker’s unused 80-second reservation is
-released. No CI has run. Lead settings evidence reports Actions read-only defaults,
-`can_approve_pull_request_reviews=false`, `main` unprotected and sole human admin
-`jaharris87`. Planned controls are documented in [WORKFLOW](WORKFLOW.md#planned-bootstrap-protection);
-none are represented as configured here. The lead [control/accounting plan](https://github.com/jaharris87/crucible-astro/issues/3#issuecomment-6959488969)
-uses the accepted sole-maintainer provision without a new approval request just
-for zero separate approvals; stronger existing protections must not be weakened.
-Each future CI run needs a 2,400 CPU-second reservation (10 minutes × 4 CPUs),
-reconciled to full elapsed × reported CPUs before another run.
+[Verification ledger](VERIFICATION.md): 1,194 CPU-seconds charged after the first CI job (11 seconds × 4 CPUs = 44); 120 remains reserved for lead checks and 2,400 for the corrected CI job. No subsequent job is launched without reconciling its predecessor. Each job is capped at 10 minutes; test processes use a 1 GiB address-space limit and scratch a 100 MiB tmpfs. First-run measured peak RSS was 40,980 KiB and scratch use 84 bytes.
 
-Next: lead publishes the B03 draft, preserves intentional failure then corrected
-passing CI, records actual CPU/peak-memory/scratch evidence and settings decision/
-effective controls, dispatches fresh exact-head/base read-only review, resolves
-findings, then presents the human merge checkpoint. Only after the human decision
-and merged-result checks can B03 close and B04 proceed. No worker push/PR/CI/
-settings action or merge occurred in this local pass. Phase 0B remains incomplete.
+Verified protection: `fast-checks` from GitHub Actions app 15368 required on an up-to-date PR; administrators enforced; stale approvals dismissed; conversations resolved; force pushes/deletions blocked. Zero separate human approval count follows the sole-maintainer provision, while exact independent review and explicit human merge remain required. Actions default read/no approval and auto-merge false. [Canonical protection record](WORKFLOW.md#bootstrap-protection).
+
+Next: require corrected passing CI for the exact final B03 candidate, dispatch a fresh `gpt-6.1-sol` High reviewer covering workflow and D-012 policy, preserve findings/dispositions and focused fixes if needed, then present the human merge checkpoint. This document is the pre-final-CI candidate snapshot; [PR #6](https://github.com/jaharris87/crucible-astro/pull/6) is the source of record for subsequent live outcomes and exact final SHAs. Only after the human merge and merged-result checks can B03 close and B04 proceed. Phase 0B remains incomplete.
 
 ## Future orchestrator: accepted D-012 after Phase 0B
 

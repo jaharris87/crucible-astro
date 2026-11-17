@@ -26,3 +26,9 @@ Current conservative charge/reservation: **1,270 / 7,200 CPU-seconds**: **1,150 
 ## B03 live CI reservations
 
 Before the first draft-PR launch, reserve **2,400 CPU-seconds** (one job, at most 600 seconds × 4 runner CPUs). Current 1,150 charged + 120 lead checks reserved + 2,400 CI reserved = **3,670/7,200**. Intentional temporary `tests/test_ci_control.py` must fail specifically with `B03 controlled CI failure`; the final candidate must remove it and pass. No independent review or ready transition occurs on the failing probe. Reconcile full actual job elapsed and reported CPU allocation before the next launch.
+
+### First draft CI result and corrected-run reservation
+
+Run [44166765762](https://github.com/jaharris87/crucible-astro/actions/runs/44166765762), head `7c90e2f`, synthetic merge `25d1968`: intended assertion failure, 2 real tests passed. Full job 11 s × reported 4 CPUs = **44 CPU-seconds charged**, unused 2,356 released. Peak test RSS40,980KiB, scratch84bytes/capacity104,857,600bytes. This was a draft pull_request run; token permissions read-only.
+
+Before pushing the corrected candidate (temporary probe removed), reserve the next **2,400 CPU-seconds**. Current **1,194 charged + 120 lead reserved + 2,400 CI reserved = 3,714/7,200**. Lead shell inspection/settings commands now record `/usr/bin/time` user+system CPU; cache/schema failures are retained. Final review and human merge remain pending.

@@ -84,7 +84,7 @@ These are planning choices, not authorization to execute Phase 0B. Owner/visibil
 ### Decision D-012: Model selection and exceptional escalation
 
 **Status:** accepted by maintainer `jaharris87` on 2026-11-17, effective **after
-Phase 0B**. [Verbatim accepted scope](https://github.com/jaharris87/crucible-astro/issues/3#issuecomment-6959269014).
+Phase 0B**. [Accepted scope recorded in B03](https://github.com/jaharris87/crucible-astro/issues/3#issuecomment-6959269014).
 The current Phase 0B orchestrator/agents and executed assignments continue unchanged.
 
 **Decision:** adopt the eight-point canonical [model selection and escalation
