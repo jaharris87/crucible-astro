@@ -1,21 +1,35 @@
 # Development setup
 
 Read [AGENTS.md](AGENTS.md) and the [workflow](docs/WORKFLOW.md) before changing
-the project. Work from a governing issue and feature branch; post-seed changes
-need an exact-candidate independent review and a concrete human merge decision.
+the project. Work from a governing issue and feature branch. The workflow
+specifies independent review, the future narrow documentation lane and the
+concrete human merge decision required for every post-seed change.
 
-B02 uses Python **3.12.9** and uv **0.10.11**, with one project-local `.venv`
-and committed `uv.lock`. Python 3.12 is the initial supported minor version;
-this reversible bootstrap choice uses an interpreter verified in the current
-collaborator environment. Other Python minors and Windows are unverified.
-The only development dependencies are pytest and Ruff; the package has no
-runtime dependencies. JSON fixture handling will use the standard library.
+## Quick start
 
-Install the declared Python and uv versions before these commands. Put the uv
-executable on `PATH` independently of the selected Python: a uv pyenv shim
-installed only under another Python version will disappear when this
-checkout selects 3.12.9. Run from a fresh checkout, with no inherited project
-environment:
+Use Python **3.12.9** and uv **0.10.11**. Python 3.12 is the initial supported
+minor version; other minors and Windows are unverified. Put uv on `PATH`
+independently of Python: a uv pyenv shim installed only under another Python
+version can disappear when this checkout selects 3.12.9.
+
+From the repository root:
+
+```sh
+uv sync --locked
+uv run ruff check .
+uv run ruff format --check .
+uv run pytest
+```
+
+The default editable setup deliberately skips one installed-license inventory
+assertion; metadata is still checked. The noneditable verification below must
+pass it without a skip. The package has no runtime dependencies; pytest and Ruff
+are the only development dependencies. JSON handling uses the standard library.
+
+## Isolated reproduction
+
+Use a fresh checkout without an inherited project environment or external pytest
+plugins when collecting verification evidence:
 
 ```sh
 export UV_CACHE_DIR="$PWD/.local/cache/uv"
@@ -28,53 +42,61 @@ mkdir -p .local/test-scratch
 uv run --no-sync python -B -m pytest -p no:cacheprovider --basetemp=.local/test-scratch/run
 ```
 
-The ignored `.local/` directory holds local caches, bounded temporary scratch
-and execution receipts. Do not commit environments, caches or machine-specific
-paths. Dependency installation needs network access on a cold cache. Only a
-deliberate dependency change should regenerate the lock with `uv lock`;
-review both metadata and lock changes. The build backend is pinned separately
-in `build-system.requires` because build isolation is separate from runtime
-dependency locking.
+The ignored `.local/` directory holds caches, temporary scratch and local
+receipts. Do not commit environments, caches or machine-specific paths. A cold
+cache needs ordinary package-manager network access. Only a deliberate
+dependency change should regenerate `uv.lock`; review metadata and lock changes
+together. The build backend is pinned separately in `build-system.requires`
+because isolated builds are separate from runtime dependency locking.
 
-To verify a distributable installation rather than the normal editable setup,
-use `uv sync --locked --no-editable` in a second fresh checkout, then run the
-same checks. This installs `crucible` from the declared `src/` package instead
-of relying on the current directory. The distribution regression checks SPDX
-and `License-File` metadata in both setups. uv 0.10.11 editable installations
-do not copy license files into the installed inventory, so the byte/inventory
-assertion explicitly skips there. The noneditable setup must pass that
-assertion against the complete root LICENSE; it is required packaging
-verification, not replaced by the editable check.
+## Installed-package verification
 
-`tests/test_import.py` launches isolated
-Python from an empty temporary directory, disables bytecode writes, and checks
-for output, runtime dependency imports, data-file access, common write events,
-network and subprocess operations during package import. This is a bounded
-regression check, not a security sandbox or proof about every possible side
-effect. The current package initializer contains only a docstring.
+In a second fresh checkout, use `uv sync --locked --no-editable`, then run the
+same checks with `uv run --no-sync`. For a reused noneditable environment after
+source edits, force the pinned uv version to reinstall the project:
 
-Before verification, estimate resource use and update
-[the shared ledger](docs/VERIFICATION.md). B01–B04 share 7,200 CPU-seconds,
-1 GiB per test process and 100 MiB generated test scratch; environments/caches
-are excluded from the scratch cap. Run tests serially, keep scratch bounded,
-measure process CPU/peak memory, and stop before a cap is exceeded. CI jobs
-have a maximum 10-minute timeout. B03 has demonstrated draft CI execution.
-The one-job `fast-checks` workflow runs on draft PRs to main and pushes
-to main. It uses `uv sync --locked --no-editable` so both packaging tests run
-without the editable inventory skip, followed by the same lint/format/test path.
-Linux CI is configured to enforce a 1 GiB address-space limit per test process
-and a 100 MiB tmpfs for scratch, and log CPU/peak RSS/scratch evidence; these
-controls ran successfully in the retained [B03 draft demonstration](docs/bootstrap/B03-EVIDENCE.md). Use TMPDIR or
-pytest temporary fixtures for generated test scratch. Preserve intentional failure evidence
-and restore temporary probes; do not leave a failing probe in the candidate.
-See [B02 evidence](docs/bootstrap/B02-EVIDENCE.md) for the actual local results
-and their limits. These checks do not qualify data or establish scientific
-validity; scientific results remain **not yet evaluated**.
+```sh
+uv sync --locked --no-editable --reinstall-package crucible-astro
+```
 
-Use the issue form and PR template to retain scope, budget, exact head/base,
-actual checks, original review findings and dispositions. Open candidates as
-drafts and explicitly dispatch fresh read-only exact-candidate review under
-[WORKFLOW](docs/WORKFLOW.md); a passing check is followed by a concrete human
-merge decision and merged-result verification. For work after Phase 0B, choose
-models through [model selection and escalation](docs/WORKFLOW.md#model-selection-and-escalation)
-(D-012); this does not change current assignments or authorize a new phase.
+This avoids testing a previously installed copy when an edit is not picked up
+by the existing build cache. uv 0.10.11 documents `--reinstall-package` as
+reinstalling the named package regardless of whether it is already installed.
+A fresh checkout remains the preferred acceptance path; this note does not claim
+cache behavior is identical across uv versions.
+
+The distribution regression checks SPDX and `License-File` metadata. uv 0.10.11
+editable installations omit copied license files from the installed inventory,
+so the byte/inventory assertion explicitly skips there. Noneditable verification
+must check the complete root LICENSE and installed inventory without that skip.
+
+`tests/test_import.py` launches isolated Python from an empty temporary directory,
+disables bytecode writes, and checks output, runtime dependency imports, data-file
+access, common write events, network and subprocess operations during root-package
+import. The initializer remains a docstring; validation lives in
+`crucible.manifest`. This bounded regression is not a security sandbox or proof
+about every possible side effect.
+
+## CI and retained evidence
+
+The one-job `fast-checks` workflow runs on PRs to main, including drafts, and
+pushes to main. It installs with `uv sync --locked --no-editable`, checks lint and
+format, and runs the serial test suite without the editable inventory skip.
+D-013 removes repository-imposed compute/resource caps, reservations and command
+accounting. Historical [verification records](docs/VERIFICATION.md) remain
+unchanged evidence; they are not current execution requirements. This grants no
+new scientific phase, task or purchase authority. See the canonical
+[workflow](docs/WORKFLOW.md#resources-and-authority) for scope and failure rules.
+
+Preserve intentional failure evidence and restore temporary probes. Use pytest
+temporary fixtures or `TMPDIR` for scratch. Record actual commands, results,
+negative controls and limitations in the governing issue/PR. Keep subsequent
+CI/review/merge receipts there rather than committing a receipt solely to record
+that the previous head passed. Scientific results remain **not yet evaluated**
+until qualified experiments support them.
+
+Use the issue form, PR template and canonical workflow for exact candidate/base,
+review findings/dispositions and merged-result verification. D-014's narrow lane
+applies only after Phase 0B; this closeout, code, policy and scientific changes
+retain independent review. Choose models through the canonical
+[model policy](docs/WORKFLOW.md#model-selection-and-escalation) (D-012/D-015).

@@ -13,7 +13,6 @@ jobs:
   fast-checks:
     name: fast-checks
     runs-on: ubuntu-24.04
-    timeout-minutes: 10
     env:
       PYTEST_DISABLE_PLUGIN_AUTOLOAD: "1"
       PYTEST_ADDOPTS: ""
@@ -25,7 +24,7 @@ jobs:
         with:
           persist-credentials: false
           fetch-depth: 2
-      - name: Record candidate and CPU allocation
+      - name: Record candidate identity
         env:
           EVENT_NAME: ${{ github.event_name }}
           SOURCE_SHA: ${{ github.sha }}
@@ -34,7 +33,6 @@ jobs:
         run: |
           printf 'event=%s\nsource_sha=%s\npr_head=%s\npr_base=%s\n' \
             "$EVENT_NAME" "$SOURCE_SHA" "$HEAD_SHA" "$BASE_SHA"
-          printf 'logical_cpus=%s\n' "$(getconf _NPROCESSORS_ONLN)"
           git log -1 --format='checkout_sha=%H%ncheckout_parents=%P'
           test "$(git rev-parse HEAD)" = "$SOURCE_SHA"
       - uses: astral-sh/setup-uv@68559e99cc807c1eb7e9238fd43a15bba460eec2 # v10.3.3
@@ -48,18 +46,10 @@ jobs:
         run: |
           uv run --no-sync ruff check .
           uv run --no-sync ruff format --check .
-      - name: Run serial tests with bounded resources
+      - name: Run serial tests
         run: |
           scratch="$RUNNER_TEMP/crucible-test-scratch"
           mkdir -p "$scratch"
-          sudo mount -t tmpfs \
-            -o "size=104857600,uid=$(id -u),gid=$(id -g),mode=700" \
-            tmpfs "$scratch"
-          trap 'du -sb "$scratch"; df -B1 "$scratch"; sudo umount "$scratch"' EXIT
           export TMPDIR="$scratch"
-          printf 'test_address_space_limit_KiB=1048576\nscratch_limit_bytes=104857600\n'
-          (
-            ulimit -v 1048576
-            /usr/bin/time -v uv run --no-sync pytest \
-              -p no:cacheprovider --basetemp "$TMPDIR/pytest"
-          )
+          uv run --no-sync pytest \
+            -p no:cacheprovider --basetemp "$TMPDIR/pytest"

@@ -8,25 +8,31 @@ The reviewed draft was adopted and condensed into [root AGENTS.md](../AGENTS.md)
 
 For work after Phase 0B use the canonical [model selection and escalation policy](WORKFLOW.md#model-selection-and-escalation), accepted D-012. Current Phase 0B assignments remain unchanged.
 
+D-013 removes resource caps, reservations and micro-command accounting. Record
+actual checks and limitations; scientific performance/resource observations
+remain evidence when relevant. D-014's [narrow documentation lane](WORKFLOW.md#narrow-documentation-lane)
+starts after Phase 0B. Eligible PRs record eligibility, CI and human merge rather
+than invoking a mandatory reviewer. This closeout, policy, code and scientific
+changes continue to use the independent-review brief below. Model/effort is always
+explicit; escalation details are conditional, as specified by D-015.
+
 ## Bounded worker brief
 
 ```text
 Task / governing issue / dependency state:
 Model / reasoning effort / availability or substitution:
 Model-policy reference: WORKFLOW.md#model-selection-and-escalation (D-012)
-Escalation justification or N/A: question, existing-analysis insufficiency, benefit
-Expected escalation deliverable / scope / effort / stop or N/A:
-Lead verification/integration / actual outcome / remaining uncertainty:
+Only if escalating: question/insufficiency/benefit, deliverable/scope/effort/stop;
+                   lead verification/integration, outcome/remaining uncertainty
 Objective and observable acceptance:
 Scope / non-goals / relevant decision IDs:
 Inputs and exact revision/artifact identities:
 Workspace and writable files (or read-only):
 Required evidence and checks:
-Budget: tool/CPU/GPU/wall time, disk/memory, search breadth as applicable
-Stop when: acceptance met / scope ambiguity / invalid input / budget exhausted
+Stop when: acceptance met / scope ambiguity / invalid provenance or evidence
 Report: facts with source locations; actual actions/checks; artifacts;
         limitations, decisions needed and next bounded action
-Do not: modify other workers' areas, change authority, launch unbudgeted work,
+Do not: modify other workers' areas, change authority, launch work outside the authorized task,
         or convert assumptions into scientific facts.
 ```
 
@@ -36,13 +42,13 @@ Do not: modify other workers' areas, change authority, launch unbudgeted work,
 Read-only review of governing issue [ID] and PR [URL].
 Model [explicit ID], reasoning effort [level], availability/substitution [record].
 Model policy: WORKFLOW.md#model-selection-and-escalation (D-012, after Phase 0B).
-Escalation [N/A or question, insufficiency, expected benefit/deliverable/scope/effort/stop].
-Outcome [lead verification/integration, resolution and remaining uncertainty].
+Only if escalating: question/insufficiency/benefit, deliverable/scope/effort/stop;
+                   lead verification/integration, outcome/remaining uncertainty.
 Candidate head [full SHA], base [full SHA]; playbook [revision].
 Acceptance/non-goals: [verbatim issue criteria or link].
 Risk viewpoints assigned: [minimum credible selection].
 Evidence packet: [diff, source, relevant contracts, test/run records].
-Unavailable context/checks: [explicit]. Budget/stop: [bounded].
+Unavailable context/checks and scope/integrity stop conditions: [explicit].
 
 Verify actual candidate identity. Independently inspect requirements and source;
 seek counterexamples and false passes. Do not repair the candidate. Do not assume
@@ -64,15 +70,15 @@ For Phase 0A only, a local documentation checksum inventory replaces PR/SHA beca
 | Software/test effectiveness | Trace parsing, mapping, failure paths and serialization. Would the test reject a same-shape wrong species order or wrong units? Did the negative control fail for its intended reason? Can the test and implementation share the same mistaken oracle? |
 | Scientific/numerical | Verify state/target/conditioning and chain rule. Is the reference independent and appropriate? Are constraints regime-correct, tolerances justified, energy defined, and reconstruction/RHS/rollout distinct? Can low pointwise error conceal instability or closure failure? |
 | Provenance/data | Bind producer patches/build/run/raw/derived/transform/model. Are trial/accepted/NSE/interval semantics explicit? Is leakage possible across related cases? Can missing or failed records appear successful? |
-| Performance/operations | Match accuracy, inputs and horizon. Include failed runs and solver/transformation overhead. Was the requested hardware/configuration actually used? Are budgets, portability limits and reproducible timing stated? |
+| Performance/operations | Match accuracy, inputs and horizon. Include failed runs and solver/transformation overhead. Was the requested hardware/configuration actually used? Are actual resource use, portability limits and reproducible timing stated? |
 
 ## Focused repair review brief
 
 ```text
 Prior [SHA] → replacement [SHA]; originating findings [IDs].
 Model / reasoning effort / availability: [explicit]. Model policy: D-012 link above.
-Escalation justification / bounded deliverable / effort / stop: [N/A or explicit].
-Lead verification/integration / actual outcome / remaining uncertainty: [record].
+Only if escalating: question/insufficiency/benefit, deliverable/scope/effort/stop;
+                   lead verification/integration, outcome/remaining uncertainty.
 Independently verify the stated fixes, their tests and material repair risks.
 Inspect the delta and relevant unchanged context. Confirm final-candidate
 coverage, or identify an additional risk requiring broader review. Preserve

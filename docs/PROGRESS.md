@@ -1,17 +1,17 @@
 # CRUCIBLE progress
 
-Updated 2026-11-17. **Phase 0B candidate snapshot; [live completion status](https://github.com/jaharris87/crucible-astro/issues/4#issuecomment-6960154582).** [GitHub milestone](https://github.com/jaharris87/crucible-astro/milestone/1) tracks B01–B04; this view supplies phase dependencies, work status and actual PR links. No separate Project board is needed.
+Updated 2026-11-17. **Phase 0B audit closeout snapshot; [live completion status](https://github.com/jaharris87/crucible-astro/issues/4#issuecomment-6960154582).** [GitHub milestone](https://github.com/jaharris87/crucible-astro/milestone/1) tracks B01–B04 and the added [audit closeout #8](https://github.com/jaharris87/crucible-astro/issues/8); this view supplies phase dependencies, work status and actual PR links. No separate Project board is needed.
 
 ## Phases
 
 | Phase | Dependency | Status | Issues / evidence | Linked PRs |
 | --- | --- | --- | --- | --- |
 | 0A — Design | Reference investigation | Complete | [Review and disposition](REVIEW.md), [maintainer transition](TRANSITION.md) | None — documentation-only work |
-| 0B — Bootstrap | Authorization supplied; publication readiness for public content | B01–B03 complete; B04 final cycle ([live status](https://github.com/jaharris87/crucible-astro/issues/4#issuecomment-6960154582)) | [Milestone / B01–B04](https://github.com/jaharris87/crucible-astro/milestone/1) | [B02 PR #5](https://github.com/jaharris87/crucible-astro/pull/5), [B03 PR #6](https://github.com/jaharris87/crucible-astro/pull/6), [B04 PR #7](https://github.com/jaharris87/crucible-astro/pull/7) |
+| 0B — Bootstrap | Authorization supplied; publication readiness for public content | B01–B04 integrated; audit closeout #8 in progress ([live status](https://github.com/jaharris87/crucible-astro/issues/4#issuecomment-6960154582)) | [Milestone / B01–B04](https://github.com/jaharris87/crucible-astro/milestone/1) | [B02 PR #5](https://github.com/jaharris87/crucible-astro/pull/5), [B03 PR #6](https://github.com/jaharris87/crucible-astro/pull/6), [B04 PR #7](https://github.com/jaharris87/crucible-astro/pull/7) |
 | 1 — Data qualification | 0B; scientific contracts and provenance | Not started | [S01–S03](BACKLOG.md#next-scientific-issues-draft-in-detail-only-after-their-prerequisites) | None |
 | 2 — Full-state baseline | Qualified data and benchmark | Not started | [S04](BACKLOG.md#next-scientific-issues-draft-in-detail-only-after-their-prerequisites) | None |
 | 3 — Reduced dynamics | Reproducible baseline; method decision | Not started | [S05](BACKLOG.md#next-scientific-issues-draft-in-detail-only-after-their-prerequisites) | None |
-| 4 — Controlled comparison | Reduced-method evidence; comparison budget | Not started | [S06](BACKLOG.md#next-scientific-issues-draft-in-detail-only-after-their-prerequisites) | None |
+| 4 — Controlled comparison | Reduced-method evidence; authorized comparison scope | Not started | [S06](BACKLOG.md#next-scientific-issues-draft-in-detail-only-after-their-prerequisites) | None |
 | 5 — Prototype and reporting | Comparison evidence; release readiness | Not started | [S07](BACKLOG.md#next-scientific-issues-draft-in-detail-only-after-their-prerequisites) | None |
 
 ## Bootstrap issues
@@ -21,7 +21,8 @@ Updated 2026-11-17. **Phase 0B candidate snapshot; [live completion status](http
 | [B01 #1 — Repository](https://github.com/jaharris87/crucible-astro/issues/1) | 0B | D-001 confirmed | Complete; seed `c3846a4`, [closeout](https://github.com/jaharris87/crucible-astro/issues/1#issuecomment-6958852938) | None — explicit seed exception |
 | [B02 #2 — Package/checks](https://github.com/jaharris87/crucible-astro/issues/2) | 0B | B01 complete | Complete; human-merged `5d81381`, [integration checks](https://github.com/jaharris87/crucible-astro/pull/5#issuecomment-6959449805) | [PR #5](https://github.com/jaharris87/crucible-astro/pull/5) |
 | [B03 #3 — CI/progress/reporting](https://github.com/jaharris87/crucible-astro/issues/3) | 0B | B01/B02 complete | Complete at `6858849`; fresh review, delegated human merge and merged CI passed ([receipt](https://github.com/jaharris87/crucible-astro/pull/6#issuecomment-6959958285)) | [PR #6](https://github.com/jaharris87/crucible-astro/pull/6) |
-| [B04 #4 — Validator](https://github.com/jaharris87/crucible-astro/issues/4) | 0B | B02/B03 complete | Implemented; 42 clean-install tests and mutation control passed; review/human merge/integration tracked in live status | [PR #7](https://github.com/jaharris87/crucible-astro/pull/7) |
+| [B04 #4 — Validator](https://github.com/jaharris87/crucible-astro/issues/4) | 0B | B02/B03 complete | Integrated at `8835481`; [human merge and passing merged CI](https://github.com/jaharris87/crucible-astro/pull/7#issuecomment-6960492520); synthetic validation only | [PR #7](https://github.com/jaharris87/crucible-astro/pull/7) |
+| [#8 — External audit closeout](https://github.com/jaharris87/crucible-astro/issues/8) | 0B closeout | B04 integrated; D-013–D-015 accepted | Candidate preparation; full independent review, required CI, human merge and integration pending | None — lead will create draft PR |
 
 Keep phase, dependency, status and linked PR fields current at issue/PR handoffs and closeout. Add actual issue/milestone URLs when created; keep “None” explicit until a PR exists. Link each completed claim to its checks/review or merged SHA. Scientific milestones NS1–NS3 are not implied complete by engineering progress.
 

@@ -20,6 +20,6 @@ Keep to one page when practical. Copy into a dated report under `docs/reports/`;
 
 **Decisions requested:** <at most three prepared D-### choices with recommendations and evidence, or none>
 
-**Next interval:** <bounded issues/experiments, dependencies and approved budget; distinguish a plan from execution authority>
+**Next interval:** <bounded issues/experiments, dependencies and authorized scope; distinguish a plan from execution authority>
 
 **Links:** <current progress view, issue/PR/run records, artifacts, reproduction instructions and handoff>

@@ -1,3 +1,11 @@
+> **Historical record — superseded by D-013 on 2026-11-17.** The maintainer
+> removed all compute/resource limits, reservations and per-command accounting.
+> The body below is preserved unchanged evidence of earlier rules, charges and
+> observations; do not treat pending reservations or old caps as active policy.
+> See [D-013](DECISIONS.md#decision-d-013-remove-compute-and-resource-limits) and
+> [WORKFLOW](WORKFLOW.md#resources-and-authority). No further micro-command ledger
+> entries are required. Task, scientific and purchase authority remain separate.
+
 # Phase 0B verification accounting
 
 Shared D-011 cap: 7,200 CPU-seconds (2 CPU-hours), local plus CI. Maximum 10 minutes per CI job, 1 GiB per test process, 100 MiB generated test scratch excluding environments/caches. Prefer measured CPU; otherwise charge elapsed time × allocated cores, including workers. No GPU/training/bulk-data/HPC or paid service. Human waiting and agent reasoning are not compute runs.
