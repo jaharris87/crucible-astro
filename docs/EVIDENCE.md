@@ -93,6 +93,13 @@ Required starting documents read: README (`README.md`, non-distributed reference
 
 ## Nuclear producer findings, not accepted training semantics
 
+The historical observations below retain their original source aliases. For
+the separately authorized Phase 1 audit of the collection at its maintainer-moved
+location, consult the [current S01 evidence](phase1/S01_AUDIT.md) and ignored local
+locator. Current findings do not establish the generating build or retroactively
+turn this historical inspection into data qualification. [Genesis guidance](phase1/GENESIS_GUIDANCE.md)
+pins the actual released data-card template and remaining access gaps.
+
 | ID | N/RUN-relative source location | Observation / limit |
 | --- | --- | --- |
 | N1 | N `xnet_abundances.f90:8–18`; `xnet_integrate_be.f90:123–138,237–275,329–338`; `xnet_evolve.f90:97–98,118–157`; `xnet_integrate.f90:55–62` | `ydot` is evaluated at a trial/Newton iterate; a correction/floor can change `yt` before convergence and copy to accepted `y`, with no final reevaluation on this path. Both iterates are at the **new implicit time**, not old-time explicit Euler. This is normal implicit-solver bookkeeping, not evidence of a solver bug. A fresh accepted-state RHS comparison is needed only to establish training-label fidelity against the chosen error budget. Initial output precedes initial timestep RHS evaluation and needs its own validity audit. Actual run/source correspondence remains unknown. |

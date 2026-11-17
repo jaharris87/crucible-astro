@@ -98,6 +98,16 @@ A dataset manifest (proposed JSON initially, using standard-library tooling) rec
 
 Split manifests contain exact group memberships, parent provenance, construction rule/seed and digest, with no overlap between related simulation families. Transform artifacts bind fitted parameters to training membership and input schema. Model artifacts bind weights/parameters, architecture/configuration, target kind, species/units, transforms, dataset/split, seeds, training/search procedure and resource use, optimizer/checkpoint selection, software environment, and artifact checksums. Save/load must reproduce predictions within a predeclared serialization tolerance.
 
+Maintain a living data card from S01 through each derived qualified subset, using
+the actual official Genesis template when accessible and recording its revision.
+Link detailed manifests/audits/benchmark records; distinguish the raw collection
+from derived identities, rights and qualifications. Private data can have a public
+card without being public. From Phase 2 onward each model artifact has a current
+model card binding that actual artifact, training data/split and evaluation
+evidence to its uses and limitations. Update it when those bindings or claims
+change. Record unavailable template access explicitly; do not invent conformance,
+trained artifacts/results, a registry or agent cards. See [guidance evidence](phase1/GENESIS_GUIDANCE.md).
+
 Use institutional/object storage for larger immutable datasets and artifacts, with human-selected custodian, access/retention and recovery policy. Do not assume AmSC credentials or deployment exists. A DOI/archive can accompany public releases; day-to-day storage need not begin with a new service. Track manifests and small metric tables in Git; keep bulk arrays/checkpoints/logs external. Document retrieval and verify checksums before use. Avoid opaque executable serialization for untrusted artifacts; choose simple data formats where practical.
 
 ## Experiments and reporting linkage

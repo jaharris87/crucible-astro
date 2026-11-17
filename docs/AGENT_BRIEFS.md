@@ -6,13 +6,13 @@ Maintainer adopted the workflow and concise root guidance on 2026-11-17. These a
 
 The reviewed draft was adopted and condensed into [root AGENTS.md](../AGENTS.md) during the maintainer-directed transition (D-010). It is the active entry point; the original draft is retained in the [historical archive](TRANSITION.md#historical-review-preservation), rather than duplicated as competing policy here. Verified environment/check commands are in [CONTRIBUTING](../CONTRIBUTING.md).
 
-For work after Phase 0B use the canonical [model selection and escalation policy](WORKFLOW.md#model-selection-and-escalation), accepted D-012. Current Phase 0B assignments remain unchanged.
+Phase 0B is complete. Current Phase 1 authority is recorded in [HANDOFF](HANDOFF.md) and [the execution record](PHASE_1_AUTHORITY.md). Use the canonical [model selection and escalation policy](WORKFLOW.md#model-selection-and-escalation), accepted D-012. Historical Phase 0B assignments remain unchanged in their records.
 
 D-013 removes resource caps, reservations and micro-command accounting. Record
 actual checks and limitations; scientific performance/resource observations
 remain evidence when relevant. D-014's [narrow documentation lane](WORKFLOW.md#narrow-documentation-lane)
 starts after Phase 0B. Eligible PRs record eligibility, CI and human merge rather
-than invoking a mandatory reviewer. This closeout, policy, code and scientific
+than invoking a mandatory reviewer. Policy, code and scientific
 changes continue to use the independent-review brief below. Model/effort is always
 explicit; escalation details are conditional, as specified by D-015.
 

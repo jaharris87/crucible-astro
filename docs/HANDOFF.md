@@ -1,99 +1,87 @@
-# CRUCIBLE bootstrap closeout handoff
+# CRUCIBLE Phase 1 handoff
 
-Snapshot: 2026-11-17. **B01–B04 integrated; audit closeout #8 in progress.**
-[Progress](PROGRESS.md) routes issue dependencies. The [live Phase 0B record](https://github.com/jaharris87/crucible-astro/issues/4#issuecomment-6960154582)
-and [audit issue #8](https://github.com/jaharris87/crucible-astro/issues/8) hold
-subsequent exact candidate, CI, review, human merge and integration receipts.
-The native goal stays active until the added audit closeout is accepted and
-integrated. No Phase 1, real-data qualification or scientific model/training work
-is authorized by this snapshot.
+Updated **2026-11-17**. Phase 0A/0B are complete. **Phase 1 S01 is active;
+no dataset or benchmark is scientifically qualified.** Native persistent goal
+created and active for the exact [Phase 1 S01–S03 objective](PHASE_1_AUTHORITY.md).
+Do not close it for partial exploration or a pending human merge.
 
-## Authority and accepted changes
+[Milestone #2 — Phase 1 — Data qualification and benchmark definition](https://github.com/jaharris87/crucible-astro/milestone/2)
+is open. [Progress](PROGRESS.md) tracks dependencies/issues/PRs; the [meeting snapshot](reports/2026-11-17-phase1-start.md) summarizes scientific status. No extra board.
+The [final Phase 0B closeout](https://github.com/jaharris87/crucible-astro/issues/4#issuecomment-6960154582)
+confirms B01–B04 plus audit PR #9 integrated at
+`01f06d8d3c2f9833dd84c5c3c9c05c034811c679`, with fresh review, concrete human
+merges and passing merged CI (42 tests). Previous audit-in-progress statements
+were stale; dated reports and original review records remain preserved.
 
-D-001 confirms public `jaharris87/crucible-astro`, BSD-3-Clause, the 2026
-UT-Battelle, LLC notice, no additional institutional/government-rights notice
-and portable seed/bootstrap release readiness. D-010 adopts the workflow;
-the separate launch supplies bootstrap execution authority. Every post-seed merge
-requires a concrete human decision.
+## Current authority and work
 
-The maintainer's [audit decisions](https://github.com/jaharris87/crucible-astro/issues/8#issuecomment-6960426760)
-are recorded in [DECISIONS](DECISIONS.md):
+The maintainer explicitly authorized Phase 1 on 2026-11-17; see the
+[execution record](PHASE_1_AUTHORITY.md) and D-016 in [DECISIONS](DECISIONS.md).
+Every merge still needs a concrete human decision. No producer execution,
+reference edits, bulk conversion, training/model development, paid service or
+deployment is authorized. Stop after Phase 1. D-013 removes resource caps and
+per-command accounting; D-012/D-015 model policy and scientific gates remain.
 
-- D-013 removes all compute/resource caps, reservations and per-command accounting
-  immediately. The old [ledger body](VERIFICATION.md) is preserved history.
-  Task, scientific and purchase authority remain separate.
-- D-014 allows future typo/link/status/non-policy wording changes to use CI and
-  human merge without mandatory agent review **after Phase 0B**. This closeout,
-  code, CI, policy and scientific claims retain full independent review.
-- D-015 keeps canonical model policy in WORKFLOW and concise explicit AGENTS
-  guidance. Current assignments remain explicit `gpt-6.1-sol` High.
+[S01 issue #10](https://github.com/jaharris87/crucible-astro/issues/10) covers the
+bounded source/data audit and living data card. The clean initial base was
+`01f06d8`; branch `codex/phase1-s01-audit` holds current authoring. The maintainer accepted the quarantined three-pair S02 reader/extraction scope;
+[S02 #11](https://github.com/jaharris87/crucible-astro/issues/11) is active in an
+isolated worktree, with all scientific eligibility false. S03 and final benchmark
+partitions remain gated; create its bounded milestone issue as prerequisites become concrete.
 
-## Integrated work and preserved evidence
+## Findings and evidence
 
-| Work | Integration / retained evidence |
-| --- | --- |
-| B01 seed | `c3846a4`; [issue #1 closeout](https://github.com/jaharris87/crucible-astro/issues/1#issuecomment-6958852938) |
-| B02 package | PR #5, `5d81381`; [integration](https://github.com/jaharris87/crucible-astro/pull/5#issuecomment-6959449805), [B02 evidence](bootstrap/B02-EVIDENCE.md) |
-| B03 CI/workflow | PR #6, `6858849`; [integration](https://github.com/jaharris87/crucible-astro/pull/6#issuecomment-6959958285), [B03 evidence](bootstrap/B03-EVIDENCE.md) |
-| B04 synthetic validator/reference routing | PR #7, `8835481e2b9dea15eda52fb5d9a6a41b366c091e`; [integration](https://github.com/jaharris87/crucible-astro/pull/7#issuecomment-6960492520), [B04 evidence](bootstrap/B04-EVIDENCE.md) |
-| Audit closeout #8 | [Dispositions](audits/2026-11-17-external-audit-disposition.md); this candidate is implementation/self-review until exact-candidate independent review and human merge |
+- Candidate data exist at the maintainer's current ignored location. Updated
+  `.local/REFERENCES.md` and `.local/phase1-paths.json` resolve it explicitly;
+  bulk data were not copied. Derived audit evidence is separate under
+  `.local/phase1-audit/`, not committed. References/raw inputs remain read-only.
+- [S01 audit](phase1/S01_AUDIT.md): metadata-only inventory of 42,362 binary/text
+  pairs; three decoded pairs / 1384 saved records, with framing/species/scalar
+  checks and independent byte interpretation of one pair. This is software and
+  source evidence, not training qualification. All physical-use gates remain open.
+- Missing original histories/network inputs, build/run binding and tracer mapping
+  prevent qualification. Initial/NSE derivative placeholders are excluded;
+  ordinary stored derivatives have unmeasured accepted-state alignment. Energy
+  is an internal-step diagnostic, not deposited heating. Condensed species output
+  has repeated identities; full binary identity is separate. Recovered candidate tables specify zero active neutrino reactions; this narrows
+  the earlier conditioning concern, conditional on generating-table association.
+  Weak reactions remain, and a physical task is not yet accepted.
+- [Raw data card](data-cards/genesis_datacard_ccsn_raw_candidate.md) uses the
+  official released Genesis v2.0.0 narrative template as a living draft, with
+  unknowns explicit and no full machine/schema-conformance claim. [Guidance
+  evidence](phase1/GENESIS_GUIDANCE.md) pins sources/hashes and the current GitLab
+  model-template access gap. Public documentation does not release the data.
+- [Bounded extraction proposal](phase1/S02_EXTRACTION_PROPOSAL.md) recommends a
+  small local HDF5/JSON derivative with its own linked card, exact raw identities
+  and separate masks. No bulk conversion or label qualification is implied.
+  Phase 2/model-artifact acceptance now calls for actual model cards; no model
+  card/results or agent cards are fabricated.
 
-B04's receipt records fresh review, explicit human merge and passing merged CI;
-the implementation evidence retains the valid/permuted controls, test-first and
-ordered-to-set mutation failures, restoration and 42-test clean reproduction.
-These are software checks, not scientific qualification. D-002/D-003 still set
-CCSN-first and qualified instantaneous-RHS/identity starting directions;
-D-004–D-009 remain open. Scientific results are **not yet evaluated**.
+Scientific performance/reconstruction/RHS/rollout/energy accuracy and cost remain
+**not yet evaluated**. The coverage inventory is bounded and descriptive; no
+simulation independence or representative NS1/NS3 coverage is established.
 
-Original Phase 0A files/review/inventories, startup archive and bootstrap receipts
-remain preserved locally; see [BOOTSTRAP](BOOTSTRAP.md#local-provenance-preservation)
-and [TRANSITION](TRANSITION.md). The two external reports and proposed patches
-are retained unchanged in ignored local audit preservation, with hashes in the
-portable dispositions. The maintainer clarified that auditor workspaces were
-temporary evaluation scratch. After evaluation and initial independent review,
-their reports/patches were verified against the retained snapshots; both scratch
-checkouts and the Claude scratch branch were removed. Small ignored receipts
-remain, not permanent workspace archives. No reference source/data/PDFs were
-changed or published.
-Dated reports remain snapshots; subsequent receipts belong in the live issue/PR.
+## Pending decisions and next action
 
-## Reference entry point
+The maintainer accepted only the three-pair quarantined ingestion semantics
+before S02 and supplied the original Perlmutter location (kept local). Bounded
+read-only inventory recovered input symlink locations and small metadata/network
+candidates; the extrema symlink is dangling but not consumed by the inspected runtime. No producer execution was requested
+or performed. [S01](phase1/S01_AUDIT.md) tracks subsequent recovery limits.
+D-004/D-005/D-007 remain open physical/benchmark contracts; no threshold or energy
+choice is forced from structural observations. Missing semantics/provenance is
+not successful completion. If recovery fails, prepare a concrete separately
+authorized tiny producer/accepted-state RHS check after its inputs are known.
 
-Consult optional ignored `.local/REFERENCES.md` when background is needed; it
-routes to read-only workspace/science/bibliography/proposal guides. Ignored files
-do not accompany new checkouts. Follow the [copy recipe](EVIDENCE.md#optional-local-reference-discovery),
-recheck actual availability and report specific gaps. Verify consequential claims
-in original sources. Reference guides are neither adopted policy nor new
-scientific validation, and are not runtime/install/CI dependencies.
+Continue independent authorized work: self-review and check the S01 documentation
+candidate, push/open a draft PR, then fresh read-only exact-head/base independent
+review and disposition. Present the concrete merge candidate only after required
+checks/review hold. Human scientific acceptance is a separate gate. Verify any
+human-approved merge and keep milestone/issues current. Phase 1 closes only when
+its actual roadmap exits, card, accepted data/benchmark scope, reviewed merges and
+integration checks hold.
 
-## Next authorized action
-
-Publish the complete audit candidate as a draft PR under issue #8 when authorized,
-run required `fast-checks`, and obtain fresh read-only exact-head/base Sol High
-review with preserved findings/dispositions and focused repair verification as
-needed. The lead then presents the concrete human merge checkpoint, verifies the
-merged result and records closeout in the live issue/PR. Only after all Phase 0B
-exits and issue #8 integration hold may the milestone/native goal close. Stop
-there; a new scientific phase needs separate authorization.
-
-GitHub protection remains the [B03 verified configuration](WORKFLOW.md#bootstrap-protection):
-required up-to-date `fast-checks`, administrator enforcement, dismissed stale
-approvals, resolved conversations and blocked force pushes/deletions. The
-single-maintainer provision requires explicit human merge; no action here changes
-permissions or protection. This candidate removes CI resource controls under
-D-013 while retaining action pins, read permissions, identity binding, locked
-noneditable setup, draft triggers and serial checks. Its own passing CI/review
-are pending in the live issue/PR, not asserted here.
-
-## Model policy at Phase 0B completion
-
-D-012's all-eight-point canonical [model selection and escalation](WORKFLOW.md#model-selection-and-escalation)
-policy was reviewed/merged in B03 and takes effect after Phase 0B. Its five
-guidance files are AGENTS.md, docs/WORKFLOW.md, docs/AGENT_BRIEFS.md,
-docs/DECISIONS.md and this handoff; D-015 keeps concise routing outside WORKFLOW.
-Sol High is the advanced default, Luna High serves narrow work, and Astra is
-exceptional with a recorded rationale, bounded question and lead integration.
-D-013 removes resource caps, not scope, model/effort records, human authority or
-review requirements. No substitution or Astra invocation occurred in this audit
-closeout authoring. Future model availability must be checked; global settings
-and tooling were not changed.
+Assignments so far: read-only producer audit and official-card guidance research,
+both explicitly `gpt-6.1-sol` High, no substitution or Astra escalation. The lead
+integrates and verifies in the current Codex session; no global model/tooling
+settings changed. S02 implementation is explicitly `gpt-6.1-sol` High in a managed isolated worktree. Fresh PR review is still pending.
