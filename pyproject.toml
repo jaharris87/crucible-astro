@@ -1,0 +1,28 @@
+[build-system]
+requires = ["uv_build==0.10.11"]
+build-backend = "uv_build"
+
+[project]
+name = "crucible-astro"
+version = "0.0.0"
+description = "Reproducible learning and reduced modeling of astrophysical reaction networks"
+readme = "README.md"
+requires-python = ">=3.12,<3.13"
+license = "BSD-3-Clause"
+dependencies = []
+
+[dependency-groups]
+dev = ["pytest", "ruff"]
+
+[tool.uv.build-backend]
+module-name = "crucible"
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-ra"
+
+[tool.ruff]
+target-version = "py312"
+
+[tool.ruff.lint]
+select = ["E4", "E7", "E9", "F", "I"]

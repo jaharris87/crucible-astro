@@ -23,6 +23,7 @@ Success means a collaborator can identify exactly which network, data, split, tr
 | Scientific qualification and performance evidence | [Validation](docs/VALIDATION.md) |
 | Issue-to-merge cycle, orchestration, reporting, external audits | [Workflow](docs/WORKFLOW.md) |
 | Active project guidance and reusable reviewer briefs | [AGENTS](AGENTS.md), [agent briefs](docs/AGENT_BRIEFS.md) |
+| Python environment and development checks | [Contributing](CONTRIBUTING.md) |
 | Bounded first issues and complete Phase 0B demonstration | [Backlog](docs/BACKLOG.md) |
 | Phase/issue progress and collaborator reporting | [Progress](docs/PROGRESS.md), [meeting-report template](docs/MEETING_REPORT_TEMPLATE.md), [initial bootstrap status](docs/reports/2026-11-17-bootstrap.md) |
 | Accepted requirements, recommendations, open decisions | [Decision register and maintainer packet](docs/DECISIONS.md) |
