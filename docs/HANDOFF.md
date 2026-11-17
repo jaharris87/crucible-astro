@@ -1,8 +1,11 @@
 # CRUCIBLE Phase 0B handoff
 
-Date: 2026-11-17. **Phase 0B active; B01/B02 complete; B03 in draft PR #6;
-B04 not implemented.** Native goal remains active and incomplete until all exits
-hold. No Phase 1, real-data ingestion or model work is authorized.
+Date: 2026-11-17. **B01–B03 complete; B04 final-cycle candidate snapshot.**
+The [live closeout record](https://github.com/jaharris87/crucible-astro/issues/4#issuecomment-6960154582) is authoritative for subsequent review, human
+merge, merged-result checks, final budget and native goal completion. Do not infer
+completion from this pre-merge snapshot. Once all six exits are verified there,
+Phase 0B ends and D-012 applies to subsequent work. No Phase 1, real-data ingestion
+or model work is authorized.
 
 ## Authority and publication
 
@@ -30,14 +33,24 @@ B01’s one-time seed exception does not authorize later direct-to-main changes.
   inventory because uv omits those files there; noneditable acceptance passes
   both tests without skips. B03 CI uses noneditable setup. macOS hard memory
   enforcement was unavailable; Linux CI controls ran in B03; measured details are in its evidence.
-- [B03 #3](https://github.com/jaharris87/crucible-astro/issues/3), [draft PR #6](https://github.com/jaharris87/crucible-astro/pull/6), branch `bootstrap/b03-ci`, managed worktree `b03-ci-preparation`, base `5d81381ddfde28cb6f86980e616d7c5065bae768`. [Evidence](bootstrap/B03-EVIDENCE.md) records configuration, reporting, D-012 and the intended failing draft CI run. The temporary probe is removed; corrected [CI run 44167409103](https://github.com/jaharris87/crucible-astro/actions/runs/44167409103) passed at `d17825b`. This subsequent documentation receipt also receives its required final-head check; fresh review remains required before human handoff. The PR discussion/checks bind subsequent outcomes to exact head/base/tested merge identities. `main` protection is configured and read back; see below.
-- [B04 #4](https://github.com/jaharris87/crucible-astro/issues/4) has a
-  [contract investigation](https://github.com/jaharris87/crucible-astro/issues/4#issuecomment-6958940130)
-  only; no validator/test/mutation implementation. It awaits integrated B03.
+- [B03 #3](https://github.com/jaharris87/crucible-astro/issues/3) is closed after
+  fresh `gpt-6.1-sol` High [PASS review](https://github.com/jaharris87/crucible-astro/pull/6#issuecomment-6959896792),
+  explicit maintainer delegation of exact head `1f4601fa7b9616d8f93c97e7a12d7714a83c4862`,
+  and merge `6858849bb8ecdfb208fcefeaa2a1e3a7da42a4b8`. [Merged integration](https://github.com/jaharris87/crucible-astro/pull/6#issuecomment-6959958285)
+  and [main CI](https://github.com/jaharris87/crucible-astro/actions/runs/44168684071)
+  passed. [B03 evidence](bootstrap/B03-EVIDENCE.md) preserves failure/pass/protection history.
+- [B04 #4](https://github.com/jaharris87/crucible-astro/issues/4), [PR #7](https://github.com/jaharris87/crucible-astro/pull/7),
+  adds the bounded synthetic [manifest contract](bootstrap/B04-CONTRACT.md).
+  [Evidence](bootstrap/B04-EVIDENCE.md) records initial test-first failure,
+  specific same-shape/same-set order rejection, ordered-to-set mutation failure,
+  byte-identical restoration and clean noneditable installation with all 42 tests
+  passing. Candidate source/checks are author evidence until independently reviewed.
+  The live closeout record links exact final head/base, review/dispositions,
+  human decision, merged SHA and integration when available.
 
 Current Sol workers explicitly use `gpt-6.1-sol` High without substitution.
-B03 implementation/self-review is not independent review. No B03 human merge
-authority has been delegated.
+No model unavailability or Astra invocation occurred. B04 still requires its
+own exact-candidate human merge decision; earlier B03 delegation does not cover it.
 
 ## Progress, reporting and history
 
@@ -45,13 +58,36 @@ authority has been delegated.
 
 All 21 startup files, original Phase 0A review/inventories/archive and transition records are preserved byte-for-byte in ignored `.local/phase-0b-startup/`; relocations and archive hash are in [BOOTSTRAP](BOOTSTRAP.md#local-provenance-preservation). Public historical receipts are labeled portable adaptations; later edits/code do not inherit the old review. Raw B02 receipts are in ignored `.local/b02/`. Reference code/data/PDFs were not changed or published.
 
+## Reference entry point for the next agent
+
+Use optional ignored `.local/REFERENCES.md` first when scientific background or
+project context is needed. The primary checkout's locator records current verified
+read-only Genesis, chemical-implementation and XNet development/upstream locations,
+and routes to existing guides/indexes without duplicating them. A copy was made
+available in the B04 worktree using explicit paths. Ignored files do not accompany
+future checkouts; follow [the copy recipe](EVIDENCE.md#optional-local-reference-discovery),
+recheck availability and report specific gaps. The locator and referenced material
+remain local-only and are not installation/runtime/CI dependencies. This bounded
+reference-discovery addition belongs to B04 PR #7 and requires focused Sol High
+review on the updated candidate; the live closeout record supplies its result.
+No new scientific investigation or reference-project edits occurred.
+
 ## Budget, limitations and next authorized action
 
-[Verification ledger](VERIFICATION.md): 1,386 CPU-seconds charged (both completed CI jobs: 44 + 72, plus 120 for lead checks/receipt overhead); 2,400 is reserved for the final documentation-receipt CI job and 120 for fresh B03 review. No subsequent job is launched without reconciling its predecessor. Each job is capped at 10 minutes; test processes use a 1 GiB address-space limit and scratch a 100 MiB tmpfs. First-run measured peak RSS was 40,980 KiB and scratch use 84 bytes.
+[Verification ledger](VERIFICATION.md) contains measured local checks and conservative
+charges/reservations; [live closeout](https://github.com/jaharris87/crucible-astro/issues/4#issuecomment-6960154582) records final reconciliation after CI
+and review. Stop before the shared 7,200 CPU-second cap. CI jobs remain capped at
+10 minutes, test address space at 1 GiB and designated scratch at 100 MiB.
+macOS cannot enforce the same hard memory limit; observed RSS is recorded.
 
 Verified protection: `fast-checks` from GitHub Actions app 15368 required on an up-to-date PR; administrators enforced; stale approvals dismissed; conversations resolved; force pushes/deletions blocked. Zero separate human approval count follows the sole-maintainer provision, while exact independent review and explicit human merge remain required. Actions default read/no approval and auto-merge false. [Canonical protection record](WORKFLOW.md#bootstrap-protection).
 
-Next: verify the required check on this final documentation-receipt head, then dispatch a fresh `gpt-6.1-sol` High reviewer covering workflow and D-012 policy, preserve findings/dispositions and focused fixes if needed, then present the human merge checkpoint. This document records the passed functional candidate and is itself subject to final-head CI; [PR #6](https://github.com/jaharris87/crucible-astro/pull/6) is the source of record for subsequent live outcomes and exact final SHAs. Only after the human merge and merged-result checks can B03 close and B04 proceed. Phase 0B remains incomplete.
+Next: complete B04 required final-head CI, fresh Sol High independent review and
+findings disposition, then present its concrete human merge checkpoint. After
+human merge, verify merged-result CI and update [the live closeout record](https://github.com/jaharris87/crucible-astro/issues/4#issuecomment-6960154582),
+close issue #4. Complete the maintainer-authorized [audit follow-up #8](https://github.com/jaharris87/crucible-astro/issues/8) before closing the milestone and native goal; all exits and added closeout work must hold, then stop.
+This link keeps the handoff resumable without claiming post-merge facts in a
+pre-merge commit. Original/merged evidence and remaining limitations stay durable.
 
 ## Future orchestrator: accepted D-012 after Phase 0B
 
@@ -65,9 +101,10 @@ work, and Astra is exceptional with no per-choice approval within existing
 scope/resources and no extra authority/budget. Historical launch/archive/review
 assignments are preserved. No global settings or tooling was changed.
 
-B03’s fresh `gpt-6.1-sol` High review, human merge and integration are pending.
-At Phase 0B closeout, list AGENTS.md, docs/WORKFLOW.md, docs/AGENT_BRIEFS.md,
-docs/DECISIONS.md and this handoff, the canonical section, exact review/merge
-status and model availability limitations. No model unavailability/substitution
-has been reported in this pass; no Astra invocation occurred. This policy grants
+D-012's five changed guidance files are AGENTS.md, docs/WORKFLOW.md,
+docs/AGENT_BRIEFS.md, docs/DECISIONS.md and docs/HANDOFF.md. All eight points
+passed the fresh B03 review and are merged at `6858849`; merged-result CI passed.
+The canonical procedure remains in WORKFLOW, with concise routing elsewhere.
+This is repository guidance, not a global model setting or tooling installation;
+future runtime availability must be checked when assignments are made. It grants
 no Phase 1 authority.

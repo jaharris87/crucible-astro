@@ -6,7 +6,7 @@ CRUCIBLE develops reproducible learning and reduced modeling of astrophysical re
 
 The maintainer adopted the [development workflow](docs/WORKFLOW.md), B01–B04 scope and [verification budget](docs/BACKLOG.md#bootstrap-verification-budget) on 2026-11-17 (D-010/D-011). Follow them for authorized development. Adopted policy is not authorization to execute a new phase.
 
-**Current boundary:** Phase 0B B01–B04 was explicitly authorized on 2026-11-17 by invocation of [the launch prompt](docs/PHASE_0B_LAUNCH.md), including progress/reporting acceptance. The native Phase 0B goal is active. Git/GitHub and local bootstrap implementation are authorized within that task; publication requires the recorded D-001 confirmation (now supplied for this seed/bootstrap code) and every post-seed merge requires a concrete human decision. Phase 1, real-data ingestion and scientific models remain outside scope. Phase 0A and transition records remain historical.
+**Current boundary:** Phase 0B B01–B04 was explicitly authorized on 2026-11-17 by invocation of [the launch prompt](docs/PHASE_0B_LAUNCH.md), including progress/reporting acceptance. Consult the [live Phase 0B closeout record](https://github.com/jaharris87/crucible-astro/issues/4#issuecomment-6960154582) for goal completion and merged integration status; a candidate snapshot is not completion. Git/GitHub and local bootstrap implementation are authorized within that task; publication requires the recorded D-001 confirmation (now supplied for this seed/bootstrap code) and every post-seed merge requires a concrete human decision. Phase 1, real-data ingestion and scientific models remain outside scope. Phase 0A and transition records remain historical.
 
 Accepted destination: public `jaharris87/crucible-astro`, BSD-3-Clause. Do not re-ask owner, visibility or license direction. The maintainer confirmed `Copyright (c) 2026 UT-Battelle, LLC.`, no additional institutional/government-rights notice, and release readiness for the portable seed and original bootstrap code on 2026-11-17. See D-001 and [licensing evidence](docs/TRANSITION.md#licensing-evidence).
 
@@ -18,6 +18,18 @@ Accepted destination: public `jaharris87/crucible-astro`, BSD-3-Clause. Do not r
 - Adoption history and historical review limits: [transition](docs/TRANSITION.md). Preserve original review records/inventories; do not relabel later edits as independently reviewed.
 
 Distinguish accepted requirements, verified facts, recommendations, assumptions and open questions. Interfaces and later method choices remain provisional unless the decision register says otherwise. Create shared abstractions when actual implementations need them.
+
+## Local reference discovery
+
+When background is needed, consult optional ignored `.local/REFERENCES.md` and its
+relevant existing workspace/science/bibliography/proposal guides before asking for
+information already accessible. Read selectively; verify consequential claims in
+original papers or the relevant producer code. Keep reference projects read-only
+and distinguish their conventions from CRUCIBLE's adopted policy. If a locator or
+selected artifact is unavailable, state the specific gap; do not assume access or
+invent evidence. [Local reference setup](docs/EVIDENCE.md#optional-local-reference-discovery)
+explains copying the locator into a new worktree; references are not runtime,
+installation or CI dependencies.
 
 ## Scientific safeguards
 

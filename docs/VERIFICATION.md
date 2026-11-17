@@ -38,3 +38,72 @@ Before pushing the corrected candidate (temporary probe removed), reserve the ne
 Run [44167409103](https://github.com/jaharris87/crucible-astro/actions/runs/44167409103), head `d17825b`, tested merge `306b8aa`, passed locked noneditable setup, lint/format and 2 tests without skips. Full job18s ×4CPUs = **72 CPU-seconds charged**; unused2,328 released. Peak test RSS41,052KiB.
 
 Charge the full **120 CPU-second lead allowance** for source/settings/identity/receipt/checkpoint work (measured CLI user+system plus conservatively bounded unmeasured edit/push overhead); no remaining lead reservation. After 1,150 prior +44 initial CI +72 corrected CI +120 lead = **1,386 charged**. Before final documentation-receipt push reserve **2,400** for its required CI; reserve **120** for the fresh independent B03 workflow/policy review. Latest total **1,386 charged +2,520 reserved =3,906/7,200**. This final CI is caused by new reporting/evidence changes and required by the adopted workflow, not an unchanged manual rerun. Reconcile actual usage before any next run.
+
+## B03 closeout reconciliation and B04 local reservation
+
+The lead's [PR #6 closeout](https://github.com/jaharris87/crucible-astro/pull/6#issuecomment-6959958285)
+supersedes the pending figures above: final B03 CI **44**, fresh review **110**,
+merged CI **56**, local integration **30** CPU-seconds. Added to 1,386 this is
+**1,626 charged / 7,200**, with no outstanding B03 reservations. These are
+reconciliations, not new B04 charges.
+
+Before B04 software verification, reserve **240 CPU-seconds** for test-first
+failure, small standard-library validator, lint/format, targeted set-comparison
+mutation/restoration, final controls and one clean committed noneditable locked
+reproduction. Existing Python 3.12.9/uv 0.10.11/cache, serial tests, no downloads,
+GPU, training, real data or CI. Measure child CPU and peak RSS; generated scratch
+stays under 100 MiB, excluding environments/caches. macOS hard memory enforcement
+is unavailable; report measured usage without claiming enforcement. Current
+charge plus reservation: **1,866 / 7,200 CPU-seconds**. Stop before the allocation
+is exhausted. This worker does not push, launch CI, independently review or merge.
+
+### B04 worker reconciliation and lead reservation
+
+B04 local source candidate `89d9dd1946f1da7d2342ca51557ad8a90dd806e6` passed
+40 validator controls and a clean locked noneditable 42-test suite with no skips,
+lint/format, full packaged-license inventory and root import audit. Initial stub
+failure and targeted ordered-to-set mutation failure were observed and retained;
+restoration was byte-identical. [B04 evidence](bootstrap/B04-EVIDENCE.md) binds
+source/input hashes, commands, failures/controls and raw local receipt labels.
+
+Sixteen measured commands used **1.806492 child CPU-seconds**, **2.306943 seconds
+wall**, maximum child RSS **48,873,472 bytes** (test max **46,759,936**); generated
+clone/scratch/receipts excluding environments/caches were **4,698,308 bytes**
+before the documentation receipt. macOS hard memory/scratch enforcement is not
+claimed; eventual Linux CI still must run. Worker conservatively charges **120
+CPU-seconds**, including unmeasured setup/edit/inspection/commit/receipt overhead
+under elapsed-times-16-logical-CPU accounting. Unused **120** of the worker's
+original 240 reservation is released. No push, CI, independent review or merge.
+
+Latest phase charge: **1,746 / 7,200 CPU-seconds** (1,626 prior +120 B04 worker).
+Per lead instruction, separately reserve **120 CPU-seconds** for lead source/docs/
+remote reconciliation: **1,866 charged+reserved / 7,200**. No CI or independent
+review reservation is included. The next CI launch must be separately reserved
+and its predecessor reconciled. Human merge/merged-result checks remain pending.
+
+## B04 draft candidate and review reservations
+
+Lead charges the reserved **120 CPU-seconds** for reconciliation, source/evidence
+inspection, documentation/link checks, push/PR/CI receipt and checkpoint overhead,
+using measured CLI CPU where available and a conservative local fallback envelope.
+Current **1,866 charged**. Before draft creation reserve **2,400 CPU-seconds**
+for one 600-second × 4-CPU CI job and **120 CPU-seconds** for the single fresh
+independent B04 review: **1,866 charged + 2,520 reserved = 4,386/7,200**.
+Reconcile actual full job elapsed × reported CPUs before any subsequent run.
+The [live closeout record](https://github.com/jaharris87/crucible-astro/issues/4#issuecomment-6960154582)
+records final CI/review usage, merge reservation and final budget without treating
+this pre-merge snapshot as completion. No repeat of already-passing local software
+tests is needed for these reporting-only changes.
+
+### B04 initial review and authorized reference-routing delta
+
+Draft CI 44170690344 passed 42 tests at `dc514bb`; 19 seconds × 4 CPUs =
+**76 charged**, unused 2,324 released. Fresh Sol High initial exact-candidate
+review passed with no findings; **110 charged**, unused 10 released. Total
+**2,052 charged**. The maintainer then added a bounded reference-discovery task:
+ignored local locator plus AGENTS/EVIDENCE/handoff routing and worktree-copy
+instructions, no scientific investigation. Preserve the initial review; it does
+not cover this later delta. Reserve **60 lead preparation/checks + 60 focused
+Sol High review + 2,400 changed-head CI = 2,520**; total **4,572/7,200**.
+Path availability, links, copy behavior, ignored/tracked exclusions and unchanged
+historical records must pass. Final reconciliation remains in the linked live record.

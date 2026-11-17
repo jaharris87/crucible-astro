@@ -8,14 +8,60 @@ This is a portable adaptation of the Phase 0A evidence notes, not a new source a
 
 | Alias | Source identity | Access and limits |
 | --- | --- | --- |
-| Q | Maintainer-supplied chemical research checkout `qiosk_sic_part1` | No root Git identity; request access from maintainer. |
+| Q | Maintainer-supplied chemical research checkout `qiosk_sic_part1` | No root Git identity in the historical inspection; consult the optional local locator first, then report any specific access gap. |
 | N | Q-relative `nuclear_kinetics/source_postp` | Inspected HEAD `200b024cd06abdf4edaee489d6229edaa9ae30b3`, with local changes; HEAD alone is insufficient. |
 | RUN | Q-relative `nuclear_kinetics/Run_slab_033` | Private/local reference outputs; not redistributed or qualified. |
-| EN | Maintainer-supplied ENACT-AI proposal/reference collection | P1/P2 are non-distributed project documents; request the named version and page from maintainer. |
+| EN | Maintainer-supplied ENACT-AI proposal/reference collection | P1/P2 are non-distributed project documents; consult the optional local locator and proposal guide first, then request only a missing named version/page. |
 | X | XNet workflow checkout | Inspected HEAD `b885318c1b2f9645bba0506df6627ee0a1d12dd8`; local inspection only. |
 | F | fTimer workflow checkout | Inspected HEAD `865f108c297fc5dff072c97182d2072c8cb17727`; local inspection only. |
 
 Alias-relative filenames and line/page locators below identify historical observations. A public citation does not establish provenance of the inspected run. Omitted local inputs are not a reproducible public dataset.
+
+## Optional local reference discovery
+
+A maintainer may supply an ignored `.local/REFERENCES.md` in a particular checkout.
+It lists verified read-only local locations and entry points without copying the
+existing indexes. Consult it before asking for background already accessible.
+The Genesis workspace README provides the related-code map; its nucleosynthesis
+guide and annotated paper index route scientific reading; its proposal guide and
+meeting artifacts concern project commitments/discussions. Chemical implementations
+and the XNet development/upstream trees are reference implementations. Development
+workflow documents are engineering examples, not scientific evidence or adopted
+CRUCIBLE policy. Read selectively and verify consequential claims against original
+papers or the relevant producer; guide descriptions and path existence are not
+new scientific validation. Report specific unavailable material rather than assume
+access. CRUCIBLE's accepted decisions and workflow remain authoritative.
+
+Keep absolute machine paths only in that ignored locator. Do not publish it,
+PDFs, proposal material, reference source trees or local inventories. Portable
+bibliographic identities, historical observations and public source links in this
+file remain usable without local access. References are optional for development
+and are never runtime, installation or CI dependencies.
+
+Ignored files do **not** accompany a Git checkout or new worktree. One simple setup
+is to copy only the locator from a known primary CRUCIBLE checkout, with explicit
+paths chosen for the actual host (no assumed parent layout):
+
+```sh
+reference_primary='/absolute/path/to/primary/crucible-astro'
+reference_worktree='/absolute/path/to/target/crucible-astro'
+if [ -f "$reference_primary/.local/REFERENCES.md" ] &&
+   [ -d "$reference_worktree" ] &&
+   [ ! -e "$reference_worktree/.local/REFERENCES.md" ]; then
+    mkdir -p "$reference_worktree/.local" &&
+    cp "$reference_primary/.local/REFERENCES.md" "$reference_worktree/.local/REFERENCES.md" &&
+    git -C "$reference_worktree" check-ignore -v .local/REFERENCES.md
+else
+    printf '%s\n' 'Check source/target paths or preserve the existing target locator.'
+fi
+```
+
+Check the reported ignore rule and recheck the locator's paths on the target host;
+do not force-add it. An existing locator is preserved by this recipe. If no usable
+locator exists, use the portable citations here and state the precise missing
+local-access information. Copying the locator grants no permission to change or
+execute the reference projects. The Phase 0B addition verified path availability
+and entry points only; historical review/source records are unchanged.
 
 ## Papers and funding scope
 

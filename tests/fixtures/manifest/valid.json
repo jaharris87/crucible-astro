@@ -1,0 +1,17 @@
+{
+  "schema_version": 1,
+  "fixture_id": "synthetic-sentinels-v1",
+  "species": [
+    "sentinel_alpha",
+    "sentinel_beta",
+    "sentinel_gamma"
+  ],
+  "payload": "payload.json",
+  "payload_sha256": "96e260dbc926fff7f3060e3f227ae76d3a5076bc0349258555f642e5430057b7",
+  "shape": [
+    2,
+    3
+  ],
+  "units": "synthetic_dimensionless",
+  "state_convention": "synthetic_sentinel"
+}
