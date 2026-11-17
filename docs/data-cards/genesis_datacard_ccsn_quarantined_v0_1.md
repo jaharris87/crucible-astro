@@ -1,0 +1,96 @@
+# Datacard for the quarantined CCSN three-pair extraction
+
+Card version **0.1.0**, 2026-11-17. Local dataset ID
+`ccsn-three-pair-quarantined`, exploratory dataset version **0.1.0**.
+No public dataset release. **No qualified training or reference records.**
+
+Living narrative draft using the six adaptable capability sections of the official
+Genesis data-card template **v2.0.0**; see [released-template evidence](../phase1/GENESIS_GUIDANCE.md).
+Required creator/custodian, rights, sensitivity and generating provenance remain
+incomplete. No full YAML/schema conformance or machine validation is claimed.
+
+## Machine Usability Snapshot
+
+| Capability | Current support / limitation |
+| --- | --- |
+| Discoverability | Public description; local artifact only, no catalog record |
+| Accessibility | Explicit local resolver; no public data endpoint/access grant |
+| Interoperability | Named HDF5 arrays and JSON identity/recipe manifest; one supported layout |
+| Reusability | Reproducible bounded ingestion recipe; physical qualification remains open |
+| Governed Use | Maintainer-authorized quarantine; dataset rights/release status unknown |
+| AI Usability | All state/RHS/energy training and rollout-reference eligibility false |
+| License clarity | No established dataset license; software BSD-3-Clause does not cover data by inference |
+| Fixity / context | Raw pair/header/record and output digests retained locally; scientific provenance unknown |
+
+## Discoverable
+
+Purpose: make exactly the three audited binary/text pairs inspectable through a
+strict reader while preserving their scientific exclusions. Keywords: CCSN, XNet,
+quarantined ingestion, molar abundance, derivative provenance. This is purposive
+structural sampling, not representative coverage or a benchmark. The parent is
+[ccsn-raw-candidate](genesis_datacard_ccsn_raw_candidate.md), with the
+[S01 audit](../phase1/S01_AUDIT.md) supplying bounded layout evidence.
+No model, measured scientific accuracy or speedup is associated with this dataset.
+
+## Accessible
+
+The artifact is local HDF5 plus JSON. Exact raw identities, locators, selected
+record ordinals, recipe and output checksums remain in ignored storage. There is
+no public data download, DOI, catalog submission or redistribution grant. Access
+requires existing authorization from the maintainer and eventual custodian.
+Neither the public card nor local availability establishes public data rights.
+No real records or private fixtures are included in the repository/CI.
+
+## Interoperable
+
+The [S02 reader contract](../phase1/S02_READER.md) specifies the supported
+little-endian record layout, explicit units, exact identity/order checks, reliable
+companion alignment and HDF5 field dictionary. Original binary64 values and
+ordered Z/A are retained without conversion. Species are not relabeled from
+malformed repeated condensed headings. Flux values stay in the unchanged raw
+parents; framing, dimensions and endpoints participate in strict checks.
+
+Stored derivative and energy names explicitly say `unqualified`. Internal dt is
+not the saved-output interval; energy is the inspected source's internal-step
+mass-excess diagnostic, not deposited heating. The source-to-generating-run link
+and sufficient physical conditioning remain unknown. T/rho/Ye-only closure and
+fixed Ye are not established. Initial and explicit NSE exclusions are separate
+from ordinary accepted-state RHS alignment and provenance exclusions.
+
+## Reusable
+
+The manifest binds dataset/version, raw parents and ordinal membership, ordered
+species, extractor source/configuration hash, software versions, acceptance
+reference and output digest. Raw hashes are checked before and after extraction.
+The committed source/lock accompanies the local recipe. Exact original producer
+source/build/input association, parent/tracer grouping, rate/mass/weak/neutrino
+input identity, convergence and physical reference accuracy remain unverified.
+A structurally readable row is not scientifically qualified. Every scientific
+eligibility mask remains false, including ordinary finite values. No numerical
+scientific acceptance threshold is inferred from these files.
+
+## Governed Use
+
+The maintainer accepted this narrow ingestion/extraction scope under
+[issue #11](https://github.com/jaharris87/crucible-astro/issues/11). Original
+producer authors/custodian, institutional release, reuse license and sensitivity
+determinations remain unknown. This original software/card publication does not
+authorize dataset redistribution. Original raw data/reference projects are unchanged.
+Bulk conversion, regeneration/producer execution, model training, deployment and
+scientific acceptance require separate authority/evidence. Human merge decisions
+and independent exact-candidate review still apply.
+
+## AI Usable
+
+Current authorized use is local structural investigation only. State training,
+instantaneous RHS training, energy training and rollout-reference use are all
+unqualified. Unknown generating provenance/conditions affect every row; initial,
+NSE and ordinary rows retain additional distinct reasons. No preprocessing is
+fitted, no split or final-test partition is embedded and no model is trained.
+S03 partitions need recovered grouping and their own acceptance; fitting later
+preprocessing must use training membership only. No scientific result is claimed.
+
+Change log: **0.1.0, 2026-11-17** — initial derived narrative card and bounded
+reader/extraction contract, prepared with `gpt-6.1-sol` High. This card describes
+the candidate artifact contract; live issue/PR retains actual extraction/check,
+review and human integration receipts. Scientific qualification and rights remain open.
