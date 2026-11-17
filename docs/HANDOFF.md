@@ -68,13 +68,21 @@ before S02 and supplied the original Perlmutter location (kept local). Bounded
 read-only inventory recovered input symlink locations and small metadata/network
 candidates; the extrema symlink is dangling but not consumed by the inspected runtime. No producer execution was requested
 or performed. [S01](phase1/S01_AUDIT.md) tracks subsequent recovery limits.
+[Proposal #14](https://github.com/jaharris87/crucible-astro/issues/14) requests a
+three-state offline accepted-output RHS comparison. D-017 execution authorization
+was presented interactively and remains pending. The original external EOS source
+files are inaccessible to the available login; two local reference versions differ,
+so no substitution is authorized. Request original readable copies/version evidence
+before any build/run. No producer execution has occurred.
 D-004/D-005/D-007 remain open physical/benchmark contracts; no threshold or energy
 choice is forced from structural observations. Missing semantics/provenance is
 not successful completion. If recovery fails, prepare a concrete separately
 authorized tiny producer/accepted-state RHS check after its inputs are known.
 
-Continue independent authorized work: fresh read-only exact-head/base independent
-reviews of draft PRs #12/#13, then disposition/repair. S01 candidate CI passes
+Fresh read-only exact-head/base independent reviews of PRs #12/#13 passed
+with no consequential findings. PR comments preserve original results/limits;
+only doc/status freshness updates follow for PR #12. Continue with final-candidate
+CI/freshness disposition and the concrete human merge checkpoint. S01 candidate CI passes
 42 tests; S02 candidate CI/local noneditable checks pass 86 tests. S02
 head is `fb19f592f0e84d5b97c974322f353b7e48efbf5f`, base `01f06d8`. Its
 local three-pair extraction and independent record oracles agree; all scientific
@@ -88,4 +96,4 @@ integration checks hold.
 Assignments so far: read-only producer audit and official-card guidance research,
 both explicitly `gpt-6.1-sol` High, no substitution or Astra escalation. The lead
 integrates and verifies in the current Codex session; no global model/tooling
-settings changed. S02 implementation is explicitly `gpt-6.1-sol` High in a managed isolated worktree. Fresh PR review is still pending.
+settings changed. S02 implementation is explicitly `gpt-6.1-sol` High in a managed isolated worktree. Fresh exact-candidate PR reviews passed; see live PR records for final freshness and human merge checkpoints.

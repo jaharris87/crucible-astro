@@ -157,4 +157,5 @@ CCSN/NSM coverage prevent general scientific claims. Human review is required.
 Change log: **0.1.0, 2026-11-17** — initial raw-collection narrative card from
 the official released template; bounded audit and open rights/provenance gates.
 Prepared with Codex; source/guidance investigators explicitly `gpt-6.1-sol` High.
-No full machine validation, scientific acceptance or independent PR review yet.
+No full machine validation or scientific acceptance yet; exact-candidate review
+and human integration receipts are retained in [PR #12](https://github.com/jaharris87/crucible-astro/pull/12).

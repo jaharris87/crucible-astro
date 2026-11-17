@@ -183,6 +183,21 @@ keep PROGRESS/HANDOFF issue/dependency/PR links current. No duplicate board.
 Close only after the required scientific acceptance, reviewed merges and passing
 integration checks. This is execution/tracking authority, not acceptance of data.
 
+### Decision D-017: Three-state reference RHS diagnostic
+
+**Status: proposed, awaiting maintainer response.** [Issue #14](https://github.com/jaharris87/crucible-astro/issues/14)
+contains the concrete scope, evidence and stops. An interactive request asks to
+permit an isolated reviewed evaluator plus build/execution at exactly three
+preserved non-NSE ordinary states, after recovering original EOS/build inputs.
+The alternative is defer execution and retain quarantined ingestion. This is
+execution authority only, not scientific reference/tolerance acceptance.
+
+Original external EOS sources named by the build log are unreadable to the
+available login; local reference copies differ and cannot be substituted silently.
+A second question asks for original readable copies or exact-version evidence.
+No evaluator/build/producer/NSE execution or reference modification has occurred.
+The existing Phase 1 no-execution boundary remains until an explicit answer.
+
 ## Scientific decisions and current evidence gates
 
 On 2026-11-17 the [S01 audit packet](phase1/S01_AUDIT.md) and
