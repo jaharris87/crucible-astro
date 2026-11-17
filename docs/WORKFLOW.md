@@ -29,10 +29,10 @@ assignments remain historical evidence; future briefs reference this section.
    benefit, such as resolving a scientific inconsistency, difficult mathematics
    or a consequential architectural disagreement.
 5. Before escalation to Astra, explain the question, why existing investigation
-   and Sol analysis are insufficient, and the expected deliverable, scope,
+   or Sol analysis is insufficient, and the expected deliverable, scope,
    reasoning effort and stopping condition. Consider focused Sol work or
-   increased effort when useful; no wasteful retry or repetition of completed
-   investigation is mandatory.
+   increased effort when useful without mandatory wasteful retries. Avoid
+   repeating completed investigations or supplying unnecessary context.
 6. Sol remains the normal lead. Return Astra findings for lead verification and
    integration; record the resolution and remaining uncertainty.
 7. Astra is neither a routine reviewer nor an automatic final check. Fresh
