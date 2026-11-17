@@ -171,7 +171,7 @@ Observed: exit 1, `1 failed in 0.02s`; exact failure was
 `["LICENSE"]`. The old installation is retained unchanged. This verifies
 that the new regression detects the original packaging failure.
 
-The exact repair source snapshot is
+The first repair source snapshot is
 `4ec0af57c7990b7981a0f6c60bb876bc30012d7b`, a descendant of reviewed head
 `44326c682100572b79774dab67bee4ff5173584d`. It was cloned with
 `git clone --local --no-hardlinks --branch bootstrap/b02-package . .local/b02/repair-clean`
@@ -209,7 +209,7 @@ The inspection independently recomputed the RECORD digest and size and
 verified the empty working directory stayed unchanged. No root license text,
 runtime dependency or scientific behavior was changed.
 
-Repair fingerprints (the unchanged lock, initializer and import-test hashes
+First repair fingerprints (the unchanged lock, initializer and import-test hashes
 remain those in the historical table):
 
 | Input | SHA-256 |
@@ -218,7 +218,7 @@ remain those in the historical table):
 | `tests/test_distribution.py` | `d06ae988b90e378766f2b1de149236ee9c7883345b2a2a8cfe86b5007ad71035` |
 | `LICENSE` | `f701e47861dea649d941e41c57c005e4282e7589e10497860bc8a090c972e0f6` |
 
-Seven repair commands used **0.857341 measured child CPU-seconds** and
+The first seven repair commands used **0.857341 measured child CPU-seconds** and
 **1.426356 seconds wall time**, including the expected old-install failure.
 Maximum observed RSS was **44,515,328 bytes**; total retained B02 generated
 files, clone metadata and receipts excluding environments/caches measured
@@ -241,3 +241,51 @@ only evidence/accounting documents; no repeated successful software check is
 needed for those edits. The repair is **locally verified, awaiting exact-
 pushed-candidate focused independent verification** and final disposition.
 No push, focused review, ready transition, CI or merge is claimed.
+
+### Editable-path follow-up and final repair binding
+
+The lead requested the normal editable contributor path as an additional
+mode check before finalizing. A 10 CPU-second follow-up was reserved before
+launch within the original repair allocation. Default
+`uv sync --locked --offline` rebuilt successfully, but its first test run
+reported **1 failed, 1 passed in 0.04s**: metadata now had `License-File`, while
+uv 0.10.11's editable installation omitted copied license files and the
+LICENSE RECORD entry. This failure is retained in
+`repair-editable-tests.log`. The noneditable repair remained correct.
+
+The final regression asserts SPDX and `License-File` metadata in both modes.
+Only when installed `direct_url.json` explicitly declares
+`dir_info.editable=true` does it issue an explicit skip for the installed-file
+inventory/content portion. Noneditable installs have no such skip: metadata,
+RECORD presence and full byte equality must all pass. CONTRIBUTING explains
+both paths and requires noneditable packaging verification. This distinction
+was agreed with the lead; it does not waive the built-distribution contract.
+
+Final source snapshot:
+`29b87bc9ee43564fc39b6ac4fa0e6a05f36ac273`. A separate fresh clone in
+`.local/b02/repair-final/` used the same locked offline noneditable setup,
+then passed lint, formatting and **2 tests in 0.03s with no skips**. Explicit
+outside-directory inspection again verified the exact installed license
+bytes, metadata and RECORD digest/size shown above. The normal editable
+environment then reported **1 passed, 1 skipped in 0.03s** with the explanatory
+skip reason; import still passed. The old failed installation and first repair
+installation remain intact for provenance. These new mode/installation
+checks justify the reruns.
+
+The final tested `tests/test_distribution.py` SHA-256 is
+`00c96957859c13c10b5532ea6324749ca3daaadcb646ce82b4ebd9dbf4b1ea43`.
+The final CONTRIBUTING SHA-256 is
+`6911f025ad302ed303ca4a38ebbbb05efa2b9cd6450ae54524915924ffdd8734`.
+The pyproject/LICENSE/lock/initializer/import-test hashes remain those already
+recorded for the repair. After this final source snapshot only evidence and
+accounting documents change; the final PR record must bind the pushed head.
+
+All **16 repair commands** together used **2.176619 child CPU-seconds** and
+**3.431153 seconds wall time**. Maximum observed RSS was **45,105,152 bytes**;
+all retained B02 files excluding environments/caches measured **1,117,472
+bytes** at final inspection, within the adopted limits. The **20 CPU-second
+repair charge** includes these follow-up checks and unmeasured
+inspection/documentation/commit overhead. Unused original and supplemental
+reservations are released; the final ledger stays at **1,000 charged plus 60
+reserved** for focused independent verification. No independent reviewer
+coverage, acceptance, ready transition, push, CI or human merge is claimed.
