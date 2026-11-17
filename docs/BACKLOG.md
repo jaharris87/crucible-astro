@@ -1,6 +1,6 @@
 # Initial backlog and concrete Phase 0B handoff
 
-B01–B04 scope was adopted by the maintainer on 2026-11-17 (D-010); the maintainer separately authorized execution on 2026-11-17. B01–B04 are now [GitHub issues in the Phase 0B milestone](https://github.com/jaharris87/crucible-astro/milestone/1); [PROGRESS](PROGRESS.md) records current dependencies, status and PR links. D-011 adopts the verification budget below. Later scientific issues remain provisional. IDs remain stable when mapped to future issue numbers. All implementation follows [WORKFLOW](WORKFLOW.md); scientific checks follow [VALIDATION](VALIDATION.md). No dates are implied.
+B01–B04 scope was adopted by the maintainer on 2026-11-17 (D-010); the maintainer separately authorized execution on 2026-11-17. B01–B04 are now [GitHub issues in the Phase 0B milestone](https://github.com/jaharris87/crucible-astro/milestone/1); [PROGRESS](PROGRESS.md) records current dependencies, status and PR links. D-013 supersedes D-011 resource caps and accounting; the linked section below preserves the policy transition. Later scientific issues remain provisional. IDs remain stable when mapped to future issue numbers. All implementation follows [WORKFLOW](WORKFLOW.md); scientific checks follow [VALIDATION](VALIDATION.md). No dates are implied.
 
 ## Bootstrap sequence
 
@@ -32,7 +32,7 @@ B02 and drafting B03 may overlap in isolated workspaces after B01, but the demon
 
 **Problem:** a candidate must have durable acceptance/evidence/review records and reproducible checks.
 
-**Scope:** one issue template, compact PR template, fast CI on push/PR including drafts; contributor workflow; available branch protections with verified check names; no ready-only agent router. Templates include issue/dependencies/non-goals, risks/budget, head/base identity, actual checks, original findings/dispositions and human handoff. Establish a lightweight issue/milestone progress view showing phases, dependencies, status and linked PRs. Maintain the [local progress view](PROGRESS.md) with actual issue/milestone/PR links once created; use existing GitHub capabilities, not a custom dashboard. Create/adopt the reusable [meeting-report template](MEETING_REPORT_TEMPLATE.md) and [initial bootstrap status report](reports/2026-11-17-bootstrap.md), and link both from README and handoff. The local documents are prepared in advance; B03 must reconcile them with actual bootstrap state.
+**Scope:** one issue template, compact PR template, fast CI on push/PR including drafts; contributor workflow; available branch protections with verified check names; no ready-only agent router. Templates include issue/dependencies/non-goals, risks and authority, head/base identity, actual checks, original findings/dispositions and human handoff. Establish a lightweight issue/milestone progress view showing phases, dependencies, status and linked PRs. Maintain the [local progress view](PROGRESS.md) with actual issue/milestone/PR links once created; use existing GitHub capabilities, not a custom dashboard. Create/adopt the reusable [meeting-report template](MEETING_REPORT_TEMPLATE.md) and [initial bootstrap status report](reports/2026-11-17-bootstrap.md), and link both from README and handoff. The local documents are prepared in advance; B03 must reconcile them with actual bootstrap state.
 
 **Depends:** B01/B02. **Acceptance/evidence:** a draft candidate actually triggers CI; intentional failing probe is detected before corrected passing candidate; minimum read-only workflow permissions verified; settings match real plan/access constraints; review brief and disposition record can be completed without external AI services. The progress view covers all phases and B01–B04 with explicit dependencies/status and actual PR links or “None”; the template and initial report are reachable from both README and handoff and agree with issue/PR evidence. Scientific results remain explicitly **“not yet evaluated”** until supported by linked experiment records; bootstrap/CI checks do not count as scientific results. All added workflow behavior reviewed at exact SHA. **Human point:** repository settings and merge. **Milestone:** evidence infrastructure.
 
@@ -52,17 +52,31 @@ B02 and drafting B03 may overlap in isolated workspaces after B01, but the demon
 
 **Full-cycle evidence:** governing issue → investigation/contract → isolated implementation and recorded initial failing test → checks/self-review → committed/pushed draft PR → fresh-context independent reviewer on exact head/base → preserved findings and explicit dispositions (or PASS with limits) → pushed fixes and focused review as needed → ready PR → human review/merge decision → merged-SHA checks, issue closeout and handoff. One reviewer can cover requirements, correctness, test effectiveness and provenance. No scientific acceptance implied by the synthetic schema.
 
-**Budget/stopping:** B04 shares the adopted phase-wide budget below; it does not receive an additional 2 CPU-hours. One initial independent review plus focused repair verification per candidate issue; further broad rounds or budget increases require maintainer direction. Unresolved blockers never become a pass.
+**Review/stopping:** one initial independent review plus focused repair verification per candidate issue; further broad rounds require maintainer direction. D-013 removes compute/resource caps and accounting. Stop on scope ambiguity or invalid evidence; unresolved blockers never become a pass.
 
-**Depends:** B02/B03; no real-data semantics decision required. **Human point:** final merge. **Milestone:** useful NS1 integrity precursor and NS2 contract discipline. **Phase 0B ends only after this full cycle completes.**
+**Depends:** B02/B03; no real-data semantics decision required. **Human point:** final merge. **Milestone:** useful NS1 integrity precursor and NS2 contract discipline. **Phase 0B ends only after this full cycle and the separately authorized [audit closeout #8](https://github.com/jaharris87/crucible-astro/issues/8) complete.**
 
 ## Bootstrap verification budget
 
-Adopted D-011: **2 CPU-hours aggregate across B01–B04 verification**, including local and CI checks; **10 minutes per CI job**, **1 GiB per test process**, **100 MiB generated test scratch**. Dependency environments/caches are outside the scratch cap. No GPU, model training, bulk-data downloads or HPC. Ordinary package-manager downloads for the minimal development environment are in scope only after Phase 0B authorization.
+D-011's original resource caps and accounting are **superseded by D-013**,
+accepted 2026-11-17: “Remove all compute/resource limits.” There is no active
+repository CPU/GPU, job-time, memory, scratch or fixture-storage cap, pre-run
+reservation or per-command ledger requirement. [DECISIONS](DECISIONS.md#decision-d-013-remove-compute-and-resource-limits)
+records the choice; [WORKFLOW](WORKFLOW.md#resources-and-authority) is canonical.
+The unchanged [ledger body](VERIFICATION.md) and executed launch/evidence records
+preserve the rules and observations that applied to their historical work.
 
-Keep a small cumulative record of commands/jobs, elapsed time, CPU allocation and conservative CPU-time estimate. Use measured process CPU time when reliable; otherwise charge elapsed time times allocated CPU count (including parallel workers/CI runner cores). Estimate each next run before launching; stop/report before a cap would be exceeded. Do not repeatedly rerun identical successful checks. These caps govern execution resources, not agent token usage or human review waiting time. No paid compute or new service subscription is authorized by the budget.
+Scope and authority remain: Phase 0B permits the minimal package, synthetic
+validator and bounded audit closeout, not scientific models/training, real-data qualification, a new science
+phase or purchases. Ordinary package-manager downloads are within authorized
+bootstrap. Actual scientific cost and environment evidence remain necessary for
+future reproducible claims; removing caps does not manufacture permission to run
+new experiments.
 
-The review allowance is one initial independent review plus focused repair verification for each governing issue. Ask for maintainer direction before another broad round; preserve unresolved blockers. Budget exhaustion means bounded handoff and a decision, not relaxed acceptance criteria.
+The review allowance remains one initial independent review plus focused repair
+verification per governing issue. Further broad review needs maintainer direction;
+no unresolved blocker becomes a pass. D-014's narrow documentation lane starts
+after Phase 0B and does not waive review for this closeout.
 
 ## Next scientific issues (draft in detail only after their prerequisites)
 
@@ -71,9 +85,9 @@ The review allowance is one initial independent review plus focused repair verif
 | S01 | Producer/run provenance and target audit for a bounded selected subset | B04, D-002 | Source+patch/build/run identity or explicit missing links; binary layout verified; accepted/trial/NSE/initial semantics; quantify stored-versus-fresh RHS if authorized; state/energy contract and quarantine inventory approved. No training. |
 | S02 | Audited reader and tiny real fixture | S01 accepted semantics | Independent decoded values, species/units/layout and validity tests; raw/derived checksums; no guessed `edot` block or cross-format alignment; fixture redistribution confirmed. |
 | S03 | Coverage inventory and leakage-resistant benchmark partition | S01/S02, D-004/D-005/D-007 | Parent groups disjoint; train-only transform rule tested; domain/horizon/energy/metrics/tolerance policy signed off; limited coverage labeled honestly. NS1 coverage gaps tracked. |
-| S04 | Identity/full-state baseline and reproducible evaluation path | S03, D-003, approved budget | Analytic independent check, frozen train/validation/test protocol, save/reload, held-out rollouts and failure accounting, physical metrics and cost; no model-size search. |
+| S04 | Identity/full-state baseline and reproducible evaluation path | S03, D-003, authorized experiment scope | Analytic independent check, frozen train/validation/test protocol, save/reload, held-out rollouts and failure accounting, physical metrics and cost; no model-size search. |
 | S05 | One initial reduced dynamics method | S04, D-006 | Chain-rule/finite-step tests, reconstruction/RHS/rollout separation, matched baseline comparison, closure/constraint diagnostics and energy evidence. |
-| S06 | Controlled distinct-method comparison | S05, budget and method decision | At least two reduced approaches with fair tuning/data; r-process cases for NS3; all errors/failures/cost and reproduction records; human down-selection. |
+| S06 | Controlled distinct-method comparison | S05, comparison scope and method decision | At least two reduced approaches with fair tuning/data; r-process cases for NS3; all errors/failures/cost and reproduction records; human down-selection. |
 | S07 | Callable multi-approach prototype and release package | S06, D-001/D-008 | At least two approach examples via stable semantic contract; retrieval/checksum/reload and invalid-input tests; supported regimes/limits, release rights, independent audit and human acceptance. |
 
-Do not precreate a large speculative issue tree for all candidate architectures. Later issues gain numeric science tolerances and compute budgets only after independent references and the task are understood.
+Do not precreate a large speculative issue tree for all candidate architectures. Later issues gain numeric science tolerances and explicit experiment scope only after independent references and the task are understood. Resource use remains reported evidence, without a standing resource cap.

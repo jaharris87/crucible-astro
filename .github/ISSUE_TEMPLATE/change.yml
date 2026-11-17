@@ -1,5 +1,5 @@
 name: Bounded change
-description: Define one change and its acceptance, evidence, budget and human gates.
+description: Define one change and its acceptance, evidence, scope and human gates.
 body:
   - type: textarea
     id: scope
@@ -16,16 +16,16 @@ body:
     validations:
       required: true
   - type: textarea
-    id: resources
+    id: risks
     attributes:
-      label: Risks, budget and stopping rules
-      description: Name risk viewpoints, numeric compute/memory/scratch limits, review allowance, estimate/accounting plan and stop conditions. Phase 0B shares D-011; it does not receive a new budget per issue.
+      label: Risks, authority and stopping rules
+      description: Name the risk viewpoints, scope or integrity stop conditions and required decisions. No resource estimate, reservation or command ledger is required (D-013). Review follows docs/WORKFLOW.md, including the narrow documentation lane only after Phase 0B.
     validations:
       required: true
   - type: textarea
     id: execution
     attributes:
       label: Candidate, checks, review and human handoff
-      description: Record PR link, exact head/base SHAs, actual commands/results/usage and gaps. Preserve original finding IDs and dispositions with repair evidence. State required human decisions, next action and owner. Follow docs/WORKFLOW.md; no merge by silence.
+      description: Record PR link, exact head/base and tested source identities, actual commands/results and gaps. Link required independent review or explain narrow-lane eligibility; preserve findings and dispositions with repair evidence. State human decisions, next action and owner. Follow docs/WORKFLOW.md; no merge by silence.
     validations:
       required: true

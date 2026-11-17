@@ -85,7 +85,7 @@ A nonlinear reduced state can lose information required for closed dynamics even
 
 ## Data and artifact stewardship
 
-Recommend a versioned tiny fixture set capped initially at **5 MiB total**, an engineering budget revisable in its issue. Start with synthetic data; add a few audited real records only after provenance, redistribution, and expected outputs are established. Include valid and deliberately invalid species ordering, unknown schema, units, and validity cases. No copied 560 MB `postp.h5` in Git.
+Recommend a versioned tiny fixture set. D-013 removes the former proposed storage cap; fixture scope and redistribution still require review. Start with synthetic data; add a few audited real records only after provenance, redistribution, and expected outputs are established. Include valid and deliberately invalid species ordering, unknown schema, units, and validity cases. No copied 560 MB `postp.h5` in Git.
 
 A dataset manifest (proposed JSON initially, using standard-library tooling) records:
 
@@ -96,10 +96,10 @@ A dataset manifest (proposed JSON initially, using standard-library tooling) rec
 - Record-level validity flags with reasons (`unknown_provenance`, `nse_placeholder`, `alignment_unverified`, `nonfinite`, etc.); separate state, RHS, energy, and rollout validity. A state may be useful when its derivative is not. Never infer NSE solely because the derivative is zero.
 - Reader/extraction revision, selection recipe, raw-parent checksums, derived-output checksums, audit result and human acceptance reference. Missing provenance produces quarantine or a narrower explicitly described use, not invented metadata.
 
-Split manifests contain exact group memberships, parent provenance, construction rule/seed and digest, with no overlap between related simulation families. Transform artifacts bind fitted parameters to training membership and input schema. Model artifacts bind weights/parameters, architecture/configuration, target kind, species/units, transforms, dataset/split, seeds, training budget, optimizer/checkpoint selection, software environment, and artifact checksums. Save/load must reproduce predictions within a predeclared serialization tolerance.
+Split manifests contain exact group memberships, parent provenance, construction rule/seed and digest, with no overlap between related simulation families. Transform artifacts bind fitted parameters to training membership and input schema. Model artifacts bind weights/parameters, architecture/configuration, target kind, species/units, transforms, dataset/split, seeds, training/search procedure and resource use, optimizer/checkpoint selection, software environment, and artifact checksums. Save/load must reproduce predictions within a predeclared serialization tolerance.
 
 Use institutional/object storage for larger immutable datasets and artifacts, with human-selected custodian, access/retention and recovery policy. Do not assume AmSC credentials or deployment exists. A DOI/archive can accompany public releases; day-to-day storage need not begin with a new service. Track manifests and small metric tables in Git; keep bulk arrays/checkpoints/logs external. Document retrieval and verify checksums before use. Avoid opaque executable serialization for untrusted artifacts; choose simple data formats where practical.
 
 ## Experiments and reporting linkage
 
-Each experiment record links issue, candidate source SHA (and patch if applicable), dataset/split/transform/model digests, command/configuration/environment, seed(s), approved resource cap, start/end/status, raw metrics, figures, and all failures. A result is provisional until checks and qualification status are recorded. Summaries link these records; hand-edited dashboard values are not evidence. Reporting and external audit packets are defined in [WORKFLOW](WORKFLOW.md).
+Each experiment record links issue, candidate source SHA (and patch if applicable), dataset/split/transform/model digests, command/configuration/environment, seed(s), execution resources, start/end/status, raw metrics, figures, and all failures. A result is provisional until checks and qualification status are recorded. Summaries link these records; hand-edited dashboard values are not evidence. Reporting and external audit packets are defined in [WORKFLOW](WORKFLOW.md).

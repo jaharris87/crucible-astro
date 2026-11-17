@@ -2,7 +2,7 @@
 
 **A framework for learning and reduced modeling of astrophysical reaction networks.**
 
-Repository: **[jaharris87/crucible-astro](https://github.com/jaharris87/crucible-astro), public, BSD-3-Clause**. Phase 0B bootstrap only; [live closeout status and final integration evidence](https://github.com/jaharris87/crucible-astro/issues/4#issuecomment-6960154582) are authoritative for completion. This candidate snapshot follows completed B01–B03 and introduces B04's synthetic manifest validator in [PR #7](https://github.com/jaharris87/crucible-astro/pull/7). Clean noneditable setup, lint/format and 42 tests pass locally; the ordered-to-set mutation is caught and restored. Independent review, human merge and merged-result checks must be recorded before Phase 0B closes. [B03 integration](https://github.com/jaharris87/crucible-astro/pull/6#issuecomment-6959958285) includes draft-PR CI failure/pass evidence, actual protections and reviewed D-012 model policy. No trained model or qualified dataset exists; scientific results are **not yet evaluated**. Phase 1 requires separate authorization.
+Repository: **[jaharris87/crucible-astro](https://github.com/jaharris87/crucible-astro), public, BSD-3-Clause**. For current phase, issue dependencies and next authorized action, see [Progress](docs/PROGRESS.md) and [Handoff](docs/HANDOFF.md). No trained model or qualified dataset exists; scientific results are **not yet evaluated**. Phase 1 requires separate authorization.
 
 ## Charter
 
@@ -16,22 +16,30 @@ Success means a collaborator can identify exactly which network, data, split, tr
 
 ## Read this package
 
-| Need | Document |
+Start with [Contributing](CONTRIBUTING.md#quick-start) to install and run checks.
+Use [Progress](docs/PROGRESS.md) for current state and the linked live issue/PR
+records for subsequent CI, review and merge receipts.
+
+| Science and scope | Document |
 | --- | --- |
-| Phase exits and NS1–NS3 mapping | [Roadmap](docs/ROADMAP.md) |
-| Repository layout, provisional interfaces, provenance | [Design](docs/DESIGN.md) |
-| Scientific qualification and performance evidence | [Validation](docs/VALIDATION.md) |
-| Issue-to-merge cycle, orchestration, reporting, external audits | [Workflow](docs/WORKFLOW.md) |
-| Active project guidance and reusable reviewer briefs | [AGENTS](AGENTS.md), [agent briefs](docs/AGENT_BRIEFS.md) |
-| Python environment and development checks | [Contributing](CONTRIBUTING.md) |
-| Bounded first issues and complete Phase 0B demonstration | [Backlog](docs/BACKLOG.md) |
-| Phase/issue progress and collaborator reporting | [Progress](docs/PROGRESS.md), [meeting-report template](docs/MEETING_REPORT_TEMPLATE.md), [initial bootstrap status](docs/reports/2026-11-17-bootstrap.md) |
-| Accepted requirements, recommendations, open decisions | [Decision register and maintainer packet](docs/DECISIONS.md) |
-| Source locators, verified observations, limitations | [Evidence](docs/EVIDENCE.md) |
-| Completion status and next authorized action | [Handoff](docs/HANDOFF.md) |
-| Historical Phase 0A review and findings disposition | [Review record](docs/REVIEW.md) |
-| Maintainer adoption, licensing evidence and preserved history | [Transition record](docs/TRANSITION.md) |
-| Invoked Phase 0B scope and checkpoints | [Phase 0B launch prompt](docs/PHASE_0B_LAUNCH.md) |
+| State, targets, energy, interfaces and provenance | [Design](docs/DESIGN.md) |
+| Qualification and comparison evidence | [Validation](docs/VALIDATION.md), [source evidence](docs/EVIDENCE.md) |
+| Phases, dependencies and acceptance | [Roadmap](docs/ROADMAP.md), [backlog](docs/BACKLOG.md) |
+| Accepted and open choices | [Decisions](docs/DECISIONS.md) |
+
+| Development and reporting | Document |
+| --- | --- |
+| Setup and checks | [Contributing](CONTRIBUTING.md) |
+| Issue-to-merge process and external audits | [Workflow](docs/WORKFLOW.md) |
+| Agent entry point and reusable briefs | [AGENTS](AGENTS.md), [agent briefs](docs/AGENT_BRIEFS.md) |
+| Current state and resumption | [Progress](docs/PROGRESS.md), [handoff](docs/HANDOFF.md) |
+| Dated collaborator reports | [Meeting-report template](docs/MEETING_REPORT_TEMPLATE.md), [initial bootstrap snapshot](docs/reports/2026-11-17-bootstrap.md) |
+
+| Historical records | Document |
+| --- | --- |
+| Phase 0A review and adoption | [Review record](docs/REVIEW.md), [transition](docs/TRANSITION.md) |
+| Executed launch and seed | [Launch prompt](docs/PHASE_0B_LAUNCH.md), [bootstrap record](docs/BOOTSTRAP.md) |
+| External-audit assessment | [Dispositions](docs/audits/2026-11-17-external-audit-disposition.md) |
 
 The policy source of truth is the workflow; the scientific contracts are in design and validation; decisions are recorded only in the decision register. Other documents link to those sources rather than introducing separate rules. Machine-specific reference locations live only in the evidence inventory. All proposed runtime paths and artifact identifiers are portable.
 

@@ -1,6 +1,6 @@
 # Phase 0B bootstrap record
 
-Date: 2026-11-17. **B01 complete**: confirmed publication, public repository and seed `c3846a4660e5915fe56c115202d9b1581a2319fd`. [Issue #1 closeout](https://github.com/jaharris87/crucible-astro/issues/1#issuecomment-6958852938) records the one-time exception and actual checks. [Milestone](https://github.com/jaharris87/crucible-astro/milestone/1) and B01–B04 issues now exist. B02 is in draft PR #5; no post-seed merge has occurred. The native Phase 0B goal remains active. Preparation observations below are historical; [HANDOFF](HANDOFF.md) records current execution state.
+Date: 2026-11-17. **B01 complete**: confirmed publication, public repository and seed `c3846a4660e5915fe56c115202d9b1581a2319fd`. [Issue #1 closeout](https://github.com/jaharris87/crucible-astro/issues/1#issuecomment-6958852938) records the one-time exception and actual checks. [Milestone](https://github.com/jaharris87/crucible-astro/milestone/1) and B01–B04 issues now exist. This is a historical B01 record, not a tracker of later issues. Preparation observations below remain historical; [PROGRESS](PROGRESS.md) and [HANDOFF](HANDOFF.md) route to current execution state.
 
 ## Publication decision D-001
 
