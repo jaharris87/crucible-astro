@@ -3,10 +3,12 @@
 Issue [#14](https://github.com/jaharris87/crucible-astro/issues/14), maintainer
 D-017 authorization, 2026-11-17. Preparation: `gpt-6.1-sol` High. This directory
 contains original CRUCIBLE experiment support, not a qualified scientific model
-or a general XNet interface. **No Fortran compilation or RHS evaluation has been
-performed for this preparation candidate.** The exact pushed source must pass
-fresh independent review before its first build/run. Humans retain scientific
-acceptance and merge authority.
+or a general XNet interface. **The authorized three-state execution is complete;
+scientific acceptance remains open.** The exact source passed independent review
+before its first build. See the [portable run report](RUN_REPORT_2026-11-17.md)
+for both attempts, exact bindings, aggregate results and interpretation limits.
+Humans retain scientific acceptance and merge authority. D-017 supplied authority
+for this completed diagnostic, not standing permission for additional runs.
 
 The bounded question compares stored derivatives with fresh `cross_sect` then
 `yderiv` evaluations at exactly three already-audited ordinary emitted states
@@ -64,14 +66,16 @@ python3 experiments/rhs_alignment/diagnostic.py verify \
 ```
 
 `manifest.json` records every copied source/input, the selection, raw hashes and
-local locators. It states preparation status rather than inventing a build receipt.
-Keep its checksum in the issue/experiment receipt. Treat changes to the harness,
-bindings or build procedure after review as a changed source candidate.
+local locators. Its original preparation status is preserved; the separate run
+report binds the later build and execution receipts. Keep its checksum in the
+issue/experiment receipt. Treat changes to the harness, bindings or build
+procedure after review as a changed source candidate.
 
-## After review: fresh build and exactly three evaluations
+## Recorded build and three-state execution procedure
 
-Transfer the prepared ignored bundle to a new isolated writable scratch directory
-on the authorized existing Perlmutter account; leave originals unchanged. Use the
+For an independently authorized reuse, transfer the prepared ignored bundle to a
+new isolated writable scratch directory on the authorized existing Perlmutter
+account; leave originals unchanged. Use the
 reviewed `build.sh` and `run.sh` from that bundle. Do not run an original `postp`,
 source patcher, `make all`, trajectory job, or repository build by analogy.
 
@@ -82,6 +86,9 @@ module load intel/2025.3
 module load PrgEnv-intel/8.7.0
 module load cray-hdf5-parallel/1.14.3.9
 export LD_LIBRARY_PATH="$CRAY_LD_LIBRARY_PATH:${LD_LIBRARY_PATH-}"
+# Select an explicitly verified Python-only shim; record its target and checksum.
+export PATH="${diagnostic_python_shim:?set the approved private shim directory}:$PATH"
+python3 --version
 bash build.sh
 bash run.sh
 ```
@@ -89,10 +96,16 @@ bash run.sh
 Read-only module inspection found this CPU stack exposes `h5pfc` through Cray
 `ftn` and Intel `ifx` 2025.3.0; no classic `ifort` was found. This explicitly
 records the new diagnostic toolchain, without claiming the original compiler
-was recovered. Compilation support/linkage remain untested.
+was recovered. The recorded execution used Python 3.12.12 through a private
+shim containing only `python3`; the default system Python 3.6.15 caused the
+preserved first attempt to stop before compilation. Before/after shim checks
+verified the login compiler/wrapper and library environment were unchanged.
+Compute-job environment and loaded libraries were recorded separately, including
+a system fabric search-path addition; build/run environments are not asserted
+byte-identical. See the run report for completed checks.
 
-These are future execution commands, not receipts. `build.sh` creates a new
-`build/` directory and fails if one exists. It records compiler-wrapper expansion,
+The commands illustrate the recorded procedure, not an additional execution
+grant. `build.sh` creates a new `build/` directory and fails if one exists. It records compiler-wrapper expansion,
 versions, module/compiler environment, commands' output, linkage and executable
 checksum. Precision/flags follow the retained log: `-g -O0 -traceback`,
 `-qopenmp-stubs`, default real64/int32 and MKL sequential. `-fpp` explicitly
@@ -129,5 +142,7 @@ Synthetic Python tests independently construct binary framing and known numerica
 answers, including signed-zero identity, corrupted markers/controls/NSE selection,
 nonfinite input, state/scalar mutation, and 3–4–5 norm/baryon/charge controls.
 They do not execute Fortran or verify its runtime behavior. Static shell syntax
-and repository checks accompany source review. First compilation and execution
-remain pending and must be reported honestly.
+and repository checks accompanied source review. The run report separately
+records the completed reference execution and author output checks. Subsequent
+independent evidence/report review and human merge/integration receipts belong
+in the live issue/PR; execution success does not qualify training labels.
