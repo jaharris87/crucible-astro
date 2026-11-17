@@ -32,3 +32,9 @@ Before the first draft-PR launch, reserve **2,400 CPU-seconds** (one job, at mos
 Run [44166765762](https://github.com/jaharris87/crucible-astro/actions/runs/44166765762), head `7c90e2f`, synthetic merge `25d1968`: intended assertion failure, 2 real tests passed. Full job 11 s × reported 4 CPUs = **44 CPU-seconds charged**, unused 2,356 released. Peak test RSS40,980KiB, scratch84bytes/capacity104,857,600bytes. This was a draft pull_request run; token permissions read-only.
 
 Before pushing the corrected candidate (temporary probe removed), reserve the next **2,400 CPU-seconds**. Current **1,194 charged + 120 lead reserved + 2,400 CI reserved = 3,714/7,200**. Lead shell inspection/settings commands now record `/usr/bin/time` user+system CPU; cache/schema failures are retained. Final review and human merge remain pending.
+
+### Corrected pass and final receipt/review reservations
+
+Run [44167409103](https://github.com/jaharris87/crucible-astro/actions/runs/44167409103), head `d17825b`, tested merge `306b8aa`, passed locked noneditable setup, lint/format and 2 tests without skips. Full job18s ×4CPUs = **72 CPU-seconds charged**; unused2,328 released. Peak test RSS41,052KiB.
+
+Charge the full **120 CPU-second lead allowance** for source/settings/identity/receipt/checkpoint work (measured CLI user+system plus conservatively bounded unmeasured edit/push overhead); no remaining lead reservation. After 1,150 prior +44 initial CI +72 corrected CI +120 lead = **1,386 charged**. Before final documentation-receipt push reserve **2,400** for its required CI; reserve **120** for the fresh independent B03 workflow/policy review. Latest total **1,386 charged +2,520 reserved =3,906/7,200**. This final CI is caused by new reporting/evidence changes and required by the adopted workflow, not an unchanged manual rerun. Reconcile actual usage before any next run.
