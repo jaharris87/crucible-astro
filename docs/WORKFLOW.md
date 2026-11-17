@@ -12,8 +12,8 @@ Before resuming, read the issue, decision register, current handoff, candidate i
 
 ## Model selection and escalation
 
-Accepted D-012 on 2026-11-17, effective **after Phase 0B**. The current Phase 0B
-orchestrator and agents continue unchanged. This policy supersedes the earlier
+Accepted D-012 on 2026-11-17, effective **after Phase 0B**, now complete.
+Historical Phase 0B assignments remain unchanged in their records. This policy supersedes the earlier
 routine Astra High assignment for difficult scientific/design synthesis and
 independent critique. Executed launch prompts, archives and historical review
 assignments remain historical evidence; future briefs reference this section.
@@ -132,8 +132,9 @@ unchanged records of their original rules and observations.
 
 This grants no new task, scientific phase or purchase authority. Phase 0B remains
 the minimal package, synthetic validator and separately authorized audit closeout;
-scientific models/training, real-data qualification and Phase 1 are outside that task.
-Future experiments need explicit scope and scientific acceptance, not an inferred
+scientific models/training, real-data qualification and Phase 1 were outside that bootstrap task.
+Phase 1 now has separate [execution authority](PHASE_1_AUTHORITY.md); models/training
+remain outside it. Experiments need explicit scope and scientific acceptance, not an inferred
 permission from removing caps. Actual hardware/configuration, runtime, failures
 and cost remain evidence for reproducibility and fair scientific comparison.
 

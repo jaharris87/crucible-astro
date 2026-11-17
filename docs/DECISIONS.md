@@ -159,7 +159,67 @@ required. D-013 supersedes resource caps only; D-012's scope, escalation,
 independence and human-authority safeguards remain. No global setting/tool change
 or new phase is authorized.
 
-## Decisions prepared but not yet ripe for a request
+### Decision D-016: Execute Phase 1 S01–S03
+
+**Status:** explicitly authorized by the maintainer on 2026-11-17 through the
+Phase 1 execution prompt, after completed Phase 0B. The [authority record](PHASE_1_AUTHORITY.md)
+preserves the exact persistent objective, permitted work and exclusions. The
+native goal was inspected (none existed), then created and confirmed active.
+
+**Scope:** bounded data qualification, audited ingestion, a living official
+Genesis-guided data card, and benchmark definition/partitions. Publish portable
+project evidence, follow reviewed draft PRs and concrete human merge decisions,
+and verify integration. Scientific acceptance and dataset redistribution are
+separate gates; limited exploration does not complete qualification. No producer
+execution/regeneration, reference modification, bulk conversion, models/training,
+paid services or deployment is authorized. Stop after Phase 1.
+
+**Tracking refinement:** the maintainer requested continued GitHub milestones,
+specifically “Phase 1 — Data qualification and benchmark definition.” Existing
+milestones were inspected (only closed Phase 0B #1); [milestone #2](https://github.com/jaharris87/crucible-astro/milestone/2)
+was created open and S01 #10 assigned. Create/assign S02/S03 and justified Phase 1
+issues as prerequisites become concrete; include the data card in acceptance and
+keep PROGRESS/HANDOFF issue/dependency/PR links current. No duplicate board.
+Close only after the required scientific acceptance, reviewed merges and passing
+integration checks. This is execution/tracking authority, not acceptance of data.
+
+### Decision D-017: Three-state reference RHS diagnostic
+
+**Status: accepted by the maintainer, 2026-11-17.** Exact answer: “Authorize
+this three-state diagnostic (Recommended).” [Issue #14](https://github.com/jaharris87/crucible-astro/issues/14)
+records the concrete scope/evidence/stops. This permits an isolated reviewed
+Fortran evaluator, dependency recovery/fingerprinting, and building/executing
+fresh RHS evaluations at exactly audit pair B ordinary data ordinals 1, 676 and
+741. No trajectory integration rerun, NSE solve, training, bulk regeneration,
+deployment or merge is authorized. Stop on missing dependencies, changed physics,
+input mismatch or nonfinite results. Scientific reference/tolerances remain separate.
+
+The maintainer identified the upstream XNet Starkiller-Helmholtz directory for EOS
+inputs. Its selected `actual_eos.F90` and `eos_type.F90` fingerprints are retained
+locally; selection defines this new diagnostic reference, not proof of historical
+generating dependencies. The originally logged copies were inaccessible, and local
+reference versions differ; no silent substitution is permitted. Prepare and review
+the isolated source candidate before building/running. No evaluator/build/producer
+or NSE execution has occurred yet. Original raw/reference trees stay unchanged.
+
+## Scientific decisions and current evidence gates
+
+On 2026-11-17 the [S01 audit packet](phase1/S01_AUDIT.md) and
+[bounded reader/extraction proposal](phase1/S02_EXTRACTION_PROPOSAL.md) were
+prepared. An interactive question asks whether to accept only the three-pair
+ingestion semantics with all scientific training/reference flags still false,
+or wait for generating provenance before S02. **Maintainer accepted “Accept
+quarantined reader/extraction scope (Recommended)” on 2026-11-17.** This accepts
+only the bounded ingestion semantics, with all scientific training/reference flags
+false. [S02 #11](https://github.com/jaharris87/crucible-astro/issues/11) was created
+in milestone #2; implementation proceeds in an isolated worktree. The maintainer
+also supplied an original Perlmutter location and offered additional local copies.
+The private path stays in the ignored locator; bounded read-only provenance
+recovery has begun. This does not accept the full D-004/D-005/D-007 contract or
+authorize producer runs, bulk conversion or data redistribution.
+The maintainer asked whether a training-friendly derived dataset should have a
+card; the recommendation is separate linked raw/derived cards and a bounded
+HDF5/JSON extraction after acceptance. That question is not bulk-conversion authority.
 
 | ID / status | Question and recommendation | Evidence needed / gate / owner |
 | --- | --- | --- |
@@ -171,6 +231,10 @@ or new phase is authorized.
 | D-009 deferred active learning | Should adaptive reference generation become a later CRUCIBLE extension? Recommend separate scoped proposal only after benchmark and uncertainty/selection validation work. | Locked benchmark, nonadaptive baseline, domain/cost/stopping/human gates; future owner |
 
 ## Answer/change log
+
+- 2026-11-17, Phase 1: maintainer explicitly invoked S01–S03 and then requested
+  milestone-based phase tracking; recorded in D-016. Scientific acceptance and
+  merge decisions remain pending for actual candidates; no Phase 2 authority.
 
 - 2026-11-17, audit closeout: maintainer accepted D-013/D-014/D-015 as recorded above and in issue #8. D-013 applies now; D-014 starts after Phase 0B; D-015 retains the canonical D-012 policy. Original log entries below remain in their original order.
 
