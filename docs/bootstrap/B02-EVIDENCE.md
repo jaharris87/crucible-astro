@@ -5,7 +5,7 @@ Worker: explicit `gpt-6.1-sol`, high reasoning; implementation and self-review,
 not independent review. Branch: `bootstrap/b02-package`. Integration base:
 `c3846a4660e5915fe56c115202d9b1581a2319fd` (verified main/origin/main/HEAD at start).
 Candidate identity is the commit containing this record; final head/base must
-be copied to the PR record when published. No PR, CI or human merge is claimed.
+be copied to the PR record when published. Draft [PR #5](https://github.com/jaharris87/crucible-astro/pull/5) now exists; no CI or human merge is claimed.
 
 ## Declared environment
 
@@ -87,8 +87,7 @@ path was used as the installed module origin. Cache reuse means this is a
 clean-environment reproduction, not a second cold network-download test.
 
 The final evidence/accounting edits change documentation only; package,
-lockfile, tests and README used to build the package remain identical to this
-clean-tested snapshot. No additional test rerun is warranted for those evidence
+lockfile and tests remain identical to this clean-tested snapshot. Subsequent README/progress/handoff reconciliation changes descriptive metadata only, with no runtime/build configuration change. No additional test rerun is warranted for those evidence
 edits. The following SHA-256 identities bind the tested implementation inputs:
 
 | Input | SHA-256 |
@@ -127,3 +126,7 @@ evaluated.
 Lead publication as a draft PR, exact-pushed-candidate fresh independent review,
 finding dispositions, human merge decision and merged-result verification
 remain required. B03 provides CI later; this B02 candidate has no CI.
+
+## Lead reconciliation and self-review
+
+Lead inspected the full B02 diff, resolved lock, clean-install/import raw receipts and failure/control logs, and reconciled README, progress, handoff and bootstrap status with actual GitHub records. Executable inputs retain the hashes above; no software rerun for descriptive documentation edits. Lead reconciliation check passed: 29 tracked files screened, 113 local links and 22 anchors resolved, no absolute machine-path/credential-pattern errors, and all five executable/configuration/lock/test inputs byte-equal to the tested commit. Measured check CPU time was 0.0102 seconds. The PR discussion is the source of record for exact final head/base and independent review, avoiding a self-referential commit hash in the candidate.

@@ -1,6 +1,6 @@
 # Phase 0B bootstrap record
 
-Date: 2026-11-17. Status: authorized, local B01 preparation active; publication confirmed under D-001; seed initialization pending. No public content, issue, commit or PR has been created in this task. The native persistent goal is active and excludes Phase 1/models. This record will be updated with actual issue/PR/check identities as work proceeds.
+Date: 2026-11-17. **B01 complete**: confirmed publication, public repository and seed `c3846a4660e5915fe56c115202d9b1581a2319fd`. [Issue #1 closeout](https://github.com/jaharris87/crucible-astro/issues/1#issuecomment-6958852938) records the one-time exception and actual checks. [Milestone](https://github.com/jaharris87/crucible-astro/milestone/1) and B01–B04 issues now exist. B02 is in draft PR #5; no post-seed merge has occurred. The native Phase 0B goal remains active. Preparation observations below are historical; [HANDOFF](HANDOFF.md) records current execution state.
 
 ## Publication decision D-001
 
@@ -10,7 +10,7 @@ Accepted and not reopened: public `jaharris87/crucible-astro`, BSD-3-Clause. Pro
 Copyright (c) 2026 UT-Battelle, LLC.
 ```
 
-The remaining license text is the standard BSD-3-Clause text from [SPDX](https://github.com/spdx/license-list-data/blob/main/text/BSD-3-Clause.txt), with the selected year/holder substituted. The [OSI description](https://opensource.org/license/bsd-3-clause) is a cross-reference. LICENSE is confirmed by the maintainer; it has not yet been published.
+The remaining license text is the standard BSD-3-Clause text from [SPDX](https://github.com/spdx/license-list-data/blob/main/text/BSD-3-Clause.txt), with the selected year/holder substituted. The [OSI description](https://opensource.org/license/bsd-3-clause) is a cross-reference. LICENSE is confirmed by the maintainer; it was published in the seed.
 
 **Confirmed:** 2026-11-17: Maintainer explicitly answered “Confirm all three; proceed with public publication” to the prepared D-001 checkpoint: `Copyright (c) 2026 UT-Battelle, LLC.`, no additional government-rights/institutional notice required, and portable documentation plus original Phase 0B bootstrap code cleared for public release. No clearance is inferred from employment, account ownership or license selection. Basis: [TRANSITION licensing evidence](TRANSITION.md#licensing-evidence). No third-party institutional submission is authorized or performed.
 
@@ -42,14 +42,14 @@ EVIDENCE now uses aliases, public bibliographic links and explicit non-distribut
 - No `.git` directory or implementation was present. Connected GitHub lookup and authenticated owner `gh api repos/jaharris87/crucible-astro` both returned 404. CLI authentication identifies `jaharris87`; do not infer private publication or overwrite history if a repository subsequently appears.
 - GitHub connector provides repository reads and PR actions but no repository/issue/milestone creation or protection-setting tools in the current catalog. Use authenticated `gh` for those missing capabilities once publication is confirmed; reread remote state first.
 - Existing B03 scope and roadmap already include progress dependencies/status/PRs, reusable meeting template, initial report and “not yet evaluated” scientific results. No second dashboard or speculative scientific issue tree is needed.
-- Prepared local issue bodies: `.local/issues/B01.md` through `B04.md`. They are drafts until actual GitHub issue URLs exist; B02–B04 implementation and review cycles have not started.
+- Prepared local issue bodies: `.local/issues/B01.md` through `B04.md`. Their published records are issues #1–#4; see the milestone and current handoff for execution status.
 - One read-only B02/B03 tooling investigator was dispatched as explicit `gpt-6.1-sol`, high reasoning, fresh context. This is investigation, not independent candidate review. No substitution was made.
 
 ## Verification and remaining gates
 
-The aggregate D-011 cap is 7,200 CPU-seconds across local and CI verification. Keep actual accounting in [VERIFICATION](VERIFICATION.md), estimate each next check first, and do not repeat passing checks without changes or unresolved concerns. No software/CI/mutation/review/merge/integration result exists yet.
+The aggregate D-011 cap is 7,200 CPU-seconds across local and CI verification. Keep actual accounting in [VERIFICATION](VERIFICATION.md), estimate each next check first, and do not repeat passing checks without changes or unresolved concerns. B02 local software checks now exist; no CI, mutation, independent Phase 0B review or post-seed merge/integration result exists at this snapshot.
 
-Pending: actual public repository/base; B01–B04 issue/milestone links; B02 package/fresh setup/import controls; B03 draft-PR failure/pass CI, exact required checks and actual protection settings; B04 test-first invalid controls and ordered-to-set mutation; exact-SHA fresh reviews/dispositions; human merges; merged-result checks and closeout. Scientific results: **not yet evaluated**.
+Completed: public repository/base and issue/milestone links; B02 local package/fresh setup/import controls. Pending: B02 independent review/human merge/integration; B03 draft-PR failure/pass CI, exact required checks and actual protection settings; B04 test-first invalid controls and ordered-to-set mutation; exact-SHA fresh reviews/dispositions; human merges; merged-result checks and closeout. Scientific results: **not yet evaluated**.
 
 ## Tooling investigation
 

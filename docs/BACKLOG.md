@@ -1,6 +1,6 @@
 # Initial backlog and concrete Phase 0B handoff
 
-B01–B04 scope was adopted by the maintainer on 2026-11-17 (D-010); the maintainer separately authorized execution on 2026-11-17. These remain local issue drafts until publication readiness permits creating the GitHub records. D-011 adopts the verification budget below. Later scientific issues remain provisional. IDs remain stable when mapped to future issue numbers. All implementation follows [WORKFLOW](WORKFLOW.md); scientific checks follow [VALIDATION](VALIDATION.md). No dates are implied.
+B01–B04 scope was adopted by the maintainer on 2026-11-17 (D-010); the maintainer separately authorized execution on 2026-11-17. B01–B04 are now [GitHub issues in the Phase 0B milestone](https://github.com/jaharris87/crucible-astro/milestone/1); [PROGRESS](PROGRESS.md) records current dependencies, status and PR links. D-011 adopts the verification budget below. Later scientific issues remain provisional. IDs remain stable when mapped to future issue numbers. All implementation follows [WORKFLOW](WORKFLOW.md); scientific checks follow [VALIDATION](VALIDATION.md). No dates are implied.
 
 ## Bootstrap sequence
 
