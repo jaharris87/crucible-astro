@@ -39,7 +39,14 @@ dependency locking.
 To verify a distributable installation rather than the normal editable setup,
 use `uv sync --locked --no-editable` in a second fresh checkout, then run the
 same checks. This installs `crucible` from the declared `src/` package instead
-of relying on the current directory. `tests/test_import.py` launches isolated
+of relying on the current directory. The distribution regression checks SPDX
+and `License-File` metadata in both setups. uv 0.10.11 editable installations
+do not copy license files into the installed inventory, so the byte/inventory
+assertion explicitly skips there. The noneditable setup must pass that
+assertion against the complete root LICENSE; it is required packaging
+verification, not replaced by the editable check.
+
+`tests/test_import.py` launches isolated
 Python from an empty temporary directory, disables bytecode writes, and checks
 for output, runtime dependency imports, data-file access, common write events,
 network and subprocess operations during package import. This is a bounded

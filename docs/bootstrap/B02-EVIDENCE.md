@@ -171,9 +171,73 @@ Observed: exit 1, `1 failed in 0.02s`; exact failure was
 `["LICENSE"]`. The old installation is retained unchanged. This verifies
 that the new regression detects the original packaging failure.
 
-Fresh committed-source clone, rebuilt noneditable installation, license
-inspection and applicable final checks are pending before repair handoff.
-The ledger reserved 120 CPU-seconds for repair and a separate 60 for focused
-independent verification before these runs. The combined lead accounting was
-corrected to an 800 CPU-second envelope; original check observations remain
-preserved. No push, focused review, ready transition, CI or merge is claimed.
+The exact repair source snapshot is
+`4ec0af57c7990b7981a0f6c60bb876bc30012d7b`, a descendant of reviewed head
+`44326c682100572b79774dab67bee4ff5173584d`. It was cloned with
+`git clone --local --no-hardlinks --branch bootstrap/b02-package . .local/b02/repair-clean`
+into a new directory, retaining the old failed installation. In the new
+checkout, the commands below succeeded with the pinned interpreter, uv
+version, project-local dependency cache and no dependency network access:
+
+```sh
+uv sync --locked --no-editable --offline
+mkdir -p .local/test-scratch
+uv run --no-sync python -B -m pytest -p no:cacheprovider --basetemp=.local/test-scratch/run
+uv run --no-sync ruff check .
+uv run --no-sync ruff format --check .
+```
+
+The build ran again, installed a noneditable distribution into its own fresh
+environment, and left the committed lock unchanged. Pytest collected both
+tests and reported **2 passed in 0.03s**; lint and format exited 0. The
+existing import regression still checks empty outside-directory execution,
+no output and its bounded side-effect audit.
+
+A separate isolated `python -I -B` inspection used the new environment and an
+empty sibling working directory. Import resolved inside `site-packages`.
+Installed METADATA had `License-Expression: BSD-3-Clause` and
+`License-File: LICENSE`. Installed RECORD contained:
+
+```text
+crucible_astro-0.0.0.dist-info/licenses/LICENSE,sha256=9wHkeGHepknZQeQcV8AF5CgudYnhBJeGC8igkMly4PY,1466
+```
+
+The installed file equaled the complete root LICENSE byte-for-byte:
+**1,466 bytes**, SHA-256
+`f701e47861dea649d941e41c57c005e4282e7589e10497860bc8a090c972e0f6`.
+The inspection independently recomputed the RECORD digest and size and
+verified the empty working directory stayed unchanged. No root license text,
+runtime dependency or scientific behavior was changed.
+
+Repair fingerprints (the unchanged lock, initializer and import-test hashes
+remain those in the historical table):
+
+| Input | SHA-256 |
+| --- | --- |
+| `pyproject.toml` | `991b95b16044d71fa9b202b9ffa9023740fc4fd563e750eddca908ed4a7ed7f9` |
+| `tests/test_distribution.py` | `d06ae988b90e378766f2b1de149236ee9c7883345b2a2a8cfe86b5007ad71035` |
+| `LICENSE` | `f701e47861dea649d941e41c57c005e4282e7589e10497860bc8a090c972e0f6` |
+
+Seven repair commands used **0.857341 measured child CPU-seconds** and
+**1.426356 seconds wall time**, including the expected old-install failure.
+Maximum observed RSS was **44,515,328 bytes**; total retained B02 generated
+files, clone metadata and receipts excluding environments/caches measured
+**708,151 bytes** at inspection. Both remain within the adopted caps. The
+shared ledger charges **20 CPU-seconds**, including unmeasured inspection,
+documentation and commit overhead, and releases 100 of the pre-run 120
+CPU-second repair reservation. Raw commands, timings and output are retained
+as `repair-*` records in ignored `.local/b02/runs.jsonl` and logs.
+
+The combined lead accounting was corrected to an **800 CPU-second** envelope
+using <= 50 s aggregate local-command elapsed × 16 logical cores where CPU
+measurements were unavailable; no network-wait exclusion remains. Original
+check observations remain preserved. After this repair, the ledger contains
+**1,000 CPU-seconds charged plus 60 reserved** for focused independent review.
+
+Author self-review inspected the narrow source delta, original finding,
+old-install regression failure, clean rebuild output, full license bytes and
+metadata/RECORD evidence. Final edits after the tested source snapshot change
+only evidence/accounting documents; no repeated successful software check is
+needed for those edits. The repair is **locally verified, awaiting exact-
+pushed-candidate focused independent verification** and final disposition.
+No push, focused review, ready transition, CI or merge is claimed.
