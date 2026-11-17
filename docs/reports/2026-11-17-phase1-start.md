@@ -38,8 +38,9 @@ scientific training/reference flag false; S02 #11 has draft PR #13 in an isolate
 passed). Draft audit/card PR #12 is open; neither is human-merged.
 S01 #10 remains open. Scientific D-004/D-005/D-007 acceptance, qualified reference,
 benchmark grouping/tolerances, reviewed merges and integration checks remain ahead.
-A separately proposed three-state RHS diagnostic (#14/D-017) awaits execution
-authorization and original readable EOS dependencies. No producer execution has occurred.
+A separately authorized three-state RHS diagnostic (#14/D-017) is in isolated
+source preparation with maintainer-selected EOS dependencies; source review precedes
+any build/run. No producer execution has occurred.
 S03 will not claim simulation-level independence from an unverified single-source
 collection. Wider CCSN/NSM coverage and NS1–NS3 remain incomplete.
 

@@ -185,18 +185,22 @@ integration checks. This is execution/tracking authority, not acceptance of data
 
 ### Decision D-017: Three-state reference RHS diagnostic
 
-**Status: proposed, awaiting maintainer response.** [Issue #14](https://github.com/jaharris87/crucible-astro/issues/14)
-contains the concrete scope, evidence and stops. An interactive request asks to
-permit an isolated reviewed evaluator plus build/execution at exactly three
-preserved non-NSE ordinary states, after recovering original EOS/build inputs.
-The alternative is defer execution and retain quarantined ingestion. This is
-execution authority only, not scientific reference/tolerance acceptance.
+**Status: accepted by the maintainer, 2026-11-17.** Exact answer: “Authorize
+this three-state diagnostic (Recommended).” [Issue #14](https://github.com/jaharris87/crucible-astro/issues/14)
+records the concrete scope/evidence/stops. This permits an isolated reviewed
+Fortran evaluator, dependency recovery/fingerprinting, and building/executing
+fresh RHS evaluations at exactly audit pair B ordinary data ordinals 1, 676 and
+741. No trajectory integration rerun, NSE solve, training, bulk regeneration,
+deployment or merge is authorized. Stop on missing dependencies, changed physics,
+input mismatch or nonfinite results. Scientific reference/tolerances remain separate.
 
-Original external EOS sources named by the build log are unreadable to the
-available login; local reference copies differ and cannot be substituted silently.
-A second question asks for original readable copies or exact-version evidence.
-No evaluator/build/producer/NSE execution or reference modification has occurred.
-The existing Phase 1 no-execution boundary remains until an explicit answer.
+The maintainer identified the upstream XNet Starkiller-Helmholtz directory for EOS
+inputs. Its selected `actual_eos.F90` and `eos_type.F90` fingerprints are retained
+locally; selection defines this new diagnostic reference, not proof of historical
+generating dependencies. The originally logged copies were inaccessible, and local
+reference versions differ; no silent substitution is permitted. Prepare and review
+the isolated source candidate before building/running. No evaluator/build/producer
+or NSE execution has occurred yet. Original raw/reference trees stay unchanged.
 
 ## Scientific decisions and current evidence gates
 

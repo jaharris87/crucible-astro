@@ -38,7 +38,7 @@ Keep phase, dependency, status and linked PR fields current at issue/PR handoffs
 | --- | --- | --- | --- |
 | [S01 #10 — Meaning/provenance and data card](https://github.com/jaharris87/crucible-astro/issues/10) | B04/0B complete; D-002 | Independent review passed; [findings/acceptance packet](phase1/S01_AUDIT.md), [living raw card](data-cards/genesis_datacard_ccsn_raw_candidate.md); limited ingestion scope accepted; original input recovery active | [Draft PR #12](https://github.com/jaharris87/crucible-astro/pull/12) |
 | [S02 #11 — Quarantined reader/extraction](https://github.com/jaharris87/crucible-astro/issues/11) | Limited three-pair S01 ingestion semantics accepted; physical gates remain open | Reader/local extraction candidate; independent review passed, 86 tests and CI pass; no training/reference eligibility | [Draft PR #13](https://github.com/jaharris87/crucible-astro/pull/13) |
-| [RHS diagnostic proposal #14](https://github.com/jaharris87/crucible-astro/issues/14) | S01 evidence; separate execution authority and exact EOS/build dependencies | Human decision D-017 pending; three-state offline RHS comparison only; original EOS sources inaccessible to current login | None |
+| [RHS diagnostic proposal #14](https://github.com/jaharris87/crucible-astro/issues/14) | S01 evidence; separate execution authority and exact EOS/build dependencies | D-017 authorized; isolated evaluator preparation before source review/build/run, with maintainer-selected EOS | None |
 | S03 — Coverage/benchmark/partitions | S01/S02; D-004/D-005/D-007 | Not started; parent mapping, conditioning, reference/tolerances and human benchmark acceptance pending | None |
 
 ## Scientific progress

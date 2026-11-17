@@ -127,9 +127,10 @@ dataset. Card changes are versioned in Git; raw originals stay unchanged.
 ## Governed Use
 
 The maintainer authorized Phase 1 inspection and portable documentation in the
-[execution record](../PHASE_1_AUTHORITY.md). Producer execution/regeneration,
-reference modifications, bulk conversion, data publication and training remain
-outside that instruction. Required dataset ownership/reuse and institutional
+[execution record](../PHASE_1_AUTHORITY.md). Subsequent D-017 permits only a
+reviewed isolated three-state RHS diagnostic, not data regeneration. Broader
+producer execution, original reference modifications, bulk conversion, data
+publication and training remain outside scope. Required dataset ownership/reuse and institutional
 release evidence is unknown, not presumed denied or approved. No additional
 regulatory classification is inferred here.
 

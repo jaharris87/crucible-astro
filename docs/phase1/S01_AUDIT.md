@@ -199,8 +199,10 @@ patch/build/environment receipts,
 submission/output association and slab-to-parent/tracer mapping. Prefer recovery
 over regeneration. If unavailable, a separate producer-execution proposal must
 name a tiny reproducible case, source/input digests, build/configuration, accepted
-state RHS reevaluation, solver-refinement comparison and evidence to retain. Such
-execution is **not authorized** and cannot yet be made executable without inputs.
+state RHS reevaluation, solver-refinement comparison and evidence to retain. The subsequent D-017 decision separately authorizes [issue #14](https://github.com/jaharris87/crucible-astro/issues/14)
+for an isolated reviewed three-state offline RHS diagnostic with maintainer-selected
+EOS dependencies; no such build/run has occurred. It is not trajectory regeneration
+or scientific reference/tolerance acceptance.
 
 The [raw card](../data-cards/genesis_datacard_ccsn_raw_candidate.md) records this
 qualification limit. A training-friendly derived dataset should have its own

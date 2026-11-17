@@ -55,3 +55,21 @@ acceptance, reviewed merges and integration checks satisfy the actual exits.
 Missing provenance, semantics, acceptance or merge is **not completion**. Preserve
 useful partial evidence and present exact gaps and recommended actions. Stop after
 Phase 1; NS1–NS3 and scientific accuracy/speedup are not implied by software checks.
+
+## Subsequent bounded diagnostic authority (D-017)
+
+On 2026-11-17 the maintainer selected “Authorize this three-state diagnostic
+(Recommended)” for [proposal #14](https://github.com/jaharris87/crucible-astro/issues/14).
+This explicitly extends the original no-producer-execution boundary only for
+preparing/reviewing an isolated Fortran evaluator, recovering/fingerprinting its
+build inputs, and building/executing fresh RHS at exactly three preserved ordinary
+states (audit pair B ordinals 1, 676, 741). The maintainer identified the upstream
+XNet Starkiller-Helmholtz sources as the EOS dependency to use; pin their actual
+fingerprints without claiming historical generating provenance.
+
+Review the source candidate before its build/run. Stop on unavailable dependencies,
+changed physics, mismatched inputs or nonfinite results. Preserve all 160 stored/fresh
+components, state identity and build/diagnostic evidence. No integration rerun,
+NSE solve, training, bulk regeneration, deployment, merge or scientific tolerance
+acceptance is authorized by this extension. Original reference/data trees stay
+unchanged; only the isolated diagnostic copy may be prepared.

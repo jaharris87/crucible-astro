@@ -17,9 +17,10 @@ were stale; dated reports and original review records remain preserved.
 
 The maintainer explicitly authorized Phase 1 on 2026-11-17; see the
 [execution record](PHASE_1_AUTHORITY.md) and D-016 in [DECISIONS](DECISIONS.md).
-Every merge still needs a concrete human decision. No producer execution,
-reference edits, bulk conversion, training/model development, paid service or
-deployment is authorized. Stop after Phase 1. D-013 removes resource caps and
+Every merge still needs a concrete human decision. D-017 separately permits only the reviewed three-state offline RHS diagnostic
+in [issue #14](https://github.com/jaharris87/crucible-astro/issues/14). Broader
+producer execution, original reference edits, bulk conversion, training/model
+development, paid service and deployment remain unauthorized. Stop after Phase 1. D-013 removes resource caps and
 per-command accounting; D-012/D-015 model policy and scientific gates remain.
 
 [S01 issue #10](https://github.com/jaharris87/crucible-astro/issues/10) covers the
@@ -66,14 +67,13 @@ simulation independence or representative NS1/NS3 coverage is established.
 The maintainer accepted only the three-pair quarantined ingestion semantics
 before S02 and supplied the original Perlmutter location (kept local). Bounded
 read-only inventory recovered input symlink locations and small metadata/network
-candidates; the extrema symlink is dangling but not consumed by the inspected runtime. No producer execution was requested
-or performed. [S01](phase1/S01_AUDIT.md) tracks subsequent recovery limits.
-[Proposal #14](https://github.com/jaharris87/crucible-astro/issues/14) requests a
-three-state offline accepted-output RHS comparison. D-017 execution authorization
-was presented interactively and remains pending. The original external EOS source
-files are inaccessible to the available login; two local reference versions differ,
-so no substitution is authorized. Request original readable copies/version evidence
-before any build/run. No producer execution has occurred.
+candidates; the extrema symlink is dangling but not consumed by the inspected runtime. No producer execution was performed. [S01](phase1/S01_AUDIT.md) tracks subsequent recovery limits.
+[Diagnostic #14](https://github.com/jaharris87/crucible-astro/issues/14) is now
+explicitly authorized by D-017: isolated reviewed evaluator, then three-state
+build/RHS evaluation only. The maintainer selected the upstream XNet EOS sources;
+their local fingerprints are retained without claiming historical equivalence.
+An isolated Sol High worker is preparing the source candidate; review precedes
+any build/run. No producer execution has occurred.
 D-004/D-005/D-007 remain open physical/benchmark contracts; no threshold or energy
 choice is forced from structural observations. Missing semantics/provenance is
 not successful completion. If recovery fails, prepare a concrete separately
