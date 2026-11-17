@@ -80,3 +80,17 @@ Per lead instruction, separately reserve **120 CPU-seconds** for lead source/doc
 remote reconciliation: **1,866 charged+reserved / 7,200**. No CI or independent
 review reservation is included. The next CI launch must be separately reserved
 and its predecessor reconciled. Human merge/merged-result checks remain pending.
+
+## B04 draft candidate and review reservations
+
+Lead charges the reserved **120 CPU-seconds** for reconciliation, source/evidence
+inspection, documentation/link checks, push/PR/CI receipt and checkpoint overhead,
+using measured CLI CPU where available and a conservative local fallback envelope.
+Current **1,866 charged**. Before draft creation reserve **2,400 CPU-seconds**
+for one 600-second × 4-CPU CI job and **120 CPU-seconds** for the single fresh
+independent B04 review: **1,866 charged + 2,520 reserved = 4,386/7,200**.
+Reconcile actual full job elapsed × reported CPUs before any subsequent run.
+The [live closeout record](https://github.com/jaharris87/crucible-astro/issues/4#issuecomment-6960154582)
+records final CI/review usage, merge reservation and final budget without treating
+this pre-merge snapshot as completion. No repeat of already-passing local software
+tests is needed for these reporting-only changes.

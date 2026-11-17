@@ -4,7 +4,7 @@ Maintainer adopted the workflow and concise root guidance on 2026-11-17. These a
 
 ## Active root guidance
 
-The reviewed draft was adopted and condensed into [root AGENTS.md](../AGENTS.md) during the maintainer-directed transition (D-010). It is the active entry point; the original draft is retained in the [historical archive](TRANSITION.md#historical-review-preservation), rather than duplicated as competing policy here. Bootstrap will add verified environment/check commands when they exist.
+The reviewed draft was adopted and condensed into [root AGENTS.md](../AGENTS.md) during the maintainer-directed transition (D-010). It is the active entry point; the original draft is retained in the [historical archive](TRANSITION.md#historical-review-preservation), rather than duplicated as competing policy here. Verified environment/check commands are in [CONTRIBUTING](../CONTRIBUTING.md).
 
 For work after Phase 0B use the canonical [model selection and escalation policy](WORKFLOW.md#model-selection-and-escalation), accepted D-012. Current Phase 0B assignments remain unchanged.
 
