@@ -1,0 +1,31 @@
+name: Bounded change
+description: Define one change and its acceptance, evidence, budget and human gates.
+body:
+  - type: textarea
+    id: scope
+    attributes:
+      label: Problem, scope and dependencies
+      description: Name the governing issue/phase/milestone, dependencies and their status, deliverable, and explicit non-goals.
+    validations:
+      required: true
+  - type: textarea
+    id: acceptance
+    attributes:
+      label: Observable acceptance and evidence
+      description: Specify independently observable outcomes, intended negative controls, evidence to retain, and scientific limits or decisions if relevant.
+    validations:
+      required: true
+  - type: textarea
+    id: resources
+    attributes:
+      label: Risks, budget and stopping rules
+      description: Name risk viewpoints, numeric compute/memory/scratch limits, review allowance, estimate/accounting plan and stop conditions. Phase 0B shares D-011; it does not receive a new budget per issue.
+    validations:
+      required: true
+  - type: textarea
+    id: execution
+    attributes:
+      label: Candidate, checks, review and human handoff
+      description: Record PR link, exact head/base SHAs, actual commands/results/usage and gaps. Preserve original finding IDs and dispositions with repair evidence. State required human decisions, next action and owner. Follow docs/WORKFLOW.md; no merge by silence.
+    validations:
+      required: true
