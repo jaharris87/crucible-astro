@@ -199,8 +199,19 @@ inputs. Its selected `actual_eos.F90` and `eos_type.F90` fingerprints are retain
 locally; selection defines this new diagnostic reference, not proof of historical
 generating dependencies. The originally logged copies were inaccessible, and local
 reference versions differ; no silent substitution is permitted. Prepare and review
-the isolated source candidate before building/running. No evaluator/build/producer
-or NSE execution has occurred yet. Original raw/reference trees stay unchanged.
+the isolated source candidate before building/running. Execution was pending at
+adoption; the authorized three-state diagnostic has since completed as recorded
+in PR #16. No original trajectory regeneration or NSE solve occurred, and no
+further evaluations are authorized by D-017. Original raw/reference trees stay unchanged.
+
+### Proposed next reference-label scope
+
+The [147-record proposal](phase1/NEXT_RHS_SUBSET.md) separates scientific task/
+exclusion acceptance from additional execution permission. D-017 is exhausted by
+its three completed evaluations. No broader label generation or qualification is
+implied. The maintainer's subsequent [parent/role attribution](phase1/PARENT_PROVENANCE.md)
+provides one identified simulation and production roles, not dataset licensing or
+historical build proof. D-004/D-005/D-007 remain open for the named qualified scope.
 
 ## Scientific decisions and current evidence gates
 
