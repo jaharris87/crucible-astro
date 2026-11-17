@@ -81,6 +81,36 @@ These are planning choices, not authorization to execute Phase 0B. Owner/visibil
 
 **Why / impact:** original B04 proposal limited its verification; the proposed extension makes the complete bootstrap bounded while clarifying memory/scratch scope. Approval adopts these limits, not permission to execute Phase 0B. Evidence: [B04](BACKLOG.md#b04--demonstrate-the-complete-cycle-with-fixture-manifest-species-order-validation), [WORKFLOW](WORKFLOW.md#review-record-and-practical-completion).
 
+### Decision D-012: Model selection and exceptional escalation
+
+**Status:** accepted by maintainer `jaharris87` on 2026-11-17, effective **after
+Phase 0B**. [Accepted scope recorded in B03](https://github.com/jaharris87/crucible-astro/issues/3#issuecomment-6959269014).
+The current Phase 0B orchestrator/agents and executed assignments continue unchanged.
+
+**Decision:** adopt the eight-point canonical [model selection and escalation
+policy](WORKFLOW.md#model-selection-and-escalation): `gpt-6.1-sol` High is the
+advanced default, including science and independent review; `gpt-6-luna` High
+serves narrow mechanical work. Sol must be pinned explicitly, with alternatives
+reported before any unavailable-model substitution. Astra requires a substantial
+expected benefit, a pre-escalation question/insufficiency/deliverable/scope/effort/
+stop record, and lead verification/integration plus outcome/uncertainty. It is
+neither routine reviewer nor automatic final check. Focused Sol or increased
+effort is considered when useful without mandatory wasteful retries. Justified
+escalation within existing authority needs no per-choice approval and grants no
+larger scope/budget or altered human authority.
+
+**Supersedes:** the active WORKFLOW assignment of difficult scientific/design
+synthesis and independent critique routinely to Astra High, for work after Phase
+0B. Historical Phase 0A Astra assignments/reviews, executed PHASE_0B_LAUNCH and
+archives remain accurate and unchanged. Future prompts reference current policy.
+
+**Implementation/acceptance:** canonical WORKFLOW, concise automatically loaded
+AGENTS guidance, explicit model/effort/escalation/outcome brief fields and HANDOFF
+visibility are included in B03. Fresh `gpt-6.1-sol` High review of the exact pushed
+B03 candidate, dispositions, human merge and integration remain required. No
+global settings/tooling changes or Phase 1 authority. Phase 0B closeout must list
+these files, canonical policy, review/merge status and availability limitations.
+
 ## Decisions prepared but not yet ripe for a request
 
 | ID / status | Question and recommendation | Evidence needed / gate / owner |
@@ -93,6 +123,8 @@ These are planning choices, not authorization to execute Phase 0B. Owner/visibil
 | D-009 deferred active learning | Should adaptive reference generation become a later CRUCIBLE extension? Recommend separate scoped proposal only after benchmark and uncertainty/selection validation work. | Locked benchmark, nonadaptive baseline, domain/cost/stopping/human gates; future owner |
 
 ## Answer/change log
+
+- 2026-11-17: Maintainer accepted D-012 through the linked B03 scope addition, effective after Phase 0B; current agents continue unchanged. Canonical policy replaces future routine Astra assignments without rewriting historical execution.
 
 - 2026-11-17: Maintainer explicitly answered “Confirm all three; proceed with public publication” to the prepared D-001 checkpoint: `Copyright (c) 2026 UT-Battelle, LLC.`, no additional government-rights/institutional notice required, and portable documentation plus original Phase 0B bootstrap code cleared for public release.
 

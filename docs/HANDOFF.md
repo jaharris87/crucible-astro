@@ -1,21 +1,43 @@
 # CRUCIBLE Phase 0B handoff
 
-Date: 2026-11-17. **Phase 0B authorized and active; B01 complete; B02 in draft review.** Native goal is active in chat `01a1eafe-4230-7b81-a3ba-f7e0a122bd1b` and remains incomplete until all phase exits hold. No Phase 1, real-data ingestion or model work is authorized.
+Date: 2026-11-17. **Phase 0B active; B01/B02 complete; B03 in draft PR #6;
+B04 not implemented.** Native goal remains active and incomplete until all exits
+hold. No Phase 1, real-data ingestion or model work is authorized.
 
 ## Authority and publication
 
-The maintainer invoked the launch prompt and confirmed D-001: `Copyright (c) 2026 UT-Battelle, LLC.`, no additional government-rights/institutional notice required, and release readiness for the portable documentation and original Phase 0B bootstrap code. Owner/public/BSD-3-Clause, D-010 workflow and D-011 budgets are accepted. D-002/D-003 retain CCSN-first and both targets starting with qualified instantaneous RHS; D-004–D-009 remain open and do not block synthetic B04. See [DECISIONS](DECISIONS.md).
-
-[Public repository](https://github.com/jaharris87/crucible-astro), `main`, BSD-3-Clause and admin access verified by GitHub API. B01's explicitly authorized one-time seed is `c3846a4660e5915fe56c115202d9b1581a2319fd`, containing exactly [22 allowlisted files](PUBLIC_SEED.txt). [B01 closeout](https://github.com/jaharris87/crucible-astro/issues/1#issuecomment-6958852938) records checks and the exception. No later direct-to-main action is authorized by that exception.
+D-001 public `jaharris87/crucible-astro`, BSD-3-Clause, 2026 UT-Battelle, LLC notice,
+no additional institutional/government-rights notice and seed/bootstrap release
+readiness were confirmed by the maintainer. D-010 workflow and D-011 budget apply.
+D-002/D-003 retain CCSN-first and both targets starting with qualified instantaneous
+RHS; D-004–D-009 remain open and do not block synthetic B04. See [DECISIONS](DECISIONS.md).
+B01’s one-time seed exception does not authorize later direct-to-main changes.
 
 ## Actual work and candidates
 
-- [B02 issue #2](https://github.com/jaharris87/crucible-astro/issues/2), [draft PR #5](https://github.com/jaharris87/crucible-astro/pull/5), branch `bootstrap/b02-package`, base `c3846a4660e5915fe56c115202d9b1581a2319fd`. The PR record holds the exact current head/base and subsequent independent findings/dispositions. Initial implementation snapshot `c579b599347470be2c6d396a0a20e0e7d5e1c922` passed its software controls. Initial independent review of `44326c682100572b79774dab67bee4ff5173584d` found B02-R1: installed distribution omitted LICENSE. The [original finding and disposition](https://github.com/jaharris87/crucible-astro/pull/5#issuecomment-6959156535) are preserved. Repaired source `29b87bc9ee43564fc39b6ac4fa0e6a05f36ac273` passes strict clean noneditable installation, 2 tests without skips, lint/format and full installed-license/metadata/RECORD verification; the old install fails the new regression. [Evidence](bootstrap/B02-EVIDENCE.md) binds code/config/lock/test hashes. Later documentation reconciliation changes no executable inputs. Focused independent repair verification and human merge remain pending at this snapshot; the live PR discussion carries subsequent outcome and exact candidate identities.
-- B02 uses Python 3.12.9, uv 0.10.11, one lock, pytest/Ruff and zero runtime dependencies. [Reproduction commands](../CONTRIBUTING.md). Observed test RSS stayed below 1 GiB; macOS rejected the attempted hard memory limit. Clean reproduction reused downloaded dependencies. Other platforms are unverified. Normal editable setup passes import/metadata but explicitly skips the copied-license inventory check because this uv backend does not copy license files for editable installs. Strict noneditable acceptance passes both tests; B03 CI will use noneditable installation.
-- [B03 issue #3](https://github.com/jaharris87/crucible-astro/issues/3): isolated local preparation on `bootstrap/b03-ci`, commit `b03c0d5968a80095a6bd0c0c1e5ab9e4b8e43850`, from the seed base. Managed worktree name `b03-ci-preparation` is attached to this chat. Four files only: workflow, issue form, PR template and preparation record. YAML/configuration, shell syntax and whitespace checks passed; no test/CI run, push, PR or protection change. Reconcile onto merged B02 before live work. Proposed `fast-checks` is not yet an observed or required check.
-- [B04 issue #4](https://github.com/jaharris87/crucible-astro/issues/4): [contract investigation](https://github.com/jaharris87/crucible-astro/issues/4#issuecomment-6958940130) recorded; no validator/test/mutation implementation. Depends on integrated B02/B03.
+- [B01 #1](https://github.com/jaharris87/crucible-astro/issues/1) is complete at
+  seed `c3846a4660e5915fe56c115202d9b1581a2319fd`; [closeout](https://github.com/jaharris87/crucible-astro/issues/1#issuecomment-6958852938).
+- [B02 #2](https://github.com/jaharris87/crucible-astro/issues/2) is closed after
+  human `jaharris87` merged [PR #5](https://github.com/jaharris87/crucible-astro/pull/5)
+  at `5d81381ddfde28cb6f86980e616d7c5065bae768`, tree-identical to reviewed
+  `e84fce0`. [Merged integration receipt](https://github.com/jaharris87/crucible-astro/pull/5#issuecomment-6959449805)
+  records locked noneditable setup, lint/format and 2 tests passing.
+  Initial B02-R1 (missing installed LICENSE) and its [disposition](https://github.com/jaharris87/crucible-astro/pull/5#issuecomment-6959156535)
+  remain preserved; focused verification passed before merge. [B02 evidence](bootstrap/B02-EVIDENCE.md)
+  retains the earlier negative controls and installed-distribution contract.
+- B02 uses Python 3.12.9, uv 0.10.11, one lock, pytest/Ruff, zero runtime
+  dependencies. Normal editable setup checks metadata but skips copied-license
+  inventory because uv omits those files there; noneditable acceptance passes
+  both tests without skips. B03 CI uses noneditable setup. macOS hard memory
+  enforcement was unavailable; Linux CI controls ran in B03; measured details are in its evidence.
+- [B03 #3](https://github.com/jaharris87/crucible-astro/issues/3), [draft PR #6](https://github.com/jaharris87/crucible-astro/pull/6), branch `bootstrap/b03-ci`, managed worktree `b03-ci-preparation`, base `5d81381ddfde28cb6f86980e616d7c5065bae768`. [Evidence](bootstrap/B03-EVIDENCE.md) records configuration, reporting, D-012 and the intended failing draft CI run. The temporary probe is removed; corrected [CI run 44167409103](https://github.com/jaharris87/crucible-astro/actions/runs/44167409103) passed at `d17825b`. This subsequent documentation receipt also receives its required final-head check; fresh review remains required before human handoff. The PR discussion/checks bind subsequent outcomes to exact head/base/tested merge identities. `main` protection is configured and read back; see below.
+- [B04 #4](https://github.com/jaharris87/crucible-astro/issues/4) has a
+  [contract investigation](https://github.com/jaharris87/crucible-astro/issues/4#issuecomment-6958940130)
+  only; no validator/test/mutation implementation. It awaits integrated B03.
 
-All Sol workers explicitly used `gpt-6.1-sol`, high reasoning; no substitution. Implementation/self-review is not fresh independent PR review. No human merge approval is claimed.
+Current Sol workers explicitly use `gpt-6.1-sol` High without substitution.
+B03 implementation/self-review is not independent review. No B03 human merge
+authority has been delegated.
 
 ## Progress, reporting and history
 
@@ -25,10 +47,27 @@ All 21 startup files, original Phase 0A review/inventories/archive and transitio
 
 ## Budget, limitations and next authorized action
 
-See [verification ledger](VERIFICATION.md) for measured charges, pre-run reservations and the 7,200 CPU-second aggregate cap. No CI has run. Repository Actions defaults are read-only and cannot approve PRs; `main` is currently unprotected. B03 must verify live draft CI failure/pass, effective permissions and actual protection settings before its acceptance.
+[Verification ledger](VERIFICATION.md): 1,386 CPU-seconds charged (both completed CI jobs: 44 + 72, plus 120 for lead checks/receipt overhead); 2,400 is reserved for the final documentation-receipt CI job and 120 for fresh B03 review. No subsequent job is launched without reconciling its predecessor. Each job is capped at 10 minutes; test processes use a 1 GiB address-space limit and scratch a 100 MiB tmpfs. First-run measured peak RSS was 40,980 KiB and scratch use 84 bytes.
 
-Next: exact-head/base focused read-only verification of repaired B02 PR #5 and introduced risks, preserve its disposition, then make ready and present the concrete human merge checkpoint. The initial fresh review is complete and its finding remains a blocker until focused verification passes. Do not merge without the maintainer merging or explicitly delegating that exact candidate. After the human decision, verify the merged result and close #2; then integrate B03 and subsequently B04 through their own gates. Continue independent preparation while a checkpoint is pending. Phase 0B cannot be marked complete while any human merge, integration check or other exit is missing.
+Verified protection: `fast-checks` from GitHub Actions app 15368 required on an up-to-date PR; administrators enforced; stale approvals dismissed; conversations resolved; force pushes/deletions blocked. Zero separate human approval count follows the sole-maintainer provision, while exact independent review and explicit human merge remain required. Actions default read/no approval and auto-merge false. [Canonical protection record](WORKFLOW.md#bootstrap-protection).
 
-## Accepted policy queued for B03 closeout
+Next: verify the required check on this final documentation-receipt head, then dispatch a fresh `gpt-6.1-sol` High reviewer covering workflow and D-012 policy, preserve findings/dispositions and focused fixes if needed, then present the human merge checkpoint. This document records the passed functional candidate and is itself subject to final-head CI; [PR #6](https://github.com/jaharris87/crucible-astro/pull/6) is the source of record for subsequent live outcomes and exact final SHAs. Only after the human merge and merged-result checks can B03 close and B04 proceed. Phase 0B remains incomplete.
 
-The maintainer added a model-selection policy effective **after Phase 0B**, recorded in [B03 scope addition](https://github.com/jaharris87/crucible-astro/issues/3#issuecomment-6959269014), planned decision D-012. B03 will add the canonical WORKFLOW section, concise AGENTS link, explicit model/effort/escalation brief fields, decision and next-orchestrator handoff. A fresh `gpt-6.1-sol` High reviewer must cover that policy change; no policy-review or merge completion is claimed here. Current agents/orchestrator continue unchanged. Historical launch/archives/reviews remain accurate; no global settings/tooling changes or Phase 1 authority.
+## Future orchestrator: accepted D-012 after Phase 0B
+
+The canonical [Model selection and escalation](WORKFLOW.md#model-selection-and-escalation)
+section implements all eight points of [accepted D-012](DECISIONS.md#decision-d-012-model-selection-and-exceptional-escalation).
+It takes effect **after Phase 0B**; current orchestrator/agents continue unchanged.
+Automatically loaded AGENTS links it; AGENT_BRIEFS records explicit model/effort,
+escalation justification, bounded deliverable/stop and lead integration/outcome.
+Sol High is the advanced default including science/review, Luna High serves narrow
+work, and Astra is exceptional with no per-choice approval within existing
+scope/resources and no extra authority/budget. Historical launch/archive/review
+assignments are preserved. No global settings or tooling was changed.
+
+B03’s fresh `gpt-6.1-sol` High review, human merge and integration are pending.
+At Phase 0B closeout, list AGENTS.md, docs/WORKFLOW.md, docs/AGENT_BRIEFS.md,
+docs/DECISIONS.md and this handoff, the canonical section, exact review/merge
+status and model availability limitations. No model unavailability/substitution
+has been reported in this pass; no Astra invocation occurred. This policy grants
+no Phase 1 authority.

@@ -6,9 +6,46 @@ Status: ongoing workflow adopted by the maintainer on 2026-11-17 (D-010), with t
 
 One orchestrator owns decomposition, dependency order, integration and evidence completeness. Bounded workers get an issue/subtask, inputs, acceptance, exclusions, writable area, budget, stopping condition and handoff format. Start with at most three concurrent specialists; add concurrency only when independent work warrants it and resources permit. Use isolated worktrees/checkouts for concurrent implementation, each on its own issue branch, and serialize changes to shared contracts. Read-only investigators/reviewers need no writable branch. Never share a mutable implementation checkout across concurrent workers.
 
-Use existing Codex workers, local tools, issues and PRs; no custom agent server or mandatory external service. Match expertise to risk: substantive code/workflow investigation uses explicit `gpt-6.1-sol` with high reasoning effort (no GPT-5.6 Sol or silent substitution; report available alternatives first if unavailable); difficult scientific/design synthesis or independent critique uses Astra High; narrow inventory/mechanical checking can use Luna High. Record explicit model/reasoning choices and any substitution; no worker is needed merely to fill a role. Model branding does not establish independence or validity.
+Use existing Codex workers, local tools, issues and PRs; no custom agent server or mandatory external service. Record explicit model/reasoning choices and any substitution; no worker is needed merely to fill a role. Apply [model selection and escalation](#model-selection-and-escalation) for work after Phase 0B. Existing Phase 0B assignments continue unchanged.
 
 Before resuming, read the issue, decision register, current handoff, candidate identity and relevant experiment records. A chat summary or agent memory is not authoritative project state. The orchestrator records completed work, actual checks, artifacts, remaining work/blockers, decisions, and the next authorized action after each substantive task. A worker's assertion is verified against evidence before becoming an accepted fact.
+
+## Model selection and escalation
+
+Accepted D-012 on 2026-11-17, effective **after Phase 0B**. The current Phase 0B
+orchestrator and agents continue unchanged. This policy supersedes the earlier
+routine Astra High assignment for difficult scientific/design synthesis and
+independent critique. Executed launch prompts, archives and historical review
+assignments remain historical evidence; future briefs reference this section.
+
+1. `gpt-6.1-sol` is the default advanced model for orchestration, substantive
+   implementation, scientific reasoning and independent review; use high
+   reasoning effort by default.
+2. `gpt-6-luna` with high reasoning is suitable for narrow inventories,
+   straightforward extraction and mechanical checks.
+3. Explicitly pin Sol to `gpt-6.1-sol`. Do not use GPT-5.6 Sol or silently
+   substitute. If unavailable, report available alternatives before substituting.
+4. Astra is exceptional and bounded. State a concrete substantial expected
+   benefit, such as resolving a scientific inconsistency, difficult mathematics
+   or a consequential architectural disagreement.
+5. Before escalation to Astra, explain the question, why existing investigation
+   or Sol analysis is insufficient, and the expected deliverable, scope,
+   reasoning effort and stopping condition. Consider focused Sol work or
+   increased effort when useful without mandatory wasteful retries. Avoid
+   repeating completed investigations or supplying unnecessary context.
+6. Sol remains the normal lead. Return Astra findings for lead verification and
+   integration; record the resolution and remaining uncertainty.
+7. Astra is neither a routine reviewer nor an automatic final check. Fresh
+   context and evidence establish independence, not model expense.
+8. Justified escalation is permitted within existing scope and resource
+   authority without per-choice approval. It grants no broader scope or budget,
+   does not waive review/compute limits, and changes no human scientific or
+   merge authority.
+
+Record model, reasoning effort, escalation justification (or not applicable),
+expected deliverable/stop and actual outcome in the [briefs](AGENT_BRIEFS.md)
+and durable issue/PR evidence. No global settings or agent tooling changes are
+required. Model availability limitations must remain explicit.
 
 ## Governing issue through closeout
 
@@ -25,6 +62,21 @@ Before resuming, read the issue, decision register, current handoff, candidate i
 **Lifecycle reconciliation:** XNet uses draft PRs before explicit independent review; fTimer's native trigger and coverage workflows skip drafts [W1, W2]. CRUCIBLE uses draft PRs plus explicit reviewer dispatch and ordinary CI, with no copied ready-only routing. Phase 0B CI must run on draft PRs. If a later integration needs ready PRs, revise this single lifecycle and its templates together in a governing issue; do not retain both rules. Do not copy XNet's mirror/development branch structure or fTimer's PAT/label/queue system.
 
 Where GitHub permissions/plan support it, propose PR-required protection, named required fast checks, and stale-approval dismissal. Verify actual settings in bootstrap; these controls support but do not replace explicit exact-SHA records or human scientific judgment. GitHub documents [stale review and latest-push controls](https://docs.github.com/en/repositories/configuring-branches-and-merges-in-your-repository/managing-protected-branches/about-protected-branches). If a single-maintainer repository cannot require a distinct human approval, keep the maintainer merge record and independent agent evidence; do not pretend an agent comment is a GitHub human approval or silently bypass an unmet required check.
+
+### Bootstrap protection
+
+Verified during B03 on 2026-11-17: `main` requires a PR and the named
+`fast-checks` check from GitHub Actions app 15368, with strict up-to-date checks
+and administrator enforcement. Stale approvals are dismissed, conversations
+must be resolved, force pushes/deletion are blocked, and auto-merge is disabled.
+The repository has one human maintainer; zero separate approving reviews and no
+distinct latest-push approval are required by GitHub. The adopted single-maintainer
+provision still requires fresh exact-SHA independent agent evidence and an explicit
+human merge decision; an agent comment is not a human approval. See [B03 evidence](bootstrap/B03-EVIDENCE.md)
+and [PR #6](https://github.com/jaharris87/crucible-astro/pull/6) for actual readback
+and check identities. Preserve stronger controls if settings change; report any
+unavailable control or consequential weakening before proceeding. No unmet check
+may be bypassed.
 
 ## Proportionate risk review
 
