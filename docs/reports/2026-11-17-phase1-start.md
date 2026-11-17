@@ -34,7 +34,8 @@ rights/provenance explicitly. Dataset publication is not authorized by its publi
 card. A derived training-friendly dataset will have its own linked card/version.
 
 The maintainer accepted a small quarantined reader/local extraction, with every
-scientific training/reference flag false; S02 #11 is active in an isolated worktree.
+scientific training/reference flag false; S02 #11 has draft PR #13 in an isolated worktree (86 tests/CI pass; fresh review
+pending). Draft audit/card PR #12 is open; neither is human-merged.
 S01 #10 remains open. Scientific D-004/D-005/D-007 acceptance, qualified reference,
 benchmark grouping/tolerances, reviewed merges and integration checks remain ahead.
 S03 will not claim simulation-level independence from an unverified single-source

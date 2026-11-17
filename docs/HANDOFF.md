@@ -24,8 +24,8 @@ per-command accounting; D-012/D-015 model policy and scientific gates remain.
 
 [S01 issue #10](https://github.com/jaharris87/crucible-astro/issues/10) covers the
 bounded source/data audit and living data card. The clean initial base was
-`01f06d8`; branch `codex/phase1-s01-audit` holds current authoring. The maintainer accepted the quarantined three-pair S02 reader/extraction scope;
-[S02 #11](https://github.com/jaharris87/crucible-astro/issues/11) is active in an
+`01f06d8`; branch `codex/phase1-s01-audit` holds [draft audit/card PR #12](https://github.com/jaharris87/crucible-astro/pull/12). The maintainer accepted the quarantined three-pair S02 reader/extraction scope;
+[S02 #11](https://github.com/jaharris87/crucible-astro/issues/11) has [draft reader/extraction PR #13](https://github.com/jaharris87/crucible-astro/pull/13) in an
 isolated worktree, with all scientific eligibility false. S03 and final benchmark
 partitions remain gated; create its bounded milestone issue as prerequisites become concrete.
 
@@ -73,9 +73,13 @@ choice is forced from structural observations. Missing semantics/provenance is
 not successful completion. If recovery fails, prepare a concrete separately
 authorized tiny producer/accepted-state RHS check after its inputs are known.
 
-Continue independent authorized work: self-review and check the S01 documentation
-candidate, push/open a draft PR, then fresh read-only exact-head/base independent
-review and disposition. Present the concrete merge candidate only after required
+Continue independent authorized work: fresh read-only exact-head/base independent
+reviews of draft PRs #12/#13, then disposition/repair. S01 candidate CI passes
+42 tests; S02 candidate CI/local noneditable checks pass 86 tests. S02
+head is `fb19f592f0e84d5b97c974322f353b7e48efbf5f`, base `01f06d8`. Its
+local three-pair extraction and independent record oracles agree; all scientific
+eligibility remains false. Private output/receipt is in the worker's ignored
+`.local/s02/derived/three-pair-v0_1_0-final`, not a public dataset release. Present the concrete merge candidate only after required
 checks/review hold. Human scientific acceptance is a separate gate. Verify any
 human-approved merge and keep milestone/issues current. Phase 1 closes only when
 its actual roadmap exits, card, accepted data/benchmark scope, reviewed merges and

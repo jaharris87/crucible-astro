@@ -45,7 +45,12 @@ data custodian remain to be established; repository copyright/sponsorship cannot
 be substituted for dataset ownership. Small candidate control/network/mapping files were subsequently recovered from
 the maintainer-supplied original remote location. Initial composition/history
 targets exist there; an extrema link is dangling. Their historical run
-association remains unproven. The current bundled source is a modified
+association remains unproven. For one audited tracer, recovered initial abundances are all zero: the inspected
+source therefore uses NSE initialization even below its separate NSE-advance
+temperature threshold. Initial composition Ye agrees with the appended initial
+Ye, which differs from the history Ye. No initial NSE solve was reproduced.
+These are distinct source-conditioned quantities, not a fixed-Ye contract.
+The current bundled source is a modified
 XNet snapshot, not a proven generating build. See the [provenance gaps](../phase1/S01_AUDIT.md#producer-evidence-and-missing-associations).
 
 This portable card is authorized for public project documentation. Dataset
@@ -91,7 +96,7 @@ deposited heating or an instantaneous energy RHS. No raw data cleaning, physical
 conversion, clipping, producer execution or bulk extraction has been performed.
 
 Related software is the inspected XNet snapshot; the CRUCIBLE production reader
-is in an isolated S02 candidate, not integrated. The [audit](../phase1/S01_AUDIT.md) links source locations,
+is in [draft PR #13](https://github.com/jaharris87/crucible-astro/pull/13), not integrated. The [audit](../phase1/S01_AUDIT.md) links source locations,
 original scientific context and retained local manifests/oracles. There is no
 associated trained AI model. A [bounded derived-extraction proposal](../phase1/S02_EXTRACTION_PROPOSAL.md)
 describes a future HDF5/JSON artifact with raw-parent checksums, record identities,

@@ -14,7 +14,7 @@ provide the governing records. No additional project board is used.
 | --- | --- | --- | --- | --- |
 | 0A — Design | Reference investigation | Complete | [Review and disposition](REVIEW.md), [maintainer transition](TRANSITION.md) | None — documentation-only work |
 | 0B — Bootstrap | Authorization supplied; publication readiness for public content | Complete including audit #8 at `01f06d8`; [final closeout](https://github.com/jaharris87/crucible-astro/issues/4#issuecomment-6960154582) | [Milestone / B01–B04](https://github.com/jaharris87/crucible-astro/milestone/1) | [B02 PR #5](https://github.com/jaharris87/crucible-astro/pull/5), [B03 PR #6](https://github.com/jaharris87/crucible-astro/pull/6), [B04 PR #7](https://github.com/jaharris87/crucible-astro/pull/7), [audit PR #9](https://github.com/jaharris87/crucible-astro/pull/9) |
-| 1 — Data qualification | 0B complete; Phase 1 authorized; scientific contracts and provenance pending | S01 active; no qualified dataset | [Milestone #2](https://github.com/jaharris87/crucible-astro/milestone/2), [S01 #10](https://github.com/jaharris87/crucible-astro/issues/10) | None — audit candidate in preparation |
+| 1 — Data qualification | 0B complete; Phase 1 authorized; scientific contracts and provenance pending | S01 active; no qualified dataset | [Milestone #2](https://github.com/jaharris87/crucible-astro/milestone/2), [S01 #10](https://github.com/jaharris87/crucible-astro/issues/10) | [Draft audit/card PR #12](https://github.com/jaharris87/crucible-astro/pull/12) |
 | 2 — Full-state baseline | Qualified data and benchmark | Not started | [S04](BACKLOG.md#next-scientific-issues-draft-in-detail-only-after-their-prerequisites) | None |
 | 3 — Reduced dynamics | Reproducible baseline; method decision | Not started | [S05](BACKLOG.md#next-scientific-issues-draft-in-detail-only-after-their-prerequisites) | None |
 | 4 — Controlled comparison | Reduced-method evidence; authorized comparison scope | Not started | [S06](BACKLOG.md#next-scientific-issues-draft-in-detail-only-after-their-prerequisites) | None |
@@ -36,8 +36,8 @@ Keep phase, dependency, status and linked PR fields current at issue/PR handoffs
 
 | Work | Dependencies | Current status / next gate | PR |
 | --- | --- | --- | --- |
-| [S01 #10 — Meaning/provenance and data card](https://github.com/jaharris87/crucible-astro/issues/10) | B04/0B complete; D-002 | Active bounded audit; [findings/acceptance packet](phase1/S01_AUDIT.md), [living raw card](data-cards/genesis_datacard_ccsn_raw_candidate.md); limited ingestion scope accepted; original input recovery active | None — documentation candidate in preparation |
-| [S02 #11 — Quarantined reader/extraction](https://github.com/jaharris87/crucible-astro/issues/11) | Limited three-pair S01 ingestion semantics accepted; physical gates remain open | Active isolated implementation of [bounded proposal](phase1/S02_EXTRACTION_PROPOSAL.md); no training/reference eligibility | None |
+| [S01 #10 — Meaning/provenance and data card](https://github.com/jaharris87/crucible-astro/issues/10) | B04/0B complete; D-002 | Active bounded audit; [findings/acceptance packet](phase1/S01_AUDIT.md), [living raw card](data-cards/genesis_datacard_ccsn_raw_candidate.md); limited ingestion scope accepted; original input recovery active | [Draft PR #12](https://github.com/jaharris87/crucible-astro/pull/12) |
+| [S02 #11 — Quarantined reader/extraction](https://github.com/jaharris87/crucible-astro/issues/11) | Limited three-pair S01 ingestion semantics accepted; physical gates remain open | Reader/local extraction candidate; fresh review pending, 86 tests and CI pass; no training/reference eligibility | [Draft PR #13](https://github.com/jaharris87/crucible-astro/pull/13) |
 | S03 — Coverage/benchmark/partitions | S01/S02; D-004/D-005/D-007 | Not started; parent mapping, conditioning, reference/tolerances and human benchmark acceptance pending | None |
 
 ## Scientific progress

@@ -123,7 +123,26 @@ is not established as a runtime dependency.
 The initial statement that inputs are absent applies to the supplied
 local collection; recovery from the remote location is now active. A system-Python
 metadata read could not import h5py; it changed no inputs. Subsequent bounded
-reads use only an existing library/module, not the producer. Private remote paths,
+reads used Perlmutter's existing Python/h5py module, not the producer. Parent
+composition/history files were hashed remotely; only one tracer's selected input
+slices (about 0.63 MB) were retained locally, with their slice/hash recipe. The
+selected remote raw pair, control, executables and five inspected source files
+match the supplied local copies byte-for-byte. This corroborates current-file
+identity, not historical generation; optional remote Git inspection was refused
+by its ownership check and no remote setting was changed.
+
+For pair B, the original input has all native abundances zero and an appended
+initial Ye. Source `model_input_pdata.f90:591–596` therefore selects an NSE
+initialization fallback independently of the separate 8 GK NSE-advance threshold.
+Initial binary time/T9/density exactly match the selected history first frame;
+composition-derived Ye agrees with the appended initialization Ye, which differs
+from the history's first Ye. Preserve these distinct quantities; do not replace
+composition Ye with the history value or infer fixed Ye. Full initial NSE
+composition was not reproduced: no NSE solver/producer was executed. Zero input
+abundances mean this case supplies no measurement of ordinary truncation error.
+The selected history's extrapolation tau and inspected formula also corroborate
+its extension to final time 100; this is not reference-convergence evidence.
+The independent local recomputation is `.local/phase1-audit/compare_selected_input.py`. Private remote paths,
 submission/account details and recovered metadata remain local in
 `.local/phase1-audit/perlmutter-recovery/`; no producer execution, new run or
 scientific qualification is implied.
