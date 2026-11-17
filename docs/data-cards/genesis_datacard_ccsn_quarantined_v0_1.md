@@ -1,8 +1,10 @@
 # Datacard for the quarantined CCSN three-pair extraction
 
-Card version **0.1.0**, 2026-11-17. Local dataset ID
+Card version **0.2.0**, 2026-11-17. Local dataset ID
 `ccsn-three-pair-quarantined`, exploratory dataset version **0.1.0**.
 No public dataset release. **No qualified training or reference records.**
+The bounded artifact was actually extracted and checked; reader/card engineering
+integrated through [PR #13](https://github.com/jaharris87/crucible-astro/pull/13) at `099d21e`.
 
 Living narrative draft using the six adaptable capability sections of the official
 Genesis data-card template **v2.0.0**; see [released-template evidence](../phase1/GENESIS_GUIDANCE.md).
@@ -27,7 +29,10 @@ incomplete. No full YAML/schema conformance or machine validation is claimed.
 Purpose: make exactly the three audited binary/text pairs inspectable through a
 strict reader while preserving their scientific exclusions. Keywords: CCSN, XNet,
 quarantined ingestion, molar abundance, derivative provenance. This is purposive
-structural sampling, not representative coverage or a benchmark. The parent is
+structural sampling, not representative coverage or a benchmark. It contains
+1384 saved records: 3 initial, 1185 explicitly marked NSE and 196 other rows,
+all with scientific eligibility false. [Coverage/benchmark preparation](../phase1/BENCHMARK.md)
+reports observed T/rho ranges and the missing grouping/qualification gates. The parent is
 [ccsn-raw-candidate](genesis_datacard_ccsn_raw_candidate.md), with the
 [S01 audit](../phase1/S01_AUDIT.md) supplying bounded layout evidence.
 No model, measured scientific accuracy or speedup is associated with this dataset.
@@ -90,7 +95,8 @@ fitted, no split or final-test partition is embedded and no model is trained.
 S03 partitions need recovered grouping and their own acceptance; fitting later
 preprocessing must use training membership only. No scientific result is claimed.
 
-Change log: **0.1.0, 2026-11-17** — initial derived narrative card and bounded
-reader/extraction contract, prepared with `gpt-6.1-sol` High. This card describes
-the candidate artifact contract; live issue/PR retains actual extraction/check,
-review and human integration receipts. Scientific qualification and rights remain open.
+Change log: **0.2.0, 2026-11-17** — added actual bounded coverage/integration
+and S03 decision-sheet link; card version changes, dataset version stays 0.1.0.
+**0.1.0, 2026-11-17** — initial derived narrative card and bounded
+reader/extraction contract, prepared with `gpt-6.1-sol` High. The live issue/PR retains actual extraction/check, independent initial/freshness
+reviews, concrete delegated human merge and passing merged-result receipts. Scientific qualification and rights remain open.

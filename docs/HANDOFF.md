@@ -23,12 +23,23 @@ producer execution, original reference edits, bulk conversion, training/model
 development, paid service and deployment remain unauthorized. Stop after Phase 1. D-013 removes resource caps and
 per-command accounting; D-012/D-015 model policy and scientific gates remain.
 
-[S01 issue #10](https://github.com/jaharris87/crucible-astro/issues/10) covers the
-bounded source/data audit and living data card. The clean initial base was
-`01f06d8`; branch `codex/phase1-s01-audit` holds [draft audit/card PR #12](https://github.com/jaharris87/crucible-astro/pull/12). The maintainer accepted the quarantined three-pair S02 reader/extraction scope;
-[S02 #11](https://github.com/jaharris87/crucible-astro/issues/11) has [draft reader/extraction PR #13](https://github.com/jaharris87/crucible-astro/pull/13) in an
-isolated worktree, with all scientific eligibility false. S03 and final benchmark
-partitions remain gated; create its bounded milestone issue as prerequisites become concrete.
+[S01 #10](https://github.com/jaharris87/crucible-astro/issues/10) remains open for
+physical qualification. Its audit/card/authority PR #12 is integrated at
+`f4ff998`, with [human decision and integration](https://github.com/jaharris87/crucible-astro/pull/12#issuecomment-6962116315),
+42 local tests and merged CI passing. Quarantined reader/extraction
+[S02 #11](https://github.com/jaharris87/crucible-astro/issues/11) completed only its
+accepted engineering scope in PR #13 at `099d21e`: fresh initial/focused reviews,
+explicit conditional human delegation, unchanged-code proof, 86 local tests and
+[passing merged CI](https://github.com/jaharris87/crucible-astro/pull/13#issuecomment-6962235209).
+All scientific masks remain false. Primary main/noneditable checks and editable
+installation were synced to this source; the S02 worker artifact/recipe/checks
+were retained in primary ignored audit storage before worktree archival.
+
+[D-017/#14](https://github.com/jaharris87/crucible-astro/issues/14) has an isolated
+[PR #16 source candidate](https://github.com/jaharris87/crucible-astro/pull/16);
+review must pass before any Fortran build/evaluation. [S03 #15](https://github.com/jaharris87/crucible-astro/issues/15)
+is active for bounded [coverage/benchmark preparation](phase1/BENCHMARK.md).
+There are no scientific partition memberships or final-test authority.
 
 ## Findings and evidence
 
@@ -79,21 +90,16 @@ choice is forced from structural observations. Missing semantics/provenance is
 not successful completion. If recovery fails, prepare a concrete separately
 authorized tiny producer/accepted-state RHS check after its inputs are known.
 
-Fresh read-only exact-head/base independent reviews of PRs #12/#13 passed
-with no consequential findings. PR comments preserve original results/limits;
-only doc/status freshness updates follow for PR #12. Continue with final-candidate
-CI/freshness disposition and the concrete human merge checkpoint. S01 candidate CI passes
-42 tests; S02 candidate CI/local noneditable checks pass 86 tests. S02
-head is `fb19f592f0e84d5b97c974322f353b7e48efbf5f`, base `01f06d8`. Its
-local three-pair extraction and independent record oracles agree; all scientific
-eligibility remains false. Private output/receipt is in the worker's ignored
-`.local/s02/derived/three-pair-v0_1_0-final`, not a public dataset release. Present the concrete merge candidate only after required
-checks/review hold. Human scientific acceptance is a separate gate. Verify any
-human-approved merge and keep milestone/issues current. Phase 1 closes only when
-its actual roadmap exits, card, accepted data/benchmark scope, reviewed merges and
-integration checks hold.
-
+Next: independently review the exact evaluator source, then run only the
+three authorized states with full input/build/output binding and failure evidence.
+Complete S03 coverage/decision-sheet review while the parent/run/custodian questions
+are pending. No final split or tolerance is accepted. Any new source candidate
+merge requires a concrete human decision; the #13 delegation is exhausted by its
+completed merge. Keep milestone #2 and the native goal open through the actual
+scientific acceptance and reviewed integration exits.
 Assignments so far: read-only producer audit and official-card guidance research,
 both explicitly `gpt-6.1-sol` High, no substitution or Astra escalation. The lead
 integrates and verifies in the current Codex session; no global model/tooling
-settings changed. S02 implementation is explicitly `gpt-6.1-sol` High in a managed isolated worktree. Fresh exact-candidate PR reviews passed; see live PR records for final freshness and human merge checkpoints.
+settings changed. S02 implementation/reviews and D-017 source preparation are explicitly
+`gpt-6.1-sol` High in isolated/read-only workspaces as appropriate. See live PR
+records for exact candidates, findings, freshness and human merge checkpoints.

@@ -1,6 +1,6 @@
 # Datacard for the CCSN raw candidate collection
 
-Last updated: **2026-11-17**. Card version **0.1.0**, dataset local alias
+Last updated: **2026-11-17**. Card version **0.2.0**, dataset local alias
 `ccsn-raw-candidate`; no public dataset release/version has been established.
 **Living narrative draft; not qualified for training, reference evaluation or
 final-test use.** This card describes raw outputs, not a derived training dataset.
@@ -96,7 +96,7 @@ deposited heating or an instantaneous energy RHS. No raw data cleaning, physical
 conversion, clipping, producer execution or bulk extraction has been performed.
 
 Related software is the inspected XNet snapshot; the CRUCIBLE production reader
-is in [draft PR #13](https://github.com/jaharris87/crucible-astro/pull/13), not integrated. The [audit](../phase1/S01_AUDIT.md) links source locations,
+is in [merged PR #13](https://github.com/jaharris87/crucible-astro/pull/13), integrated as quarantined ingestion only. The [audit](../phase1/S01_AUDIT.md) links source locations,
 original scientific context and retained local manifests/oracles. There is no
 associated trained AI model. A [bounded derived-extraction proposal](../phase1/S02_EXTRACTION_PROPOSAL.md)
 describes a future HDF5/JSON artifact with raw-parent checksums, record identities,
@@ -147,7 +147,8 @@ Intended future use is a qualified instantaneous-RHS, full-state starting path
 prediction needs a separate interval/history contract. **Training, scientific
 evaluation and inference use are not qualified now.** No Phase 2 work is authorized.
 
-No benchmark membership, final-test use, preprocessing fit or numerical scientific
+The [S03 coverage/decision sheet](../phase1/BENCHMARK.md) reports observed ranges
+and grouping/eligibility gaps. No benchmark membership, final-test use, preprocessing fit or numerical scientific
 tolerance is accepted. Related tracers, snapshots and derived copies must stay
 together under a justified grouping rule. The number and identity of independent
 parent simulations remain unverified; if only one is established, any pilot must
@@ -155,7 +156,9 @@ be labeled within-simulation exploration. Sampling bias, unbound generating/hist
 conditions, NSE/initial placeholders, unmeasured RHS alignment and missing broader
 CCSN/NSM coverage prevent general scientific claims. Human review is required.
 
-Change log: **0.1.0, 2026-11-17** — initial raw-collection narrative card from
+Change log: **0.2.0, 2026-11-17** — linked the integrated quarantined
+extraction and S03 coverage/decision sheet; raw collection identity unchanged.
+**0.1.0, 2026-11-17** — initial raw-collection narrative card from
 the official released template; bounded audit and open rights/provenance gates.
 Prepared with Codex; source/guidance investigators explicitly `gpt-6.1-sol` High.
 No full machine validation or scientific acceptance yet; exact-candidate review
