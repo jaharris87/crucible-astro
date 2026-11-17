@@ -43,7 +43,7 @@ jobs:
           python-version: "3.12.9"
           enable-cache: false
       - name: Install locked environment
-        run: uv sync --locked
+        run: uv sync --locked --no-editable
       - name: Check lint and format
         run: |
           uv run --no-sync ruff check .

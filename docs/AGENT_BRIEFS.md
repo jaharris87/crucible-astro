@@ -6,10 +6,17 @@ Maintainer adopted the workflow and concise root guidance on 2026-11-17. These a
 
 The reviewed draft was adopted and condensed into [root AGENTS.md](../AGENTS.md) during the maintainer-directed transition (D-010). It is the active entry point; the original draft is retained in the [historical archive](TRANSITION.md#historical-review-preservation), rather than duplicated as competing policy here. Bootstrap will add verified environment/check commands when they exist.
 
+For work after Phase 0B use the canonical [model selection and escalation policy](WORKFLOW.md#model-selection-and-escalation), accepted D-012. Current Phase 0B assignments remain unchanged.
+
 ## Bounded worker brief
 
 ```text
 Task / governing issue / dependency state:
+Model / reasoning effort / availability or substitution:
+Model-policy reference: WORKFLOW.md#model-selection-and-escalation (D-012)
+Escalation justification or N/A: question, existing-analysis insufficiency, benefit
+Expected escalation deliverable / scope / effort / stop or N/A:
+Lead verification/integration / actual outcome / remaining uncertainty:
 Objective and observable acceptance:
 Scope / non-goals / relevant decision IDs:
 Inputs and exact revision/artifact identities:
@@ -27,6 +34,10 @@ Do not: modify other workers' areas, change authority, launch unbudgeted work,
 
 ```text
 Read-only review of governing issue [ID] and PR [URL].
+Model [explicit ID], reasoning effort [level], availability/substitution [record].
+Model policy: WORKFLOW.md#model-selection-and-escalation (D-012, after Phase 0B).
+Escalation [N/A or question, insufficiency, expected benefit/deliverable/scope/effort/stop].
+Outcome [lead verification/integration, resolution and remaining uncertainty].
 Candidate head [full SHA], base [full SHA]; playbook [revision].
 Acceptance/non-goals: [verbatim issue criteria or link].
 Risk viewpoints assigned: [minimum credible selection].
@@ -59,6 +70,9 @@ For Phase 0A only, a local documentation checksum inventory replaces PR/SHA beca
 
 ```text
 Prior [SHA] → replacement [SHA]; originating findings [IDs].
+Model / reasoning effort / availability: [explicit]. Model policy: D-012 link above.
+Escalation justification / bounded deliverable / effort / stop: [N/A or explicit].
+Lead verification/integration / actual outcome / remaining uncertainty: [record].
 Independently verify the stated fixes, their tests and material repair risks.
 Inspect the delta and relevant unchanged context. Confirm final-candidate
 coverage, or identify an additional risk requiring broader review. Preserve

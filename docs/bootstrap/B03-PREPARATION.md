@@ -1,5 +1,7 @@
 # B03 local CI and template preparation
 
+Historical first-pass record. Superseded current state/accounting: [B03 evidence](B03-EVIDENCE.md). The prior exclusion of unmeasured network waiting was incorrect; current accounting uses measured CPU or elapsed time × allocated cores.
+
 Date: 2026-11-17. Governing [issue #3](https://github.com/jaharris87/crucible-astro/issues/3),
 [backlog B03](../BACKLOG.md#b03--minimal-ci-issuepr-records-and-review-lifecycle),
 [workflow](../WORKFLOW.md) and D-011 apply. This is bounded local preparation by

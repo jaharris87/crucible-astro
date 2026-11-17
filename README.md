@@ -2,7 +2,7 @@
 
 **A framework for learning and reduced modeling of astrophysical reaction networks.**
 
-Repository: **[jaharris87/crucible-astro](https://github.com/jaharris87/crucible-astro), public, BSD-3-Clause**. Status: **Phase 0B active**, 2026-11-17. B01's documentation seed is published after confirmed copyright/release readiness. B02's minimal package is in [PR #5](https://github.com/jaharris87/crucible-astro/pull/5), awaiting independent review and a human merge decision. B03 is prepared locally; B04 is not implemented. No trained model or qualified dataset exists; scientific results are **not yet evaluated**. The native goal covers B01–B04 only.
+Repository: **[jaharris87/crucible-astro](https://github.com/jaharris87/crucible-astro), public, BSD-3-Clause**. Status: **Phase 0B active**, 2026-11-17. B01's documentation seed is published after confirmed copyright/release readiness. B01/B02 are complete; the maintainer merged the minimal package in [PR #5](https://github.com/jaharris87/crucible-astro/pull/5) at `5d81381ddfde28cb6f86980e616d7c5065bae768`, with [merged-result checks](https://github.com/jaharris87/crucible-astro/pull/5#issuecomment-6959449805). B03 CI/templates/reporting and the future model policy are active as a local candidate; no B03 PR exists yet. B04 is not implemented. No trained model or qualified dataset exists; scientific results are **not yet evaluated**. The native goal covers B01–B04 only.
 
 ## Charter
 
