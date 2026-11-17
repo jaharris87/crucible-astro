@@ -1,6 +1,6 @@
 # CRUCIBLE progress
 
-Updated 2026-11-17. **Phase 0A/0B complete; Phase 1 S01/diagnostic/S03 active; quarantined S02 integrated.**
+Updated 2026-11-17. **Phase 0A/0B complete; Phase 1 S01/S03 active; quarantined S02 and three-state diagnostic integrated.**
 [Phase 1 milestone #2 — Data qualification and benchmark definition](https://github.com/jaharris87/crucible-astro/milestone/2)
 tracks S01–S03 and justified Phase 1 issues as created. It stays open through
 scientific acceptance, reviewed human merges and passing integration checks.
@@ -14,7 +14,7 @@ provide the governing records. No additional project board is used.
 | --- | --- | --- | --- | --- |
 | 0A — Design | Reference investigation | Complete | [Review and disposition](REVIEW.md), [maintainer transition](TRANSITION.md) | None — documentation-only work |
 | 0B — Bootstrap | Authorization supplied; publication readiness for public content | Complete including audit #8 at `01f06d8`; [final closeout](https://github.com/jaharris87/crucible-astro/issues/4#issuecomment-6960154582) | [Milestone / B01–B04](https://github.com/jaharris87/crucible-astro/milestone/1) | [B02 PR #5](https://github.com/jaharris87/crucible-astro/pull/5), [B03 PR #6](https://github.com/jaharris87/crucible-astro/pull/6), [B04 PR #7](https://github.com/jaharris87/crucible-astro/pull/7), [audit PR #9](https://github.com/jaharris87/crucible-astro/pull/9) |
-| 1 — Data qualification | 0B complete; Phase 1 authorized; scientific contracts and provenance pending | S01 active; no qualified dataset | [Milestone #2](https://github.com/jaharris87/crucible-astro/milestone/2), [S01 #10](https://github.com/jaharris87/crucible-astro/issues/10) | [Merged audit/card PR #12](https://github.com/jaharris87/crucible-astro/pull/12) |
+| 1 — Data qualification | 0B complete; Phase 1 authorized; D-018/D-019 direction/contract accepted; qualification pending | Multi-trajectory audit active; no qualified dataset | [Milestone #2](https://github.com/jaharris87/crucible-astro/milestone/2), [S01 #10](https://github.com/jaharris87/crucible-astro/issues/10) | [Merged audit/card PR #12](https://github.com/jaharris87/crucible-astro/pull/12) |
 | 2 — Full-state baseline | Qualified data and benchmark | Not started | [S04](BACKLOG.md#next-scientific-issues-draft-in-detail-only-after-their-prerequisites) | None |
 | 3 — Reduced dynamics | Reproducible baseline; method decision | Not started | [S05](BACKLOG.md#next-scientific-issues-draft-in-detail-only-after-their-prerequisites) | None |
 | 4 — Controlled comparison | Reduced-method evidence; authorized comparison scope | Not started | [S06](BACKLOG.md#next-scientific-issues-draft-in-detail-only-after-their-prerequisites) | None |
@@ -38,9 +38,9 @@ Keep phase, dependency, status and linked PR fields current at issue/PR handoffs
 | --- | --- | --- | --- |
 | [S01 #10 — Meaning/provenance and data card](https://github.com/jaharris87/crucible-astro/issues/10) | B04/0B complete; D-002 | Audit/card integrated in #12; [findings/acceptance packet](phase1/S01_AUDIT.md), [living raw card](data-cards/genesis_datacard_ccsn_raw_candidate.md); limited ingestion scope accepted; original input recovery active | [Merged PR #12](https://github.com/jaharris87/crucible-astro/pull/12) |
 | [S02 #11 — Quarantined reader/extraction](https://github.com/jaharris87/crucible-astro/issues/11) | Limited three-pair S01 ingestion semantics accepted; physical gates remain open | Quarantined engineering scope complete at `099d21e`; [integration receipt](https://github.com/jaharris87/crucible-astro/pull/13#issuecomment-6962235209); 86 tests and merged CI pass; all scientific eligibility false | [Merged PR #13](https://github.com/jaharris87/crucible-astro/pull/13) |
-| [RHS diagnostic proposal #14](https://github.com/jaharris87/crucible-astro/issues/14) | S01 evidence; separate execution authority and exact EOS/build dependencies | D-017 completed exactly three evaluations; initial source and focused evidence review passed, human merge/integration pending; no label qualification | [Draft PR #16](https://github.com/jaharris87/crucible-astro/pull/16) |
-| [Proposed fresh-RHS subset #18](https://github.com/jaharris87/crucible-astro/issues/18) | Scientific contract and separate execution decision | 147 candidate in-grid ordinary states; not generated, authorized or qualified | None |
-| [S03 #15 — Coverage/benchmark/partitions](https://github.com/jaharris87/crucible-astro/issues/15) | S02 engineering integrated; S01/D-004/D-005/D-007 scientific gates open | Active [coverage/decision-sheet preparation](phase1/BENCHMARK.md); zero eligible records, no scientific memberships; single parent reported; estimand/reference/tolerance acceptance pending | [Draft PR #17](https://github.com/jaharris87/crucible-astro/pull/17) |
+| [RHS diagnostic proposal #14](https://github.com/jaharris87/crucible-astro/issues/14) | S01 evidence; separate execution authority and exact EOS/build dependencies | Complete at `eb5e25d`; source/evidence review, human merge, merged CI and 96 local tests pass; authority exhausted, no label qualification | [Merged PR #16](https://github.com/jaharris87/crucible-astro/pull/16) |
+| [Proposed fresh-RHS subset #18](https://github.com/jaharris87/crucible-astro/issues/18) | D-019 contract accepted; additional execution explicitly deferred | Original 147-state proposal unexecuted; revise exact scope after multi-trajectory audit | None |
+| [S03 #15 — Coverage/benchmark/partitions](https://github.com/jaharris87/crucible-astro/issues/15) | S02 engineering integrated; S01/D-004/D-005/D-007 scientific gates open | Preparation integrated at `615c99b`; D-018 multi-trajectory direction accepted; [83-pair reconnaissance](phase1/MULTITRAJECTORY_AUDIT.md) complete, physical identity/grouping recovery active; no final memberships/tolerances | [Merged PR #17](https://github.com/jaharris87/crucible-astro/pull/17) |
 
 ## Scientific progress
 
@@ -49,13 +49,15 @@ A metadata-only inventory and three-pair structural audit are documented in
 The maintainer identifies one [parent simulation](phase1/PARENT_PROVENANCE.md);
 wider coverage and related-run/family grouping are not established. The three-state
 [label audit](https://github.com/jaharris87/crucible-astro/pull/16) measured stored/fresh
-differences, not model accuracy or data qualification. See the separate
-[147-record candidate proposal](phase1/NEXT_RHS_SUBSET.md); no additional evaluation
-or scientific split is authorized by that proposal.
+differences, not model accuracy or data qualification. D-018 requires multiple trajectories in the training pool and separate related-group
+holdouts; A/B/C are audit aliases, not assigned partitions. D-019 accepts the
+new pointwise reference contract, with energy/rollout excluded. Additional execution
+is explicitly deferred; the [147-record proposal](phase1/NEXT_RHS_SUBSET.md) is
+unexecuted and must be revised after the matched candidate audit.
 Reconstruction/RHS/rollout accuracy, abundance/energy scientific accuracy,
 physical failures, inference/integration costs and reproducibility of a scientific
-benchmark are **not yet evaluated**. No dataset, benchmark partition or final-test
-use has human scientific acceptance. Synthetic tests and structural checks do not
+benchmark are **not yet evaluated**. The numerical-reference contract is accepted; no dataset qualification, final
+benchmark partition or final-test use has human scientific acceptance. Synthetic tests and structural checks do not
 supply that acceptance; NS1–NS3 remain incomplete.
 
 Reports: [current Phase 1 snapshot](reports/2026-11-17-phase1-start.md), [meeting-report template](MEETING_REPORT_TEMPLATE.md), [initial bootstrap status](reports/2026-11-17-bootstrap.md). Reporting policy: [WORKFLOW](WORKFLOW.md#two-connected-progress-views-and-meeting-report).

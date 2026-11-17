@@ -6,7 +6,33 @@
 This sheet records the actual bounded coverage and the decisions/evidence needed
 to define an honest benchmark. It does not qualify labels or complete S03.
 
-## Declared scope and coverage
+## Accepted development direction
+
+D-018 requires a training pool drawn from **multiple trajectories**, with coverage
+for the intended held-out task. A/B/C below are aliases for initial format-audit
+examples, not standard ML labels or fixed partition assignments. Each qualified
+saved state is one pointwise example; a trajectory contributes many correlated
+examples. Related histories and copies stay together under the accepted grouping
+rule when evaluating generalization to unseen trajectories/families.
+
+Assess joint full-composition/T/rho/regime coverage of the pooled training
+candidates before proposing separate validation/test groups. Ye overlap and
+scalar extrema alone cannot show a state is represented. C was considered as a
+composition-shift challenge relative to A/B; its eventual role depends on the
+broader pool. No one-history training set is proposed.
+
+D-019 accepts the new pinned pointwise numerical-reference contract, excluding
+energy/rollout targets. Additional producer execution is **explicitly deferred**
+until the matched candidate scope is concrete. The original 147-state list is an
+unexecuted proposal, not final benchmark membership or qualification.
+
+Established methodology defines evaluation roles/groups for the intended claim,
+prevents dependent groups crossing boundaries, and fits preprocessing on training
+data only; see [ML guidance M1/M2](../EVIDENCE.md#machine-learning-evaluation-guidance).
+These sources do not choose physical groups, establish sufficient CCSN coverage,
+or prescribe a library, split fraction or model.
+
+## Initial audit scope and coverage
 
 Scope is exactly the three purposively selected [S01 pairs](S01_AUDIT.md), now
 represented by the local [S02 derived dataset/card](../data-cards/genesis_datacard_ccsn_quarantined_v0_1.md).
@@ -37,29 +63,39 @@ diagnostic #14](https://github.com/jaharris87/crucible-astro/issues/14) measures
 its named states. Success there cannot qualify all other rows or establish a
 reference convergence/error budget.
 
+## Expanded reconnaissance
+
+The [83-pair read-only audit](MULTITRAJECTORY_AUDIT.md) checks 78,168 scalar
+records and samples 402 ordinary states across 80 familiar-layout histories.
+It finds broader joint-composition candidates, nearly coincident states in
+separate files, and an unfamiliar shorter format kept quarantined. These are
+coverage/mapping leads, not a sufficient training pool or final split. In
+particular, C is not inherently out of domain relative to the broader pool.
+Actual physical identity/grouping recovery and accepted scope remain required.
+
 ## Scientific decision sheet
 
 | Contract item | Current evidence / recommendation | Acceptance gate |
 | --- | --- | --- |
 | Intended task | D-003 accepts the starting sequence: full-state instantaneous `dY/dt = F(Y,c,t)`; finite-step prediction stays separate | Data/target qualification under D-004 still open |
 | State and identity | Preserve source Y convention, ordered full binary species and explicit record identity; isomers/rates are not determined by `(Z,A)` alone | Accepted generating/declared-reference network and complete state contract |
-| Conditions and closure | T/rho/time have inspected source units; one original history is associated by initial values/extrapolation. Initial composition Ye and history Ye differ. Candidate processed tables have zero neutrino rates, conditional on association; weak reactions remain | D-004: required `c`, inference availability, interpolation, prescribed/evolved status and thermal closure. No fixed Ye or presumed universal T/rho/Ye closure |
+| Conditions and closure | T/rho/time have inspected source units; one original history is associated by initial values/extrapolation. Initial composition Ye and history Ye differ. Candidate processed tables have zero neutrino rates, conditional on association; weak reactions remain | D-019 accepts recorded T9/rho and composition-derived Ye under the pinned pilot reference. Qualify actual states/configuration; wider histories/closure remain separate. No fixed Ye or universal T/rho/Ye closure |
 | Domain | Table above is observed raw coverage, including unqualified/NSE records | Human accepts a named qualified subset and domain, not these extrema as a validity box |
 | Horizon | Instantaneous RHS is pointwise. A later rollout needs qualified initial states, history/grid, full attempted interval and domain-exit rules | No accepted rollout horizon; 100 s output endpoint is not one |
 | Abundance observables | Propose signed species RHS components in physical source convention; later abundance histories/yields require a qualified rollout reference | Select observables/aggregation before model evaluation; condensed multi-species text is not authoritative |
-| Energy | Store internal-step mass-excess diagnostic separately. Recommend exclude it as an instantaneous/deposited-heating target while meanings/reference are unqualified | D-005 must accept the pilot energy policy; exclusion is not energy-milestone completion |
+| Energy | Store internal-step mass-excess diagnostic separately. D-019 excludes it as an instantaneous/deposited-heating target; keep its unqualified meaning explicit | D-019 accepts energy/rollout target exclusion for this pilot; constraints/tolerances and wider energy milestones remain open |
 | Constraints | Report baryon/positivity diagnostics and appropriate Ye evolution; do not normalize/clip away errors or enforce fixed charge | D-005/D-007: applicable constraints and justified tolerances |
-| Reference | D-017 authorizes a small new documented kernel diagnostic with selected EOS dependencies; historical build association remains a distinct question | D-007: authoritative reference identity and numerical/physical error evidence; no reference accuracy acceptance yet |
+| Reference | D-017’s three-state diagnostic is complete; D-019 selects the new pinned numerical reference, with further execution deferred | D-007: actual named-subset reference adequacy and numerical/physical error evidence; contract selection is not accuracy acceptance |
 | Metrics | Propose signed physical-unit component differences, absolute-error distributions by species/trajectory/regime, and explicit failure/eligible denominators | Accept weighting, relative/log floors, aggregates and observable-specific thresholds with reasons before final-test use |
 | Cost | No inference/integration speedup measured; label-audit runtime is not surrogate performance | Later matched task/reference/hardware/timing boundaries; no Phase 2 measurements now |
 
 The [next-subset proposal](NEXT_RHS_SUBSET.md) counts 147 ordinary records inside
-the candidate FFN grid and 49 outside, without qualifying either set. A new
-scientific contract and additional execution permission are requested separately;
-the completed three-state diagnostic grants no further calls.
+the candidate FFN grid and 49 outside, without qualifying either set. D-019
+accepts the numerical-reference contract but explicitly defers further execution
+until the matched candidate scope is concrete; D-017 grants no further calls.
 
 No numerical scientific tolerance is inferred from source convergence controls,
-observed normalization residuals, passing CI or a future three-state difference.
+observed normalization residuals, passing CI or the completed three-state difference.
 Use the [validation contract](../VALIDATION.md#benchmark-definition-and-partitions)
 and preserve reconstruction, pointwise RHS, rollout, energy, provenance and cost
 evidence separately. No reduction architecture or learning method is selected.
