@@ -2,7 +2,7 @@
 
 **A framework for learning and reduced modeling of astrophysical reaction networks.**
 
-Intended repository: **`jaharris87/crucible-astro`, public, BSD-3-Clause**. Status: **Phase 0B authorized and active**, 2026-11-17. B01 public-seed preparation is underway; copyright/release wording and readiness were confirmed by the maintainer before publication. No framework, trained model or qualified dataset exists. The native goal covers B01–B04 only, with publication and human merge checkpoints.
+Repository: **[jaharris87/crucible-astro](https://github.com/jaharris87/crucible-astro), public, BSD-3-Clause**. Status: **Phase 0B active**, 2026-11-17. B01's documentation seed is published after confirmed copyright/release readiness. B02's minimal package is in [PR #5](https://github.com/jaharris87/crucible-astro/pull/5), awaiting independent review and a human merge decision. B03 is prepared locally; B04 is not implemented. No trained model or qualified dataset exists; scientific results are **not yet evaluated**. The native goal covers B01–B04 only.
 
 ## Charter
 
@@ -23,6 +23,7 @@ Success means a collaborator can identify exactly which network, data, split, tr
 | Scientific qualification and performance evidence | [Validation](docs/VALIDATION.md) |
 | Issue-to-merge cycle, orchestration, reporting, external audits | [Workflow](docs/WORKFLOW.md) |
 | Active project guidance and reusable reviewer briefs | [AGENTS](AGENTS.md), [agent briefs](docs/AGENT_BRIEFS.md) |
+| Python environment and development checks | [Contributing](CONTRIBUTING.md) |
 | Bounded first issues and complete Phase 0B demonstration | [Backlog](docs/BACKLOG.md) |
 | Phase/issue progress and collaborator reporting | [Progress](docs/PROGRESS.md), [meeting-report template](docs/MEETING_REPORT_TEMPLATE.md), [initial bootstrap status](docs/reports/2026-11-17-bootstrap.md) |
 | Accepted requirements, recommendations, open decisions | [Decision register and maintainer packet](docs/DECISIONS.md) |

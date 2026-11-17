@@ -25,7 +25,7 @@ crucible-astro/
   .github/                      # minimal issue/PR templates and fast CI
 ```
 
-Only documentation exists now. Create directories when their first issue needs them. `crucible` is a proposed import name, subject to name availability at packaging time. Recommend Python for the first data and benchmark path; defer ML library selection until the baseline issue. A thin future adapter may call XNet or another reference solver, but CRUCIBLE should neither vendor whole reference trees nor own their build systems by default. No base-class hierarchy, plugin discovery, distributed scheduler, model registry service, mandatory autoencoder, or hydrodynamics binding in bootstrap.
+The B02 candidate adds only the minimal package/check scaffold; the scientific layout above remains provisional. Create directories when their first issue needs them. `crucible` is a proposed import name, subject to name availability at packaging time. Recommend Python for the first data and benchmark path; defer ML library selection until the baseline issue. A thin future adapter may call XNet or another reference solver, but CRUCIBLE should neither vendor whole reference trees nor own their build systems by default. No base-class hierarchy, plugin discovery, distributed scheduler, model registry service, mandatory autoencoder, or hydrodynamics binding in bootstrap.
 
 ## Scientific contract before a model
 
