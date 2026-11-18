@@ -57,6 +57,9 @@ receipts and call-authority exhaustion are tracked in #18.
 
 ## Current data evidence
 
+The expanded audit/card/proposal update is [draft PR #24](https://github.com/jaharris87/crucible-astro/pull/24);
+fresh independent review and its own human merge decision remain required.
+
 The local raw collection has 42,362 filename pairs. The original three-pair
 artifact contains 1,384 records, with no positive scientific eligibility.
 The [initial audit](phase1/MULTITRAJECTORY_AUDIT.md) remains the 80-history pilot.
