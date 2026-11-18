@@ -47,7 +47,8 @@ controls, and retain runtime-library identities. The preparation must bind state
 and selection. The execution receipt binds actual retained build/run evidence.
 Every row must pass the source comparator's conditional assembly flag and finite component/baryon residual bounds, with scientific acceptance
 false. Row counts, sequential identities, raw ordinal/locator ancestry and
-per-trajectory raw-parent consistency are checked. Missing/malformed JSON,
+per-trajectory raw-parent consistency are checked. Raw locators preserve the
+three-digit slab row and four-digit tracer filename, including leading zeros. Missing/malformed JSON,
 duplicate keys, nonfinite values, wrong dimensions, trailing/truncated binary,
 wrong order, echoes or JSON/binary bits are refused. Hashes are checked again
 before writing. This consumes the completed independent proof, without rerunning
@@ -55,7 +56,10 @@ its expensive mathematics or treating self-declared flags as scientific acceptan
 
 **Real materialization gate:** the full source comparator must complete and its
 complete output and receipts must be retained before creating the single real
-candidate. A normal physical loop, finite components, controls, or partial JSONL
+candidate. The actual pilot satisfied this gate as documented in the
+[retained execution report](RHS_PILOT_EXECUTION.md) before its one candidate was
+created; the [living card](../data-cards/genesis_datacard_ccsn_native_rhs_pilot_v0_1.md)
+pins the actual output identities. A normal physical loop, finite components, controls, or partial JSONL
 alone do not satisfy this gate. The implementation's synthetic checks do not
 claim the gate passed. The actual receipt belongs in the live issue/PR and card.
 
@@ -153,3 +157,22 @@ including byte equality and absence of positive masks. Neither suite qualifies
 original historical derivatives, physical accuracy, rollout, energy, coverage or
 benchmark membership. Any future positive eligibility needs explicit scientific
 acceptance and a separately identified artifact or overlay, preserving this one.
+
+
+## Actual materialization and preserved refusal
+
+The first actual validation refused before creating an output directory because
+`ts_0445` was incorrectly reconstructed as `ts_445` (RHS-DATA-R3). The unchanged
+recipe, refusal receipt and public literal regression's failing/passing outputs
+are retained. The narrow formatter repair changes no physical values, ordinals,
+sequence or parent identity. Its second engineering attempt created the only
+actual candidate. No producer or comparator was repeated.
+
+An independently implemented verifier importing neither materializer nor producer
+checked all 5,157 rows / 80 histories / 160 species against parent wire bytes and
+JSON, all scalar/integer/raw-provenance fields, units/dimensions and four separate
+all-false masks. It checked all 19 histories with leading-zero tracer IDs, read an
+original raw species header independently and rehashed every primary and retained
+execution evidence file after the scan. The card records the exact artifact and
+verification identities. This is software/identity evidence; scientific accuracy,
+accepted grouping, rights and fresh review/human acceptance remain separate.
