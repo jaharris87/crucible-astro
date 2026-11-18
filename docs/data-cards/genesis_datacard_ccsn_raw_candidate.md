@@ -1,6 +1,6 @@
 # Datacard for the CCSN raw candidate collection
 
-Last updated: **2026-11-17**. Card version **0.5.0**, dataset local alias
+Last updated: **2026-11-17**. Card version **0.5.1**, dataset local alias
 `ccsn-raw-candidate`; no public dataset release/version has been established.
 **Living narrative draft; not qualified for training, reference evaluation or
 final-test use.** This card describes raw outputs, not a derived training dataset.
@@ -128,6 +128,16 @@ support a new benchmark proposal, not accepted physical families or partitions.
 The [signed-zero reader repair](../phase1/S02_READER.md) preserves binary energy
 bits. No bulk conversion or new training artifact was produced.
 
+The [remaining primary reference proposal](../phase1/PRIMARY_REFERENCE_PROPOSAL.md)
+prepares **19,157** new candidate states in **300** histories plus **two explicit
+pilot repeat controls**: **19,159 proposed calls** across 301 histories. With
+retained pilot labels, the unique input union remains 24,314 states / 380 histories.
+Input-only preparation/checks are complete; D-020's pilot call authority is
+exhausted and no primary build/run or scientific eligibility is authorized.
+[Issue #26](https://github.com/jaharris87/crucible-astro/issues/26) tracks fresh
+source/input review and the separate later execution decision. Original raw,
+pilot and preparation evidence remain immutable.
+
 Current eligibility is **limited to authorized structural investigation**.
 All 1,384 records in the initial three-pair artifact remain unqualified for
 state training, instantaneous RHS, energy targets and rollout reference use. Reason sets differ: unknown
@@ -201,7 +211,9 @@ simulation-independent generalization. Sampling bias, unbound generating/history
 conditions, NSE/initial placeholders, unmeasured RHS alignment and missing broader
 CCSN/NSM coverage prevent general scientific claims. Human review is required.
 
-Change log: **0.5.0, 2026-11-17** — linked expanded state/position coverage,
+Change log: **0.5.1, 2026-11-17** — linked the exact remaining-primary
+input-only preparation and separate execution gate; raw identity and scientific
+eligibility unchanged. **0.5.0, 2026-11-17** — linked expanded state/position coverage,
 native Ye formula, integrated reader/reference preparation and official rate-entry
 provenance; primary partitions, qualification and data rights remain open.
 **0.4.0, 2026-11-17** — recorded accepted numerical-reference

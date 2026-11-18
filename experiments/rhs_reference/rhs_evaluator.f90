@@ -1,5 +1,6 @@
 ! Original CRUCIBLE harness; reference implementations are supplied separately.
-! Fixed 5157-state candidate only; preparation is not execution authority. No integration, NSE, flooring or normalization.
+! Fixed pilot (5157) or primary (19159) candidate only; preparation is not execution authority.
+! No integration, NSE, flooring or normalization.
 program rhs_evaluator
   use, intrinsic :: iso_fortran_env, only: int8, int32, int64, real64
   use, intrinsic :: ieee_arithmetic
@@ -84,7 +85,8 @@ program rhs_evaluator
 
   open(newunit=inp, file='states.bin', access='stream', form='unformatted', status='old', action='read')
   read(inp) magic, version, nstate, nspecies
-  if (magic /= int(z'43525543',int32) .or. version /= 2 .or. nstate /= 5157 .or. nspecies /= 160) &
+  if (magic /= int(z'43525543',int32) .or. version /= 2 .or. &
+      (nstate /= 5157 .and. nstate /= 19159) .or. nspecies /= 160) &
     error stop 'Invalid bounded state input'
   read(inp) input_z, input_a
   if (.not. same_bits(input_z,zz) .or. .not. same_bits(input_a,aa)) error stop 'Species mismatch'
