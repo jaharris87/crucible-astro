@@ -84,16 +84,15 @@ def _samples(data, width, *, reference):
 
 def _vector(value):
     """Nonfinite/missing prediction components are failures, never zero targets."""
-    try:
-        result = np.asarray(value, dtype=float)
-    except (TypeError, ValueError) as exc:
-        raise ValueError("array components must be numeric or null failures") from exc
     if any(
         x is not None and (isinstance(x, bool) or not isinstance(x, (int, float)))
         for x in value
     ):
         raise ValueError("array components must be numeric or null failures")
-    return result
+    try:
+        return np.asarray(value, dtype=float)
+    except (TypeError, ValueError) as exc:
+        raise ValueError("array components must be numeric or null failures") from exc
 
 
 def _scale(spec, coeff, species, intervals, tau):
@@ -160,7 +159,12 @@ def _scale(spec, coeff, species, intervals, tau):
         )
     if interval.get("semantics") != "discrete_samples_no_interpolation":
         raise ValueError("interval must explicitly declare discrete sample semantics")
-    y = np.asarray(interval.get("Y"), dtype=float)
+    raw_y = interval.get("Y")
+    if not isinstance(raw_y, list) or any(
+        not isinstance(row, list) or len(row) != len(species) for row in raw_y
+    ):
+        raise ValueError("interval Y shape/nonfinite failure")
+    y = np.asarray([_vector(row) for row in raw_y], dtype=float)
     if y.shape != (len(times), len(species)) or not np.all(np.isfinite(y)):
         raise ValueError("interval Y shape/nonfinite failure")
     with np.errstate(over="ignore", invalid="ignore"):

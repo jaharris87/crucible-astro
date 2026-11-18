@@ -427,3 +427,26 @@ def test_sampled_calibration_horizon_must_match_physical_timescale():
     c["species_budgets"]["n"]["scale"]["frozen_before_testing"] = False
     with pytest.raises(ValueError, match="frozen fixed calibration"):
         evaluate(c, r, p, intervals={"i0": interval(r)})
+
+
+@pytest.mark.parametrize("malformed", [True, "3"], ids=["boolean", "numeric-string"])
+def test_sampled_interval_rejects_coerced_components_with_numeric_control(malformed):
+    c, r, p = inputs()
+    c["species_budgets"]["n"]["scale"] = {
+        "mode": "sampled_max_excursion",
+        "usage": "fixed_calibration_interval",
+        "frozen_before_testing": True,
+        "calibration_provenance": "synthetic predeclared calibration",
+        "interval_id": "i0",
+    }
+    iv = interval(r)
+    iv["Y"][1][0] = 3.0
+    control = evaluate(c, r, p, intervals={"i0": iv})
+    assert control["quantities"]["n"]["scale"]["value"] == 3
+    assert metric(control)["rate_budget"] == 0.015
+    assert control["pointwise_budget_status"] == "NO_VIOLATIONS_PROVISIONAL"
+    iv["Y"][1][0] = malformed
+    with pytest.raises(
+        ValueError, match="array components must be numeric or null failures"
+    ):
+        evaluate(c, r, p, intervals={"i0": iv})
