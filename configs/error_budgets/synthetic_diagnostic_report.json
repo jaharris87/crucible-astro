@@ -1,0 +1,1089 @@
+{
+  "schema": "crucible.error_budget_report.v1",
+  "config_id": "synthetic-hand-oracle-only",
+  "config_sha256": "c1ed79a8be263c9f6c58bb274f9d382e27979ca2c1d8ebb6499061c14ee18bef",
+  "reference_sample_count": 1,
+  "prediction_attempt_count": 1,
+  "dataset_id": "public-synthetic-sentinel-only",
+  "prediction_id": "analytic-nonmodel-vector",
+  "scientific_qualified": false,
+  "integrated_scientific_accuracy": "NOT_EVALUATED",
+  "heating": "EXCLUDED_NOT_EVALUATED",
+  "critical_selection": [
+    "synthetic_p"
+  ],
+  "abundance_space": "X",
+  "rate_unit": "mass_fraction/s",
+  "samples": [
+    {
+      "sample_id": "synthetic:record:0",
+      "history_id": "synthetic-h0",
+      "group_id": "synthetic-g0",
+      "category": "synthetic",
+      "time_s": 0,
+      "regime": {
+        "label": "unknown",
+        "provenance": "not supplied"
+      }
+    }
+  ],
+  "pointwise_budget_status": "VIOLATIONS",
+  "quantities": {
+    "synthetic_n": {
+      "members": [
+        "synthetic_n"
+      ],
+      "critical": false,
+      "scale": {
+        "mode": "explicit",
+        "value": 2,
+        "provenance": "hand-chosen mathematical oracle only",
+        "status": "SUPPLIED_BOUND"
+      },
+      "unresolved": [],
+      "tiers": {
+        "0.001": {
+          "rate_budget": 0.001,
+          "status": "EVALUATED_PROVISIONAL",
+          "summary": {
+            "attempted": 1,
+            "valid": 1,
+            "failed": 0,
+            "budget_evaluated": 1,
+            "budget_not_evaluated": 0,
+            "exceeded": 1,
+            "unbounded_normalizations": 0,
+            "normalized_rms": 10.0,
+            "max_normalized_error": 10.0,
+            "normalization_status": "FINITE",
+            "physical_absolute_rms": 0.01,
+            "physical_absolute_max": 0.01,
+            "fraction_exceeding_evaluated": 1.0,
+            "exceed_fraction_denominator": 1,
+            "violations_or_failed_fraction_attempted": 1.0
+          },
+          "strata": {
+            "history_id": {
+              "synthetic-h0": {
+                "attempted": 1,
+                "valid": 1,
+                "failed": 0,
+                "budget_evaluated": 1,
+                "budget_not_evaluated": 0,
+                "exceeded": 1,
+                "unbounded_normalizations": 0,
+                "normalized_rms": 10.0,
+                "max_normalized_error": 10.0,
+                "normalization_status": "FINITE",
+                "physical_absolute_rms": 0.01,
+                "physical_absolute_max": 0.01,
+                "fraction_exceeding_evaluated": 1.0,
+                "exceed_fraction_denominator": 1,
+                "violations_or_failed_fraction_attempted": 1.0
+              }
+            },
+            "group_id": {
+              "synthetic-g0": {
+                "attempted": 1,
+                "valid": 1,
+                "failed": 0,
+                "budget_evaluated": 1,
+                "budget_not_evaluated": 0,
+                "exceeded": 1,
+                "unbounded_normalizations": 0,
+                "normalized_rms": 10.0,
+                "max_normalized_error": 10.0,
+                "normalization_status": "FINITE",
+                "physical_absolute_rms": 0.01,
+                "physical_absolute_max": 0.01,
+                "fraction_exceeding_evaluated": 1.0,
+                "exceed_fraction_denominator": 1,
+                "violations_or_failed_fraction_attempted": 1.0
+              }
+            },
+            "category": {
+              "synthetic": {
+                "attempted": 1,
+                "valid": 1,
+                "failed": 0,
+                "budget_evaluated": 1,
+                "budget_not_evaluated": 0,
+                "exceeded": 1,
+                "unbounded_normalizations": 0,
+                "normalized_rms": 10.0,
+                "max_normalized_error": 10.0,
+                "normalization_status": "FINITE",
+                "physical_absolute_rms": 0.01,
+                "physical_absolute_max": 0.01,
+                "fraction_exceeding_evaluated": 1.0,
+                "exceed_fraction_denominator": 1,
+                "violations_or_failed_fraction_attempted": 1.0
+              }
+            },
+            "regime": {
+              "unknown": {
+                "attempted": 1,
+                "valid": 1,
+                "failed": 0,
+                "budget_evaluated": 1,
+                "budget_not_evaluated": 0,
+                "exceeded": 1,
+                "unbounded_normalizations": 0,
+                "normalized_rms": 10.0,
+                "max_normalized_error": 10.0,
+                "normalization_status": "FINITE",
+                "physical_absolute_rms": 0.01,
+                "physical_absolute_max": 0.01,
+                "fraction_exceeding_evaluated": 1.0,
+                "exceed_fraction_denominator": 1,
+                "violations_or_failed_fraction_attempted": 1.0
+              }
+            }
+          },
+          "records": [
+            {
+              "sample_id": "synthetic:record:0",
+              "status": "VALID",
+              "absolute_error": 0.01,
+              "normalized_error": 10.0,
+              "unbounded": false,
+              "exceeds": true
+            }
+          ]
+        },
+        "0.01": {
+          "rate_budget": 0.01,
+          "status": "EVALUATED_PROVISIONAL",
+          "summary": {
+            "attempted": 1,
+            "valid": 1,
+            "failed": 0,
+            "budget_evaluated": 1,
+            "budget_not_evaluated": 0,
+            "exceeded": 0,
+            "unbounded_normalizations": 0,
+            "normalized_rms": 1.0,
+            "max_normalized_error": 1.0,
+            "normalization_status": "FINITE",
+            "physical_absolute_rms": 0.01,
+            "physical_absolute_max": 0.01,
+            "fraction_exceeding_evaluated": 0.0,
+            "exceed_fraction_denominator": 1,
+            "violations_or_failed_fraction_attempted": 0.0
+          },
+          "strata": {
+            "history_id": {
+              "synthetic-h0": {
+                "attempted": 1,
+                "valid": 1,
+                "failed": 0,
+                "budget_evaluated": 1,
+                "budget_not_evaluated": 0,
+                "exceeded": 0,
+                "unbounded_normalizations": 0,
+                "normalized_rms": 1.0,
+                "max_normalized_error": 1.0,
+                "normalization_status": "FINITE",
+                "physical_absolute_rms": 0.01,
+                "physical_absolute_max": 0.01,
+                "fraction_exceeding_evaluated": 0.0,
+                "exceed_fraction_denominator": 1,
+                "violations_or_failed_fraction_attempted": 0.0
+              }
+            },
+            "group_id": {
+              "synthetic-g0": {
+                "attempted": 1,
+                "valid": 1,
+                "failed": 0,
+                "budget_evaluated": 1,
+                "budget_not_evaluated": 0,
+                "exceeded": 0,
+                "unbounded_normalizations": 0,
+                "normalized_rms": 1.0,
+                "max_normalized_error": 1.0,
+                "normalization_status": "FINITE",
+                "physical_absolute_rms": 0.01,
+                "physical_absolute_max": 0.01,
+                "fraction_exceeding_evaluated": 0.0,
+                "exceed_fraction_denominator": 1,
+                "violations_or_failed_fraction_attempted": 0.0
+              }
+            },
+            "category": {
+              "synthetic": {
+                "attempted": 1,
+                "valid": 1,
+                "failed": 0,
+                "budget_evaluated": 1,
+                "budget_not_evaluated": 0,
+                "exceeded": 0,
+                "unbounded_normalizations": 0,
+                "normalized_rms": 1.0,
+                "max_normalized_error": 1.0,
+                "normalization_status": "FINITE",
+                "physical_absolute_rms": 0.01,
+                "physical_absolute_max": 0.01,
+                "fraction_exceeding_evaluated": 0.0,
+                "exceed_fraction_denominator": 1,
+                "violations_or_failed_fraction_attempted": 0.0
+              }
+            },
+            "regime": {
+              "unknown": {
+                "attempted": 1,
+                "valid": 1,
+                "failed": 0,
+                "budget_evaluated": 1,
+                "budget_not_evaluated": 0,
+                "exceeded": 0,
+                "unbounded_normalizations": 0,
+                "normalized_rms": 1.0,
+                "max_normalized_error": 1.0,
+                "normalization_status": "FINITE",
+                "physical_absolute_rms": 0.01,
+                "physical_absolute_max": 0.01,
+                "fraction_exceeding_evaluated": 0.0,
+                "exceed_fraction_denominator": 1,
+                "violations_or_failed_fraction_attempted": 0.0
+              }
+            }
+          },
+          "records": [
+            {
+              "sample_id": "synthetic:record:0",
+              "status": "VALID",
+              "absolute_error": 0.01,
+              "normalized_error": 1.0,
+              "unbounded": false,
+              "exceeds": false
+            }
+          ]
+        },
+        "0.05": {
+          "rate_budget": 0.05,
+          "status": "EVALUATED_PROVISIONAL",
+          "summary": {
+            "attempted": 1,
+            "valid": 1,
+            "failed": 0,
+            "budget_evaluated": 1,
+            "budget_not_evaluated": 0,
+            "exceeded": 0,
+            "unbounded_normalizations": 0,
+            "normalized_rms": 0.19999999999999998,
+            "max_normalized_error": 0.19999999999999998,
+            "normalization_status": "FINITE",
+            "physical_absolute_rms": 0.01,
+            "physical_absolute_max": 0.01,
+            "fraction_exceeding_evaluated": 0.0,
+            "exceed_fraction_denominator": 1,
+            "violations_or_failed_fraction_attempted": 0.0
+          },
+          "strata": {
+            "history_id": {
+              "synthetic-h0": {
+                "attempted": 1,
+                "valid": 1,
+                "failed": 0,
+                "budget_evaluated": 1,
+                "budget_not_evaluated": 0,
+                "exceeded": 0,
+                "unbounded_normalizations": 0,
+                "normalized_rms": 0.19999999999999998,
+                "max_normalized_error": 0.19999999999999998,
+                "normalization_status": "FINITE",
+                "physical_absolute_rms": 0.01,
+                "physical_absolute_max": 0.01,
+                "fraction_exceeding_evaluated": 0.0,
+                "exceed_fraction_denominator": 1,
+                "violations_or_failed_fraction_attempted": 0.0
+              }
+            },
+            "group_id": {
+              "synthetic-g0": {
+                "attempted": 1,
+                "valid": 1,
+                "failed": 0,
+                "budget_evaluated": 1,
+                "budget_not_evaluated": 0,
+                "exceeded": 0,
+                "unbounded_normalizations": 0,
+                "normalized_rms": 0.19999999999999998,
+                "max_normalized_error": 0.19999999999999998,
+                "normalization_status": "FINITE",
+                "physical_absolute_rms": 0.01,
+                "physical_absolute_max": 0.01,
+                "fraction_exceeding_evaluated": 0.0,
+                "exceed_fraction_denominator": 1,
+                "violations_or_failed_fraction_attempted": 0.0
+              }
+            },
+            "category": {
+              "synthetic": {
+                "attempted": 1,
+                "valid": 1,
+                "failed": 0,
+                "budget_evaluated": 1,
+                "budget_not_evaluated": 0,
+                "exceeded": 0,
+                "unbounded_normalizations": 0,
+                "normalized_rms": 0.19999999999999998,
+                "max_normalized_error": 0.19999999999999998,
+                "normalization_status": "FINITE",
+                "physical_absolute_rms": 0.01,
+                "physical_absolute_max": 0.01,
+                "fraction_exceeding_evaluated": 0.0,
+                "exceed_fraction_denominator": 1,
+                "violations_or_failed_fraction_attempted": 0.0
+              }
+            },
+            "regime": {
+              "unknown": {
+                "attempted": 1,
+                "valid": 1,
+                "failed": 0,
+                "budget_evaluated": 1,
+                "budget_not_evaluated": 0,
+                "exceeded": 0,
+                "unbounded_normalizations": 0,
+                "normalized_rms": 0.19999999999999998,
+                "max_normalized_error": 0.19999999999999998,
+                "normalization_status": "FINITE",
+                "physical_absolute_rms": 0.01,
+                "physical_absolute_max": 0.01,
+                "fraction_exceeding_evaluated": 0.0,
+                "exceed_fraction_denominator": 1,
+                "violations_or_failed_fraction_attempted": 0.0
+              }
+            }
+          },
+          "records": [
+            {
+              "sample_id": "synthetic:record:0",
+              "status": "VALID",
+              "absolute_error": 0.01,
+              "normalized_error": 0.19999999999999998,
+              "unbounded": false,
+              "exceeds": false
+            }
+          ]
+        }
+      }
+    },
+    "synthetic_p": {
+      "members": [
+        "synthetic_p"
+      ],
+      "critical": true,
+      "scale": {
+        "mode": "explicit",
+        "value": 2,
+        "provenance": "hand-chosen mathematical oracle only",
+        "status": "SUPPLIED_BOUND"
+      },
+      "unresolved": [],
+      "tiers": {
+        "0.001": {
+          "rate_budget": 0.001,
+          "status": "EVALUATED_PROVISIONAL",
+          "summary": {
+            "attempted": 1,
+            "valid": 1,
+            "failed": 0,
+            "budget_evaluated": 1,
+            "budget_not_evaluated": 0,
+            "exceeded": 1,
+            "unbounded_normalizations": 0,
+            "normalized_rms": 10.0,
+            "max_normalized_error": 10.0,
+            "normalization_status": "FINITE",
+            "physical_absolute_rms": 0.01,
+            "physical_absolute_max": 0.01,
+            "fraction_exceeding_evaluated": 1.0,
+            "exceed_fraction_denominator": 1,
+            "violations_or_failed_fraction_attempted": 1.0
+          },
+          "strata": {
+            "history_id": {
+              "synthetic-h0": {
+                "attempted": 1,
+                "valid": 1,
+                "failed": 0,
+                "budget_evaluated": 1,
+                "budget_not_evaluated": 0,
+                "exceeded": 1,
+                "unbounded_normalizations": 0,
+                "normalized_rms": 10.0,
+                "max_normalized_error": 10.0,
+                "normalization_status": "FINITE",
+                "physical_absolute_rms": 0.01,
+                "physical_absolute_max": 0.01,
+                "fraction_exceeding_evaluated": 1.0,
+                "exceed_fraction_denominator": 1,
+                "violations_or_failed_fraction_attempted": 1.0
+              }
+            },
+            "group_id": {
+              "synthetic-g0": {
+                "attempted": 1,
+                "valid": 1,
+                "failed": 0,
+                "budget_evaluated": 1,
+                "budget_not_evaluated": 0,
+                "exceeded": 1,
+                "unbounded_normalizations": 0,
+                "normalized_rms": 10.0,
+                "max_normalized_error": 10.0,
+                "normalization_status": "FINITE",
+                "physical_absolute_rms": 0.01,
+                "physical_absolute_max": 0.01,
+                "fraction_exceeding_evaluated": 1.0,
+                "exceed_fraction_denominator": 1,
+                "violations_or_failed_fraction_attempted": 1.0
+              }
+            },
+            "category": {
+              "synthetic": {
+                "attempted": 1,
+                "valid": 1,
+                "failed": 0,
+                "budget_evaluated": 1,
+                "budget_not_evaluated": 0,
+                "exceeded": 1,
+                "unbounded_normalizations": 0,
+                "normalized_rms": 10.0,
+                "max_normalized_error": 10.0,
+                "normalization_status": "FINITE",
+                "physical_absolute_rms": 0.01,
+                "physical_absolute_max": 0.01,
+                "fraction_exceeding_evaluated": 1.0,
+                "exceed_fraction_denominator": 1,
+                "violations_or_failed_fraction_attempted": 1.0
+              }
+            },
+            "regime": {
+              "unknown": {
+                "attempted": 1,
+                "valid": 1,
+                "failed": 0,
+                "budget_evaluated": 1,
+                "budget_not_evaluated": 0,
+                "exceeded": 1,
+                "unbounded_normalizations": 0,
+                "normalized_rms": 10.0,
+                "max_normalized_error": 10.0,
+                "normalization_status": "FINITE",
+                "physical_absolute_rms": 0.01,
+                "physical_absolute_max": 0.01,
+                "fraction_exceeding_evaluated": 1.0,
+                "exceed_fraction_denominator": 1,
+                "violations_or_failed_fraction_attempted": 1.0
+              }
+            }
+          },
+          "records": [
+            {
+              "sample_id": "synthetic:record:0",
+              "status": "VALID",
+              "absolute_error": 0.01,
+              "normalized_error": 10.0,
+              "unbounded": false,
+              "exceeds": true
+            }
+          ]
+        },
+        "0.01": {
+          "rate_budget": 0.01,
+          "status": "EVALUATED_PROVISIONAL",
+          "summary": {
+            "attempted": 1,
+            "valid": 1,
+            "failed": 0,
+            "budget_evaluated": 1,
+            "budget_not_evaluated": 0,
+            "exceeded": 0,
+            "unbounded_normalizations": 0,
+            "normalized_rms": 1.0,
+            "max_normalized_error": 1.0,
+            "normalization_status": "FINITE",
+            "physical_absolute_rms": 0.01,
+            "physical_absolute_max": 0.01,
+            "fraction_exceeding_evaluated": 0.0,
+            "exceed_fraction_denominator": 1,
+            "violations_or_failed_fraction_attempted": 0.0
+          },
+          "strata": {
+            "history_id": {
+              "synthetic-h0": {
+                "attempted": 1,
+                "valid": 1,
+                "failed": 0,
+                "budget_evaluated": 1,
+                "budget_not_evaluated": 0,
+                "exceeded": 0,
+                "unbounded_normalizations": 0,
+                "normalized_rms": 1.0,
+                "max_normalized_error": 1.0,
+                "normalization_status": "FINITE",
+                "physical_absolute_rms": 0.01,
+                "physical_absolute_max": 0.01,
+                "fraction_exceeding_evaluated": 0.0,
+                "exceed_fraction_denominator": 1,
+                "violations_or_failed_fraction_attempted": 0.0
+              }
+            },
+            "group_id": {
+              "synthetic-g0": {
+                "attempted": 1,
+                "valid": 1,
+                "failed": 0,
+                "budget_evaluated": 1,
+                "budget_not_evaluated": 0,
+                "exceeded": 0,
+                "unbounded_normalizations": 0,
+                "normalized_rms": 1.0,
+                "max_normalized_error": 1.0,
+                "normalization_status": "FINITE",
+                "physical_absolute_rms": 0.01,
+                "physical_absolute_max": 0.01,
+                "fraction_exceeding_evaluated": 0.0,
+                "exceed_fraction_denominator": 1,
+                "violations_or_failed_fraction_attempted": 0.0
+              }
+            },
+            "category": {
+              "synthetic": {
+                "attempted": 1,
+                "valid": 1,
+                "failed": 0,
+                "budget_evaluated": 1,
+                "budget_not_evaluated": 0,
+                "exceeded": 0,
+                "unbounded_normalizations": 0,
+                "normalized_rms": 1.0,
+                "max_normalized_error": 1.0,
+                "normalization_status": "FINITE",
+                "physical_absolute_rms": 0.01,
+                "physical_absolute_max": 0.01,
+                "fraction_exceeding_evaluated": 0.0,
+                "exceed_fraction_denominator": 1,
+                "violations_or_failed_fraction_attempted": 0.0
+              }
+            },
+            "regime": {
+              "unknown": {
+                "attempted": 1,
+                "valid": 1,
+                "failed": 0,
+                "budget_evaluated": 1,
+                "budget_not_evaluated": 0,
+                "exceeded": 0,
+                "unbounded_normalizations": 0,
+                "normalized_rms": 1.0,
+                "max_normalized_error": 1.0,
+                "normalization_status": "FINITE",
+                "physical_absolute_rms": 0.01,
+                "physical_absolute_max": 0.01,
+                "fraction_exceeding_evaluated": 0.0,
+                "exceed_fraction_denominator": 1,
+                "violations_or_failed_fraction_attempted": 0.0
+              }
+            }
+          },
+          "records": [
+            {
+              "sample_id": "synthetic:record:0",
+              "status": "VALID",
+              "absolute_error": 0.01,
+              "normalized_error": 1.0,
+              "unbounded": false,
+              "exceeds": false
+            }
+          ]
+        },
+        "0.05": {
+          "rate_budget": 0.05,
+          "status": "EVALUATED_PROVISIONAL",
+          "summary": {
+            "attempted": 1,
+            "valid": 1,
+            "failed": 0,
+            "budget_evaluated": 1,
+            "budget_not_evaluated": 0,
+            "exceeded": 0,
+            "unbounded_normalizations": 0,
+            "normalized_rms": 0.19999999999999998,
+            "max_normalized_error": 0.19999999999999998,
+            "normalization_status": "FINITE",
+            "physical_absolute_rms": 0.01,
+            "physical_absolute_max": 0.01,
+            "fraction_exceeding_evaluated": 0.0,
+            "exceed_fraction_denominator": 1,
+            "violations_or_failed_fraction_attempted": 0.0
+          },
+          "strata": {
+            "history_id": {
+              "synthetic-h0": {
+                "attempted": 1,
+                "valid": 1,
+                "failed": 0,
+                "budget_evaluated": 1,
+                "budget_not_evaluated": 0,
+                "exceeded": 0,
+                "unbounded_normalizations": 0,
+                "normalized_rms": 0.19999999999999998,
+                "max_normalized_error": 0.19999999999999998,
+                "normalization_status": "FINITE",
+                "physical_absolute_rms": 0.01,
+                "physical_absolute_max": 0.01,
+                "fraction_exceeding_evaluated": 0.0,
+                "exceed_fraction_denominator": 1,
+                "violations_or_failed_fraction_attempted": 0.0
+              }
+            },
+            "group_id": {
+              "synthetic-g0": {
+                "attempted": 1,
+                "valid": 1,
+                "failed": 0,
+                "budget_evaluated": 1,
+                "budget_not_evaluated": 0,
+                "exceeded": 0,
+                "unbounded_normalizations": 0,
+                "normalized_rms": 0.19999999999999998,
+                "max_normalized_error": 0.19999999999999998,
+                "normalization_status": "FINITE",
+                "physical_absolute_rms": 0.01,
+                "physical_absolute_max": 0.01,
+                "fraction_exceeding_evaluated": 0.0,
+                "exceed_fraction_denominator": 1,
+                "violations_or_failed_fraction_attempted": 0.0
+              }
+            },
+            "category": {
+              "synthetic": {
+                "attempted": 1,
+                "valid": 1,
+                "failed": 0,
+                "budget_evaluated": 1,
+                "budget_not_evaluated": 0,
+                "exceeded": 0,
+                "unbounded_normalizations": 0,
+                "normalized_rms": 0.19999999999999998,
+                "max_normalized_error": 0.19999999999999998,
+                "normalization_status": "FINITE",
+                "physical_absolute_rms": 0.01,
+                "physical_absolute_max": 0.01,
+                "fraction_exceeding_evaluated": 0.0,
+                "exceed_fraction_denominator": 1,
+                "violations_or_failed_fraction_attempted": 0.0
+              }
+            },
+            "regime": {
+              "unknown": {
+                "attempted": 1,
+                "valid": 1,
+                "failed": 0,
+                "budget_evaluated": 1,
+                "budget_not_evaluated": 0,
+                "exceeded": 0,
+                "unbounded_normalizations": 0,
+                "normalized_rms": 0.19999999999999998,
+                "max_normalized_error": 0.19999999999999998,
+                "normalization_status": "FINITE",
+                "physical_absolute_rms": 0.01,
+                "physical_absolute_max": 0.01,
+                "fraction_exceeding_evaluated": 0.0,
+                "exceed_fraction_denominator": 1,
+                "violations_or_failed_fraction_attempted": 0.0
+              }
+            }
+          },
+          "records": [
+            {
+              "sample_id": "synthetic:record:0",
+              "status": "VALID",
+              "absolute_error": 0.01,
+              "normalized_error": 0.19999999999999998,
+              "unbounded": false,
+              "exceeds": false
+            }
+          ]
+        }
+      }
+    },
+    "group:cancel": {
+      "members": [
+        "synthetic_n",
+        "synthetic_p"
+      ],
+      "critical": false,
+      "scale": {
+        "mode": "explicit",
+        "value": 2,
+        "provenance": "hand-chosen mathematical oracle only",
+        "status": "SUPPLIED_BOUND"
+      },
+      "unresolved": [],
+      "tiers": {
+        "0.001": {
+          "rate_budget": 0.001,
+          "status": "EVALUATED_PROVISIONAL",
+          "summary": {
+            "attempted": 1,
+            "valid": 1,
+            "failed": 0,
+            "budget_evaluated": 1,
+            "budget_not_evaluated": 0,
+            "exceeded": 0,
+            "unbounded_normalizations": 0,
+            "normalized_rms": 0.0,
+            "max_normalized_error": 0.0,
+            "normalization_status": "FINITE",
+            "physical_absolute_rms": 0.0,
+            "physical_absolute_max": 0.0,
+            "fraction_exceeding_evaluated": 0.0,
+            "exceed_fraction_denominator": 1,
+            "violations_or_failed_fraction_attempted": 0.0
+          },
+          "strata": {
+            "history_id": {
+              "synthetic-h0": {
+                "attempted": 1,
+                "valid": 1,
+                "failed": 0,
+                "budget_evaluated": 1,
+                "budget_not_evaluated": 0,
+                "exceeded": 0,
+                "unbounded_normalizations": 0,
+                "normalized_rms": 0.0,
+                "max_normalized_error": 0.0,
+                "normalization_status": "FINITE",
+                "physical_absolute_rms": 0.0,
+                "physical_absolute_max": 0.0,
+                "fraction_exceeding_evaluated": 0.0,
+                "exceed_fraction_denominator": 1,
+                "violations_or_failed_fraction_attempted": 0.0
+              }
+            },
+            "group_id": {
+              "synthetic-g0": {
+                "attempted": 1,
+                "valid": 1,
+                "failed": 0,
+                "budget_evaluated": 1,
+                "budget_not_evaluated": 0,
+                "exceeded": 0,
+                "unbounded_normalizations": 0,
+                "normalized_rms": 0.0,
+                "max_normalized_error": 0.0,
+                "normalization_status": "FINITE",
+                "physical_absolute_rms": 0.0,
+                "physical_absolute_max": 0.0,
+                "fraction_exceeding_evaluated": 0.0,
+                "exceed_fraction_denominator": 1,
+                "violations_or_failed_fraction_attempted": 0.0
+              }
+            },
+            "category": {
+              "synthetic": {
+                "attempted": 1,
+                "valid": 1,
+                "failed": 0,
+                "budget_evaluated": 1,
+                "budget_not_evaluated": 0,
+                "exceeded": 0,
+                "unbounded_normalizations": 0,
+                "normalized_rms": 0.0,
+                "max_normalized_error": 0.0,
+                "normalization_status": "FINITE",
+                "physical_absolute_rms": 0.0,
+                "physical_absolute_max": 0.0,
+                "fraction_exceeding_evaluated": 0.0,
+                "exceed_fraction_denominator": 1,
+                "violations_or_failed_fraction_attempted": 0.0
+              }
+            },
+            "regime": {
+              "unknown": {
+                "attempted": 1,
+                "valid": 1,
+                "failed": 0,
+                "budget_evaluated": 1,
+                "budget_not_evaluated": 0,
+                "exceeded": 0,
+                "unbounded_normalizations": 0,
+                "normalized_rms": 0.0,
+                "max_normalized_error": 0.0,
+                "normalization_status": "FINITE",
+                "physical_absolute_rms": 0.0,
+                "physical_absolute_max": 0.0,
+                "fraction_exceeding_evaluated": 0.0,
+                "exceed_fraction_denominator": 1,
+                "violations_or_failed_fraction_attempted": 0.0
+              }
+            }
+          },
+          "records": [
+            {
+              "sample_id": "synthetic:record:0",
+              "status": "VALID",
+              "absolute_error": 0.0,
+              "normalized_error": 0.0,
+              "unbounded": false,
+              "exceeds": false
+            }
+          ]
+        },
+        "0.01": {
+          "rate_budget": 0.01,
+          "status": "EVALUATED_PROVISIONAL",
+          "summary": {
+            "attempted": 1,
+            "valid": 1,
+            "failed": 0,
+            "budget_evaluated": 1,
+            "budget_not_evaluated": 0,
+            "exceeded": 0,
+            "unbounded_normalizations": 0,
+            "normalized_rms": 0.0,
+            "max_normalized_error": 0.0,
+            "normalization_status": "FINITE",
+            "physical_absolute_rms": 0.0,
+            "physical_absolute_max": 0.0,
+            "fraction_exceeding_evaluated": 0.0,
+            "exceed_fraction_denominator": 1,
+            "violations_or_failed_fraction_attempted": 0.0
+          },
+          "strata": {
+            "history_id": {
+              "synthetic-h0": {
+                "attempted": 1,
+                "valid": 1,
+                "failed": 0,
+                "budget_evaluated": 1,
+                "budget_not_evaluated": 0,
+                "exceeded": 0,
+                "unbounded_normalizations": 0,
+                "normalized_rms": 0.0,
+                "max_normalized_error": 0.0,
+                "normalization_status": "FINITE",
+                "physical_absolute_rms": 0.0,
+                "physical_absolute_max": 0.0,
+                "fraction_exceeding_evaluated": 0.0,
+                "exceed_fraction_denominator": 1,
+                "violations_or_failed_fraction_attempted": 0.0
+              }
+            },
+            "group_id": {
+              "synthetic-g0": {
+                "attempted": 1,
+                "valid": 1,
+                "failed": 0,
+                "budget_evaluated": 1,
+                "budget_not_evaluated": 0,
+                "exceeded": 0,
+                "unbounded_normalizations": 0,
+                "normalized_rms": 0.0,
+                "max_normalized_error": 0.0,
+                "normalization_status": "FINITE",
+                "physical_absolute_rms": 0.0,
+                "physical_absolute_max": 0.0,
+                "fraction_exceeding_evaluated": 0.0,
+                "exceed_fraction_denominator": 1,
+                "violations_or_failed_fraction_attempted": 0.0
+              }
+            },
+            "category": {
+              "synthetic": {
+                "attempted": 1,
+                "valid": 1,
+                "failed": 0,
+                "budget_evaluated": 1,
+                "budget_not_evaluated": 0,
+                "exceeded": 0,
+                "unbounded_normalizations": 0,
+                "normalized_rms": 0.0,
+                "max_normalized_error": 0.0,
+                "normalization_status": "FINITE",
+                "physical_absolute_rms": 0.0,
+                "physical_absolute_max": 0.0,
+                "fraction_exceeding_evaluated": 0.0,
+                "exceed_fraction_denominator": 1,
+                "violations_or_failed_fraction_attempted": 0.0
+              }
+            },
+            "regime": {
+              "unknown": {
+                "attempted": 1,
+                "valid": 1,
+                "failed": 0,
+                "budget_evaluated": 1,
+                "budget_not_evaluated": 0,
+                "exceeded": 0,
+                "unbounded_normalizations": 0,
+                "normalized_rms": 0.0,
+                "max_normalized_error": 0.0,
+                "normalization_status": "FINITE",
+                "physical_absolute_rms": 0.0,
+                "physical_absolute_max": 0.0,
+                "fraction_exceeding_evaluated": 0.0,
+                "exceed_fraction_denominator": 1,
+                "violations_or_failed_fraction_attempted": 0.0
+              }
+            }
+          },
+          "records": [
+            {
+              "sample_id": "synthetic:record:0",
+              "status": "VALID",
+              "absolute_error": 0.0,
+              "normalized_error": 0.0,
+              "unbounded": false,
+              "exceeds": false
+            }
+          ]
+        },
+        "0.05": {
+          "rate_budget": 0.05,
+          "status": "EVALUATED_PROVISIONAL",
+          "summary": {
+            "attempted": 1,
+            "valid": 1,
+            "failed": 0,
+            "budget_evaluated": 1,
+            "budget_not_evaluated": 0,
+            "exceeded": 0,
+            "unbounded_normalizations": 0,
+            "normalized_rms": 0.0,
+            "max_normalized_error": 0.0,
+            "normalization_status": "FINITE",
+            "physical_absolute_rms": 0.0,
+            "physical_absolute_max": 0.0,
+            "fraction_exceeding_evaluated": 0.0,
+            "exceed_fraction_denominator": 1,
+            "violations_or_failed_fraction_attempted": 0.0
+          },
+          "strata": {
+            "history_id": {
+              "synthetic-h0": {
+                "attempted": 1,
+                "valid": 1,
+                "failed": 0,
+                "budget_evaluated": 1,
+                "budget_not_evaluated": 0,
+                "exceeded": 0,
+                "unbounded_normalizations": 0,
+                "normalized_rms": 0.0,
+                "max_normalized_error": 0.0,
+                "normalization_status": "FINITE",
+                "physical_absolute_rms": 0.0,
+                "physical_absolute_max": 0.0,
+                "fraction_exceeding_evaluated": 0.0,
+                "exceed_fraction_denominator": 1,
+                "violations_or_failed_fraction_attempted": 0.0
+              }
+            },
+            "group_id": {
+              "synthetic-g0": {
+                "attempted": 1,
+                "valid": 1,
+                "failed": 0,
+                "budget_evaluated": 1,
+                "budget_not_evaluated": 0,
+                "exceeded": 0,
+                "unbounded_normalizations": 0,
+                "normalized_rms": 0.0,
+                "max_normalized_error": 0.0,
+                "normalization_status": "FINITE",
+                "physical_absolute_rms": 0.0,
+                "physical_absolute_max": 0.0,
+                "fraction_exceeding_evaluated": 0.0,
+                "exceed_fraction_denominator": 1,
+                "violations_or_failed_fraction_attempted": 0.0
+              }
+            },
+            "category": {
+              "synthetic": {
+                "attempted": 1,
+                "valid": 1,
+                "failed": 0,
+                "budget_evaluated": 1,
+                "budget_not_evaluated": 0,
+                "exceeded": 0,
+                "unbounded_normalizations": 0,
+                "normalized_rms": 0.0,
+                "max_normalized_error": 0.0,
+                "normalization_status": "FINITE",
+                "physical_absolute_rms": 0.0,
+                "physical_absolute_max": 0.0,
+                "fraction_exceeding_evaluated": 0.0,
+                "exceed_fraction_denominator": 1,
+                "violations_or_failed_fraction_attempted": 0.0
+              }
+            },
+            "regime": {
+              "unknown": {
+                "attempted": 1,
+                "valid": 1,
+                "failed": 0,
+                "budget_evaluated": 1,
+                "budget_not_evaluated": 0,
+                "exceeded": 0,
+                "unbounded_normalizations": 0,
+                "normalized_rms": 0.0,
+                "max_normalized_error": 0.0,
+                "normalization_status": "FINITE",
+                "physical_absolute_rms": 0.0,
+                "physical_absolute_max": 0.0,
+                "fraction_exceeding_evaluated": 0.0,
+                "exceed_fraction_denominator": 1,
+                "violations_or_failed_fraction_attempted": 0.0
+              }
+            }
+          },
+          "records": [
+            {
+              "sample_id": "synthetic:record:0",
+              "status": "VALID",
+              "absolute_error": 0.0,
+              "normalized_error": 0.0,
+              "unbounded": false,
+              "exceeds": false
+            }
+          ]
+        }
+      },
+      "constituent_budget_gaps": {}
+    }
+  },
+  "physics": {
+    "status": "DIAGNOSTICS_ONLY",
+    "heating": "EXCLUDED_NOT_EVALUATED",
+    "samples": [
+      {
+        "sample_id": "synthetic:record:0",
+        "status": "DIAGNOSTICS_ONLY",
+        "B": 1.0,
+        "Q": 0.5,
+        "Ye": 0.5,
+        "negative_state_species": [],
+        "reference": {
+          "status": "DIAGNOSTICS_ONLY",
+          "baryon_rate_residual": 0.0,
+          "charge_moment_rate": 0.0,
+          "dYe_dt": 0.0,
+          "boundary_incompatible_species": []
+        },
+        "prediction": {
+          "status": "DIAGNOSTICS_ONLY",
+          "baryon_rate_residual": 0.0,
+          "charge_moment_rate": -0.01,
+          "dYe_dt": -0.01,
+          "boundary_incompatible_species": []
+        }
+      }
+    ]
+  }
+}

@@ -91,3 +91,16 @@ after Phase 0B and does not waive review for this closeout.
 | S07 | Callable multi-approach prototype and release package | S06, D-001/D-008 | At least two approach examples via stable semantic contract; retrieval/checksum/reload and invalid-input tests; supported regimes/limits, release rights, independent audit and human acceptance. |
 
 Do not precreate a large speculative issue tree for all candidate architectures. Later issues gain numeric science tolerances and explicit experiment scope only after independent references and the task are understood. Resource use remains reported evidence, without a standing resource cap.
+
+D-022 / [issue #29](https://github.com/jaharris87/crucible-astro/issues/29) adds
+bounded configurable physical-abundance budget diagnostics and a
+[current readiness report](phase1/ERROR_BUDGET_READINESS.md) to S03 preparation.
+The 0.1%, 1%, 5% relative-change tiers are provisional engineering settings, not
+accepted scientific tolerances or a Phase 1 exit. Final allowances, scales,
+physical timescales, critical species and reference/partition acceptance remain
+open. S04/S05 later acceptance must separately establish admissible-state and
+constraint evidence, reconstruction/decoded chain-rule consistency and closure,
+free-running abundance/energy/weak-Ye/equilibrium behavior, solver/Jacobian/JVP
+numerical compatibility and matched-accuracy cost. See the
+[validation requirements](VALIDATION.md#provisional-pointwise-abundance-budgets-and-later-acceptance).
+No model or numerical integration implementation is authorized by this addition.

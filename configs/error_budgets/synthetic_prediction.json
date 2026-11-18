@@ -1,0 +1,40 @@
+{
+  "schema": "crucible.rhs_samples.v1",
+  "dataset_id": "public-synthetic-sentinel-only",
+  "species": [
+    {
+      "id": "synthetic_n",
+      "A": 1,
+      "Z": 0
+    },
+    {
+      "id": "synthetic_p",
+      "A": 1,
+      "Z": 1
+    }
+  ],
+  "units": {
+    "Y": "molar_abundance_Y",
+    "F": "molar_abundance_Y/s",
+    "time": "s"
+  },
+  "network_convention": "closed_full_inventory_no_aux_Q_over_B",
+  "samples": [
+    {
+      "sample_id": "synthetic:record:0",
+      "history_id": "synthetic-h0",
+      "group_id": "synthetic-g0",
+      "category": "synthetic",
+      "time_s": 0,
+      "Y": [
+        0.5,
+        0.5
+      ],
+      "F": [
+        0.01,
+        -0.01
+      ]
+    }
+  ],
+  "prediction_id": "analytic-nonmodel-vector"
+}

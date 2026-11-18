@@ -339,6 +339,25 @@ or qualification is implied. The maintainer's [parent/role attribution](phase1/P
 provides one identified simulation and production roles, not dataset licensing or
 historical build proof. D-004/D-005/D-007 remain open for the named qualified scope.
 
+### Decision D-022: Provisional physical-abundance budgets and diagnostics
+
+**Status: accepted implementation direction, 2026-11-17; scientific numbers
+unresolved.** The maintainer explicitly requested configurable physical-abundance
+error budgets, diagnostics and benchmark reports now, with 0.1%, 1% and 5%
+relative-change tiers as provisional engineering settings. Implement the bounded
+[issue #29](https://github.com/jaharris87/crucible-astro/issues/29) contract using
+ordinary JSON and existing dependencies. [The diagnostic contract](phase1/ERROR_BUDGETS.md)
+separates pointwise rate budgets from later state/reconstruction and integrated
+scientific accuracy; the [readiness report](phase1/ERROR_BUDGET_READINESS.md)
+records actual missing choices and absent model outcomes.
+
+This direction accepts no numerical scientific allowance, timescale, reference
+change scale, critical-species selection, final benchmark or model architecture.
+No producer execution, reference edits, training, ODE/Jacobian experiment, heating
+target, paid service, deployment or new phase is authorized. Final scientific
+qualification, independent candidate review and each human merge remain gates.
+The full Phase 1 S01–S03 goal remains active; no provisional tier waives its exits.
+
 ## Scientific decisions and current evidence gates
 
 On 2026-11-17 the [S01 audit packet](phase1/S01_AUDIT.md) and

@@ -223,3 +223,12 @@ and software merge are separate. Keep
 the [raw card](../data-cards/genesis_datacard_ccsn_raw_candidate.md), derived card,
 milestone and handoff current; missing provenance or limited exploration is not
 full training qualification.
+
+## Provisional diagnostic preparation
+
+[D-022 / issue #29](ERROR_BUDGETS.md) supplies configurable physical-abundance
+rate-budget diagnostics with illustrative 0.1%, 1% and 5% relative-change tiers.
+[Current readiness](ERROR_BUDGET_READINESS.md) records unresolved scientific
+allowances, scales, physical timescales and critical selections, and absent model
+predictions. No provisional tier qualifies a reference, final test or scientific
+accuracy. Preserve [later validation gates](../VALIDATION.md#provisional-pointwise-abundance-budgets-and-later-acceptance).

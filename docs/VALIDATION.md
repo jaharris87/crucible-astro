@@ -58,6 +58,30 @@ Use physical units and specify abundance floors rather than hiding rare-species 
 
 For energy, compare a recovered physical readout and any learned readout against an independent compatible reference when selected. Mass-weighted RHS can represent nuclear release under declared conventions, but neutrino losses, thermalization and EOS effects distinguish deposited heat [P3]. Do not require an auxiliary neural head as the only solution. If energy cannot yet be qualified, mark that milestone evidence incomplete.
 
+## Provisional pointwise abundance budgets and later acceptance
+
+D-022 authorizes the bounded [physical-abundance diagnostic](phase1/ERROR_BUDGETS.md)
+and [current readiness report](phase1/ERROR_BUDGET_READINESS.md), not scientific
+numerical thresholds. The 0.1%, 1%, 5% relative-change tiers are sensitivity
+settings. Freeze justified physical allowances/timescales, reference interval and
+sampled-scale definitions, critical species, group observables and denominators
+before final testing; no held-out adaptation or hidden clipping floors.
+Report every constituent's physical/normalized errors and failed attempts, even
+when linear group errors cancel. Unresolved choices and absent predictions do not
+pass. Preserve numerical implementation evidence, provisional pointwise budget
+satisfaction and integrated scientific accuracy as three separate outcomes.
+
+Later authorized model acceptance separately needs admissible-state/constraint
+and positivity evidence, appropriate weak Ye and energy closure, reconstruction
+versus decoded chain-rule consistency (including conditioning derivatives),
+closure/history tests, free-running held-out trajectories and equilibrium
+behavior. Solver/tolerance and Jacobian/JVP numerical consistency and total cost
+at matched accuracy need their own experiments. A soft constraint loss or an
+output projection proves none of these by itself; no blanket negative-eigenvalue
+rule or reduction architecture is adopted. Heating remains excluded/unevaluated
+under Phase 1's `iheat=0` reference. Current native no-aux Q/B diagnostics cannot
+silently stand in for unsupported open/auxiliary-reservoir balances.
+
 ## Fast CI versus scientific qualification
 
 Recommend fast CI on synthetic/tiny audited fixtures, clean package import, formatting/static checks selected in bootstrap, manifest/split checks, deterministic transform/serialization/inference tests and one analytic integration smoke test when implemented. D-013 removes repository job-time and resource caps. Completed Phase 0B covered repository/workflow and synthetic validation. [Phase 1 authority](PHASE_1_AUTHORITY.md) now permits bounded qualification/ingestion/benchmark work, with its scientific gates; model development/training still requires a later authorized phase. Failures stay visible.
