@@ -48,7 +48,15 @@ or instantaneous energy RHS. Internal dt is not the saved-output interval.
 The ASCII companion must use the observed first six headings `k Time T(GK) Density
 dE/dt Timestep`, condensed columns and final `It` heading. Every record's six
 scalars must match ordinally at the writer's printed precision: time `.8E`, T/rho
-`.3E`, energy/internal dt `.2E`, exact integer step. The observed tails are two
+`.3E`, energy/internal dt `.2E`, exact integer step. For an **exactly zero binary
+energy diagnostic only**, the companion spellings `0.00E+00` and `-0.00E+00` are
+equivalent. The original binary sign bit and payload identity are preserved;
+no approximate tolerance or other-column equivalence is introduced. The expanded
+read-only audit found five such sign differences in four histories, tracked in
+[issue #21](https://github.com/jaharris87/crucible-astro/issues/21). Its initial
+strict-alignment failures and separate signed-zero disposition remain retained.
+Public regression fixtures are synthetic; local real-data checks establish only
+ingestion, with every scientific exclusion unchanged. The observed tails are two
 nonnegative iteration integers or the literal final `NSE`. Row counts, unknown
 tails or scalar mismatches fail with companion-specific errors. Only reliably
 aligned explicit NSE text classifies NSE. Zero derivatives never classify NSE.

@@ -57,22 +57,24 @@ was human-approved and merged at `116e682`. Its exact reviewed tree was preserve
 merged CI passed. Final scientific grouping/reference acceptance remains open.
 
 The [fixed reference preparation](../experiments/rhs_reference/README.md) under
-[#18](https://github.com/jaharris87/crucible-astro/issues/18) now prepares a bound
-5,157-state qualification-pilot candidate and original one-zone evaluator/decoder. The private fixed
-bundle is prepared; no new Fortran compilation or producer call occurred. The
-source candidate requires focused independent repair review, then a concrete human
-execution decision. Synthetic checks do not establish runtime compatibility or
-reference accuracy. The source audit exposes the native largest-multiplicity
-counting convention (including the two-identical-pair distinction); its physical
-rate normalization remains for scientific disposition before execution or
-qualification. No producer source was patched. The old three-call experiment
-and its receipts remain unchanged.
-Initial source review requested RHS-PILOT-R1: both domain gates now use the
-producer's `sum(Z*Y)/sum(A*Y)` with positive finite baryon sum. Original Y is
-unchanged. A separate raw-state check preserves all 6,433 membership decisions,
-5,157 state bytes and both retained control identities; historical proxy-screen
-receipts remain immutable. The repair candidate has 126 passing Python tests,
-with Fortran compilation/execution still deferred.
+[#18](https://github.com/jaharris87/crucible-astro/issues/18) is human-merged in
+[PR #20](https://github.com/jaharris87/crucible-astro/pull/20) at `6807741`,
+**preparation only**. Initial independent review and focused RHS-PILOT-R1 repair
+verification pass; [merged CI and 126 local noneditable tests/lint/format pass](https://github.com/jaharris87/crucible-astro/pull/20#issuecomment-6966731838).
+Both grid gates use native `Ye=sum(Z*Y)/sum(A*Y)`, preserving original Y and all
+6,433 membership decisions, 5,157 state bytes and two retained controls. Historical
+proxy-screen receipts are immutable. No Fortran compilation or producer call
+occurred; runtime compatibility and reference accuracy remain untested. Native
+reaction-weight normalization remains under scientific investigation before any
+execution/qualification decision. Original producer source and D-017 evidence
+remain unchanged; D-019 still defers build/run.
+
+Expanded read-only checks found a reader energy-zero sign defect, tracked in
+[#21](https://github.com/jaharris87/crucible-astro/issues/21). A narrow repair
+accepts either documented text sign only for exactly zero binary energy, retaining
+its sign bit and all scientific exclusions. Synthetic regressions and separate
+local real-data checks accompany its own review and human merge gate. The primary
+coverage/position expansion continues; no primary split is frozen.
 
 The unchanged local collection has 42,362 filename pairs. The original three-pair
 artifact has 1,384 records and all-false scientific masks. The separate
@@ -106,9 +108,9 @@ Next authorized work under [S03 #15](https://github.com/jaharris87/crucible-astr
 2. Prepare a multi-trajectory training/holdout proposal supported by full state,
    condition and position evidence. Keep shared-parent correlations and any
    remaining grouping assumptions explicit; obtain scientific acceptance.
-3. Independently review the prepared 5,157-state qualification-pilot evaluator source under
-   issue #18, including cache/FP/native-weight semantics, then present its exact
-   execution scope separately.
+3. Resolve the native rate-normalization evidence under issue #18 and prepare
+   any resulting scientific/reference decision and exact execution proposal
+   separately. The evaluator preparation is integrated, not executed.
    D-019 still defers producer build/run. No model/preprocessing fitting, new
    XNet evaluation or final-test use is authorized by these audits.
 

@@ -209,6 +209,63 @@ def test_companion_failures(companion, reason):
         read_pair(binary(), companion, specification(binary(), companion))
 
 
+@pytest.mark.parametrize("energy_hex", ["0000000000000000", "0000000000000080"])
+@pytest.mark.parametrize("text_zero", [b"0.00E+00", b"-0.00E+00"])
+def test_energy_zero_text_sign_preserves_literal_binary_bits(energy_hex, text_zero):
+    energy_bits = bytes.fromhex(energy_hex)
+    first = ROWS[0][:36] + energy_bits + ROWS[0][44:]
+    raw = binary(rows=[first, *ROWS[1:]])
+    lines = COMPANION.splitlines()
+    fields = lines[1].split()
+    fields[4] = text_zero
+    lines[1] = b" ".join(fields)
+    companion = b"\n".join(lines) + b"\n"
+
+    result = read_pair(raw, companion, specification(raw, companion))
+    assert struct.pack("<d", result.headers[0][5]) == energy_bits
+    assert result.payload_sha256[0] == sha(first)
+    assert result.abundances == ((0.25, 0.5), (0.125, 0.75), (0.5, 0.25))
+    assert result.nse == (False, False, True)
+    assert all(result.reasons(0, use) for use in USES)
+
+
+@pytest.mark.parametrize(
+    "energy_hex,text_energy",
+    [
+        ("000000000000f03f", b"0.00E+00"),  # Exactly +1, not zero.
+        ("0100000000000080", b"0.00E+00"),  # Smallest negative subnormal.
+        ("0000000000000080", b"1E-999"),  # A float parser could underflow this.
+        ("0000000000000080", b"0.000E+00"),  # Unsupported text precision.
+        ("0000000000000080", b"NaN"),
+    ],
+)
+def test_energy_zero_equivalence_rejects_other_values_and_spellings(
+    energy_hex, text_energy
+):
+    first = ROWS[0][:36] + bytes.fromhex(energy_hex) + ROWS[0][44:]
+    raw = binary(rows=[first, *ROWS[1:]])
+    lines = COMPANION.splitlines()
+    fields = lines[1].split()
+    fields[4] = text_energy
+    lines[1] = b" ".join(fields)
+    companion = b"\n".join(lines) + b"\n"
+    with pytest.raises(IngestionError, match="companion alignment: scalar mismatch"):
+        read_pair(raw, companion, specification(raw, companion))
+
+
+@pytest.mark.parametrize("column,value", [(1, b"5.00000001E-01"), (5, b"-0.00E+00")])
+def test_energy_zero_sign_does_not_relax_other_columns(column, value):
+    first = ROWS[0][:36] + bytes.fromhex("0000000000000080") + ROWS[0][44:]
+    raw = binary(rows=[first, *ROWS[1:]])
+    lines = COMPANION.splitlines()
+    fields = lines[1].split()
+    fields[column] = value
+    lines[1] = b" ".join(fields)
+    companion = b"\n".join(lines) + b"\n"
+    with pytest.raises(IngestionError, match="companion alignment: scalar mismatch"):
+        read_pair(raw, companion, specification(raw, companion))
+
+
 @pytest.fixture
 def local_recipe(tmp_path):
     raw_root = tmp_path / "raw"

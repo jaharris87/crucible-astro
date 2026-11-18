@@ -100,7 +100,8 @@ def read_pair(raw: bytes, companion: bytes, specification: dict) -> DecodedPair:
     """Validate explicit identities/layout/units/order; fail on ambiguous companions.
 
     The six companion scalar columns are compared at their writer's exact printed
-    precision. Condensed species headings/columns never determine binary identity.
+    precision, allowing either sign for exactly zero energy. Condensed species
+    headings/columns never determine binary identity.
     """
     _require(
         isinstance(specification, dict), "pair specification must be a JSON object"
@@ -205,6 +206,10 @@ def read_pair(raw: bytes, companion: bytes, specification: dict) -> DecodedPair:
             f"{h[5]:.2E}",
             f"{h[4]:.2E}",
         ]
+        # The text writer can discard the sign of an exactly zero energy value.
+        # Accept only its two zero spellings; retain the binary header unchanged.
+        if h[5] == 0.0 and len(fields) > 4 and fields[4] in {"0.00E+00", "-0.00E+00"}:
+            expected[4] = fields[4]
         _require(
             fields[:6] == expected,
             f"companion alignment: scalar mismatch at ordinal {ordinal}",
