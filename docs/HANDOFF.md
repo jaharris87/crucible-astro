@@ -52,6 +52,12 @@ D-012/D-015 model/review policy remain unchanged.
 
 ## Evidence and next action
 
+The current accepted-decision/coverage update is [draft PR #19](https://github.com/jaharris87/crucible-astro/pull/19)
+under S01/S03. It is not merged; fresh scientific/provenance review and its own
+human merge decision remain required. The issue bodies were reformatted and read
+back after the maintainer flagged spacing problems; original bodies are retained
+locally, and closed diagnostic proposal text is explicitly historical.
+
 The unchanged local raw collection has 42,362 filename pairs. The initial
 three-pair artifact has 1,384 rows: 3 initial, 1,185 explicit NSE and 196 others.
 All scientific eligibility remains zero. The 147 source-table-screened ordinary
