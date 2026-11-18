@@ -69,7 +69,13 @@ D-019 accepts the new pointwise full-Y/T9/rho reference contract, with native
 finite materialization of its verified outputs. The final manifest must bind
 original-state raw-ts/raw-ev/payload/input-state ancestry separately from the
 new label's source preparation, generating executable, retained result and
-completed comparator. It records recipe/source/software identities and output
+completed comparator. A separate finite execution receipt binds that preparation,
+executable, result and completed comparison/components to twelve explicit retained
+actual build/run evidence files, including hardware/environment/job identities.
+Both runtime-library maps require absolute paths and canonical SHA-256 identities
+and must agree; remote library files need not exist locally. All declared retained
+evidence files are actually hash-checked and rechecked before output. The manifest
+records recipe/source/software identities and output
 digest. These new-reference identities do not prove the historical generator.
 
 The full coefficient-conditioned comparator and retained receipts are a hard
@@ -106,4 +112,7 @@ or overlay preserving this quarantine. Energy and rollout need their own later
 contracts and evidence. No model or agent card/results are invented.
 
 Change log: **0.1.0, 2026-11-17** — new narrative card and materialization contract,
-prepared with `gpt-6.1-sol` High; actual real artifact and review gates pending.
+prepared with `gpt-6.1-sol` High; subsequent RHS-DATA-R1/R2 repairs add actual
+execution-receipt closure and strict runtime-library identities. Original review
+findings remain preserved on PR #25; focused repair review, actual real artifact
+and acceptance gates remain pending.

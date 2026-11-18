@@ -94,16 +94,38 @@ def pilot(tmp_path):
         "schema": "crucible.rhs-reference-preparation.v1",
         "selection_count": 2,
         "files": {},
+        "configuration": {"source": "public synthetic source/configuration sentinel"},
     }
     write_json(parent / "preparation", prep)
     comparison = {
         "status": "Completed comparisons only; scientific qualification remains false",
         "training_eligibility": False,
         "D017_exact_bit_controls": [1, 2],
-        "runtime_shared_libraries_sha256": {"synthetic-library": "d" * 64},
+        "runtime_shared_libraries_sha256": {"/synthetic/lib-reference.so": "d" * 64},
         "reference_accuracy": "synthetic stream only; no scientific truth",
     }
     write_json(parent / "comparison", comparison)
+    evidence_roles = (
+        "build_manifest",
+        "build_log",
+        "build_exit",
+        "build_driver",
+        "build_runtime",
+        "run_log",
+        "job_script",
+        "job_status",
+        "loaded_maps",
+        "job_hardware",
+        "job_environment",
+        "run_exit",
+    )
+    for role in evidence_roles:
+        (parent / role).write_bytes(
+            b"0\n"
+            if role in ("build_exit", "run_exit")
+            else ("synthetic retained " + role).encode()
+        )
+    write_json(parent / "execution", {})
     config = {
         "schema": "crucible.native-rhs-materialization.v1",
         "dataset_id": "public-synthetic-native-rhs",
@@ -121,6 +143,7 @@ def pilot(tmp_path):
                 "components",
                 "comparison",
                 "executable",
+                "execution",
             )
         },
         "expected": {
@@ -167,6 +190,38 @@ def pilot(tmp_path):
         ):
             r[field] = sha((parent / key).read_bytes())
         write_json(parent / "comparison", r)
+        (parent / "build_manifest").write_bytes((parent / "preparation").read_bytes())
+        receipt = {
+            "schema": "crucible.rhs-pilot-execution.v1",
+            "status": "completed",
+            "parents": {
+                key: sha((parent / key).read_bytes())
+                for key in (
+                    "preparation",
+                    "executable",
+                    "fresh",
+                    "components",
+                    "comparison",
+                )
+            },
+            "configuration_sha256": sha(
+                json.dumps(
+                    p["configuration"],
+                    sort_keys=True,
+                    separators=(",", ":"),
+                    allow_nan=False,
+                ).encode()
+            ),
+            "runtime_shared_libraries_sha256": r["runtime_shared_libraries_sha256"],
+            "evidence": {
+                role: {
+                    "path": str(parent / role),
+                    "sha256": sha((parent / role).read_bytes()),
+                }
+                for role in evidence_roles
+            },
+        }
+        write_json(parent / "execution", receipt)
         for key in config["inputs"]:
             config["inputs"][key]["sha256"] = sha((parent / key).read_bytes())
         write_json(config_path, config)
@@ -177,6 +232,11 @@ def pilot(tmp_path):
 
 def test_literal_fields_dimensions_bits_and_ancestry(pilot):
     config, output, parent, _, _ = pilot
+    receipt = json.loads((parent / "execution").read_text())
+    assert (
+        receipt["configuration_sha256"]
+        == "2082ef34a2cbb490c4eb3162f834eaeed4a9f60ecff2496680748c7b539f2458"
+    )
     manifest = materialize(config, output)
     with h5py.File(output / "dataset.h5", "r") as h:
         assert h["Y"].shape == h["fresh_rhs"].shape == (2, 160)
@@ -224,6 +284,12 @@ def test_literal_fields_dimensions_bits_and_ancestry(pilot):
             reasons.add(h["eligibility/" + use].attrs["reason"])
         assert len(reasons) == 4
         assert "coefficients" not in h and "split" not in h
+    assert manifest["new_label_provenance"]["execution"]["sha256"] == sha(
+        (parent / "execution").read_bytes()
+    )
+    assert manifest["recipe"]["inputs"]["execution"]["path"] == str(
+        parent / "execution"
+    )
     assert manifest["output"]["sha256"] == sha((output / "dataset.h5").read_bytes())
     assert manifest["original_state_provenance"]["selection_parent"]["sha256"] == sha(
         (parent / "selection").read_bytes()
@@ -432,3 +498,203 @@ def test_relative_and_input_symlink_refused(pilot):
     bind()
     with pytest.raises(ValueError, match="symlink"):
         materialize(config, output)
+
+
+def rewrite_execution(pilot, receipt):
+    """Bind changed receipt bytes and any comparison change, without blessing evidence."""
+    config_path, _, parent, c, _ = pilot
+    write_json(parent / "execution", receipt)
+    for key in ("execution", "comparison"):
+        if key in c["inputs"]:
+            c["inputs"][key]["sha256"] = sha((parent / key).read_bytes())
+    write_json(config_path, c)
+
+
+@pytest.mark.parametrize(
+    "key", ["preparation", "executable", "fresh", "components", "comparison"]
+)
+def test_execution_parent_mismatch_after_hash_rebinding(pilot, key):
+    config, output, parent, _, _ = pilot
+    receipt = json.loads((parent / "execution").read_text())
+    receipt["parents"][key] = "f" * 64
+    rewrite_execution(pilot, receipt)
+    with pytest.raises(ValueError, match=f"execution ancestry: {key}"):
+        materialize(config, output)
+    assert not output.exists()
+
+
+@pytest.mark.parametrize(
+    "defect,reason",
+    [
+        ("omitted", "exact audit input closure"),
+        ("incomplete", "execution receipt incomplete/schema"),
+        ("parent-closure", "execution parent closure"),
+        ("configuration", "execution configuration ancestry"),
+        ("evidence-closure", "execution evidence closure"),
+        ("build-manifest", "execution build manifest ancestry"),
+        ("build-exit", "execution build_exit not successful"),
+        ("run-exit", "execution run_exit not successful"),
+        ("path-collision", "execution evidence path collision"),
+        ("relative-path", "execution evidence run_log: absolute paths"),
+        ("symlink", "execution evidence run_log: symlink"),
+        ("parent-traversal", "execution evidence run_log: parent traversal"),
+    ],
+)
+def test_execution_receipt_failures_reach_intended_gate(pilot, defect, reason):
+    config, output, parent, c, _ = pilot
+    receipt = json.loads((parent / "execution").read_text())
+    if defect == "omitted":
+        del c["inputs"]["execution"]
+    elif defect == "incomplete":
+        del receipt["status"]
+    elif defect == "parent-closure":
+        del receipt["parents"]["comparison"]
+    elif defect == "configuration":
+        receipt["configuration_sha256"] = "e" * 64
+    elif defect == "evidence-closure":
+        del receipt["evidence"]["job_hardware"]
+    elif defect in ("build-manifest", "build-exit", "run-exit"):
+        role = defect.replace("-", "_")
+        (parent / role).write_bytes(b"1\n")
+        receipt["evidence"][role]["sha256"] = sha((parent / role).read_bytes())
+    elif defect == "path-collision":
+        receipt["evidence"]["run_log"] = receipt["evidence"]["build_log"]
+    elif defect == "relative-path":
+        receipt["evidence"]["run_log"]["path"] = "relative/run.log"
+    elif defect == "symlink":
+        link = parent / "run_log_symlink"
+        link.symlink_to(parent / "run_log")
+        receipt["evidence"]["run_log"]["path"] = str(link)
+    elif defect == "parent-traversal":
+        receipt["evidence"]["run_log"]["path"] = str(
+            parent / ".." / "immutable" / "run_log"
+        )
+    rewrite_execution(pilot, receipt)
+    with pytest.raises(ValueError, match=reason):
+        materialize(config, output)
+    assert not output.exists()
+
+
+@pytest.mark.parametrize(
+    "role",
+    [
+        "build_manifest",
+        "build_log",
+        "build_exit",
+        "build_driver",
+        "build_runtime",
+        "run_log",
+        "job_script",
+        "job_status",
+        "loaded_maps",
+        "job_hardware",
+        "job_environment",
+        "run_exit",
+    ],
+)
+def test_actual_retained_execution_evidence_hashes_are_checked(pilot, role):
+    config, output, parent, _, _ = pilot
+    # Rebinding the primary execution receipt cannot bless changed referenced evidence.
+    receipt = json.loads((parent / "execution").read_text())
+    (parent / role).write_bytes((parent / role).read_bytes() + b"changed")
+    rewrite_execution(pilot, receipt)
+    with pytest.raises(
+        ValueError, match=f"execution evidence {role}: input checksum mismatch"
+    ):
+        materialize(config, output)
+    assert not output.exists()
+
+
+@pytest.mark.parametrize(
+    "malformed",
+    [
+        True,
+        "placeholder",
+        {},
+        {"/lib/fake.so": "not-a-sha256"},
+        {"relative.so": "a" * 64},
+        {"/lib/fake.so": True},
+        {"/lib/fake.so": "A" * 64},
+    ],
+)
+@pytest.mark.parametrize("source", ["comparison", "execution"])
+def test_runtime_library_shapes_after_coherent_hash_rebinding(pilot, malformed, source):
+    config, output, parent, _, _ = pilot
+    receipt = json.loads((parent / "execution").read_text())
+    if source == "comparison":
+        report = json.loads((parent / "comparison").read_text())
+        report["runtime_shared_libraries_sha256"] = malformed
+        write_json(parent / "comparison", report)
+        receipt["parents"]["comparison"] = sha((parent / "comparison").read_bytes())
+    else:
+        receipt["runtime_shared_libraries_sha256"] = malformed
+    rewrite_execution(pilot, receipt)
+    with pytest.raises(ValueError, match="runtime library provenance requires"):
+        materialize(config, output)
+    assert not output.exists()
+
+
+def test_valid_remote_library_map_does_not_require_local_files_and_must_match(pilot):
+    config, output, parent, _, _ = pilot
+    receipt = json.loads((parent / "execution").read_text())
+    receipt["runtime_shared_libraries_sha256"] = {
+        "/nonexistent-remote-hpc/lib-valid.so": "a" * 64
+    }
+    rewrite_execution(pilot, receipt)
+    with pytest.raises(ValueError, match="execution runtime library ancestry"):
+        materialize(config, output)
+    report = json.loads((parent / "comparison").read_text())
+    report["runtime_shared_libraries_sha256"] = receipt[
+        "runtime_shared_libraries_sha256"
+    ]
+    write_json(parent / "comparison", report)
+    receipt["parents"]["comparison"] = sha((parent / "comparison").read_bytes())
+    rewrite_execution(pilot, receipt)
+    assert materialize(config, output)["count"] == 2
+
+
+def test_empty_preparation_configuration_is_not_execution_provenance(pilot):
+    config, output, parent, _, bind = pilot
+    prep = json.loads((parent / "preparation").read_text())
+    prep["configuration"] = {}
+    write_json(parent / "preparation", prep)
+    bind()
+    with pytest.raises(ValueError, match="preparation configuration required"):
+        materialize(config, output)
+    assert not output.exists()
+
+
+def test_output_cannot_be_inside_retained_execution_evidence_parent(pilot):
+    config, output, parent, _, _ = pilot
+    separate = output.parent.parent / "separate-evidence"
+    separate.mkdir()
+    retained = separate / "run.log"
+    retained.write_bytes((parent / "run_log").read_bytes())
+    receipt = json.loads((parent / "execution").read_text())
+    receipt["evidence"]["run_log"]["path"] = str(retained)
+    rewrite_execution(pilot, receipt)
+    with pytest.raises(
+        ValueError, match="destination collides with execution evidence parent"
+    ):
+        materialize(config, separate / "new-candidate")
+    assert not (separate / "new-candidate").exists()
+
+
+def test_execution_evidence_is_rechecked_before_output(pilot, monkeypatch):
+    import crucible.rhs_data as module
+
+    config, output, parent, _, _ = pilot
+    original = module.checked
+    calls = {}
+
+    def change_evidence_at_final_input_recheck(entry):
+        path = entry["path"]
+        calls[path] = calls.get(path, 0) + 1
+        if path == str(parent / "states") and calls[path] == 2:
+            (parent / "run_log").write_bytes(b"changed after initial evidence check")
+        return original(entry)
+
+    monkeypatch.setattr(module, "checked", change_evidence_at_final_input_recheck)
+    with pytest.raises(ValueError, match="input checksum mismatch: run_log"):
+        materialize(config, output)
+    assert not output.exists()

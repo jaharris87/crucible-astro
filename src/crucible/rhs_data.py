@@ -8,7 +8,7 @@ import platform
 import re
 import struct
 from importlib.metadata import version
-from pathlib import Path
+from pathlib import Path, PurePosixPath
 
 SCHEMA = "crucible.native-rhs-materialization.v1"
 UNITS = {
@@ -87,6 +87,22 @@ def checked(entry):
     return data
 
 
+def libraries(value):
+    require(
+        isinstance(value, dict)
+        and bool(value)
+        and all(
+            isinstance(name, str)
+            and PurePosixPath(name).is_absolute()
+            and isinstance(sha, str)
+            and re.fullmatch("[0-9a-f]{64}", sha)
+            for name, sha in value.items()
+        ),
+        "runtime library provenance requires nonempty absolute-path/SHA256 map",
+    )
+    return value
+
+
 def f64(data):
     require(len(data) % 8 == 0, "invalid binary64 width")
     values = struct.unpack(f"<{len(data) // 8}d", data)
@@ -134,6 +150,7 @@ def materialize(config_path, destination):
             "components",
             "comparison",
             "executable",
+            "execution",
         },
         "exact audit input closure required",
     )
@@ -215,9 +232,87 @@ def materialize(config_path, destination):
     require(
         comparison["D017_exact_bit_controls"] == controls, "exact controls mismatch"
     )
+    runtime_libraries = libraries(comparison["runtime_shared_libraries_sha256"])
+    execution = json_load(data["execution"])
     require(
-        bool(comparison["runtime_shared_libraries_sha256"]),
-        "missing runtime library provenance",
+        isinstance(execution, dict)
+        and set(execution)
+        == {
+            "schema",
+            "status",
+            "parents",
+            "configuration_sha256",
+            "runtime_shared_libraries_sha256",
+            "evidence",
+        }
+        and execution["schema"] == "crucible.rhs-pilot-execution.v1"
+        and execution["status"] == "completed",
+        "execution receipt incomplete/schema",
+    )
+    require(
+        isinstance(execution["parents"], dict)
+        and set(execution["parents"])
+        == {"preparation", "executable", "fresh", "components", "comparison"},
+        "execution parent closure",
+    )
+    for key, sha in execution["parents"].items():
+        require(sha == inputs[key]["sha256"], f"execution ancestry: {key}")
+    configuration = prep.get("configuration")
+    require(
+        isinstance(configuration, dict) and bool(configuration),
+        "preparation configuration required",
+    )
+    configuration_bytes = json.dumps(
+        configuration, sort_keys=True, separators=(",", ":"), allow_nan=False
+    ).encode()
+    require(
+        execution["configuration_sha256"] == digest(configuration_bytes),
+        "execution configuration ancestry",
+    )
+    require(
+        libraries(execution["runtime_shared_libraries_sha256"]) == runtime_libraries,
+        "execution runtime library ancestry",
+    )
+    evidence = execution["evidence"]
+    require(
+        isinstance(evidence, dict)
+        and set(evidence)
+        == {
+            "build_manifest",
+            "build_log",
+            "build_exit",
+            "build_driver",
+            "build_runtime",
+            "run_log",
+            "job_script",
+            "job_status",
+            "loaded_maps",
+            "job_hardware",
+            "job_environment",
+            "run_exit",
+        },
+        "execution evidence closure",
+    )
+    for role, entry in evidence.items():
+        try:
+            artifact = checked(entry)
+        except (ValueError, OSError, TypeError) as error:
+            raise ValueError(f"execution evidence {role}: {error}") from error
+        paths.append(regular_path(entry["path"]))
+        if role == "build_manifest":
+            require(
+                digest(artifact) == inputs["preparation"]["sha256"],
+                "execution build manifest ancestry",
+            )
+        if role in ("build_exit", "run_exit"):
+            require(artifact.strip() == b"0", f"execution {role} not successful")
+    require(len(set(paths)) == len(paths), "execution evidence path collision")
+    require(
+        all(
+            not dest.is_relative_to(p.parent) and not p.is_relative_to(dest)
+            for p in paths
+        ),
+        "destination collides with execution evidence parent",
     )
     states, fresh = data["states"], data["fresh"]
     require(len(states) == HEADER_SIZE + n * STATE_SIZE, "truncated/trailing states")
@@ -386,7 +481,7 @@ def materialize(config_path, destination):
         for name, value in zip(arrays, values, strict=True):
             arrays[name].append(value)
     # Verify retained inputs again before committing any output; no kernel/math audit rerun.
-    for entry in inputs.values():
+    for entry in (*inputs.values(), *evidence.values()):
         checked(entry)
     import h5py
 
@@ -448,6 +543,7 @@ def materialize(config_path, destination):
             "contract": "D-019 source-PR-20 v2 native pointwise full-Y/T9/rho/Ye=Q/B",
             "preparation": inputs["preparation"],
             "comparison": inputs["comparison"],
+            "execution": inputs["execution"],
             "reference_accuracy": comparison["reference_accuracy"],
         },
         "output": {

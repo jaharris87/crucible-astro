@@ -29,10 +29,11 @@ The recipe has exactly these keys:
 - `schema`: `crucible.native-rhs-materialization.v1`.
 - `dataset_id`, `dataset_version`: explicit nonempty strings.
 - `inputs`: exactly `preparation`, `states`, `selection`, `fresh`, `components`,
-  `comparison`, `executable`. Each is an explicit `{path, sha256}` binding to an
-  absolute regular file. These mean the PR #20 preparation `manifest.json`,
+  `comparison`, `executable`, `execution`. Each is an explicit `{path, sha256}`
+  binding to an absolute regular file. These mean the PR #20 preparation `manifest.json`,
   `states.bin`, `selection.json`, retained `fresh.bin`, completed `components.jsonl`,
-  completed `comparison.json`, and the retained generating executable.
+  completed `comparison.json`, the retained generating executable, and the finite
+  execution receipt specified below.
 - `expected`: exactly `count`, `species_Z_A`, `units`, `exact_controls`.
   The real pilot count is **5157** and controls are **[58, 62]**. Supply all 160
   `[Z,A]` integer pairs in their verified source order, and the exact unit dictionary
@@ -43,8 +44,8 @@ Use independently retained expected hashes; never bless changed files by updatin
 hashes merely to obtain success. The comparison must bind the preparation,
 result, components and executable hashes, report completion and both exact
 controls, and retain runtime-library identities. The preparation must bind states
-and selection. Every row must pass the source comparator's conditional assembly
-flag and finite component/baryon residual bounds, with scientific acceptance
+and selection. The execution receipt binds actual retained build/run evidence.
+Every row must pass the source comparator's conditional assembly flag and finite component/baryon residual bounds, with scientific acceptance
 false. Row counts, sequential identities, raw ordinal/locator ancestry and
 per-trajectory raw-parent consistency are checked. Missing/malformed JSON,
 duplicate keys, nonfinite values, wrong dimensions, trailing/truncated binary,
@@ -57,6 +58,46 @@ complete output and receipts must be retained before creating the single real
 candidate. A normal physical loop, finite components, controls, or partial JSONL
 alone do not satisfy this gate. The implementation's synthetic checks do not
 claim the gate passed. The actual receipt belongs in the live issue/PR and card.
+
+## Finite execution receipt
+
+The eighth primary input `execution` repairs the missing actual build/run closure
+identified in RHS-DATA-R1 on the first draft candidate. It has exactly six keys:
+
+| Key | Exact meaning/type |
+| --- | --- |
+| `schema` | String `crucible.rhs-pilot-execution.v1` |
+| `status` | String `completed`; write only after completed comparison/job closure |
+| `parents` | Exact map of `preparation`, `executable`, `fresh`, `components`, `comparison` to their recipe SHA-256 strings |
+| `configuration_sha256` | Digest of nonempty preparation `configuration`, canonically encoded as below |
+| `runtime_shared_libraries_sha256` | Nonempty map of absolute POSIX library-path strings to 64-character lowercase hexadecimal SHA-256 strings; exactly equals the comparison map |
+| `evidence` | Exact twelve-role map below; each value is an explicit `{path, sha256}` local file binding |
+
+Configuration digest bytes are exactly
+`json.dumps(configuration, sort_keys=True, separators=(",", ":"), allow_nan=False).encode()`.
+The preparation manifest binds original source/kernel/scripts/physics-input
+identities and configuration. The retained actual build manifest must have that
+same digest; build logs and drivers bind the actual generating build. These links
+preserve declared source/configuration and actual execution ancestry together.
+
+The evidence roles are exactly `build_manifest`, `build_log`, `build_exit`,
+`build_driver`, `build_runtime`, `run_log`, `job_script`, `job_status`, `loaded_maps`,
+`job_hardware`, `job_environment`, `run_exit`. Every path must be an absolute
+existing regular file, with no symlink ancestor or parent traversal. Paths must
+be distinct, including from primary inputs. Every declared file is actually read,
+hash-checked and rechecked before output; destinations inside an evidence parent
+are refused. `build_manifest` must match the primary preparation digest;
+`build_exit` and `run_exit` must strip to bytes `0`. Other evidence is retained and
+hash-bound; producer interpretation and fresh review establish its meaning,
+without introducing platform-specific log parsers or scanning directories.
+
+For the actual attempt, `build_runtime` names retained `runtime-proof.txt`,
+`job_hardware` names `job-hardware.txt`, `job_environment` names
+`job-selected-env.txt`, `run_exit` names `job-exit.txt`, and `job_status` names the
+final scheduler accounting receipt. A digest-valid receipt is engineering
+provenance, not scientific acceptance. Library-map structure is validated in both
+comparison and execution receipts (RHS-DATA-R2); remote HPC library files need
+not exist on the local materialization machine.
 
 ## Output fields
 
@@ -95,7 +136,7 @@ Large coefficient evidence stays in the bound audit parent, outside HDF features
 path/digest, ordered species/units/count, materializer source digest and runtime
 Python/distribution/h5py/HDF5/NumPy versions, and final HDF5 length/digest. It has
 separate original-state and newly generated-label provenance, links to the full
-source preparation/reference/comparison closure, and records all-false eligibility.
+source preparation/reference/comparison/execution closure, and records all-false eligibility.
 The schema is the extraction version; the committed source and pinned `uv.lock`
 are the portable software recipe. A manifest is a local integrity receipt, not
 permission to redistribute data or an accepted scientific claim.
