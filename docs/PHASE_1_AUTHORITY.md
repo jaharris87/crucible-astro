@@ -124,3 +124,10 @@ new phase. D-022's provisional engineering budgets grant no execution authority
 and accept no scientific numbers. Original references/pilot artifacts stay
 unchanged. Track actual merge/integration, execution and independent evidence
 verification separately in #26; permission is not an execution result.
+
+PR #28 is human-merged at `775f988b7b2bce39aef0712aee05d84864b41ffd`;
+[merged integration](https://github.com/jaharris87/crucible-astro/pull/28#issuecomment-6968936667)
+passes 297 locked noneditable tests and merged CI with the reviewed tree and
+prepared input digests unchanged. D-023's prerequisite is satisfied. Actual
+build/evaluation results are not claimed here; live #26 records subsequent
+execution, stop conditions, controls and independent verification.

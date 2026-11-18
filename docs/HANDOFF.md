@@ -36,6 +36,12 @@ remain unchanged.
   0.1%, 1%, 5% are provisional engineering settings; scientific allowances,
   physical timescales, scales and critical-species selection remain unresolved.
   No model, training, architecture, heating target or producer call follows.
+- D-023 separately authorizes exactly one isolated build and 19,159 remaining-primary
+  RHS evaluations (19,157 new + two repeated controls), after reviewed PR #28
+  merge/integration. [The prerequisite is verified](https://github.com/jaharris87/crucible-astro/pull/28#issuecomment-6968936667)
+  at `775f988`; [live #26](https://github.com/jaharris87/crucible-astro/issues/26)
+  records subsequent actual execution/evidence. No completed run or scientific
+  acceptance is claimed by this authority receipt; no retry/extra call is granted.
 - The [reference-scope clarification](phase1/RHS_REFERENCE_SCOPE.md) records the
   official matching rate entry. Pin actual inputs; reconstructing upstream rate
   evaluation history is not an added Phase 1 prerequisite. Numerical verification
@@ -59,6 +65,7 @@ D-013 removes resource caps/accounting; D-012/D-015 retain the model/review poli
 | Expanded audit/card/proposal #10/#15 | Human-merged PR #24 at `33c368c`; working scope separately accepted under D-021; scientific gates open |
 | Native pilot HDF5/evidence #23 | Human-merged PR #25 at `c26069e`; engineering issue closed; [fresh review/integration receipt](https://github.com/jaharris87/crucible-astro/pull/25#issuecomment-6968843133); all scientific masks false |
 | Working primary candidate partitions #15 | Human-merged PR #27 at `4840ba1`; [exact merged-tree freshness/integration receipt](https://github.com/jaharris87/crucible-astro/pull/27#issuecomment-6968843354); combined locked noneditable 265 tests and merged CI pass, no scientific partition acceptance |
+| Remaining-primary preparation #26 | Human-merged PR #28 at `775f988`; [297-test noneditable/CI integration](https://github.com/jaharris87/crucible-astro/pull/28#issuecomment-6968936667) preserves the exact reviewed tree/input digests; separate D-023 execution authority now available, not a completed execution claim |
 
 Both earlier merge delegations and all named approvals are exhausted. The pilot
 RHS-PILOT-R1 repair uses native Ye; all 6,433 selection decisions, 5,157 input
@@ -111,12 +118,14 @@ A public card/software license does not establish data redistribution rights.
    [Engineering #23 is closed](https://github.com/jaharris87/crucible-astro/issues/23#issuecomment-6968856299);
    #18/#10 scientific acceptance remains open. Pilot call authority is exhausted;
    no retry or extra producer call is authorized. All scientific masks stay false.
-3. [Remaining-primary scope #26 / draft PR #28](https://github.com/jaharris87/crucible-astro/pull/28)
-   prepares 19,157 new candidate states plus two explicit repeat controls
-   (19,159 proposed calls). Rebased candidate `abecad2` on `4840ba1` retains all
-   seven reviewed source blobs; 297 candidate tests/CI pass. Original-review
-   freshness and a human merge decision remain pending. Build/evaluation needs a
-   separate concrete human execution decision; no additional call is authorized.
+3. [Remaining-primary scope #26 / merged PR #28](https://github.com/jaharris87/crucible-astro/pull/28)
+   is integrated at `775f988`, with the reviewed tree and exact inputs preserved;
+   297 candidate/merged noneditable tests and merged CI pass. The separate
+   [D-023 human execution decision](https://github.com/jaharris87/crucible-astro/issues/26#issuecomment-6968904261)
+   authorizes one isolated build and exactly 19,159 pointwise calls (19,157 new
+   states + two repeat controls). Prerequisites are met; actual execution and
+   independent verification belong in live #26, with no completed run claimed
+   here. Preserve all outputs/controls and stop conditions; no retry or extra call.
 4. [Provisional budgets #29](https://github.com/jaharris87/crucible-astro/issues/29)
    / [draft PR #30](https://github.com/jaharris87/crucible-astro/pull/30) implements
    configurable diagnostics/examples and honest benchmark readiness.

@@ -360,15 +360,19 @@ The full Phase 1 S01–S03 goal remains active; no provisional tier waives its e
 
 ### Decision D-023: Exact remaining-primary build/run and separate preparation merge
 
-**Status: explicit human decisions received, 2026-11-17; execution conditional on
-reviewed merge and passing integration.** The maintainer selected “Merge PR #28
+**Status: accepted exact execution, 2026-11-17; reviewed merge and passing
+integration prerequisites verified.** The maintainer selected “Merge PR #28
 preparation only (Recommended)” and separately “Authorize build and 19,159
 evaluations (Recommended)”. The [public authority receipt](https://github.com/jaharris87/crucible-astro/issues/26#issuecomment-6968904261)
 binds reviewed source `abecad208cacd022ea209f6bfa5f4b9ef5363658`, manifest
 `a51f43bd5e053159457d61f45a5672e1308a6199158730f4fed269d517ff2146`, and states
 `b6c514f8101894a39c11ecfdee52fb4b70a242ba13d74adeb3e8e66fc2f53fbd`.
 
-Only after that candidate's human merge and passing merged integration, permit
+The [PR #28 integration receipt](https://github.com/jaharris87/crucible-astro/pull/28#issuecomment-6968936667)
+records human merge `775f988`, unchanged reviewed tree, 297 locked noneditable
+tests and merged CI passing. Those prerequisites are satisfied; actual execution
+and later verification remain separate evidence in live #26. This record claims
+no completed build/evaluation. The accepted scope permits
 one fresh isolated build and exactly **19,159 pointwise RHS calls: 19,157 new
 states plus two explicit repeated pilot controls**. Preserve unchanged full-160
 Y/T9/rho, pinned native D-019 source/EOS/tables, D-017 toolchain/flags,
