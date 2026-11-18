@@ -173,6 +173,10 @@ def _scale(spec, coeff, species, intervals, tau):
         "value": value,
         "interval_id": interval_id,
         "history_id": interval["history_id"],
+        "dataset_id": interval["dataset_id"],
+        "interval_sha256": hashlib.sha256(
+            json.dumps(interval, sort_keys=True, allow_nan=False).encode()
+        ).hexdigest(),
         "coverage_s": coverage,
         "sample_count": len(times),
         "coverage_provenance": interval["coverage_provenance"],
