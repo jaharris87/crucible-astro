@@ -70,7 +70,7 @@ execution/qualification decision. Original producer source and D-017 evidence
 remain unchanged; D-019 still defers build/run.
 
 Expanded read-only checks found a reader energy-zero sign defect, tracked in
-[#21](https://github.com/jaharris87/crucible-astro/issues/21). A narrow repair
+[#21](https://github.com/jaharris87/crucible-astro/issues/21) / [draft PR #22](https://github.com/jaharris87/crucible-astro/pull/22). A narrow repair
 accepts either documented text sign only for exactly zero binary energy, retaining
 its sign bit and all scientific exclusions. Synthetic regressions and separate
 local real-data checks accompany its own review and human merge gate. The primary
