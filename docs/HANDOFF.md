@@ -52,11 +52,27 @@ D-012/D-015 model/review policy remain unchanged.
 
 ## Evidence and next action
 
-The current accepted-decision/coverage update is [draft PR #19](https://github.com/jaharris87/crucible-astro/pull/19)
-under S01/S03. It is not merged; fresh scientific/provenance review and its own
-human merge decision remain required. The issue bodies were reformatted and read
-back after the maintainer flagged spacing problems; original bodies are retained
-locally, and closed diagnostic proposal text is explicitly historical.
+The accepted-decision/coverage update [PR #19](https://github.com/jaharris87/crucible-astro/pull/19)
+was human-approved and merged at `116e682`. Its exact reviewed tree was preserved;
+merged CI passed. Final scientific grouping/reference acceptance remains open.
+
+The [fixed reference preparation](../experiments/rhs_reference/README.md) under
+[#18](https://github.com/jaharris87/crucible-astro/issues/18) now prepares a bound
+5,157-state qualification-pilot candidate and original one-zone evaluator/decoder. The private fixed
+bundle is prepared; no new Fortran compilation or producer call occurred. The
+source candidate requires focused independent repair review, then a concrete human
+execution decision. Synthetic checks do not establish runtime compatibility or
+reference accuracy. The source audit exposes the native largest-multiplicity
+counting convention (including the two-identical-pair distinction); its physical
+rate normalization remains for scientific disposition before execution or
+qualification. No producer source was patched. The old three-call experiment
+and its receipts remain unchanged.
+Initial source review requested RHS-PILOT-R1: both domain gates now use the
+producer's `sum(Z*Y)/sum(A*Y)` with positive finite baryon sum. Original Y is
+unchanged. A separate raw-state check preserves all 6,433 membership decisions,
+5,157 state bytes and both retained control identities; historical proxy-screen
+receipts remain immutable. The repair candidate has 126 passing Python tests,
+with Fortran compilation/execution still deferred.
 
 The unchanged local collection has 42,362 filename pairs. The original three-pair
 artifact has 1,384 records and all-false scientific masks. The separate
@@ -81,17 +97,18 @@ additional provenance, **not a prerequisite for position-based grouping**.
 
 Next authorized work under [S03 #15](https://github.com/jaharris87/crucible-astro/issues/15):
 
-1. Review the concrete measured-position proposal: 21 operational groups,
-   68 training / 8 validation / 4 test histories (4,385 / 523 / 249 states).
-   Required training-stratum support is present; sufficient joint coverage and
-   physical independence are not proved. Preserve the first allocation's support
-   failure. All 2,193-frame histories are checked; no late positions are invented.
-   The producer-confirmed `pdata.h5` source makes seeding-file recovery optional.
+1. Expand the primary benchmark audit read-only, as the maintainer selected in
+   D-018: “Expand primary benchmark audit; keep current pool as pilot (Recommended)”.
+   The current 80-history/5,157-state pool and measured-position allocation remain
+   a qualification pilot, without a primary split freeze or sufficient joint
+   coverage/physical-independence claim. All recorded position histories are
+   checked; no late positions are invented and seeding recovery is optional.
 2. Prepare a multi-trajectory training/holdout proposal supported by full state,
    condition and position evidence. Keep shared-parent correlations and any
    remaining grouping assumptions explicit; obtain scientific acceptance.
-3. Prepare the bounded 5,157-candidate evaluator source under issue #18 for
-   independent review, then present its exact execution scope separately.
+3. Independently review the prepared 5,157-state qualification-pilot evaluator source under
+   issue #18, including cache/FP/native-weight semantics, then present its exact
+   execution scope separately.
    D-019 still defers producer build/run. No model/preprocessing fitting, new
    XNet evaluation or final-test use is authorized by these audits.
 
