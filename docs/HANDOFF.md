@@ -58,7 +58,7 @@ merged CI passed. Final scientific grouping/reference acceptance remains open.
 
 The [fixed reference preparation](../experiments/rhs_reference/README.md) under
 [#18](https://github.com/jaharris87/crucible-astro/issues/18) now prepares a bound
-5,157-state candidate and original one-zone evaluator/decoder. The private fixed
+5,157-state qualification-pilot candidate and original one-zone evaluator/decoder. The private fixed
 bundle is prepared; no new Fortran compilation or producer call occurred. The
 source candidate requires fresh independent review, then a concrete human
 execution decision. Synthetic checks do not establish runtime compatibility or
@@ -91,16 +91,16 @@ additional provenance, **not a prerequisite for position-based grouping**.
 
 Next authorized work under [S03 #15](https://github.com/jaharris87/crucible-astro/issues/15):
 
-1. Review the concrete measured-position proposal: 21 operational groups,
-   68 training / 8 validation / 4 test histories (4,385 / 523 / 249 states).
-   Required training-stratum support is present; sufficient joint coverage and
-   physical independence are not proved. Preserve the first allocation's support
-   failure. All 2,193-frame histories are checked; no late positions are invented.
-   The producer-confirmed `pdata.h5` source makes seeding-file recovery optional.
+1. Expand the primary benchmark audit read-only, as the maintainer selected in
+   D-018: “Expand primary benchmark audit; keep current pool as pilot (Recommended)”.
+   The current 80-history/5,157-state pool and measured-position allocation remain
+   a qualification pilot, without a primary split freeze or sufficient joint
+   coverage/physical-independence claim. All recorded position histories are
+   checked; no late positions are invented and seeding recovery is optional.
 2. Prepare a multi-trajectory training/holdout proposal supported by full state,
    condition and position evidence. Keep shared-parent correlations and any
    remaining grouping assumptions explicit; obtain scientific acceptance.
-3. Independently review the prepared 5,157-candidate evaluator source under
+3. Independently review the prepared 5,157-state qualification-pilot evaluator source under
    issue #18, including cache/FP/native-weight semantics, then present its exact
    execution scope separately.
    D-019 still defers producer build/run. No model/preprocessing fitting, new

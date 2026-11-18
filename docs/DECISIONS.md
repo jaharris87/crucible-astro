@@ -233,6 +233,14 @@ The maintainer subsequently relayed confirmation from the particle-data producer
 that `pdata.h5` is the intended position-data source. Record this as producer
 confirmation via the maintainer; routine ID/time/coordinate checks still apply.
 
+**Pilot clarification, accepted 2026-11-17:** exact answer: “Expand primary
+benchmark audit; keep current pool as pilot (Recommended)”. The current 80-history,
+5,157-state fixed reference candidate is a qualification pilot. Expand the primary
+benchmark audit read-only; do not freeze the current split or treat its finite
+support as primary-benchmark qualification. This supplies no additional producer
+build/run, training, scientific qualification or merge authority. D-019's
+execution deferral remains in force.
+
 ### Decision D-019: Pointwise numerical-reference contract; execution deferred
 
 **Status: contract accepted, 2026-11-17.** Exact answer: “Accept the proposed

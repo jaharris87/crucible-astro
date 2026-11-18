@@ -7,6 +7,11 @@ deferred**. The completed D-017 experiment and its three calls are immutable
 history, not permission for this candidate. This directory contains original
 software only; no reference source, real states or data are distributed.
 
+The maintainer selected **“Expand primary benchmark audit; keep current pool as
+pilot (Recommended)”**. This fixed 80-history/5,157-state candidate is a
+qualification pilot; the primary audit expands read-only. No current split or
+primary benchmark is locked, and this answer grants no producer execution.
+
 This candidate prepares exactly 5,157 source-table-screened ordinary states from
 80 familiar-layout histories in the fixed 83-pair audit. It excludes initial,
 explicit companion-NSE and screened-out records, and the three unfamiliar layouts.
