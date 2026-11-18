@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Prepare/verify/decode one fixed 5157-state candidate. Never build or call XNet."""
+"""Prepare/verify/decode fixed pilot or primary inputs. Never build or call XNet."""
 
 import argparse
 import hashlib
@@ -229,35 +229,13 @@ def validate_state(prefix, y, z, a):
     return yy
 
 
-def prepare(config_path, destination):
-    c = load(config_path)
-    bindings = load(HERE / "bindings.json")
-    require(
-        set(c)
-        == {"files", "raw_root", "records", "fixity", "d017_states", "d017_fresh"},
-        "Unexpected config",
-    )
-    require(set(c["files"]) == set(bindings["files"]), "Reference closure mismatch")
-    assets = {n: checked(e, bindings["files"][n]) for n, e in c["files"].items()}
-    audit_bytes = checked(c["records"])
-    audit = [json.loads(line) for line in audit_bytes.splitlines()]
-    chosen = [r for r in audit if r["inside_candidate_FFN_source_grid_only"]]
-    require(
-        len(chosen) == NSTATES and len({r["trajectory_locator"] for r in chosen}) == 80,
-        "Wrong fixed candidate membership",
-    )
-    require(
-        len({r["record_id"] for r in chosen}) == NSTATES, "Duplicate state selection"
-    )
-    fix = json.loads(checked(c["fixity"]))
-    fixity = {e["path"]: e["sha256"] for e in fix["files"]}
-    require(len(fixity) == 166, "Unexpected full raw fixity membership")
+def extract_states(chosen, fixity, raw_root, *, signed_zero=False):
     by_path = defaultdict(list)
     for seq, r in enumerate(chosen, 1):
         by_path[r["trajectory_locator"]].append((seq, r))
-    root = Path(c["raw_root"])
+    root = Path(raw_root)
     require(root.is_absolute(), "Absolute raw root required")
-    payloads, selection = {}, {}
+    payloads, selection, events = {}, {}, []
     species = None
     za = None
     for name, rows in by_path.items():
@@ -296,6 +274,11 @@ def prepare(config_path, destination):
         zone = int(Path(name).name.split("_")[1])
         for seq, r in rows:
             ordinal = r["ordinal"]
+            require(
+                isinstance(ordinal, int) and 0 < ordinal < len(recs) - 6,
+                "Invalid ordinary ordinal",
+            )
+            require(r["record_id"] == f"{name}#{ordinal}", "Record identity mismatch")
             offset, b = recs[6 + ordinal]
             require(
                 len(b) == 9876 and offset == r["raw_marker_offset"],
@@ -309,19 +292,29 @@ def prepare(config_path, destination):
             )
             h = struct.unpack("<i5d", header)
             fields = lines[ordinal + 1].split()
-            require(
-                fields[-1] != "NSE"
-                and fields[:6]
-                == [
-                    str(h[0]),
-                    f"{h[1]:.8E}",
-                    f"{h[2]:.3E}",
-                    f"{h[3]:.3E}",
-                    f"{h[5]:.2E}",
-                    f"{h[4]:.2E}",
-                ],
-                "Companion/ordinary identity mismatch",
-            )
+            expected = [
+                str(h[0]),
+                f"{h[1]:.8E}",
+                f"{h[2]:.3E}",
+                f"{h[3]:.3E}",
+                f"{h[5]:.2E}",
+                f"{h[4]:.2E}",
+            ]
+            if signed_zero:
+                from primary import companion_matches
+
+                aligned, equivalent = companion_matches(fields, expected, h[5])
+                if equivalent:
+                    events.append(
+                        {
+                            "trajectory_locator": name,
+                            "ordinal": ordinal,
+                            "raw_binary64_hex": header[36:44].hex(),
+                        }
+                    )
+            else:
+                aligned = fields[-1] != "NSE" and fields[:6] == expected
+            require(aligned, "Companion/ordinary identity mismatch")
             prefix = struct.pack("<4i", seq, row, zone, ordinal) + header
             validate_state(prefix, yy, z, a)
             require(
@@ -338,6 +331,34 @@ def prepare(config_path, destination):
                 "raw_payload_sha256": digest(b),
                 "input_state_sha256": digest(prefix + yy),
             }
+    return payloads, selection, za, a, events
+
+
+def prepare(config_path, destination):
+    c = load(config_path)
+    bindings = load(HERE / "bindings.json")
+    require(
+        set(c)
+        == {"files", "raw_root", "records", "fixity", "d017_states", "d017_fresh"},
+        "Unexpected config",
+    )
+    require(set(c["files"]) == set(bindings["files"]), "Reference closure mismatch")
+    assets = {n: checked(e, bindings["files"][n]) for n, e in c["files"].items()}
+    audit_bytes = checked(c["records"])
+    audit = [json.loads(line) for line in audit_bytes.splitlines()]
+    chosen = [r for r in audit if r["inside_candidate_FFN_source_grid_only"]]
+    require(
+        len(chosen) == NSTATES and len({r["trajectory_locator"] for r in chosen}) == 80,
+        "Wrong fixed candidate membership",
+    )
+    require(
+        len({r["record_id"] for r in chosen}) == NSTATES, "Duplicate state selection"
+    )
+    fix = json.loads(checked(c["fixity"]))
+    fixity = {e["path"]: e["sha256"] for e in fix["files"]}
+    require(len(fixity) == 166, "Unexpected full raw fixity membership")
+    payloads, selection, za, a, _ = extract_states(chosen, fixity, c["raw_root"])
+    z, _ = species_ids(za)
     states = (
         HEADER.pack(MAGIC, 2, NSTATES, NY)
         + za
@@ -446,9 +467,11 @@ def retained_controls(old, output, z, a):
 def verify(root):
     root = Path(root)
     m = load(root / "manifest.json")
+    primary = m["schema"] == "crucible.rhs-primary-preparation.v1"
+    count = 19159 if primary else NSTATES
     require(
-        m["schema"] == "crucible.rhs-reference-preparation.v1"
-        and m["selection_count"] == NSTATES,
+        (primary or m["schema"] == "crucible.rhs-reference-preparation.v1")
+        and m["selection_count"] == count,
         "Wrong bundle schema/count",
     )
     for name, item in m["files"].items():
@@ -463,13 +486,17 @@ def verify(root):
         )
     state = (root / "states.bin").read_bytes()
     require(
-        len(state) == 2576 + NSTATES * (PREFIX.size + 2560),
+        len(state) == 2576 + count * (PREFIX.size + 2560),
         "Invalid prepared state length",
     )
     require(
-        HEADER.unpack_from(state) == (MAGIC, 2, NSTATES, NY),
+        HEADER.unpack_from(state) == (MAGIC, 2, count, NY),
         "Invalid prepared state count/header",
     )
+    if primary:
+        from primary import verify_metadata
+
+        verify_metadata(root, m, state)
     return m
 
 
@@ -536,10 +563,11 @@ def decode_record(state, output, z, a, coefficient_count):
 
 def compare(root):
     root = Path(root)
-    verify(root)
+    manifest = verify(root)
+    count = manifest["selection_count"]
     original = (root / "states.bin").read_bytes()
-    require(HEADER.unpack_from(original) == (MAGIC, 2, NSTATES, NY), "Bad state header")
-    require(len(original) == 2576 + NSTATES * (PREFIX.size + 2560), "Bad state length")
+    require(HEADER.unpack_from(original) == (MAGIC, 2, count, NY), "Bad state header")
+    require(len(original) == 2576 + count * (PREFIX.size + 2560), "Bad state length")
     expected = (root / "expected-maps.bin").read_bytes()
     require(
         (root / "used-maps.bin").read_bytes()
@@ -550,12 +578,17 @@ def compare(root):
     z, a = species_ids(original[16:2576])
     terms = mapping_terms(parse_maps(expected), a)
     controls = load(root / "d017-controls.json")
+    require(
+        (root / "fresh.bin").stat().st_size
+        == 2576 + count * (FRESH_PREFIX.size + 5120 + 16384),
+        "Wrong fresh output count/length",
+    )
     control_results = []
     results = root / "components.jsonl"
     require(not results.exists(), "Refusing overwrite")
     with (root / "fresh.bin").open("rb") as inp, results.open("x") as out:
         require(inp.read(2576) == original[:2576], "Changed output species/header")
-        for k in range(NSTATES):
+        for k in range(count):
             state = original[
                 2576 + k * (PREFIX.size + 2560) : 2576 + (k + 1) * (PREFIX.size + 2560)
             ]
@@ -607,12 +640,19 @@ def main():
     a = s.add_parser("prepare")
     a.add_argument("config", type=Path)
     a.add_argument("destination", type=Path)
+    a = s.add_parser("prepare-primary")
+    a.add_argument("config", type=Path)
+    a.add_argument("destination", type=Path)
     for n in ("verify", "compare"):
         a = s.add_parser(n)
         a.add_argument("root", type=Path)
     args = p.parse_args()
     if args.action == "prepare":
         prepare(args.config, args.destination)
+    elif args.action == "prepare-primary":
+        from primary import prepare as prepare_primary
+
+        prepare_primary(args.config, args.destination)
     elif args.action == "verify":
         verify(args.root)
     else:

@@ -1,5 +1,5 @@
 #!/bin/bash
-# Only after review and a successful recorded fresh build. Exactly the fixed 5157 RHS calls; execution requires separate authorization.
+# Only after review and a successful recorded fresh build. Exactly the manifest-bound 5157 pilot or 19159 primary RHS calls; execution requires separate authorization.
 set -euo pipefail
 cd "$(dirname "$0")"
 python3 reference.py verify .
