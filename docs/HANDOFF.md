@@ -2,118 +2,96 @@
 
 Updated **2026-11-17**. Phase 0A/0B are complete; Phase 1 S01/S03 remain active.
 **No dataset or final benchmark is scientifically qualified.** The native goal
-retains the full [S01–S03 objective](PHASE_1_AUTHORITY.md); do not close it for
-limited exploration or missing acceptance.
+remains active for the full [S01–S03 objective](PHASE_1_AUTHORITY.md).
+[Milestone #2](https://github.com/jaharris87/crucible-astro/milestone/2) stays open
+through actual scientific acceptance, reviewed human merges and integration.
+[Progress](PROGRESS.md) and live issue/PR receipts track checks; historical dated
+reports and the [Phase 0B closeout](https://github.com/jaharris87/crucible-astro/issues/4#issuecomment-6960154582)
+remain unchanged.
 
-[Phase 1 milestone #2 — Data qualification and benchmark definition](https://github.com/jaharris87/crucible-astro/milestone/2)
-is open. [Progress](PROGRESS.md) and linked live issue/PR receipts track actual
-checks and integration. Historical dated reports remain snapshots.
-The [final Phase 0B closeout](https://github.com/jaharris87/crucible-astro/issues/4#issuecomment-6960154582)
-records completed bootstrap at `01f06d8`; preserve its original evidence.
+## Authority and accepted direction
 
-## Current decisions and authority
+- D-016 authorizes Phase 1 only; every merge needs its own human decision.
+- D-017's exactly three RHS calls are complete; its authority is exhausted.
+- D-018 requires multiple training trajectories and defensible grouped holdouts.
+  A/B/C are initial audit aliases. Each qualified saved state can be a pointwise
+  example; histories and related copies create grouping constraints. The
+  maintainer retained the 80-history pool as a qualification pilot and selected
+  read-only primary-audit expansion. No current split is frozen.
+- D-019 accepts a new pinned **native numerical** pointwise reference at unchanged
+  full-160 Y and recorded T9/rho, native Ye=sum(ZY)/sum(AY), weak/screening on,
+  heating off and zero active neutrino rates. Stored derivatives remain audit-only;
+  energy/rollout targets are excluded. D-020 now separately authorizes only the
+  reviewed 5,157-state pilot at unchanged inputs/configuration. Its physical loop
+  has completed; that call authority is exhausted. Offline verification remains,
+  with no automatic rerun; all further calls need their own scope.
+- The [reference-scope clarification](phase1/RHS_REFERENCE_SCOPE.md) records the
+  official matching rate entry. Pin actual inputs; reconstructing upstream rate
+  evaluation history is not an added Phase 1 prerequisite. Numerical verification
+  and human scientific acceptance remain.
 
-- D-016 authorizes Phase 1 only. Every merge needs its own human decision.
-- D-017's exactly three RHS evaluations are complete; that authority is exhausted.
-- D-018 accepts developing a **multi-trajectory training pool** and defensible
-  grouped validation/test candidates. A/B/C are initial audit aliases, not a
-  standard ML convention or fixed split. Each qualified saved state is a sample;
-  its trajectory and related histories create grouping constraints. One history
-  cannot establish the intended training coverage. C's eventual role depends on
-  coverage of the expanded pool.
-- D-019 accepts the new pinned pointwise XNet numerical-reference contract and
-  excludes energy/rollout targets from the pilot. It explicitly **defers further
-  producer execution until the matched candidate scope is concrete**. The
-  original 147-state proposal is unexecuted; prepare a revised exact list before
-  requesting execution. Contract acceptance is not successful qualification.
+No original reference edits, trajectory/NSE regeneration, bulk conversion,
+model/training, paid service or deployment is authorized. Stop after Phase 1.
+D-013 removes resource caps/accounting; D-012/D-015 retain the model/review policy.
 
-[DECISIONS](DECISIONS.md) records the answers. No additional XNet build/evaluation,
-trajectory/NSE solve, bulk conversion, reference edits, model/training, paid service
-or deployment is authorized. Stop after Phase 1. D-013 resource-cap removal and
-D-012/D-015 model/review policy remain unchanged.
+## Integrated evidence and software
 
-## Integrated work
+| Work | Actual integration / verification |
+| --- | --- |
+| S01 audit/card #10 | PR #12 at `f4ff998`; physical qualification open |
+| Quarantined S02 #11 | PR #13 at `099d21e`; immutable three-pair artifact, all scientific masks false |
+| Three-state diagnostic #14 | Human-merged PR #16 at `eb5e25d`; three declared-reference evaluations, not historical-build proof or a solver-defect claim |
+| S03 preparation | PR #17 at `615c99b`; bounded delegation fulfilled, review/merged checks pass |
+| Expanded-direction/position records | Human-merged PR #19 at `116e682`; [96-test integration receipt](https://github.com/jaharris87/crucible-astro/pull/19#issuecomment-6966429021) |
+| Fixed 5,157-state pilot evaluator preparation #18 | Human-merged PR #20 at `6807741`, **preparation only**; initial/focused review and [126-test integration](https://github.com/jaharris87/crucible-astro/pull/20#issuecomment-6966731838) pass; no compilation/evaluation |
+| Exact energy-zero alignment #21 | Human-merged PR #22 at `87f550c`; fresh independent review and [137-test merged integration](https://github.com/jaharris87/crucible-astro/pull/22#issuecomment-6966932648) pass; original binary bits and all exclusions preserved |
 
-- [S01 #10](https://github.com/jaharris87/crucible-astro/issues/10) audit/card PR #12
-  integrated at `f4ff998`; scientific qualification remains open.
-- [S02 #11](https://github.com/jaharris87/crucible-astro/issues/11) completed accepted
-  quarantined reader/extraction engineering in PR #13 at `099d21e`; all scientific
-  masks remain false. Real records stay local; CI uses synthetic fixtures.
-- Diagnostic [#14 / PR #16](https://github.com/jaharris87/crucible-astro/pull/16)
-  human-merged at `eb5e25d`; original source and focused evidence reviews passed.
-  Exactly three states were evaluated under a new declared reference, without
-  proving the historical generator or an original solver defect.
-- [S03 preparation PR #17](https://github.com/jaharris87/crucible-astro/pull/17)
-  integrated under bounded human delegation at `615c99b`; all ten accepted document
-  blobs were unchanged after rebase, and independent integration freshness passed.
-  [Merged-result receipt](https://github.com/jaharris87/crucible-astro/pull/17#issuecomment-6963783546):
-  merged CI and all 96 local noneditable tests/lint/format pass; main/environment
-  were synchronized. Both merge delegations are exhausted.
+Both earlier merge delegations and all named approvals are exhausted. The pilot
+RHS-PILOT-R1 repair uses native Ye; all 6,433 selection decisions, 5,157 input
+state bytes and two retained controls are unchanged. Old artifacts remain immutable.
+The D-020 build passed and physical loop returned normally. All 5,157 records,
+825,120 finite fresh components, exact state echoes/maps and both controls pass
+separate fixed-width checks. The exact offline comparator and fresh evidence
+review remain pending; no overall numerical/scientific PASS is claimed. Actual
+receipts and call-authority exhaustion are tracked in #18.
 
-## Evidence and next action
+## Current data evidence
 
-The accepted-decision/coverage update [PR #19](https://github.com/jaharris87/crucible-astro/pull/19)
-was human-approved and merged at `116e682`. Its exact reviewed tree was preserved;
-merged CI passed. Final scientific grouping/reference acceptance remains open.
+The local raw collection has 42,362 filename pairs. The original three-pair
+artifact contains 1,384 records, with no positive scientific eligibility.
+The [initial audit](phase1/MULTITRAJECTORY_AUDIT.md) remains the 80-history pilot.
+The separate [fixed expansion](phase1/PRIMARY_EXPANSION_AUDIT.md) checks 380 familiar
+histories / 30,472 ordinary full-Y records / **24,314 source-table candidates**;
+15 selected shorter-layout files remain quarantined. The initial zero-sign
+failures and separately named disposition are preserved. Candidates are not labels.
 
-The [fixed reference preparation](../experiments/rhs_reference/README.md) under
-[#18](https://github.com/jaharris87/crucible-astro/issues/18) is human-merged in
-[PR #20](https://github.com/jaharris87/crucible-astro/pull/20) at `6807741`,
-**preparation only**. Initial independent review and focused RHS-PILOT-R1 repair
-verification pass; [merged CI and 126 local noneditable tests/lint/format pass](https://github.com/jaharris87/crucible-astro/pull/20#issuecomment-6966731838).
-Both grid gates use native `Ye=sum(Z*Y)/sum(A*Y)`, preserving original Y and all
-6,433 membership decisions, 5,157 state bytes and two retained controls. Historical
-proxy-screen receipts are immutable. No Fortran compilation or producer call
-occurred; runtime compatibility and reference accuracy remain untested. Native
-reaction-weight normalization remains under scientific investigation before any
-execution/qualification decision. Original producer source and D-017 evidence
-remain unchanged; D-019 still defers build/run.
+All selected measured position histories and category metadata are checked.
+The expanded nearest-history diagnostic has 94 components, not accepted physical
+families; adding histories changes many old pilot links. There is one identified
+[Chimera lineage](phase1/PARENT_PROVENANCE.md), residual correlation and no
+simulation-independent holdout. Geometry is measured only in its observed window;
+no late positions are invented and original seeding recovery is optional.
 
-Expanded read-only checks found a reader energy-zero sign defect, tracked in
-[#21](https://github.com/jaharris87/crucible-astro/issues/21) / [draft PR #22](https://github.com/jaharris87/crucible-astro/pull/22). A narrow repair
-accepts either documented text sign only for exactly zero binary energy, retaining
-its sign bit and all scientific exclusions. Synthetic regressions and separate
-local real-data checks accompany its own review and human merge gate. The primary
-coverage/position expansion continues; no primary split is frozen.
+Raw/build/history limitations, new-read fixity boundaries and all exclusions are
+linked from the audit and living [raw](data-cards/genesis_datacard_ccsn_raw_candidate.md) /
+[derived](data-cards/genesis_datacard_ccsn_quarantined_v0_1.md) cards. Dataset
+custodianship/reuse/release evidence remains incomplete; real records stay local.
+A public card/software license does not establish data redistribution rights.
 
-The unchanged local collection has 42,362 filename pairs. The original three-pair
-artifact has 1,384 records and all-false scientific masks. The separate
-[83-pair audit](phase1/MULTITRAJECTORY_AUDIT.md) verifies 78,168 scalar records,
-then all 6,433 ordinary states in 80 familiar-layout histories. Its 5,157
-source-table candidates are not qualified labels; three shorter-layout pairs
-remain quarantined. Full current hashes bind the 166 audited files. See the
-[benchmark](phase1/BENCHMARK.md) and linked raw/derived cards for scope and limits.
+## Next bounded actions and decisions
 
-All 83 initial time/T9/rho triples match recovered inputs bit-for-bit. Thirteen
-mapped initial compositions reproduce exactly; 70 zero-native inputs take the
-source NSE fallback, which was not rerun. IDs and selected first-frame geometry
-are numerically associated with a parent summary product. The maintainer identifies
-one [Chimera lineage](phase1/PARENT_PROVENANCE.md); exact historical build/restart
-binding, data rights/custody and final reference/tolerance acceptance remain open.
-
-Private whole-row and whole-trajectory splits diagnose different statistical
-claims. Their membership checks pass, but neither is an accepted primary benchmark
-or proof of sufficient joint coverage. Original archive headers and the candidate
-2D input were inspected without copying large frames. Missing seeding input is
-additional provenance, **not a prerequisite for position-based grouping**.
-
-Next authorized work under [S03 #15](https://github.com/jaharris87/crucible-astro/issues/15):
-
-1. Expand the primary benchmark audit read-only, as the maintainer selected in
-   D-018: “Expand primary benchmark audit; keep current pool as pilot (Recommended)”.
-   The current 80-history/5,157-state pool and measured-position allocation remain
-   a qualification pilot, without a primary split freeze or sufficient joint
-   coverage/physical-independence claim. All recorded position histories are
-   checked; no late positions are invented and seeding recovery is optional.
-2. Prepare a multi-trajectory training/holdout proposal supported by full state,
-   condition and position evidence. Keep shared-parent correlations and any
-   remaining grouping assumptions explicit; obtain scientific acceptance.
-3. Resolve the native rate-normalization evidence under issue #18 and prepare
-   any resulting scientific/reference decision and exact execution proposal
-   separately. The evaluator preparation is integrated, not executed.
-   D-019 still defers producer build/run. No model/preprocessing fitting, new
-   XNet evaluation or final-test use is authorized by these audits.
-
-Keep milestone #2 and the native goal open through actual qualification, human
-acceptance, reviewed merges and passing integration. Historical reports and
-original raw/derived artifacts remain unchanged.
+1. Review the expanded candidate pool and [single within-parent proposal](phase1/PRIMARY_BENCHMARK_PROPOSAL.md):
+   274 training / 51 validation / 55 test histories, with all-point full-state/
+   condition diagnostics and explicit joint-support gaps. Obtain
+   scientific acceptance of scope, grouping and statistical claim; no final-test
+   membership or sufficient joint coverage is accepted yet.
+2. Finish the exact offline D-020 comparison and fresh evidence review under
+   #18. The physical loop is complete and its call authority exhausted. Preserve
+   failures/controls; no retry or primary-batch call is authorized. Only actual
+   verified evidence and human acceptance can qualify a named reference subset.
+3. Implement/check partitions only after relevant semantics acceptance. Final
+   qualified memberships, observables/metrics, justified tolerances and human
+   scientific acceptance remain S01/S03 exits. Fit no model or preprocessing.
+4. Complete each candidate's fresh review, findings disposition, human merge and
+   merged checks; update cards and current status. Close neither phase nor goal
+   for exploratory evidence, missing decisions or an empty qualified dataset.

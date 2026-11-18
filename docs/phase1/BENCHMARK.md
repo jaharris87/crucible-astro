@@ -22,8 +22,8 @@ composition-shift challenge relative to A/B; its eventual role depends on the
 broader pool. No one-history training set is proposed.
 
 D-019 accepts the new pinned pointwise numerical-reference contract, excluding
-energy/rollout targets. Additional producer execution is **explicitly deferred**
-until the matched candidate scope is concrete. The original 147-state list is an
+energy/rollout targets. D-020 subsequently authorizes only the exact reviewed
+5,157-state pilot build/run; the primary batch remains separately gated. The original 147-state list is an
 unexecuted proposal, not final benchmark membership or qualification.
 
 Established methodology defines evaluation roles/groups for the intended claim,
@@ -76,10 +76,13 @@ initial inputs and stored IDs are numerically associated. The same report's
 illustrative whole-row split is diagnostic only: membership checks pass, but
 joint coverage and physical-family interpretation remain unaccepted. The alternative canonical-trajectory diagnostic keeps training in every cohort
 but still exposes coverage gaps and within-parent correlations. Original-frame
-and restart metadata investigation is active after the maintainer supplied an
-archive locator. No primary partition or new evaluation scope is accepted.
+and restart metadata were inspected through bounded header reads; archive access
+has stopped. Original seeding recovery is not a grouping prerequisite. The
+[fixed primary expansion](PRIMARY_EXPANSION_AUDIT.md) now checks 380 familiar
+histories / 24,314 source-table candidates, with measured position/category
+evidence. These remain inputs to scientific acceptance, not qualified labels.
 
-## Current proposed grouping and allocation
+## Retained pilot grouping proposal; no primary freeze
 
 The [measured-history proposal](MULTITRAJECTORY_AUDIT.md#current-position-based-proposal-training-support-before-holdout)
 keeps each history's nearest measured spatial history in one connected group,
@@ -100,6 +103,33 @@ residual spatial-overlap diagnostics remain visible. No sufficient-coverage,
 physical-family-independence, scientific accuracy or final-test claim is accepted.
 Human acceptance and a production split implementation/checks remain gates.
 
+## Expanded primary candidate
+
+D-018 retains the original 80-history pool as a qualification pilot and requires
+primary-audit expansion. The [fixed expansion](PRIMARY_EXPANSION_AUDIT.md)
+contains 380 familiar histories with 24,314 table-screened states; 15 selected
+shorter-layout files remain quarantined. Both existing category tags now have
+multiple measured-proximity components. Timesteps are examples, not independent
+groups. The old 21-group allocation above is not inherited as a primary split.
+
+The [single expanded allocation proposal](PRIMARY_BENCHMARK_PROPOSAL.md)
+contains 274 training / 51 validation / 55 test histories (17,659 / 3,220 / 3,435
+candidate states), with both category tags in each role. Its rule was fixed before
+role-dependent coverage: global T9/rho/native-Ye extrema and missing row/category
+support anchor training; fixed per-category group hashes allocate separate
+validation/test quotas. Every history and its known raw/derived ancestry stay
+whole. The diagnostic position components are operational controls, not proven
+physical families. Final group/domain acceptance, memberships and production
+split implementation remain separate gates. No reference label or model result
+enters this covariate-based benchmark curation; later fitted preparation remains
+training-only.
+
+The [reference scope](RHS_REFERENCE_SCOPE.md) identifies the matching official
+rate entry and preserves the accepted native numerical target. Upstream nuclear
+rate-evaluation history is not a new data-qualification prerequisite. Actual
+reference verification, appropriate task/metrics/tolerances and human scientific
+acceptance are still required.
+
 ## Scientific decision sheet
 
 | Contract item | Current evidence / recommendation | Acceptance gate |
@@ -118,8 +148,9 @@ Human acceptance and a production split implementation/checks remain gates.
 
 The [next-subset proposal](NEXT_RHS_SUBSET.md) counts 147 ordinary records inside
 the candidate FFN grid and 49 outside, without qualifying either set. D-019
-accepts the numerical-reference contract but explicitly defers further execution
-until the matched candidate scope is concrete; D-017 grants no further calls.
+accepts the numerical-reference contract. D-020 now names the separate exact
+5,157-state pilot authority; D-017 grants no further calls and the primary batch
+is not authorized by either experiment.
 
 No numerical scientific tolerance is inferred from source convergence controls,
 observed normalization residuals, passing CI or the completed three-state difference.

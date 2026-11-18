@@ -1,14 +1,13 @@
 # Datacard for the CCSN raw candidate collection
 
-Last updated: **2026-11-17**. Card version **0.4.0**, dataset local alias
+Last updated: **2026-11-17**. Card version **0.5.0**, dataset local alias
 `ccsn-raw-candidate`; no public dataset release/version has been established.
 **Living narrative draft; not qualified for training, reference evaluation or
 final-test use.** This card describes raw outputs, not a derived training dataset.
 
 Uses the adaptable narrative portion of the official Genesis data-card template
 **v2.0.0**, retrieved from the official release; [source/version/access evidence](../phase1/GENESIS_GUIDANCE.md).
-The full machine metadata are incomplete (notably original creators/custodian,
-rights, sensitivity determinations and generating provenance); no YAML/schema
+The full machine metadata are incomplete (notably formal custodianship, rights, sensitivity determinations and generating provenance); no YAML/schema
 conformance or validation is claimed. Unknown does not mean not applicable.
 
 ## Machine Usability Snapshot
@@ -36,8 +35,11 @@ The collection contains raw XNet binary time series, companion text diagnostics,
 some HDF-named products, source/build artifacts and setup scripts. The filename
 suggests a particular source simulation/network; that is a lead, not verified
 parent provenance. The lightweight inventory found 42,362 binary/text pairs,
-about 220 GB including other files. Only three pairs (1384 records) were decoded
-for this audit. This is not representative coverage of CCSN or NSM/r-process.
+about 220 GB including other files. The initial reader artifact contains three
+pairs (1,384 records). The separate [fixed primary expansion](../phase1/PRIMARY_EXPANSION_AUDIT.md)
+now audits all 30,472 ordinary full-Y records in 380 familiar-layout histories,
+including the retained 80-history pilot. No representative CCSN or NSM/r-process
+coverage or qualified label count follows from that expansion.
 
 The maintainer identifies the parent as **Chimera D9.6-SN160-3D**, used in
 Sandoval et al. (2021) and Neopane et al. (2026). [Original-paper checks and
@@ -85,7 +87,9 @@ The [field dictionary and offsets](../phase1/S01_AUDIT.md#verified-layout-bounde
 define time, T9, density, internal step, stored energy, Y, flux and stored
 derivative blocks. Source indicates s, GK, g/cm³, molar abundance Y and nominal
 erg/g/s for the internal-step mass-excess rate; these source meanings do not
-settle generating-build association. Optional formats/batching must not be inferred
+settle generating-build association. Native composition-derived Ye is
+`sum(Z*Y)/sum(A*Y)`; raw charge/baryon moments remain separate diagnostics and Y
+is never normalized. Historical proxy-screen receipts are preserved. Optional formats/batching must not be inferred
 from these files. Isomers/rates/masses are not identified by `(Z,A)` alone.
 
 Initial and NSE derivative records are unavailable as RHS labels. The remaining
@@ -114,14 +118,15 @@ retained; the actual artifact is not a qualified training subset.
 
 ## Reusable
 
-The separate [83-pair reconnaissance](../phase1/MULTITRAJECTORY_AUDIT.md) observes
-an additional shorter payload variant, broader sampled compositions and nearly
-coincident states in different files. That variant remains quarantined; sparse
-coverage and filename distinctions establish neither qualification nor independence.
-A follow-on audits all 6,433 ordinary states in the 80 familiar histories and
-identifies 5,157 source-table candidates; none is a qualified label. Recovered
-initial inputs match first-record conditions, while actual physical-family
-mapping remains open. No bulk conversion or new training artifact was produced.
+The [initial 83-pair reconnaissance](../phase1/MULTITRAJECTORY_AUDIT.md) and
+[fixed expansion](../phase1/PRIMARY_EXPANSION_AUDIT.md) are separate evidence
+products. The initial 80 familiar histories / 5,157 table-screened states remain
+a qualification pilot. The combined 380 familiar histories have 24,314 source-table
+candidates, all scientifically unqualified; 15 selected shorter-layout files
+remain quarantined. Measured positions/categories and source-formula Ye checks
+support a new benchmark proposal, not accepted physical families or partitions.
+The [signed-zero reader repair](../phase1/S02_READER.md) preserves binary energy
+bits. No bulk conversion or new training artifact was produced.
 
 Current eligibility is **limited to authorized structural investigation**.
 All 1,384 records in the initial three-pair artifact remain unqualified for
@@ -133,8 +138,10 @@ for separate uses rather than a single usable/unusable score.
 
 Raw integrity is represented by a local filename/size inventory and selected
 payload/source checksums. Full collection content hashing, missing/failed trajectory
-counts, physical coverage, rate/mass identity, parent/tracer mapping, reference
-convergence and storage/recovery stewardship remain open. Passing structural
+counts, representative physical coverage, historical rate/mass/build identity,
+accepted physical grouping, reference verification and storage/recovery stewardship
+remain open. Selected canonical particle identities and measured position histories
+are now numerically associated; this does not prove independent families. Passing structural
 checks does not establish physical validity. Do not cite this card as evidence of
 scientific qualification; no dataset citation or license can yet be supplied.
 
@@ -146,15 +153,20 @@ dataset. Card changes are versioned in Git; raw originals stay unchanged.
 ## Governed Use
 
 The maintainer authorized Phase 1 inspection and portable documentation in the
-[execution record](../PHASE_1_AUTHORITY.md). Subsequent D-017 permits only a
-reviewed isolated three-state RHS diagnostic, not data regeneration. Broader
+[execution record](../PHASE_1_AUTHORITY.md). D-017 completed exactly three
+reviewed isolated RHS calls and is exhausted. D-019 selects a new native numerical
+reference; its [preparation is integrated](https://github.com/jaharris87/crucible-astro/pull/20),
+with subsequent D-020 authority limited to the exact 5,157-state pilot build/run.
+Permission is not completed execution or scientific qualification. Broader
 producer execution, original reference modifications, bulk conversion, data
 publication and training remain outside scope. Required dataset ownership/reuse and institutional
 release evidence is unknown, not presumed denied or approved. No additional
 regulatory classification is inferred here.
 
 Scientific acceptance of subset/conditions/exclusions, energy/reference/tolerances
-and benchmark partitions is pending. The maintainer accepted only a quarantined three-pair reader/local extraction;
+and benchmark partitions is pending. The maintainer accepted quarantined
+three-pair ingestion, the native numerical-reference contract and read-only primary
+audit expansion;
 [S02 #11](https://github.com/jaharris87/crucible-astro/issues/11) implements that
 bounded scope with scientific eligibility false. Every candidate merge requires a concrete human decision after the
 adopted review/check cycle. The data-card draft does not replace any of these gates.
@@ -166,10 +178,14 @@ A/B/C are audit aliases, not assigned partitions. Each qualified saved state
 would be an individual pointwise example, with many correlated examples per
 trajectory. Coverage needs full composition and conditions, not Ye alone.
 D-019 accepts a new pinned pointwise numerical-reference contract, with energy/
-rollout targets excluded and **further execution explicitly deferred** until the
-candidate scope is concrete. This does not qualify this raw/quarantined artifact
+rollout targets excluded. D-020 subsequently authorizes only the exact
+5,157-state pilot build/run; further calls, actual reference verification and
+scientific qualification remain separately gated. This does not qualify this raw/quarantined artifact
 or change any immutable bytes or masks. See [accepted decisions](../DECISIONS.md)
-and the [current benchmark investigation](../phase1/BENCHMARK.md).
+and the [current benchmark investigation](../phase1/BENCHMARK.md). The
+[pinned-reference scope](../phase1/RHS_REFERENCE_SCOPE.md) records official
+rate-entry identity and separates native numerical verification from upstream
+nuclear-data evaluation history.
 
 Intended future use is a qualified instantaneous-RHS, full-state starting path
 (D-003), subject to physical conditioning and label qualification. Finite-step
@@ -185,7 +201,10 @@ simulation-independent generalization. Sampling bias, unbound generating/history
 conditions, NSE/initial placeholders, unmeasured RHS alignment and missing broader
 CCSN/NSM coverage prevent general scientific claims. Human review is required.
 
-Change log: **0.4.0, 2026-11-17** — recorded accepted numerical-reference
+Change log: **0.5.0, 2026-11-17** — linked expanded state/position coverage,
+native Ye formula, integrated reader/reference preparation and official rate-entry
+provenance; primary partitions, qualification and data rights remain open.
+**0.4.0, 2026-11-17** — recorded accepted numerical-reference
 contract, execution deferral and multi-trajectory benchmark direction; artifact
 identity and scientific eligibility unchanged. **0.3.0, 2026-11-17** — added maintainer-reported parent/roles,
 original-paper corroboration and completed diagnostic status; no qualification

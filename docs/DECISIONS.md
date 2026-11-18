@@ -262,12 +262,47 @@ clipping. Stored derivatives remain audit-only; energy and rollout targets are
 excluded from this pilot. This selects a **new declared numerical reference**,
 not the historical generating build or an astrophysical accuracy guarantee.
 
+**Lead scope correction, 2026-11-17:** identifying and pinning the actual rate
+tables is Phase 1 provenance work; reconstructing JINA's upstream evaluation
+history is not an adopted prerequisite. The maintainer supplied the
+reaction-specific official entry; its coefficients match the selected table.
+The [reference-scope record](phase1/RHS_REFERENCE_SCOPE.md) preserves the separate
+counting observation and corrects the lead's unnecessary investigation extension.
+Native numerical behavior, verification and human acceptance requirements remain
+unchanged; this is not a new scientific acceptance or execution authorization.
+
 **Execution remains deferred:** finish the read-only candidate audit and present
 a revised exact evaluation list before requesting further producer authority.
 The original [147-record proposal](phase1/NEXT_RHS_SUBSET.md) is unexecuted;
 D-017's three completed calls grant no extension. No new evaluator build/run,
 positive scientific mask, final reference/tolerance acceptance or merge is
 authorized by the contract decision. Qualification evidence is still required.
+
+### Decision D-020: Exact 5,157-state pilot build/run
+
+**Authorized, 2026-11-17.** Exact answer: “Authorize build and 5,157 pilot
+evaluations (Recommended)”. This names reviewed source
+`00cf10b75d27b300e1650931029e657949e77ec4`, integrated in PR #20, input manifest
+`10cf0d3250c83ff9c57c65adeb6ce4f323d7c9efadebf97f5b87013dd2f386e6` and state
+bytes `aa0d6fe52420183601e8c3301b19e497058397621eb66c64a2c4ffc6c6dc290f`.
+
+Build a fresh isolated copy with the pinned source/EOS/tables and D-017
+toolchain/flags, then exactly 5,157 native pointwise evaluations at unchanged
+full-160 Y/T9/rho. Weak/screening remain, heating is off, active neutrino-rate
+count is zero. The two prior in-grid controls are already included; no extra
+physical calls. Preserve all echoes, coefficients, outputs, source/build/runtime
+receipts and independent verification. Stop on build failure, identity/configuration
+mismatch, nonfinite output or failed controls; no automatic rerun.
+
+No trajectory/NSE/Jacobian solve, source/rate change, bulk conversion, training,
+positive scientific eligibility, scientific acceptance or merge is granted.
+This supersedes D-019's execution deferral only for this exact finite pilot;
+the primary benchmark and any additional evaluations remain separately gated.
+The [live execution record](https://github.com/jaharris87/crucible-astro/issues/18)
+retains actual attempts, failures, outputs and later verification. The one physical
+loop has returned normally with all 5,157 records retained; its call authority is
+exhausted. Exact offline verification and fresh evidence review remain pending;
+no retry, additional call or overall numerical/scientific PASS follows.
 
 ### Next reference-label scope
 

@@ -1,6 +1,6 @@
 # Datacard for the quarantined CCSN three-pair extraction
 
-Card version **0.4.0**, 2026-11-17. Local dataset ID
+Card version **0.5.0**, 2026-11-17. Local dataset ID
 `ccsn-three-pair-quarantined`, exploratory dataset version **0.1.0**.
 No public dataset release. **No qualified training or reference records.**
 The bounded artifact was actually extracted and checked; reader/card engineering
@@ -8,7 +8,7 @@ integrated through [PR #13](https://github.com/jaharris87/crucible-astro/pull/13
 
 Living narrative draft using the six adaptable capability sections of the official
 Genesis data-card template **v2.0.0**; see [released-template evidence](../phase1/GENESIS_GUIDANCE.md).
-Required creator/custodian, rights, sensitivity and generating provenance remain
+Formal custodianship, rights, sensitivity and generating provenance remain
 incomplete. No full YAML/schema conformance or machine validation is claimed.
 
 ## Machine Usability Snapshot
@@ -58,8 +58,10 @@ parents; framing, dimensions and endpoints participate in strict checks.
 Stored derivative and energy names explicitly say `unqualified`. Internal dt is
 not the saved-output interval; energy is the inspected source's internal-step
 mass-excess diagnostic, not deposited heating. The source-to-generating-run link
-and sufficient physical conditioning remain unknown. T/rho/Ye-only closure and
-fixed Ye are not established. Initial and explicit NSE exclusions are separate
+and sufficient historical physical conditioning remain unknown. D-019 accepts
+a separate pinned native pointwise reference using T9/rho and composition-derived
+`Ye=sum(Z*Y)/sum(A*Y)`; it does not retroactively qualify these stored labels.
+No fixed Ye is imposed. Initial and explicit NSE exclusions are separate
 from ordinary accepted-state RHS alignment and provenance exclusions.
 
 ## Reusable
@@ -92,10 +94,16 @@ A/B/C are audit aliases, not assigned partitions. Each qualified saved state
 would be an individual pointwise example, with many correlated examples per
 trajectory. Coverage needs full composition and conditions, not Ye alone.
 D-019 accepts a new pinned pointwise numerical-reference contract, with energy/
-rollout targets excluded and **further execution explicitly deferred** until the
-candidate scope is concrete. This does not qualify this raw/quarantined artifact
+rollout targets excluded. D-020 subsequently authorizes only the exact
+5,157-state pilot build/run; further calls, actual reference verification and
+scientific qualification remain separately gated. This does not qualify this raw/quarantined artifact
 or change any immutable bytes or masks. See [accepted decisions](../DECISIONS.md)
-and the [current benchmark investigation](../phase1/BENCHMARK.md).
+and the [current benchmark investigation](../phase1/BENCHMARK.md). The
+[380-history expansion](../phase1/PRIMARY_EXPANSION_AUDIT.md) and prepared
+5,157-state pilot inputs are separate audit/preparation products, not revisions
+of this immutable three-pair dataset or an accepted primary split. The
+[pinned-reference scope](../phase1/RHS_REFERENCE_SCOPE.md) separates entry
+provenance and numerical verification from upstream rate re-evaluation.
 
 The maintainer has identified the single parent and production roles; see
 [parent evidence](../phase1/PARENT_PROVENANCE.md). An external local provenance
@@ -110,7 +118,9 @@ fitted, no split or final-test partition is embedded and no model is trained.
 S03 partitions need recovered grouping and their own acceptance; fitting later
 preprocessing must use training membership only. No scientific result is claimed.
 
-Change log: **0.4.0, 2026-11-17** — recorded accepted numerical-reference
+Change log: **0.5.0, 2026-11-17** — linked the separate primary expansion,
+source Ye and reference-scope clarification; dataset version, bytes and scientific
+masks remain unchanged. **0.4.0, 2026-11-17** — recorded accepted numerical-reference
 contract, execution deferral and multi-trajectory benchmark direction; artifact
 identity and scientific eligibility unchanged. **0.3.0, 2026-11-17** — added subsequent parent/role attribution
 without rewriting artifact metadata or eligibility. **0.2.0, 2026-11-17** — added actual bounded coverage/integration

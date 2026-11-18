@@ -1,9 +1,11 @@
-# Fixed pointwise reference preparation — not executed
+# Fixed pointwise reference pilot
 
 Issue [#18](https://github.com/jaharris87/crucible-astro/issues/18), Phase 1
 milestone #2. Prepared with `gpt-6.1-sol` High. D-019 accepts a new numerical
-reference contract; **all additional producer compilation and execution remain
-deferred**. The completed D-017 experiment and its three calls are immutable
+reference contract. At preparation merge all producer build/run was deferred;
+**D-020 now authorizes only this exact reviewed 5,157-state pilot**, with pinned
+inputs/configuration and stop-on-failure, no automatic rerun. See the live issue
+for actual attempts and results; other evaluations remain unauthorized. The completed D-017 experiment and its three calls are immutable
 history, not permission for this candidate. This directory contains original
 software only; no reference source, real states or data are distributed.
 
@@ -89,6 +91,11 @@ when B differs from one. Y is never divided by B. Weak/screening remain enabled,
 heating off, and active neutrino count must be
 zero. Existing native rate thresholds remain untouched. [Source audit](SOURCE_AUDIT.md)
 explains current-state refresh, combinatorics, FP assumptions and limits.
+The [current scope clarification](../../docs/phase1/RHS_REFERENCE_SCOPE.md)
+identifies the official rate entry and retains native behavior. Reconstructing
+upstream rate-evaluation history is not a new Phase 1 prerequisite; producer
+authorization, numerical verification and human scientific acceptance remain
+required.
 
 The harness exports static maps before/after and all 2,048 coefficient values
 actually used after each same call pair (~84.5 MB coefficient payload). No rate,
