@@ -92,9 +92,12 @@ A public card/software license does not establish data redistribution rights.
    #18. The physical loop is complete and its call authority exhausted. Preserve
    failures/controls; no retry or primary-batch call is authorized. Only actual
    verified evidence and human acceptance can qualify a named reference subset.
-3. Implement/check partitions only after relevant semantics acceptance. Final
+3. Complete [native HDF5 candidate #23 / draft PR #25](https://github.com/jaharris87/crucible-astro/pull/25)
+   provenance repairs; materialize real data only after the full #18 comparison
+   passes, then independently verify arrays/ancestry. All scientific masks stay false.
+4. Implement/check partitions only after relevant semantics acceptance. Final
    qualified memberships, observables/metrics, justified tolerances and human
    scientific acceptance remain S01/S03 exits. Fit no model or preprocessing.
-4. Complete each candidate's fresh review, findings disposition, human merge and
+5. Complete each candidate's fresh review, findings disposition, human merge and
    merged checks; update cards and current status. Close neither phase nor goal
    for exploratory evidence, missing decisions or an empty qualified dataset.

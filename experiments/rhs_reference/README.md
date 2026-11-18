@@ -3,9 +3,10 @@
 Issue [#18](https://github.com/jaharris87/crucible-astro/issues/18), Phase 1
 milestone #2. Prepared with `gpt-6.1-sol` High. D-019 accepts a new numerical
 reference contract. At preparation merge all producer build/run was deferred;
-**D-020 now authorizes only this exact reviewed 5,157-state pilot**, with pinned
-inputs/configuration and stop-on-failure, no automatic rerun. See the live issue
-for actual attempts and results; other evaluations remain unauthorized. The completed D-017 experiment and its three calls are immutable
+**D-020 subsequently authorized only this exact reviewed 5,157-state pilot**.
+Its physical loop has finished and that call authority is exhausted; offline
+verification remains pending. See the live issue for actual receipts. No repeat
+or other evaluation is authorized. The completed D-017 experiment and its three calls are immutable
 history, not permission for this candidate. This directory contains original
 software only; no reference source, real states or data are distributed.
 
@@ -62,11 +63,14 @@ HDF training dataset writer, positive scientific mask or portable real fixture.
 The raw stored derivative and saved energy scalar are audit-only; the energy
 scalar is echoed unchanged but never evaluated as a target.
 
-## Future reviewed procedure, requiring separate human execution authority
+## Historical preparation procedure
 
-No command below has been executed for this candidate. After exact-source fresh
-review and separately accepted finite execution scope, use an isolated fresh
-scratch bundle and the same pinned CPU modules/toolchain/flags as D-017:
+This records the procedure reviewed before D-020. Under that separate authority,
+the fresh build and 5,157-state physical loop have completed; **D-020's physical
+call authority is exhausted**. The exact offline comparison remains pending in
+the [live record](https://github.com/jaharris87/crucible-astro/issues/18#issuecomment-6967636426).
+These commands document the isolated procedure and do not authorize a rerun.
+It uses a fresh scratch bundle and the pinned D-017 CPU modules/toolchain/flags:
 
 ```sh
 module load cpu
