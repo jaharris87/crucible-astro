@@ -202,6 +202,17 @@ def species_ids(za):
     return z, a
 
 
+def native_ye(y, z, a):
+    """Pinned y_moment: Ye=Q/B. Neither raw moment changes supplied Y."""
+    baryon = math.fsum(ai * yi for ai, yi in zip(a, y, strict=True))
+    charge = math.fsum(zi * yi for zi, yi in zip(z, y, strict=True))
+    require(math.isfinite(baryon) and baryon > 0, "Nonpositive/nonfinite baryon sum")
+    require(math.isfinite(charge), "Nonfinite raw charge sum")
+    ye = charge / baryon
+    require(math.isfinite(ye) and ye > 0, "Invalid composition-derived Ye")
+    return ye
+
+
 def validate_state(prefix, y, z, a):
     seq, row, zone, ordinal, step, time, t9, rho, dt, energy = PREFIX.unpack(prefix)
     require(min(seq, row, zone, ordinal, step) > 0, "Invalid ordinary-state identity")
@@ -212,7 +223,7 @@ def validate_state(prefix, y, z, a):
     )
     require(all(0 <= x <= 1 for x in yy), "Y outside supported assembly envelope")
     require(rho > 0 and 0.01 <= t9 <= 100, "Outside source temperature grid")
-    ye = math.fsum(zi * yi for zi, yi in zip(z, yy, strict=True))
+    ye = native_ye(yy, z, a)
     require(ye > 0 and 1 <= math.log10(rho * ye) < 11, "Outside source density grid")
     require(all(isinstance(x, int) for x in a), "Invalid mass identities")
     return yy
@@ -423,7 +434,7 @@ def retained_controls(old, output, z, a):
             all(0 <= v <= 1 for v in yy) and h[3] > 0 and h[4] > 0,
             "Invalid retained state",
         )
-        ye = math.fsum(zi * yi for zi, yi in zip(z, yy, strict=True))
+        ye = native_ye(yy, z, a)
         require(ye > 0, "Invalid retained Ye")
         if 0.01 <= h[3] <= 100 and 1 <= math.log10(h[4] * ye) < 11:
             require(inp not in controls, "Duplicated retained control")

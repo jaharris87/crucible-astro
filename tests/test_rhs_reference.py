@@ -207,3 +207,57 @@ def test_retained_controls_are_selected_by_bits_not_real_path_and_reject_bad_ech
     output[2576 + 84] ^= 1
     with pytest.raises(ValueError, match="echo"):
         ref.retained_controls(bytes(states), bytes(output), z, a)
+
+
+@pytest.mark.parametrize("y,rho,accepted", [(0.25, 31.0, True), (0.5, 25.0, False)])
+def test_selection_native_ye_nonunit_baryon_gate_preserves_Y(y, rho, accepted):
+    # A=3,Z=1: native Ye=1/3 in both cases. Raw Q is .25 or .5.
+    prefix = struct.pack("<5i5d", 1, 1, 1, 1, 1, 0.5, 2.0, rho, 0.01, 0.0)
+    original = struct.pack("<d", y)
+    assert ref.native_ye([y], [1], [3]) == pytest.approx(1 / 3)
+    if accepted:
+        assert ref.validate_state(prefix, original, [1], [3]) == (y,)
+        assert rho * y < 10  # Raw-Q proxy would falsely reject.
+    else:
+        assert rho * y > 10  # Raw-Q proxy would falsely accept review's example.
+        with pytest.raises(ValueError, match="density grid"):
+            ref.validate_state(prefix, original, [1], [3])
+    assert original == struct.pack("<d", y)
+
+
+@pytest.mark.parametrize("mass", [0.0, math.inf, math.nan])
+def test_native_ye_requires_positive_finite_baryon_mass(mass):
+    with pytest.raises(ValueError, match="baryon sum"):
+        ref.native_ye([0.5], [1.0], [mass])
+
+
+@pytest.mark.parametrize("y,rho,accepted", [(0.25, 31.0, True), (0.5, 25.0, False)])
+def test_retained_control_native_ye_nonunit_baryon_gate_preserves_Y(y, rho, accepted):
+    z = [1.0] + [0.0] * 159
+    a = [3] + [1] * 159
+    head = ref.HEADER.pack(ref.MAGIC, 1, 3, 160) + bytes(2560)
+    states = bytearray(head)
+    output = bytearray(head)
+    payloads = []
+    for i, (abundance, density) in enumerate(((y, rho), (0.5, 60.0), (0.5, 1.0)), 1):
+        yy = struct.pack("<160d", abundance, *([0.0] * 159))
+        stored = bytes(1280)
+        scalars = (0.5, 2.0, density, 0.01, 0.0)
+        prefix = struct.pack("<ii5d", i, i, *scalars)
+        payloads.append(prefix + yy + stored)
+        states.extend(payloads[-1])
+        output.extend(
+            struct.pack("<ii9di", i, i, *scalars, *scalars[:3], 1 / 3, 1)
+            + yy
+            + yy
+            + stored
+            + stored
+        )
+    before = bytes(states)
+    if accepted:
+        controls = ref.retained_controls(before, bytes(output), z, a)
+        assert set(controls) == set(payloads[:2])
+    else:
+        with pytest.raises(ValueError, match="two retained in-grid"):
+            ref.retained_controls(before, bytes(output), z, a)
+    assert bytes(states) == before

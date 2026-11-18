@@ -12,6 +12,10 @@ and density from preserved input bytes. The inspected active path is:
 - `xnet_integrate.f90:532–597`: `cross_sect` refreshes EOS, effective weak flag,
   screening, temperature moments, partition functions and FFN coefficients.
 - `:227–266`: `update_iweak` assigns from `iweak0` each time, never a prior flag.
+- `xnet_abundances.f90:41–48` defines raw baryon moment B=sum(A*Y), raw
+  charge moment Q=sum(Z*Y), and native Ye=Q/B. Both preparation/grid gates use
+  this ratio with positive finite B; they preserve Y, not normalized Y. The
+  decoder retains raw B/Q diagnostics separately from the EOS-returned Ye.
 - `xnet_eos_starkiller.f90:48–65`: moments come from current Y; a local EOS state
   receives rho/T/composition and calls the rho/T mode. In pinned `actual_eos.F90`
   `:258–273,364`, that mode takes current inputs and does no Newton iteration.
@@ -105,3 +109,16 @@ coefficient-conditioned arithmetic evidence, **not a rate/EOS error bound,
 application tolerance or scientific accuracy acceptance**. Runtime compatibility
 and usefulness/tightness of these conservative bounds remain untested. Energy,
 rollout targets and fixed-charge constraints are excluded.
+
+## RHS-PILOT-R1 source-formula repair
+
+[Initial independent review](https://github.com/jaharris87/crucible-astro/pull/20#issuecomment-6966564190)
+found that both preparation/control grid gates used Q as Ye. The corrected gates
+use native Q/B and reject nonpositive/nonfinite B, without modifying original Y.
+Synthetic nonunit-B positive/negative cases cover both paths, including a boundary
+case that the raw-Q proxy incorrectly accepts. Historical 83-pilot audit receipts
+used the old proxy and are preserved, not relabeled as corrected. A separate
+raw-data arithmetic implementation, without importing the experiment helpers,
+checks all 6,433 ordinary records; the
+5,157 selected identities/state bytes and two retained controls remain unchanged.
+This formula repair does not qualify data or supply producer execution authority.

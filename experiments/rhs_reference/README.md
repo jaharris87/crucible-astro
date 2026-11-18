@@ -83,7 +83,10 @@ without accelerator macros, MKL sequential. No old objects/modules, implicit
 reference substitution, source patch or build failure fallback is accepted.
 One MPI rank/thread and one active zone call fresh `cross_sect` then `yderiv`
 **exactly once per fixed state**, preserving time/T9/rho/Y. Composition supplies
-Ye; weak/screening remain enabled, heating off, and active neutrino count must be
+`Ye = Q/B`, with raw moments `Q=sum(Z*Y)` and positive finite
+`B=sum(A*Y)` from pinned `y_moment`; raw Q is a separate diagnostic, not Ye
+when B differs from one. Y is never divided by B. Weak/screening remain enabled,
+heating off, and active neutrino count must be
 zero. Existing native rate thresholds remain untouched. [Source audit](SOURCE_AUDIT.md)
 explains current-state refresh, combinatorics, FP assumptions and limits.
 

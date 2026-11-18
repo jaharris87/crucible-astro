@@ -60,13 +60,19 @@ The [fixed reference preparation](../experiments/rhs_reference/README.md) under
 [#18](https://github.com/jaharris87/crucible-astro/issues/18) now prepares a bound
 5,157-state qualification-pilot candidate and original one-zone evaluator/decoder. The private fixed
 bundle is prepared; no new Fortran compilation or producer call occurred. The
-source candidate requires fresh independent review, then a concrete human
+source candidate requires focused independent repair review, then a concrete human
 execution decision. Synthetic checks do not establish runtime compatibility or
 reference accuracy. The source audit exposes the native largest-multiplicity
 counting convention (including the two-identical-pair distinction); its physical
 rate normalization remains for scientific disposition before execution or
 qualification. No producer source was patched. The old three-call experiment
 and its receipts remain unchanged.
+Initial source review requested RHS-PILOT-R1: both domain gates now use the
+producer's `sum(Z*Y)/sum(A*Y)` with positive finite baryon sum. Original Y is
+unchanged. A separate raw-state check preserves all 6,433 membership decisions,
+5,157 state bytes and both retained control identities; historical proxy-screen
+receipts remain immutable. The repair candidate has 126 passing Python tests,
+with Fortran compilation/execution still deferred.
 
 The unchanged local collection has 42,362 filename pairs. The original three-pair
 artifact has 1,384 records and all-false scientific masks. The separate

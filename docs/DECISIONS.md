@@ -250,7 +250,13 @@ numerical-reference contract (Recommended).” The maintainer separately selecte
 The accepted pilot target is fresh pointwise `dY/dt` at unchanged full, ordered
 160-species Y under the selected pinned XNet source/rates/EOS/tables/build.
 Preserve `(Z,A)`, `X=A*Y`, recorded T9/rho, composition-derived Ye, weak/screening
-physics, heating off and the asserted zero active neutrino-rate count. Preserve
+physics, heating off and the asserted zero active neutrino-rate count. Here the
+pinned producer's composition-derived `Ye = sum(Z*Y)/sum(A*Y)`, with positive
+finite baryon sum; `sum(Z*Y)` alone remains a raw charge-moment diagnostic.
+This source-formula clarification preserves original Y without normalization.
+Historical pilot proxy-screen receipts remain unchanged; corrected predicates
+and unchanged fixed-pool membership are recorded in the reference preparation.
+Preserve
 explicit initial/NSE/table-domain exclusions. No fixed Ye, normalization or
 clipping. Stored derivatives remain audit-only; energy and rollout targets are
 excluded from this pilot. This selects a **new declared numerical reference**,
