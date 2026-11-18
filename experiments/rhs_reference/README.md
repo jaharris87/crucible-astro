@@ -1,9 +1,12 @@
-# Fixed pointwise reference preparation — not executed
+# Fixed pointwise reference pilot
 
 Issue [#18](https://github.com/jaharris87/crucible-astro/issues/18), Phase 1
 milestone #2. Prepared with `gpt-6.1-sol` High. D-019 accepts a new numerical
-reference contract; **all additional producer compilation and execution remain
-deferred**. The completed D-017 experiment and its three calls are immutable
+reference contract. At preparation merge all producer build/run was deferred;
+**D-020 subsequently authorized only this exact reviewed 5,157-state pilot**.
+Its physical loop has finished and that call authority is exhausted; offline
+verification remains pending. See the live issue for actual receipts. No repeat
+or other evaluation is authorized. The completed D-017 experiment and its three calls are immutable
 history, not permission for this candidate. This directory contains original
 software only; no reference source, real states or data are distributed.
 
@@ -60,11 +63,14 @@ HDF training dataset writer, positive scientific mask or portable real fixture.
 The raw stored derivative and saved energy scalar are audit-only; the energy
 scalar is echoed unchanged but never evaluated as a target.
 
-## Future reviewed procedure, requiring separate human execution authority
+## Historical preparation procedure
 
-No command below has been executed for this candidate. After exact-source fresh
-review and separately accepted finite execution scope, use an isolated fresh
-scratch bundle and the same pinned CPU modules/toolchain/flags as D-017:
+This records the procedure reviewed before D-020. Under that separate authority,
+the fresh build and 5,157-state physical loop have completed; **D-020's physical
+call authority is exhausted**. The exact offline comparison remains pending in
+the [live record](https://github.com/jaharris87/crucible-astro/issues/18#issuecomment-6967636426).
+These commands document the isolated procedure and do not authorize a rerun.
+It uses a fresh scratch bundle and the pinned D-017 CPU modules/toolchain/flags:
 
 ```sh
 module load cpu
@@ -89,6 +95,11 @@ when B differs from one. Y is never divided by B. Weak/screening remain enabled,
 heating off, and active neutrino count must be
 zero. Existing native rate thresholds remain untouched. [Source audit](SOURCE_AUDIT.md)
 explains current-state refresh, combinatorics, FP assumptions and limits.
+The [current scope clarification](../../docs/phase1/RHS_REFERENCE_SCOPE.md)
+identifies the official rate entry and retains native behavior. Reconstructing
+upstream rate-evaluation history is not a new Phase 1 prerequisite; producer
+authorization, numerical verification and human scientific acceptance remain
+required.
 
 The harness exports static maps before/after and all 2,048 coefficient values
 actually used after each same call pair (~84.5 MB coefficient payload). No rate,

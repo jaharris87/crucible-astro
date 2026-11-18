@@ -80,3 +80,19 @@ training pool and defensible grouped holdouts. D-019 accepts the new pointwise
 numerical-reference contract while **explicitly deferring additional execution**
 until the matched candidate scope is concrete. See [DECISIONS](DECISIONS.md).
 Neither decision authorizes additional producer calls, training or a merge.
+
+## D-020: exact pilot execution authority
+
+The maintainer subsequently selected **“Authorize build and 5,157 pilot
+evaluations (Recommended)”** for reviewed source
+`00cf10b75d27b300e1650931029e657949e77ec4`, integrated in PR #20, and exact input
+manifest `10cf0d3250c83ff9c57c65adeb6ce4f323d7c9efadebf97f5b87013dd2f386e6`.
+The [D-020 decision](DECISIONS.md#decision-d-020-exact-5157-state-pilot-buildrun)
+and [live execution authorization](https://github.com/jaharris87/crucible-astro/issues/18#issuecomment-6967334310)
+record the unchanged full-state native target, pinned build/configuration,
+5,157-call bound including both controls, stop conditions and no automatic rerun.
+This supersedes the earlier execution deferral only for that named pilot. No
+primary-batch evaluation, source/rate change, trajectory/NSE/Jacobian solve,
+training, positive eligibility, scientific acceptance or merge follows. D-017
+remains exhausted. Actual execution and independent verification remain evidence
+requirements, not consequences of permission.

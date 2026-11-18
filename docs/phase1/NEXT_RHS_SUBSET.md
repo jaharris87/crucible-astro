@@ -1,3 +1,10 @@
+> Current status: this original 147-state standalone proposal is historical.
+> D-020 separately authorizes only the reviewed fixed 5,157-state pilot, which
+> includes these inputs. See [decisions](../DECISIONS.md#decision-d-020-exact-5157-state-pilot-buildrun)
+> and the [live execution record](https://github.com/jaharris87/crucible-astro/issues/18)
+> for actual attempts/results. Original proposal text below is preserved; neither
+> this page nor the pilot permission qualifies labels or authorizes the primary batch.
+
 # Original RHS candidate and deferred execution scope
 
 2026-11-17 under [S01 #10](https://github.com/jaharris87/crucible-astro/issues/10),

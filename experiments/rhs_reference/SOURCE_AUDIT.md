@@ -57,7 +57,12 @@ For two distinct identical reactant pairs this differs by a factor of two from
 product(multiplicity!), a distinction preserved in private static evidence and
 a hand-known synthetic example. No producer weight/rate is repaired, and no
 claim of physical combinatorial correctness or historical generator execution
-is made. The initial checker rejected this distinction before any bundle/build;
+is made. The [current scope clarification](../../docs/phase1/RHS_REFERENCE_SCOPE.md)
+records the official matching rate entry and parks the upstream-history
+investigation separately. The accepted target remains native numerical behavior;
+that investigation is not an added Phase 1 execution/qualification prerequisite.
+Numerical verification and human scientific acceptance still apply.
+The initial checker rejected this distinction before any bundle/build;
 its failed preparation evidence remains private. It never divides an already formed b
 by that factorial a second time. For every exported extended a, the checker
 identifies its exact numerator k by binary equality to float(k/symmetry), then
