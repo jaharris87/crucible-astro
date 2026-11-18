@@ -435,14 +435,25 @@ def construct_candidate(pool, contract, groups):
     }
 
 
-def validate_scientific(candidate, membership, eligibility, acceptance):
+def validate_scientific(
+    candidate, membership, eligibility, acceptance, *, pool, contract, groups
+):
     """Check a separately accepted, nonempty qualified membership in every role.
 
+    First reconstruct from the explicit original bound pool/contract/groups and
+    require exact canonical candidate identity. This reuses all mechanical checks
+    before interpreting serialized record/group membership or receipt hashes.
     Eligibility maps every candidate ID to a bool plus a qualification-evidence
     SHA256. Membership explicitly partitions all candidate IDs into the three
     roles or reason-bearing exclusions. Receipt authenticity is a human gate;
     this checker verifies its exact content bindings, never manufactures it.
     """
+    reconstructed = construct_candidate(pool, contract, groups)
+    _require(
+        digest(candidate) == digest(reconstructed),
+        "candidate_identity",
+        "serialized candidate differs from original bound mechanical construction",
+    )
     records = {r["record_id"]: r for r in candidate["records"] if r["candidate"]}
     _require(records, "empty_eligible", "no candidate membership")
     _require(

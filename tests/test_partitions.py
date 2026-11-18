@@ -306,7 +306,11 @@ def test_scientific_gate_requires_actual_qualification_and_acceptance(
     finite_pool, case, code
 ):
     args = scientific_control(finite_pool)
-    assert validate_scientific(*args)["status"] == "SCIENTIFIC_MEMBERSHIP_CHECK_PASS"
+    mechanical = dict(zip(("pool", "contract", "groups"), finite_pool))
+    assert (
+        validate_scientific(*args, **mechanical)["status"]
+        == "SCIENTIFIC_MEMBERSHIP_CHECK_PASS"
+    )
     candidate, membership, eligibility, acceptance = copy.deepcopy(args)
     if case == "zero":
         for evidence in eligibility.values():
@@ -328,7 +332,9 @@ def test_scientific_gate_requires_actual_qualification_and_acceptance(
     elif case == "no_evidence":
         eligibility["r0"].pop("qualification_sha256")
     with pytest.raises(PartitionError) as error:
-        validate_scientific(candidate, membership, eligibility, acceptance)
+        validate_scientific(
+            candidate, membership, eligibility, acceptance, **mechanical
+        )
     assert error.value.code == code
 
 
@@ -473,3 +479,33 @@ def test_cli_bound_inputs_and_exclusive_output(
     (tmp_path / "pool.json").write_text("{}")
     with pytest.raises(PartitionError, match="file_binding"):
         main()
+
+
+@pytest.mark.parametrize(
+    "mutation", ["unknown_group", "empty_groups", "duplicate_record"]
+)
+def test_scientific_rechecks_candidate_before_coherently_rebound_receipt(
+    finite_pool, mutation
+):
+    candidate, membership, eligibility, acceptance = scientific_control(finite_pool)
+    mechanical = dict(zip(("pool", "contract", "groups"), finite_pool))
+    assert (
+        validate_scientific(
+            candidate, membership, eligibility, acceptance, **mechanical
+        )["status"]
+        == "SCIENTIFIC_MEMBERSHIP_CHECK_PASS"
+    )
+    if mutation == "unknown_group":
+        candidate["records"][0]["group"] = 999999
+    elif mutation == "empty_groups":
+        candidate["groups"] = []
+    else:
+        candidate["records"].append(copy.deepcopy(candidate["records"][0]))
+    # The receipt deliberately names the mutated bytes. Stale receipt hashes
+    # must not mask a missing mechanical grouping/identity check.
+    acceptance["candidate_sha256"] = digest(candidate)
+    with pytest.raises(PartitionError) as error:
+        validate_scientific(
+            candidate, membership, eligibility, acceptance, **mechanical
+        )
+    assert error.value.code == "candidate_identity"

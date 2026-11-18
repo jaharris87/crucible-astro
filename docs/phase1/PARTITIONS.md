@@ -115,8 +115,15 @@ explicit uncertainty, not independence evidence.
 
 ## Separate scientific-readiness gate
 
-`validate_scientific(candidate, membership, eligibility, acceptance)` never
-promotes candidate metadata or fabricates positive eligibility. It requires:
+`validate_scientific(candidate, membership, eligibility, acceptance, *, pool,
+contract, groups)` requires the original explicit bound mechanical inputs. It
+first reruns `construct_candidate(pool, contract, groups)` and requires identical
+canonical candidate JSON before interpreting serialized records, group mapping,
+qualification or a receipt. Changed/absent grouping and duplicate candidate
+identities fail `candidate_identity` even when a receipt coherently names their
+modified bytes. All constructor identity/count/allocation/ancestry checks are
+reused; there is no second partial structural validator. The scientific gate never
+promotes candidate metadata or fabricates positive eligibility. It then requires:
 
 - A complete eligibility map for every candidate ID, with explicit true/false
   status. Zero eligible records or unknown eligibility fails.
@@ -179,8 +186,28 @@ original candidate and final-source reconstruction are byte-identical):
 
 | Artifact | SHA256 |
 | --- | --- |
-| Final constructor source | `b9db19d7d9db27df6a0d1bab1c78caceac338c6b79dcd051d3f752f71f038a5b` |
+| Original review-candidate constructor source | `b9db19d7d9db27df6a0d1bab1c78caceac338c6b79dcd051d3f752f71f038a5b` |
 | Candidate JSON bytes | `211e33ad75af8c77b383188814d2e2b41e8b9eed3773a9e84aa8c6576efd9c79` |
 | Canonical candidate JSON | `72a65dab6dbfc03d4cc9fa3bdadd551b2b4d0f298363853d6cbbc2564ccf8027` |
-| Final-source verification | `286f52843d7c648107fd9c576b2ae4b86bd4cb5420146f221169fc7677f67e29` |
+| Original review-candidate final-source verification | `286f52843d7c648107fd9c576b2ae4b86bd4cb5420146f221169fc7677f67e29` |
 | Final packet manifest | `ae30a060b7c52568c6fc56431c82cec7d93e7fab386246b06a12df03b74c80cb` |
+
+The [independent finding PART-SCI-R1](https://github.com/jaharris87/crucible-astro/pull/27#issuecomment-6968451310)
+is repaired by requiring the original mechanical inputs at the scientific gate.
+Three additional synthetic regressions use coherent receipt hashes for an unknown
+record group, absent group mapping and duplicate candidate record; each has a
+passing valid control and rejects `candidate_identity`. The noneditable suite now
+passes 184 tests with no skips. The narrow `verify-part-sci-r1.py` recheck uses the
+retained bound pool/contract and original accepted groups, requires byte-identical
+candidate reconstruction, then observes expected `empty_eligible` after the
+mechanical recheck. It does not repeat geometry, coverage or producer execution.
+Original adapter/verification sources and receipts remain historical, including
+the earlier scientific-gate API; the repair script uses the required explicit
+mechanical inputs. Original candidate bytes and all original packet files remain
+unchanged. Focused independent repair verification remains required.
+
+| Repair artifact | SHA256 |
+| --- | --- |
+| Repaired constructor/scientific-gate source | `d03d3e46992223b7804dc8015507b475d60408cf3743b95b704e513ed4de4e30` |
+| `verification-part-sci-r1.json` | `53acac42800db5c4d312835ab53ec207010ff35db5eec193d7e36776b0e69b01` |
+| `verify-part-sci-r1.py` | `ed347e3f7da3b9c048b206a2217c08c940450577022c2d5cead3e0f25d1af608` |
