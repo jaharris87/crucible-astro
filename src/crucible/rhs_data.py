@@ -121,25 +121,17 @@ def json_bits(values, raw, name):
     require(struct.pack(f"<{len(values)}d", *values) == raw, f"{name} JSON/binary bits")
 
 
-def materialize(config_path, destination):
-    """Validate all parents, write one new directory containing HDF5 and manifest.
-
-    Input digests are supplied explicitly, not inferred from whatever files exist.
-    Successful verification is engineering evidence; every scientific mask is false.
-    """
-    config_path = regular_path(config_path)
-    config_bytes = config_path.read_bytes()
-    c = json_load(config_bytes)
-    require(
-        set(c) == {"schema", "dataset_id", "dataset_version", "inputs", "expected"}
-        and c["schema"] == SCHEMA,
-        "unsupported configuration schema/keys",
-    )
-    require(
-        all(isinstance(c[k], str) and c[k] for k in ("dataset_id", "dataset_version")),
-        "dataset identity required",
-    )
-    inputs = c["inputs"]
+def _read_packet(
+    inputs,
+    e,
+    destination,
+    config_path,
+    *,
+    primary_batch=None,
+    pilot_count=5157,
+    pilot_histories=80,
+):
+    """Validate one of the two finite native-reference packet formats, without output."""
     require(
         set(inputs)
         == {
@@ -171,7 +163,6 @@ def materialize(config_path, destination):
         "destination collides with immutable input parent",
     )
     data = {key: checked(entry) for key, entry in inputs.items()}
-    e = c["expected"]
     require(
         set(e) == {"count", "species_Z_A", "units", "exact_controls"}, "expected keys"
     )
@@ -203,10 +194,38 @@ def materialize(config_path, destination):
     )
     prep = json_load(data["preparation"])
     require(
-        prep["schema"] == "crucible.rhs-reference-preparation.v1"
+        prep["schema"]
+        == (
+            "crucible.rhs-primary-preparation.v1"
+            if primary_batch
+            else "crucible.rhs-reference-preparation.v1"
+        )
         and prep["selection_count"] == n,
         "preparation identity/count",
     )
+    if primary_batch:
+        new = primary_batch["new_states"]
+        require(
+            prep["batch"]
+            == {
+                "new_states": new,
+                "repeat_controls": 2,
+                "proposed_calls": new + 2,
+                "pilot_states_reused": pilot_count,
+                "pilot_states_not_repeated": pilot_count - 2,
+                "unique_union_states": pilot_count + new,
+                "new_histories": primary_batch["new_histories"],
+                "pilot_histories": pilot_histories,
+                "execution_authorized": False,
+            },
+            "primary preparation batch",
+        )
+        require(
+            n == primary_batch["calls"]
+            and controls == primary_batch["repeat_control_sequences"]
+            and inputs["selection"]["sha256"] == primary_batch["selection_sha256"],
+            "primary batch count/control/selection",
+        )
     for key, filename in (("states", "states.bin"), ("selection", "selection.json")):
         require(
             prep["files"][filename]
@@ -237,18 +256,28 @@ def materialize(config_path, destination):
     require(
         isinstance(execution, dict)
         and set(execution)
-        == {
-            "schema",
-            "status",
-            "parents",
-            "configuration_sha256",
-            "runtime_shared_libraries_sha256",
-            "evidence",
-        }
-        and execution["schema"] == "crucible.rhs-pilot-execution.v1"
+        == (
+            {
+                "schema",
+                "status",
+                "parents",
+                "configuration_sha256",
+                "runtime_shared_libraries_sha256",
+                "evidence",
+            }
+            | ({"batch"} if primary_batch else set())
+        )
+        and execution["schema"]
+        == (
+            "crucible.rhs-primary-execution.v1"
+            if primary_batch
+            else "crucible.rhs-pilot-execution.v1"
+        )
         and execution["status"] == "completed",
         "execution receipt incomplete/schema",
     )
+    if primary_batch:
+        require(execution["batch"] == primary_batch, "primary execution batch")
     require(
         isinstance(execution["parents"], dict)
         and set(execution["parents"])
@@ -335,6 +364,15 @@ def materialize(config_path, destination):
         for name in ("sequence", "row_id", "tracer_id", "raw_ordinal", "step", *UNITS)
     }
     record_ids = set()
+    base_fields = {
+        "sequence",
+        "ordinal",
+        "record_id",
+        "raw_ts_sha256",
+        "raw_ev_sha256",
+        "raw_payload_sha256",
+        "input_state_sha256",
+    }
     raw_parents = {}
     for k, (sel, line) in enumerate(zip(selection, lines, strict=True), 1):
         state = states[
@@ -368,19 +406,31 @@ def materialize(config_path, destination):
         )
         f64(new)
         require(len(f64(coefficients)) == NC, "coefficient dimension")
-        require(
-            set(sel)
-            == {
-                "sequence",
-                "ordinal",
-                "record_id",
-                "raw_ts_sha256",
-                "raw_ev_sha256",
-                "raw_payload_sha256",
-                "input_state_sha256",
-            },
-            f"selection fields: {k}",
-        )
+        extra = set()
+        if primary_batch:
+            extra = (
+                {"role", "trajectory_locator"}
+                if k <= primary_batch["new_states"]
+                else {"role", "source_pilot_sequence"}
+            )
+            require(
+                sel.get("role")
+                == ("new" if k <= primary_batch["new_states"] else "repeat_control"),
+                f"primary selection role: {k}",
+            )
+            if k <= primary_batch["new_states"]:
+                require(
+                    sel.get("trajectory_locator")
+                    == f"Run_slab_{row:03d}/Run/ts_{tracer:04d}",
+                    f"primary trajectory locator: {k}",
+                )
+            else:
+                require(
+                    type(sel.get("source_pilot_sequence")) is int
+                    and 1 <= sel["source_pilot_sequence"] <= pilot_count,
+                    f"repeat pilot sequence: {k}",
+                )
+        require(set(sel) == base_fields | extra, f"selection fields: {k}")
         require(
             type(sel["sequence"]) is int
             and type(sel["ordinal"]) is int
@@ -483,13 +533,28 @@ def materialize(config_path, destination):
     # Verify retained inputs again before committing any output; no kernel/math audit rerun.
     for entry in (*inputs.values(), *evidence.values()):
         checked(entry)
+    return {
+        "arrays": arrays,
+        "selection": selection,
+        "species": species,
+        "count": n,
+        "preparation": prep,
+        "comparison": comparison,
+        "execution": execution,
+        "states": states,
+        "fresh": fresh,
+        "entries": [*inputs.values(), *evidence.values()],
+    }
+
+
+def _write_hdf(output, c, arrays, species, selection):
+    """Write the shared quarantined physical fields and original-state ancestry."""
     import h5py
 
-    dest.mkdir()
-    output = dest / "dataset.h5"
+    n = len(selection)
     with h5py.File(output, "x") as h:
         h.attrs.update(
-            schema=SCHEMA,
+            schema=c["schema"],
             dataset_id=c["dataset_id"],
             dataset_version=c["dataset_version"],
         )
@@ -514,6 +579,37 @@ def materialize(config_path, destination):
         for use, reason in REASONS.items():
             h.create_dataset("eligibility/" + use, data=[False] * n, dtype="?")
             h["eligibility/" + use].attrs["reason"] = reason
+
+
+def materialize(config_path, destination):
+    """Validate all parents, write one new directory containing HDF5 and manifest.
+
+    Input digests are supplied explicitly, not inferred from whatever files exist.
+    Successful verification is engineering evidence; every scientific mask is false.
+    """
+    config_path = regular_path(config_path)
+    config_bytes = config_path.read_bytes()
+    c = json_load(config_bytes)
+    require(
+        set(c) == {"schema", "dataset_id", "dataset_version", "inputs", "expected"}
+        and c["schema"] == SCHEMA,
+        "unsupported configuration schema/keys",
+    )
+    require(
+        all(isinstance(c[k], str) and c[k] for k in ("dataset_id", "dataset_version")),
+        "dataset identity required",
+    )
+    packet = _read_packet(c["inputs"], c["expected"], destination, config_path)
+    arrays, selection, species, n = (
+        packet[k] for k in ("arrays", "selection", "species", "count")
+    )
+    comparison, inputs = packet["comparison"], c["inputs"]
+    dest = regular_path(destination)
+    import h5py
+
+    dest.mkdir()
+    output = dest / "dataset.h5"
+    _write_hdf(output, c, arrays, species, selection)
     manifest = {
         "schema": SCHEMA,
         "dataset_id": c["dataset_id"],
