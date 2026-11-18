@@ -118,7 +118,8 @@ A public card/software license does not establish data redistribution rights.
    freshness and a human merge decision remain pending. Build/evaluation needs a
    separate concrete human execution decision; no additional call is authorized.
 4. [Provisional budgets #29](https://github.com/jaharris87/crucible-astro/issues/29)
-   implements configurable diagnostics/examples and honest benchmark readiness.
+   / [draft PR #30](https://github.com/jaharris87/crucible-astro/pull/30) implements
+   configurable diagnostics/examples and honest benchmark readiness.
    Complete exact-candidate fresh review and a human merge decision. Scientific
    allowances/scales/timescales/critical selection remain unresolved; no prediction
    artifact exists and integrated scientific accuracy remains not evaluated.
