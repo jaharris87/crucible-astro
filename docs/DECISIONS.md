@@ -304,6 +304,32 @@ loop has returned normally with all 5,157 records retained; its call authority i
 exhausted. Exact offline verification and fresh evidence review remain pending;
 no retry, additional call or overall numerical/scientific PASS follows.
 
+### Decision D-021: Working primary input scope and grouping
+
+**Accepted, 2026-11-17.** The maintainer explicitly selected “Accept working
+scope and grouping (Recommended)” for the exact 380-history / 24,314-candidate
+within-parent proposal; [human decision receipt](https://github.com/jaharris87/crucible-astro/issues/15#issuecomment-6968022017).
+This is scientific acceptance of the **working input/group semantics**, enabling
+bounded Phase 1 partition construction/checks under S03 #15.
+
+The accepted finite operational measured-proximity rule has 94 components:
+66 training / 14 validation / 14 test groups, 274 / 51 / 55 histories and
+17,659 / 3,220 / 3,435 candidate states. Histories and known raw/derived ancestry
+remain whole; both metadata categories occur in every role. The exact
+population/version and measured position window bind the groups. Frozen protocol
+SHA256 `9d6a5b21b7d885e51932df5352596755ac641a5de18e48def1700a5d2f94ba2d`;
+original assignment `9c85cd2656c9171479e4b4cc0cec711b6574842f491c19663315ec2ac5e30a24`.
+The [constructor contract](phase1/PARTITIONS.md) implements that rule and retains
+the original assignment as an immutable comparison oracle.
+
+This does not establish physical-family independence, sufficient joint coverage,
+reference qualification, final eligible membership, metrics/tolerances, final-test
+use, training or extra XNet calls. Component-envelope gaps, residual proximity,
+one parent and one Compressed group in each held-out role remain limitations of
+this working scope. All final S01/S03/Phase 1 exits remain open. The separate
+human approval to merge reviewed PR #24 is distinct and already exhausted by
+its integration at `33c368c`; it supplies no further execution or merge authority.
+
 ### Next reference-label scope
 
 The [147-record proposal](phase1/NEXT_RHS_SUBSET.md) retains the original candidate

@@ -2,9 +2,11 @@
 
 2026-11-17, [S03 #15](https://github.com/jaharris87/crucible-astro/issues/15),
 [Phase 1 milestone #2](https://github.com/jaharris87/crucible-astro/milestone/2).
-**No scientific train/validation/final-test membership is defined or accepted.**
-This sheet records the actual bounded coverage and the decisions/evidence needed
-to define an honest benchmark. It does not qualify labels or complete S03.
+**D-021 accepts the exact expanded working input/group contract. No final
+qualified train/validation/final-test membership is accepted.** This sheet records
+actual bounded coverage and remaining scientific decisions. The [candidate
+constructor and separate scientific gate](PARTITIONS.md) reproduce the accepted
+working allocation; their mechanical success does not qualify labels or complete S03.
 
 ## Accepted development direction
 
@@ -13,7 +15,8 @@ for the intended held-out task. A/B/C below are aliases for initial format-audit
 examples, not standard ML labels or fixed partition assignments. Each qualified
 saved state is one pointwise example; a trajectory contributes many correlated
 examples. Related histories and copies stay together under the accepted grouping
-rule when evaluating generalization to unseen trajectories/families.
+rule. The D-021 working claim is held-out operational proximity groups within
+one parent; physical-family independence is not established.
 
 Assess joint full-composition/T/rho/regime coverage of the pooled training
 candidates before proposing separate validation/test groups. Ye overlap and
@@ -101,7 +104,8 @@ This is a finite within-parent held-proximity-group proposal. Held-out groups
 are few; one existing category is training-only, and joint state/condition and
 residual spatial-overlap diagnostics remain visible. No sufficient-coverage,
 physical-family-independence, scientific accuracy or final-test claim is accepted.
-Human acceptance and a production split implementation/checks remain gates.
+This retained pilot proposal remains unaccepted as the primary allocation;
+D-021 instead accepts the expanded finite working contract below.
 
 ## Expanded primary candidate
 
@@ -119,8 +123,10 @@ role-dependent coverage: global T9/rho/native-Ye extrema and missing row/categor
 support anchor training; fixed per-category group hashes allocate separate
 validation/test quotas. Every history and its known raw/derived ancestry stay
 whole. The diagnostic position components are operational controls, not proven
-physical families. Final group/domain acceptance, memberships and production
-split implementation remain separate gates. No reference label or model result
+physical families. D-021 accepts this exact working input/group scope; the
+[candidate implementation/checks](PARTITIONS.md) reproduce it. Reference
+qualification, final qualified domain/memberships, metrics/tolerances and final
+scientific acceptance remain separate gates. No reference label or model result
 enters this covariate-based benchmark curation; later fitted preparation remains
 training-only.
 
@@ -142,7 +148,7 @@ acceptance are still required.
 | Abundance observables | Propose signed species RHS components in physical source convention; later abundance histories/yields require a qualified rollout reference | Select observables/aggregation before model evaluation; condensed multi-species text is not authoritative |
 | Energy | Store internal-step mass-excess diagnostic separately. D-019 excludes it as an instantaneous/deposited-heating target; keep its unqualified meaning explicit | D-019 accepts energy/rollout target exclusion for this pilot; constraints/tolerances and wider energy milestones remain open |
 | Constraints | Report baryon/positivity diagnostics and appropriate Ye evolution; do not normalize/clip away errors or enforce fixed charge | D-005/D-007: applicable constraints and justified tolerances |
-| Reference | D-017’s three-state diagnostic is complete; D-019 selects the new pinned numerical reference, with further execution deferred | D-007: actual named-subset reference adequacy and numerical/physical error evidence; contract selection is not accuracy acceptance |
+| Reference | D-017’s three-state diagnostic is complete; D-019 selects the new pinned numerical reference, with the exact D-020 pilot completed and offline checks passing, pending fresh evidence review | D-007: actual named-subset reference adequacy and numerical/physical error evidence; contract selection is not accuracy acceptance |
 | Metrics | Propose signed physical-unit component differences, absolute-error distributions by species/trajectory/regime, and explicit failure/eligible denominators | Accept weighting, relative/log floors, aggregates and observable-specific thresholds with reasons before final-test use |
 | Cost | No inference/integration speedup measured; label-audit runtime is not surrogate performance | Later matched task/reference/hardware/timing boundaries; no Phase 2 measurements now |
 
@@ -177,25 +183,25 @@ Keep the still-unqualified collection together in quarantine for current
 engineering use. The immutable extraction metadata predates the parent identification;
 a separate local overlay/card records that update without rewriting its bytes.
 
-Primary recommendation after qualification is **parent/family-disjoint holdout**,
-with enough qualified independent groups for the intended allocation. For this single identified
-parent, the maintainer may instead accept an explicitly narrower
-within-simulation trajectory-family estimand and justified grouping rule. That
-cannot demonstrate simulation-level generalization. Random neighboring-row splits
+For this single identified parent, D-021 accepts the finite within-parent
+operational-proximity working rule. It establishes neither independent physical
+families nor simulation-level generalization. Random neighboring-row splits
 and A/B/C-as-independent-parent splits are not acceptable shortcuts.
 
 A concrete future split record must bind the accepted source/qualified membership,
 group mapping and estimand, construction rule/version, seed when used, exact sorted
 train/validation/test IDs and digest, exclusions with reasons, and human acceptance.
-Construction must be unchanged by input enumeration order. No split fractions,
-seed or real final-test membership is chosen before those prerequisites exist.
+Construction must be unchanged by input enumeration order. D-021 fixes the
+disclosed working hash quotas and candidate roles; final eligible membership and final-test use remain gated by these scientific prerequisites.
 
 Checks on that actual implementation must verify uniqueness, complete declared
 allocation or explicit exclusion, and pairwise disjoint raw ancestry, tracers and
-accepted parent/family groups. Deliberate derived-copy duplication and related-group
+accepted operational groups. Deliberate derived-copy duplication and related-group
 overlap must fail distinctly. Unknown grouping or zero eligible membership must
 not pass a scientific partition audit merely because empty sets are disjoint.
-No such real-data partition check is claimed to have passed now.
+The [real candidate mechanical check](PARTITIONS.md#actual-bounded-verification)
+passes with exact accepted-role reproduction; the separate scientific-readiness
+gate fails for zero eligible membership. No final qualified split passes now.
 
 ## Train-only preparation and stopping boundary
 
@@ -210,8 +216,10 @@ Phase 1 introduces no fitter or Phase 2 stack merely to manufacture that test.
 
 S03 preparation can advance while S01/diagnostic work continues, but final S03
 and Phase 1 acceptance remain open until the physical/reference decisions,
-qualified membership, group/estimand acceptance, concrete partitions and meaningful
-split checks hold. Scientific acceptance and software merge are separate. Keep
+qualified membership, final domain/metric/tolerance acceptance, concrete qualified
+partitions and meaningful scientific split checks hold. D-021's working
+group/within-parent scope acceptance is already recorded. Scientific acceptance
+and software merge are separate. Keep
 the [raw card](../data-cards/genesis_datacard_ccsn_raw_candidate.md), derived card,
 milestone and handoff current; missing provenance or limited exploration is not
 full training qualification.

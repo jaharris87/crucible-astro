@@ -17,7 +17,13 @@ remain unchanged.
   A/B/C are initial audit aliases. Each qualified saved state can be a pointwise
   example; histories and related copies create grouping constraints. The
   maintainer retained the 80-history pool as a qualification pilot and selected
-  read-only primary-audit expansion. No current split is frozen.
+  read-only primary-audit expansion. No final qualified split is frozen.
+- D-021 accepts the exact expanded working input/group contract: 380 histories,
+  24,314 candidates, 94 finite operational proximity groups, roles 66/14/14 groups
+  and 274/51/55 histories. [Candidate construction/checks](phase1/PARTITIONS.md)
+  reproduce accepted roles; the separate scientific gate fails for zero eligible
+  membership. Final qualified partitions, metrics/tolerances and final-test use
+  remain open; physical-family independence is not established.
 - D-019 accepts a new pinned **native numerical** pointwise reference at unchanged
   full-160 Y and recorded T9/rho, native Ye=sum(ZY)/sum(AY), weak/screening on,
   heating off and zero active neutrino rates. Stored derivatives remain audit-only;
@@ -51,14 +57,19 @@ RHS-PILOT-R1 repair uses native Ye; all 6,433 selection decisions, 5,157 input
 state bytes and two retained controls are unchanged. Old artifacts remain immutable.
 The D-020 build passed and physical loop returned normally. All 5,157 records,
 825,120 finite fresh components, exact state echoes/maps and both controls pass
-separate fixed-width checks. The exact offline comparator and fresh evidence
-review remain pending; no overall numerical/scientific PASS is claimed. Actual
-receipts and call-authority exhaustion are tracked in #18.
+separate fixed-width checks. The exact offline comparator now passes all 5,157
+states / 825,120 components,
+including conditional assembly and baryon checks; retained transfer hashes pass.
+Fresh execution-evidence review and human scientific acceptance remain pending;
+no data qualification follows. Actual receipts and call-authority exhaustion are
+tracked in #18.
 
 ## Current data evidence
 
-The expanded audit/card/proposal update is [draft PR #24](https://github.com/jaharris87/crucible-astro/pull/24);
-fresh independent review and its own human merge decision remain required.
+The expanded audit/card/proposal update was independently reviewed and
+human-merged in [PR #24](https://github.com/jaharris87/crucible-astro/pull/24) at
+`33c368c`. D-021 separately accepts its working input/group contract; final
+scientific qualification remains open.
 
 The local raw collection has 42,362 filename pairs. The original three-pair
 artifact contains 1,384 records, with no positive scientific eligibility.
@@ -83,21 +94,28 @@ A public card/software license does not establish data redistribution rights.
 
 ## Next bounded actions and decisions
 
-1. Review the expanded candidate pool and [single within-parent proposal](phase1/PRIMARY_BENCHMARK_PROPOSAL.md):
-   274 training / 51 validation / 55 test histories, with all-point full-state/
-   condition diagnostics and explicit joint-support gaps. Obtain
-   scientific acceptance of scope, grouping and statistical claim; no final-test
-   membership or sufficient joint coverage is accepted yet.
-2. Finish the exact offline D-020 comparison and fresh evidence review under
-   #18. The physical loop is complete and its call authority exhausted. Preserve
-   failures/controls; no retry or primary-batch call is authorized. Only actual
-   verified evidence and human acceptance can qualify a named reference subset.
-3. Complete [native HDF5 candidate #23 / draft PR #25](https://github.com/jaharris87/crucible-astro/pull/25)
-   provenance repairs; materialize real data only after the full #18 comparison
-   passes, then independently verify arrays/ancestry. All scientific masks stay false.
-4. Implement/check partitions only after relevant semantics acceptance. Final
-   qualified memberships, observables/metrics, justified tolerances and human
-   scientific acceptance remain S01/S03 exits. Fit no model or preprocessing.
-5. Complete each candidate's fresh review, findings disposition, human merge and
+1. D-021 accepts the expanded working input/group scope and within-parent claim.
+   The [candidate constructor/checker](phase1/PARTITIONS.md) reproduces all accepted
+   groups/roles, preserves exclusions and fails scientific readiness as expected
+   for zero eligible records. Complete fresh exact-candidate review and a separate
+   human merge decision. Final qualified memberships, sufficient coverage,
+   metrics/tolerances and final-test use remain unaccepted.
+2. Complete fresh execution-evidence review under #18 / PR #25 after the passing
+   exact offline D-020 comparison. The physical loop is complete and its call
+   authority exhausted. Preserve failures/controls; no retry or primary-batch call
+   is authorized. Verified evidence and human acceptance must qualify a named subset.
+3. The [native HDF5 candidate #23 / draft PR #25](https://github.com/jaharris87/crucible-astro/pull/25)
+   has provenance repairs and 217 passing candidate tests/CI; actual local
+   materialization/card/execution-report work now follows the passing #18 comparison.
+   Complete independent arrays/ancestry and focused repair/execution review.
+   All scientific masks stay false; live receipts track subsequent work.
+4. Prepare only the [remaining-primary scope #26](https://github.com/jaharris87/crucible-astro/issues/26):
+   19,157 new candidate states plus two explicit repeat controls, 19,159 proposed
+   calls. Source preparation may proceed; actual build/evaluation requires reviewed
+   preparation and a new concrete human authorization. No additional call is authorized.
+5. Final qualified memberships, observables/metrics, justified tolerances and
+   human scientific acceptance remain S01/S03 exits after D-021's working-group
+   implementation. Fit no model or preprocessing.
+6. Complete each candidate's fresh review, findings disposition, human merge and
    merged checks; update cards and current status. Close neither phase nor goal
    for exploratory evidence, missing decisions or an empty qualified dataset.

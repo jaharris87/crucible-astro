@@ -1,9 +1,13 @@
-# Expanded within-parent benchmark: scope and grouping proposal
+# Expanded within-parent benchmark: accepted working scope and grouping
 
 2026-11-17, [S03 #15](https://github.com/jaharris87/crucible-astro/issues/15).
-**Proposed covariate allocation, not accepted partitions, qualified labels or
-final-test authority.** This is one fixed proposal following the maintainer's
-decision to expand the primary audit and retain the 80-history qualification pilot.
+**D-021 accepts this exact working input/group contract. Final qualified
+partitions, reference accuracy, metrics/tolerances and final-test use remain open.**
+The [human receipt](https://github.com/jaharris87/crucible-astro/issues/15#issuecomment-6968022017)
+accepts the single frozen proposal following the primary-audit expansion;
+the 80-history pool remains a qualification pilot. Historical measurements and
+the fixed allocation rule below are unchanged. The [constructor and separate
+scientific gate](PARTITIONS.md) implement/check that accepted working contract.
 
 ## Intended claim and membership
 
@@ -61,9 +65,11 @@ role, but validation and test each contain only **one Compressed component**.
 The private construction passes complete allocation, canonical-history/known
 ancestry and group disjointness, nearest-link closure and input-order invariance.
 All 24,314 full-input fingerprints are distinct. These are mechanical checks of
-an unaccepted proposal, not the production checker or scientific independence.
-Actual final raw/derived manifests, qualified memberships and human acceptance
-remain required before a real scientific split audit can pass.
+the original proposal, not scientific independence. The subsequent
+[production candidate check](PARTITIONS.md#actual-bounded-verification) reproduces
+this exact accepted working allocation. Actual final raw/derived manifests,
+qualified memberships and final human acceptance remain required before a
+scientific split audit can pass.
 
 ## Full-state and condition support
 
@@ -101,16 +107,19 @@ window; whole-history IDs remain assigned without inventing late coordinates.
 
 ## Qualification and acceptance boundary
 
-The proposal supplies a concrete grouping/membership choice for human scientific
-consideration. It does not itself accept sufficient coverage, qualify references,
+D-021 accepts this concrete working input/group contract. It does not accept
+sufficient coverage, qualify references, freeze final eligible memberships,
 select a surrogate error budget or permit final-test use. The
 [benchmark decision sheet](BENCHMARK.md) retains the task/domain/observable,
 metric aggregation, justified tolerance and reference-acceptance gates. Scientific
 adequacy and software merge are separate decisions. Phase 2 remains unauthorized.
 
-Before final use, implement and verify the accepted partition rule, including
-deliberate related-copy/duplicate rejection and empty/unknown-qualified-membership
-failures. Fitted preprocessing belongs to training only when it exists; no Phase 2
+The [candidate constructor/checker](PARTITIONS.md) now verifies the accepted
+working rule, including deliberate related-copy/duplicate rejection and
+empty/unknown-qualified-membership failures. Its real scientific gate currently
+fails as expected for zero eligible membership. Before final use, obtain qualified
+references, exact eligible memberships and final scientific acceptance. Fitted
+preprocessing belongs to training only when it exists; no Phase 2
 stack or dummy fitter is introduced in Phase 1.
 
 Initial private implementation failures were fingerprint byte-order assertion
