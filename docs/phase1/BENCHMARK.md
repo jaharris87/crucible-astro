@@ -71,7 +71,12 @@ It finds broader joint-composition candidates, nearly coincident states in
 separate files, and an unfamiliar shorter format kept quarantined. These are
 coverage/mapping leads, not a sufficient training pool or final split. In
 particular, C is not inherently out of domain relative to the broader pool.
-Actual physical identity/grouping recovery and accepted scope remain required.
+All 6,433 ordinary states are now audited, with 5,157 source-table candidates;
+initial inputs and stored IDs are numerically associated. The same report's
+illustrative whole-row split is diagnostic only: membership checks pass, but
+joint coverage and physical-family interpretation remain unaccepted. Actual
+seeding/conversion association is requested from the maintainer after bounded
+locator checks. No primary partition or new evaluation scope is accepted.
 
 ## Scientific decision sheet
 

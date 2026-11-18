@@ -76,8 +76,16 @@ Next authorized work: read-only coverage and physical-identity investigation for
 a broader multi-trajectory candidate pool under [S03 #15](https://github.com/jaharris87/crucible-astro/issues/15).
 The [83-pair reconnaissance](phase1/MULTITRAJECTORY_AUDIT.md) samples 402 states
 across 80 familiar-layout histories; three shorter-layout pairs stay quarantined.
-Broad ranges and nearly coincident states are leads, not sufficient coverage or
-independent groups. Recover actual physical identity/geometry and related groups
-before proposing partitions. Quarantine unverified layouts. Do not
+A follow-on audits all 6,433 ordinary states in those histories, with 5,157
+inside the existing source-table screen; no label qualification or execution
+permission follows. Full input row/column arrays and selected first-frame
+metadata are recovered. Broad ranges, unique fingerprints and stored-row bands
+are leads, not sufficient coverage or independent groups. All 83 initial time/T9/rho triples match recovered inputs bit-for-bit; 13 mapped
+initial compositions reproduce exactly and 70 zero-native inputs take the source
+NSE fallback (not rerun). Historical path/build binding remains limited. An illustrative whole-row proposal passes its own membership checks but does
+not establish a matched primary benchmark; full-composition comparisons show
+why scalar overlap is insufficient. The bounded locator search is exhausted,
+and an interactive maintainer question requests actual seeding/conversion
+association. Keep grouping/claim acceptance open; do not freeze the illustration. Quarantine unverified layouts. Do not
 fit preprocessing or choose models. Prepare exact evidence and the next bounded
 execution proposal for human acceptance; do not infer it from D-019.

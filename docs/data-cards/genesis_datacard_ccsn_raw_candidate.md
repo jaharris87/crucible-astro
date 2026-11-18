@@ -118,11 +118,14 @@ The separate [83-pair reconnaissance](../phase1/MULTITRAJECTORY_AUDIT.md) observ
 an additional shorter payload variant, broader sampled compositions and nearly
 coincident states in different files. That variant remains quarantined; sparse
 coverage and filename distinctions establish neither qualification nor independence.
-No bulk conversion or new training artifact was produced.
+A follow-on audits all 6,433 ordinary states in the 80 familiar histories and
+identifies 5,157 source-table candidates; none is a qualified label. Recovered
+initial inputs match first-record conditions, while actual physical-family
+mapping remains open. No bulk conversion or new training artifact was produced.
 
 Current eligibility is **limited to authorized structural investigation**.
-All 1384 inspected records remain unqualified for state training, instantaneous
-RHS, energy targets and rollout reference use. Reason sets differ: unknown
+All 1,384 records in the initial three-pair artifact remain unqualified for
+state training, instantaneous RHS, energy targets and rollout reference use. Reason sets differ: unknown
 provenance affects all; 3 initial and 1185 explicitly flagged NSE rows have invalid
 RHS labels; 196 others still lack accepted-state alignment and conditions evidence.
 See the [eligibility table](../phase1/S01_AUDIT.md#physical-interpretation-and-exclusions)
