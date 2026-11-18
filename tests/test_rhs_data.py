@@ -698,3 +698,29 @@ def test_execution_evidence_is_rechecked_before_output(pilot, monkeypatch):
     with pytest.raises(ValueError, match="input checksum mismatch: run_log"):
         materialize(config, output)
     assert not output.exists()
+
+
+def test_raw_tracer_locator_preserves_four_digit_zero_padding(pilot):
+    config, output, parent, _, bind = pilot
+    states = bytearray((parent / "states").read_bytes())
+    results = bytearray((parent / "fresh").read_bytes())
+    selection = json.loads((parent / "selection").read_text())
+    for k in range(2):
+        # Independent integer wire offsets: sequence,row,tracer,ordinal,step.
+        struct.pack_into("<i", states, 2576 + k * 2620 + 8, 445)
+        struct.pack_into("<i", results, 2576 + k * 21600 + 8, 445)
+        selection[k]["record_id"] = f"Run_slab_030/Run/ts_0445#{k + 11}"
+        selection[k]["input_state_sha256"] = sha(
+            states[2576 + k * 2620 : 2576 + k * 2620 + 1340]
+        )
+    (parent / "states").write_bytes(states)
+    (parent / "fresh").write_bytes(results)
+    write_json(parent / "selection", selection)
+    bind()
+    materialize(config, output)
+    with h5py.File(output / "dataset.h5", "r") as h:
+        assert h["tracer_id"][:].tolist() == [445, 445]
+        assert h["raw_provenance/record_id"].asstr()[:].tolist() == [
+            "Run_slab_030/Run/ts_0445#11",
+            "Run_slab_030/Run/ts_0445#12",
+        ]

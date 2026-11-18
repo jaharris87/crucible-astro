@@ -388,7 +388,7 @@ def materialize(config_path, destination):
             and sel["ordinal"] == ordinal,
             f"selection sequence/ordinal: {k}",
         )
-        record_id = f"Run_slab_{row:03d}/Run/ts_{tracer}#{ordinal}"
+        record_id = f"Run_slab_{row:03d}/Run/ts_{tracer:04d}#{ordinal}"
         require(
             sel["record_id"] == record_id and record_id not in record_ids,
             f"raw record identity: {k}",
