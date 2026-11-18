@@ -97,8 +97,8 @@ A public card/software license does not establish data redistribution rights.
 1. D-021 accepts the expanded working input/group scope and within-parent claim.
    The [candidate constructor/checker](phase1/PARTITIONS.md) reproduces all accepted
    groups/roles, preserves exclusions and fails scientific readiness as expected
-   for zero eligible records. Complete fresh exact-candidate review and a separate
-   human merge decision. Final qualified memberships, sufficient coverage,
+   for zero eligible records. [Draft PR #27](https://github.com/jaharris87/crucible-astro/pull/27)
+   awaits fresh exact-candidate review and a separate human merge decision. Final qualified memberships, sufficient coverage,
    metrics/tolerances and final-test use remain unaccepted.
 2. Complete fresh execution-evidence review under #18 / PR #25 after the passing
    exact offline D-020 comparison. The physical loop is complete and its call
