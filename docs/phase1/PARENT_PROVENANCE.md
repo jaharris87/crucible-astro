@@ -13,6 +13,32 @@ parent**, not two independent simulations. Relationships among additional
 post-processing reruns/variants and any physical trajectory-family grouping
 still need explicit treatment before scientific partition acceptance.
 
+The maintainer subsequently reports that the model evolved through collapse in
+1D before restart in 3D and identifies archived original-frame locations for
+read-only investigation. These are related stages of one lineage, not additional
+independent simulation cases. A candidate seeding input in a nominally 2D model
+directory is an investigation lead only; its association with the 3D run must be
+checked against original-frame/restart metadata before adopting its layout.
+
+Bounded archived-header reads now find native particle dimensions
+`[295059,1]` in early 3D frames and `[59,1]` in a late 1D frame. The candidate
+local input instead describes 3,540 particles on a 2D grid; it is not bound to
+the 3D layout. Header revision/build strings are self-reports, not verified
+historical source hashes or an exact restart receipt. The inspected late 1D
+frame is not established as the restart source. The processed 5001-column slab
+organization must not be presented as native particle dimensions.
+
+Measured position histories with verified particle IDs can nevertheless support
+position-based grouping. Original seeding input recovery is additional provenance,
+not a prerequisite for using those histories. The maintainer is also consulting
+the particle-data producer about position-history interpretation. See the
+[bounded audit and current checks](MULTITRAJECTORY_AUDIT.md).
+
+The maintainer subsequently relays the producer's confirmation that `pdata.h5`
+is the intended source for particle position data. Use those measured histories
+with verified IDs; retain source attribution and routine time/coordinate checks
+without making original seeding-file recovery a prerequisite.
+
 | Production stage | Maintainer-attributed contributor |
 | --- | --- |
 | Chimera simulation data | Eric Lentz |

@@ -74,9 +74,31 @@ particular, C is not inherently out of domain relative to the broader pool.
 All 6,433 ordinary states are now audited, with 5,157 source-table candidates;
 initial inputs and stored IDs are numerically associated. The same report's
 illustrative whole-row split is diagnostic only: membership checks pass, but
-joint coverage and physical-family interpretation remain unaccepted. Actual
-seeding/conversion association is requested from the maintainer after bounded
-locator checks. No primary partition or new evaluation scope is accepted.
+joint coverage and physical-family interpretation remain unaccepted. The alternative canonical-trajectory diagnostic keeps training in every cohort
+but still exposes coverage gaps and within-parent correlations. Original-frame
+and restart metadata investigation is active after the maintainer supplied an
+archive locator. No primary partition or new evaluation scope is accepted.
+
+## Current proposed grouping and allocation
+
+The [measured-history proposal](MULTITRAJECTORY_AUDIT.md#current-position-based-proposal-training-support-before-holdout)
+keeps each history's nearest measured spatial history in one connected group,
+plus canonical particle/raw/derived ancestry. Its 21 operational groups are
+proposed correlation controls, not proven independent physical families.
+
+An initial allocation omitted a known metadata stratum from training; that
+failure remains preserved. The revised candidate requires training support for
+every declared row/category before assigning remaining groups. It proposes 68
+training histories / 4,385 states, 8 validation histories / 523 states, and 4 test
+histories / 249 states. All 5,157 candidates remain allocated and all nearest
+history links stay together. No reference target or model result guided this
+curation; later fitted preprocessing still uses training IDs only.
+
+This is a finite within-parent held-proximity-group proposal. Held-out groups
+are few; one existing category is training-only, and joint state/condition and
+residual spatial-overlap diagnostics remain visible. No sufficient-coverage,
+physical-family-independence, scientific accuracy or final-test claim is accepted.
+Human acceptance and a production split implementation/checks remain gates.
 
 ## Scientific decision sheet
 

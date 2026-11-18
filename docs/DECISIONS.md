@@ -223,6 +223,16 @@ supports no simulation-independent claim. Final groups, memberships, metrics,
 tolerances and scientific acceptance remain open. This direction grants no new
 producer execution or merge authority. See [S03 #15](https://github.com/jaharris87/crucible-astro/issues/15).
 
+**Execution clarification:** the maintainer pointed out that measured radius,
+theta and phi histories are available. The lead had made recovery of the original
+seeding input too strong a prerequisite. Use the supplied position histories and
+verified IDs to develop position-based grouping, with routine coordinate/time
+checks. Missing seeding configuration remains a provenance limitation, not a
+blocker to that work. Final grouping/coverage acceptance is still required.
+The maintainer subsequently relayed confirmation from the particle-data producer
+that `pdata.h5` is the intended position-data source. Record this as producer
+confirmation via the maintainer; routine ID/time/coordinate checks still apply.
+
 ### Decision D-019: Pointwise numerical-reference contract; execution deferred
 
 **Status: contract accepted, 2026-11-17.** Exact answer: “Accept the proposed

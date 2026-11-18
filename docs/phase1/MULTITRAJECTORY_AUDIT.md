@@ -345,8 +345,233 @@ recursively search unrelated descendants or treat a 2D example as this 3D input.
 Locator-check manifest:
 `172d4c73e40591b5b3a044aa7ec4f9792745df916896efa4df9fd84b850f69b1`.
 
-A concrete maintainer question requests the recoverable source/location for that
-association. Until the grouping/claim is accepted, do not equate stored IDs with
+The maintainer pointed to the parent data directory in response to the concrete
+locator question. Selective deeper inspection of likely metadata/source locations
+is continuing; the initial shallow-check boundary above is preserved. Until the
+grouping/claim is accepted, do not equate stored IDs with
 physical families or call the primary holdout matched. The accepted pointwise
 reference contract remains useful; additional producer execution is still deferred.
 No required scientific gate is waived and Phase 1 remains incomplete.
+
+## Alternative intended claim: new trajectories within the same parent
+
+A second fixed private diagnostic keeps canonical particle/history IDs and their
+raw/derived ancestry together, while allowing different particles from the same
+stored row in different roles. It asks **new-trajectory pointwise evaluation
+within this parent**, not new-row, physical-family-independent or simulation-level
+generalization. This distinction needs explicit human acceptance; it is not a
+way to claim unknown families are independent.
+
+Within each cohort, rank histories by a fixed SHA-256 rule over namespace,
+canonical particle ID and a literal protocol tag. Keep all but one in training
+when multiple histories exist, and alternate the remaining histories between
+validation/test by sorted cohort rank. No seed search, labels or model outcomes
+are used. Training contains multiple histories and represents all 27 cohorts.
+
+| Alternative candidate role | Histories | Candidate states |
+| --- | ---: | ---: |
+| Training | 54 | 3,512 |
+| Validation | 13 | 833 |
+| Test | 13 | 812 |
+
+All 5,157 candidates are allocated once; canonical-history/known-ancestry keys
+are disjoint and input ordering does not change assignments. No identical full
+pointwise input crosses roles. These are checks of a **private proposed protocol**,
+not accepted scientific partitions or production split-check implementation.
+
+Nearest-training full-X L1 median/max are 0.06048/0.33151 for validation and
+0.10084/0.38229 for test. Condition-nearest median X differences remain
+0.8871/0.6901. Fifty-eight validation states have Ye below training's minimum
+(validation 0.368253 versus training 0.376177); three validation and one test
+state have T9 below the training minimum. The rule was not retuned to hide these
+gaps. No accepted threshold turns these distances into a sufficiency judgment.
+
+One held trajectory has very close training compositions (X L1 approximately
+7.9×10⁻¹⁴–1.61×10⁻⁴). Distinct bound particle IDs do not establish physical
+independence, and close inputs do not by themselves prove shared-ancestry leakage.
+Disclose the correlation and intended within-parent claim; do not advertise
+independent-family performance. The row-held-out diagnostic above asks a different
+question and evaluates different held trajectories, so its distances cannot
+select a winning protocol or model.
+
+Alternative private sheet SHA-256:
+`3a048371c0c702699679b426a688bd791b0063f90c92417b570bb5522b88f5bd`;
+assignments: `68d530978f9042c2c4a7863a2553bdfe46af000495988ff0d0320c8b24d76211`;
+coverage report: `47941a466c5047d789fcdb676a202eb1025e0d2c8aa5e86e78e2096fc945014e`.
+Both diagnostics are evidence for a scientific decision, not final memberships,
+accepted coverage, permission for reference execution or Phase 1 completion.
+
+## Parent-directory and original-frame checks
+
+Selective parent-directory metadata inspection identifies separate kinds of
+material: XNet run/output directories, thermodynamic/position history containers,
+analysis/category/extrema products, and a summary product with **5,418-species**
+postprocessing arrays. No values were read from those abundance arrays and they
+are not labels for the current 160-species task.
+
+The summary declares 59×5001 particles and 2193 frames. All selected one-based
+product particle IDs are present, and **332/332 selected initial geometry values
+match pdata frame zero bit-for-bit**. This strengthens ID/first-saved-position
+association without establishing seeding time or physical families. Plotting
+source uses radius in centimeters and angles in radians. It is inspected
+convention evidence, not an execution receipt for the exporter.
+
+A later bounded archive visit reads only early 3D and late 1D headers/configuration
+metadata in place. Native `particle/partdim` is `[295059,1]` in the two early 3D
+headers and `[59,1]` in the late 1D header. A candidate local 2D input has 3540
+particles and does not describe that 3D layout. The headers self-report differing
+SVN revisions/build configurations; no historical source checksum or exact
+1D→3D restart association follows. Only headers/configuration and small metadata values were read; no particle
+coordinates, hydro/composition/neutrino field-array payloads or large frame copies
+were read during this archive visit.
+
+| Further metadata artifact | SHA-256 |
+| --- | --- |
+| Parent-directory investigation manifest | `e1bdb515598e2f3c653c33e124ee8e2c745e9cbeff79aa90a3d4891b1f3610eb` |
+| Selected summary-geometry comparison | `f3a8099ae4296f2d63ead9276008ab4f424bc231f81b396feac22a0055e7d328` |
+| Archived-header/configuration packet | `f41fb87e178ecde3c385bd90a1a11496a4eb13c3d7f6c9abb6129850055f902c` |
+| Archived frame-header receipt | `6dfe00bdab7ed032b817d98aa51a0d5bce34600a4363eb9d0bd8d84a562aa2c6` |
+| Archived build-metadata receipt | `c089599582524ead87c47f7379ea1a2f1ce262c2af09f4fc402d59a8263eeda8` |
+| Archived metadata aggregate | `358c78090e7a9c8f184f11f3784597157f9363cb552462b5fbaf367fb03828c9` |
+
+An inaccessible small archive marker was left untouched; failed read receipts
+are retained. No install, original producer/script/Fortran/model execution or original
+changes occurred. Archive access has stopped; large original frames remain in
+place.
+
+## Measured histories are the next grouping input
+
+The lead had made original seeding recovery too strong a prerequisite; the
+maintainer correctly pointed to the supplied `r(t), theta(t), phi(t)` histories.
+Those histories and verified particle IDs are sufficient to **develop**
+position-based grouping. Missing original seeding configuration remains documented
+provenance, not a blocker to that work. Final grouping, intended statistical claim,
+coverage and benchmark acceptance still require human scientific judgment.
+
+The maintainer subsequently relays the particle-data producer's confirmation
+that `pdata.h5` is the intended position source. The complete bounded history
+read and routine checks below are now finished. Further source archaeology is
+not a prerequisite for grouping from these measured histories; scientific
+acceptance of the actual grouping/coverage remains open. Additional XNet
+execution is still deferred.
+
+## Complete bounded position-history audit
+
+Read the supplied position arrays for exactly the 80 familiar-layout candidate
+histories: **2,193 frames × 80 particles × 3 spherical coordinates**, or 526,320
+binary64 values. Numeric arrays contain no Python objects/pickle. All values are
+finite, radii positive and angles within the provided radian convention. All 27
+file time grids are bit-identical and strictly increasing. All 240 selected
+first-coordinate components match the earlier metadata/product exactly; known
+row/column identities and available earlier time vectors also match.
+
+Measured positions span source clock **0.41412702025718645–0.8525275190077543 s**.
+Of the 5,157 source-table candidate RHS states, 2,952 are within this interval and
+2,205 follow it. No later positions were interpolated or extrapolated. Whole-history
+ID/group membership can still apply to every postprocessing state; this does not
+qualify late physical trajectories or rollouts.
+
+Using the provided spherical convention, derive Cartesian coordinates only for
+diagnostics and preserve the original arrays. Fifty-two raw phi changes exceed
+pi at angle wraps, but their spherical-direction steps are at most 0.016985 rad;
+the overall maximum angular step is approximately 0.036 rad. Maximum recorded
+Cartesian secant speed is about 6.645×10⁹ cm/s. These observations are continuity
+diagnostics, not accepted physical error or grouping thresholds.
+
+Across 3,160 pairs at all 2,193 common times, 2,800 radial envelopes overlap and
+2,046 pairs reverse radial order. Nine of the ten closest pairs under the reported
+normalized spatial-distance diagnostic cross stored rows. This supplies actual
+position evidence for grouping and demonstrates why row labels alone do not
+establish spatial separation. Overlap or crossing is not itself proof of a common
+physical family. Final groups remain unadopted.
+
+| Position-history artifact | SHA-256 |
+| --- | --- |
+| Manifest/readers/diagnostics | `ea4be72c95df1d42517a41eef9845ac40875d35798f3532cf0abf53b59037569` |
+| Selected numeric positions/times/IDs | `707dc71f38045cc49ad75a594448f0d350086db6dc8231fe57379a813d4e1488` |
+| Report | `d66cc14eedbb3bbeb2f04c36675d270ab37b8a4fe1dbb1df5256c31ae30929cc` |
+| Read receipt | `24f692708a3a913c33b8b880a173e260d21ac08d98df357dc6d7457efc2fe303` |
+
+The first reader attempt stopped before any HDF history read because parent-file
+ctime differed from the earlier packet. A metadata-only check found only ctime
+changed, identically on all 27 files; path, inode, device, size and mtime agreed.
+The cause is unknown. Preserve that failure and comparison, then bind a **new
+current snapshot** with known-slice comparisons, complete selected-array rereads
+and all current stat fields stable before/after. Do not claim earlier unread
+history bytes were unchanged or fresh full-parent HDF hashes were computed.
+Earlier packets remain immutable and our access was read-only.
+
+No original scripts, reference kernels, Fortran, models or training ran. The
+provided histories are now available for position-based candidate groups; the
+original seeding-input limitation is not a blocker. Positions are grouping and
+provenance evidence, not additional features in the accepted pointwise RHS input
+contract. Scientific qualification and reference execution remain separate gates.
+
+## Current position-based proposal: training support before holdout
+
+The measured-history diagnostic uses
+`median_t(||x_i(t)-x_j(t)|| / (r_i(t)+r_j(t)))`, on the common measured time grid.
+Link every history to its nearest other history, with deterministic identity
+tie-breaking; undirected connected components keep these links together.
+This gives **21 proposed groups of 2–8 histories**. It is an explicit operational
+proximity rule for this finite pool, not a universal ML rule or proof of physical
+family independence. Known particle/raw/derived ancestry also stays together.
+
+The first fixed allocation anchored only scalar extrema. It passed mechanical
+membership checks but left every history in one existing metadata category out
+of training. Preserve that **known training-support failure**; marginal T/rho/Ye
+containment did not establish full-composition coverage.
+
+A single proposed repair leaves the position groups and metric unchanged. In
+addition to input-extrema anchors, require training representation in every
+declared stored-row/category stratum. Add the fixed-hash-minimum component for
+an unrepresented stratum in a recorded deterministic order, then apply the
+unchanged hash/rank role rule to remaining components. No reference labels,
+model outcomes, fitted representation, seed search or data exclusions enter this
+repair. This is intentional covariate-based benchmark curation, not later model
+preprocessing; it is necessary support, **not sufficient joint coverage**.
+
+| Current proposed role | Position groups | Histories | Candidate states |
+| --- | ---: | ---: | ---: |
+| Training | 17 | 68 | 4,385 |
+| Validation | 2 | 8 | 523 |
+| Test | 2 | 4 | 249 |
+| Total | **21** | **80** | **5,157** |
+
+All 80 nearest-history links are coallocated. Complete allocation, unique
+canonical ancestry, group disjointness, unchanged geometry, no cross-role
+identical full inputs and input-order invariance pass for this **private proposed
+construction**. These are not final scientific partitions or the production
+split checker. Separate scalar arithmetic reproduces all position nearest IDs,
+components, the support-repair trace and selected pointwise distance extremes.
+
+Training represents all 27 stored rows and both existing category tags. The
+four `Compressed` histories (166 states) are training-only; held-out evaluation
+therefore does not cover that category. Test has only two operational position
+groups/four histories, with no independent-family or population-level claim.
+Some cohorts have one training history plus other training support elsewhere;
+per-cohort/full-state profiles remain explicit rather than assuming coverage.
+
+Nearest-training full-X L1 median/max are 0.09702/0.38229 for validation and
+0.08770/0.26106 for test. Condition-nearest median X differences remain
+1.30072/0.69558. Deliberate marginal containment and these diagnostics do not
+establish a physical approximation-error bound. Residual cross-role spatial
+closeness remains (minimum history-median metric 0.17233; minimum sampled-frame
+normalized approach 0.01603). No accepted near-neighbor threshold or independence
+claim follows. All 2,205 post-hydro candidate states retain whole-history group
+identity without invented positions.
+
+| Proposed-protocol artifact | SHA-256 |
+| --- | --- |
+| Preserved first-position-proposal sheet | `ddc535edb18d011643a0f5ad2f155d95eb156433375663d2436af3a38614acd1` |
+| Preserved first-proposal assignments | `428077f8d13fa15c6b39a26e9bf390048986dba70c35618d17cbc55e247ef9b3` |
+| Preserved first-proposal report | `ab1bd24b0537f5462526962c5a55cb352d02485b65b32b1d02ded44517f9332d` |
+| Repaired candidate sheet | `3bd7d6ede2f0b803e66c2f3a309abd44afe7ae4a22b642996da31d71d4452509` |
+| Repaired candidate report | `185ef224ef144e99e8935677b57826dd683f8e271cee6fede34808e68df5296b` |
+| Repaired candidate assignments | `e7c72689774aae3147a974fed24af4b43239a0ff23ef9747e8b3b5b0c5a193ab` |
+
+This is the current concrete candidate for human scientific consideration,
+not an accepted benchmark or scientific qualification. Original seeding-file
+recovery is not required to develop it. Dataset/target qualification, coverage,
+reference accuracy, observables/metrics/tolerances and final memberships remain
+open. No new reference evaluation or model development has occurred.

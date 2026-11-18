@@ -58,34 +58,43 @@ human merge decision remain required. The issue bodies were reformatted and read
 back after the maintainer flagged spacing problems; original bodies are retained
 locally, and closed diagnostic proposal text is explicitly historical.
 
-The unchanged local raw collection has 42,362 filename pairs. The initial
-three-pair artifact has 1,384 rows: 3 initial, 1,185 explicit NSE and 196 others.
-All scientific eligibility remains zero. The 147 source-table-screened ordinary
-states are candidates only; raw↔reader↔HDF identity and descriptive composition/
-baryon checks were independently verified. See [S01](phase1/S01_AUDIT.md),
-[benchmark](phase1/BENCHMARK.md), [original next-scope proposal](phase1/NEXT_RHS_SUBSET.md)
-and the linked raw/derived cards. Preserve original artifact bytes and later
-metadata overlays separately.
+The unchanged local collection has 42,362 filename pairs. The original three-pair
+artifact has 1,384 records and all-false scientific masks. The separate
+[83-pair audit](phase1/MULTITRAJECTORY_AUDIT.md) verifies 78,168 scalar records,
+then all 6,433 ordinary states in 80 familiar-layout histories. Its 5,157
+source-table candidates are not qualified labels; three shorter-layout pairs
+remain quarantined. Full current hashes bind the 166 audited files. See the
+[benchmark](phase1/BENCHMARK.md) and linked raw/derived cards for scope and limits.
 
-The maintainer identifies one [Chimera parent and production chain](phase1/PARENT_PROVENANCE.md).
-Historical build association, accepted trajectory-family grouping, reference
-adequacy, final membership/tolerances and formal dataset release/custody remain
-open. A public card/software license releases no real data.
+All 83 initial time/T9/rho triples match recovered inputs bit-for-bit. Thirteen
+mapped initial compositions reproduce exactly; 70 zero-native inputs take the
+source NSE fallback, which was not rerun. IDs and selected first-frame geometry
+are numerically associated with a parent summary product. The maintainer identifies
+one [Chimera lineage](phase1/PARENT_PROVENANCE.md); exact historical build/restart
+binding, data rights/custody and final reference/tolerance acceptance remain open.
 
-Next authorized work: read-only coverage and physical-identity investigation for
-a broader multi-trajectory candidate pool under [S03 #15](https://github.com/jaharris87/crucible-astro/issues/15).
-The [83-pair reconnaissance](phase1/MULTITRAJECTORY_AUDIT.md) samples 402 states
-across 80 familiar-layout histories; three shorter-layout pairs stay quarantined.
-A follow-on audits all 6,433 ordinary states in those histories, with 5,157
-inside the existing source-table screen; no label qualification or execution
-permission follows. Full input row/column arrays and selected first-frame
-metadata are recovered. Broad ranges, unique fingerprints and stored-row bands
-are leads, not sufficient coverage or independent groups. All 83 initial time/T9/rho triples match recovered inputs bit-for-bit; 13 mapped
-initial compositions reproduce exactly and 70 zero-native inputs take the source
-NSE fallback (not rerun). Historical path/build binding remains limited. An illustrative whole-row proposal passes its own membership checks but does
-not establish a matched primary benchmark; full-composition comparisons show
-why scalar overlap is insufficient. The bounded locator search is exhausted,
-and an interactive maintainer question requests actual seeding/conversion
-association. Keep grouping/claim acceptance open; do not freeze the illustration. Quarantine unverified layouts. Do not
-fit preprocessing or choose models. Prepare exact evidence and the next bounded
-execution proposal for human acceptance; do not infer it from D-019.
+Private whole-row and whole-trajectory splits diagnose different statistical
+claims. Their membership checks pass, but neither is an accepted primary benchmark
+or proof of sufficient joint coverage. Original archive headers and the candidate
+2D input were inspected without copying large frames. Missing seeding input is
+additional provenance, **not a prerequisite for position-based grouping**.
+
+Next authorized work under [S03 #15](https://github.com/jaharris87/crucible-astro/issues/15):
+
+1. Review the concrete measured-position proposal: 21 operational groups,
+   68 training / 8 validation / 4 test histories (4,385 / 523 / 249 states).
+   Required training-stratum support is present; sufficient joint coverage and
+   physical independence are not proved. Preserve the first allocation's support
+   failure. All 2,193-frame histories are checked; no late positions are invented.
+   The producer-confirmed `pdata.h5` source makes seeding-file recovery optional.
+2. Prepare a multi-trajectory training/holdout proposal supported by full state,
+   condition and position evidence. Keep shared-parent correlations and any
+   remaining grouping assumptions explicit; obtain scientific acceptance.
+3. Prepare the bounded 5,157-candidate evaluator source under issue #18 for
+   independent review, then present its exact execution scope separately.
+   D-019 still defers producer build/run. No model/preprocessing fitting, new
+   XNet evaluation or final-test use is authorized by these audits.
+
+Keep milestone #2 and the native goal open through actual qualification, human
+acceptance, reviewed merges and passing integration. Historical reports and
+original raw/derived artifacts remain unchanged.
