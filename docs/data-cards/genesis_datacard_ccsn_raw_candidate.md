@@ -1,6 +1,6 @@
 # Datacard for the CCSN raw candidate collection
 
-Last updated: **2026-11-17**. Card version **0.3.0**, dataset local alias
+Last updated: **2026-11-17**. Card version **0.4.0**, dataset local alias
 `ccsn-raw-candidate`; no public dataset release/version has been established.
 **Living narrative draft; not qualified for training, reference evaluation or
 final-test use.** This card describes raw outputs, not a derived training dataset.
@@ -107,15 +107,25 @@ No bulk collection conversion has occurred.
 Related software is the inspected XNet snapshot; the CRUCIBLE production reader
 is in [merged PR #13](https://github.com/jaharris87/crucible-astro/pull/13), integrated as quarantined ingestion only. The [audit](../phase1/S01_AUDIT.md) links source locations,
 original scientific context and retained local manifests/oracles. There is no
-associated trained AI model. A [bounded derived-extraction proposal](../phase1/S02_EXTRACTION_PROPOSAL.md)
-describes a future HDF5/JSON artifact with raw-parent checksums, record identities,
-explicit masks and a separate linked card. It is not a qualified subset yet.
+associated trained AI model. The [completed bounded extraction](genesis_datacard_ccsn_quarantined_v0_1.md)
+has raw-parent checksums, record identities, explicit masks and its own linked
+card. Its original [extraction proposal](../phase1/S02_EXTRACTION_PROPOSAL.md) is
+retained; the actual artifact is not a qualified training subset.
 
 ## Reusable
 
+The separate [83-pair reconnaissance](../phase1/MULTITRAJECTORY_AUDIT.md) observes
+an additional shorter payload variant, broader sampled compositions and nearly
+coincident states in different files. That variant remains quarantined; sparse
+coverage and filename distinctions establish neither qualification nor independence.
+A follow-on audits all 6,433 ordinary states in the 80 familiar histories and
+identifies 5,157 source-table candidates; none is a qualified label. Recovered
+initial inputs match first-record conditions, while actual physical-family
+mapping remains open. No bulk conversion or new training artifact was produced.
+
 Current eligibility is **limited to authorized structural investigation**.
-All 1384 inspected records remain unqualified for state training, instantaneous
-RHS, energy targets and rollout reference use. Reason sets differ: unknown
+All 1,384 records in the initial three-pair artifact remain unqualified for
+state training, instantaneous RHS, energy targets and rollout reference use. Reason sets differ: unknown
 provenance affects all; 3 initial and 1185 explicitly flagged NSE rows have invalid
 RHS labels; 196 others still lack accepted-state alignment and conditions evidence.
 See the [eligibility table](../phase1/S01_AUDIT.md#physical-interpretation-and-exclusions)
@@ -151,6 +161,16 @@ adopted review/check cycle. The data-card draft does not replace any of these ga
 
 ## AI Usable
 
+D-018 requires a multi-trajectory training pool and defensible grouped holdouts;
+A/B/C are audit aliases, not assigned partitions. Each qualified saved state
+would be an individual pointwise example, with many correlated examples per
+trajectory. Coverage needs full composition and conditions, not Ye alone.
+D-019 accepts a new pinned pointwise numerical-reference contract, with energy/
+rollout targets excluded and **further execution explicitly deferred** until the
+candidate scope is concrete. This does not qualify this raw/quarantined artifact
+or change any immutable bytes or masks. See [accepted decisions](../DECISIONS.md)
+and the [current benchmark investigation](../phase1/BENCHMARK.md).
+
 Intended future use is a qualified instantaneous-RHS, full-state starting path
 (D-003), subject to physical conditioning and label qualification. Finite-step
 prediction needs a separate interval/history contract. **Training, scientific
@@ -165,7 +185,9 @@ simulation-independent generalization. Sampling bias, unbound generating/history
 conditions, NSE/initial placeholders, unmeasured RHS alignment and missing broader
 CCSN/NSM coverage prevent general scientific claims. Human review is required.
 
-Change log: **0.3.0, 2026-11-17** — added maintainer-reported parent/roles,
+Change log: **0.4.0, 2026-11-17** — recorded accepted numerical-reference
+contract, execution deferral and multi-trajectory benchmark direction; artifact
+identity and scientific eligibility unchanged. **0.3.0, 2026-11-17** — added maintainer-reported parent/roles,
 original-paper corroboration and completed diagnostic status; no qualification
 or license inferred. **0.2.0, 2026-11-17** — linked the integrated quarantined
 extraction and S03 coverage/decision sheet; raw collection identity unchanged.

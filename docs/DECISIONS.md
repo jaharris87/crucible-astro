@@ -204,12 +204,63 @@ adoption; the authorized three-state diagnostic has since completed as recorded
 in PR #16. No original trajectory regeneration or NSE solve occurred, and no
 further evaluations are authorized by D-017. Original raw/reference trees stay unchanged.
 
-### Proposed next reference-label scope
+### Decision D-018: Multi-trajectory benchmark development
 
-The [147-record proposal](phase1/NEXT_RHS_SUBSET.md) separates scientific task/
-exclusion acceptance from additional execution permission. D-017 is exhausted by
-its three completed evaluations. No broader label generation or qualification is
-implied. The maintainer's subsequent [parent/role attribution](phase1/PARENT_PROVENANCE.md)
+**Status: accepted direction, 2026-11-17.** The maintainer selected “Seek matched
+primary holdout; retain C as a challenge (Recommended),” then clarified that the
+training set must pool **multiple trajectories** with sufficient coverage for
+the intended validation/test task. One tracer history cannot establish that
+coverage. A/B/C are aliases for initial audit examples, not an ML convention or
+accepted partition assignments. Each qualified saved state is an individual
+pointwise example; its trajectory and related histories define grouping concerns.
+
+**Impact:** audit a broader candidate pool using full composition, temperature,
+density and regime evidence, not Ye or scalar-range overlap alone. Build proposed
+training membership from multiple histories and assess separate trajectory/family
+groups for validation and testing. C's eventual role depends on the expanded
+pool's coverage; do not force its earlier proposed role. One identified parent
+supports no simulation-independent claim. Final groups, memberships, metrics,
+tolerances and scientific acceptance remain open. This direction grants no new
+producer execution or merge authority. See [S03 #15](https://github.com/jaharris87/crucible-astro/issues/15).
+
+**Execution clarification:** the maintainer pointed out that measured radius,
+theta and phi histories are available. The lead had made recovery of the original
+seeding input too strong a prerequisite. Use the supplied position histories and
+verified IDs to develop position-based grouping, with routine coordinate/time
+checks. Missing seeding configuration remains a provenance limitation, not a
+blocker to that work. Final grouping/coverage acceptance is still required.
+The maintainer subsequently relayed confirmation from the particle-data producer
+that `pdata.h5` is the intended position-data source. Record this as producer
+confirmation via the maintainer; routine ID/time/coordinate checks still apply.
+
+### Decision D-019: Pointwise numerical-reference contract; execution deferred
+
+**Status: contract accepted, 2026-11-17.** Exact answer: “Accept the proposed
+numerical-reference contract (Recommended).” The maintainer separately selected
+“Defer execution until the matched candidate scope is concrete (Recommended).”
+
+The accepted pilot target is fresh pointwise `dY/dt` at unchanged full, ordered
+160-species Y under the selected pinned XNet source/rates/EOS/tables/build.
+Preserve `(Z,A)`, `X=A*Y`, recorded T9/rho, composition-derived Ye, weak/screening
+physics, heating off and the asserted zero active neutrino-rate count. Preserve
+explicit initial/NSE/table-domain exclusions. No fixed Ye, normalization or
+clipping. Stored derivatives remain audit-only; energy and rollout targets are
+excluded from this pilot. This selects a **new declared numerical reference**,
+not the historical generating build or an astrophysical accuracy guarantee.
+
+**Execution remains deferred:** finish the read-only candidate audit and present
+a revised exact evaluation list before requesting further producer authority.
+The original [147-record proposal](phase1/NEXT_RHS_SUBSET.md) is unexecuted;
+D-017's three completed calls grant no extension. No new evaluator build/run,
+positive scientific mask, final reference/tolerance acceptance or merge is
+authorized by the contract decision. Qualification evidence is still required.
+
+### Next reference-label scope
+
+The [147-record proposal](phase1/NEXT_RHS_SUBSET.md) retains the original candidate
+and the accepted D-019 contract; additional execution is explicitly deferred.
+D-017 is exhausted by its three completed evaluations. No broader label generation
+or qualification is implied. The maintainer's [parent/role attribution](phase1/PARENT_PROVENANCE.md)
 provides one identified simulation and production roles, not dataset licensing or
 historical build proof. D-004/D-005/D-007 remain open for the named qualified scope.
 
@@ -234,10 +285,10 @@ HDF5/JSON extraction after acceptance. That question is not bulk-conversion auth
 
 | ID / status | Question and recommendation | Evidence needed / gate / owner |
 | --- | --- | --- |
-| D-004 open scientific contract | Which abundance convention, ordering, units, conditioning and thermal closure? Recommend preserve verified physical source convention at ingestion with explicit conversions; begin prescribed histories if D-002 supports it. Do not prescribe T/rho/Ye-only inputs if neutrino effects matter. | S01 producer/reference audit and inference-availability analysis; before S03; scientific maintainer |
-| D-005 open energy/constraints | Nuclear release, deposited heating and/or integrated energy? Recover consistent energy from physical dynamics where valid; compare a learned readout only as a controlled alternative. Select baryon/charge/positivity constraints for actual reactions; weak reactions rule out automatic fixed Ye. | Mass/rate/weak/EOS and energy producer semantics, reference agreement; before S03 scientific thresholds; scientific maintainer |
+| D-004 pilot target/conditions accepted under D-019; qualification open | Preserve full ordered source Y and the declared reference's T9/rho/composition-derived Ye contract. Wider closure, inference availability and other configurations remain unqualified. | S01 named-subset/reference evidence and final benchmark acceptance; scientific maintainer |
+| D-005 pilot energy/rollout exclusion accepted under D-019; constraints/tolerances open | Exclude energy and rollout targets from this pilot; retain their fields/limitations separately. Select justified baryon/positivity diagnostics and appropriate Ye evolution without fixed charge. | Mass/rate/weak/EOS evidence and observable-specific tolerances; exclusion does not complete wider energy milestones; scientific maintainer |
 | D-006 open method comparison | Which initial reduction and second family? Recommend fixed linear/PCA diagnostic after identity; select nonlinear latent, operator inference or valid physics grouping from measured closure/coverage evidence. | Phase 2 results, equilibrium applicability, tuning budget; before S05/S06; scientific maintainer |
-| D-007 open qualification/resources | Which authoritative reference, independent groups, tolerances, cost baseline, storage custodian and execution-resource evidence? Recommend solver-refinement plus analytic controls; define observable-specific thresholds before locked test use. | Data audit, pilot resource estimate and application needs; before qualification/expensive run; maintainer and resource owner |
+| D-007 new declared reference selected under D-019; final qualification open | Establish reference adequacy, accepted groups, tolerances, cost boundaries and custody for the actual task. D-018 requires a multi-trajectory pool; source identity and exact serialization alone do not prove scientific accuracy. | Named data/reference evidence and justified thresholds before qualification/final-test use; maintainer and resource owner |
 | D-008 open proposal scope | How does collaboration interpret broad embedded-simulation language versus nuclear-specific production coupling in Phase II? Recommend callable stand-alone prototype now; separate production-coupling project later. | Final narrative pp. 4–5 and summary p. 1, collaborator confirmation before integration commitment; scientific/project lead |
 | D-009 deferred active learning | Should adaptive reference generation become a later CRUCIBLE extension? Recommend separate scoped proposal only after benchmark and uncertainty/selection validation work. | Locked benchmark, nonadaptive baseline, domain/cost/stopping/human gates; future owner |
 

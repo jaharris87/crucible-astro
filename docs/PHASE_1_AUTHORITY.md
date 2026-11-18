@@ -73,3 +73,10 @@ components, state identity and build/diagnostic evidence. No integration rerun,
 NSE solve, training, bulk regeneration, deployment, merge or scientific tolerance
 acceptance is authorized by this extension. Original reference/data trees stay
 unchanged; only the isolated diagnostic copy may be prepared.
+
+The three authorized evaluations are complete and integrated in PR #16 at
+`eb5e25d`; D-017 is exhausted. D-018 accepts development of a multi-trajectory
+training pool and defensible grouped holdouts. D-019 accepts the new pointwise
+numerical-reference contract while **explicitly deferring additional execution**
+until the matched candidate scope is concrete. See [DECISIONS](DECISIONS.md).
+Neither decision authorizes additional producer calls, training or a merge.

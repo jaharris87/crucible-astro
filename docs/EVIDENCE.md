@@ -110,6 +110,16 @@ pins the actual released data-card template and remaining access gaps.
 
 The run ASCII subset includes NSE records; it is not authoritative full-network species metadata. No binary/HDF read/qualification, reference rerun, timing measurement, training or dataset regeneration was performed. The stronger N1 call-sequence observation refines the handoff's original trial-time question; it does not declare supplied data unusable or quantify error.
 
+## Machine-learning evaluation guidance
+
+Primary developer guidance consulted on 2026-11-17; methodological evidence,
+not selection of an ML library or permission to start model development.
+
+| ID | Source | Application and limit |
+| --- | --- | --- |
+| M1 | [scikit-learn: grouped-data cross-validation](https://scikit-learn.org/stable/modules/cross_validation#cross-validation-iterators-for-grouped-data) | Dependent samples need domain-specific grouping; holdout groups are absent from paired training data. A/B/C are CRUCIBLE audit aliases, not this guidance. Actual physical groups and sufficient training coverage require data evidence. |
+| M2 | [scikit-learn: data leakage](https://scikit-learn.org/stable/common_pitfalls#data-leakage) | Keep test data out of model/preprocessing fitting and selection. This supports train-only rules, not a particular split fraction, number of trajectories or astrophysical domain claim. |
+
 ## Workflow reference evidence and adaptations
 
 | ID | Source-relative location | Transfer / adaptation |

@@ -1,6 +1,6 @@
 # Datacard for the quarantined CCSN three-pair extraction
 
-Card version **0.3.0**, 2026-11-17. Local dataset ID
+Card version **0.4.0**, 2026-11-17. Local dataset ID
 `ccsn-three-pair-quarantined`, exploratory dataset version **0.1.0**.
 No public dataset release. **No qualified training or reference records.**
 The bounded artifact was actually extracted and checked; reader/card engineering
@@ -87,6 +87,16 @@ and independent exact-candidate review still apply.
 
 ## AI Usable
 
+D-018 requires a multi-trajectory training pool and defensible grouped holdouts;
+A/B/C are audit aliases, not assigned partitions. Each qualified saved state
+would be an individual pointwise example, with many correlated examples per
+trajectory. Coverage needs full composition and conditions, not Ye alone.
+D-019 accepts a new pinned pointwise numerical-reference contract, with energy/
+rollout targets excluded and **further execution explicitly deferred** until the
+candidate scope is concrete. This does not qualify this raw/quarantined artifact
+or change any immutable bytes or masks. See [accepted decisions](../DECISIONS.md)
+and the [current benchmark investigation](../phase1/BENCHMARK.md).
+
 The maintainer has identified the single parent and production roles; see
 [parent evidence](../phase1/PARENT_PROVENANCE.md). An external local provenance
 overlay/card records that later metadata, while immutable HDF/manifest unknown-parent
@@ -100,7 +110,9 @@ fitted, no split or final-test partition is embedded and no model is trained.
 S03 partitions need recovered grouping and their own acceptance; fitting later
 preprocessing must use training membership only. No scientific result is claimed.
 
-Change log: **0.3.0, 2026-11-17** — added subsequent parent/role attribution
+Change log: **0.4.0, 2026-11-17** — recorded accepted numerical-reference
+contract, execution deferral and multi-trajectory benchmark direction; artifact
+identity and scientific eligibility unchanged. **0.3.0, 2026-11-17** — added subsequent parent/role attribution
 without rewriting artifact metadata or eligibility. **0.2.0, 2026-11-17** — added actual bounded coverage/integration
 and S03 decision-sheet link; card version changes, dataset version stays 0.1.0.
 **0.1.0, 2026-11-17** — initial derived narrative card and bounded
