@@ -358,6 +358,32 @@ target, paid service, deployment or new phase is authorized. Final scientific
 qualification, independent candidate review and each human merge remain gates.
 The full Phase 1 S01–S03 goal remains active; no provisional tier waives its exits.
 
+### Decision D-023: Exact remaining-primary build/run and separate preparation merge
+
+**Status: explicit human decisions received, 2026-11-17; execution conditional on
+reviewed merge and passing integration.** The maintainer selected “Merge PR #28
+preparation only (Recommended)” and separately “Authorize build and 19,159
+evaluations (Recommended)”. The [public authority receipt](https://github.com/jaharris87/crucible-astro/issues/26#issuecomment-6968904261)
+binds reviewed source `abecad208cacd022ea209f6bfa5f4b9ef5363658`, manifest
+`a51f43bd5e053159457d61f45a5672e1308a6199158730f4fed269d517ff2146`, and states
+`b6c514f8101894a39c11ecfdee52fb4b70a242ba13d74adeb3e8e66fc2f53fbd`.
+
+Only after that candidate's human merge and passing merged integration, permit
+one fresh isolated build and exactly **19,159 pointwise RHS calls: 19,157 new
+states plus two explicit repeated pilot controls**. Preserve unchanged full-160
+Y/T9/rho, pinned native D-019 source/EOS/tables, D-017 toolchain/flags,
+weak/screening on, heating off and zero active neutrino rates. Retain every state
+echo, coefficient, output and actual build/runtime receipt. Stop on unavailable
+dependencies, input/configuration mismatch, nonfinite output or failed controls;
+controls are checked offline after the reviewed loop. No automatic rerun.
+
+D-020 remains exhausted. No extra call, trajectory/NSE/Jacobian solve, source/rate
+change, training, qualification, scientific tolerance/accuracy acceptance, other
+merge or new phase follows. Original references and retained pilot artifacts stay
+unchanged. D-022's provisional budget tiers remain separate and scientifically
+unresolved. [Execution authority](PHASE_1_AUTHORITY.md#d-023-exact-remaining-primary-execution-extension)
+and live #26 receipts distinguish permission, actual execution and verification.
+
 ## Scientific decisions and current evidence gates
 
 On 2026-11-17 the [S01 audit packet](phase1/S01_AUDIT.md) and

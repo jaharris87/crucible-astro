@@ -38,7 +38,8 @@ Sol assignments explicitly use `gpt-6.1-sol` High; suitable narrow work may use
 Luna, and Astra requires the canonical bounded escalation record. No removed
 resource cap or per-command accounting is reinstated.
 
-**Not authorized:** reference edits, producer runs/regeneration, bulk conversion,
+**Outside the explicit bounded extensions below, not authorized:** reference
+edits, producer runs/regeneration, bulk conversion,
 model development/training, reduction-architecture selection, paid services or
 deployment. If reference execution is needed, prepare the exact bounded proposal
 and obtain authorization before execution. Bootstrap publication approval does
@@ -96,3 +97,30 @@ primary-batch evaluation, source/rate change, trajectory/NSE/Jacobian solve,
 training, positive eligibility, scientific acceptance or merge follows. D-017
 remains exhausted. Actual execution and independent verification remain evidence
 requirements, not consequences of permission.
+
+## D-023: exact remaining-primary execution extension
+
+On 2026-11-17 the maintainer separately selected **“Merge PR #28 preparation
+only (Recommended)”** and **“Authorize build and 19,159 evaluations
+(Recommended)”**. The [D-023 record](DECISIONS.md#decision-d-023-exact-remaining-primary-buildrun-and-separate-preparation-merge)
+and [public human-authority receipt](https://github.com/jaharris87/crucible-astro/issues/26#issuecomment-6968904261)
+bind reviewed source `abecad208cacd022ea209f6bfa5f4b9ef5363658`, input manifest
+`a51f43bd5e053159457d61f45a5672e1308a6199158730f4fed269d517ff2146` and unchanged
+states `b6c514f8101894a39c11ecfdee52fb4b70a242ba13d74adeb3e8e66fc2f53fbd`.
+
+Execution becomes available only after the reviewed preparation is human-merged
+and merged integration passes. It permits one fresh isolated build and exactly
+19,159 pointwise RHS evaluations (19,157 new candidate states plus two explicit
+repeat controls), using unchanged full-160 Y/T9/rho and the pinned D-019 native
+physics with D-017 toolchain/flags, weak/screening on, heating off and zero active
+neutrino rates. Retain every echo/coefficient/output and build/runtime receipt.
+Stop on unavailable dependencies, identity/configuration mismatch, nonfinite
+output or failed controls; the reviewed proposal checks controls offline after
+the loop. No automatic rerun or extra call. D-020 remains exhausted.
+
+This grants no trajectory/NSE/Jacobian execution, source/rate change, model/training,
+scientific eligibility, scientific tolerance/accuracy acceptance, other merge or
+new phase. D-022's provisional engineering budgets grant no execution authority
+and accept no scientific numbers. Original references/pilot artifacts stay
+unchanged. Track actual merge/integration, execution and independent evidence
+verification separately in #26; permission is not an execution result.
