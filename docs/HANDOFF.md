@@ -52,11 +52,21 @@ D-012/D-015 model/review policy remain unchanged.
 
 ## Evidence and next action
 
-The current accepted-decision/coverage update is [draft PR #19](https://github.com/jaharris87/crucible-astro/pull/19)
-under S01/S03. It is not merged; fresh scientific/provenance review and its own
-human merge decision remain required. The issue bodies were reformatted and read
-back after the maintainer flagged spacing problems; original bodies are retained
-locally, and closed diagnostic proposal text is explicitly historical.
+The accepted-decision/coverage update [PR #19](https://github.com/jaharris87/crucible-astro/pull/19)
+was human-approved and merged at `116e682`. Its exact reviewed tree was preserved;
+merged CI passed. Final scientific grouping/reference acceptance remains open.
+
+The [fixed reference preparation](../experiments/rhs_reference/README.md) under
+[#18](https://github.com/jaharris87/crucible-astro/issues/18) now prepares a bound
+5,157-state candidate and original one-zone evaluator/decoder. The private fixed
+bundle is prepared; no new Fortran compilation or producer call occurred. The
+source candidate requires fresh independent review, then a concrete human
+execution decision. Synthetic checks do not establish runtime compatibility or
+reference accuracy. The source audit exposes the native largest-multiplicity
+counting convention (including the two-identical-pair distinction); its physical
+rate normalization remains for scientific disposition before execution or
+qualification. No producer source was patched. The old three-call experiment
+and its receipts remain unchanged.
 
 The unchanged local collection has 42,362 filename pairs. The original three-pair
 artifact has 1,384 records and all-false scientific masks. The separate
@@ -90,8 +100,9 @@ Next authorized work under [S03 #15](https://github.com/jaharris87/crucible-astr
 2. Prepare a multi-trajectory training/holdout proposal supported by full state,
    condition and position evidence. Keep shared-parent correlations and any
    remaining grouping assumptions explicit; obtain scientific acceptance.
-3. Prepare the bounded 5,157-candidate evaluator source under issue #18 for
-   independent review, then present its exact execution scope separately.
+3. Independently review the prepared 5,157-candidate evaluator source under
+   issue #18, including cache/FP/native-weight semantics, then present its exact
+   execution scope separately.
    D-019 still defers producer build/run. No model/preprocessing fitting, new
    XNet evaluation or final-test use is authorized by these audits.
 
