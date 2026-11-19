@@ -50,7 +50,11 @@ def _membership(partition, packets, selected):
         == "CANDIDATE_MECHANICAL_PASS_PENDING_SCIENTIFIC_QUALIFICATION",
         "working partition schema/status",
     )
-    require(partition["counts"] == COUNTS, "working partition counts")
+    require(
+        partition["counts"] == COUNTS
+        and all(type(value) is int for value in partition["counts"].values()),
+        "working partition counts",
+    )
     p = packets["pilot"]
     species = [{"id": f"Z{z}A{a}", "Z": z, "A": a} for z, a in p["species"]]
     species_bytes = struct.pack("<i", 160) + p["states"][16:2576]
@@ -314,6 +318,25 @@ def materialize(config_path, destination):
         and Path(oc["raw_root"]).is_absolute(),
         "pinned core reference/configuration mismatch",
     )
+    for name, entry in oc["files"].items():
+        require(
+            set(entry) == {"path", "sha256"}
+            and isinstance(entry["path"], str)
+            and Path(entry["path"]).is_absolute()
+            and isinstance(entry["sha256"], str)
+            and re.fullmatch("[0-9a-f]{64}", entry["sha256"]),
+            "core reference asset identity",
+        )
+        for packet in (old, new):
+            declared = packet["preparation"]["files"].get(name)
+            require(
+                isinstance(declared, dict)
+                and set(declared) == {"bytes", "sha256"}
+                and type(declared["bytes"]) is int
+                and declared["bytes"] > 0
+                and declared["sha256"] == entry["sha256"],
+                "core reference asset/manifest ancestry",
+            )
     for field, key in (
         ("pilot_bundle", "preparation"),
         ("pilot_fresh", "fresh"),

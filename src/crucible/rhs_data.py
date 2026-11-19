@@ -226,6 +226,16 @@ def _read_packet(
             and inputs["selection"]["sha256"] == primary_batch["selection_sha256"],
             "primary batch count/control/selection",
         )
+    if primary_batch:
+        require(
+            type(prep["batch"]["execution_authorized"]) is bool
+            and all(
+                type(value) is int
+                for key, value in prep["batch"].items()
+                if key != "execution_authorized"
+            ),
+            "primary preparation batch types",
+        )
     for key, filename in (("states", "states.bin"), ("selection", "selection.json")):
         require(
             prep["files"][filename]
@@ -277,7 +287,18 @@ def _read_packet(
         "execution receipt incomplete/schema",
     )
     if primary_batch:
-        require(execution["batch"] == primary_batch, "primary execution batch")
+        require(
+            execution["batch"] == primary_batch
+            and all(
+                type(execution["batch"][key]) is type(value)
+                for key, value in primary_batch.items()
+            )
+            and all(
+                type(value) is int
+                for value in execution["batch"]["repeat_control_sequences"]
+            ),
+            "primary execution batch",
+        )
     require(
         isinstance(execution["parents"], dict)
         and set(execution["parents"])
