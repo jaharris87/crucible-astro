@@ -2,6 +2,8 @@
 
 import copy
 import json
+import math
+from fractions import Fraction
 from pathlib import Path
 
 import pytest
@@ -450,3 +452,160 @@ def test_sampled_interval_rejects_coerced_components_with_numeric_control(malfor
         ValueError, match="array components must be numeric or null failures"
     ):
         evaluate(c, r, p, intervals={"i0": iv})
+
+
+def linear_group_inputs(weights, predicted, target):
+    c, r, p = inputs()
+    budget = copy.deepcopy(c["species_budgets"]["n"])
+    budget["scale"]["value"] = 0
+    c["groups"] = [
+        {
+            "id": "group:linear",
+            "coefficients": dict(zip([s["id"] for s in SPECIES], weights, strict=True)),
+            "budget": budget,
+        }
+    ]
+    for row in r["samples"]:
+        row["F"] = target[:]
+    for row in p["samples"]:
+        row["F"] = predicted[:]
+    return c, r, p
+
+
+@pytest.mark.parametrize(
+    "weights,predicted,target,expected",
+    [
+        ([1, 1, 0], [1e20, 2, 0], [1e20, 1, 0], 1),
+        ([1, -1, 0], [1e20, 1e20, 0], [1, -1, 0], 2),
+        ([1, 1, 0], [1e20, -1e20, 0], [1, 1, 0], 2),
+        ([1, 1, 1], [1e20, 1, -1e20], [0, 0, 0], 1),
+        (
+            [1 + 2**-52, 1, 0],
+            [1 + 2**-52, -(1 + 2**-51), 0],
+            [0, 0, 0],
+            2**-104,
+        ),
+        ([0.5, 0.5, 0], [math.ulp(0.0), math.ulp(0.0), 0], [0, 0, 0], math.ulp(0.0)),
+        ([1, 0, 0], [1, 1e308, 0], [0, -1e308, 0], 1),
+        ([1, 1, 1], [1e308, 1e308, -1e308], [0, 0, 0], 1e308),
+        ([0.25, -0.25, 0], [1e308, 1e308, 0], [-1e308, -1e308, 0], 0),
+    ],
+    ids=[
+        "common-large-total",
+        "signed-weights-subtraction",
+        "signed-rhs-subtraction",
+        "signed-sum",
+        "rounded-products",
+        "subnormal-sum",
+        "irrelevant-component-overflow",
+        "intermediate-sum-overflow",
+        "intermediate-difference-overflow",
+    ],
+)
+def test_linear_rate_change_matches_exact_oracle(weights, predicted, target, expected):
+    c, r, p = linear_group_inputs(weights, predicted, target)
+    exact = abs(
+        sum(
+            Fraction(w) * (Fraction(a) - Fraction(b))
+            for w, a, b in zip(weights, predicted, target, strict=True)
+        )
+    )
+    assert exact == Fraction(expected)
+    report = evaluate(c, r, p)
+    record = metric(report, "group:linear")["records"][0]
+    assert record["status"] == "VALID"
+    assert record["absolute_error"] == float(expected)
+    assert record["exceeds"] is bool(expected)
+    assert record["unbounded"] is bool(expected)
+    assert metric(report, "group:linear")["summary"]["attempted"] == 3
+    json.dumps(report, allow_nan=False)
+
+
+def test_mass_weighted_species_change_survives_rounding_of_separate_products():
+    c, r, p = inputs()
+    c["abundance_space"] = "X"
+    for obj in (c, r, p):
+        obj["species"][0]["A"] = 3
+    target = 2 / 3
+    predicted = math.nextafter(target, math.inf)
+    for row in r["samples"]:
+        row["F"][0] = target
+    for row in p["samples"]:
+        row["F"][0] = predicted
+    c["species_budgets"]["n"]["scale"]["value"] = 0
+    record = metric(evaluate(c, r, p))["records"][0]
+    assert record["absolute_error"] == float(
+        3 * (Fraction(predicted) - Fraction(target))
+    )
+    assert record["exceeds"] is True
+
+
+def test_group_mass_factor_is_not_rounded_before_accumulation():
+    weights, predicted = [1 + 2**-52, 1, 0], [1, -(3 + 2**-50), 0]
+    c, r, p = linear_group_inputs(weights, predicted, [0, 0, 0])
+    c["abundance_space"] = "X"
+    for obj in (c, r, p):
+        obj["species"][0]["A"] = 3
+    expected = abs(3 * Fraction(weights[0]) + Fraction(predicted[1]))
+    assert expected == Fraction(1, 2**52)
+    record = metric(evaluate(c, r, p), "group:linear")["records"][0]
+    assert record["absolute_error"] == float(expected)
+    assert record["exceeds"] is True
+
+
+@pytest.mark.parametrize(
+    "weight,value,reason", [(0.25, math.ulp(0.0), "underflow"), (2, 1e308, "overflow")]
+)
+def test_unrepresentable_final_rate_change_fails_visibly(weight, value, reason):
+    c, r, p = linear_group_inputs([weight, 0, 0], [value, 0, 0], [0, 0, 0])
+    report = evaluate(c, r, p)
+    m = metric(report, "group:linear")
+    assert m["summary"]["failed"] == m["summary"]["attempted"] == 3
+    assert m["summary"]["budget_evaluated"] == 0
+    assert m["records"][0]["absolute_error"] is None
+    assert reason in m["records"][0]["reason"]
+    assert report["pointwise_budget_status"] == "INCOMPLETE"
+    json.dumps(report, allow_nan=False)
+
+
+def sampled_group_inputs(weights, states):
+    c, r, p = linear_group_inputs(weights, [0, 0, 0], [0, 0, 0])
+    c["groups"][0]["budget"]["scale"] = {
+        "mode": "sampled_max_excursion",
+        "usage": "fixed_calibration_interval",
+        "frozen_before_testing": True,
+        "calibration_provenance": "synthetic predeclared calibration",
+        "interval_id": "i0",
+    }
+    iv = interval(r)
+    iv["Y"] = states
+    return c, r, p, {"i0": iv}
+
+
+@pytest.mark.parametrize(
+    "weights,states,expected",
+    [
+        ([1, 1, 0], [[0.5, 0, 0], [0.5, 1e-20, 0], [0.5, 0, 0]], 1e-20),
+        ([0.25, 0, 0], [[0, 0, 0], [math.ulp(0.0), 0, 0], [4, 0, 0]], 1),
+        ([1, 1, 0], [[1, 1, 0], [1e20, -1e20, 0], [1, 1, 0]], 2),
+    ],
+    ids=["small-change-on-baseline", "tiny-nonmaximum", "component-subtraction-loss"],
+)
+def test_sampled_group_maximum_retains_exact_linear_changes(weights, states, expected):
+    c, r, p, intervals = sampled_group_inputs(weights, states)
+    report = evaluate(c, r, p, intervals=intervals)
+    scale = report["quantities"]["group:linear"]["scale"]
+    assert scale["value"] == expected
+    assert scale["continuous_maximum"] is False
+    assert scale["sample_count"] == 3
+
+
+@pytest.mark.parametrize(
+    "weight,value,reason", [(0.25, math.ulp(0.0), "underflow"), (2, 1e308, "overflow")]
+)
+def test_unrepresentable_final_sampled_excursion_is_rejected(weight, value, reason):
+    c, r, p, intervals = sampled_group_inputs(
+        [weight, 0, 0], [[0, 0, 0], [value, 0, 0], [0, 0, 0]]
+    )
+    with pytest.raises(ValueError, match=f"reference excursion.*{reason}"):
+        evaluate(c, r, p, intervals=intervals)

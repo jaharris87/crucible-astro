@@ -133,6 +133,18 @@ Infinity. No prediction document means `NOT_EVALUATED`, zero prediction attempts
 the full reference population/identities retained, and no physical model errors.
 An empty prediction array is malformed, not an empty successful benchmark.
 
+Linear rate differences and sampled excursions accumulate the exact rational
+values of the decoded binary64 components and configured coefficients, including
+the integer A factor in X space, before rounding the final nonnegative magnitude
+once to binary64. This retains small changes hidden by separately rounded totals,
+products or component differences. The sampled maximum is selected before that
+rounding. A final overflow or a nonzero magnitude that rounds to zero is an
+explicit failed rate comparison or rejected sampled scale; a tiny nonmaximum
+excursion does not invalidate a representable maximum. Budget construction,
+normalized errors, exceedance comparisons and summary statistics retain their
+existing binary64 arithmetic and rounding limits. This is no exact-arithmetic
+guarantee for the complete budget report and selects no scientific parameters.
+
 ## Separate physics diagnostics
 
 The supported convention is explicitly

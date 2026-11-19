@@ -84,8 +84,11 @@ comparison; finite violations remain a separate count. Finite input vectors with
 physical difference/reporting overflow still have an exact mathematical decision
 and remain valid attempts, with an explicit unbounded report marker.
 Malformed identities/order/units and nonfinite native reference Y/F reject; they
-cannot define a usable zero/nonzero target population. Absent prediction arrays
-are NOT_EVALUATED, never a zero-error result. Empty populations are
+cannot define a usable zero/nonzero target population. A native reference's
+optional `success` flag must be exactly boolean `true` when present; omitted flags
+retain the existing valid-reference convention. Declared failures or malformed
+flags reject with the sample ID before target populations are constructed.
+Absent prediction arrays are NOT_EVALUATED, never a zero-error result. Empty populations are
 NOT_APPLICABLE/count zero, never success.
 
 ## Explicit reporting and weighting
@@ -149,6 +152,29 @@ example, not a trained-model or benchmark result. Public tests use Fraction and
 analytic oracles, binary64 threshold neighbors, subnormals, zero targets, failure
 and overflow cases, macro-weight examples and unchanged-input checks; no real
 records, producer calls or final-test results enter public CI.
+
+### Proposed reporting-arithmetic successor (issue #36)
+
+The `crucible.native_fidelity.relative-decimal80.v1` report arithmetic identity
+is a **proposed successor**, distinct from the original scorer SHA256
+`a1d50fedc951dbe332d25bd09e7c32e0539024f6f0a8f193b271ed0253ca0df0`
+bound by the accepted D-025 overlay. Adoption requires an explicit human decision;
+the accepted configuration, overlay and historical scorer identity remain unchanged.
+Reports expose the new arithmetic identity and predecessor hash. Only nonzero
+relative mean-squares and their history/group averaging use 80-digit Decimal;
+physical sums/squares remain exact Fraction with 70-digit Decimal RMS rendering.
+Both report paths explicitly use ROUND_HALF_EVEN and exponent limits +/-999999,
+independent of caller Decimal context. All profile decisions, zero/failure policy,
+maxima, per-component errors and history-first/group-second weighting are unchanged.
+For finite binary64 inputs, nonzero relative errors are at least `2^-53` and below
+`2^2099`, so Decimal avoids binary64 intermediate square overflow/underflow.
+At the named maximum 3,890,240 components/380 histories/94 groups, positive-sum
+roundoff bounds conservatively limit relative arithmetic error before binary64
+rendering to `1e-71`; this is not a universal correctly-rounded, bit-identical or
+one-ulp guarantee. Exact-zero ratios remain zero. Explicit report underflow and
+overflow markers remain; no profile threshold, data qualification or scientific
+accuracy is changed by this reporting-only proposal. Detailed-report memory and
+streaming remain separate follow-up work.
 
 ## Separate physics, assembly and later acceptance
 
