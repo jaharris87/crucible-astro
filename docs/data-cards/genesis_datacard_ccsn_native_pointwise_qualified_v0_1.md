@@ -41,8 +41,8 @@ postprocessing tooling; James Ternullo for this workflow execution. See
 ## Accessible
 
 Real records, membership IDs, receipts and recipes remain ignored/local; request
-access through the maintainer/custodian. No DOI, public data endpoint, dataset
-license, redistribution approval or complete sensitivity determination exists.
+access through the maintainer/custodian. No DOI or public data endpoint is assigned to this view. Dataset licensing,
+redistribution approval and complete sensitivity review remain unconfirmed.
 Research-group/Genesis participation and BSD-3-Clause software release establish
 none of those rights. Public CI uses synthetic fixtures only.
 
