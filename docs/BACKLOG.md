@@ -109,11 +109,13 @@ No model or numerical integration implementation is authorized by this addition.
 ## Post-audit transition
 
 The [independent-audit assessment](https://github.com/jaharris87/crucible-astro/issues/36#issuecomment-7016554530)
-and [transition recommendation](https://github.com/jaharris87/crucible-astro/issues/36#issuecomment-7016854401)
-use the existing issue/PR workflow. D-027 accepts a staged documentation plan;
-D-028 accepts staged baseline preparation while retaining the real-rollout exit.
-Neither starts Phase 2 or adds new Phase 1 criteria. [The launch draft](PHASE_2_LAUNCH.md)
-requires a later explicit invocation after actual Phase 1 closure.
+and accepted D-027/D-028 directions remain preserved. Phase 1 and the migration
+are complete, with receipts linked from [handoff](HANDOFF.md). D-029 now authorizes
+**2A only** within [milestone #3](https://github.com/jaharris87/crucible-astro/milestone/3).
+[The incremental execution sequence](PHASE_2_LAUNCH.md) replaces the former draft:
+#41 access → #42 pointwise baseline → #43 analytic integration → #44 real references
+→ #45 frozen evaluation/cost. Later issues hold short summaries until prerequisites
+are understood; each requires scope acceptance and preceding integration.
 
 Before the first fit, S04 should implement ordinary named-version/use/split loading
 with mandatory payload/manifest, qualification receipt, ordered species/units and
@@ -142,7 +144,7 @@ budgets, heating and application observables require their own evidence. Record
 RHS and end-to-end integration cost separately at matched accuracy, including
 failures and solver work, with training/setup costs explicit.
 
-The future launch should authorize a coherent declared experiment and its routine
+After 2A integration, 2B should propose a coherent declared experiment and its routine
 preparation/checks together, with validation-based stopping and all trials retained.
 Scientific scope/reference changes, final-test release/use and every merge remain
 human decisions under WORKFLOW. Use functions and small records for problem/reference,
@@ -159,7 +161,8 @@ verified Phase 1 closure in [issue #39](https://github.com/jaharris87/crucible-a
 The table and plan below preserve the accepted pre-move source/destination map.
 The [migration record](process/DOCUMENTATION_MIGRATION.md) binds its actual
 implementation source and compatibility/recovery checks. Human merge and merged
-verification remain pending in the live issue/PR; Phase 2 is not authorized.
+verification are complete in [the final receipt](https://github.com/jaharris87/crucible-astro/issues/39#issuecomment-7019298012);
+Phase 2A now has separate D-029 authority.
 [The maintainer accepted this concrete plan](https://github.com/jaharris87/crucible-astro/issues/36#issuecomment-7017529663)
 for separately authorized post-Phase-1 work. Migrate maintained scientific guides and contributor
 process into separate directories, while keeping historical evidence and all
