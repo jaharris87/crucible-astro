@@ -123,13 +123,14 @@ The original raw data, pilot dataset/card and both generating packets are unchan
 | --- | --- |
 | Primary union HDF5 | `f4171d1600586f28b4a514071c8c029d1a84c7634f9f11ae8a6b4b25c6a0c980` |
 | Union manifest | `78f5c7f51e041aa82698cc3f7832f399a00738da775432bcd80763f767fb4b86` |
-| Primary narrative card v0.1.0 | `f56b6fd7e61c1aa72c47caadd621b9abaa67b49a47d79dc145cacf987927bce8` |
+| Primary narrative card v0.1.0 | `590c5b204080553ece9d18dd112f5c9a10fcba617f7faabae7bb742bbf7520d9` |
 
 1. Finish #31's exact pushed draft and fresh source/scientific/provenance review
    covering both execution chains, union code and actual artifact. Preserve and
    disposition findings, then obtain a concrete human merge and passing merged
    integration. Author verification is not fresh reviewer approval. Draft PR
-   creation is pending; use the live issue for the next exact candidate.
+   [PR #32](https://github.com/jaharris87/crucible-astro/pull/32) is open; its live
+   record binds the exact pushed review candidate.
 2. D-021's working construction remains accepted: 94 groups, allocated as
    66/14/14 groups, 274/51/55 histories and 17,659/3,220/3,435 candidate records.
    This does not qualify final membership, physical-family independence or coverage.

@@ -120,7 +120,8 @@ Actual dependency records and private paths/vectors remain local.
 
 ## Governed Use
 
-[Issue #31](https://github.com/jaharris87/crucible-astro/issues/31) authorizes this
+[Issue #31](https://github.com/jaharris87/crucible-astro/issues/31) /
+[draft PR #32](https://github.com/jaharris87/crucible-astro/pull/32) tracks this
 bounded derived materialization, following the completed exact D-023 evidence
 under [#26](https://github.com/jaharris87/crucible-astro/issues/26). No additional
 physical evaluation or expensive comparator run occurred. Raw references, pilot
