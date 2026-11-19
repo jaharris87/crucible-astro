@@ -107,8 +107,13 @@ species errors. Exact config identity and sample/prediction identities are retai
 For each all/nonzero/zero population, explicitly count reference components and
 records with components, attempted/valid/failed components and records, finite
 profile violations, met/attained counts, valid exceedance denominator/fraction,
-and attainment fraction over **all attempted** components/records. Successful-case
-statistics are labeled conditional; failures cannot be dropped from attempted
+and attainment fraction over **all attempted** components/records. Every field
+named record attainment or record finite violation uses the **whole ordered
+vector**, including inside population/per-species summaries; its denominator is
+records having components in that selected subset. Component counters remain
+subset-specific, so an agreeing subset can have zero component violations while
+its record fails elsewhere in the vector. The report labels this scope explicitly.
+Successful-case statistics are labeled conditional; failures cannot be dropped from attempted
 fractions. A population with no reference components is not applicable even if
 other populations exist. No averaging over empty successful sets is called a pass.
 
@@ -150,7 +155,13 @@ records, producer calls or final-test results enter public CI.
 Native no-auxiliary-reservoir diagnostics remain separate: state nonnegativity,
 `A dot F`, exact-zero boundary compatibility and weak `Ye_dot=(B*Z dot F-Q*A dot F)/B^2`.
 Unsupported open/external/auxiliary balances stay unavailable. No state or rate
-is repaired. Heating is EXCLUDED_NOT_EVALUATED, not zero truth. Conditional
+is repaired. At the native-facing boundary, a sample whose optional physics
+output contains a nonfinite quantity is explicitly UNAVAILABLE, with an overall
+DIAGNOSTICS_WITH_UNAVAILABLE_SAMPLES status. Other finite diagnostic samples and
+unsupported-network unavailability are preserved. No nonfinite value is clipped
+or replaced with a fabricated finite physical value, and defined exact scoring is
+retained. D-022's helper/API remains unchanged.
+Heating is EXCLUDED_NOT_EVALUATED, not zero truth. Conditional
 assembly bounds/residuals/cancellation diagnostics belong to reference verification;
 they are neither noise in the exact digital label nor a model allowance. No
 bound-inclusive scoring envelope was adopted.

@@ -304,3 +304,78 @@ def test_subnormal_threshold_rounding_cannot_turn_violation_into_attainment():
     )
     assert report["records"][0]["profiles"]["0.1%"] is False
     assert report["records"][0]["profiles"]["1%"] is True
+
+
+def test_whole_vector_attainment_in_every_subset_with_failed_and_successful_controls():
+    c, r, p = case([[0, 100]] * 3, [[0, 200], [0, 100], [0, 100]])
+    p["samples"][2]["F"][1] = None
+    report = evaluate_native(c, r, p)
+    assert report["records"][0]["profiles"] == {
+        profile["id"]: False for profile in PROFILES
+    }
+    assert report["records"][1]["profiles"] == {
+        profile["id"]: True for profile in PROFILES
+    }
+    summaries = [report["summary"], *report["per_species"].values()]
+    for summary in summaries:
+        for population in summary.values():
+            if population["reference_records_with_components"]:
+                for profile in population["profiles"].values():
+                    assert profile["record_attained"] == 1
+                    assert profile["record_finite_violations"] == 1
+                    assert profile["record_failed"] == 1
+                    assert profile["record_attainment_fraction_attempted"] == 1 / 3
+    agreeing_subset = report["per_species"]["s1"]["zero"]
+    assert agreeing_subset["profiles"]["1%"]["component_met"] == 2
+    assert agreeing_subset["profiles"]["1%"]["component_finite_violations"] == 0
+    assert agreeing_subset["profiles"]["1%"]["component_failed"] == 1
+    for field in report["strata"]:
+        for summary in report["strata"][field].values():
+            if summary["zero"]["reference_records_with_components"] == 3:
+                assert summary["zero"]["profiles"]["1%"]["record_attained"] == 1
+    assert (
+        report["strata"]["history_id"]["h0"]["zero"]["profiles"]["1%"][
+            "record_attained"
+        ]
+        == 0
+    )
+    assert (
+        report["strata"]["history_id"]["h1"]["zero"]["profiles"]["1%"][
+            "record_attained"
+        ]
+        == 1
+    )
+    assert (
+        report["strata"]["history_id"]["h2"]["zero"]["profiles"]["1%"]["record_failed"]
+        == 1
+    )
+
+
+def test_nonfinite_physics_output_is_unavailable_without_erasing_native_scoring():
+    from crucible.error_budgets import physics_diagnostics
+
+    c, r, p = case([[0, 0, 0], [0, 0, 0]], [[0, 0, 0], [0, 0, 0]])
+    species = [
+        {"id": "a", "A": 1, "Z": 0},
+        {"id": "b", "A": 4, "Z": 2},
+        {"id": "c", "A": 1, "Z": 0},
+    ]
+    c["species"] = copy.deepcopy(species)
+    for obj in (r, p):
+        obj["species"] = copy.deepcopy(species)
+        obj["samples"][0]["Y"] = [-4.0, 1.0, math.ulp(0.0)]
+        obj["samples"][1]["Y"] = [1.0, 0.0, 0.0]
+    before = copy.deepcopy((c, r, p))
+    report = evaluate_native(c, r, p)
+    assert report["summary"]["zero"]["valid_components"] == 6
+    assert report["summary"]["zero"]["profiles"]["0.1%"]["record_attained"] == 2
+    assert report["physics"]["samples"][0] == {
+        "sample_id": r["samples"][0]["sample_id"],
+        "status": "UNAVAILABLE",
+        "reason": "nonfinite physics diagnostic output",
+    }
+    assert report["physics"]["samples"][1] == physics_diagnostics(r, p)["samples"][1]
+    assert (c, r, p) == before
+    json.dumps(report, allow_nan=False)
+    r["network_convention"] = "unsupported_auxiliary_reservoir"
+    assert evaluate_native(c, r, p)["physics"] == physics_diagnostics(r, p)

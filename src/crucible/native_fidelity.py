@@ -103,6 +103,7 @@ def _summary(rows, population, indices, predictions_present):
         if predictions_present
         else 0,
         "conditional_valid_statistics": True,
+        "record_profile_scope": "whole_ordered_vector_for_records_with_selected_components",
     }
     errors = [cell["error"] for _, cell in valid]
     squares = [e * e for e in errors]
@@ -172,8 +173,8 @@ def _summary(rows, population, indices, predictions_present):
         key = profile["id"]
         met = sum(cell["meets"][key] for _, cell in valid)
         attained = sum(
-            row["valid"] and all(c["meets"][key] for c in cells)
-            for row, cells in relevant_rows
+            row["valid"] and all(c["meets"][key] for c in row["cells"])
+            for row, _ in relevant_rows
         )
         valid_records = result["valid_records"]
         result["profiles"][key] = {
@@ -200,6 +201,22 @@ def _summary(rows, population, indices, predictions_present):
             nonzero / len(valid) if valid else None
         )
     return result
+
+
+def _native_physics(reference, prediction):
+    """Keep optional diagnostic overflow from erasing defined exact scoring."""
+    diagnostics = physics_diagnostics(reference, prediction)
+    for index, entry in enumerate(diagnostics.get("samples", [])):
+        try:
+            json.dumps(entry, allow_nan=False)
+        except ValueError:
+            diagnostics["samples"][index] = {
+                "sample_id": entry["sample_id"],
+                "status": "UNAVAILABLE",
+                "reason": "nonfinite physics diagnostic output",
+            }
+            diagnostics["status"] = "DIAGNOSTICS_WITH_UNAVAILABLE_SAMPLES"
+    return diagnostics
 
 
 def evaluate_native(config, reference, prediction=None):
@@ -327,7 +344,7 @@ def evaluate_native(config, reference, prediction=None):
         "per_species": {sid: summarize(rows, [j]) for j, sid in enumerate(ids)},
         "strata": {},
         "records": records,
-        "physics": physics_diagnostics(reference, prediction),
+        "physics": _native_physics(reference, prediction),
         "assembly_bounds": "SEPARATE_REFERENCE_DIAGNOSTICS_NOT_A_SCORING_ALLOWANCE",
         "heating": "EXCLUDED_NOT_EVALUATED",
     }
