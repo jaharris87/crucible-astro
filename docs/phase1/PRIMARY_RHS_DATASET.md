@@ -1,5 +1,10 @@
 # Quarantined primary native-RHS union
 
+This page specifies the immutable payload and its finite construction recipe.
+For current purpose-specific eligibility and accepted splits, use the separate
+[D-025 qualified view/card](../data-cards/genesis_datacard_ccsn_native_pointwise_qualified_v0_1.md).
+Its acceptance does not change the payload masks described below.
+
 [Issue #31](https://github.com/jaharris87/crucible-astro/issues/31) creates a separate
 local dataset, `ccsn-primary-native-rhs-union-quarantined`, version `0.1.0`.
 One actual candidate contains **24,314 unique records in 380 histories** from the

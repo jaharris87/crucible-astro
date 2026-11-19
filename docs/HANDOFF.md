@@ -24,6 +24,14 @@ rights remain unresolved; public cards and software do not release real records.
 
 ## Actual engineering state
 
+- The maintainer supplied independent Codex/Claude/Gemini audits of PR #35 head
+  `15ac601` / base `950ffa8`. [Issue #36](https://github.com/jaharris87/crucible-astro/issues/36#issuecomment-7016554530)
+  records attributed dispositions. Numerical corrections are isolated in
+  [PR #37](https://github.com/jaharris87/crucible-astro/pull/37); its live record
+  tracks exact checks, fresh review, scorer-compatibility and human merge gates.
+  PR #35 remains draft and unmerged. Earlier reviews cover their exact revisions,
+  not these repairs. No demonstrated finding invalidates D-025's accepted labels
+  or memberships.
 - PR #32 merged at `44c25ab`; [390-test merged integration](https://github.com/jaharris87/crucible-astro/pull/32#issuecomment-7014367929)
   and independent every-field/two-source execution review pass. The HDF5 union
   remains immutable with its original four quarantine masks false.
@@ -37,7 +45,14 @@ rights remain unresolved; public cards and software do not release real records.
 
 ## Closure and resumption
 
-Resolve any open Phase 1 gate listed in the live final receipt. It must bind actual
+Finish the bounded audit corrections and current-guidance reconciliation under
+#36, retaining the original reports/proposals and immutable accepted artifacts.
+The [transition recommendation](https://github.com/jaharris87/crucible-astro/issues/36#issuecomment-7016854401)
+is advisory pending maintainer choices; it is not a new Phase 1 criterion or
+Phase 2 authority. Reconcile the roadmap and draft an unexecuted Phase 2 launch
+prompt only after consequential choices are resolved.
+
+Resolve open Phase 1 gates listed in the live final receipt. It must bind actual
 independent overlay/partition/source review, exact human-approved closeout merge
 and passing merged checks before S01/S03, milestone or native goal completion.
 Once those gates are recorded complete, stop; await separate Phase 2 authority.

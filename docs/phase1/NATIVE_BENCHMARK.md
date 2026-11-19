@@ -206,13 +206,13 @@ need model cards; this document invents none.
 
 ## Preserved preparation packet and subsequent qualification
 
-An ignored one-off recipe prepares an exact **pending**, private proposal. It
+An ignored one-off recipe prepared the exact private proposal before D-025. It
 checks the bound original pool/contract/groups, reconstructs the complete accepted
 candidate through the existing partition code, joins all 24,314 HDF record IDs
 and species identities, preserves 6,158 ordinary and source-layout/initial/NSE
-exclusions, and verifies that all four HDF masks remain false. The proposed roles
-include all 24,314 candidates but grant eligibility to none. With the original
-mechanical inputs, `validate_scientific` must reject this packet as `empty_eligible`.
+exclusions, and verifies that all four HDF masks remain false. That original proposal includes all 24,314 candidate roles but grants no eligibility.
+With the original mechanical inputs, `validate_scientific` rejects that preserved
+pending packet as `empty_eligible`.
 The immutable quarantined dataset and its old masks are never rewritten.
 
 The proposal binds payload/manifest/card, native reference receipts, frozen
@@ -221,14 +221,13 @@ membership/exclusions and explicit limitations. File SHA256s remain in the priva
 packet and its public PR receipt; no private row IDs, paths or arrays enter Git.
 There is no new core qualification framework or registry.
 
-A future separate human decision may bind this exact proposal digest after
-reference/subset/partition acceptance. Only then may a **new** overlay identity
-bind the original payload and that receipt. Per-record qualification evidence can
-point to the receipt; final acceptance must bind the exact resulting eligibility
-and membership digests checked against the original mechanical inputs. The
-proposal does not hash itself or a future acceptance receipt, avoiding a cycle.
-Rights for redistribution remain a separate gate. Numerical-emulation qualification
-would not qualify raw energy/rollout fields, broader physical accuracy or NS1/NS3.
+D-025 subsequently bound the exact proposal digest and accepted reference, subset
+and final partitions. A separate new overlay binds the unchanged payload, human
+receipt and exact eligibility/membership digests checked against the original
+complete mechanical inputs. The proposal does not hash itself or a future receipt;
+the [closeout record](PHASE1_CLOSEOUT.md) gives the resulting identities.
+Redistribution remains a separate gate. This numerical-emulation qualification
+does not qualify raw energy/rollout fields, physical application accuracy or NS1/NS3.
 
 The accepted scoring configuration is byte-preserved, including its historical
 preparation-time `qualification_status`. Current purpose-specific eligibility

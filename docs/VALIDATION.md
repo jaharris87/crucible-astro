@@ -1,6 +1,6 @@
 # Validation and experiment qualification
 
-This is a plan, not completed scientific validation. Acceptance thresholds are set **before** examining final test outcomes and approved by the maintainer for the named benchmark. Unknown thresholds block a scientific acceptance claim, not honest reporting of exploratory failures.
+D-025 qualifies the exact [finite native pointwise benchmark](phase1/NATIVE_BENCHMARK.md) and its separate [qualified view](phase1/PHASE1_CLOSEOUT.md). The requirements below govern later work as it becomes applicable. No learned model, physical application accuracy, energy or rollout accuracy has been demonstrated. Acceptance thresholds are set **before** examining final test outcomes and approved by the maintainer for the named purpose. Unknown thresholds block that scientific acceptance claim, not honest reporting of exploratory failures.
 
 ## Five separate evidence categories
 
@@ -93,11 +93,12 @@ subnormal/threshold rounding; physical errors, failed attempts/finite violations
 record attainment and declared history/group weighting remain visible.
 These accepted research objectives neither fill D-022's unresolved physical-change
 budget nor establish application/integrated accuracy or nuclear/EOS uncertainty.
-Actual named reference/subset/final partition acceptance is still separate;
-current real scientific eligibility remains false. A pending qualification packet
-must fail the complete original-input partition gate, and no positive real overlay
-may precede that explicit human decision. Existing later physical/solver/cost gates
-remain; this scoring implementation authorizes no model, training or new execution.
+D-025 subsequently accepts the exact named reference/subset/final partitions for
+this finite purpose. Its separate accepted overlay supplies positive state/RHS
+eligibility; the original HDF5 quarantine masks remain false. The original pending
+packet still fails the scientific gate; the accepted overlay passes it against
+the original complete mechanical inputs. Physical/solver/cost gates for wider uses
+remain. Neither decision authorizes model development, training or new execution.
 
 ## Fast CI versus scientific qualification
 

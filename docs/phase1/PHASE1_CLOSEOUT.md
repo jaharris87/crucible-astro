@@ -6,6 +6,11 @@ records whether final review, human merge and merged checks are complete.
 D-025 accepts the named benchmark; acceptance alone does not close the phase.
 [Milestone #2](https://github.com/jaharris87/crucible-astro/milestone/2) and the
 native S01–S03 goal close only after every exit below is actually satisfied.
+The subsequent independent audits of `15ac601` are assessed under
+[issue #36](https://github.com/jaharris87/crucible-astro/issues/36#issuecomment-7016554530).
+Their numerical corrections are isolated in [PR #37](https://github.com/jaharris87/crucible-astro/pull/37);
+required fresh review, human decisions and merged verification remain open.
+Original audit reports, proposals and accepted data are preserved.
 
 ## What the data support
 
@@ -61,6 +66,23 @@ Private recipes/paths/records remain local. The view resolves through those expl
 locators and digests; CI does not depend on them. Dataset redistribution authority
 is unresolved. Archived preparation-time pending/false statuses remain historical;
 only the separate D-025-bound overlay provides current qualified uses.
+
+### Local access and recovery
+
+Request the named view/version and local locator configuration from the maintainer.
+Inspect its overlay manifest to locate the unchanged payload, accepted eligibility
+and exact membership files, then verify their declared digests before use. Loading
+the HDF5 alone does not recover qualification. There is currently no committed
+qualified-split loader; a fail-closed ordinary array-loading function is proposed
+before the first fit in the [transition recommendation](https://github.com/jaharris87/crucible-astro/issues/36#issuecomment-7016854401).
+
+Retain the pinned source checkouts or recover their exact committed file versions
+from Git and verify the manifest hashes. A worktree's local path is a locator,
+not the source identity. Do not edit accepted manifests to relocate files or rerun
+their preparation recipes; a future loader can use a separate local resolver
+while checking the original identities. Canonical absolute paths can be obtained
+with `Path(path).resolve()` before supplying them to the strict materializers;
+their no-symlink and inspectable-partial-output policies are unchanged.
 
 ## Required exit evidence
 

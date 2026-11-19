@@ -33,19 +33,20 @@ and exploratory evidence are retained separately; no physical defect, source/rat
 repair or state exclusion is inferred. Native behavior remains unchanged. This
 removes an agent-introduced prerequisite, not scientific or numerical acceptance.
 
-## Actual execution and qualification gates
+## Completed verification and accepted numerical use
 
-The [pilot preparation](../../experiments/rhs_reference/README.md) is integrated at
-`6807741`. D-020 subsequently authorized exactly 5,157 pilot evaluations. Its
-fresh build passed and physical loop returned normally; state echoes, finite
-components, maps and both existing controls pass separate fixed-width checks.
-The exact offline comparator and fresh evidence review remain pending in the
-[live record](https://github.com/jaharris87/crucible-astro/issues/18#issuecomment-6967636426).
-The physical call authority is exhausted; no retry or primary-batch call follows.
+D-020's 5,157 pilot evaluations and D-023's 19,159 primary calls (19,157 new
+states plus two repeated controls) are complete. Both exact offline comparisons,
+build/runtime/input/output identities and retained execution evidence were
+independently reviewed; [PR #32 integration](https://github.com/jaharris87/crucible-astro/pull/32#issuecomment-7014367929)
+links the two-source verification. All physical-call authority is exhausted;
+these records authorize no retry or additional evaluation.
 
-Qualification still requires verified build/runtime/input/output identities,
-independent numerical evidence and human acceptance of the named use. Dataset,
-group/domain, observables/metrics/tolerances and final-test gates remain open.
-No positive eligibility follows automatically. Energy/rollout targets are excluded;
-no model or Phase 2 work is authorized. The [primary expansion](PRIMARY_EXPANSION_AUDIT.md)
-and [proposed grouping](PRIMARY_BENCHMARK_PROPOSAL.md) do not change those gates.
+D-025 accepts the pinned reference for the exact finite within-parent
+[native pointwise benchmark](NATIVE_BENCHMARK.md). The [qualified card](../data-cards/genesis_datacard_ccsn_native_pointwise_qualified_v0_1.md)
+and [exit evidence](PHASE1_CLOSEOUT.md) identify its separate overlay and accepted
+memberships. Earlier preparation-time pending states remain in their dated
+records. Qualification establishes numerical emulation of retained native F;
+it does not establish rate/EOS accuracy, the historical generating build or
+physical application accuracy. Energy and rollouts stay excluded. No model or
+Phase 2 execution is authorized.

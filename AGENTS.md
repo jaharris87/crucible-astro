@@ -39,6 +39,13 @@ Preserve raw data and reference projects. Establish species order, units, condit
 
 ## Decisions, execution and handoff
 
+The maintainer authorized assessment and bounded correction of the independent
+Phase 1 audits on 2026-11-19 under [issue #36](https://github.com/jaharris87/crucible-astro/issues/36).
+Preserve their original reports/proposals and distinguish accepted fixes from
+advisory transition recommendations. PR #35 is unmerged; final closure requires
+actual reviewed candidates, human decisions and merged checks. Planning the
+transition or drafting a launch prompt grants no Phase 2 execution authority.
+
 Make routine reversible choices within scope. Prepare concrete evidence before asking consequential scientific, scope or authority questions; use the interactive interface or D-### format in the workflow, recommendation first, meaningful alternatives, normally no more than three together and free-text answers. Record answers and apply them consistently. Silence is not approval; continue independent authorized work while required decisions remain pending.
 
 Use one orchestrator with bounded workers, initially at most three useful specialists, and isolated worktrees for concurrent implementation. Explicitly select `gpt-6.1-sol` with high reasoning for Sol assignments; report alternatives before substituting and never silently use GPT-5.6 Sol. D-012 applies after Phase 0B; existing assignments continue unchanged. Follow the canonical [model selection and escalation](docs/WORKFLOW.md#model-selection-and-escalation) policy for Luna, exceptional Astra use and lead integration (D-015). Independent review is fresh-context, read-only and bound to exact pushed candidates; preserve findings and obtain appropriate repair review. Only the future narrow [documentation lane](docs/WORKFLOW.md#narrow-documentation-lane) omits mandatory agent review (D-014). This closeout retains full review. Humans own scientific acceptance and merge; no acceptance criterion may be silently waived.

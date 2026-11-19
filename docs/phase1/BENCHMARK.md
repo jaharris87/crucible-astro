@@ -1,17 +1,23 @@
-> Current named scope: D-025 accepts the finite native pointwise benchmark in
-> [the final qualification record](PHASE1_CLOSEOUT.md) and [qualified data card](../data-cards/genesis_datacard_ccsn_native_pointwise_qualified_v0_1.md).
-> The reconnaissance/proposal sections below preserve the evidence and earlier
-> decision states; the live final receipt controls completion status.
+# S03 benchmark scope and preparation history
 
-# S03 benchmark definition: preparation and unresolved gates
+D-025 accepts the exact **24,314 states / 380 histories / 94 operational groups**
+for finite within-parent native numerical emulation, with 17,659/3,220/3,435
+train/validation/test states. Use the [native benchmark](NATIVE_BENCHMARK.md),
+[qualified data card](../data-cards/genesis_datacard_ccsn_native_pointwise_qualified_v0_1.md)
+and [closeout evidence](PHASE1_CLOSEOUT.md) for the current contract and eligibility.
+Physical application, energy, rollouts and independent-simulation claims remain
+unqualified. [S03 #15](https://github.com/jaharris87/crucible-astro/issues/15),
+[milestone #2](https://github.com/jaharris87/crucible-astro/milestone/2) and
+[audit reconciliation #36](https://github.com/jaharris87/crucible-astro/issues/36)
+track actual reviewed closure; scientific acceptance alone does not close Phase 1.
 
-2026-11-17, [S03 #15](https://github.com/jaharris87/crucible-astro/issues/15),
-[Phase 1 milestone #2](https://github.com/jaharris87/crucible-astro/milestone/2).
-**D-021 accepts the exact expanded working input/group contract. No final
-qualified train/validation/final-test membership is accepted.** This sheet records
-actual bounded coverage and remaining scientific decisions. The [candidate
-constructor and separate scientific gate](PARTITIONS.md) reproduce the accepted
-working allocation; their mechanical success does not qualify labels or complete S03.
+## Retained pre-D-025 preparation snapshot
+
+The following reconnaissance/proposal sections retain the earlier decisions and
+counts for traceability. Statements that qualification or execution was pending
+refer to those preparation stages, not current D-025 eligibility. The original
+three-pair and pilot artifacts remain quarantined and immutable; they are distinct
+from the later primary qualified overlay. No A/B/C partition scheme was adopted.
 
 ## Accepted development direction
 
@@ -238,14 +244,16 @@ allowances, scales, physical timescales and critical selections, and absent mode
 predictions. No provisional tier qualifies a reference, final test or scientific
 accuracy. Preserve [later validation gates](../VALIDATION.md#provisional-pointwise-abundance-budgets-and-later-acceptance).
 
-## Accepted native digital-fidelity scoring, pending final qualification
+## Current numerical-fidelity qualification
 
-D-024 separately accepts the scoring contract described in
-[the finite native benchmark definition](NATIVE_BENCHMARK.md), with fixed direct `1/1000`, `1/100`, `1/20` digital-fidelity profiles. Exact native
-zero and nonzero populations, all-species physical errors, complete failed attempts
-and record attainment, and pooled/equal-history/equal-group aggregation are defined
-there and in the frozen native configuration. These profiles are numerical
-research objectives; they do not fill D-022's unresolved physical-budget settings.
-The exact named primary union, reference adequacy, eligible membership/final
-partitions and human scientific acceptance remain pending. No actual model
-prediction or successful profile attainment is claimed or required in Phase 1.
+D-024 accepts direct `1/1000`, `1/100`, `1/20` native digital-fidelity profiles;
+D-025 accepts the exact named data/reference/final grouped memberships. The
+[finite native benchmark](NATIVE_BENCHMARK.md) defines zero/nonzero populations,
+all-species physical errors, failure/attainment counts and pooled/history/group
+aggregation. The separate qualified overlay passes the complete original-input
+scientific partition check; no raw or quarantined mask was rewritten.
+
+These profiles do not supply D-022 physical abundance-change allowances. No
+model prediction or successful profile attainment is claimed or required in
+Phase 1. Final closeout still requires the actual reviewed human merges and
+passing merged checks recorded in the linked issue/PR receipts.
