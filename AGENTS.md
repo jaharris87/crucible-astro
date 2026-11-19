@@ -42,8 +42,9 @@ Preserve raw data and reference projects. Establish species order, units, condit
 The maintainer authorized assessment and bounded correction of the independent
 Phase 1 audits on 2026-11-19 under [issue #36](https://github.com/jaharris87/crucible-astro/issues/36).
 Preserve their original reports/proposals and distinguish accepted fixes from
-advisory transition recommendations. PR #35 is unmerged; final closure requires
-actual reviewed candidates, human decisions and merged checks. Planning the
+advisory transition recommendations. PR #35 is human-merged at `e86c7a2`; its exact
+reviewed tree, installed package, 454 tests and merged CI pass. The linked final
+receipt records actual issue/milestone/goal closure. Planning the
 transition or drafting a launch prompt grants no Phase 2 execution authority.
 D-026 accepts the explicit scorer successor merged through PR #37; original
 qualification/source bindings stay preserved. D-027 accepts the 12-guide migration
