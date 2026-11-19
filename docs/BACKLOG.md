@@ -85,7 +85,7 @@ after Phase 0B and does not waive review for this closeout.
 | [S01 #10](https://github.com/jaharris87/crucible-astro/issues/10) | Producer/run provenance and target audit for a bounded selected subset, plus living Genesis data card | B04, D-002 | Source+patch/build/run identity or explicit missing links; binary layout verified; accepted/trial/NSE/initial semantics; quantify stored-versus-fresh RHS if authorized; state/energy contract and quarantine inventory approved; data card records actual template source/revision, access/rights, raw/derived links and explicit qualification limits. No training. |
 | [S02 #11](https://github.com/jaharris87/crucible-astro/issues/11) | Audited reader and fixtures | S01 accepted semantics | Independent decoded values, species/units/layout and validity tests; raw/derived checksums and linked derived data card; no guessed `edot` block or cross-format alignment; synthetic public fixtures plus local real checks while rights are unresolved; commit real records only with confirmed redistribution authority. |
 | [S03 #15](https://github.com/jaharris87/crucible-astro/issues/15) | Coverage inventory and leakage-resistant benchmark partition | S01/S02, D-004/D-005/D-007 | Multi-trajectory training pool with supported coverage; accepted group/lineage disjointness and an explicit within-parent limitation when applicable; train-only preprocessing rules and meaningful split checks, with actual fit-boundary tests when that implementation exists; domain/horizon/energy/reference/metrics/tolerances signed off. NS1 coverage gaps tracked. |
-| S04 | Identity/full-state baseline and reproducible evaluation path | S03, D-003, authorized experiment scope | Analytic independent check, frozen train/validation/test protocol, save/reload, held-out rollouts and failure accounting, physical metrics and cost; actual model card binds artifact/data/split/evidence/limitations and is updated through later lifecycle; no model-size search. |
+| S04 | Staged identity/full-state baseline and reproducible evaluation | S03/D-025, D-003/D-028, separate experiment authority | Fail-closed named-view access before fitting; train-only preprocessing, comparator, pointwise reporting, save/reload and analytic integration checks first. Real held-out rollout/failure/cost exit remains, gated on separately accepted forcing/history and authorized pinned trajectory/convergence reference. Actual Genesis model card binds artifact/data/split/evidence/limitations; no model-size search. |
 | S05 | One initial reduced dynamics method | S04, D-006 | Chain-rule/finite-step tests, reconstruction/RHS/rollout separation, matched baseline comparison, closure/constraint diagnostics and energy evidence. |
 | S06 | Controlled distinct-method comparison | S05, comparison scope and method decision | At least two reduced approaches with fair tuning/data; r-process cases for NS3; all errors/failures/cost and reproduction records; human down-selection. |
 | S07 | Callable multi-approach prototype and release package | S06, D-001/D-008 | At least two approach examples via stable semantic contract; retrieval/checksum/reload and invalid-input tests; supported regimes/limits, release rights, independent audit and human acceptance. |
@@ -97,10 +97,114 @@ bounded configurable physical-abundance budget diagnostics and a
 [current readiness report](phase1/ERROR_BUDGET_READINESS.md) to S03 preparation.
 The 0.1%, 1%, 5% relative-change tiers are provisional engineering settings, not
 accepted scientific tolerances or a Phase 1 exit. Final allowances, scales,
-physical timescales, critical species and reference/partition acceptance remain
-open. S04/S05 later acceptance must separately establish admissible-state and
+physical timescales and critical species remain open for physical uses. D-024/D-025
+separately accept the named numerical reference and partitions. S04/S05 later acceptance must separately establish admissible-state and
 constraint evidence, reconstruction/decoded chain-rule consistency and closure,
 free-running abundance/energy/weak-Ye/equilibrium behavior, solver/Jacobian/JVP
 numerical compatibility and matched-accuracy cost. See the
 [validation requirements](VALIDATION.md#provisional-pointwise-abundance-budgets-and-later-acceptance).
 No model or numerical integration implementation is authorized by this addition.
+
+
+## Post-audit transition
+
+The [independent-audit assessment](https://github.com/jaharris87/crucible-astro/issues/36#issuecomment-7016554530)
+and [transition recommendation](https://github.com/jaharris87/crucible-astro/issues/36#issuecomment-7016854401)
+use the existing issue/PR workflow. D-027 requests a concrete documentation plan;
+D-028 accepts staged baseline preparation while retaining the real-rollout exit.
+Neither starts Phase 2 or adds new Phase 1 criteria. [The launch draft](PHASE_2_LAUNCH.md)
+requires a later explicit invocation after actual Phase 1 closure.
+
+Before the first fit, S04 should implement ordinary named-version/use/split loading
+with mandatory payload/manifest, qualification receipt, ordered species/units and
+exact membership/use checks. Return arrays and the relevant identities/limitations.
+Test missing qualification, wrong use, tampered/coherently rebound inputs, physical
+input overlap and held-out independence of actual fitted preprocessing. Source-call
+digests and physical-input fingerprints are distinct. Preserve the accepted overlay
+and its pinned sources; document recovery/relocation through separate local config.
+The advisory loader patch failed synthetic qualification/leakage controls and is
+not an accepted implementation. A loader is first-experiment work, not a new Phase 1 exit.
+
+Before full scoring, address detailed-report memory/I/O proportionately while
+preserving complete required counts/detail and history/group MSE weights; do not
+average chunk RMS values. Predeclare supplementary magnitude/reference-bound and
+distance-stratified diagnostics before model selection. Preserve D-024 headline
+metrics and D-025 roles. A new spatial sensitivity split needs its own identity
+and scientific decision. No empirical result justifies a latent dimension,
+framework/plugin hierarchy or new physical error floor now.
+
+Real-rollout reference preparation must specify initial states, continuous forcing
+and interpolation, intervals/output grid, supported table/domain checks, retained
+weak/screening/neutrino/heating policy, solver/convergence studies and failure
+handling. It needs a bounded producer-execution proposal and human acceptance;
+current pointwise labels/historical saved Y are insufficient. Physical abundance
+budgets, heating and application observables require their own evidence. Record
+RHS and end-to-end integration cost separately at matched accuracy, including
+failures and solver work, with training/setup costs explicit.
+
+The future launch should authorize a coherent declared experiment and its routine
+preparation/checks together, with validation-based stopping and all trials retained.
+Scientific scope/reference changes, final-test release/use and every merge remain
+human decisions under WORKFLOW. Use functions and small records for problem/reference,
+data/benchmark, representation/RHS and integration/evaluation responsibilities;
+extract shared interfaces only when actual implementations need them. Bound further
+historical provenance work by its relevance to the intended use.
+
+### Proposed documentation migration
+
+**Proposal for maintainer decision, not permission to move files.** D-027 asks for
+a broader plan. Recommend migrating maintained scientific guides and contributor
+process into separate directories, while keeping historical evidence and all
+five distinct dataset cards at their current paths. The demonstrated problem is
+conflicting current claims and poor navigation, not the number of files.
+
+| Current guide | Proposed maintained path |
+| --- | --- |
+| `docs/DESIGN.md` | `docs/science/DESIGN.md` |
+| `docs/VALIDATION.md` | `docs/science/VALIDATION.md` |
+| `docs/EVIDENCE.md` | `docs/science/EVIDENCE.md` |
+| `docs/phase1/NATIVE_BENCHMARK.md` | `docs/science/benchmark/NATIVE_RHS.md` |
+| `docs/phase1/PARTITIONS.md` | `docs/science/benchmark/PARTITIONS.md` |
+| `docs/phase1/S02_READER.md` | `docs/science/data/XNET_READER.md` |
+| `docs/phase1/PRIMARY_RHS_DATASET.md` | `docs/science/data/PRIMARY_RHS_DATASET.md` |
+| `docs/phase1/RHS_DATASET.md` | `docs/science/data/PILOT_RHS_DATASET.md` |
+| `docs/phase1/ERROR_BUDGETS.md` | `docs/science/validation/PHYSICAL_ERROR_BUDGETS.md` |
+| `docs/WORKFLOW.md` | `docs/process/WORKFLOW.md` |
+| `docs/AGENT_BRIEFS.md` | `docs/process/AGENT_BRIEFS.md` |
+| `docs/MEETING_REPORT_TEMPLATE.md` | `docs/process/MEETING_REPORT_TEMPLATE.md` |
+
+Keep README as the scientist entry, CONTRIBUTING as installation/checks, and
+AGENTS as the agent entry. Keep DECISIONS, ROADMAP/BACKLOG, PROGRESS and HANDOFF at
+existing paths: policy, scope, current status and resumption have distinct roles.
+Keep PHASE1_CLOSEOUT as the Phase 1 artifact/exit index; freeze its closure evidence
+once genuinely complete. Each card describes a distinct raw/quarantined/pilot/union/
+qualified identity; these are not redundant drafts to delete. Current guides should
+link the accepted contract and index rather than duplicate execution/status history.
+
+Keep all other Phase 1 audit/proposal/execution/provenance/guidance snapshots,
+Phase 0 records, `docs/bootstrap/`, `docs/audits/` and dated `docs/reports/` verbatim
+at their existing paths. Route readers through the closeout/transition indexes.
+This deliberately avoids breaking historical relative links or changing report
+bytes merely to create a uniform `archive/` tree. A physical historical-file move
+would need a revised explicit plan; it is not included in this recommendation.
+`experiments/` keeps finite recipe documentation beside its code.
+
+Execute later as one bounded documentation issue/PR after Phase 1 closeout and
+separate authorization, not as a new closeout gate. Before moving any maintained
+guide, inventory its inbound path/fragment links and any accepted artifact binding.
+Keep heading text/order unchanged on the first move: every old `path#fragment`
+maps to the listed new path with the **same fragment**, including duplicate-heading
+suffixes. Retain short old-path compatibility pages with every original anchor
+forwarding to that section; update maintained links/AGENTS routes.
+Historical reports and cards stay byte-identical and can continue using old links.
+Bind the migration to its actual source revision; frozen source/hash-bound versions
+remain recoverable from Git and retained checkouts, never replaced by a stub in
+an accepted local manifest.
+
+Acceptance: check both old/new paths and fragments, report/card byte preservation,
+unchanged mathematical/qualification/authority meanings and bound-source recovery;
+run the documented synthetic example and normal CI. Obtain fresh review of the
+actual path/content candidate and human merge. Do not combine the migration with
+model architecture, new data schemas or rewritten scientific policy. Alternatives:
+retain current paths after targeted cleanup, or prepare an expanded historical-file
+relocation plan with explicit byte/link preservation tradeoffs before any move.

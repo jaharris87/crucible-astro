@@ -433,6 +433,45 @@ No training, Phase 2, extra producer call, redistribution or merge is granted.
 Reviewed human merges and final independent/integration checks remain mandatory;
 [the final receipt](https://github.com/jaharris87/crucible-astro/issues/15#issuecomment-7014392482) records actual completion.
 
+### Decision D-026: Successor native reporting arithmetic
+
+**Pending explicit compatibility decision.** [The concrete proposal](https://github.com/jaharris87/crucible-astro/pull/37#issuecomment-7017120707)
+binds scorer source SHA256 `c287f873ede888c12128552046176fd6618556081dc907c4fccadb491bd056b7`
+at reviewed PR #37 head `058b28f85d891d8d71aa225c4c16e46700129e21`.
+The proposed Decimal80 relative-RMS reporting identity is distinct from the
+original D-025 scorer; exact D-024 decisions and physical sums remain unchanged.
+Do not rewrite the accepted overlay/configuration or infer adoption from review.
+Compatibility, exact human merge and integration are separate gates.
+
+### Decision D-027: Prepare a broader documentation migration proposal
+
+**Accepted planning direction, 2026-11-19.** The maintainer selected “Plan a broader
+documentation migration” and then “Prepare broader migration proposal” in the
+consolidated popup. [The human-answer record](https://github.com/jaharris87/crucible-astro/issues/36#issuecomment-7017120292)
+links the audit assessment. Prepare a concrete path/anchor and evidence-preservation
+plan before moving files. This is not approval of any particular migration,
+permission to alter historical reports, or an additional Phase 1 exit.
+The proposal is in [the existing backlog](BACKLOG.md#proposed-documentation-migration).
+Targeted current contradictions can be corrected independently.
+
+### Decision D-028: Stage the baseline while retaining the real-rollout gate
+
+**Accepted planning direction, 2026-11-19.** The maintainer selected “Stage baseline;
+retain real-rollout gate (Recommended)” in [the human-answer record](https://github.com/jaharris87/crucible-astro/issues/36#issuecomment-7017120292).
+Plan named-view access, full-state pointwise fitting/reporting, persistence and
+independent analytic integration checks first. Retain Phase 2's real-rollout
+demonstration and failure/cost evidence. A separate forcing/history, pinned-XNet
+trajectory-reference and convergence proposal must be accepted and its execution
+authorized before real rollout claims or Phase 2 completion; saved historical Y
+plus fresh pointwise F is not already that reference. Energy remains excluded.
+
+Reconcile S04/roadmap staging and draft an unexecuted Phase 2 launch prompt.
+This selects a plan, not a model family, reduction architecture, physical
+tolerance, reference execution, fitting, final-test use, merge or Phase 2 launch.
+Preserve D-024/D-025 and their limitations. Propose coherent later experiment
+scopes under the existing workflow rather than approvals for routine commands;
+human scientific/merge gates and explicit stopping rules remain.
+
 ## Scientific decisions and current evidence gates
 
 The paragraph below preserves the initial ingestion decision; D-025 above is the
