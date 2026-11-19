@@ -497,6 +497,35 @@ Preserve D-024/D-025 and their limitations. Propose coherent later experiment
 scopes under the existing workflow rather than approvals for routine commands;
 human scientific/merge gates and explicit stopping rules remain.
 
+### Decision D-029: Incremental Phase 2 and 2A execution
+
+**Accepted execution structure, 2026-11-19:** the maintainer explicitly invoked
+Phase 2 as five bounded sub-phases: 2A qualified access, 2B pointwise baseline,
+2C analytic integration, 2D real trajectory references and 2E frozen evolution/cost
+evaluation. [Milestone #3](https://github.com/jaharris87/crucible-astro/milestone/3)
+and [issues #41–45](PHASE_2_LAUNCH.md) implement that structure. This supersedes
+the uninvoked broad launch draft; the same file now records the incremental sequence.
+Phase 1 and D-027 migration closeouts were verified complete on merged main `804fb75`.
+
+**Active authority:** implement 2A in [issue #41](https://github.com/jaharris87/crucible-astro/issues/41),
+including repository edits, project-local dependencies, tests, local real-data
+structural checks, commits, pushes and PR creation. Provide a minimal fail-closed
+named-version/use/split loader, scientist example, meaningful synthetic tests and
+independent review through concrete human merge and merged-result verification.
+No training or fitted preprocessing in 2A. Preserve D-019/D-024/D-025/D-026,
+immutable payload/overlay, exact memberships and private local data.
+
+The sole native goal covers the active sub-phase only, with its exact objective
+in [handoff](HANDOFF.md). At each boundary report results/checks/limits and proposed
+next scope; begin the next sub-phase only after scope acceptance and preceding
+integration. A missing decision or merge is incomplete. 2B requires a coherent
+accepted experiment before fitting; 2D requires concrete scientific and producer
+execution authority; 2E requires frozen-protocol/model final-test release.
+Routine reversible engineering and steps within an accepted experiment proceed
+without per-command approval. Every merge remains a concrete human decision or
+explicit delegation. No paid services, data release, deployment, reduced methods,
+model-family comparisons or Phase 3 are authorized.
+
 ## Scientific decisions and current evidence gates
 
 The paragraph below preserves the initial ingestion decision; D-025 above is the

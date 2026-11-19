@@ -1,119 +1,67 @@
-# Phase 2 launch prompt — DRAFT, NOT INVOKED
+# Phase 2 — Incremental execution sequence
 
-Prepared under D-028 during Phase 1 audit reconciliation. **This document grants
-no execution authority.** The maintainer must separately invoke an accepted final
-version after actual Phase 1 closure. D-027's documentation migration has separate post-Phase-1 authority under
-[issue #39](https://github.com/jaharris87/crucible-astro/issues/39); this draft
-remains uninvoked and grants no model choices or Phase 2 execution.
+The maintainer invoked this five-part structure on **2026-11-19** under
+[D-029](DECISIONS.md#decision-d-029-incremental-phase-2-and-2a-execution), superseding
+the former uninvoked D-028 launch draft at this path. Phase 1 and the D-027
+migration are complete; [handoff](HANDOFF.md) records verified startup and current
+scope. This is the single Phase 2 sequence; live issues hold execution detail.
 
----
+Build one reproducible identity/full-state baseline, assessing instantaneous RHS,
+integrated abundance evolution and cost separately. Reduced representations,
+model-family comparisons and Phase 3 remain outside scope. Preserve D-019's
+reference, D-024 metrics, D-025 qualification/memberships and D-026 successor
+scorer identity without rewriting original bindings. Heating/energy remains
+excluded unless separately qualified. No accuracy or speedup promise is required.
 
-Execute CRUCIBLE Phase 2 S04 as a small reproducible identity/full-state baseline,
-under the accepted roadmap and D-028 staging. Do not begin reduced modeling or
-Phase 3. The scientific objective is to connect numerical RHS fidelity to useful
-integrated abundance evolution and ultimately lower total computational cost;
-these remain separate outcomes.
+## Sequence and boundaries
 
-## Establish actual authority and state
+Use one [Phase 2 milestone](https://github.com/jaharris87/crucible-astro/milestone/3),
+normally one issue and coherent PR per sub-phase. Detail the active issue; later
+issues remain short dependency/deliverable summaries. Each next sub-phase needs
+accepted scope and integrated preceding work. Combine that decision with the normal
+human merge checkpoint where practical. Use a native goal for the active sub-phase
+only; no broad orchestration goal or additional tracker. Current status and next
+decision belong in [progress](PROGRESS.md) and [handoff](HANDOFF.md).
 
-Read [AGENTS](../AGENTS.md), [README](../README.md), [HANDOFF](HANDOFF.md),
-[PROGRESS](PROGRESS.md), [ROADMAP](ROADMAP.md)/[BACKLOG S04](BACKLOG.md#next-scientific-issues-draft-in-detail-only-after-their-prerequisites),
-[DECISIONS](DECISIONS.md), [DESIGN](science/DESIGN.md),
-[VALIDATION](science/VALIDATION.md) and [WORKFLOW](process/WORKFLOW.md). Inspect main, live issues/milestones, Phase 1 closeout
-and merged integration evidence. Do not infer closure from this draft or D-025
-alone. If required scientific/review/human-merge/integration gates are incomplete,
-report the exact gap and complete only authorized preparation. Inspect any native
-goal before creating a new goal for the actually authorized Phase 2 scope.
+| Sub-phase | Deliverable / acceptance boundary |
+| --- | --- |
+| **[2A — Load the qualified benchmark #41](https://github.com/jaharris87/crucible-astro/issues/41)** | Active authority: minimal named-version/use/split loader, ordinary arrays and metadata, verified overlay/payload/species/units/reference/membership identities, physical-input duplicate checks, scientist example, synthetic tests and local real-data check. No training/fitted preprocessing. |
+| [2B — Establish a pointwise baseline #42](https://github.com/jaharris87/crucible-astro/issues/42) | Propose one CPU-capable full-state model and deterministic comparator with inputs/targets, transforms/loss, trial/seed/selection/stopping/resources. After experiment acceptance, fit/check/report coherently, fit learned preprocessing on training only, prove independence and reload, retain failures and create an actual-artifact Genesis-guided model card. Develop on train/validation; no final-test performance evaluation. |
+| [2C — Verify numerical integration #43](https://github.com/jaharris87/crucible-astro/issues/43) | Small callable path verified against independent analytic solutions, including stiffness where appropriate, convergence, relevant conservation/positivity and solver failures. Any implicit Jacobian must match the integrated RHS. Retain diagnostics; analytic behavior does not qualify astrophysical rollouts. No new XNet calls. |
+| [2D — Establish real trajectory references #44](https://github.com/jaharris87/crucible-astro/issues/44) | Small pinned-XNet proposal with initial states, full forcing/interpolation, grid/horizons/domain, solver/convergence, observables/tolerances, failures/resources. Scientific and producer authority must cover required runs and justified retries before execution. Establish on development/validation histories; predefine final holdout protocol. Exit requires named numerical evidence and human reference acceptance. |
+| [2E — Evaluate evolution and cost #45](https://github.com/jaharris87/crucible-astro/issues/45) | Freeze model/preprocessing/protocol and obtain final-test release. Attempt all declared pointwise/real-rollout horizons, retain failures/domain exits/solver diagnostics, report physical-space species/group errors and separate RHS/full-integration costs. Verify reload/clean reproduction, finalize card/report/limits and obtain human baseline or negative-result acceptance before milestone closure. |
 
-Use the accepted model/review policy and ordinary issue → implementation/checks →
-self-review → draft PR → fresh independent review → repair → human merge →
-merged-result verification cycle. Create bounded S04 issues only as prerequisites
-become concrete; use GitHub phase milestones, no new board or tracking system.
-Every merge still needs its concrete human decision or bounded delegation.
+Saved historical states plus fresh pointwise labels do not establish a converged
+trajectory under the pinned reference. Missing references or unattempted required
+rollouts are incomplete. If 2D is blocked, preserve work and present the concrete
+gap without a general historical-provenance investigation. Speedup requires a
+meaningful matched-accuracy comparison with hardware, precision, setup, solver and
+Jacobian work and failures visible. Report poor accuracy honestly. No final-test
+tuning; later research must disclose test reuse and address confirmatory evaluation.
 
-## First experiment and everyday data access
+## Engineering and evidence
 
-1. Verify the named `ccsn-primary-native-rhs-pointwise` 0.1.0 qualified view,
-   accepted overlay/receipt, immutable payload, exact memberships and limitations
-   through explicit local configuration. Keep real data/private paths local and
-   original artifacts unchanged. Use the explicitly human-accepted D-026 scorer
-   identity and adoption receipt.
-   Record both unchanged dataset qualification and actual scorer identities.
-2. Implement a small fail-closed named-version/use/split loader before fitting.
-   Return ordinary arrays with ordered species, units, identities and limitations;
-   require qualification/use/membership and payload/manifest checks. Distinguish
-   source-call identity from physical-input fingerprints. Reject wrong use,
-   missing qualification, changed bindings, ordering mistakes and cross-role
-   physical duplicates. No registry or general metadata framework is needed.
-3. Prepare one simple CPU-capable full-state baseline and deterministic comparator
-   proposal: input/target transformations, method family, loss, seed/trial and
-   validation-selection protocol, persistence, failure/stopping rules and reporting.
-   Resolve consequential scientific/method choices through popups before fitting.
-   Once the coherent experiment is accepted, its routine preparation, fitting,
-   validation and reporting do not need approval per command. No broad method
-   tournament, latent representation or hyperparameter sweep is included.
-4. Fit preprocessing and data-dependent choices on training membership only.
-   Verify the actual fit boundary by changing held-out extrema with training fixed.
-   Preserve whole histories/ancestry and accepted operational groups. Use full
-   ordered Y and declared T9/rho; native Ye is composition-derived Q/B. Provenance
-   IDs/categories and an invented time proxy are not predictive shortcuts.
-5. Report D-024 physical-space component errors, fixed digital profiles, explicit
-   zero/nonzero populations, whole-vector attainment, complete failures and declared
-   history/group weights. Select no unapproved D-022 scientific floor/timescale.
-   Predeclare any supplementary magnitude/reference-bound or proximity summaries
-   before using them for selection; preserve headline metrics. Keep test outcomes
-   sealed until a human accepts the frozen protocol/model and releases that final
-   comparison. Disclose any subsequent test reuse rather than silently retuning.
+Follow [WORKFLOW](process/WORKFLOW.md): issue → implementation/checks → self-review
+→ draft PR → fresh independent review → repair → concrete human merge → merged
+verification. Use `gpt-6.1-sol` High as advanced default, Luna for useful narrow work,
+and Astra only under the existing justified-escalation policy. Independent reviewers
+are fresh and separate from authors. Routine reversible engineering and steps in
+an accepted experiment need no per-command approval; every merge remains human-owned.
 
-Address practical scoring memory/I/O only as needed for this concrete experiment,
-with exact aggregate/detail equivalence checks. Do not average chunk RMS values.
-Use existing modules, functions and small records for reference/problem,
-data/benchmark, representation/RHS and integration/evaluation responsibilities.
-Extract a shared interface only when actual implementations require it. Bound
-additional historical-provenance work by its effect on the intended use.
+Keep private paths configurable, real data local and accepted raw/overlay/reference
+artifacts unchanged. Reuse existing validation and ordinary functions; extract
+shared abstractions only when actual implementations need them. Synthetic tests
+keep CI independent of real records. Distinguish structural final-test checks from
+model-based final-test evaluation. Address scoring memory/I/O only where the actual
+experiment shows a need, preserving aggregate/detail metrics and history/group
+weights; supplementary diagnostics do not replace D-024 headline metrics or
+introduce unapproved physical allowances.
 
-## Integration, reference and cost gates
-
-Verify an integration harness against independent analytic solutions, with
-failure, timestep/tolerance and relevant conservation/positivity checks. This
-demonstrates software/numerical behavior on those mathematical problems, not
-astrophysical or learned-trajectory accuracy.
-
-Retain Phase 2's small real held-out rollout demonstration as an exit. Before
-real rollout claims, prepare a separate bounded pinned-XNet reference proposal:
-initial states, complete thermodynamic forcing/interpolation, intervals/output
-grid, table/domain coverage, reference solver/convergence protocol, observables,
-tolerances and all failure handling. Historical saved Y plus fresh pointwise F
-does not already supply a converged continuous trajectory under the pinned
-reference. Obtain scientific acceptance and explicit producer-execution authority
-before any reference build/run or additional RHS/trajectory/NSE/Jacobian call.
-No such execution is authorized by this draft launch. Heating/energy remains
-excluded until a separate compatible contract and reference are qualified.
-
-Measure inference latency/throughput and later full integration cost at matched
-accuracy, outputs, hardware and timing boundaries; include steps/Jacobian work,
-failures, transfers and amortized setup. Record preprocessing/training separately.
-Retained reference audit-job runtime is not a fair speedup comparator. A small
-RHS loss, analytic harness success or cheaper inference establishes neither
-integrated accuracy nor lower total cost.
-
-## Evidence, stopping and completion
-
-Persist the actual model, preprocessing, configurations, trials, software/dependency
-identities and reload checks. Create/update a Genesis-guided model card tied to
-the real artifact, training data/split, evaluation evidence and limitations; record
-the official guidance revision/access gaps. No agent card is required. Synthetic
-public tests and local real-data checks keep CI independent of private records.
-
-Stop and preserve failures on identity/qualification leakage, nonfinite outputs,
-invalid domain, persistent solver failure or the accepted validation-based stopping
-rule. Do not silently clip/normalize, hide failed cases, change physics/partitions
-or spend the final test on redesign. New scientific scope, reference execution,
-data release, paid services, deployment or a new phase requires a new decision.
-No resource caps or per-command accounting are introduced.
-
-Complete Phase 2 only when the roadmap's actual exits hold, including clean rerun,
-reload/preprocessing checks, analytic evidence, the separately qualified real
-rollout/failure/cost demonstration, model card, reviewed human merges and passing
-integration. Poor measured performance can be an honest result; a missing reference
-or unattempted required rollout is not completion. Stop before Phase 3.
+Retain configurations, data/split/scorer identities, environment, seeds/trials,
+measured results, failures and reload/reproduction evidence in linked records.
+Model cards describe actual artifacts and official Genesis guidance/revision/access
+gaps. Current guides stay concise; issues/PRs/experiment and review records hold
+execution detail. No registry, general solver/data platform, paid services,
+deployment or data release is authorized. Close each goal only after its actual
+exits; close the milestone after accepted reviewed integration of 2E, then stop
+before Phase 3.

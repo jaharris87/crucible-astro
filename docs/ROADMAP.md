@@ -65,17 +65,19 @@ guidance revision/access gaps. No trained-model card is created during Phase 1.
 
 **Dependencies/open decisions:** Phase 1 qualified labels and authorized experiment scope; accepted RHS-first baseline sequence (D-003) and qualified D-004 state/conditions; chosen CPU-capable tooling. Identity/full-state baseline is the selected starting path. Finite-step prediction is retained for later exploration with a separate contract; model-family and detailed science choices remain open.
 
-**Accepted staging (D-028):** pointwise work and analytic integration checks can
-precede a real rollout reference. Before real rollouts, accept the initial-state,
-time-dependent forcing/interpolation, horizon/output and observable contract;
-prepare a separately authorized pinned-XNet trajectory/convergence calculation.
-Current fresh pointwise labels do not qualify a continuous solution, historical
-solver convergence or energy. Retain the real-rollout exit below; this staging
-does not move it to Phase 3 or authorize producer execution. [Transition work and
-the accepted documentation plan](BACKLOG.md#post-audit-transition) remain bounded;
-D-027's documentation migration now has separate post-Phase-1 authority in
-[issue #39](https://github.com/jaharris87/crucible-astro/issues/39); it does not
-authorize Phase 2 or change these scientific exits.
+**Accepted staging (D-028/D-029):** execute five bounded sub-phases under
+[one milestone](https://github.com/jaharris87/crucible-astro/milestone/3):
+[2A qualified access](https://github.com/jaharris87/crucible-astro/issues/41),
+[2B pointwise baseline](https://github.com/jaharris87/crucible-astro/issues/42),
+[2C analytic integration](https://github.com/jaharris87/crucible-astro/issues/43),
+[2D real references](https://github.com/jaharris87/crucible-astro/issues/44), then
+[2E frozen evaluation/cost](https://github.com/jaharris87/crucible-astro/issues/45).
+Only 2A is initially authorized. Each boundary requires scope acceptance and
+preceding integration; [the execution sequence](PHASE_2_LAUNCH.md) defines these
+bounds. Before real rollouts, accept forcing/history, horizons/outputs, observables
+and a separately authorized pinned-XNet reference/convergence experiment.
+Fresh pointwise labels and historical saved Y do not qualify continuous trajectories
+or energy. Keep final-test model outcomes sealed until frozen-protocol release.
 
 **Exit evidence:** clean rerun from recorded artifacts reproduces metrics within declared tolerance; independent analytic solution passes; trained transforms cannot depend on held-out data; reload agrees; full declared held-out horizons attempted and all failures reported; baseline reference, energy availability and inference/integration cost recorded; model card resolves to the actual artifact/data/split/evidence and states unevaluated regimes. Update that card when any bound artifact or material evaluation/limitation changes throughout later phases. Method performance may be poor: acceptance here establishes an honest reproducible pipeline, not scientific deployment suitability. Any pipeline failure remains a blocker.
 

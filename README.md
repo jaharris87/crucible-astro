@@ -13,8 +13,10 @@ selection and final evaluation. See the [benchmark contract](docs/science/benchm
 
 **Current status:** Phase 0A/0B and Phase 1 are complete. Qualification covers
 24,314 states from 380 histories for finite within-parent numerical emulation.
-No model has been developed or trained; physical application, energy, rollout
-accuracy and speedup are **not evaluated**. Phase 2 requires separate authorization.
+The documentation migration is complete; Phase 2A qualified-data access is now
+authorized under [issue #41](https://github.com/jaharris87/crucible-astro/issues/41).
+No model has been trained; physical application, energy, rollout accuracy and
+speedup are **not evaluated**.
 Use [Progress](docs/PROGRESS.md) and [Handoff](docs/HANDOFF.md) for current work and
 the [final Phase 1 receipt](https://github.com/jaharris87/crucible-astro/issues/15#issuecomment-7014392482) for closure evidence.
 
