@@ -33,11 +33,23 @@ candidate. Issue #41 / its PR hold actual commands, artifact checks, full head/b
 review findings/dispositions, CI and eventual human/integration receipts.
 Do not infer review, merge or completion from this implementation checkpoint.
 
-Implement ordinary named-version/use/split access through the separate accepted
-overlay, returning arrays and useful identities/units/limitations. Keep local
-paths configurable and private. Reuse Phase 1 validators and test missing/wrong
-qualification, binding/order errors and cross-partition physical duplicates.
-Provide a scientist example, public synthetic tests and a local real-data check.
+The implementation adds `crucible.benchmark.load_benchmark`,
+[a scientist guide](science/data/LOADING.md) and `examples/load_benchmark.py`.
+It uses the unchanged accepted overlay as a fixed trust root, verifies consumed
+bindings and all roles through existing partition validation, and returns ordinary
+arrays/metadata in exact accepted membership order. Digest-based local path
+overrides relocate files without rewriting accepted manifests. Physical-input
+fingerprints and source-call identities are separately checked; signed zeros stay
+in output but count equally for cross-role physical duplicate detection.
+
+Public tests exercise qualification, rebinding, order/units, membership/use,
+physical duplicates, paths and the example. The local real-data structural check
+compares returned fields bit for bit with the HDF5 for all 24,314 rows, verifies
+17,659/3,220/3,435 states, 274/51/55 histories and 66/14/14 groups, their disjointness,
+and unchanged accepted input hashes. Final exact-candidate results and retained
+operational failures are in issue #41 / its PR. Each load rereads a full verified
+payload snapshot plus mechanical JSONs; memory exceeds the returned split. It
+reuses accepted evidence without rerunning historical producer/comparator streams.
 No training, fitted preprocessing or model-based final-test evaluation occurs.
 
 Next decision after checks/review: concrete **2A merge approval**, normally combined

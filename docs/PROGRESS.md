@@ -23,7 +23,7 @@ and next decision. No model has been trained or evaluated.
 
 | Sub-phase | Dependency / deliverable | Status / next gate |
 | --- | --- | --- |
-| [2A #41](https://github.com/jaharris87/crucible-astro/issues/41) | Qualified named-version/use/split arrays, example and tests | Authorized implementation; checks, independent review, human merge and integration pending |
+| [2A #41](https://github.com/jaharris87/crucible-astro/issues/41) | Qualified named-version/use/split arrays, example and tests | Loader/example/tests implemented; final check/review and human merge/integration receipts in live issue/PR |
 | [2B #42](https://github.com/jaharris87/crucible-astro/issues/42) | Integrated 2A; one pointwise model/comparator proposal and reproducible validation | Scope acceptance pending; experiment acceptance before fitting; final-test outcomes sealed |
 | [2C #43](https://github.com/jaharris87/crucible-astro/issues/43) | Integrated 2B; analytic integration/convergence/failure checks | Scope acceptance pending; no new XNet execution |
 | [2D #44](https://github.com/jaharris87/crucible-astro/issues/44) | Integrated 2C; accepted real reference trajectories/protocol | Scope and scientific/producer-execution decisions pending |

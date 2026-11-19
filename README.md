@@ -53,16 +53,17 @@ For scientific use, follow these routes:
 | I want to… | Start here |
 | --- | --- |
 | Understand what the accepted data can support | [Qualified data card](docs/data-cards/genesis_datacard_ccsn_native_pointwise_qualified_v0_1.md), then [finite benchmark and limitations](docs/science/benchmark/NATIVE_RHS.md#frozen-finite-task-and-bindings) |
-| Access the data and identify the accepted splits | [Local access and recovery](docs/phase1/PHASE1_CLOSEOUT.md#local-access-and-recovery), [HDF5 payload contract](docs/science/data/PRIMARY_RHS_DATASET.md), [partitions and qualification gate](docs/science/benchmark/PARTITIONS.md) |
+| Load the accepted data and inspect its splits | [Loading guide and runnable example](docs/science/data/LOADING.md); [HDF5 contract](docs/science/data/PRIMARY_RHS_DATASET.md) and [partition checks](docs/science/benchmark/PARTITIONS.md) for details |
 | Score an RHS prediction | [Native numerical profiles and reporting](docs/science/benchmark/NATIVE_RHS.md#accepted-profiles-and-exact-arithmetic), plus the runnable synthetic example below |
 | Understand physical accuracy and unevaluated uses | [Qualification and validation](docs/science/VALIDATION.md), [physical error budgets](docs/science/validation/PHYSICAL_ERROR_BUDGETS.md); pointwise fidelity does not establish energy, rollout accuracy or speedup |
 | Trace scientific evidence or historical decisions | [Source evidence](docs/science/EVIDENCE.md), [decision register](docs/DECISIONS.md), [Phase 1 exit index](docs/phase1/PHASE1_CLOSEOUT.md) |
 | Resume development or find the next authorized action | [Handoff](docs/HANDOFF.md), [progress](docs/PROGRESS.md), [workflow](docs/process/WORKFLOW.md) |
 
-The real data remain local with unresolved redistribution rights. Current access
-uses explicit local manifests and the separate accepted qualification overlay;
-there is no committed everyday qualified-split loader yet. Adding one before
-the first fit is [proposed transition work](https://github.com/jaharris87/crucible-astro/issues/36#issuecomment-7016854401).
+The real data remain local with unresolved redistribution rights.
+`crucible.benchmark.load_benchmark` verifies the accepted qualification overlay,
+payload and exact memberships, then returns ordinary arrays and metadata for
+one named use and split. The [loading guide](docs/science/data/LOADING.md) explains
+private path configuration, dimensions/units and permitted uses.
 
 Follow [Contributing](CONTRIBUTING.md#quick-start) to install and run checks, then
 try this small analytic-vector scoring example without real data:
