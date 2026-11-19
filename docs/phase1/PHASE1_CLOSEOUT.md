@@ -1,6 +1,7 @@
 # Phase 1 qualification and exit evidence
 
-2026-11-19. [The live final integration receipt](https://github.com/jaharris87/crucible-astro/issues/15#issuecomment-7014392482)
+2026-11-19. [Closeout PR #35](https://github.com/jaharris87/crucible-astro/pull/35).
+[The live final integration receipt](https://github.com/jaharris87/crucible-astro/issues/15#issuecomment-7014392482)
 records whether final review, human merge and merged checks are complete.
 D-025 accepts the named benchmark; acceptance alone does not close the phase.
 [Milestone #2](https://github.com/jaharris87/crucible-astro/milestone/2) and the
