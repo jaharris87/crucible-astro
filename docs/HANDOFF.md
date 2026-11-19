@@ -1,4 +1,4 @@
-# CRUCIBLE Phase 1 handoff
+# CRUCIBLE transition handoff
 
 Updated **2026-11-19**. Phase 0A/0B are complete. D-025 accepts the named
 finite native-XNet pointwise benchmark. [The live final receipt](https://github.com/jaharris87/crucible-astro/issues/15#issuecomment-7014392482)
@@ -6,7 +6,10 @@ records the actual artifact, reviewed merges and final integration. Closeout PR 
 is human-merged at `e86c7a2`; its exact reviewed tree and merged checks pass.
 The receipt controls actual issue/milestone/goal closure; acceptance alone is
 insufficient. [Milestone #2](https://github.com/jaharris87/crucible-astro/milestone/2)
-and [progress](PROGRESS.md) track S01–S03. Stop after Phase 1.
+and [progress](PROGRESS.md) track S01–S03. Live verification before this migration
+confirmed milestone #2 closed (29 closed / zero open items), PR #38 merged at
+`d7e60485b81f6afdc1817c86189acc40f97df7ae` with passing merged CI44586898400,
+and the original Phase 1 persistent goal complete. Phase 2 is not authorized.
 
 ## Accepted scientific scope
 
@@ -49,21 +52,49 @@ rights remain unresolved; public cards and software do not release real records.
 
 ## Closure and resumption
 
-The bounded audit corrections and current-guidance reconciliation under #36 are
-integrated. Retain the original reports/proposals and immutable accepted artifacts.
-The selected transition choices are recorded in D-026–D-028. D-027 accepts the
-[12-guide migration plan](BACKLOG.md#documentation-migration-plan) for later separate
-authorization; no files moved. D-028 stages the baseline while retaining the
-real-rollout gate. The reconciled roadmap and [unexecuted Phase 2 launch draft](PHASE_2_LAUNCH.md)
-preserve separate real-reference/execution requirements. Remaining architectural
-advice is not adopted wholesale. No new Phase 1 criterion or Phase 2 authority follows.
+Phase 1 is complete; the linked final receipt records actual review, human merges,
+merged-result checks and administrative/native-goal closure. The audit corrections
+and guidance reconciliation under #36 are integrated. D-026 accepts the explicit
+scorer successor while preserving original qualification bindings; D-028 retains
+the real-rollout/reference gate while staging the future baseline. These decisions
+do not authorize Phase 2, and its [launch draft](PHASE_2_LAUNCH.md) is **not invoked**.
 
-Consult the live final receipt for the actual administrative closure of S01/S03,
-milestone and native goal. It binds independent overlay/partition/source review,
-the exact human-approved closeout merge and passing merged checks. The source/data
-exit checks are verified; do not infer permission for subsequent work from closure.
-Stop and await separate Phase 2 or documentation-migration instructions.
-No earlier exploration-only artifact is silently promoted by that closure.
+The maintainer separately authorized execution of D-027's accepted 12-guide
+documentation migration on 2026-11-19 under
+[issue #39](https://github.com/jaharris87/crucible-astro/issues/39). The native
+persistent goal is **active/incomplete**:
+
+> Implement and verify CRUCIBLE’s accepted documentation migration, improve
+> navigation for domain scientists, complete independent review and human-approved
+> merge, and leave a current handoff for Phase 2.
+
+The dedicated branch is `codex/d027-docs-migration`, based on verified clean
+`d7e60485b81f6afdc1817c86189acc40f97df7ae`. The
+[migration record](process/DOCUMENTATION_MIGRATION.md) identifies all 12 moves,
+81 compatibility anchors, pre-move source hashes and accepted bound-source
+recovery. README routes scientists to qualified access, scoring, partitions,
+limits and evidence. Contributor/agent/templates and the uninvoked launch draft
+use maintained paths. Guide bodies/headings and scientific/process meanings are
+preserved; all five cards, historical records, closeout index and experiment
+recipes remain at their original paths and bytes. Accepted local manifests,
+raw/reference artifacts and retained pinned checkouts were not changed.
+
+Run `python -B scripts/check_documentation.py` from the repository root with the
+named pre-move/bound Git history available. It checks exact allowed guide changes,
+old/new fragments, public local Markdown links, 35 frozen document files and
+the two accepted source bindings recovered from Git. Normal checks and the
+synthetic scoring example follow [CONTRIBUTING](../CONTRIBUTING.md) and
+[README](../README.md#read-this-package). Actual command results, exact pushed
+head/base, CI, independent review/findings/freshness, human merge and integration
+receipts belong in issue #39 and its linked PR. This committed handoff describes
+the implementation checkpoint; the live receipt controls subsequent closure.
+
+Next authorized action: finish migration checks/self-review, fresh-context
+read-only `gpt-6.1-sol` High review of the exact pushed PR candidate, focused repair
+review if required, then obtain the concrete human merge decision and verify the
+merged result. Keep the migration goal incomplete until all required exits hold.
+No material departure from the accepted plan is adopted. After migration closure,
+await a separately invoked Phase 2 launch; no new scientific acceptance gate follows.
 
 D-017/D-020/D-023 executions and numerical checks are complete; every physical-call
 authority is exhausted. No new producer/build/trajectory/NSE/Jacobian execution,

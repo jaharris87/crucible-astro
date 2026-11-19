@@ -2,8 +2,9 @@
 
 Prepared under D-028 during Phase 1 audit reconciliation. **This document grants
 no execution authority.** The maintainer must separately invoke an accepted final
-version after actual Phase 1 closure. D-027 accepts a documentation migration plan
-for later separate authorization; this draft grants no path moves or model choices.
+version after actual Phase 1 closure. D-027's documentation migration has separate post-Phase-1 authority under
+[issue #39](https://github.com/jaharris87/crucible-astro/issues/39); this draft
+remains uninvoked and grants no model choices or Phase 2 execution.
 
 ---
 
@@ -15,8 +16,10 @@ these remain separate outcomes.
 
 ## Establish actual authority and state
 
-Read AGENTS, README, HANDOFF, PROGRESS, ROADMAP/BACKLOG S04, DECISIONS, DESIGN,
-VALIDATION and WORKFLOW. Inspect main, live issues/milestones, Phase 1 closeout
+Read [AGENTS](../AGENTS.md), [README](../README.md), [HANDOFF](HANDOFF.md),
+[PROGRESS](PROGRESS.md), [ROADMAP](ROADMAP.md)/[BACKLOG S04](BACKLOG.md#next-scientific-issues-draft-in-detail-only-after-their-prerequisites),
+[DECISIONS](DECISIONS.md), [DESIGN](science/DESIGN.md),
+[VALIDATION](science/VALIDATION.md) and [WORKFLOW](process/WORKFLOW.md). Inspect main, live issues/milestones, Phase 1 closeout
 and merged integration evidence. Do not infer closure from this draft or D-025
 alone. If required scientific/review/human-merge/integration gates are incomplete,
 report the exact gap and complete only authorized preparation. Inspect any native

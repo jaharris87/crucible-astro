@@ -15,11 +15,11 @@ Describe the problem, resulting behavior, non-goals and risks.
 Open as draft with self-review complete. Link the fresh-context read-only
 exact-candidate review, model/effort, findings/dispositions and repair verification.
 Only after Phase 0B, eligible typo/link/status/non-policy wording changes may instead
-record [narrow-lane eligibility](https://github.com/jaharris87/crucible-astro/blob/main/docs/WORKFLOW.md#narrow-documentation-lane).
+record [narrow-lane eligibility](https://github.com/jaharris87/crucible-astro/blob/main/docs/process/WORKFLOW.md#narrow-documentation-lane).
 Code, policy, science and this closeout retain independent review.
 
 Name pending decisions and next owner/action. Before readiness/merge compare
 reviewed (or narrow-lane eligible) and actual head/base, resolve consequential
 findings and record check/review freshness. A human explicitly decides merge. Record merged SHA and applicable
 integration checks before closeout. Keep subsequent receipts in the PR/issue.
-Follow [WORKFLOW](https://github.com/jaharris87/crucible-astro/blob/main/docs/WORKFLOW.md).
+Follow [WORKFLOW](https://github.com/jaharris87/crucible-astro/blob/main/docs/process/WORKFLOW.md).

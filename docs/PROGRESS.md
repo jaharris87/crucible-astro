@@ -1,13 +1,16 @@
 # CRUCIBLE progress
 
-Updated **2026-11-19**. Phase 0A/0B are complete. Phase 1's exact finite native
+Updated **2026-11-19**. Phase 0A/0B are complete. Phase 1 is complete. Its exact finite native
 pointwise benchmark has D-025 human acceptance and a delivered qualified overlay;
 [the final integration receipt](https://github.com/jaharris87/crucible-astro/issues/15#issuecomment-7014392482)
 records exact-candidate review, human closeout merges and passing merged checks.
 PR #35 is integrated at `e86c7a2`; source/data exit verification passes. Use that
 receipt for actual issue/milestone/goal closure. No Phase 2 is authorized.
 [Milestone #2 — Data qualification and benchmark definition](https://github.com/jaharris87/crucible-astro/milestone/2)
-tracks S01–S03 and bounded follow-ups; there is no additional board.
+is closed with 29 closed / zero open items. PR #38 merged at `d7e6048` and its
+merged CI passes; the original Phase 1 persistent goal is complete. The separately
+authorized D-027 transition is tracked in [issue #39](https://github.com/jaharris87/crucible-astro/issues/39);
+there is no additional board.
 
 ## Phase status
 
@@ -18,6 +21,12 @@ tracks S01–S03 and bounded follow-ups; there is no additional board.
 | 1 — Qualification/benchmark | 0B; S01–S03 authority | D-025 accepted; actual [exit evidence](phase1/PHASE1_CLOSEOUT.md), [qualified data card](data-cards/genesis_datacard_ccsn_native_pointwise_qualified_v0_1.md), final closure in the live receipt |
 | 2 — Full-state baseline | Qualified benchmark and separate authorization | Not started/authorized; [S04/model-card requirements](BACKLOG.md#next-scientific-issues-draft-in-detail-only-after-their-prerequisites) |
 | 3–5 — Reduction/comparison/prototype | Later accepted baselines/science/scope | Not started; no architecture or model selected |
+
+## Post-Phase-1 documentation transition
+
+| Work | Scope / source | Status / next gate |
+| --- | --- | --- |
+| [D-027 migration #39](https://github.com/jaharris87/crucible-astro/issues/39) | Accepted 12-guide map; source `d7e6048`; [preservation/recovery record](process/DOCUMENTATION_MIGRATION.md) | Implementation checkpoint on `codex/d027-docs-migration`; native goal active. Checks, fresh exact-candidate independent review, concrete human merge and merged-result verification resolve in the live issue/PR. Phase 2 remains uninvoked. |
 
 ## Phase 1 issue dependencies and integrations
 
@@ -48,5 +57,5 @@ fitted preprocessing are **not evaluated**. Full NS1–NS3 are not completed her
 [Handoff](HANDOFF.md) gives the stop/resumption boundary. Historical
 [Phase 1 start](reports/2026-11-17-phase1-start.md) and
 [bootstrap report](reports/2026-11-17-bootstrap.md) remain unchanged snapshots.
-Use [the meeting-report template](MEETING_REPORT_TEMPLATE.md) and actual final
+Use [the meeting-report template](process/MEETING_REPORT_TEMPLATE.md) and actual final
 receipt/card for current reporting, not those dated snapshots.
