@@ -110,7 +110,7 @@ No model or numerical integration implementation is authorized by this addition.
 
 The [independent-audit assessment](https://github.com/jaharris87/crucible-astro/issues/36#issuecomment-7016554530)
 and [transition recommendation](https://github.com/jaharris87/crucible-astro/issues/36#issuecomment-7016854401)
-use the existing issue/PR workflow. D-027 requests a concrete documentation plan;
+use the existing issue/PR workflow. D-027 accepts a staged documentation plan;
 D-028 accepts staged baseline preparation while retaining the real-rollout exit.
 Neither starts Phase 2 or adds new Phase 1 criteria. [The launch draft](PHASE_2_LAUNCH.md)
 requires a later explicit invocation after actual Phase 1 closure.
@@ -150,10 +150,13 @@ data/benchmark, representation/RHS and integration/evaluation responsibilities;
 extract shared interfaces only when actual implementations need them. Bound further
 historical provenance work by its relevance to the intended use.
 
-### Proposed documentation migration
+<a id="proposed-documentation-migration"></a>
 
-**Proposal for maintainer decision, not permission to move files.** D-027 asks for
-a broader plan. Recommend migrating maintained scientific guides and contributor
+### Documentation migration plan
+
+**Plan accepted under D-027, 2026-11-19; no execution authorized.**
+[The maintainer accepted this concrete plan](https://github.com/jaharris87/crucible-astro/issues/36#issuecomment-7017529663)
+for later, separately authorized post-Phase-1 work. Migrate maintained scientific guides and contributor
 process into separate directories, while keeping historical evidence and all
 five distinct dataset cards at their current paths. The demonstrated problem is
 conflicting current claims and poor navigation, not the number of files.
@@ -205,6 +208,7 @@ Acceptance: check both old/new paths and fragments, report/card byte preservatio
 unchanged mathematical/qualification/authority meanings and bound-source recovery;
 run the documented synthetic example and normal CI. Obtain fresh review of the
 actual path/content candidate and human merge. Do not combine the migration with
-model architecture, new data schemas or rewritten scientific policy. Alternatives:
-retain current paths after targeted cleanup, or prepare an expanded historical-file
-relocation plan with explicit byte/link preservation tradeoffs before any move.
+model architecture, new data schemas or rewritten scientific policy. The alternatives
+considered were retaining current paths after cleanup or expanding the proposal to
+relocate historical files; neither was selected. A materially different migration
+needs its own explicit plan and decision.

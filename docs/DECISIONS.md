@@ -435,24 +435,39 @@ Reviewed human merges and final independent/integration checks remain mandatory;
 
 ### Decision D-026: Successor native reporting arithmetic
 
-**Pending explicit compatibility decision.** [The concrete proposal](https://github.com/jaharris87/crucible-astro/pull/37#issuecomment-7017120707)
-binds scorer source SHA256 `c287f873ede888c12128552046176fd6618556081dc907c4fccadb491bd056b7`
-at reviewed PR #37 head `058b28f85d891d8d71aa225c4c16e46700129e21`.
-The proposed Decimal80 relative-RMS reporting identity is distinct from the
-original D-025 scorer; exact D-024 decisions and physical sums remain unchanged.
-Do not rewrite the accepted overlay/configuration or infer adoption from review.
-Compatibility, exact human merge and integration are separate gates.
+**Accepted, 2026-11-19.** The maintainer selected “Accept explicit scorer successor
+(Recommended)” and separately “Merge PR #37 after D-026 acceptance (Recommended)”
+in [the human receipt](https://github.com/jaharris87/crucible-astro/pull/37#issuecomment-7017529239).
+This accepts scorer source SHA256
+`c287f873ede888c12128552046176fd6618556081dc907c4fccadb491bd056b7`
+at reviewed head `058b28f85d891d8d71aa225c4c16e46700129e21`, with report arithmetic
+identity `crucible.native_fidelity.relative-decimal80.v1`, as the explicit successor
+for the named D-024/D-025 numerical benchmark. Only relative MSE/macro reporting
+uses Decimal80; exact profile decisions, physical sums and weighting are unchanged
+on successful references. Explicit failed/malformed references now reject.
 
-### Decision D-027: Prepare a broader documentation migration proposal
+Preserve the original D-025 overlay/configuration/scorer identity. Future results
+must bind the unchanged qualified dataset, actual new scorer and this adoption
+receipt; do not rewrite the old overlay or claim it originally bound this source.
+The finite-count reporting bound is not a universal ulp/bit-identity guarantee or
+a new physical tolerance. [PR #37 merged-result verification](https://github.com/jaharris87/crucible-astro/pull/37#issuecomment-7017579899)
+records exact reviewed tree `b763697`, actual merge `850996e`, independent review,
+454 merged tests and passing CI. This merge authority is exhausted. No other
+merge, training, producer call, dataset regeneration, release or Phase 2 is granted.
+
+### Decision D-027: Staged documentation migration plan
 
 **Accepted planning direction, 2026-11-19.** The maintainer selected “Plan a broader
 documentation migration” and then “Prepare broader migration proposal” in the
 consolidated popup. [The human-answer record](https://github.com/jaharris87/crucible-astro/issues/36#issuecomment-7017120292)
-links the audit assessment. Prepare a concrete path/anchor and evidence-preservation
-plan before moving files. This is not approval of any particular migration,
-permission to alter historical reports, or an additional Phase 1 exit.
-The proposal is in [the existing backlog](BACKLOG.md#proposed-documentation-migration).
-Targeted current contradictions can be corrected independently.
+links the initial audit assessment. The maintainer subsequently selected
+“Accept staged 12-guide plan (Recommended)” in [the concrete plan receipt](https://github.com/jaharris87/crucible-astro/issues/36#issuecomment-7017529663).
+Accept the [12-guide science/process path and anchor plan](BACKLOG.md#documentation-migration-plan)
+for later, separately authorized work after Phase 1. Keep historical reports and
+all five distinct dataset cards byte-identical at their current paths; preserve
+old guide paths/heading anchors with compatibility pages. No moves are authorized
+now, and migration is not a new Phase 1 exit. Targeted current contradictions are
+corrected independently.
 
 ### Decision D-028: Stage the baseline while retaining the real-rollout gate
 

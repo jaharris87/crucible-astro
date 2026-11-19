@@ -139,9 +139,10 @@ with visible counts, and mixed-success histories retain their failure counts.
 No effective independent sample count or confidence claim is implied.
 
 Metric values carry `FINITE`, `ROUNDED_TO_ZERO`, `UNBOUNDED_BINARY64_REPORT` or
-`NOT_APPLICABLE` status. Scalar rational values use binary64 rounding; RMS uses
-70-digit Decimal arithmetic solely to render the report. Exact profile comparisons
-never use that reporting approximation. Nonzero report underflow is marked;
+`NOT_APPLICABLE` status. Scalar rational values use binary64 rounding. Under D-026,
+physical sums/squares remain exact with 70-digit Decimal RMS rendering; relative
+MSE/macro accumulation and RMS rendering use 80-digit Decimal as specified below.
+Exact profile comparisons never use these reporting approximations. Nonzero report underflow is marked;
 overflow yields null plus its status. JSON contains neither NaN nor Infinity.
 
 ```sh
@@ -157,13 +158,17 @@ analytic oracles, binary64 threshold neighbors, subnormals, zero targets, failur
 and overflow cases, macro-weight examples and unchanged-input checks; no real
 records, producer calls or final-test results enter public CI.
 
-### Proposed reporting-arithmetic successor (issue #36)
+### Accepted reporting-arithmetic successor (D-026)
 
 The `crucible.native_fidelity.relative-decimal80.v1` report arithmetic identity
-is a **proposed successor**, distinct from the original scorer SHA256
+is the **accepted D-026 successor**, source SHA256
+`c287f873ede888c12128552046176fd6618556081dc907c4fccadb491bd056b7`,
+distinct from the original scorer SHA256
 `a1d50fedc951dbe332d25bd09e7c32e0539024f6f0a8f193b271ed0253ca0df0`
-bound by the accepted D-025 overlay. Adoption requires an explicit human decision;
-the accepted configuration, overlay and historical scorer identity remain unchanged.
+bound by the accepted D-025 overlay. [The human adoption receipt](https://github.com/jaharris87/crucible-astro/pull/37#issuecomment-7017529239)
+accepts this successor; the original configuration, overlay and scorer identity
+remain unchanged. Future results bind both the qualified dataset and actual
+successor source/adoption receipt rather than rewriting that overlay.
 Reports expose the new arithmetic identity and predecessor hash. Only nonzero
 relative mean-squares and their history/group averaging use 80-digit Decimal;
 physical sums/squares remain exact Fraction with 70-digit Decimal RMS rendering.
@@ -177,7 +182,7 @@ roundoff bounds conservatively limit relative arithmetic error before binary64
 rendering to `1e-71`; this is not a universal correctly-rounded, bit-identical or
 one-ulp guarantee. Exact-zero ratios remain zero. Explicit report underflow and
 overflow markers remain; no profile threshold, data qualification or scientific
-accuracy is changed by this reporting-only proposal. Detailed-report memory and
+accuracy is changed by this reporting-arithmetic adoption. Detailed-report memory and
 streaming remain separate follow-up work.
 
 ## Separate physics, assembly and later acceptance

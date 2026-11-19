@@ -45,6 +45,10 @@ Preserve their original reports/proposals and distinguish accepted fixes from
 advisory transition recommendations. PR #35 is unmerged; final closure requires
 actual reviewed candidates, human decisions and merged checks. Planning the
 transition or drafting a launch prompt grants no Phase 2 execution authority.
+D-026 accepts the explicit scorer successor merged through PR #37; original
+qualification/source bindings stay preserved. D-027 accepts the 12-guide migration
+plan for later separate authorization, and D-028 retains the real-rollout gate
+while staging the future baseline. No migration or Phase 2 execution follows.
 
 Make routine reversible choices within scope. Prepare concrete evidence before asking consequential scientific, scope or authority questions; use the interactive interface or D-### format in the workflow, recommendation first, meaningful alternatives, normally no more than three together and free-text answers. Record answers and apply them consistently. Silence is not approval; continue independent authorized work while required decisions remain pending.
 

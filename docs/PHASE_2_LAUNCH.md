@@ -2,8 +2,8 @@
 
 Prepared under D-028 during Phase 1 audit reconciliation. **This document grants
 no execution authority.** The maintainer must separately invoke an accepted final
-version after actual Phase 1 closure. Documentation migration remains a proposal
-under D-027; no path moves or model choices are silently adopted here.
+version after actual Phase 1 closure. D-027 accepts a documentation migration plan
+for later separate authorization; this draft grants no path moves or model choices.
 
 ---
 
@@ -33,8 +33,8 @@ Every merge still needs its concrete human decision or bounded delegation.
 1. Verify the named `ccsn-primary-native-rhs-pointwise` 0.1.0 qualified view,
    accepted overlay/receipt, immutable payload, exact memberships and limitations
    through explicit local configuration. Keep real data/private paths local and
-   original artifacts unchanged. Use the explicitly human-accepted scorer identity;
-   resolve any pending D-026 compatibility decision before substituting a successor.
+   original artifacts unchanged. Use the explicitly human-accepted D-026 scorer
+   identity and adoption receipt.
    Record both unchanged dataset qualification and actual scorer identities.
 2. Implement a small fail-closed named-version/use/split loader before fitting.
    Return ordinary arrays with ordered species, units, identities and limitations;

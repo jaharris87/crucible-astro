@@ -8,8 +8,9 @@ D-025 accepts the named benchmark; acceptance alone does not close the phase.
 native S01–S03 goal close only after every exit below is actually satisfied.
 The subsequent independent audits of `15ac601` are assessed under
 [issue #36](https://github.com/jaharris87/crucible-astro/issues/36#issuecomment-7016554530).
-Their numerical corrections are isolated in [PR #37](https://github.com/jaharris87/crucible-astro/pull/37);
-required fresh review, human decisions and merged verification remain open.
+Their numerical corrections [merged in PR #37 at `850996e`](https://github.com/jaharris87/crucible-astro/pull/37#issuecomment-7017579899)
+with the reviewed tree, D-026 acceptance and 454 merged tests/CI passing. Final
+documentation freshness, its own human closeout merge and merged checks remain open.
 Original audit reports, proposals and accepted data are preserved.
 
 ## What the data support
@@ -27,6 +28,12 @@ active neutrino rates zero. Energy/rollouts stay excluded. D-024 scores direct
 digital fidelity; no physical abundance-change or application allowance is invented.
 One parent, operational groups, residual correlations and support gaps bound the
 claim; no simulation independence or broader physical accuracy is asserted.
+
+D-026 accepts scorer source `c287f873ede888c12128552046176fd6618556081dc907c4fccadb491bd056b7`
+as an explicit reporting-arithmetic successor. The original D-025 overlay, scoring
+configuration and predecessor source binding remain unchanged; future results bind
+the actual successor plus its adoption receipt. This does not relabel the data or
+change the fixed D-024 profiles and named qualification scope.
 
 ## Actual qualified view and preparation
 
@@ -97,6 +104,7 @@ their no-symlink and inspectable-partial-output policies are unchanged.
 | Human task/reference/metrics/tolerance acceptance | [D-025](https://github.com/jaharris87/crucible-astro/issues/15#issuecomment-7014300546), [D-024 scoring](NATIVE_BENCHMARK.md), [train-only/grouping rules](PARTITIONS.md) |
 | Living Genesis data card | Actual pinned v2.0.0 guidance/template and new linked qualified card; access/rights/schema limits explicit |
 | Reviewed engineering merges/checks | [PR #32 integration](https://github.com/jaharris87/crucible-astro/pull/32#issuecomment-7014367929), [PR #34 integration](https://github.com/jaharris87/crucible-astro/pull/34#issuecomment-7014572050); 419 merged tests, CI and exact reviewed trees |
+| Assessed audit corrections | [Issue #36 dispositions](https://github.com/jaharris87/crucible-astro/issues/36#issuecomment-7016554530); [PR #37 integration](https://github.com/jaharris87/crucible-astro/pull/37#issuecomment-7017579899), exact reviewed tree, independent initial/focused review, D-026 and 454 merged tests/CI; current-document review freshness/human merge remains |
 | Final independent artifact/source review and human closeout merge/checks | Must be recorded with exact candidates/artifacts in the live final receipt before phase/milestone/goal completion |
 
 ## Stop and wider gaps

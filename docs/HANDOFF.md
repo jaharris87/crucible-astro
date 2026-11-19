@@ -26,9 +26,10 @@ rights remain unresolved; public cards and software do not release real records.
 
 - The maintainer supplied independent Codex/Claude/Gemini audits of PR #35 head
   `15ac601` / base `950ffa8`. [Issue #36](https://github.com/jaharris87/crucible-astro/issues/36#issuecomment-7016554530)
-  records attributed dispositions. Numerical corrections are isolated in
-  [PR #37](https://github.com/jaharris87/crucible-astro/pull/37); its live record
-  tracks exact checks, fresh review, scorer-compatibility and human merge gates.
+  records attributed dispositions. D-026 accepts the explicit scorer successor;
+  [PR #37 merged at `850996e`](https://github.com/jaharris87/crucible-astro/pull/37#issuecomment-7017579899)
+  with its exact reviewed tree, fresh independent review, 454 merged tests and CI
+  passing. The original qualified overlay/configuration/scorer remain preserved.
   PR #35 remains draft and unmerged. Earlier reviews cover their exact revisions,
   not these repairs. No demonstrated finding invalidates D-025's accepted labels
   or memberships.
@@ -47,10 +48,12 @@ rights remain unresolved; public cards and software do not release real records.
 
 Finish the bounded audit corrections and current-guidance reconciliation under
 #36, retaining the original reports/proposals and immutable accepted artifacts.
-The [transition recommendation](https://github.com/jaharris87/crucible-astro/issues/36#issuecomment-7016854401)
-is advisory pending maintainer choices; it is not a new Phase 1 criterion or
-Phase 2 authority. Reconcile the roadmap and draft an unexecuted Phase 2 launch
-prompt only after consequential choices are resolved.
+The selected transition choices are recorded in D-026–D-028. D-027 accepts the
+[12-guide migration plan](BACKLOG.md#documentation-migration-plan) for later separate
+authorization; no files moved. D-028 stages the baseline while retaining the
+real-rollout gate. The reconciled roadmap and [unexecuted Phase 2 launch draft](PHASE_2_LAUNCH.md)
+preserve separate real-reference/execution requirements. Remaining architectural
+advice is not adopted wholesale. No new Phase 1 criterion or Phase 2 authority follows.
 
 Resolve open Phase 1 gates listed in the live final receipt. It must bind actual
 independent overlay/partition/source review, exact human-approved closeout merge
