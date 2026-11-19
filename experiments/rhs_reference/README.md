@@ -4,21 +4,24 @@ Issue [#18](https://github.com/jaharris87/crucible-astro/issues/18), Phase 1
 milestone #2. Prepared with `gpt-6.1-sol` High. D-019 accepts a new numerical
 reference contract. At preparation merge all producer build/run was deferred;
 **D-020 subsequently authorized only this exact reviewed 5,157-state pilot**.
-Its physical loop has finished and that call authority is exhausted; offline
-verification remains pending. See the live issue for actual receipts. No repeat
+Its physical loop and offline verification are complete; the call authority is
+exhausted. [PR #32 integration](https://github.com/jaharris87/crucible-astro/pull/32#issuecomment-7014367929)
+links the independently reviewed pilot/primary evidence. No repeat
 or other evaluation is authorized. The completed D-017 experiment and its three calls are immutable
 history, not permission for this candidate. This directory contains original
 software only; no reference source, real states or data are distributed.
 
 The maintainer selected **“Expand primary benchmark audit; keep current pool as
 pilot (Recommended)”**. This fixed 80-history/5,157-state candidate is a
-qualification pilot; the primary audit expands read-only. No current split or
-primary benchmark is locked, and this answer grants no producer execution.
+qualification pilot; the primary audit expands read-only. That choice expanded the primary audit; D-025 later accepted the exact
+[24,314-state primary benchmark and grouped roles](../../docs/phase1/NATIVE_BENCHMARK.md).
+The preparation below remains a finite historical recipe, not execution authority.
 
 This candidate prepares exactly 5,157 source-table-screened ordinary states from
 80 familiar-layout histories in the fixed 83-pair audit. It excludes initial,
 explicit companion-NSE and screened-out records, and the three unfamiliar layouts.
-These states are candidates, not qualified training examples or final partitions.
+At preparation these were candidates, not qualified examples. Current eligibility
+comes only through the separate D-025-bound primary overlay, never this input bundle.
 The finite list is independent of a later human grouping decision. No model,
 training architecture, trajectory regeneration, integration, NSE, Jacobian or
 energy target is introduced. No scientific tolerance is selected.
@@ -63,12 +66,34 @@ HDF training dataset writer, positive scientific mask or portable real fixture.
 The raw stored derivative and saved energy scalar are audit-only; the energy
 scalar is echoed unchanged but never evaluated as a target.
 
+## Version-2 binary field map
+
+This is the fixed CRUCIBLE evaluator wire format, not a general XNet raw-output
+format. Python `reference.py` and Fortran `rhs_evaluator.f90` agree on little-endian
+signed int32 and IEEE binary64 with stream I/O: there are no Fortran record markers
+or alignment padding. All offsets below are bytes from the named record start.
+
+| Block | Fields / offsets | Bytes |
+| --- | --- | ---: |
+| Shared file header | int32 magic `0x43525543`, version 2, record count, species count 160; then Z[160] and A[160] as binary64 | 2,576 |
+| Input record prefix | five int32: sequence, row_id, zone, ordinal, step (0–19); five binary64: time, T9, rho, internal dt, stored energy-rate field (20–59) | 60 |
+| Complete input record | prefix; Y[160] at 60; stored derivative[160] at 1,340 | 2,620 |
+| Fresh record prefix | input five int32 and five scalars; after-call time/T9/rho at 60; native Ye at 84; int32 iweak at 92 | 96 |
+| Complete fresh record | prefix; input Y at 96; after-call Y at 1,376; stored derivative at 2,656; fresh F at 3,936; coefficient blocks at 5,216 | 21,600 |
+
+The 2,048 coefficient entries concatenate 683 one-reactant, 1,345 two-reactant,
+16 three-reactant and 4 four-reactant entries in producer order. `zone` is a
+wire locator, not proof of physical particle/family identity. Stored energy and
+derivative fields are audit echoes, not qualified targets. D-017 used a different
+version-1 layout; do not reuse these offsets for it. The Python `Struct` definitions,
+Fortran read/write order and checked record lengths remain the executable recipe.
+
 ## Historical preparation procedure
 
 This records the procedure reviewed before D-020. Under that separate authority,
 the fresh build and 5,157-state physical loop have completed; **D-020's physical
-call authority is exhausted**. The exact offline comparison remains pending in
-the [live record](https://github.com/jaharris87/crucible-astro/issues/18#issuecomment-6967636426).
+call authority is exhausted**. Its exact offline comparison and retained-evidence
+review subsequently passed; see the [pilot dataset integration](https://github.com/jaharris87/crucible-astro/pull/25#issuecomment-6968843133).
 These commands document the isolated procedure and do not authorize a rerun.
 It uses a fresh scratch bundle and the pinned D-017 CPU modules/toolchain/flags:
 

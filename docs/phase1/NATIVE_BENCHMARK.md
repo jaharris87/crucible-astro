@@ -2,7 +2,11 @@
 
 2026-11-19, [issue #33](https://github.com/jaharris87/crucible-astro/issues/33),
 [S03 #15](https://github.com/jaharris87/crucible-astro/issues/15).
-**Scoring accepted; data/reference/final partitions pending separate acceptance.**
+**D-024 scoring and D-025 named data/reference/final partitions accepted.**
+The separate [qualified overlay/card](../data-cards/genesis_datacard_ccsn_native_pointwise_qualified_v0_1.md)
+and [final receipt](https://github.com/jaharris87/crucible-astro/issues/15#issuecomment-7014392482) supply actual qualification and closure evidence.
+The preparation-time pending statements below describe the preserved proposal,
+not a current denial of D-025 acceptance.
 The maintainer selected “Accept native-RHS fidelity profiles (Recommended)” in
 [the D-024 decision](https://github.com/jaharris87/crucible-astro/issues/15#issuecomment-7013147287),
 binding proposal SHA256
@@ -31,7 +35,7 @@ unresolved scientific allowances/scales/timescales/critical selections stay inta
 | Domain | Exactly the named 24,314 candidate inputs in 380 histories/94 operational groups. Finite within-parent points, not a rectangular T/rho/Y validity box, independent physical families or representative CCSN/NSM coverage |
 | Horizon/energy | Instantaneous RHS only. Heating, stored energy fields, integrated trajectories/yields and equilibrium/rollout accuracy remain excluded/unevaluated |
 | Preprocessing/search | None fitted in Phase 1. Later authorized transforms/scales/bases/features use training only; validation supports recorded authorized choices; final test cannot guide redesign without disclosed reuse/new confirmation |
-| Working roles | D-021 rule: train/validation/test = 66/14/14 groups, 274/51/55 histories and 17,659/3,220/3,435 candidates. Complete [partition constructor/checks](PARTITIONS.md) preserve ancestry/whole-history groups; these are working roles pending final qualified membership acceptance |
+| Working roles | D-021 rule: train/validation/test = 66/14/14 groups, 274/51/55 histories and 17,659/3,220/3,435 candidates. Complete [partition constructor/checks](PARTITIONS.md) preserve ancestry/whole-history groups; D-025 accepts these exact roles through the separate qualified overlay |
 
 The source evaluator assigns unchanged Y, time, T9 and rho, calls the pinned
 `cross_sect` then `yderiv`, and checks echoed state/configuration bits. This scoring
@@ -40,8 +44,8 @@ The [reference-scope record](RHS_REFERENCE_SCOPE.md) and retained source/input/b
 receipts distinguish this declared native numerical calculation from the unknown
 historical generator of the raw stored derivative. Stored derivatives are audit-only.
 
-The actual primary union is prepared in [PR #32](https://github.com/jaharris87/crucible-astro/pull/32),
-including its [candidate living card](https://github.com/jaharris87/crucible-astro/blob/1ce03d821e55bef64843c53046a49f59b23e5e3d/docs/data-cards/genesis_datacard_ccsn_primary_native_rhs_union_v0_1.md).
+The immutable primary union is integrated in [PR #32](https://github.com/jaharris87/crucible-astro/pull/32),
+including its [quarantined-union living card](https://github.com/jaharris87/crucible-astro/blob/1ce03d821e55bef64843c53046a49f59b23e5e3d/docs/data-cards/genesis_datacard_ccsn_primary_native_rhs_union_v0_1.md).
 Payload SHA256 `f4171d1600586f28b4a514071c8c029d1a84c7634f9f11ae8a6b4b25c6a0c980`
 (109,687,400 bytes), manifest SHA256
 `78f5c7f51e041aa82698cc3f7832f399a00738da775432bcd80763f767fb4b86`
@@ -135,9 +139,10 @@ with visible counts, and mixed-success histories retain their failure counts.
 No effective independent sample count or confidence claim is implied.
 
 Metric values carry `FINITE`, `ROUNDED_TO_ZERO`, `UNBOUNDED_BINARY64_REPORT` or
-`NOT_APPLICABLE` status. Scalar rational values use binary64 rounding; RMS uses
-70-digit Decimal arithmetic solely to render the report. Exact profile comparisons
-never use that reporting approximation. Nonzero report underflow is marked;
+`NOT_APPLICABLE` status. Scalar rational values use binary64 rounding. Under D-026,
+physical sums/squares remain exact with 70-digit Decimal RMS rendering; relative
+MSE/macro accumulation and RMS rendering use 80-digit Decimal as specified below.
+Exact profile comparisons never use these reporting approximations. Nonzero report underflow is marked;
 overflow yields null plus its status. JSON contains neither NaN nor Infinity.
 
 ```sh
@@ -153,13 +158,17 @@ analytic oracles, binary64 threshold neighbors, subnormals, zero targets, failur
 and overflow cases, macro-weight examples and unchanged-input checks; no real
 records, producer calls or final-test results enter public CI.
 
-### Proposed reporting-arithmetic successor (issue #36)
+### Accepted reporting-arithmetic successor (D-026)
 
 The `crucible.native_fidelity.relative-decimal80.v1` report arithmetic identity
-is a **proposed successor**, distinct from the original scorer SHA256
+is the **accepted D-026 successor**, source SHA256
+`c287f873ede888c12128552046176fd6618556081dc907c4fccadb491bd056b7`,
+distinct from the original scorer SHA256
 `a1d50fedc951dbe332d25bd09e7c32e0539024f6f0a8f193b271ed0253ca0df0`
-bound by the accepted D-025 overlay. Adoption requires an explicit human decision;
-the accepted configuration, overlay and historical scorer identity remain unchanged.
+bound by the accepted D-025 overlay. [The human adoption receipt](https://github.com/jaharris87/crucible-astro/pull/37#issuecomment-7017529239)
+accepts this successor; the original configuration, overlay and scorer identity
+remain unchanged. Future results bind both the qualified dataset and actual
+successor source/adoption receipt rather than rewriting that overlay.
 Reports expose the new arithmetic identity and predecessor hash. Only nonzero
 relative mean-squares and their history/group averaging use 80-digit Decimal;
 physical sums/squares remain exact Fraction with 70-digit Decimal RMS rendering.
@@ -173,7 +182,7 @@ roundoff bounds conservatively limit relative arithmetic error before binary64
 rendering to `1e-71`; this is not a universal correctly-rounded, bit-identical or
 one-ulp guarantee. Exact-zero ratios remain zero. Explicit report underflow and
 overflow markers remain; no profile threshold, data qualification or scientific
-accuracy is changed by this reporting-only proposal. Detailed-report memory and
+accuracy is changed by this reporting-arithmetic adoption. Detailed-report memory and
 streaming remain separate follow-up work.
 
 ## Separate physics, assembly and later acceptance
@@ -200,15 +209,15 @@ and closure evidence, integrated abundance/energy/weak-Ye/equilibrium behavior,
 solver/JVP compatibility and matched-accuracy total cost. Actual Phase 2 artifacts
 need model cards; this document invents none.
 
-## Pending qualification packet and acyclic acceptance
+## Preserved preparation packet and subsequent qualification
 
-An ignored one-off recipe prepares an exact **pending**, private proposal. It
+An ignored one-off recipe prepared the exact private proposal before D-025. It
 checks the bound original pool/contract/groups, reconstructs the complete accepted
 candidate through the existing partition code, joins all 24,314 HDF record IDs
 and species identities, preserves 6,158 ordinary and source-layout/initial/NSE
-exclusions, and verifies that all four HDF masks remain false. The proposed roles
-include all 24,314 candidates but grant eligibility to none. With the original
-mechanical inputs, `validate_scientific` must reject this packet as `empty_eligible`.
+exclusions, and verifies that all four HDF masks remain false. That original proposal includes all 24,314 candidate roles but grants no eligibility.
+With the original mechanical inputs, `validate_scientific` rejects that preserved
+pending packet as `empty_eligible`.
 The immutable quarantined dataset and its old masks are never rewritten.
 
 The proposal binds payload/manifest/card, native reference receipts, frozen
@@ -217,11 +226,15 @@ membership/exclusions and explicit limitations. File SHA256s remain in the priva
 packet and its public PR receipt; no private row IDs, paths or arrays enter Git.
 There is no new core qualification framework or registry.
 
-A future separate human decision may bind this exact proposal digest after
-reference/subset/partition acceptance. Only then may a **new** overlay identity
-bind the original payload and that receipt. Per-record qualification evidence can
-point to the receipt; final acceptance must bind the exact resulting eligibility
-and membership digests checked against the original mechanical inputs. The
-proposal does not hash itself or a future acceptance receipt, avoiding a cycle.
-Rights for redistribution remain a separate gate. Numerical-emulation qualification
-would not qualify raw energy/rollout fields, broader physical accuracy or NS1/NS3.
+D-025 subsequently bound the exact proposal digest and accepted reference, subset
+and final partitions. A separate new overlay binds the unchanged payload, human
+receipt and exact eligibility/membership digests checked against the original
+complete mechanical inputs. The proposal does not hash itself or a future receipt;
+the [closeout record](PHASE1_CLOSEOUT.md) gives the resulting identities.
+Redistribution remains a separate gate. This numerical-emulation qualification
+does not qualify raw energy/rollout fields, physical application accuracy or NS1/NS3.
+
+The accepted scoring configuration is byte-preserved, including its historical
+preparation-time `qualification_status`. Current purpose-specific eligibility
+comes solely from the D-025-bound overlay; that old metadata is not rewritten
+to change an accepted artifact hash. See the final qualified card and receipt.

@@ -7,6 +7,14 @@ This accepts the finite operational input/group semantics. It does not qualify
 references, final eligible memberships, metrics/tolerances or final-test use.
 Phase 2, fitting and training remain unauthorized.
 
+Current qualification (2026-11-19): D-025 separately accepts these exact final
+memberships for the named native numerical benchmark. The [qualified overlay](PHASE1_CLOSEOUT.md)
+passes the complete original-input scientific validator in author checks; fresh
+artifact review and closure resolve in the linked final receipt. The original
+candidate/pending-eligibility files below remain unchanged and still correctly
+fail `empty_eligible`. Historical construction/repair/test counts below are their
+original receipts, not current open review requests. No Phase 2 is authorized.
+
 ## Accepted finite rule
 
 The population is the exact expanded 380-history / 24,314 source-table-candidate

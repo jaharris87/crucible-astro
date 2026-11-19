@@ -2,7 +2,7 @@
 
 **A framework for learning and reduced modeling of astrophysical reaction networks.**
 
-Repository: **[jaharris87/crucible-astro](https://github.com/jaharris87/crucible-astro), public, BSD-3-Clause**. Phase 0A/0B are complete; [Phase 1 S01–S03 is authorized](docs/PHASE_1_AUTHORITY.md). For current dependencies and acceptance gates, see [Progress](docs/PROGRESS.md) and [Handoff](docs/HANDOFF.md). No trained model or qualified dataset exists; scientific results are **not yet evaluated**. Model development/training requires a later phase.
+Repository: **[jaharris87/crucible-astro](https://github.com/jaharris87/crucible-astro), public, BSD-3-Clause**. Phase 0A/0B are complete. Phase 1 has human scientific acceptance for a finite, within-parent native-XNet pointwise benchmark: 24,314 states from 380 histories. [Progress](docs/PROGRESS.md), [Handoff](docs/HANDOFF.md) and the [final integration receipt](https://github.com/jaharris87/crucible-astro/issues/15#issuecomment-7014392482) track actual artifacts and closure. No model has been developed or trained; physical application, energy, rollout accuracy and speedup are **not evaluated**. Phase 2 requires separate authorization.
 
 ## Charter
 
@@ -19,6 +19,27 @@ Success means a collaborator can identify exactly which network, data, split, tr
 Start with [Contributing](CONTRIBUTING.md#quick-start) to install and run checks.
 Use [Progress](docs/PROGRESS.md) for current state and the linked live issue/PR
 records for subsequent CI, review and merge receipts.
+
+For the accepted Phase 1 dataset, start with the [qualified data card](docs/data-cards/genesis_datacard_ccsn_native_pointwise_qualified_v0_1.md),
+[native benchmark and scoring](docs/phase1/NATIVE_BENCHMARK.md),
+[HDF5 dataset contract](docs/phase1/PRIMARY_RHS_DATASET.md),
+[partitions](docs/phase1/PARTITIONS.md) and [exit evidence](docs/phase1/PHASE1_CLOSEOUT.md).
+The real data remain local with unresolved redistribution rights. Current access
+uses explicit local manifests and the separate accepted qualification overlay;
+there is no committed everyday qualified-split loader yet. Adding one before
+the first fit is [proposed transition work](https://github.com/jaharris87/crucible-astro/issues/36#issuecomment-7016854401).
+
+After installation, run this small analytic-vector scoring example without real data:
+
+```sh
+uv run python -B -m crucible.native_fidelity \
+  configs/native_fidelity/synthetic_config.json \
+  configs/native_fidelity/synthetic_reference.json \
+  --prediction configs/native_fidelity/synthetic_prediction.json
+```
+
+This exercises the numerical scorer; it is not a trained model or a scientific
+performance result. Audits and bounded corrections are tracked in [issue #36](https://github.com/jaharris87/crucible-astro/issues/36).
 
 | Science and scope | Document |
 | --- | --- |
@@ -43,6 +64,7 @@ records for subsequent CI, review and merge receipts.
 
 The policy source of truth is the workflow; the scientific contracts are in design and validation; decisions are recorded only in the decision register. Other documents link to those sources rather than introducing separate rules. Machine-specific reference locations live only in the evidence inventory. All proposed runtime paths and artifact identifiers are portable.
 
-## Phase 0A authority
+<a id="phase-0a-authority"></a>
 
-The completed Phase 0A assignment permitted reading references and creating/revising this local design package. Its limits excluded repository creation, branches, commits, pushes, PRs, reference edits, environment installation, data generation, training, HPC jobs and framework implementation. Those limits belonged to that assignment and are **not permanent development policy**. The subsequent maintainer transition permitted local documentation changes and activation of root [AGENTS.md](AGENTS.md) only. On 2026-11-17 the maintainer separately invoked the Phase 0B launch prompt. That invocation now authorizes B01–B04, subject to its publication and human merge checkpoints; historical Phase 0A/transition limits remain preserved.
+Historical Phase 0A authority and adoption are preserved in [Transition](docs/TRANSITION.md).
+Current scope and decisions are recorded in the linked handoff and decision register.

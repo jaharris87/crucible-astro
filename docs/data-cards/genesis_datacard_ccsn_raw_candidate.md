@@ -240,3 +240,8 @@ The [physical-abundance budget contract](../phase1/ERROR_BUDGETS.md) and
 [current readiness report](../phase1/ERROR_BUDGET_READINESS.md) describe D-022's
 illustrative engineering tiers and unresolved scientific settings. They contain
 no surrogate outcome, positive scientific mask or qualified heating target.
+
+Current derived-view link (2026-11-19): D-025 separately accepts the
+[named native pointwise qualified view](genesis_datacard_ccsn_native_pointwise_qualified_v0_1.md). This does not qualify the
+whole raw collection or grant redistribution. Original raw provenance/rights
+limits and all earlier quarantined artifacts remain unchanged.

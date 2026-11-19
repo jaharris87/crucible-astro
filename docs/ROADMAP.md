@@ -51,15 +51,40 @@ The broad summary/section-4 integration language and nuclear-specific section-3 
 
 ## Phase 2 — Small reproducible end-to-end baseline
 
-**Deliverables:** identity/full-state representation, selected simple baseline (with a deterministic naive/reference comparator), train-only preprocessing, bounded fitting if learning is used, persistence, pointwise metrics and held-out rollout harness; analytic integration and a small audited real demonstration. Create/update an official-Genesis-guided model card binding the actual model artifact, training data/split, evaluation evidence, intended use and limitations; record the guidance revision/access gaps. No trained-model card is created during Phase 1.
+**Deliverables:** identity/full-state representation, one selected simple baseline
+with a deterministic comparator, train-only preprocessing, bounded fitting,
+persistence/reload and pointwise metrics on the accepted numerical benchmark.
+Provide straightforward named-view/version/use/split loading before the first fit.
+Verify integration on an independent analytic problem, then add the held-out
+rollout harness and small audited real demonstration after their separate reference
+gate. Create/update an official-Genesis-guided model card binding the actual model,
+training data/split, evaluation evidence, intended use and limitations; record the
+guidance revision/access gaps. No trained-model card is created during Phase 1.
 
 **Non-goals:** mandatory compression, large hyperparameter sweep or proof of production usefulness. Finite-step modeling must use its own contract if chosen.
 
 **Dependencies/open decisions:** Phase 1 qualified labels and authorized experiment scope; accepted RHS-first baseline sequence (D-003) and qualified D-004 state/conditions; chosen CPU-capable tooling. Identity/full-state baseline is the selected starting path. Finite-step prediction is retained for later exploration with a separate contract; model-family and detailed science choices remain open.
 
+**Accepted staging (D-028):** pointwise work and analytic integration checks can
+precede a real rollout reference. Before real rollouts, accept the initial-state,
+time-dependent forcing/interpolation, horizon/output and observable contract;
+prepare a separately authorized pinned-XNet trajectory/convergence calculation.
+Current fresh pointwise labels do not qualify a continuous solution, historical
+solver convergence or energy. Retain the real-rollout exit below; this staging
+does not move it to Phase 3 or authorize producer execution. [Transition work and
+the accepted documentation plan](BACKLOG.md#post-audit-transition) remain bounded;
+D-027's migration needs later separate authorization.
+
 **Exit evidence:** clean rerun from recorded artifacts reproduces metrics within declared tolerance; independent analytic solution passes; trained transforms cannot depend on held-out data; reload agrees; full declared held-out horizons attempted and all failures reported; baseline reference, energy availability and inference/integration cost recorded; model card resolves to the actual artifact/data/split/evidence and states unevaluated regimes. Update that card when any bound artifact or material evaluation/limitation changes throughout later phases. Method performance may be poor: acceptance here establishes an honest reproducible pipeline, not scientific deployment suitability. Any pipeline failure remains a blocker.
 
 **Human point:** accept baseline adequacy as a comparison control and set performance hypotheses, not retroactive test thresholds. **Milestone relation:** early NS2 path and NS3 comparison machinery.
+
+Pointwise fidelity, integrated scientific accuracy and matched-accuracy total
+computational cost remain separate results. Later cost comparisons include solver
+failures/steps/Jacobian work, preprocessing and setup boundaries; reference audit
+job runtime alone is not a surrogate speedup. Let the first end-to-end results
+motivate shared interfaces and reduction choices; no plugin or latent architecture
+is selected by this plan. The [draft launch prompt](PHASE_2_LAUNCH.md) is unexecuted.
 
 ## Phase 3 — Initial reduced dynamics and trajectory validation
 
