@@ -9,8 +9,10 @@ native S01–S03 goal close only after every exit below is actually satisfied.
 The subsequent independent audits of `15ac601` are assessed under
 [issue #36](https://github.com/jaharris87/crucible-astro/issues/36#issuecomment-7016554530).
 Their numerical corrections [merged in PR #37 at `850996e`](https://github.com/jaharris87/crucible-astro/pull/37#issuecomment-7017579899)
-with the reviewed tree, D-026 acceptance and 454 merged tests/CI passing. Final
-documentation freshness, its own human closeout merge and merged checks remain open.
+with the reviewed tree, D-026 acceptance and 454 merged tests/CI passing. PR #35
+subsequently merged at `e86c7a2` after final independent freshness and concrete
+human approval; its reviewed tree, installed package, 454 tests and merged CI pass.
+The live final receipt records actual administrative closure.
 Original audit reports, proposals and accepted data are preserved.
 
 ## What the data support

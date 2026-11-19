@@ -2,8 +2,10 @@
 
 Updated **2026-11-19**. Phase 0A/0B are complete. D-025 accepts the named
 finite native-XNet pointwise benchmark. [The live final receipt](https://github.com/jaharris87/crucible-astro/issues/15#issuecomment-7014392482)
-records the actual artifact, reviewed merges and final integration; closure is
-not inferred from acceptance alone. [Milestone #2](https://github.com/jaharris87/crucible-astro/milestone/2)
+records the actual artifact, reviewed merges and final integration. Closeout PR #35
+is human-merged at `e86c7a2`; its exact reviewed tree and merged checks pass.
+The receipt controls actual issue/milestone/goal closure; acceptance alone is
+insufficient. [Milestone #2](https://github.com/jaharris87/crucible-astro/milestone/2)
 and [progress](PROGRESS.md) track S01–S03. Stop after Phase 1.
 
 ## Accepted scientific scope
@@ -30,8 +32,9 @@ rights remain unresolved; public cards and software do not release real records.
   [PR #37 merged at `850996e`](https://github.com/jaharris87/crucible-astro/pull/37#issuecomment-7017579899)
   with its exact reviewed tree, fresh independent review, 454 merged tests and CI
   passing. The original qualified overlay/configuration/scorer remain preserved.
-  PR #35 remains draft and unmerged. Earlier reviews cover their exact revisions,
-  not these repairs. No demonstrated finding invalidates D-025's accepted labels
+  PR #35 merged at `e86c7a2` after independent final freshness, concrete human
+  approval and passing exact-tree/installed-package/454-test/CI verification.
+  Reviews retain their exact revision limits. No demonstrated finding invalidates D-025's accepted labels
   or memberships.
 - PR #32 merged at `44c25ab`; [390-test merged integration](https://github.com/jaharris87/crucible-astro/pull/32#issuecomment-7014367929)
   and independent every-field/two-source execution review pass. The HDF5 union
@@ -46,8 +49,8 @@ rights remain unresolved; public cards and software do not release real records.
 
 ## Closure and resumption
 
-Finish the bounded audit corrections and current-guidance reconciliation under
-#36, retaining the original reports/proposals and immutable accepted artifacts.
+The bounded audit corrections and current-guidance reconciliation under #36 are
+integrated. Retain the original reports/proposals and immutable accepted artifacts.
 The selected transition choices are recorded in D-026–D-028. D-027 accepts the
 [12-guide migration plan](BACKLOG.md#documentation-migration-plan) for later separate
 authorization; no files moved. D-028 stages the baseline while retaining the
@@ -55,10 +58,11 @@ real-rollout gate. The reconciled roadmap and [unexecuted Phase 2 launch draft](
 preserve separate real-reference/execution requirements. Remaining architectural
 advice is not adopted wholesale. No new Phase 1 criterion or Phase 2 authority follows.
 
-Resolve open Phase 1 gates listed in the live final receipt. It must bind actual
-independent overlay/partition/source review, exact human-approved closeout merge
-and passing merged checks before S01/S03, milestone or native goal completion.
-Once those gates are recorded complete, stop; await separate Phase 2 authority.
+Consult the live final receipt for the actual administrative closure of S01/S03,
+milestone and native goal. It binds independent overlay/partition/source review,
+the exact human-approved closeout merge and passing merged checks. The source/data
+exit checks are verified; do not infer permission for subsequent work from closure.
+Stop and await separate Phase 2 or documentation-migration instructions.
 No earlier exploration-only artifact is silently promoted by that closure.
 
 D-017/D-020/D-023 executions and numerical checks are complete; every physical-call

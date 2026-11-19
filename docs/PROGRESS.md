@@ -3,8 +3,9 @@
 Updated **2026-11-19**. Phase 0A/0B are complete. Phase 1's exact finite native
 pointwise benchmark has D-025 human acceptance and a delivered qualified overlay;
 [the final integration receipt](https://github.com/jaharris87/crucible-astro/issues/15#issuecomment-7014392482)
-tracks remaining audit corrections, exact-candidate review, human closeout merge
-and merged checks. **Phase 1 is not complete.** No Phase 2 is authorized.
+records exact-candidate review, human closeout merges and passing merged checks.
+PR #35 is integrated at `e86c7a2`; source/data exit verification passes. Use that
+receipt for actual issue/milestone/goal closure. No Phase 2 is authorized.
 [Milestone #2 — Data qualification and benchmark definition](https://github.com/jaharris87/crucible-astro/milestone/2)
 tracks S01–S03 and bounded follow-ups; there is no additional board.
 
@@ -33,7 +34,7 @@ tracks S01–S03 and bounded follow-ups; there is no additional board.
 | [Physical diagnostics #29](https://github.com/jaharris87/crucible-astro/issues/29) | D-022 direction | Engineering complete; physical allowances/timescales/scales remain unapproved for later application uses | [#30](https://github.com/jaharris87/crucible-astro/pull/30) |
 | [Primary union #31](https://github.com/jaharris87/crucible-astro/issues/31) | Both completed reference packets, exact working membership | Engineering complete, merged `44c25ab`; [390-test integration](https://github.com/jaharris87/crucible-astro/pull/32#issuecomment-7014367929); immutable all-false payload | [#32](https://github.com/jaharris87/crucible-astro/pull/32) |
 | [Native scoring #33](https://github.com/jaharris87/crucible-astro/issues/33) | D-024, primary union | Merged `950ffa8`; both findings fixed, bounded freshness and [419-test merged integration](https://github.com/jaharris87/crucible-astro/pull/34#issuecomment-7014572050) pass | [#34](https://github.com/jaharris87/crucible-astro/pull/34) |
-| [Audit reconciliation #36](https://github.com/jaharris87/crucible-astro/issues/36) | Independent audits of `15ac601`, accepted D-024/D-025 | [Dispositions](https://github.com/jaharris87/crucible-astro/issues/36#issuecomment-7016554530); D-026 accepted, [PR #37 merged `850996e`, 454 tests/CI pass](https://github.com/jaharris87/crucible-astro/pull/37#issuecomment-7017579899). Current guidance/decision/base refresh still needs final review freshness, human closeout merge and integration | [#37 numerical repairs](https://github.com/jaharris87/crucible-astro/pull/37), [#35 closeout](https://github.com/jaharris87/crucible-astro/pull/35) |
+| [Audit reconciliation #36](https://github.com/jaharris87/crucible-astro/issues/36) | Independent audits of `15ac601`, accepted D-024/D-025 | [Dispositions](https://github.com/jaharris87/crucible-astro/issues/36#issuecomment-7016554530); D-026 accepted, [PR #37 integrated `850996e`](https://github.com/jaharris87/crucible-astro/pull/37#issuecomment-7017579899). PR #35 integrated `e86c7a2` after final independent review/human approval; merged tree, installed package, 454 tests and CI pass. Closure recorded in the final receipt | [#37 numerical repairs](https://github.com/jaharris87/crucible-astro/pull/37), [#35 closeout](https://github.com/jaharris87/crucible-astro/pull/35) |
 
 ## Scientific status
 
