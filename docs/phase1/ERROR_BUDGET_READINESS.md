@@ -30,3 +30,9 @@ allowances, physical timescales, critical selections, aggregate denominators and
 observable-specific scientific reasons. Qualification, accepted partitions,
 reference adequacy, independent exact-candidate review, human scientific acceptance
 and human merge remain separate gates. Phase 1/S01–S03 remains active.
+
+D-024 accepts separate [native digital-fidelity profiles](NATIVE_BENCHMARK.md) for
+the finite numerical-emulation purpose. That acceptance does not resolve any
+physical-change budget setting reported here, qualify real records/final
+partitions, or create a model result. See the native definition for exact pending
+primary-union bindings and the acyclic qualification proposal.

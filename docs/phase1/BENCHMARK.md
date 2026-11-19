@@ -232,3 +232,15 @@ rate-budget diagnostics with illustrative 0.1%, 1% and 5% relative-change tiers.
 allowances, scales, physical timescales and critical selections, and absent model
 predictions. No provisional tier qualifies a reference, final test or scientific
 accuracy. Preserve [later validation gates](../VALIDATION.md#provisional-pointwise-abundance-budgets-and-later-acceptance).
+
+## Accepted native digital-fidelity scoring, pending final qualification
+
+D-024 separately accepts the scoring contract described in
+[the finite native benchmark definition](NATIVE_BENCHMARK.md), with fixed direct `1/1000`, `1/100`, `1/20` digital-fidelity profiles. Exact native
+zero and nonzero populations, all-species physical errors, complete failed attempts
+and record attainment, and pooled/equal-history/equal-group aggregation are defined
+there and in the frozen native configuration. These profiles are numerical
+research objectives; they do not fill D-022's unresolved physical-budget settings.
+The exact named primary union, reference adequacy, eligible membership/final
+partitions and human scientific acceptance remain pending. No actual model
+prediction or successful profile attainment is claimed or required in Phase 1.
