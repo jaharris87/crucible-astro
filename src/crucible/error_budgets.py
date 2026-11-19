@@ -10,6 +10,7 @@ import argparse
 import hashlib
 import json
 import math
+from fractions import Fraction
 from pathlib import Path
 
 import numpy as np
@@ -95,6 +96,29 @@ def _vector(value):
         raise ValueError("array components must be numeric or null failures") from exc
 
 
+def _linear_change(coeff, left, right):
+    """Exact weighted change of decoded binary64 components, before rounding."""
+    return sum(
+        (
+            weight * (Fraction(float(a)) - Fraction(float(b)))
+            for weight, a, b in zip(coeff, left, right, strict=True)
+            if weight
+        ),
+        Fraction(0),
+    )
+
+
+def _change_float(value):
+    """Round once, rejecting a nonzero change that would disappear entirely."""
+    try:
+        result = float(value)
+    except OverflowError as exc:
+        raise ValueError("linear change overflow") from exc
+    if value and result == 0:
+        raise ValueError("linear change underflow")
+    return result
+
+
 def _scale(spec, coeff, species, intervals, tau):
     if spec is None or spec.get("mode") is None:
         return None, {"status": "NOT_EVALUATED", "reason": "unresolved change scale"}
@@ -167,11 +191,12 @@ def _scale(spec, coeff, species, intervals, tau):
     y = np.asarray([_vector(row) for row in raw_y], dtype=float)
     if y.shape != (len(times), len(species)) or not np.all(np.isfinite(y)):
         raise ValueError("interval Y shape/nonfinite failure")
-    with np.errstate(over="ignore", invalid="ignore"):
-        q = y @ coeff
-        value = float(np.max(np.abs(q - q[0])))
-    if not math.isfinite(value):
-        raise ValueError("reference excursion overflow")
+    # Select the exact maximum before conversion: a tiny nonmaximum excursion
+    # need not be representable if the selected maximum is representable.
+    try:
+        value = _change_float(max(abs(_linear_change(coeff, row, y[0])) for row in y))
+    except ValueError as exc:
+        raise ValueError(f"reference excursion arithmetic failure: {exc}") from exc
     return value, {
         "status": "SAMPLED_MAXIMUM",
         "value": value,
@@ -382,15 +407,20 @@ def evaluate(config, reference, prediction=None, *, intervals=None):
         )
     samples = _samples(reference, len(species), reference=True)
     prows = _prediction_rows(reference, prediction, samples, len(species))
-    factor = np.array(
-        [s["A"] if config["abundance_space"] == "X" else 1 for s in species],
-        dtype=float,
+    factor = tuple(
+        Fraction(s["A"]) if config["abundance_space"] == "X" else Fraction(1)
+        for s in species
     )
     budgets = config.get("species_budgets", {})
     if not isinstance(budgets, dict) or set(budgets) - set(ids):
         raise ValueError("unknown species budget")
     quantities = [
-        (sid, np.eye(len(ids))[i] * factor, budgets.get(sid), [sid])
+        (
+            sid,
+            tuple(value if j == i else Fraction(0) for j, value in enumerate(factor)),
+            budgets.get(sid),
+            [sid],
+        )
         for i, sid in enumerate(ids)
     ]
     seen = set(ids)
@@ -420,7 +450,7 @@ def evaluate(config, reference, prediction=None, *, intervals=None):
         quantities.append(
             (
                 gid,
-                np.array(values) * factor,
+                tuple(Fraction(v) * a for v, a in zip(values, factor, strict=True)),
                 group.get("budget"),
                 [sid for sid, v in zip(ids, values, strict=True) if v != 0],
             )
@@ -514,10 +544,12 @@ def evaluate(config, reference, prediction=None, *, intervals=None):
                             "failed prediction/reference or nonfinite state/RHS"
                         )
                     else:
-                        with np.errstate(over="ignore", invalid="ignore"):
-                            error = abs(float(coeff @ p) - float(coeff @ f))
-                        if not math.isfinite(error):
-                            record["reason"] = "physical-error arithmetic overflow"
+                        try:
+                            error = _change_float(abs(_linear_change(coeff, p, f)))
+                        except ValueError as exc:
+                            record["reason"] = (
+                                f"physical-error arithmetic failure: {exc}"
+                            )
                         else:
                             record.update(status="VALID", absolute_error=error)
                             if limit is not None:
