@@ -84,8 +84,11 @@ comparison; finite violations remain a separate count. Finite input vectors with
 physical difference/reporting overflow still have an exact mathematical decision
 and remain valid attempts, with an explicit unbounded report marker.
 Malformed identities/order/units and nonfinite native reference Y/F reject; they
-cannot define a usable zero/nonzero target population. Absent prediction arrays
-are NOT_EVALUATED, never a zero-error result. Empty populations are
+cannot define a usable zero/nonzero target population. A native reference's
+optional `success` flag must be exactly boolean `true` when present; omitted flags
+retain the existing valid-reference convention. Declared failures or malformed
+flags reject with the sample ID before target populations are constructed.
+Absent prediction arrays are NOT_EVALUATED, never a zero-error result. Empty populations are
 NOT_APPLICABLE/count zero, never success.
 
 ## Explicit reporting and weighting

@@ -317,6 +317,11 @@ def evaluate_native(config, reference, prediction=None):
     prows = _prediction_rows(reference, prediction, samples, len(species))
     history_groups = {}
     for sample in samples:
+        if sample.get("success", True) is not True:
+            raise ValueError(
+                f"native reference sample {sample['sample_id']!r} requires "
+                "success=True when provided"
+            )
         h = sample["history_id"]
         group_category = (sample["group_id"], sample["category"])
         if h in history_groups and history_groups[h] != group_category:

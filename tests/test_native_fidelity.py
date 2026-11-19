@@ -500,3 +500,29 @@ def test_report_exposes_distinct_arithmetic_identity_without_mutable_alias():
     )
     arithmetic["id"] = "changed-return-value"
     assert evaluate_native(*case())["arithmetic"]["id"] != arithmetic["id"]
+
+
+@pytest.mark.parametrize("success", [False, None, 0, 1, "true"])
+@pytest.mark.parametrize("predictions_present", [False, True])
+def test_native_reference_rejects_unsuccessful_or_malformed_success_flag(
+    success, predictions_present
+):
+    c, r, p = case([[1, 0]], [[1, 0]])
+    # Finite agreeing vectors must not convert a declared failed reference into
+    # a perfect scoring target, including when predictions are not supplied.
+    r["samples"][0]["success"] = success
+    with pytest.raises(
+        ValueError, match="native reference sample 'synthetic:0'.*success=True"
+    ):
+        evaluate_native(c, r, p if predictions_present else None)
+
+
+@pytest.mark.parametrize("predictions_present", [False, True])
+def test_native_reference_omitted_and_true_success_have_identical_reports(
+    predictions_present,
+):
+    c, r, p = case([[1, 0]], [[1, 0]])
+    prediction = p if predictions_present else None
+    expected = evaluate_native(c, r, prediction)
+    r["samples"][0]["success"] = True
+    assert evaluate_native(c, r, prediction) == expected
