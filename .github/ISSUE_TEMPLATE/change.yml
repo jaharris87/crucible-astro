@@ -19,13 +19,13 @@ body:
     id: risks
     attributes:
       label: Risks, authority and stopping rules
-      description: Name the risk viewpoints, scope or integrity stop conditions and required decisions. No resource estimate, reservation or command ledger is required (D-013). Review follows docs/WORKFLOW.md, including the narrow documentation lane only after Phase 0B.
+      description: Name the risk viewpoints, scope or integrity stop conditions and required decisions. No resource estimate, reservation or command ledger is required (D-013). Review follows docs/process/WORKFLOW.md, including the narrow documentation lane only after Phase 0B.
     validations:
       required: true
   - type: textarea
     id: execution
     attributes:
       label: Candidate, checks, review and human handoff
-      description: Record PR link, exact head/base and tested source identities, actual commands/results and gaps. Link required independent review or explain narrow-lane eligibility; preserve findings and dispositions with repair evidence. State human decisions, next action and owner. Follow docs/WORKFLOW.md; no merge by silence.
+      description: Record PR link, exact head/base and tested source identities, actual commands/results and gaps. Link required independent review or explain narrow-lane eligibility; preserve findings and dispositions with repair evidence. State human decisions, next action and owner. Follow docs/process/WORKFLOW.md; no merge by silence.
     validations:
       required: true

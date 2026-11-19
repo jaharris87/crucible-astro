@@ -1,10 +1,10 @@
 # Phased roadmap and exit criteria
 
-These are engineering phases, distinct from ENACT-AI's funding Phase I/II. Maintainer-directed transition choices are recorded in [DECISIONS](DECISIONS.md); the original reviewed version is preserved through [TRANSITION](TRANSITION.md). No calendar deadlines are assigned from historical month/day labels. The [backlog](BACKLOG.md) makes immediate work issue-sized; later phases are deliberately conditional. Scientific gates use [VALIDATION](VALIDATION.md), not a blanket training-loss threshold.
+These are engineering phases, distinct from ENACT-AI's funding Phase I/II. Maintainer-directed transition choices are recorded in [DECISIONS](DECISIONS.md); the original reviewed version is preserved through [TRANSITION](TRANSITION.md). No calendar deadlines are assigned from historical month/day labels. The [backlog](BACKLOG.md) makes immediate work issue-sized; later phases are deliberately conditional. Scientific gates use [VALIDATION](science/VALIDATION.md), not a blanket training-loss threshold.
 
 ## Milestone interpretation
 
-The final narrative, PDF pp. 4–6 [P1 in EVIDENCE](EVIDENCE.md), supplies:
+The final narrative, PDF pp. 4–6 [P1 in EVIDENCE](science/EVIDENCE.md), supplies:
 
 - **NS1:** representative CCSN and NSM trajectories with reference network solutions. A tiny fixture or one source simulation is enabling evidence, not completion.
 - **NS2:** implemented and verified callable prototype accommodating proposed approaches. A draft interface or one model is enabling evidence; Phase 5 demonstrates distinct approaches through the stabilized boundary.
@@ -73,7 +73,9 @@ Current fresh pointwise labels do not qualify a continuous solution, historical
 solver convergence or energy. Retain the real-rollout exit below; this staging
 does not move it to Phase 3 or authorize producer execution. [Transition work and
 the accepted documentation plan](BACKLOG.md#post-audit-transition) remain bounded;
-D-027's migration needs later separate authorization.
+D-027's documentation migration now has separate post-Phase-1 authority in
+[issue #39](https://github.com/jaharris87/crucible-astro/issues/39); it does not
+authorize Phase 2 or change these scientific exits.
 
 **Exit evidence:** clean rerun from recorded artifacts reproduces metrics within declared tolerance; independent analytic solution passes; trained transforms cannot depend on held-out data; reload agrees; full declared held-out horizons attempted and all failures reported; baseline reference, energy availability and inference/integration cost recorded; model card resolves to the actual artifact/data/split/evidence and states unevaluated regimes. Update that card when any bound artifact or material evaluation/limitation changes throughout later phases. Method performance may be poor: acceptance here establishes an honest reproducible pipeline, not scientific deployment suitability. Any pipeline failure remains a blocker.
 

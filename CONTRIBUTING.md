@@ -1,6 +1,6 @@
 # Development setup
 
-Read [AGENTS.md](AGENTS.md) and the [workflow](docs/WORKFLOW.md) before changing
+Read [AGENTS.md](AGENTS.md) and the [workflow](docs/process/WORKFLOW.md) before changing
 the project. Work from a governing issue and feature branch. The workflow
 specifies independent review, the future narrow documentation lane and the
 concrete human merge decision required for every post-seed change.
@@ -26,7 +26,7 @@ assertion; metadata is still checked. The noneditable verification below must
 pass it without a skip. The S02 extraction module uses pinned h5py (and its
 locked NumPy dependency) for HDF5 output. The root package remains inert; pytest and Ruff are
 the development dependencies. JSON handling uses the standard library. See the
-[quarantined reader contract](docs/phase1/S02_READER.md) for the explicit local
+[quarantined reader contract](docs/science/data/XNET_READER.md) for the explicit local
 resolver/recipe and scientific exclusions. Private data are never CI inputs.
 
 ## Isolated reproduction
@@ -89,7 +89,7 @@ D-013 removes repository-imposed compute/resource caps, reservations and command
 accounting. Historical [verification records](docs/VERIFICATION.md) remain
 unchanged evidence; they are not current execution requirements. This grants no
 new scientific phase, task or purchase authority. See the canonical
-[workflow](docs/WORKFLOW.md#resources-and-authority) for scope and failure rules.
+[workflow](docs/process/WORKFLOW.md#resources-and-authority) for scope and failure rules.
 
 Preserve intentional failure evidence and restore temporary probes. Use pytest
 temporary fixtures or `TMPDIR` for scratch. Record actual commands, results,
@@ -102,4 +102,4 @@ Use the issue form, PR template and canonical workflow for exact candidate/base,
 review findings/dispositions and merged-result verification. D-014's narrow lane
 applies only after Phase 0B; this closeout, code, policy and scientific changes
 retain independent review. Choose models through the canonical
-[model policy](docs/WORKFLOW.md#model-selection-and-escalation) (D-012/D-015).
+[model policy](docs/process/WORKFLOW.md#model-selection-and-escalation) (D-012/D-015).

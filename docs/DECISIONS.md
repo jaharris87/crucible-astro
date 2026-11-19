@@ -67,7 +67,7 @@ These are planning choices, not authorization to execute Phase 0B. Owner/visibil
 
 **B:** revise before adoption; maintainer supplies changes in free text. No manufactured alternate process is needed.
 
-**Why / impact:** accepted ongoing policy and root agent guidance must reflect the maintainer's choice; adopting scope does not execute it. Evidence: [WORKFLOW](WORKFLOW.md), [B01–B04](BACKLOG.md).
+**Why / impact:** accepted ongoing policy and root agent guidance must reflect the maintainer's choice; adopting scope does not execute it. Evidence: [WORKFLOW](process/WORKFLOW.md), [B01–B04](BACKLOG.md).
 
 ### Decision D-011: Bootstrap verification budget
 
@@ -79,7 +79,7 @@ These are planning choices, not authorization to execute Phase 0B. Owner/visibil
 
 **B:** revise limits or accounting scope in free text.
 
-**Why / impact:** original B04 proposal limited its verification; the proposed extension makes the complete bootstrap bounded while clarifying memory/scratch scope. Approval adopts these limits, not permission to execute Phase 0B. Evidence: [B04](BACKLOG.md#b04--demonstrate-the-complete-cycle-with-fixture-manifest-species-order-validation), [WORKFLOW](WORKFLOW.md#review-record-and-practical-completion).
+**Why / impact:** original B04 proposal limited its verification; the proposed extension makes the complete bootstrap bounded while clarifying memory/scratch scope. Approval adopts these limits, not permission to execute Phase 0B. Evidence: [B04](BACKLOG.md#b04--demonstrate-the-complete-cycle-with-fixture-manifest-species-order-validation), [WORKFLOW](process/WORKFLOW.md#review-record-and-practical-completion).
 
 ### Decision D-012: Model selection and exceptional escalation
 
@@ -88,7 +88,7 @@ Phase 0B**. [Accepted scope recorded in B03](https://github.com/jaharris87/cruci
 The current Phase 0B orchestrator/agents and executed assignments continue unchanged.
 
 **Decision:** adopt the eight-point canonical [model selection and escalation
-policy](WORKFLOW.md#model-selection-and-escalation): `gpt-6.1-sol` High is the
+policy](process/WORKFLOW.md#model-selection-and-escalation): `gpt-6.1-sol` High is the
 advanced default, including science and independent review; `gpt-6-luna` High
 serves narrow mechanical work. Sol must be pinned explicitly, with alternatives
 reported before any unavailable-model substitution. Astra requires a substantial
@@ -130,7 +130,7 @@ remain meaningful evidence and validation, not resource-allocation caps.
 human merge and the review-round allowance remain. [Issue #8](https://github.com/jaharris87/crucible-astro/issues/8)
 implements active documentation, templates and CI consistently through its own
 full independent review, human merge and integration checks. No replacement
-resource limits or ledger are introduced. See [WORKFLOW](WORKFLOW.md#resources-and-authority).
+resource limits or ledger are introduced. See [WORKFLOW](process/WORKFLOW.md#resources-and-authority).
 
 ### Decision D-014: Narrow documentation lane after Phase 0B
 
@@ -143,7 +143,7 @@ human merge without mandatory agent review. Code, policy, scientific claims and
 this closeout retain full independent review. Mixed or uncertain changes use the
 full lane. Eligibility, candidate identity, CI and human merge remain recorded;
 required checks/protections and applicable merged-result verification remain.
-Canonical scope: [narrow documentation lane](WORKFLOW.md#narrow-documentation-lane).
+Canonical scope: [narrow documentation lane](process/WORKFLOW.md#narrow-documentation-lane).
 
 ### Decision D-015: Canonical model policy with concise AGENTS guidance
 
@@ -151,7 +151,7 @@ Canonical scope: [narrow documentation lane](WORKFLOW.md#narrow-documentation-la
 **“Keep canonical WORKFLOW plus concise AGENTS summary (Recommended).”** See the
 [decision receipt](https://github.com/jaharris87/crucible-astro/issues/8#issuecomment-6960426760).
 
-**Decision:** retain all eight points of [D-012's canonical policy](WORKFLOW.md#model-selection-and-escalation),
+**Decision:** retain all eight points of [D-012's canonical policy](process/WORKFLOW.md#model-selection-and-escalation),
 with concise explicit Sol High selection/substitution guidance and routing in
 AGENTS. Always record model/effort; supply escalation details when escalating
 instead of repeated empty fields. Availability and substitution records remain
@@ -319,7 +319,7 @@ remain whole; both metadata categories occur in every role. The exact
 population/version and measured position window bind the groups. Frozen protocol
 SHA256 `9d6a5b21b7d885e51932df5352596755ac641a5de18e48def1700a5d2f94ba2d`;
 original assignment `9c85cd2656c9171479e4b4cc0cec711b6574842f491c19663315ec2ac5e30a24`.
-The [constructor contract](phase1/PARTITIONS.md) implements that rule and retains
+The [constructor contract](science/benchmark/PARTITIONS.md) implements that rule and retains
 the original assignment as an immutable comparison oracle.
 
 This does not establish physical-family independence, sufficient joint coverage,
@@ -346,7 +346,7 @@ unresolved.** The maintainer explicitly requested configurable physical-abundanc
 error budgets, diagnostics and benchmark reports now, with 0.1%, 1% and 5%
 relative-change tiers as provisional engineering settings. Implement the bounded
 [issue #29](https://github.com/jaharris87/crucible-astro/issues/29) contract using
-ordinary JSON and existing dependencies. [The diagnostic contract](phase1/ERROR_BUDGETS.md)
+ordinary JSON and existing dependencies. [The diagnostic contract](science/validation/PHYSICAL_ERROR_BUDGETS.md)
 separates pointwise rate budgets from later state/reconstruction and integrated
 scientific accuracy; the [readiness report](phase1/ERROR_BUDGET_READINESS.md)
 records actual missing choices and absent model outcomes.
@@ -399,7 +399,7 @@ For the finite D-019 native-emulation benchmark, use exact digital binary64 labe
 with fixed direct relative profiles `1/1000`, `1/100`, `1/20`, all ordered species,
 separate exact-zero and nonzero populations, physical errors, complete failed
 attempts/finite violations, record attainment and declared pooled/history/group
-aggregation. [The frozen definition](phase1/NATIVE_BENCHMARK.md) records the
+aggregation. [The frozen definition](science/benchmark/NATIVE_RHS.md) records the
 purpose, exact arithmetic, zero policy, bindings and pending qualification packet.
 
 This accepts numerical research fidelity objectives, not D-022 physical
@@ -468,6 +468,16 @@ all five distinct dataset cards byte-identical at their current paths; preserve
 old guide paths/heading anchors with compatibility pages. No moves are authorized
 now, and migration is not a new Phase 1 exit. Targeted current contradictions are
 corrected independently.
+
+**Separate execution authority, 2026-11-19:** after verified Phase 1 closure,
+the maintainer explicitly instructed execution of this accepted migration under
+[issue #39](https://github.com/jaharris87/crucible-astro/issues/39), with a new
+persistent transition goal, independent review, human-approved merge and
+merged-result verification. The preceding “no moves” statement records the
+original planning-time boundary. This later instruction authorizes only the
+accepted documentation migration, navigation and launch-draft path updates;
+it grants no Phase 2 or new scientific acceptance requirements. See the
+[source/anchor preservation record](process/DOCUMENTATION_MIGRATION.md).
 
 ### Decision D-028: Stage the baseline while retaining the real-rollout gate
 

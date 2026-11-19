@@ -1,6 +1,6 @@
 # Backlog and phase dependencies
 
-B01–B04 scope was adopted by the maintainer on 2026-11-17 (D-010); the maintainer separately authorized execution on 2026-11-17. B01–B04 are now [GitHub issues in the Phase 0B milestone](https://github.com/jaharris87/crucible-astro/milestone/1); [PROGRESS](PROGRESS.md) records current dependencies, status and PR links. D-013 supersedes D-011 resource caps and accounting; the linked section below preserves the policy transition. Phase 1 S01–S03 execution was authorized on 2026-11-17 ([authority](PHASE_1_AUTHORITY.md)); [milestone #2](https://github.com/jaharris87/crucible-astro/milestone/2) tracks its gates. Later scientific issues remain provisional. IDs remain stable when mapped to future issue numbers. All implementation follows [WORKFLOW](WORKFLOW.md); scientific checks follow [VALIDATION](VALIDATION.md). No dates are implied.
+B01–B04 scope was adopted by the maintainer on 2026-11-17 (D-010); the maintainer separately authorized execution on 2026-11-17. B01–B04 are now [GitHub issues in the Phase 0B milestone](https://github.com/jaharris87/crucible-astro/milestone/1); [PROGRESS](PROGRESS.md) records current dependencies, status and PR links. D-013 supersedes D-011 resource caps and accounting; the linked section below preserves the policy transition. Phase 1 S01–S03 execution was authorized on 2026-11-17 ([authority](PHASE_1_AUTHORITY.md)); [milestone #2](https://github.com/jaharris87/crucible-astro/milestone/2) tracks its gates. Later scientific issues remain provisional. IDs remain stable when mapped to future issue numbers. All implementation follows [WORKFLOW](process/WORKFLOW.md); scientific checks follow [VALIDATION](science/VALIDATION.md). No dates are implied.
 
 ## Bootstrap sequence
 
@@ -32,7 +32,7 @@ B02 and drafting B03 may overlap in isolated workspaces after B01, but the demon
 
 **Problem:** a candidate must have durable acceptance/evidence/review records and reproducible checks.
 
-**Scope:** one issue template, compact PR template, fast CI on push/PR including drafts; contributor workflow; available branch protections with verified check names; no ready-only agent router. Templates include issue/dependencies/non-goals, risks and authority, head/base identity, actual checks, original findings/dispositions and human handoff. Establish a lightweight issue/milestone progress view showing phases, dependencies, status and linked PRs. Maintain the [local progress view](PROGRESS.md) with actual issue/milestone/PR links once created; use existing GitHub capabilities, not a custom dashboard. Create/adopt the reusable [meeting-report template](MEETING_REPORT_TEMPLATE.md) and [initial bootstrap status report](reports/2026-11-17-bootstrap.md), and link both from README and handoff. The local documents are prepared in advance; B03 must reconcile them with actual bootstrap state.
+**Scope:** one issue template, compact PR template, fast CI on push/PR including drafts; contributor workflow; available branch protections with verified check names; no ready-only agent router. Templates include issue/dependencies/non-goals, risks and authority, head/base identity, actual checks, original findings/dispositions and human handoff. Establish a lightweight issue/milestone progress view showing phases, dependencies, status and linked PRs. Maintain the [local progress view](PROGRESS.md) with actual issue/milestone/PR links once created; use existing GitHub capabilities, not a custom dashboard. Create/adopt the reusable [meeting-report template](process/MEETING_REPORT_TEMPLATE.md) and [initial bootstrap status report](reports/2026-11-17-bootstrap.md), and link both from README and handoff. The local documents are prepared in advance; B03 must reconcile them with actual bootstrap state.
 
 **Depends:** B01/B02. **Acceptance/evidence:** a draft candidate actually triggers CI; intentional failing probe is detected before corrected passing candidate; minimum read-only workflow permissions verified; settings match real plan/access constraints; review brief and disposition record can be completed without external AI services. The progress view covers all phases and B01–B04 with explicit dependencies/status and actual PR links or “None”; the template and initial report are reachable from both README and handoff and agree with issue/PR evidence. Scientific results remain explicitly **“not yet evaluated”** until supported by linked experiment records; bootstrap/CI checks do not count as scientific results. All added workflow behavior reviewed at exact SHA. **Human point:** repository settings and merge. **Milestone:** evidence infrastructure.
 
@@ -62,7 +62,7 @@ D-011's original resource caps and accounting are **superseded by D-013**,
 accepted 2026-11-17: “Remove all compute/resource limits.” There is no active
 repository CPU/GPU, job-time, memory, scratch or fixture-storage cap, pre-run
 reservation or per-command ledger requirement. [DECISIONS](DECISIONS.md#decision-d-013-remove-compute-and-resource-limits)
-records the choice; [WORKFLOW](WORKFLOW.md#resources-and-authority) is canonical.
+records the choice; [WORKFLOW](process/WORKFLOW.md#resources-and-authority) is canonical.
 The unchanged [ledger body](VERIFICATION.md) and executed launch/evidence records
 preserve the rules and observations that applied to their historical work.
 
@@ -102,7 +102,7 @@ separately accept the named numerical reference and partitions. S04/S05 later ac
 constraint evidence, reconstruction/decoded chain-rule consistency and closure,
 free-running abundance/energy/weak-Ye/equilibrium behavior, solver/Jacobian/JVP
 numerical compatibility and matched-accuracy cost. See the
-[validation requirements](VALIDATION.md#provisional-pointwise-abundance-budgets-and-later-acceptance).
+[validation requirements](science/VALIDATION.md#provisional-pointwise-abundance-budgets-and-later-acceptance).
 No model or numerical integration implementation is authorized by this addition.
 
 
@@ -154,9 +154,14 @@ historical provenance work by its relevance to the intended use.
 
 ### Documentation migration plan
 
-**Plan accepted under D-027, 2026-11-19; no execution authorized.**
+**Plan accepted under D-027, 2026-11-19; execution separately authorized after
+verified Phase 1 closure in [issue #39](https://github.com/jaharris87/crucible-astro/issues/39).**
+The table and plan below preserve the accepted pre-move source/destination map.
+The [migration record](process/DOCUMENTATION_MIGRATION.md) binds its actual
+implementation source and compatibility/recovery checks. Human merge and merged
+verification remain pending in the live issue/PR; Phase 2 is not authorized.
 [The maintainer accepted this concrete plan](https://github.com/jaharris87/crucible-astro/issues/36#issuecomment-7017529663)
-for later, separately authorized post-Phase-1 work. Migrate maintained scientific guides and contributor
+for separately authorized post-Phase-1 work. Migrate maintained scientific guides and contributor
 process into separate directories, while keeping historical evidence and all
 five distinct dataset cards at their current paths. The demonstrated problem is
 conflicting current claims and poor navigation, not the number of files.
