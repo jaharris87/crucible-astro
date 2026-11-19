@@ -43,7 +43,8 @@ fingerprints and source-call identities are separately checked; signed zeros sta
 in output but count equally for cross-role physical duplicate detection.
 
 Public tests exercise qualification, rebinding, order/units, membership/use,
-physical duplicates, paths and the example. The local real-data structural check
+physical duplicates and paths. The runnable example was checked locally on the
+validation split. The local real-data structural check
 compares returned fields bit for bit with the HDF5 for all 24,314 rows, verifies
 17,659/3,220/3,435 states, 274/51/55 histories and 66/14/14 groups, their disjointness,
 and unchanged accepted input hashes. Final exact-candidate results and retained
