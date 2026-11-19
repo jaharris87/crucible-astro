@@ -2,7 +2,11 @@
 
 2026-11-19, [issue #33](https://github.com/jaharris87/crucible-astro/issues/33),
 [S03 #15](https://github.com/jaharris87/crucible-astro/issues/15).
-**Scoring accepted; data/reference/final partitions pending separate acceptance.**
+**D-024 scoring and D-025 named data/reference/final partitions accepted.**
+The separate [qualified overlay/card](../data-cards/genesis_datacard_ccsn_native_pointwise_qualified_v0_1.md)
+and [final receipt](https://github.com/jaharris87/crucible-astro/issues/15#issuecomment-7014392482) supply actual qualification and closure evidence.
+The preparation-time pending statements below describe the preserved proposal,
+not a current denial of D-025 acceptance.
 The maintainer selected “Accept native-RHS fidelity profiles (Recommended)” in
 [the D-024 decision](https://github.com/jaharris87/crucible-astro/issues/15#issuecomment-7013147287),
 binding proposal SHA256
@@ -31,7 +35,7 @@ unresolved scientific allowances/scales/timescales/critical selections stay inta
 | Domain | Exactly the named 24,314 candidate inputs in 380 histories/94 operational groups. Finite within-parent points, not a rectangular T/rho/Y validity box, independent physical families or representative CCSN/NSM coverage |
 | Horizon/energy | Instantaneous RHS only. Heating, stored energy fields, integrated trajectories/yields and equilibrium/rollout accuracy remain excluded/unevaluated |
 | Preprocessing/search | None fitted in Phase 1. Later authorized transforms/scales/bases/features use training only; validation supports recorded authorized choices; final test cannot guide redesign without disclosed reuse/new confirmation |
-| Working roles | D-021 rule: train/validation/test = 66/14/14 groups, 274/51/55 histories and 17,659/3,220/3,435 candidates. Complete [partition constructor/checks](PARTITIONS.md) preserve ancestry/whole-history groups; these are working roles pending final qualified membership acceptance |
+| Working roles | D-021 rule: train/validation/test = 66/14/14 groups, 274/51/55 histories and 17,659/3,220/3,435 candidates. Complete [partition constructor/checks](PARTITIONS.md) preserve ancestry/whole-history groups; D-025 accepts these exact roles through the separate qualified overlay |
 
 The source evaluator assigns unchanged Y, time, T9 and rho, calls the pinned
 `cross_sect` then `yderiv`, and checks echoed state/configuration bits. This scoring
@@ -40,8 +44,8 @@ The [reference-scope record](RHS_REFERENCE_SCOPE.md) and retained source/input/b
 receipts distinguish this declared native numerical calculation from the unknown
 historical generator of the raw stored derivative. Stored derivatives are audit-only.
 
-The actual primary union is prepared in [PR #32](https://github.com/jaharris87/crucible-astro/pull/32),
-including its [candidate living card](https://github.com/jaharris87/crucible-astro/blob/1ce03d821e55bef64843c53046a49f59b23e5e3d/docs/data-cards/genesis_datacard_ccsn_primary_native_rhs_union_v0_1.md).
+The immutable primary union is integrated in [PR #32](https://github.com/jaharris87/crucible-astro/pull/32),
+including its [quarantined-union living card](https://github.com/jaharris87/crucible-astro/blob/1ce03d821e55bef64843c53046a49f59b23e5e3d/docs/data-cards/genesis_datacard_ccsn_primary_native_rhs_union_v0_1.md).
 Payload SHA256 `f4171d1600586f28b4a514071c8c029d1a84c7634f9f11ae8a6b4b25c6a0c980`
 (109,687,400 bytes), manifest SHA256
 `78f5c7f51e041aa82698cc3f7832f399a00738da775432bcd80763f767fb4b86`
@@ -200,7 +204,7 @@ and closure evidence, integrated abundance/energy/weak-Ye/equilibrium behavior,
 solver/JVP compatibility and matched-accuracy total cost. Actual Phase 2 artifacts
 need model cards; this document invents none.
 
-## Pending qualification packet and acyclic acceptance
+## Preserved preparation packet and subsequent qualification
 
 An ignored one-off recipe prepares an exact **pending**, private proposal. It
 checks the bound original pool/contract/groups, reconstructs the complete accepted
@@ -225,3 +229,8 @@ and membership digests checked against the original mechanical inputs. The
 proposal does not hash itself or a future acceptance receipt, avoiding a cycle.
 Rights for redistribution remain a separate gate. Numerical-emulation qualification
 would not qualify raw energy/rollout fields, broader physical accuracy or NS1/NS3.
+
+The accepted scoring configuration is byte-preserved, including its historical
+preparation-time `qualification_status`. Current purpose-specific eligibility
+comes solely from the D-025-bound overlay; that old metadata is not rewritten
+to change an accepted artifact hash. See the final qualified card and receipt.

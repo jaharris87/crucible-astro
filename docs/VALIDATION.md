@@ -108,3 +108,14 @@ Larger scientific qualification is manually authorized and artifact-backed: real
 ## Method comparison gate
 
 The maintainer selected the identity/full-state instantaneous-RHS starting path, contingent on qualified labels, with finite-step prediction retained for later exploration (D-003). A fixed linear reduced model with a simple learned RHS remains a diagnostic recommendation; select reduced model families after data/closure evidence. Candidates include nonlinear latent dynamics, operator inference/nonintrusive ROM, or physics-guided grouping where equilibrium assumptions hold [P1, P4]. A PCA reconstruction-only result is not a dynamics comparison. Freeze common data, tests, task and reporting; permit method-appropriate tuning with disclosed search procedures and resource use. Compare matched effort where useful and include accuracy-cost curves when necessary. Record negative results and the reason for down-selection. CCSN-only evidence cannot satisfy NS3's r-process scope [P1].
+
+## Named Phase 1 qualification under D-025
+
+D-025 accepts the exact finite native-emulation reference/data/partitions and
+D-024 digital-fidelity objectives. [The exit record](phase1/PHASE1_CLOSEOUT.md)
+and qualified card bind the actual separate overlay and complete original-input
+scientific checks. The preserved all-false payload remains immutable. Earlier
+preparation-time pending statuses are superseded only for this named purpose;
+physical application/energy/rollout accuracy and D-022 allowances remain separate.
+Final exact-candidate independent review, human merge and merged checks are
+required in the live final receipt before Phase 1 closes.

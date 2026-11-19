@@ -1,6 +1,6 @@
 # Decision register and maintainer packet
 
-Prepared 2026-11-17; maintainer-directed transition updates on the same date are recorded below. Original Phase 0A review and inventories remain historical; see [transition record](TRANSITION.md). Status vocabulary: **accepted requirement** (user instruction); **verified fact** (bounded source evidence); **recommendation** (proposed, not adopted); **assumption** (temporary working premise); **open question** (requires evidence/judgment). Future choices do not block finishing this design package. No unanswered recommendation is approval.
+Prepared 2026-11-17; current named-scope qualification updated 2026-11-19 under D-025. Earlier decision-time states remain historical. Original Phase 0A review and inventories remain historical; see [transition record](TRANSITION.md). Status vocabulary: **accepted requirement** (user instruction); **verified fact** (bounded source evidence); **recommendation** (proposed, not adopted); **assumption** (temporary working premise); **open question** (requires evidence/judgment). Future choices do not block finishing this design package. No unanswered recommendation is approval.
 
 ## Established direction and evidence
 
@@ -17,8 +17,8 @@ Prepared 2026-11-17; maintainer-directed transition updates on the same date are
 | F-005 verified fact | XNet uses draft review candidates; fTimer trigger/coverage skips drafts | W1/W2; choose one lifecycle compatible with actual mechanism |
 | R-006 accepted policy | Draft PR + explicit fresh reviewer, then ready for human review; simple `main`; minimal CI/templates; B01–B04 scope adopted | D-010 / WORKFLOW; no copied mirror branches or full bot system |
 | REC-002 recommendation | Small Python path, standard JSON fixtures first; extract interfaces as real implementations need them | DESIGN/B02; no framework/library lock-in before experiments |
-| R-005 accepted direction | Initial emphasis on CCSN particle trajectories as the training set; retain later NSM/r-process coverage | D-002; specific data/closure qualification remains open, and CCSN-only evidence cannot complete NS3 |
-| A-001 assumption | Existing local assets may support an initial bounded data audit | They are not yet qualified training inputs; S01 may reveal missing provenance/coverage |
+| R-005 accepted direction | Initial emphasis on CCSN particle trajectories as the training set; retain later NSM/r-process coverage | D-002/D-025; only the named finite native-emulation subset is qualified; wider closure/coverage remain open and CCSN-only evidence cannot complete NS3 |
+| A-001 assumption | Existing local assets may support an initial bounded data audit | Initial assumption; D-025 now qualifies the named numerical subset only, with remaining provenance/coverage limits |
 | A-002 assumption | A CPU-capable baseline and small fixture checks can establish the first pipeline | Tooling and task scope verified before running; former resource-cap requirement removed by D-013; no performance promise |
 
 ## Maintainer decisions addressed during transition
@@ -391,7 +391,7 @@ and live #26 receipts distinguish permission, actual execution and verification.
 ### Decision D-024: Native-RHS digital-fidelity scoring profiles
 
 **Status: accepted scoring contract, 2026-11-19; final data/reference/partition
-qualification remains open.** The maintainer selected “Accept native-RHS fidelity
+qualification remained open at this scoring decision (subsequent D-025 below resolves the named scope).** The maintainer selected “Accept native-RHS fidelity
 profiles (Recommended)” in [the human receipt](https://github.com/jaharris87/crucible-astro/issues/15#issuecomment-7013147287),
 binding proposal SHA256
 `902625688aca39d3b6ba56f79f41709e6ed084b5a6bcd1f90c14d85e4b839262`.
@@ -412,7 +412,31 @@ The actual named reference/subset/final eligible partitions still need independe
 verification and explicit human acceptance before a new qualified overlay identity
 can exist. All current real scientific masks remain false; Phase 1 stays active.
 
+### Decision D-025: Named native numerical benchmark qualification
+
+**Accepted, 2026-11-19.** The maintainer selected “Accept named numerical benchmark
+qualification (Recommended)” in [the human receipt](https://github.com/jaharris87/crucible-astro/issues/15#issuecomment-7014300546).
+This binds proposal `0a6c16002f02ee5d2b5bdcf81d60c11edf4ea05b39c6cd469aab7d0bfa635a42`
+and packet manifest `f3555be7c105e96511d5800bf8a0b827736c37f4dae04a04bc570ac443bf9847`.
+Accept the exact 24,314-state/380-history finite within-parent native-XNet pointwise
+reference/data and 17,659/3,220/3,435 memberships, D-019 conditions and D-024 scoring
+as adequate for this specific numerical-emulation purpose. Whole histories/known
+ancestry, train-only rules and operational-group/one-parent/coverage limits remain.
+
+D-025 permits a separate purpose-qualified overlay, not rewriting quarantine.
+[The qualification/exit record](phase1/PHASE1_CLOSEOUT.md) and
+[qualified card](data-cards/genesis_datacard_ccsn_native_pointwise_qualified_v0_1.md) bind actual outputs/checks.
+D-004/D-005/D-007 are resolved for this named scope only. Energy/rollout and broader
+physical application accuracy stay unqualified; D-022 physical budgets remain
+unapproved for those uses. Historical generator and redistribution gaps remain.
+No training, Phase 2, extra producer call, redistribution or merge is granted.
+Reviewed human merges and final independent/integration checks remain mandatory;
+[the final receipt](https://github.com/jaharris87/crucible-astro/issues/15#issuecomment-7014392482) records actual completion.
+
 ## Scientific decisions and current evidence gates
+
+The paragraph below preserves the initial ingestion decision; D-025 above is the
+current named-scope scientific qualification.
 
 On 2026-11-17 the [S01 audit packet](phase1/S01_AUDIT.md) and
 [bounded reader/extraction proposal](phase1/S02_EXTRACTION_PROPOSAL.md) were
@@ -433,10 +457,10 @@ HDF5/JSON extraction after acceptance. That question is not bulk-conversion auth
 
 | ID / status | Question and recommendation | Evidence needed / gate / owner |
 | --- | --- | --- |
-| D-004 pilot target/conditions accepted under D-019; qualification open | Preserve full ordered source Y and the declared reference's T9/rho/composition-derived Ye contract. Wider closure, inference availability and other configurations remain unqualified. | S01 named-subset/reference evidence and final benchmark acceptance; scientific maintainer |
-| D-005 pilot energy/rollout exclusion accepted under D-019; constraints/tolerances open | Exclude energy and rollout targets from this pilot; retain their fields/limitations separately. Select justified baryon/positivity diagnostics and appropriate Ye evolution without fixed charge. | Mass/rate/weak/EOS evidence and observable-specific tolerances; exclusion does not complete wider energy milestones; scientific maintainer |
+| D-004 named scope qualified under D-025; wider closure open | Preserve full ordered source Y and the declared reference's T9/rho/composition-derived Ye contract. Wider closure, inference availability and other configurations remain unqualified. | S01 named-subset/reference evidence and final benchmark acceptance; scientific maintainer |
+| D-005 named-scope exclusions/diagnostics accepted under D-025; wider physical uses open | Exclude energy and rollout targets from this pilot; retain their fields/limitations separately. Select justified baryon/positivity diagnostics and appropriate Ye evolution without fixed charge. | Mass/rate/weak/EOS evidence and observable-specific tolerances; exclusion does not complete wider energy milestones; scientific maintainer |
 | D-006 open method comparison | Which initial reduction and second family? Recommend fixed linear/PCA diagnostic after identity; select nonlinear latent, operator inference or valid physics grouping from measured closure/coverage evidence. | Phase 2 results, equilibrium applicability, tuning budget; before S05/S06; scientific maintainer |
-| D-007 new declared reference selected under D-019; final qualification open | Establish reference adequacy, accepted groups, tolerances, cost boundaries and custody for the actual task. D-018 requires a multi-trajectory pool; source identity and exact serialization alone do not prove scientific accuracy. | Named data/reference evidence and justified thresholds before qualification/final-test use; maintainer and resource owner |
+| D-007 named numerical reference/benchmark qualified under D-025; wider accuracy open | Establish reference adequacy, accepted groups, tolerances, cost boundaries and custody for the actual task. D-018 requires a multi-trajectory pool; source identity and exact serialization alone do not prove scientific accuracy. | Named data/reference evidence and justified thresholds before qualification/final-test use; maintainer and resource owner |
 | D-008 open proposal scope | How does collaboration interpret broad embedded-simulation language versus nuclear-specific production coupling in Phase II? Recommend callable stand-alone prototype now; separate production-coupling project later. | Final narrative pp. 4–5 and summary p. 1, collaborator confirmation before integration commitment; scientific/project lead |
 | D-009 deferred active learning | Should adaptive reference generation become a later CRUCIBLE extension? Recommend separate scoped proposal only after benchmark and uncertainty/selection validation work. | Locked benchmark, nonadaptive baseline, domain/cost/stopping/human gates; future owner |
 

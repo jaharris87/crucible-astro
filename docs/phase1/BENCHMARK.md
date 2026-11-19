@@ -1,3 +1,8 @@
+> Current named scope: D-025 accepts the finite native pointwise benchmark in
+> [the final qualification record](PHASE1_CLOSEOUT.md) and [qualified data card](../data-cards/genesis_datacard_ccsn_native_pointwise_qualified_v0_1.md).
+> The reconnaissance/proposal sections below preserve the evidence and earlier
+> decision states; the live final receipt controls completion status.
+
 # S03 benchmark definition: preparation and unresolved gates
 
 2026-11-17, [S03 #15](https://github.com/jaharris87/crucible-astro/issues/15),
@@ -136,7 +141,7 @@ rate-evaluation history is not a new data-qualification prerequisite. Actual
 reference verification, appropriate task/metrics/tolerances and human scientific
 acceptance are still required.
 
-## Scientific decision sheet
+## Historical prequalification decision sheet
 
 | Contract item | Current evidence / recommendation | Acceptance gate |
 | --- | --- | --- |

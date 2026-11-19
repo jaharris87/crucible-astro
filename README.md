@@ -2,7 +2,7 @@
 
 **A framework for learning and reduced modeling of astrophysical reaction networks.**
 
-Repository: **[jaharris87/crucible-astro](https://github.com/jaharris87/crucible-astro), public, BSD-3-Clause**. Phase 0A/0B are complete; [Phase 1 S01–S03 is authorized](docs/PHASE_1_AUTHORITY.md). For current dependencies and acceptance gates, see [Progress](docs/PROGRESS.md) and [Handoff](docs/HANDOFF.md). No trained model or qualified dataset exists; scientific results are **not yet evaluated**. Model development/training requires a later phase.
+Repository: **[jaharris87/crucible-astro](https://github.com/jaharris87/crucible-astro), public, BSD-3-Clause**. Phase 0A/0B are complete. Phase 1 has human scientific acceptance for a finite, within-parent native-XNet pointwise benchmark: 24,314 states from 380 histories. [Progress](docs/PROGRESS.md), [Handoff](docs/HANDOFF.md) and the [final integration receipt](https://github.com/jaharris87/crucible-astro/issues/15#issuecomment-7014392482) track actual artifacts and closure. No model has been developed or trained; physical application, energy, rollout accuracy and speedup are **not evaluated**. Phase 2 requires separate authorization.
 
 ## Charter
 

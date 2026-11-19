@@ -1,38 +1,29 @@
-# Current benchmark error-budget readiness
+# Physical abundance-change budget readiness
 
-2026-11-17. [Issue #29](https://github.com/jaharris87/crucible-astro/issues/29),
-[benchmark definition](BENCHMARK.md), [contract/examples](ERROR_BUDGETS.md).
-This is a current readiness report, **not a surrogate evaluation**. All scientific
-eligibility masks remain false; provisional engineering tiers do not qualify them.
+Updated 2026-11-19. D-022's physical-change budget framework is implemented;
+its numerical scientific parameters remain unresolved. This report concerns that
+physical/application purpose. D-024/D-025 separately accept and qualify the finite
+[native digital-fidelity benchmark](NATIVE_BENCHMARK.md) and
+[qualified view](../data-cards/genesis_datacard_ccsn_native_pointwise_qualified_v0_1.md).
+Neither contract substitutes for the other. No surrogate has been evaluated.
 
-| Item | Actual status / bound identity |
+| Item | Actual status |
 | --- | --- |
-| Task | D-019 full ordered 160-species native pointwise Y-RHS, unchanged states/conditions, heating off; reference selection is not scientific accuracy |
-| Initial quarantined artifact | [Three-pair derived card](../data-cards/genesis_datacard_ccsn_quarantined_v0_1.md): 1,384 records, no positive scientific eligibility |
-| Qualification pilot | [Reference preparation](../../experiments/rhs_reference/README.md): 80-history / 5,157-state fixed candidate; D-020 physical loop authority is exhausted. Use live [#18](https://github.com/jaharris87/crucible-astro/issues/18) for verification/evidence, not another run |
-| Primary input candidate | [Expanded audit](PRIMARY_EXPANSION_AUDIT.md): 380 familiar histories, 24,314 table-screened candidates, not qualified labels |
-| Accepted working grouped population | [Primary proposal](PRIMARY_BENCHMARK_PROPOSAL.md): group assignment SHA256 `9c85cd2656c9171479e4b4cc0cec711b6574842f491c19663315ec2ac5e30a24`; packet manifest `50e0430b81286c624109eeab9e782cf32fd098f4dd4acc18742b54a0da571c13`. D-021 working contract implemented in [partitions](PARTITIONS.md)/merged PR #27; actual qualified final membership remains a separate gate |
-| Data stewardship | Living [raw card](../data-cards/genesis_datacard_ccsn_raw_candidate.md) and derived card preserve raw/derived identities and access/rights limits; no real arrays are published by this task |
-| Remaining-primary preparation/authority | [PR #28](https://github.com/jaharris87/crucible-astro/pull/28#issuecomment-6968936667) merged at `775f988`; D-023 separately authorizes one build/exact 19,159 calls after passing integration. Live [#26](https://github.com/jaharris87/crucible-astro/issues/26) tracks actual execution, not a model outcome or budget acceptance |
-| Relative-change sensitivity tiers | 0.001, 0.01, 0.05, illustrative engineering settings only |
-| Absolute abundance-change allowances / physical timescales | **UNRESOLVED**, not derived from clipping floors, solver dt or held-out fitting |
-| Reference change scales / coverage intervals | **NOT_EVALUATED**: no scientifically accepted interval scale or bound. Raw saved states are not continuous rollout truth |
-| Critical/trace species and linear observables | Scientific selection/allowances **UNRESOLVED**; full species-level error visibility required |
-| Surrogate artifact / predictions | None; prediction attempts **0**, model error/budget satisfaction **NOT_EVALUATED**. Reference F is never substituted as a prediction |
-| Physics diagnostics on a model | **NOT_EVALUATED**; software supports native no-aux Q/B convention. Unsupported external/open balances remain unavailable |
-| Heating / integrated scientific accuracy / speedup | **NOT_EVALUATED**; heating excluded under Phase 1. No zero energy truth or cost claim |
+| D-022 diagnostic engineering | Human-merged PR #30; unchanged implementation/configurations/examples, independent repair review and merged checks pass |
+| Physical relative-change tiers | 0.1%, 1%, 5% remain illustrative engineering sensitivity settings |
+| Absolute abundance-change allowances | Unapproved; not derived from XNet clipping or numerical solver thresholds |
+| Physical timescales | Unapproved; cannot be replaced by solver timestep |
+| Reference change scales/intervals | Unapproved; saved endpoints alone are not continuous maximum excursion or rollout truth |
+| Critical/trace species and linear groups | Scientific selections/allowances remain unapproved; constituent species errors stay visible |
+| Named native pointwise data/reference/partitions | D-025 accepted; separate qualified overlay over unchanged quarantine, final independent/integration status in [the exit record](PHASE1_CLOSEOUT.md) |
+| Direct native fidelity thresholds | D-024 accepts 0.1%, 1%, 5% as numerical-reference research objectives, with zero/nonzero/failure policy; no physical abundance-change allowance follows |
+| Models/predictions/fitted preprocessing | None; attempts 0; physical budget satisfaction and model performance NOT_EVALUATED |
+| Physical diagnostics on a model | NOT_EVALUATED; native no-aux Q/B interface exists, unsupported balances remain unavailable |
+| Heating/integrated accuracy/speedup | NOT_EVALUATED; heating and rollout targets excluded |
 
-The public synthetic reports use explicit sentinel identities and contain no real
-benchmark rows. Their arithmetic checks demonstrate the evaluator's declared
-behavior only. No current real normalization is calculated to pick a favorable
-budget. Before final-test use, freeze accepted scales/interval definitions,
-allowances, physical timescales, critical selections, aggregate denominators and
-observable-specific scientific reasons. Qualification, accepted partitions,
-reference adequacy, independent exact-candidate review, human scientific acceptance
-and human merge remain separate gates. Phase 1/S01–S03 remains active.
-
-D-024 accepts separate [native digital-fidelity profiles](NATIVE_BENCHMARK.md) for
-the finite numerical-emulation purpose. That acceptance does not resolve any
-physical-change budget setting reported here, qualify real records/final
-partitions, or create a model result. See the native definition for exact pending
-primary-union bindings and the acyclic qualification proposal.
+The public synthetic reports establish numerical implementation behavior only.
+They are not trained predictions and the native reference is not substituted as
+a model output. Application budget evaluation must first obtain the missing
+physical allowances/scales/timescales/critical selections, with scientific reasons.
+That later requirement does not revoke D-025's different named numerical purpose.
+No Phase 2 training, solver experiment or new producer call is authorized here.
