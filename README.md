@@ -64,5 +64,7 @@ performance result. Audits and bounded corrections are tracked in [issue #36](ht
 
 The policy source of truth is the workflow; the scientific contracts are in design and validation; decisions are recorded only in the decision register. Other documents link to those sources rather than introducing separate rules. Machine-specific reference locations live only in the evidence inventory. All proposed runtime paths and artifact identifiers are portable.
 
+<a id="phase-0a-authority"></a>
+
 Historical Phase 0A authority and adoption are preserved in [Transition](docs/TRANSITION.md).
 Current scope and decisions are recorded in the linked handoff and decision register.
