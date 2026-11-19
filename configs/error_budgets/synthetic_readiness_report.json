@@ -1,0 +1,227 @@
+{
+  "schema": "crucible.error_budget_report.v1",
+  "config_id": "illustrative-unresolved-v1",
+  "config_sha256": "5a8fe22e72080fdb4f9b24dc8ce2f15905cc309a2e8089cdd91c28b883d368d1",
+  "reference_sample_count": 1,
+  "prediction_attempt_count": 0,
+  "dataset_id": "public-synthetic-sentinel-only",
+  "prediction_id": null,
+  "scientific_qualified": false,
+  "integrated_scientific_accuracy": "NOT_EVALUATED",
+  "heating": "EXCLUDED_NOT_EVALUATED",
+  "critical_selection": null,
+  "abundance_space": "X",
+  "rate_unit": "mass_fraction/s",
+  "samples": [
+    {
+      "sample_id": "synthetic:record:0",
+      "history_id": "synthetic-h0",
+      "group_id": "synthetic-g0",
+      "category": "synthetic",
+      "time_s": 0,
+      "regime": {
+        "label": "unknown",
+        "provenance": "not supplied"
+      }
+    }
+  ],
+  "pointwise_budget_status": "NOT_EVALUATED",
+  "quantities": {
+    "synthetic_n": {
+      "members": [
+        "synthetic_n"
+      ],
+      "critical": false,
+      "scale": {
+        "status": "NOT_EVALUATED",
+        "reason": "unresolved change scale"
+      },
+      "unresolved": [
+        "unresolved absolute abundance-change allowance",
+        "unresolved physical timescale",
+        "unresolved change scale"
+      ],
+      "tiers": {
+        "0.001": {
+          "rate_budget": null,
+          "status": "NOT_EVALUATED",
+          "summary": {
+            "attempted": 0,
+            "valid": 0,
+            "failed": 0,
+            "budget_evaluated": 0,
+            "budget_not_evaluated": 0,
+            "exceeded": 0,
+            "unbounded_normalizations": 0,
+            "normalized_rms": null,
+            "max_normalized_error": null,
+            "normalization_status": "NOT_EVALUATED",
+            "physical_absolute_rms": null,
+            "physical_absolute_max": null,
+            "fraction_exceeding_evaluated": null,
+            "exceed_fraction_denominator": 0,
+            "violations_or_failed_fraction_attempted": null
+          },
+          "strata": {},
+          "records": []
+        },
+        "0.01": {
+          "rate_budget": null,
+          "status": "NOT_EVALUATED",
+          "summary": {
+            "attempted": 0,
+            "valid": 0,
+            "failed": 0,
+            "budget_evaluated": 0,
+            "budget_not_evaluated": 0,
+            "exceeded": 0,
+            "unbounded_normalizations": 0,
+            "normalized_rms": null,
+            "max_normalized_error": null,
+            "normalization_status": "NOT_EVALUATED",
+            "physical_absolute_rms": null,
+            "physical_absolute_max": null,
+            "fraction_exceeding_evaluated": null,
+            "exceed_fraction_denominator": 0,
+            "violations_or_failed_fraction_attempted": null
+          },
+          "strata": {},
+          "records": []
+        },
+        "0.05": {
+          "rate_budget": null,
+          "status": "NOT_EVALUATED",
+          "summary": {
+            "attempted": 0,
+            "valid": 0,
+            "failed": 0,
+            "budget_evaluated": 0,
+            "budget_not_evaluated": 0,
+            "exceeded": 0,
+            "unbounded_normalizations": 0,
+            "normalized_rms": null,
+            "max_normalized_error": null,
+            "normalization_status": "NOT_EVALUATED",
+            "physical_absolute_rms": null,
+            "physical_absolute_max": null,
+            "fraction_exceeding_evaluated": null,
+            "exceed_fraction_denominator": 0,
+            "violations_or_failed_fraction_attempted": null
+          },
+          "strata": {},
+          "records": []
+        }
+      }
+    },
+    "synthetic_p": {
+      "members": [
+        "synthetic_p"
+      ],
+      "critical": false,
+      "scale": {
+        "status": "NOT_EVALUATED",
+        "reason": "unresolved change scale"
+      },
+      "unresolved": [
+        "unresolved absolute abundance-change allowance",
+        "unresolved physical timescale",
+        "unresolved change scale"
+      ],
+      "tiers": {
+        "0.001": {
+          "rate_budget": null,
+          "status": "NOT_EVALUATED",
+          "summary": {
+            "attempted": 0,
+            "valid": 0,
+            "failed": 0,
+            "budget_evaluated": 0,
+            "budget_not_evaluated": 0,
+            "exceeded": 0,
+            "unbounded_normalizations": 0,
+            "normalized_rms": null,
+            "max_normalized_error": null,
+            "normalization_status": "NOT_EVALUATED",
+            "physical_absolute_rms": null,
+            "physical_absolute_max": null,
+            "fraction_exceeding_evaluated": null,
+            "exceed_fraction_denominator": 0,
+            "violations_or_failed_fraction_attempted": null
+          },
+          "strata": {},
+          "records": []
+        },
+        "0.01": {
+          "rate_budget": null,
+          "status": "NOT_EVALUATED",
+          "summary": {
+            "attempted": 0,
+            "valid": 0,
+            "failed": 0,
+            "budget_evaluated": 0,
+            "budget_not_evaluated": 0,
+            "exceeded": 0,
+            "unbounded_normalizations": 0,
+            "normalized_rms": null,
+            "max_normalized_error": null,
+            "normalization_status": "NOT_EVALUATED",
+            "physical_absolute_rms": null,
+            "physical_absolute_max": null,
+            "fraction_exceeding_evaluated": null,
+            "exceed_fraction_denominator": 0,
+            "violations_or_failed_fraction_attempted": null
+          },
+          "strata": {},
+          "records": []
+        },
+        "0.05": {
+          "rate_budget": null,
+          "status": "NOT_EVALUATED",
+          "summary": {
+            "attempted": 0,
+            "valid": 0,
+            "failed": 0,
+            "budget_evaluated": 0,
+            "budget_not_evaluated": 0,
+            "exceeded": 0,
+            "unbounded_normalizations": 0,
+            "normalized_rms": null,
+            "max_normalized_error": null,
+            "normalization_status": "NOT_EVALUATED",
+            "physical_absolute_rms": null,
+            "physical_absolute_max": null,
+            "fraction_exceeding_evaluated": null,
+            "exceed_fraction_denominator": 0,
+            "violations_or_failed_fraction_attempted": null
+          },
+          "strata": {},
+          "records": []
+        }
+      }
+    }
+  },
+  "physics": {
+    "status": "DIAGNOSTICS_ONLY",
+    "heating": "EXCLUDED_NOT_EVALUATED",
+    "samples": [
+      {
+        "sample_id": "synthetic:record:0",
+        "status": "DIAGNOSTICS_ONLY",
+        "B": 1.0,
+        "Q": 0.5,
+        "Ye": 0.5,
+        "negative_state_species": [],
+        "reference": {
+          "status": "DIAGNOSTICS_ONLY",
+          "baryon_rate_residual": 0.0,
+          "charge_moment_rate": 0.0,
+          "dYe_dt": 0.0,
+          "boundary_incompatible_species": []
+        },
+        "prediction": {
+          "status": "NOT_EVALUATED"
+        }
+      }
+    ]
+  }
+}

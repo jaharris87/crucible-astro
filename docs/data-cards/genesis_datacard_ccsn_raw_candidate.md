@@ -227,3 +227,10 @@ the official released template; bounded audit and open rights/provenance gates.
 Prepared with Codex; source/guidance investigators explicitly `gpt-6.1-sol` High.
 No full machine validation or scientific acceptance yet; exact-candidate review
 and human integration receipts are retained in [PR #12](https://github.com/jaharris87/crucible-astro/pull/12).
+
+### Provisional diagnostic readiness
+
+The [physical-abundance budget contract](../phase1/ERROR_BUDGETS.md) and
+[current readiness report](../phase1/ERROR_BUDGET_READINESS.md) describe D-022's
+illustrative engineering tiers and unresolved scientific settings. They contain
+no surrogate outcome, positive scientific mask or qualified heating target.

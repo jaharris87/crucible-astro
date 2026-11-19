@@ -339,6 +339,55 @@ or qualification is implied. The maintainer's [parent/role attribution](phase1/P
 provides one identified simulation and production roles, not dataset licensing or
 historical build proof. D-004/D-005/D-007 remain open for the named qualified scope.
 
+### Decision D-022: Provisional physical-abundance budgets and diagnostics
+
+**Status: accepted implementation direction, 2026-11-17; scientific numbers
+unresolved.** The maintainer explicitly requested configurable physical-abundance
+error budgets, diagnostics and benchmark reports now, with 0.1%, 1% and 5%
+relative-change tiers as provisional engineering settings. Implement the bounded
+[issue #29](https://github.com/jaharris87/crucible-astro/issues/29) contract using
+ordinary JSON and existing dependencies. [The diagnostic contract](phase1/ERROR_BUDGETS.md)
+separates pointwise rate budgets from later state/reconstruction and integrated
+scientific accuracy; the [readiness report](phase1/ERROR_BUDGET_READINESS.md)
+records actual missing choices and absent model outcomes.
+
+This direction accepts no numerical scientific allowance, timescale, reference
+change scale, critical-species selection, final benchmark or model architecture.
+No producer execution, reference edits, training, ODE/Jacobian experiment, heating
+target, paid service, deployment or new phase is authorized. Final scientific
+qualification, independent candidate review and each human merge remain gates.
+The full Phase 1 S01–S03 goal remains active; no provisional tier waives its exits.
+
+### Decision D-023: Exact remaining-primary build/run and separate preparation merge
+
+**Status: accepted exact execution, 2026-11-17; reviewed merge and passing
+integration prerequisites verified.** The maintainer selected “Merge PR #28
+preparation only (Recommended)” and separately “Authorize build and 19,159
+evaluations (Recommended)”. The [public authority receipt](https://github.com/jaharris87/crucible-astro/issues/26#issuecomment-6968904261)
+binds reviewed source `abecad208cacd022ea209f6bfa5f4b9ef5363658`, manifest
+`a51f43bd5e053159457d61f45a5672e1308a6199158730f4fed269d517ff2146`, and states
+`b6c514f8101894a39c11ecfdee52fb4b70a242ba13d74adeb3e8e66fc2f53fbd`.
+
+The [PR #28 integration receipt](https://github.com/jaharris87/crucible-astro/pull/28#issuecomment-6968936667)
+records human merge `775f988`, unchanged reviewed tree, 297 locked noneditable
+tests and merged CI passing. Those prerequisites are satisfied; actual execution
+and later verification remain separate evidence in live #26. This record claims
+no completed build/evaluation. The accepted scope permits
+one fresh isolated build and exactly **19,159 pointwise RHS calls: 19,157 new
+states plus two explicit repeated pilot controls**. Preserve unchanged full-160
+Y/T9/rho, pinned native D-019 source/EOS/tables, D-017 toolchain/flags,
+weak/screening on, heating off and zero active neutrino rates. Retain every state
+echo, coefficient, output and actual build/runtime receipt. Stop on unavailable
+dependencies, input/configuration mismatch, nonfinite output or failed controls;
+controls are checked offline after the reviewed loop. No automatic rerun.
+
+D-020 remains exhausted. No extra call, trajectory/NSE/Jacobian solve, source/rate
+change, training, qualification, scientific tolerance/accuracy acceptance, other
+merge or new phase follows. Original references and retained pilot artifacts stay
+unchanged. D-022's provisional budget tiers remain separate and scientifically
+unresolved. [Execution authority](PHASE_1_AUTHORITY.md#d-023-exact-remaining-primary-execution-extension)
+and live #26 receipts distinguish permission, actual execution and verification.
+
 ## Scientific decisions and current evidence gates
 
 On 2026-11-17 the [S01 audit packet](phase1/S01_AUDIT.md) and

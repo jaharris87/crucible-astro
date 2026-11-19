@@ -83,6 +83,20 @@ Offsets vanish for affine maps. Do not apply a state scaler or PCA centering unc
 
 A nonlinear reduced state can lose information required for closed dynamics even with excellent reconstruction. Test history dependence/closure error on held-out trajectories before adding state or memory. Reduced dimension, constraints, decoder design, and model family remain experimental choices [D-003, D-006].
 
+## Bounded abundance-space diagnostics
+
+The [D-022 diagnostic contract](phase1/ERROR_BUDGETS.md) implements only explicit
+physical-abundance pointwise error budgets and separate native physics checks.
+Its JSON interface preserves units/order/identities and constituent failures;
+provisional tiers select no architecture or scientific numerical tolerance.
+The [readiness report](phase1/ERROR_BUDGET_READINESS.md) contains no model outcome.
+Later state/reconstruction amplitude scaling is distinct from rate error relative
+to an interval change over a physical timescale. No learned representation,
+training method, energy head, ODE solver or automatic input projection is added.
+Later decoder dynamics must account for all coordinate/condition/time Jacobian
+terms; reconstruction quality alone cannot establish closure or stable rollout.
+See [later acceptance](VALIDATION.md#provisional-pointwise-abundance-budgets-and-later-acceptance).
+
 ## Data and artifact stewardship
 
 Recommend a versioned tiny fixture set. D-013 removes the former proposed storage cap; fixture scope and redistribution still require review. Start with synthetic data; add a few audited real records only after provenance, redistribution, and expected outputs are established. Include valid and deliberately invalid species ordering, unknown schema, units, and validity cases. No copied 560 MB `postp.h5` in Git.

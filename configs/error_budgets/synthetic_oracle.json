@@ -1,0 +1,64 @@
+{
+  "schema": "crucible.error_budgets.v1",
+  "config_id": "synthetic-hand-oracle-only",
+  "species": [
+    {
+      "id": "synthetic_n",
+      "A": 1,
+      "Z": 0
+    },
+    {
+      "id": "synthetic_p",
+      "A": 1,
+      "Z": 1
+    }
+  ],
+  "abundance_space": "X",
+  "relative_tiers": [
+    0.001,
+    0.01,
+    0.05
+  ],
+  "critical_species": [
+    "synthetic_p"
+  ],
+  "critical_selection_provenance": "synthetic sentinel, not nuclear selection",
+  "species_budgets": {
+    "synthetic_n": {
+      "absolute_change": 0,
+      "timescale_s": 2,
+      "scale": {
+        "mode": "explicit",
+        "value": 2,
+        "provenance": "hand-chosen mathematical oracle only"
+      }
+    },
+    "synthetic_p": {
+      "absolute_change": 0,
+      "timescale_s": 2,
+      "scale": {
+        "mode": "explicit",
+        "value": 2,
+        "provenance": "hand-chosen mathematical oracle only"
+      }
+    }
+  },
+  "groups": [
+    {
+      "id": "group:cancel",
+      "coefficients": {
+        "synthetic_n": 1,
+        "synthetic_p": 1
+      },
+      "budget": {
+        "absolute_change": 0,
+        "timescale_s": 2,
+        "scale": {
+          "mode": "explicit",
+          "value": 2,
+          "provenance": "hand-chosen mathematical oracle only"
+        }
+      }
+    }
+  ]
+}

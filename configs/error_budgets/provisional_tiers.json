@@ -1,0 +1,37 @@
+{
+  "schema": "crucible.error_budgets.v1",
+  "config_id": "illustrative-unresolved-v1",
+  "species": [
+    {
+      "id": "synthetic_n",
+      "A": 1,
+      "Z": 0
+    },
+    {
+      "id": "synthetic_p",
+      "A": 1,
+      "Z": 1
+    }
+  ],
+  "abundance_space": "X",
+  "relative_tiers": [
+    0.001,
+    0.01,
+    0.05
+  ],
+  "critical_species": null,
+  "critical_selection_provenance": null,
+  "species_budgets": {
+    "synthetic_n": {
+      "absolute_change": null,
+      "timescale_s": null,
+      "scale": null
+    },
+    "synthetic_p": {
+      "absolute_change": null,
+      "timescale_s": null,
+      "scale": null
+    }
+  },
+  "groups": []
+}
