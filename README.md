@@ -24,8 +24,7 @@ Repository: **[jaharris87/crucible-astro](https://github.com/jaharris87/crucible
 
 CRUCIBLE will make reaction-network surrogates and reduction methods reproducible,
 comparable and callable, connecting physical composition, representations, kinetics,
-integration and scientific observables. ENACT-AI/Genesis supplies initial use cases
-and reporting obligations; the framework extends beyond that funding scope.
+integration and scientific observables.
 
 The framework must support the identity/full-state path and multiple reduction
 approaches, with **one potentially vector-valued physical kinetics source**.
