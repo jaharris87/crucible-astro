@@ -1,6 +1,6 @@
 # Datacard for the CCSN raw candidate collection
 
-Last updated: **2026-11-17**. Card version **0.5.1**, dataset local alias
+Last updated: **2026-11-19**. Card version **0.6.0**, dataset local alias
 `ccsn-raw-candidate`; no public dataset release/version has been established.
 **Living narrative draft; not qualified for training, reference evaluation or
 final-test use.** This card describes raw outputs, not a derived training dataset.
@@ -128,15 +128,17 @@ support a new benchmark proposal, not accepted physical families or partitions.
 The [signed-zero reader repair](../phase1/S02_READER.md) preserves binary energy
 bits. No bulk conversion or new training artifact was produced.
 
-The [remaining primary reference proposal](../phase1/PRIMARY_REFERENCE_PROPOSAL.md)
-prepares **19,157** new candidate states in **300** histories plus **two explicit
-pilot repeat controls**: **19,159 proposed calls** across 301 histories. With
-retained pilot labels, the unique input union remains 24,314 states / 380 histories.
-Input-only preparation/checks are complete; D-020's pilot call authority is
-exhausted and no primary build/run or scientific eligibility is authorized.
-[Issue #26](https://github.com/jaharris87/crucible-astro/issues/26) tracks fresh
-source/input review and the separate later execution decision. Original raw,
-pilot and preparation evidence remain immutable.
+The [remaining primary reference scope](../phase1/PRIMARY_REFERENCE_PROPOSAL.md)
+prepared **19,157** new candidate states in **300** histories plus **two explicit
+pilot repeat controls**. D-023 separately authorized exactly 19,159 calls; that
+physical loop and its complete numerical/evidence closure are retained in the
+[new execution report](../phase1/PRIMARY_REFERENCE_EXECUTION.md). Its call authority
+is exhausted. The separate [primary-union card](genesis_datacard_ccsn_primary_native_rhs_union_v0_1.md)
+documents one actual 24,314-record / 380-history HDF5 candidate, combining the
+completed pilot and 19,157 new labels after verifying and omitting the two repeats.
+All scientific masks remain false; exact working D-021 membership is not final
+scientific qualification. Original raw, pilot, preparation and execution evidence
+remain unchanged. No further producer call or data redistribution is authorized.
 
 Current eligibility is **limited to authorized structural investigation**.
 All 1,384 records in the initial three-pair artifact remain unqualified for
@@ -166,7 +168,9 @@ The maintainer authorized Phase 1 inspection and portable documentation in the
 [execution record](../PHASE_1_AUTHORITY.md). D-017 completed exactly three
 reviewed isolated RHS calls and is exhausted. D-019 selects a new native numerical
 reference; its [preparation is integrated](https://github.com/jaharris87/crucible-astro/pull/20),
-with subsequent D-020 authority limited to the exact 5,157-state pilot build/run.
+with subsequent D-020 authority limited to the exact 5,157-state pilot build/run
+and separate D-023 authority limited to 19,159 remaining-primary calls. Both
+physical loops have completed and their call authority is exhausted.
 Permission is not completed execution or scientific qualification. Broader
 producer execution, original reference modifications, bulk conversion, data
 publication and training remain outside scope. Required dataset ownership/reuse and institutional
@@ -188,9 +192,9 @@ A/B/C are audit aliases, not assigned partitions. Each qualified saved state
 would be an individual pointwise example, with many correlated examples per
 trajectory. Coverage needs full composition and conditions, not Ye alone.
 D-019 accepts a new pinned pointwise numerical-reference contract, with energy/
-rollout targets excluded. D-020 subsequently authorizes only the exact
-5,157-state pilot build/run; further calls, actual reference verification and
-scientific qualification remain separately gated. This does not qualify this raw/quarantined artifact
+rollout targets excluded. D-020 and D-023 separately authorized the exact pilot
+and remaining-primary loops, now complete with numerical verification. Further
+calls and scientific qualification remain separately gated. This does not qualify this raw/quarantined artifact
 or change any immutable bytes or masks. See [accepted decisions](../DECISIONS.md)
 and the [current benchmark investigation](../phase1/BENCHMARK.md). The
 [pinned-reference scope](../phase1/RHS_REFERENCE_SCOPE.md) records official
@@ -203,7 +207,7 @@ prediction needs a separate interval/history contract. **Training, scientific
 evaluation and inference use are not qualified now.** No Phase 2 work is authorized.
 
 The [S03 coverage/decision sheet](../phase1/BENCHMARK.md) reports observed ranges
-and grouping/eligibility gaps. No benchmark membership, final-test use, preprocessing fit or numerical scientific
+and grouping/eligibility gaps. No final qualified benchmark membership, final-test use, preprocessing fit or numerical scientific
 tolerance is accepted. Related tracers, snapshots and derived copies must stay
 together under a justified grouping rule. The collection has one maintainer-identified
 parent; any pilot must be labeled within-simulation exploration and cannot claim
@@ -211,7 +215,9 @@ simulation-independent generalization. Sampling bias, unbound generating/history
 conditions, NSE/initial placeholders, unmeasured RHS alignment and missing broader
 CCSN/NSM coverage prevent general scientific claims. Human review is required.
 
-Change log: **0.5.1, 2026-11-17** — linked the exact remaining-primary
+Change log: **0.6.0, 2026-11-19** — linked the separate actual primary-union
+card and completed exact D-023 execution evidence; raw/pilot identities and all
+scientific exclusions remain unchanged. **0.5.1, 2026-11-17** — linked the exact remaining-primary
 input-only preparation and separate execution gate; raw identity and scientific
 eligibility unchanged. **0.5.0, 2026-11-17** — linked expanded state/position coverage,
 native Ye formula, integrated reader/reference preparation and official rate-entry
