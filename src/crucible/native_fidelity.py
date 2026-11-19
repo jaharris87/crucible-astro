@@ -10,7 +10,15 @@ import argparse
 import hashlib
 import json
 import math
-from decimal import Decimal, localcontext
+from decimal import (
+    ROUND_HALF_EVEN,
+    Context,
+    Decimal,
+    DivisionByZero,
+    InvalidOperation,
+    Overflow,
+    localcontext,
+)
 from fractions import Fraction
 from pathlib import Path
 
@@ -32,6 +40,28 @@ PROFILES = [
     {"id": "5%", "numerator": 1, "denominator": 20},
 ]
 SCHEMA = "crucible.native_fidelity.v1"
+ARITHMETIC = {
+    "id": "crucible.native_fidelity.relative-decimal80.v1",
+    "predecessor_source_sha256": "a1d50fedc951dbe332d25bd09e7c32e0539024f6f0a8f193b271ed0253ca0df0",
+    "relative_mse_precision": 80,
+    "physical_rms_precision": 70,
+    "rounding": "ROUND_HALF_EVEN",
+}
+
+
+def _report_context(precision):
+    # Construct from explicit settings: caller precision, rounding, traps and
+    # exponent limits must not change report arithmetic.
+    return Context(
+        prec=precision,
+        rounding=ROUND_HALF_EVEN,
+        Emin=-999999,
+        Emax=999999,
+        capitals=1,
+        clamp=0,
+        flags=[],
+        traps=[InvalidOperation, DivisionByZero, Overflow],
+    )
 
 
 def _digest(value):
@@ -47,9 +77,13 @@ def _metric(value, *, sqrt=False):
         return {"value": None, "status": "NOT_APPLICABLE"}
     try:
         if sqrt:
-            with localcontext() as context:
-                context.prec = 70
-                number = Decimal(value.numerator) / Decimal(value.denominator)
+            precision = 80 if isinstance(value, Decimal) else 70
+            with localcontext(_report_context(precision)):
+                number = (
+                    value
+                    if isinstance(value, Decimal)
+                    else Decimal(value.numerator) / Decimal(value.denominator)
+                )
                 result = float(number.sqrt())
         else:
             result = float(
@@ -67,6 +101,31 @@ def _metric(value, *, sqrt=False):
 
 def _mean(values):
     return sum(values, Fraction()) / len(values) if values else None
+
+
+def _relative_mean_square(values):
+    """Bounded-precision reporting only; exact ratios still decide profiles/maxima.
+
+    Relative ratios have unrelated odd denominators, so exact pooled sums grow
+    with distinct targets. Decimal80 avoids that growth across the full finite
+    binary64 ratio range, including ratios that overflow binary64 themselves.
+    See NATIVE_BENCHMARK.md for the count-bounded reporting error analysis.
+    """
+    if not values:
+        return None
+    with localcontext(_report_context(80)):
+        total = Decimal(0)
+        for value in values:
+            term = Decimal(value.numerator) / Decimal(value.denominator)
+            total += term * term
+        return total / len(values)
+
+
+def _relative_mean(values):
+    if not values:
+        return None
+    with localcontext(_report_context(80)):
+        return sum(values, Decimal(0)) / len(values)
 
 
 def _summary(rows, population, indices, predictions_present):
@@ -116,7 +175,7 @@ def _summary(rows, population, indices, predictions_present):
         physical_signed_max=_metric(max(errors, default=None)),
         physical_absolute_rms=_metric(_mean(squares), sqrt=True),
         physical_absolute_max=_metric(max(map(abs, errors), default=None)),
-        relative_rms=_metric(_mean([r * r for r in relatives]), sqrt=True),
+        relative_rms=_metric(_relative_mean_square(relatives), sqrt=True),
         relative_max=_metric(max(relatives, default=None)),
     )
     # One history belongs to one group; this relation is validated before scoring.
@@ -146,20 +205,28 @@ def _summary(rows, population, indices, predictions_present):
     }
     for name, field in [("physical", "error"), ("relative", "relative")]:
         h_mse = (
-            {h: _mean([c[field] ** 2 for c in cells]) for h, cells in histories.items()}
+            {
+                h: (
+                    _mean([c[field] ** 2 for c in cells])
+                    if name == "physical"
+                    else _relative_mean_square([c[field] for c in cells])
+                )
+                for h, cells in histories.items()
+            }
             if name == "physical" or population == "nonzero"
             else {}
         )
+        mean = _mean if name == "physical" else _relative_mean
         group_mse = {}
         for row, _ in relevant_rows:
             h, g = row["sample"]["history_id"], row["sample"]["group_id"]
             if h in h_mse:
                 group_mse.setdefault(g, {})[h] = h_mse[h]
         macro[name + "_equal_history_rms"] = _metric(
-            _mean(list(h_mse.values())), sqrt=True
+            mean(list(h_mse.values())), sqrt=True
         )
         macro[name + "_equal_group_rms"] = _metric(
-            _mean([_mean(list(values.values())) for values in group_mse.values()]),
+            mean([mean(list(values.values())) for values in group_mse.values()]),
             sqrt=True,
         )
         if name == "physical":
@@ -223,7 +290,9 @@ def evaluate_native(config, reference, prediction=None):
     """Compare decoded binary64 predictions with exact retained digital labels.
 
     Threshold decisions and physical differences use exact rational arithmetic.
-    Decimal is used only to render scalar reports; it never decides attainment.
+    Decimal80 accumulates relative mean-squares and renders their RMS reports;
+    physical sums stay exact with Decimal70 RMS rendering. Neither report path
+    decides attainment. The arithmetic identity differs from the D-025-bound scorer.
     """
     profiles = config.get("profiles")
     if (
@@ -325,6 +394,7 @@ def evaluate_native(config, reference, prediction=None):
     indices = list(range(len(ids)))
     report = {
         "schema": "crucible.native_fidelity_report.v1",
+        "arithmetic": dict(ARITHMETIC),
         "config_id": config["config_id"],
         "config_sha256": _digest(config),
         "dataset_id": reference["dataset_id"],

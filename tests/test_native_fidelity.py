@@ -379,3 +379,124 @@ def test_nonfinite_physics_output_is_unavailable_without_erasing_native_scoring(
     json.dumps(report, allow_nan=False)
     r["network_convention"] = "unsupported_auxiliary_reservoir"
     assert evaluate_native(c, r, p)["physics"] == physics_diagnostics(r, p)
+
+
+def test_distinct_relative_ratios_avoid_large_exact_nondyadic_reductions(monkeypatch):
+    """Reject the observed growth mechanism without a machine-speed assertion."""
+    import random
+    from decimal import ROUND_HALF_EVEN, Context, Decimal, localcontext
+
+    import crucible.native_fidelity as native
+
+    rng = random.Random(24314)
+    targets = [[1 + rng.random(), 1 + rng.random()] for _ in range(100)]
+    predictions = [[f * (1 + rng.uniform(-0.01, 0.01)) for f in row] for row in targets]
+    c, r, p = case(targets, predictions)
+    for obj in (r, p):
+        for row in obj["samples"]:
+            row.update(history_id="h0", group_id="g0")
+    exact_mean = native._mean
+    observed_large_dyadic_reductions = []
+
+    def guard(values):
+        if len(values) >= 32:
+            # Component physical errors/squares are dyadic; exact relative
+            # squares with unrelated odd denominators must not enter this
+            # growing component-level reducer. Macro count divisions are small.
+            assert all(
+                isinstance(v, Fraction) and v.denominator & (v.denominator - 1) == 0
+                for v in values
+            ), "non-dyadic component MSE entered the growing exact reducer"
+            observed_large_dyadic_reductions.append(len(values))
+        return exact_mean(values)
+
+    monkeypatch.setattr(native, "_mean", guard)
+    report = evaluate_native(c, r, p)
+    assert observed_large_dyadic_reductions
+    ratios = [
+        abs((Fraction(q) - Fraction(f)) / Fraction(f))
+        for target, predicted in zip(targets, predictions, strict=True)
+        for f, q in zip(target, predicted, strict=True)
+    ]
+    mse = sum((v * v for v in ratios), Fraction()) / len(ratios)
+    with localcontext(Context(prec=180, rounding=ROUND_HALF_EVEN)):
+        oracle = float((Decimal(mse.numerator) / Decimal(mse.denominator)).sqrt())
+    assert value(report["summary"]["nonzero"]["relative_rms"]) == oracle
+    for profile in c["profiles"]:
+        limit = Fraction(profile["numerator"], profile["denominator"])
+        assert report["summary"]["nonzero"]["profiles"][profile["id"]][
+            "component_met"
+        ] == sum(ratio <= limit for ratio in ratios)
+
+
+def test_relative_macro_rms_matches_independent_exact_weighted_oracles():
+    from decimal import ROUND_HALF_EVEN, Context, Decimal, localcontext
+
+    targets = [[1 / 3, 1 / 7], [2 / 9, 2 / 11], [1, 2], [3 / 7, 7 / 9]]
+    predictions = [
+        [f * (1.003 + i / 100) for f in row] for i, row in enumerate(targets)
+    ]
+    c, r, p = case(targets, predictions)
+    for obj in (r, p):
+        for i, row in enumerate(obj["samples"]):
+            row.update(history_id=["h0", "h0", "h1", "h2"][i])
+            row["group_id"] = ["gA", "gA", "gA", "gB"][i]
+    squares = [
+        [((Fraction(q) - Fraction(f)) / Fraction(f)) ** 2 for f, q in zip(t, v)]
+        for t, v in zip(targets, predictions)
+    ]
+    h0 = sum(squares[0] + squares[1], Fraction()) / 4
+    h1, h2 = (sum(row, Fraction()) / 2 for row in squares[2:])
+    pooled = sum((sum(row, Fraction()) for row in squares), Fraction()) / 8
+    exact = {
+        "relative_rms": pooled,
+        "relative_equal_history_rms": (h0 + h1 + h2) / 3,
+        "relative_equal_group_rms": ((h0 + h1) / 2 + h2) / 2,
+    }
+    summary = evaluate_native(c, r, p)["summary"]["nonzero"]
+    for name, mse in exact.items():
+        with localcontext(Context(prec=180, rounding=ROUND_HALF_EVEN)):
+            oracle = float((Decimal(mse.numerator) / Decimal(mse.denominator)).sqrt())
+        reported = summary[name] if name == "relative_rms" else summary["macro"][name]
+        assert value(reported) == oracle
+
+
+def test_overflowing_relative_term_can_have_finite_pooled_and_macro_rms():
+    huge = float.fromhex("0x1.fffffffffffffp+1023")
+    c, r, p = case([[0.5, 1]] * 8, [[huge, 1]] + [[0.5, 1]] * 7)
+    # One relative error is 2*huge-1, larger than binary64, but dilution
+    # across 16 components leaves a representable RMS. Do not clip the term.
+    report = evaluate_native(c, r, p)
+    summary = report["summary"]["nonzero"]
+    assert summary["relative_max"]["status"] == "UNBOUNDED_BINARY64_REPORT"
+    assert value(summary["relative_rms"]) == huge / 2
+    assert value(summary["macro"]["relative_equal_history_rms"]) == huge / 2
+    assert value(summary["macro"]["relative_equal_group_rms"]) == huge / 2
+    assert summary["profiles"]["5%"]["component_finite_violations"] == 1
+    assert summary["profiles"]["5%"]["record_finite_violations"] == 1
+
+
+def test_report_arithmetic_is_independent_of_caller_decimal_context():
+    from decimal import ROUND_DOWN, Inexact, Rounded, localcontext
+
+    tiny, huge = math.ulp(0.0), float.fromhex("0x1.fffffffffffffp+1023")
+    c, r, p = case([[tiny, huge], [1 / 7, 1 / 11]], [[huge, -huge], [1 / 6, 1 / 10]])
+    expected = evaluate_native(c, r, p)
+    with localcontext() as context:
+        context.prec, context.rounding = 3, ROUND_DOWN
+        context.Emin, context.Emax, context.clamp = -9, 9, 1
+        context.traps[Inexact] = context.traps[Rounded] = True
+        assert evaluate_native(c, r, p) == expected
+
+
+def test_report_exposes_distinct_arithmetic_identity_without_mutable_alias():
+    report = evaluate_native(*case())
+    arithmetic = report["arithmetic"]
+    assert arithmetic["id"] == "crucible.native_fidelity.relative-decimal80.v1"
+    assert arithmetic["relative_mse_precision"] == 80
+    assert arithmetic["physical_rms_precision"] == 70
+    assert arithmetic["predecessor_source_sha256"] == (
+        "a1d50fedc951dbe332d25bd09e7c32e0539024f6f0a8f193b271ed0253ca0df0"
+    )
+    arithmetic["id"] = "changed-return-value"
+    assert evaluate_native(*case())["arithmetic"]["id"] != arithmetic["id"]
