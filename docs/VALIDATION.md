@@ -82,6 +82,23 @@ rule or reduction architecture is adopted. Heating remains excluded/unevaluated
 under Phase 1's `iheat=0` reference. Current native no-aux Q/B diagnostics cannot
 silently stand in for unsupported open/auxiliary-reservoir balances.
 
+## D-024 native digital-fidelity benchmark
+
+The maintainer separately accepted fixed exact-label relative profiles for the
+finite D-019 numerical-emulation purpose, recorded in D-024 and
+[the native benchmark](phase1/NATIVE_BENCHMARK.md). Direct `1/1000`, `1/100`, `1/20`
+profiles use all ordered species and separate zero/nonzero populations without a
+floor or conditional-assembly envelope. Exact binary-rational decisions avoid
+subnormal/threshold rounding; physical errors, failed attempts/finite violations,
+record attainment and declared history/group weighting remain visible.
+These accepted research objectives neither fill D-022's unresolved physical-change
+budget nor establish application/integrated accuracy or nuclear/EOS uncertainty.
+Actual named reference/subset/final partition acceptance is still separate;
+current real scientific eligibility remains false. A pending qualification packet
+must fail the complete original-input partition gate, and no positive real overlay
+may precede that explicit human decision. Existing later physical/solver/cost gates
+remain; this scoring implementation authorizes no model, training or new execution.
+
 ## Fast CI versus scientific qualification
 
 Recommend fast CI on synthetic/tiny audited fixtures, clean package import, formatting/static checks selected in bootstrap, manifest/split checks, deterministic transform/serialization/inference tests and one analytic integration smoke test when implemented. D-013 removes repository job-time and resource caps. Completed Phase 0B covered repository/workflow and synthetic validation. [Phase 1 authority](PHASE_1_AUTHORITY.md) now permits bounded qualification/ingestion/benchmark work, with its scientific gates; model development/training still requires a later authorized phase. Failures stay visible.

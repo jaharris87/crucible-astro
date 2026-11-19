@@ -219,3 +219,8 @@ read-only. These sources motivate questions, not nuclear units or thresholds.
 The local source-observation receipt SHA256 is
 `cc03310da51d000521d47060f1494f067a57a09c9a30d710e5f715ace746d885`.
 It records source versions/access limits, not new producer execution or acceptance.
+
+D-024 subsequently accepts a distinct [native digital-fidelity benchmark](NATIVE_BENCHMARK.md)
+with direct exact-label relative profiles. It does not replace this physical-change
+budget or supply its unresolved application allowances/scales/timescales. Its
+separate schema/module leaves this API/configurations/results unchanged.

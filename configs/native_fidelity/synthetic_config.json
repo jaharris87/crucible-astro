@@ -1,0 +1,1 @@
+{"config_id":"synthetic-only","profiles":[{"denominator":1000,"id":"0.1%","numerator":1},{"denominator":100,"id":"1%","numerator":1},{"denominator":20,"id":"5%","numerator":1}],"schema":"crucible.native_fidelity.v1","species":[{"A":1,"Z":0,"id":"s1"},{"A":4,"Z":2,"id":"s4"}]}

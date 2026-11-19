@@ -388,6 +388,30 @@ unchanged. D-022's provisional budget tiers remain separate and scientifically
 unresolved. [Execution authority](PHASE_1_AUTHORITY.md#d-023-exact-remaining-primary-execution-extension)
 and live #26 receipts distinguish permission, actual execution and verification.
 
+### Decision D-024: Native-RHS digital-fidelity scoring profiles
+
+**Status: accepted scoring contract, 2026-11-19; final data/reference/partition
+qualification remains open.** The maintainer selected “Accept native-RHS fidelity
+profiles (Recommended)” in [the human receipt](https://github.com/jaharris87/crucible-astro/issues/15#issuecomment-7013147287),
+binding proposal SHA256
+`902625688aca39d3b6ba56f79f41709e6ed084b5a6bcd1f90c14d85e4b839262`.
+For the finite D-019 native-emulation benchmark, use exact digital binary64 labels
+with fixed direct relative profiles `1/1000`, `1/100`, `1/20`, all ordered species,
+separate exact-zero and nonzero populations, physical errors, complete failed
+attempts/finite violations, record attainment and declared pooled/history/group
+aggregation. [The frozen definition](phase1/NATIVE_BENCHMARK.md) records the
+purpose, exact arithmetic, zero policy, bindings and pending qualification packet.
+
+This accepts numerical research fidelity objectives, not D-022 physical
+abundance-change allowances, application/integrated accuracy, nuclear/EOS
+uncertainty or an assembly-bound-inclusive envelope. D-022's unresolved physical
+allowances/scales/timescales/critical selections remain separate. No model outcome,
+training/architecture, final-test performance use, new producer call, dataset
+redistribution, scientific qualification, other phase or merge is authorized.
+The actual named reference/subset/final eligible partitions still need independent
+verification and explicit human acceptance before a new qualified overlay identity
+can exist. All current real scientific masks remain false; Phase 1 stays active.
+
 ## Scientific decisions and current evidence gates
 
 On 2026-11-17 the [S01 audit packet](phase1/S01_AUDIT.md) and
