@@ -701,8 +701,9 @@ repository edits, local dependencies, synthetic tests, commits/pushes and PR
 creation. The [proposed protocol](../experiments/trajectory_reference/PROTOCOL.md)
 fixes two permitted development/validation forced IVPs, explicit state/forcing,
 a narrowly adapted native numerical path, convergence/failure/reproduction checks
-and a bounded build/run/diagnostic/retry envelope. Its required independent
-fresh-context read-only Sol High review and human decision are pending.
+and a bounded build/run/diagnostic/retry envelope. The required independent
+fresh-context read-only Sol High review required two repairs; both passed focused
+verification. The actual human protocol/execution decision remains pending below.
 **No producer build, RHS/Jacobian/NSE evaluation or trajectory has run.**
 Before any producer build/evaluation, the maintainer must explicitly accept both
 the reviewed coherent scientific/numerical protocol and concrete execution scope.
@@ -716,6 +717,36 @@ model/scaler change, final-test evaluation, energy/heating extension, original
 reference modification, bulk conversion, release, paid service, deployment, 2E,
 reduced method or later phase is authorized. D-013 estimates are evidence, not
 compute caps. The [existing sequence](PHASE_2_LAUNCH.md) remains the sole Phase 2 plan.
+
+### Decision D-036: Reviewed 2D protocol and producer scope
+
+**Pending maintainer answer, 2026-11-20.** This is a concrete decision request,
+not accepted scientific/producer authority. The [v2 protocol](../experiments/trajectory_reference/PROTOCOL.md)
+at `951d1f9f15e8246fe8d98886214070ebef44f7c4`, SHA256
+`966fbff8d2322ae8e6666063f35c1b87cced7d5ccbaf663ccae362613f98fdad`,
+and its exact private input annex are ready for acceptance.
+
+The [original fresh-context read-only gpt-6.1-sol High review](https://github.com/jaharris87/crucible-astro/issues/44#issuecomment-7048285375)
+required P2D-PROP-001 (per-campaign initial-control authority) and P2D-PROP-002
+(Timmes DOI). [Dispositions](https://github.com/jaharris87/crucible-astro/issues/44#issuecomment-7048302947)
+and [focused independent PASS / decision packet](https://github.com/jaharris87/crucible-astro/issues/44#issuecomment-7048328458)
+preserve findings, exact candidates, checks and limits. Required proposal CI and
+local documentation/preservation checks pass. No numerical success is implied.
+
+**Recommendation:** accept the coherent scientific/numerical protocol AND its
+concrete producer envelope: two fixed permitted 10 ms forced IVPs, two fresh
+builds plus at most two failed-build repairs, per-campaign initial controls,
+four meshes plus a tighter nonlinear run per case (ten trajectories per campaign,
+repeated once), fixed Jacobian diagnostics and specified infrastructure-only
+restart rules. The native full-F numerical adaptation, projection/residual policy,
+convergence/constraint/domain/output/reproduction criteria and private input hashes
+are explicit. Resource estimates are evidence, not compute caps.
+
+**Alternative:** revise before any producer execution. The acceptance popup is
+pending; silence or generic goal continuation is not approval. No producer build
+or physical evaluation has run. This proposed decision grants no merge approval,
+reference acceptance or 2E authority. Ordinary exact-candidate implementation
+review and later human reference/merge/final decisions remain required.
 
 ## Scientific decisions and current evidence gates
 

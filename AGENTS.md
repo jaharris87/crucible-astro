@@ -20,8 +20,8 @@ completed through PR #49 at `eaa9446`. The maintainer [accepted final 2C closeou
 after passing merged checks. [Handoff](docs/HANDOFF.md) and
 [progress](docs/PROGRESS.md) record evidence and deferred triggers. The [final 2C closure](https://github.com/jaharris87/crucible-astro/issues/43#issuecomment-7047856713)
 follows status PR #50 at `75b2ec3`. D-035 invokes 2D protocol preparation under
-#44; independent protocol review and explicit scientific/producer execution
-acceptance remain pending. No producer build or physical evaluation has run.
+#44; the concrete v2 protocol passed independent review/focused repairs;
+D-036 scientific/producer execution acceptance remains pending. No producer build or physical evaluation has run.
 One native goal covers 2D only; milestone #3 stays open. D-034's bounded 2C
 delegation grants no 2D merge authority.
 [Milestone #3](https://github.com/jaharris87/crucible-astro/milestone/3) and

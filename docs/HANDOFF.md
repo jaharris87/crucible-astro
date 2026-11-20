@@ -6,8 +6,10 @@ after all audit repairs and merged-result checks. [Milestone #3](https://github.
 remains open; [the single Phase 2 sequence](PHASE_2_LAUNCH.md) owns dependencies.
 **2D is active under the maintainer’s 2026-11-20 launch / D-035.** Read-only
 source/input discovery and a concrete [protocol](../experiments/trajectory_reference/PROTOCOL.md)
-are prepared. Independent protocol review and explicit scientific/producer
-acceptance remain pending; no producer build or physical evaluation has run.
+are prepared. Independent protocol review and focused repairs pass;
+[D-036](DECISIONS.md#decision-d-036-reviewed-2d-protocol-and-producer-scope) asks
+for explicit scientific/producer acceptance. No producer build or physical
+evaluation has run.
 
 ## Verified integrated state
 
@@ -60,9 +62,11 @@ inspection found native coefficient lag, an incomplete full-F Jacobian and
 negative-iterate projection; the proposed small native adaptation makes these
 explicit. Original source, accepted data, model/scalers and evidence are unchanged.
 
-**Next decision:** after the bounded independent protocol review, explicitly
-accept the coherent numerical/scientific protocol AND its concrete producer
-build/run/refinement/diagnostic/retry envelope. No physical work begins before
+**Next decision:** [D-036 / reviewed protocol v2](https://github.com/jaharris87/crucible-astro/issues/44#issuecomment-7048328458)
+is pending in the acceptance popup. Explicitly accept the coherent numerical/
+scientific protocol AND its concrete producer build/run/refinement/diagnostic/
+retry envelope. Original findings and focused PASS are preserved in #44;
+[draft PR #51](https://github.com/jaharris87/crucible-astro/pull/51) remains incomplete. No physical work begins before
 that answer. This is not reference acceptance or merge approval; D-034 does not
 carry into 2D. Keep #44/native goal incomplete and milestone #3 open.
 
