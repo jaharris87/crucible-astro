@@ -541,7 +541,8 @@ acceptance **before fitting**. The [exact protocol](https://github.com/jaharris8
 received an [independent scope/simplicity PASS](https://github.com/jaharris87/crucible-astro/issues/42#issuecomment-7042701075),
 with no consequential findings or changes. Protocol SHA256:
 `0ce78f0d008f3bf166b4efacabc923a633e7fe6d587fb0984de0b1ba3dba60d8`.
-That protocol acceptance remains pending. Routine implementation, fitting and reporting of the accepted protocol then proceed
+The maintainer subsequently accepted that exact protocol in D-031 below. Routine
+implementation, fitting and reporting of the accepted protocol proceed
 without per-command permission; changes to scientific protocol require a decision.
 This launch authorizes repository edits, project-local dependencies, checks,
 commits, pushes and PR creation. Every merge needs a concrete human decision or
@@ -561,8 +562,30 @@ Keep one coherent 2B PR unless a concrete reason requires a split; ordinary revi
 includes scope/readability/maintainability. Preserve the existing post-2C integrated
 audit in #43. No reduction, family comparison, integration, new producer/reference
 execution, data release, paid service, deployment or later sub-phase is authorized.
-The reviewed coherent experiment is the next human decision; this launch is not
-its acceptance. Stop after actual 2B exits, leaving 2C scope for a later decision.
+The concrete protocol is accepted in D-031; human merge and actual integration
+remain required. Stop after actual 2B exits, leaving 2C scope for a later decision.
+
+### Decision D-031: Accept the reviewed small full-state MLP experiment
+
+**Accepted experiment, 2026-11-20:** after the popup disappeared, the maintainer
+said **“strange. it disappeared again. but go with your recommendation”**.
+This accepts the [exact recommended protocol](https://github.com/jaharris87/crucible-astro/issues/42#issuecomment-7042652534),
+SHA256 `0ce78f0d008f3bf166b4efacabc923a633e7fe6d587fb0984de0b1ba3dba60d8`,
+after its [independent scope/simplicity PASS](https://github.com/jaharris87/crucible-astro/issues/42#issuecomment-7042701075).
+The [decision receipt](https://github.com/jaharris87/crucible-astro/issues/42#issuecomment-7042848745)
+supersedes earlier pending-acceptance checkpoints without altering original records.
+
+One CPU binary64 162→64→64→160 tanh/linear MLP (24,992 parameters), training-only
+maxabs input/target scaling, Adam0.001, batches256, seed20261120, validation normalized
+MSE checkpoint selection (epoch0 eligible, strict-improvement/earliest ties),
+patience30/max500 epochs; exact zero-RHS comparator and one same-protocol clean
+reproduction. Require bitwise same-environment reload/refit, complete D-024/D-026
+reporting and failure accounting, held-out independence, actual-artifact card/report
+and normal exact-candidate review through human-approved merge/integration.
+Routine implementation, fitting and checks now proceed autonomously. No accuracy
+promise or search, final-test model evaluation, new producer/reference execution,
+release, integration or later sub-phase is authorized. Merge remains a separate
+concrete human decision. Private real records/predictions/models stay local.
 
 ## Scientific decisions and current evidence gates
 

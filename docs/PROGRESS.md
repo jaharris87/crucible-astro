@@ -8,8 +8,9 @@ Verified merged main is `8b6cf713969c4abdcc5353aa18141461bb509616` (PR #46).
 [D-030](DECISIONS.md#decision-d-030-phase-2b-launch-and-selected-full-state-mlp)
 invokes **2B only** under existing milestone #3. The sole active native goal covers
 2B through human merge and merged verification; [handoff](HANDOFF.md) records its
-exact objective. No model has been trained or evaluated. The next decision is
-acceptance of the concrete independently reviewed MLP experiment before fitting.
+exact objective. No model has been trained or evaluated. The exact independently reviewed MLP experiment is accepted under
+[D-031](DECISIONS.md#decision-d-031-accept-the-reviewed-small-full-state-mlp-experiment).
+Implementation/checks are active; human merge remains a separate decision.
 
 ## Phase status
 
@@ -18,7 +19,7 @@ acceptance of the concrete independently reviewed MLP experiment before fitting.
 | 0A — Design | Reference investigation | Complete; [review](REVIEW.md), [transition](TRANSITION.md) |
 | 0B — Bootstrap | Adopted workflow/publication authority | Complete through audit `01f06d8`; [final receipt](https://github.com/jaharris87/crucible-astro/issues/4#issuecomment-6960154582), [milestone #1](https://github.com/jaharris87/crucible-astro/milestone/1) |
 | 1 — Qualification/benchmark | 0B; S01–S03 authority | D-025 accepted; actual [exit evidence](phase1/PHASE1_CLOSEOUT.md), [qualified data card](data-cards/genesis_datacard_ccsn_native_pointwise_qualified_v0_1.md), final closure in the live receipt |
-| 2 — Full-state baseline | D-029; qualified benchmark | 2A integrated; 2B reviewed proposal awaiting acceptance; [incremental sequence](PHASE_2_LAUNCH.md), milestone #3 |
+| 2 — Full-state baseline | D-029; qualified benchmark | 2A integrated; 2B accepted experiment implementation active; [incremental sequence](PHASE_2_LAUNCH.md), milestone #3 |
 | 3–5 — Reduction/comparison/prototype | Later accepted baselines/science/scope | Not started; no architecture or model selected |
 
 ## Active Phase 2 sequence
@@ -26,7 +27,7 @@ acceptance of the concrete independently reviewed MLP experiment before fitting.
 | Sub-phase | Dependency / deliverable | Status / next gate |
 | --- | --- | --- |
 | [2A #41](https://github.com/jaharris87/crucible-astro/issues/41) | Qualified named-version/use/split arrays, example and tests | Complete at PR #46 / `8b6cf71`; 489 installed-package tests, merged CI and all-row structural checks in final receipt |
-| [2B #42](https://github.com/jaharris87/crucible-astro/issues/42) | Integrated 2A; one pointwise model/comparator proposal and reproducible validation | Active D-030; selected small full-state MLP + zero comparator; [MLP protocol](https://github.com/jaharris87/crucible-astro/issues/42#issuecomment-7042652534) / [independent scope PASS](https://github.com/jaharris87/crucible-astro/issues/42#issuecomment-7042701075); experiment acceptance pending before fitting; final-test outcomes sealed |
+| [2B #42](https://github.com/jaharris87/crucible-astro/issues/42) | Integrated 2A; one pointwise model/comparator proposal and reproducible validation | Active D-030; selected small full-state MLP + zero comparator; [MLP protocol](https://github.com/jaharris87/crucible-astro/issues/42#issuecomment-7042652534) / [independent scope PASS](https://github.com/jaharris87/crucible-astro/issues/42#issuecomment-7042701075); [experiment accepted](https://github.com/jaharris87/crucible-astro/issues/42#issuecomment-7042848745), implementation/checks active; final-test outcomes sealed |
 | [2C #43](https://github.com/jaharris87/crucible-astro/issues/43) | Integrated 2B; analytic integration/convergence/failure checks | Scope acceptance pending; no new XNet execution |
 | [2D #44](https://github.com/jaharris87/crucible-astro/issues/44) | Integrated 2C; accepted real reference trajectories/protocol | Scope and scientific/producer-execution decisions pending |
 | [2E #45](https://github.com/jaharris87/crucible-astro/issues/45) | Integrated 2D; frozen pointwise/rollout/cost evaluation and report | Scope and final-test release pending; human baseline acceptance before milestone closure |

@@ -35,7 +35,8 @@ The [exact concrete protocol](https://github.com/jaharris87/crucible-astro/issue
 received a [fresh-context read-only independent `gpt-6.1-sol` High scope/simplicity PASS](https://github.com/jaharris87/crucible-astro/issues/42#issuecomment-7042701075),
 with no consequential findings or changes. Proposal SHA256:
 `0ce78f0d008f3bf166b4efacabc923a633e7fe6d587fb0984de0b1ba3dba60d8`.
-**Maintainer experiment acceptance remains pending before fitting**.
+**The maintainer accepted this exact protocol in [D-031](DECISIONS.md#decision-d-031-accept-the-reviewed-small-full-state-mlp-experiment)**
+([receipt](https://github.com/jaharris87/crucible-astro/issues/42#issuecomment-7042848745)).
 The original ridge proposal and its review remain historical records in #42;
 their numerical choices and review coverage do not transfer to the MLP.
 No fitting or model-based performance evaluation has occurred.
@@ -54,11 +55,12 @@ and maintainability. Keep this goal incomplete while any required decision or
 integration exit remains. No broader Phase 2 goal or new tracker is created.
 The integrated 2A–2C audit remains after 2C integration in existing #43.
 
-Next action: obtain maintainer acceptance of that exact reviewed protocol.
-Acceptance authorizes routine implementation, fitting,
-checking and reporting without per-command permission. Poor fidelity does not
-authorize another architecture, seed search or protocol change. Every merge remains
-a concrete human decision. Stop after integrated 2B; do not begin 2C here.
+Current work: one bounded `gpt-6.1-sol` High implementation worker uses an isolated
+worktree. Root integrates/verifies, runs the accepted real-data experiment and
+reports/scoring. Next action is implementation and meaningful synthetic checks,
+then the one accepted fit and exact reproduction. Poor fidelity does not authorize
+another architecture, seed search or protocol change. Every merge remains a
+concrete human decision. Stop after integrated 2B; do not begin 2C here.
 
 ## Scientific and execution boundary
 
