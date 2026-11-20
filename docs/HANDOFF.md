@@ -71,10 +71,29 @@ evaluation started. Full raw preflight evidence is retained locally; archive
 SHA256 `f39ba5279ef648e62f0c4837623403901d75d8ac200b5fcfae2df738661f7f03`.
 The runner-only repair has public positive/wrong-reason regression tests.
 
-**Next action:** obtain focused review of the repair and the narrow D-037
-replacement-build decision before another build. The accepted D-036 equations,
+**Paused on explicit maintainer request.** Job 61689197 is terminal CANCELLED;
+no campaign or reproduction job is left running. The [pause checkpoint](reports/2026-11-20-phase2d-checkpoint.md)
+and [actual receipt](https://github.com/jaharris87/crucible-astro/issues/44#issuecomment-7050616078)
+record completed/failed/interrupted/unattempted work and raw identities.
+Both controls passed; all five development runs failed first-step residual
+convergence. Validation L0 was interrupted at 25.4 microseconds of 10 ms.
+No full-horizon reference passed. Direction two is inadmissible for both initial
+states at every multiplier; exhaustion snapshots need consistent state/F retention.
+
+**Next action after resume:** complete offline analysis, repair forensic retention,
+prepare a bounded revised protocol and obtain independent review plus explicit
+scientific/producer authority before any new build or physical evaluation.
+No automatic infrastructure restart or numerical retry is approved.
+The stopped campaign used exact reviewed `a771930`,
+submitted after [explicit D-037 acceptance](https://github.com/jaharris87/crucible-astro/issues/44#issuecomment-7050412199).
+Focused independent review passes the repair, all 120 Phase 2D Python tests and
+offline replay of ten native fixture results. CI also passes at that candidate.
+The accepted D-036 equations,
 inputs, physics, physical-run counts and numerical criteria stay fixed. Ordinary
-exact-candidate code review is underway; reference evidence is still unavailable.
+exact-candidate code review passes with P2D-IMPL-001 resolved; physical artifact
+review and reference evidence are still outstanding. The independently prepared
+reproduction has identical source/tree/protocol/annex and all 94 immutable hashes;
+do not submit it under this pause; new execution needs the revised decision above.
 Original protocol findings and focused PASS remain in #44;
 [draft PR #51](https://github.com/jaharris87/crucible-astro/pull/51) remains incomplete. This is not reference acceptance or merge approval; D-034 does not
 carry into 2D. Keep #44/native goal incomplete and milestone #3 open.
@@ -127,7 +146,7 @@ Dataset redistribution rights remain unresolved. Original HDF5 quarantine masks
 remain false; permitted use resolves through the separate overlay.
 
 D-017/D-020/D-023 producer authority is exhausted. D-036 grants only the named
-2D protocol/execution scope; the concrete replacement-build amendment is pending.
+2D protocol/execution scope; D-037 adds only the named replacement fresh build.
 No original reference modification, bulk conversion, paid service,
 release or deployment is authorized. 2D requires its concrete
 scientific/reference execution decision; 2E requires frozen-protocol final-test

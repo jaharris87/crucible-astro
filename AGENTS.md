@@ -24,8 +24,11 @@ follows status PR #50 at `75b2ec3`. D-035 invokes 2D protocol preparation under
 D-036 scientific/producer execution acceptance is explicit in #44 comment7048371383.
 Implementation and its bounded campaign are authorized; merge/reference/final
 acceptance remain separate. The first native build succeeded; a runner-only
-synthetic gate error stopped preflight before any physical evaluation. A narrow
-replacement-build decision is pending; see current handoff.
+synthetic gate error stopped preflight before any physical evaluation. D-037
+explicitly authorized its replacement build. The maintainer subsequently requested
+a pause; that campaign is cancelled with numerical failures and partial validation
+retained. Revised protocol/producer authority is required before new execution;
+see current handoff and live #44.
 One native goal covers 2D only; milestone #3 stays open. D-034's bounded 2C
 delegation grants no 2D merge authority.
 [Milestone #3](https://github.com/jaharris87/crucible-astro/milestone/3) and

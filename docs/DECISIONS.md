@@ -754,14 +754,20 @@ review and later human reference/merge/final decisions remain required.
 
 ### Decision D-037: Replace the preflight-stopped native build
 
-**Proposed, awaiting explicit maintainer answer.** D-036's first native build
+**Accepted by the maintainer, 2026-11-20:** explicit popup answer
+**“Authorize replacement build (Recommended)”**, recorded in the
+[actual receipt](https://github.com/jaharris87/crucible-astro/issues/44#issuecomment-7050412199).
+The [focused independent repair review](https://github.com/jaharris87/crucible-astro/issues/44#issuecomment-7050398773)
+passed on exact pushed `a771930`; P2D-IMPL-001 is resolved, with all 120 public
+Phase 2D tests and an offline replay of all ten retained native fixtures passing.
+No physical reference claim follows. D-036's first native build
 at `c28c527` succeeded, but a Python gate rejected two correctly failing synthetic
 fixtures before any physical evaluation. The repair reads the native failure
 status instead of requiring its text in console output; wrong-reason failure
 still refuses the campaign. No native source or accepted scientific contract
 changes. Full original evidence is retained, including the successful build.
 
-**Recommendation:** authorize one additional fresh isolated build to replace
+**Accepted scope:** one additional fresh isolated build to replace
 that preflight-stopped build: three successful fresh builds total including
 the retained first build, with the existing two failed-build repair allowances
 unchanged. The two physical campaigns, four planned initial controls, twenty

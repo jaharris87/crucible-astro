@@ -22,7 +22,9 @@ verify the numerical path separately from predictive fidelity. 2C, its audit
 repairs and final closeout are complete through PR #50 / `75b2ec3`. Phase 2D
 native reference implementation is active under [issue #44](https://github.com/jaharris87/crucible-astro/issues/44);
 the reviewed protocol and bounded producer scope are accepted under D-036.
-Real-reference numerical results remain not yet evaluated. See current
+2D is paused at the maintainer's request after primary numerical failures;
+no full-horizon reference has passed. See the
+[checkpoint](docs/reports/2026-11-20-phase2d-checkpoint.md) and current
 [progress](docs/PROGRESS.md) and [handoff](docs/HANDOFF.md).
 Physical application, energy, rollout accuracy and speedup remain
 **not evaluated**.

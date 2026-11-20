@@ -30,14 +30,22 @@ One native goal covers 2D only. Read-only producer/input discovery and the
 prepared; bounded independent protocol review and focused repairs pass.
 [D-036 / scientific and producer acceptance](https://github.com/jaharris87/crucible-astro/issues/44#issuecomment-7048328458)
 was [explicitly given](https://github.com/jaharris87/crucible-astro/issues/44#issuecomment-7048371383).
-Implementation/synthetic checks are active; [draft PR #51](https://github.com/jaharris87/crucible-astro/pull/51) is incomplete.
+Work is paused on maintainer request; [draft PR #51](https://github.com/jaharris87/crucible-astro/pull/51) is incomplete.
 No producer work occurred before the decision.
 The first native build (`c28c527`, job 61685010) succeeded. All ten synthetic
 scenarios executed; two correct expected failures were falsely rejected because
 the runner searched console output instead of the native terminal status.
 No physical control, Jacobian or trajectory started. The runner repair passes
-62 public I/O tests. D-037 proposes one replacement fresh build; the original
-two-build allowance does not clearly cover this successfully built preflight.
+focused independent review, all 120 Phase 2D Python tests and offline replay of
+all ten native fixture results. D-037 [explicitly accepts](https://github.com/jaharris87/crucible-astro/issues/44#issuecomment-7050412199)
+one replacement fresh build; job 61689197 is submitted from reviewed `a771930`.
+The maintainer then requested a pause. Job 61689197 is terminal CANCELLED:
+both controls passed, five development runs failed at the first step, validation
+L0 was interrupted, and four validation runs plus six diagnostics were not attempted.
+No reproduction build was submitted. [Pause checkpoint](reports/2026-11-20-phase2d-checkpoint.md)
+and [live receipt](https://github.com/jaharris87/crucible-astro/issues/44#issuecomment-7050616078)
+preserve results, raw identities, independently confirmed diagnostic protocol
+defect and next review/authority boundary. No reference set is accepted.
 D-034 does not delegate 2D merges. See [handoff](HANDOFF.md) for the next decision.
 
 ## Phase status
