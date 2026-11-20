@@ -64,7 +64,7 @@ metrics. Original negative fidelity and counted scaling underflows stand.
 | Gemini P2 / Claude minor: repeated split loading | **Accept observation; defer API.** Each role revalidates the full finite artifact. The digest hoist removes demonstrated redundant work now. Consider a local multi-split validated pass only when measured use warrants it; no global cache/streaming platform. |
 | Claude F7 / Gemini P3: per-callback overhead, Jacobian/vectorization | **Accept overhead; defer optimization.** Current callbacks preserve original inference/scaling checks; no learned integration occurs. Synthetic microbenchmarks do not require an unused autograd/JVP or vectorization interface. Revisit under an accepted learned-dynamics/cost protocol, preserving physical-coordinate derivatives and exact or declared numerical equivalence. |
 | Claude minor: weaken campaign source comparison | **Reject change now.** Exact commit/tree/source comparison protects declared reproduction. A separately identified repair regression may compare arrays across known source revisions; do not silently turn it into original-source reproduction. |
-| Claude minor: failed callable-check report reload | **Accept limitation; defer repair.** Optional nonfinite discrepancy metrics in a failed check are not automatically reloadable. Raw failures persist; no failed report can become PASS. Required before relying on automatic replay of such failed callable reports. Current passing evidence remains reloadable; document limitation now. |
+| Assessment follow-up: failed callable-check report reload | **Accept limitation; defer repair.** Optional nonfinite discrepancy metrics in a failed check are not automatically reloadable. Raw failures persist; no failed report can become PASS. Required before relying on automatic replay of such failed callable reports. Current passing evidence remains reloadable; document limitation now. |
 | Gemini optional: Python patch pin | **Retain for exact 2B reproduction.** A general future inference/reproduction environment needs an explicit compatibility decision; do not edit pinned training code just to relax an incidental constraint. |
 | Gemini optional: RSS field consistency | **Defer.** Existing native values carry explicit platform-dependent units; no ambiguous current measurement established. Normalize new scripts when touched for a demonstrated need. |
 | Gemini optional: scaling-underflow comment | **Accept explanatory value; document in living card/assessment.** Preserve frozen `mlp_baseline.py` identity. Its round-trip allowance does not forbid underflow; the original counts 145 train/34 validation remain explicit. No extra source edit needed. |
@@ -112,9 +112,46 @@ Scorer/compatibility proposals (Claude D3–D4) retain the triggers above. No ne
 
 ## Repair verification and integration
 
-Pending exact-candidate verification, fresh focused independent review and
-protected integration. Original campaign/model/scorer identities remain bound to
-their original sources; new regression receipts will identify repair source and
-compare unchanged arrays explicitly. No broad audit repetition, fitting, producer
-execution, real MLP trajectory, final-test model evaluation or new physical
-allowance is authorized. Final 2C closeout remains pending the maintainer's decision.
+The repair source is `d8917c9aabee7103c5b9610feeeca25086a5fd9b` (including the
+scoring repair cherry-picked as `2be2d6a`). On Python 3.12.9 / locked macOS arm64,
+a forced noneditable wheel rebuild verified the committed implementation:
+
+- Full installed suite: **651 passed, zero skips** (8.32 s); focused affected
+  suite 222 passed. Ruff lint/format, whitespace and documentation/frozen-source
+  checks pass. No new dependency or environment relaxation.
+- Same fixed eight-attempt mathematical protocol: complete/PASS. Every one of
+  80 persisted arrays is dtype/shape/byte-identical to the original `f3a12a7`
+  campaign. Tight global maxima remain 4.48695e-10 (exchange) and 1.43233e-9
+  (forced stiff); refinement/constraints and both expected failures pass.
+  Fresh processes reload both old and repair artifacts. This is explicitly a
+  cross-source repair regression, not the strict original-source comparison.
+- All 17,659 train + 3,220 validation callable checks pass, zero violations;
+  original saved batch and same-row predictions remain bitwise equal. Prediction
+  NPZ SHA256 remains `932be7f604f10f25aedb7e85cc8657021e844c0dba3d6ff63cc84f338f1a871b`.
+  Fresh reload and original-versus-repair numerical compare pass at declared
+  `atol=rtol=1e-12`. The recovered full contract digest is unchanged.
+- Repaired scoring guard accepts both original roles, checking current artifacts,
+  selected metadata/count/order and target bits without inference or exact
+  rescoring. Substitution/missing/incomplete/mismatched controls refuse in tests;
+  zero comparator remains independent and verified snapshots prevent path
+  replacement between verification and consumption.
+- Eighteen protected source/config/report/public-artifact files are byte-identical
+  to `505d556`, including `native_fidelity.py`, `mlp_baseline.py`, metric/oracle
+  source, lock and original reports/results. Intake hashes of all external
+  reports/proposals and their checkout HEADs still match.
+
+Measured repair rerun costs (observations, not a speedup claim): synthetic setup
+0.292 s, integration 0.194 s, persistence 0.00755 s, total 0.506 s; peak RSS
+78,790,656 bytes, non-manifest artifacts 168,703 bytes. Frozen checker total
+11.46 s, loading 4.01 s, setup 0.0148 s, peak RSS 1,017,774,080 bytes and
+102,936,170 non-report artifact bytes. No failed numerical attempts were omitted;
+the two expected negative attempts remain incomplete horizons by design.
+Retained local logs include initial assessment/setup probes and formatting
+corrections; no repair-suite or accepted-protocol numerical failure occurred.
+
+Fresh focused independent review of the exact pushed candidate, protected
+integration and merged-result verification remain pending. Original manifests
+are unchanged; new receipts identify repaired source explicitly. No broad audit
+repetition, fitting, producer execution, real MLP trajectory, final-test model
+evaluation or new physical allowance. The original accepted negative 2B outcome
+remains unchanged; final 2C closeout remains the maintainer's decision.
