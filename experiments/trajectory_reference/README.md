@@ -52,9 +52,9 @@ python3 /absolute/private/campaign-001/campaign.py \
 ```
 
 The host runner uses only the Python standard library and compiled executables;
-it provides no Python RHS callback. Nine independent compiled synthetic scenarios
+it provides no Python RHS callback. Ten independent compiled synthetic scenarios
 must pass first, including actual-adapter polynomial/nonlinear oracles, native
-forcing endpoints/knots, projection refusal and expected failures. Then both exact
+forcing endpoints/knots, projection refusal, fatal computed nonfinite values and expected failures. Then both exact
 initial RHS controls precede ten trajectories and six Jacobian diagnostic states.
 Every declared case/level remains visible after a numerical failure. A failed
 exact control stops the campaign. No automatic numerical retry, replacement case,
@@ -105,9 +105,12 @@ Failures leave 2D incomplete and require the concrete next decision in #44.
 
 `accepted.bin` contains all accepted states/F/residuals/moments and control
 values; `accepted-forcing.bin` aligns actual T9/rho with those times. Separate
-streams retain every Jacobian column stencil/increment, Newton residual,
+streams retain every Jacobian baseline and column stencil/increment, Newton residual,
 projection, branch change and counter checkpoint. Raw logs, terminal status,
 loaded maps/library hashes and native process memory remain available on failure.
+Fatal rejected-state/workspace snapshots distinguish unavailable current values
+from actual nonfinite coefficients/F. No nonfinite physical evaluation can be
+recovered by trying another finite-difference stencil.
 JSON/NPZ reports preserve all component/vector errors and missing-output masks.
 
 Record setup/loading, native CPU/wall, parent/launcher wall, incremental I/O,

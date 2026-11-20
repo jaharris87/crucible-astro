@@ -86,6 +86,11 @@ def synthetic_checks(root):
     ]
     scenarios += [
         ("trajectory_synthetic", "failed-lu", "FAILURE LAPACK dgetrf info="),
+        (
+            "trajectory_synthetic",
+            "nonfinite",
+            "FAILURE nonfinite computed physical F/assembly workspace",
+        ),
         ("forcing_synthetic", "forcing", None),
         ("forcing_synthetic", "outside", "Forcing outside closed coverage"),
         ("forcing_synthetic", "nonfinite", "Nonfinite forcing time"),
