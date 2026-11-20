@@ -65,6 +65,10 @@ program synthetic_native
     call adapted_step(1,inr)
     if (inr(1)/=0) call fail('projection manufactured a converged root')
     if (final_norm<=1.or.projection_count==0) call fail('projection refusal lacks evidence')
+  case('nonfinite')
+    synthetic_case=2
+    call fresh(state,0.0_dp,1.0_dp,100.0_dp,f,ok,reason,.true.)
+    call fail('UNEXPECTED computed nonfinite source returned')
   case('failed-lu')
     force_bad_lu=.true.; inr=0
     call adapted_step(1,inr)

@@ -62,6 +62,7 @@ contains
     cv=1; etae=1; detaedt9=0
   end subroutine
   subroutine yderiv(mask_in)
+    use, intrinsic :: ieee_arithmetic
     use xnet_abundances
     logical,intent(in) :: mask_in(:)
     ydot=0
@@ -74,6 +75,8 @@ contains
       ! No admissible nonnegative BE root: projection must never manufacture success.
       ydot(1,1)=-60.0_dp
       ydot(2,1)=60.0_dp
+    case(2)
+      ydot(1,1)=ieee_value(0.0_dp,ieee_quiet_nan)
     end select
   end subroutine
 end module

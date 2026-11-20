@@ -1,6 +1,6 @@
 ! CRUCIBLE's original bounded numerical adaptation. No learned source is called.
 module native_adapter
-  use, intrinsic :: iso_fortran_env, only: int64,real64
+  use, intrinsic :: iso_fortran_env, only: int32,int64,real64
   use, intrinsic :: ieee_arithmetic
   use xnet_types, only: dp
   use nuclear_data, only: ny,aa,zz
@@ -14,14 +14,15 @@ module native_adapter
   implicit none
   real(dp) :: nonlinear_atol=1e-13_dp,nonlinear_rtol=1e-11_dp
   real(dp) :: final_residual(160)=0,final_norm=0,final_l1=0,final_projection=0,cumulative_projection=0
-  integer :: log_unit,status_unit,column_unit,branch_unit,residual_unit,counter_unit
-  integer(int64) :: rhs_count=0,jacobian_count=0,lu_count=0,solve_count=0,newton_count=0,retry_count=0
+  integer :: log_unit,status_unit,column_unit,branch_unit,residual_unit,counter_unit,base_unit
+  integer(int64) :: rhs_count=0,coefficient_count=0,jacobian_count=0,lu_count=0,solve_count=0,newton_count=0,retry_count=0
   integer(int64) :: projection_count=0,probe_count=0,accepted_count=0,attempt_count=0
   integer :: last_branch(branch_size)=0
   integer :: last_step=-1
   integer(int64) :: wall_start=0,wall_rate=0
   real(dp) :: cpu_start=0
-  logical :: opened=.false.,runtime_saved=.false.
+  logical :: opened=.false.,runtime_saved=.false.,workspace_ready=.false.,failure_state_saved=.false.
+  integer :: physical_phase=0
 contains
   subroutine open_diagnostics()
     call system_clock(wall_start,wall_rate)
@@ -32,6 +33,7 @@ contains
     open(newunit=branch_unit,file='branch-events.bin',status='new',access='stream',form='unformatted')
     open(newunit=residual_unit,file='newton-residuals.bin',status='new',access='stream',form='unformatted')
     open(newunit=counter_unit,file='counter-events.bin',status='new',access='stream',form='unformatted')
+    open(newunit=base_unit,file='jacobian-bases.bin',status='new',access='stream',form='unformatted')
     opened=.true.
     write(log_unit,*) 'WALL_START_COUNT_RATE',wall_start,wall_rate
     write(status_unit,'(a)') 'RUNNING'
@@ -47,10 +49,10 @@ contains
     open(newunit=unit,file='counters.json',status='new',action='write')
     write(unit,'(a)') '{'
     write(unit,'(a,i0,a)') '"rhs":',rhs_count,','
-    write(unit,'(a,i0,a)') '"coefficient":',rhs_count,','
-    write(unit,'(a,i0,a)') '"eos":',rhs_count,','
-    write(unit,'(a,i0,a)') '"screening":',rhs_count,','
-    write(unit,'(a,i0,a)') '"weak":',rhs_count,','
+    write(unit,'(a,i0,a)') '"coefficient":',coefficient_count,','
+    write(unit,'(a,i0,a)') '"eos":',coefficient_count,','
+    write(unit,'(a,i0,a)') '"screening":',coefficient_count,','
+    write(unit,'(a,i0,a)') '"weak":',coefficient_count,','
     write(unit,'(a,i0,a)') '"jacobian":',jacobian_count,','
     write(unit,'(a,i0,a)') '"lu":',lu_count,','
     write(unit,'(a,i0,a)') '"linear_solve":',solve_count,','
@@ -65,7 +67,8 @@ contains
   end subroutine counters
 
   subroutine checkpoint()
-    write(counter_unit) rhs_count,rhs_count,rhs_count,rhs_count,rhs_count,jacobian_count,lu_count, &
+    write(counter_unit) rhs_count,coefficient_count,coefficient_count,coefficient_count,coefficient_count, &
+                        jacobian_count,lu_count, &
                         solve_count,newton_count,retry_count,attempt_count,projection_count,probe_count,accepted_count
     flush(counter_unit)
   end subroutine checkpoint
@@ -114,14 +117,69 @@ contains
     write(log_unit,*) 'TOTAL_CPU_SECONDS',cpu_end-cpu_start
   end subroutine elapsed_cost
 
+  subroutine save_failure_state(state,time,temp,density)
+    real(dp),intent(in) :: state(:),time,temp,density
+    integer :: unit,ios
+    if (failure_state_saved) return
+    failure_state_saved=.true.
+    open(newunit=unit,file='failure-state.bin',status='new',access='stream',form='unformatted',iostat=ios)
+    if (ios/=0) then
+      write(log_unit,*) 'FAILURE_STATE_UNAVAILABLE',ios
+      return
+    endif
+    write(unit,iostat=ios) time,temp,density,state
+    if (ios/=0) write(log_unit,*) 'FAILURE_STATE_PARTIAL',ios
+    close(unit,iostat=ios)
+    if (ios/=0) write(log_unit,*) 'FAILURE_STATE_CLOSE_UNAVAILABLE',ios
+  end subroutine save_failure_state
+
+  subroutine save_failure_workspace()
+    use reaction_data, only: csect1,csect2,csect3,csect4,b1,b2,b3,b4
+    integer :: unit,ios
+    integer(int32) :: header(15)
+    real(dp) :: nan
+    ! The flag is set only inside fresh after driver/stub allocations are ready.
+    ! Header/network/setup failures never dereference unallocated native arrays.
+    if (.not.workspace_ready) then
+      write(log_unit,'(a)') 'FAILURE_WORKSPACE_UNAVAILABLE physical workspaces not initialized'
+      return
+    endif
+    if (.not.failure_state_saved) call save_failure_state(yt(:,1),tt(1),t9t(1),rhot(1))
+    header=[int(z'43524657',int32),1_int32,int(ny,int32),int(size(csect1),int32), &
+            int(size(csect2),int32),int(size(csect3),int32),int(size(csect4),int32), &
+            int(size(b1),int32),int(size(b2),int32),int(size(b3),int32),int(size(b4),int32), &
+            int(size(jac,1),int32),int(size(jac,2),int32),int(physical_phase,int32),int(iweak(1),int32)]
+    open(newunit=unit,file='failure-workspace.bin',status='new',access='stream',form='unformatted',iostat=ios)
+    if (ios/=0) then
+      write(log_unit,*) 'FAILURE_WORKSPACE_UNAVAILABLE',ios
+      return
+    endif
+    nan=ieee_value(0.0_dp,ieee_quiet_nan)
+    write(unit,iostat=ios) header
+    if (ios==0) write(unit,iostat=ios) tt,t9t,rhot,yet,cv,etae,detaedt9,yt
+    if (physical_phase==2) then
+      if (ios==0) write(unit,iostat=ios) ydot,csect1,csect2,csect3,csect4,b1,b2,b3,b4,jac
+    else
+      ! Phase 1 means yderiv was never called at this state; these explicit NaNs
+      ! denote unavailable current F/b, rather than invented zeros or stale data.
+      if (ios==0) write(unit,iostat=ios) spread(nan,1,size(ydot)),csect1,csect2,csect3,csect4, &
+                                         spread(nan,1,size(b1)+size(b2)+size(b3)+size(b4)),jac
+    endif
+    if (ios/=0) write(log_unit,*) 'FAILURE_WORKSPACE_PARTIAL',ios
+    close(unit,iostat=ios)
+    if (ios/=0) write(log_unit,*) 'FAILURE_WORKSPACE_CLOSE_UNAVAILABLE',ios
+  end subroutine save_failure_workspace
+
   subroutine fail(reason)
     character(*), intent(in) :: reason
     if (opened) then
+      call save_failure_workspace()
       call snapshot_runtime()
       call elapsed_cost()
       write(log_unit,'(a)') 'FAILURE '//reason
       write(status_unit,'(a)') 'FAILURE '//reason
       flush(log_unit); flush(status_unit); flush(column_unit); flush(branch_unit); flush(residual_unit); flush(counter_unit)
+      flush(base_unit)
       call counters()
     endif
     error stop 1
@@ -134,6 +192,7 @@ contains
     write(status_unit,'(a)') 'SUCCESS'
     flush(status_unit)
     close(log_unit); close(status_unit); close(column_unit); close(branch_unit); close(residual_unit); close(counter_unit)
+    close(base_unit)
   end subroutine finish
 
   logical function domain(state,temp,density,reason)
@@ -173,30 +232,44 @@ contains
     logical, intent(out) :: ok
     character(*), intent(out) :: reason
     logical, optional, intent(in) :: is_probe
-    logical :: active(1)
+    logical :: active(1),probe
     integer :: j
     real(dp), parameter :: eta_cuts(7)=[-2.0_dp,0.0_dp,2.0_dp,5.0_dp,10.0_dp,20.0_dp,40.0_dp]
     f=ieee_value(0.0_dp,ieee_quiet_nan)
-    if (present(is_probe)) then
-      if (is_probe) probe_count=probe_count+1
-    endif
+    probe=.false.
+    if (present(is_probe)) probe=is_probe
+    if (probe) probe_count=probe_count+1
     ok=domain(state,temp,density,reason)
-    if (.not.ok) return
+    if (.not.ok) then
+      if (.not.probe) call save_failure_state(state,time,temp,density)
+      return
+    endif
     if (.not.ieee_is_finite(time)) then
-      ok=.false.; reason='nonfinite time'; return
+      ok=.false.; reason='nonfinite time'
+      if (.not.probe) call save_failure_state(state,time,temp,density)
+      return
     endif
     active=.true.
     yt(:,1)=state; tt(1)=time; t9t(1)=temp; rhot(1)=density
-    rhs_count=rhs_count+1
+    workspace_ready=.true.; physical_phase=1
+    coefficient_count=coefficient_count+1
     call cross_sect(mask_in=active)
-    call yderiv(mask_in=active)
-    ok=all(ieee_is_finite(ydot)).and.all(ieee_is_finite(csect1)).and.all(ieee_is_finite(csect2)) &
-       .and.all(ieee_is_finite(csect3)).and.all(ieee_is_finite(csect4)).and.all(ieee_is_finite(b1)) &
-       .and.all(ieee_is_finite(b2)).and.all(ieee_is_finite(b3)).and.all(ieee_is_finite(b4)) &
+    ok=all(ieee_is_finite(csect1)).and.all(ieee_is_finite(csect2)) &
+       .and.all(ieee_is_finite(csect3)).and.all(ieee_is_finite(csect4)) &
        .and.all(ieee_is_finite(yet)).and.all(ieee_is_finite(cv)).and.all(ieee_is_finite(etae)) &
        .and.all(ieee_is_finite(detaedt9))
     if (.not.ok) then
-      reason='nonfinite physical F/EOS/coefficient/assembly workspace'; return
+      reason='nonfinite computed EOS/coefficient workspace'
+      call save_failure_state(state,time,temp,density)
+      call fail(trim(reason))
+    endif
+    rhs_count=rhs_count+1; physical_phase=2
+    call yderiv(mask_in=active)
+    if (.not.all(ieee_is_finite(ydot)).or..not.all(ieee_is_finite(b1)).or. &
+        .not.all(ieee_is_finite(b2)).or..not.all(ieee_is_finite(b3)).or..not.all(ieee_is_finite(b4))) then
+      reason='nonfinite computed physical F/assembly workspace'
+      call save_failure_state(state,time,temp,density)
+      call fail(trim(reason))
     endif
     branch_signature(10020)=iweak(1)
     do j=1,7
@@ -248,7 +321,7 @@ contains
     d1=p1(column)-base(column); d2=p2(column)-base(column)
     if (d1==0.or.d2==0.or.d1==d2) then
       ok=.false.
-      write(log_unit,*) 'FD_REFUSAL increment',jacobian_count,column,stencil,delta,d1,d2
+      write(log_unit,*) 'FD_REFUSAL increment',jacobian_count,column,stencil,delta,d1,d2,p1(column),p2(column)
       return
     endif
     call fresh(p1,time,temp,density,f1,ok1,why1,.true.)
@@ -265,7 +338,7 @@ contains
     endif
     ok=ok1.and.ok2
     if (.not.ok) write(log_unit,*) 'FD_REFUSAL domain/branch',jacobian_count,column,stencil, &
-                                          delta,d1,d2,trim(why1),' / ',trim(why2)
+                                          delta,d1,d2,p1(column),p2(column),trim(why1),' / ',trim(why2)
   end subroutine column_probe
 
   subroutine full_jacobian(base,time,temp,density,f0,matrix)
@@ -277,6 +350,8 @@ contains
     logical :: ok,weights_ok,found
     character(160) :: reason
     jacobian_count=jacobian_count+1
+    write(base_unit) real(jacobian_count,dp),time,temp,density,base
+    flush(base_unit)
     call fresh(base,time,temp,density,f0,ok,reason)
     if (.not.ok) call fail('Jacobian baseline '//trim(reason))
     base_branch=branch_signature
@@ -349,7 +424,10 @@ contains
       call jacobian_bksub(kstep,reshape(equation,[160,1]),correction,unused_rhs,unused_correction,mask_in=active)
       if (.not.all(ieee_is_finite(correction))) call fail('nonfinite Newton correction')
       iterate=iterate+correction(:,1)
-      if (.not.all(ieee_is_finite(iterate))) call fail('nonfinite Newton iterate before projection')
+      if (.not.all(ieee_is_finite(iterate))) then
+        call save_failure_state(iterate,time,temp,density)
+        call fail('nonfinite Newton iterate before projection')
+      endif
       projection=0
       do i=1,160
         if (iterate(i)<0) then
