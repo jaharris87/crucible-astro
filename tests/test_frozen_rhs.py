@@ -9,6 +9,7 @@ import torch
 
 from crucible import frozen_rhs as f
 from crucible import mlp_baseline as m
+from crucible.integration import integrate_rhs
 from crucible.rhs_data import UNITS
 
 
@@ -191,3 +192,21 @@ def test_nonfinite_network_output_refuses_and_saved_scales_are_owned():
         rhs.model.biases[2][0] = torch.inf
     with pytest.raises(ValueError, match="nonfinite"):
         rhs(0.0, np.zeros(160))
+
+
+def test_wrapper_rejects_same_shape_reordered_species_before_model_call(monkeypatch):
+    rhs = source()
+    monkeypatch.setattr(
+        rhs.model, "forward", lambda x: pytest.fail("model must not run")
+    )
+    reordered = replace(rhs.contract, components=rhs.contract.components[::-1])
+    with pytest.raises(ValueError, match="identities, units or conditions mismatch"):
+        integrate_rhs(
+            rhs,
+            np.zeros(160),
+            np.array([0.0, 1.0]),
+            contract=rhs.contract,
+            expected_contract=reordered,
+            rtol=1e-6,
+            atol=1e-9,
+        )

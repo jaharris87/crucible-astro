@@ -54,8 +54,24 @@ with no consequential findings or protocol edits. SHA256:
 `35bddc1edbffc1a60a86a863e161417aca0543a9d4754a94d3b18e2cb91fc6b2`.
 **The maintainer accepted the exact protocol in [D-033](DECISIONS.md#decision-d-033-accept-the-reviewed-phase-2c-numerical-protocol)**
 ([receipt](https://github.com/jaharris87/crucible-astro/issues/43#issuecomment-7044376981)).
-Implementation is active; no accepted campaign has run yet. Next action: implement
-and verify the accepted protocol, then obtain ordinary exact-candidate review.
+The accepted campaign ran on **`f3a12a7`**: all six positive integrations,
+both expected negative attempts, constraints/refinement and fresh reload pass.
+All 20,879 train/validation frozen callbacks pass saved-batch/one-row bit identity
+and the declared singleton/batch allowance; no weights/scales/source changed.
+Fresh checkout/locked noneditable reproduction of all eight attempts and both
+roles passes at `atol=rtol=1e-12`. Fresh execution-source suite: 610 tests, zero skips. Final installed suite,
+including the added species-order boundary control: 611 tests, zero skips.
+[Full report](reports/2026-11-20-phase2c.md),
+[aggregates](../experiments/integration/results.json) and
+[public synthetic artifacts](../experiments/integration/artifacts/manifest.json)
+retain actual results/resources/failures and exact evidence boundaries. Private
+arrays/records/logs remain under ignored `.local/phase2c/`; a local access file
+points read-only to the original frozen artifacts, without regenerating them.
+
+Next action: self-review/push one coherent draft PR, obtain fresh exact-candidate
+independent review, repair/verify findings, then perform a protected implementation
+merge under D-034 with immediate freshness and merged-result checks. The scheduled
+merged audit and final closeout remain outstanding.
 [D-034](DECISIONS.md#decision-d-034-bounded-2c-recommendations-and-merge-delegation)
 delegates sufficiently vetted 2C recommendations, including reviewed/check-passing
 implementation or repair merges. Final 2C closeout remains an explicit maintainer

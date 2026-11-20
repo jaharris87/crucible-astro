@@ -1,0 +1,180 @@
+{
+  "acceptance_receipt": "https://github.com/jaharris87/crucible-astro/issues/43#issuecomment-7044376981",
+  "date": "2026-11-20",
+  "executed_source_commit": "f3a12a7128f0140b55a56f3f6feb02ae8b48c3f8",
+  "failures_and_dispositions": [
+    {
+      "kind": "development_test",
+      "outcome": "worker first56pass1fail; incorrect expectation singularity numerical failure before1s removed; protocol requires failure before2s and oracle undefined at/after1s; final worker59pass"
+    },
+    {
+      "kind": "format",
+      "outcome": "lead formatting check found4 worker files unformatted; Ruff formatter applied before committed campaign; no numerical protocol change"
+    },
+    {
+      "kind": "environment",
+      "outcome": "initial uv cache permission refusal and TLS UnknownIssuer; authorized cache access plus native TLS resolved; lock retains exact requested versions"
+    },
+    {
+      "kind": "instrumentation",
+      "outcome": "time -lp returned1 due sandbox kern.clockrate refusal after successful complete passing synthetic campaign; internal measured report retained; no campaign restarted. Subsequent time -p completed."
+    },
+    {
+      "kind": "shell",
+      "outcome": "fresh-checkout login emitted pyenv cannot-rehash warning; actual installs/tests/reproduction completed successfully"
+    },
+    {
+      "kind": "scientific_attempts",
+      "outcome": "all6 positive integrations passed; expected terminal event and singularity solver failure retained; no failed real callable check, no exclusion or retry"
+    }
+  ],
+  "frozen_callable": {
+    "data_contract_sha256": "e68f0895e74a9065e7256e2ef823e5add48e2a7ce731a89980b943f5d22f4990",
+    "originals_unchanged": true,
+    "private_predictions_sha256": "932be7f604f10f25aedb7e85cc8657021e844c0dba3d6ff63cc84f338f1a871b",
+    "private_report_sha256": "7ca050cb56da41450238e417e4a8e1f8520e2354ea78fb6dca23edfccc657640",
+    "repeat_private_predictions_sha256": "932be7f604f10f25aedb7e85cc8657021e844c0dba3d6ff63cc84f338f1a871b",
+    "repeat_private_report_sha256": "11fbb3165a7fd894a5370a7b887cf735f8a092f57186f9cd4a6d208713095f4c",
+    "roles": {
+      "train": {
+        "callback_seconds_including_direct_reference": 2.200512124982197,
+        "components": 2825440,
+        "failed_record_count": 0,
+        "max_allowance_fraction": 0.0025484699210573908,
+        "max_normalized_difference": 1.1589099454146848e-15,
+        "passed": true,
+        "records": 17659,
+        "saved_batch_bitwise": true,
+        "singleton_reference_bitwise": true,
+        "time_conditions_bitwise": true,
+        "total_seconds": 2.27477329201065,
+        "violating_components": 0,
+        "violating_records": 0
+      },
+      "validation": {
+        "callback_seconds_including_direct_reference": 0.38595349999377504,
+        "components": 515200,
+        "failed_record_count": 0,
+        "max_allowance_fraction": 0.001969800130446806,
+        "max_normalized_difference": 8.957613910964965e-16,
+        "passed": true,
+        "records": 3220,
+        "saved_batch_bitwise": true,
+        "singleton_reference_bitwise": true,
+        "time_conditions_bitwise": true,
+        "total_seconds": 0.39794016600353643,
+        "violating_components": 0,
+        "violating_records": 0
+      }
+    },
+    "status": "PASS",
+    "weights_scales_bitwise": true
+  },
+  "issue": 43,
+  "original_frozen_artifact_sha256": {
+    "model.json": "3d11aca1efcff2e025fa196bf00352ac42477a44eba39f8cd464ac8c3188740e",
+    "model.npz": "4d048163a5bd4d256ad7e6ed90be15a48321587525ab94e33ae253bb6cfdd793",
+    "predictions.npz": "70fc334c873a07791fdcad0a25e7e51f4a71e4235cbd43140ed234613a2c84db"
+  },
+  "protocol_sha256": "35bddc1edbffc1a60a86a863e161417aca0543a9d4754a94d3b18e2cb91fc6b2",
+  "reproduction": {
+    "clean_environment": "fresh checkout, locked noneditable install, existing package cache",
+    "cross_platform_real_artifact": "not evaluated",
+    "numerical_comparison": "PASS all8 synthetic attempts and both frozen roles at atol=rtol=1e-12",
+    "serialization": "PASS exact dtype/shape/bytes and same-array metrics in fresh processes",
+    "test_results": "611 installed-package tests/zero skips on final candidate; clean execution-source checkout610/zero skips; new species-boundary test passes with35 adapter tests"
+  },
+  "resources": {
+    "frozen_artifact_bytes_excluding_report": 102936170,
+    "frozen_loading_seconds": 13.619253999990178,
+    "frozen_peak_rss_bytes": 1035419648,
+    "frozen_repeat_loading_seconds": 8.207148916000733,
+    "frozen_repeat_peak_rss_bytes": 1027833856,
+    "frozen_repeat_total_seconds": 17.18304987499141,
+    "frozen_setup_seconds": 0.01911754100001417,
+    "frozen_total_seconds": 21.22828758400283,
+    "hardware": "Apple M4 Max",
+    "installed_memory_bytes": 68719476736,
+    "synthetic": {
+      "integration": 0.2033324170333799,
+      "loading_setup": 0.42882045899750665,
+      "persistence": 0.007851040980312973,
+      "total": 0.6529624170216266
+    },
+    "synthetic_peak_rss_bytes": 78970880,
+    "synthetic_repeat": {
+      "integration": 0.29955691602663137,
+      "loading_setup": 11.52453962501022,
+      "persistence": 0.010352124052587897,
+      "total": 11.848240291001275
+    },
+    "synthetic_repeat_peak_rss_bytes": 105054208,
+    "threads": 1,
+    "timing_limitations": "Informational; fresh-package tests overlapped repeat. No matched-accuracy cost or speedup claim. Per-attempt artifacts about98.2MiB; retaining both repeats exceeds original aggregate storage estimate, not a cap."
+  },
+  "schema": "crucible.phase2c-public-result.v1",
+  "scope": "No fitting, final-test model use, real MLP rollout, new producer/reference execution or release of private arrays/weights.",
+  "source_files": {
+    "experiments/integration/check_frozen.py": "ab2f42032507b1a59ae0bd42c9e567db3911ec44ac76326f0ff7a4452d0ad51c",
+    "pyproject.toml": "48d708228caa42dcfe40bab174a4c4ba3211c799cc8506686c730d1ac979ed0c",
+    "src/crucible/frozen_rhs.py": "4628b03c451bae0c6e4b5c39db5e1e1ff1ce06e156eea5c301387263b6c34dcd",
+    "src/crucible/integration.py": "7b2bfd7e068dcfdfcf03dfa7f14e8c7a127be7bac1792a637059c3a0548ed062",
+    "src/crucible/integration_verification.py": "f476848bab62836b6bb68be3ec4b0b2b9449ab850337051eaf9fa0632900715c",
+    "src/crucible/mlp_baseline.py": "d590d2031936af1394cf73c724f955371854850258404270d8c1e81433fe821f",
+    "uv.lock": "c60980e138177d0e964fdfab69977030fece08bd476534083467ccb1cf73f9b3"
+  },
+  "status": "numerical exits pass; exact-candidate review, integration and scheduled audit remain pending",
+  "synthetic": {
+    "artifact_manifest": "artifacts/manifest.json",
+    "attempts": 8,
+    "passed": true,
+    "private_original_manifest_sha256": "04e59f75c56de470dc3994900563629d030413936d4984a909ddf440a5a2f363",
+    "refinement": {
+      "exchange": {
+        "L2_vs_L0_passed": true,
+        "adjacent_passed": [
+          true,
+          true
+        ],
+        "adjacent_ratios": [
+          0.012246092632701416,
+          0.008407151337939433
+        ],
+        "errors": [
+          4.358174152452321e-06,
+          5.337060438037611e-08,
+          4.4869474802311515e-10
+        ],
+        "nonmonotonic": [
+          false,
+          false
+        ],
+        "passed": true,
+        "roundoff_plateau": false
+      },
+      "forced_stiff": {
+        "L2_vs_L0_passed": true,
+        "adjacent_passed": [
+          true,
+          true
+        ],
+        "adjacent_ratios": [
+          0.005759401262551504,
+          0.009982955547372802
+        ],
+        "errors": [
+          2.491182704134065e-05,
+          1.4347720811436204e-07,
+          1.4323265906668325e-09
+        ],
+        "nonmonotonic": [
+          false,
+          false
+        ],
+        "passed": true,
+        "roundoff_plateau": false
+      }
+    },
+    "repeat_manifest_sha256": "737c73eed86fe2b2b0bb7cef89831c898b6ebc0c2fb3dc72276307512fba9b6b"
+  }
+}
