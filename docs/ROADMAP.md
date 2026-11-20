@@ -72,7 +72,9 @@ guidance revision/access gaps. No trained-model card is created during Phase 1.
 [2C analytic integration](https://github.com/jaharris87/crucible-astro/issues/43),
 [2D real references](https://github.com/jaharris87/crucible-astro/issues/44), then
 [2E frozen evaluation/cost](https://github.com/jaharris87/crucible-astro/issues/45).
-2A is complete; D-030 authorizes only 2B; D-031 accepts its experiment. Each later boundary requires scope acceptance and
+2A and 2B are complete; D-032 authorizes only 2C, with reviewed-protocol acceptance
+required before its numerical campaign and the scheduled integrated audit after
+its human merge/merged checks. Each later boundary requires scope acceptance and
 preceding integration; [the execution sequence](PHASE_2_LAUNCH.md) defines these
 bounds. Before real rollouts, accept forcing/history, horizons/outputs, observables
 and a separately authorized pinned-XNet reference/convergence experiment.

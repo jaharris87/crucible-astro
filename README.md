@@ -14,13 +14,13 @@ selection and final evaluation. See the [benchmark contract](docs/science/benchm
 **Current status:** Phase 0A/0B and Phase 1 are complete. Qualification covers
 24,314 states from 380 histories for finite within-parent numerical emulation.
 The documentation migration and Phase 2A qualified-data access are complete.
-Phase 2B is active under [issue #42](https://github.com/jaharris87/crucible-astro/issues/42):
-one small full-state MLP and zero-RHS comparator under the reviewed,
-maintainer-accepted experiment protocol.
-The fit, fresh-process reload, bitwise clean refit and complete train/validation
-reports reproduce. D-024 whole-vector attainment is zero at every profile; this
-is an honest negative fidelity result. Review/merge/integration status is tracked
-in issue #42. Physical application, energy, rollout accuracy and speedup remain
+Phase 2B is [complete](https://github.com/jaharris87/crucible-astro/issues/42#issuecomment-7043899683)
+at PR #47 / `a81552e`: the frozen full-state MLP and zero-RHS comparator reproduce,
+with zero D-024 whole-vector attainment at every profile. This negative fidelity
+result remains unchanged. Phase 2C is active under
+[issue #43](https://github.com/jaharris87/crucible-astro/issues/43), with a
+[passing accepted analytic campaign and frozen callable checks](docs/reports/2026-11-20-phase2c.md).
+Independent PR review, implementation integration and its scheduled audit remain. Physical application, energy, rollout accuracy and speedup remain
 **not evaluated**.
 Use [Progress](docs/PROGRESS.md) and [Handoff](docs/HANDOFF.md) for current work and
 the [final Phase 1 receipt](https://github.com/jaharris87/crucible-astro/issues/15#issuecomment-7014392482) for closure evidence.
@@ -32,6 +32,12 @@ Repository: **[jaharris87/crucible-astro](https://github.com/jaharris87/crucible
 CRUCIBLE will make reaction-network surrogates and reduction methods reproducible,
 comparable and callable, connecting physical composition, representations, kinetics,
 integration and scientific observables.
+
+The design adapts Qiosk's separation of representation, vector source learning
+and integrated evaluation to verified nuclear semantics. The current full-state
+path is the initial comparison control; the
+[Qiosk and Zhang-paper trace](experiments/integration/GROUNDING.md) explains this
+lineage and the deliberate adaptations.
 
 The framework must support the identity/full-state path and multiple reduction
 approaches, with **one potentially vector-valued physical kinetics source**.

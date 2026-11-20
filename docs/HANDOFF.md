@@ -1,79 +1,99 @@
 # CRUCIBLE handoff
 
-Updated **2026-11-20**. Phase 1, the D-027 documentation migration and **2A are
-complete**. [D-030](DECISIONS.md#decision-d-030-phase-2b-launch-and-selected-full-state-mlp)
-invokes **2B only**, governed by
-[issue #42](https://github.com/jaharris87/crucible-astro/issues/42).
+Updated **2026-11-20**. Phase 1, the D-027 documentation migration, **2A and
+2B are complete**. [D-032](DECISIONS.md#decision-d-032-phase-2c-launch-and-bounded-numerical-verification)
+invokes **2C only**, governed by
+[issue #43](https://github.com/jaharris87/crucible-astro/issues/43).
 [Milestone #3](https://github.com/jaharris87/crucible-astro/milestone/3) and
 [the existing sequence](PHASE_2_LAUNCH.md) remain the only phase tracking structure.
 
 ## Verified starting state
 
-Startup inspected a clean checkout and fetched `origin/main`, both at
-**`8b6cf713969c4abdcc5353aa18141461bb509616`**, the PR #46 merge. Startup read the
-[Phase 1 final receipt](https://github.com/jaharris87/crucible-astro/issues/15#issuecomment-7014392482),
-[migration final receipt](https://github.com/jaharris87/crucible-astro/issues/39#issuecomment-7019298012)
-and [2A final receipt](https://github.com/jaharris87/crucible-astro/issues/41#issuecomment-7020463315)
-once. All record completed review, human merge and merged verification; these
-settled exits are not reopened. The 2A receipt records 489 installed-package tests,
-merged CI, all-row structural checks and unchanged accepted artifacts. Historical
-reports/cards/reviews and original qualification bindings remain preserved.
+Startup inspected a clean checkout, read the live governing issue and fetched
+`origin/main`; both checkout and remote are at
+**`a81552e9fc1c22ffb595936b5a0348a9f58fe766`**, the human-approved PR #47 merge.
+Read the [Phase 1 final receipt](https://github.com/jaharris87/crucible-astro/issues/15#issuecomment-7014392482),
+[migration final receipt](https://github.com/jaharris87/crucible-astro/issues/39#issuecomment-7019298012),
+[2A final receipt](https://github.com/jaharris87/crucible-astro/issues/41#issuecomment-7020463315)
+and [2B final receipt](https://github.com/jaharris87/crucible-astro/issues/42#issuecomment-7043899683)
+once. They record completed review, concrete human merges and merged verification;
+these settled exits are not reopened. The 2B merge has 515 installed-package tests,
+merged CI, bitwise fresh reload/clean refit and complete reproduced reports.
 
-## Active 2B work and next decision
+The [actual 2B model card](model-cards/genesis_modelcard_full_state_mlp_v0_1.md),
+[validation report](reports/2026-11-20-phase2b.md),
+[aggregate record](../experiments/mlp_baseline/results.json) and
+[experiment guide](../experiments/mlp_baseline/README.md) retain the original
+artifact/results and their review boundaries. The frozen model is an honest
+negative digital-fidelity baseline: zero whole-vector D-024 attainment at every
+profile and unbounded binary64 nonzero relative RMS/max reports. This does not
+authorize retraining or block independent mathematical integration verification.
 
-The sole native goal is active/incomplete:
+Retained local configuration and original 2B artifacts were located read-only.
+Model NPZ SHA256 `4d048163a5bd4d256ad7e6ed90be15a48321587525ab94e33ae253bb6cfdd793`,
+manifest `3d11aca1efcff2e025fa196bf00352ac42477a44eba39f8cd464ac8c3188740e`
+and predictions `70fc334c873a07791fdcad0a25e7e51f4a71e4235cbd43140ed234613a2c84db`
+match their retained records. Private paths remain in ignored local configuration.
+No artifact regeneration or model execution was needed for startup.
 
-> Complete CRUCIBLE Phase 2B: establish one reproducible CPU-capable full-state
-> MLP and deterministic comparator on the accepted pointwise benchmark, with
-> train-only preprocessing, validation-only development, save/reload and clean
-> reproduction evidence, a Genesis-guided model card, independent review,
-> human-approved merge and merged-result verification.
+## Active 2C work and next decision
 
-Integration branch: `codex/phase2b-full-state-mlp`, from the verified main above.
-The selected direction is one small full-state MLP plus exact zero-RHS comparator.
-The [exact concrete protocol](https://github.com/jaharris87/crucible-astro/issues/42#issuecomment-7042652534)
-received a [fresh-context read-only independent `gpt-6.1-sol` High scope/simplicity PASS](https://github.com/jaharris87/crucible-astro/issues/42#issuecomment-7042701075),
-with no consequential findings or changes. Proposal SHA256:
-`0ce78f0d008f3bf166b4efacabc923a633e7fe6d587fb0984de0b1ba3dba60d8`.
-**The maintainer accepted this exact protocol in [D-031](DECISIONS.md#decision-d-031-accept-the-reviewed-small-full-state-mlp-experiment)**
-([receipt](https://github.com/jaharris87/crucible-astro/issues/42#issuecomment-7042848745)).
-The original ridge proposal and its review remain historical records in #42;
-their numerical choices and review coverage do not transfer to the MLP.
-One accepted scientific trial and its clean exact refit completed on source
-`5ea61f157e7e38bbd2a106bf1b51d9560fcad55f`: epoch 407 selected, 437 epochs completed,
-patience stop. All weights/scales/train+validation predictions/epoch logs match
-bitwise. Fresh-process reload and actual validation-extrema mutation independence
-checks pass. All train/validation MLP and zero reports reproduce byte for byte,
-retaining every required component/species/stratum and diagnostic. Results are
-negative for D-024 whole-vector attainment; no fit/protocol change is authorized by that outcome.
+The native goal was inspected (none existed), then created for **active 2C only**:
 
-Reuse `crucible.benchmark.load_benchmark` and its scientist-facing contract.
-Load train/validation arrays once each per experiment process and reuse them;
-measure actual costs before adding caching or streaming. Fit every learned
-preprocessing quantity on training only and verify independence by changing held-out
-values with training fixed. Never predict or score the final-test partition in 2B.
-Keep software public and real data, predictions, weights and private records local.
+> Complete CRUCIBLE Phase 2C: establish a small callable RHS and numerical
+> integration path with independent analytic and stiff-problem verification,
+> consistent state/units/Jacobians, complete failure and convergence evidence,
+> clean reproduction, independent review, human-approved merge, merged-result
+> verification, and the scheduled bounded post-integration 2A–2C code audit
+> with findings appropriately resolved or dispositioned.
 
-Issue #42 will retain exact protocol/review/dispositions/acceptance and execution
-records; its coherent PR will hold candidate SHAs, checks, independent code review,
-human merge and integration receipts. Ordinary review includes scope, readability
-and maintainability. Keep this goal incomplete while any required decision or
-integration exit remains. No broader Phase 2 goal or new tracker is created.
-The integrated 2A–2C audit remains after 2C integration in existing #43.
+Integration branch: `codex/phase2c-numerical-integration`, from the exact verified
+main above. The [concrete numerical protocol](https://github.com/jaharris87/crucible-astro/issues/43#issuecomment-7044234697)
+received a [fresh-context read-only independent `gpt-6.1-sol` High PASS](https://github.com/jaharris87/crucible-astro/issues/43#issuecomment-7044293163),
+with no consequential findings or protocol edits. SHA256:
+`35bddc1edbffc1a60a86a863e161417aca0543a9d4754a94d3b18e2cb91fc6b2`.
+**The maintainer accepted the exact protocol in [D-033](DECISIONS.md#decision-d-033-accept-the-reviewed-phase-2c-numerical-protocol)**
+([receipt](https://github.com/jaharris87/crucible-astro/issues/43#issuecomment-7044376981)).
+The accepted campaign ran on **`f3a12a7`**: all six positive integrations,
+both expected negative attempts, constraints/refinement and fresh reload pass.
+All 20,879 train/validation frozen callbacks pass saved-batch/one-row bit identity
+and the declared singleton/batch allowance; no weights/scales/source changed.
+Fresh checkout/locked noneditable reproduction of all eight attempts and both
+roles passes at `atol=rtol=1e-12`. Fresh execution-source suite: 610 tests, zero skips. Final installed suite,
+including the added species-order boundary control: 611 tests, zero skips.
+[Full report](reports/2026-11-20-phase2c.md),
+[aggregates](../experiments/integration/results.json) and
+[public synthetic artifacts](../experiments/integration/artifacts/manifest.json)
+retain actual results/resources/failures and exact evidence boundaries. Private
+arrays/records/logs remain under ignored `.local/phase2c/`; a local access file
+points read-only to the original frozen artifacts, without regenerating them.
 
-The isolated `gpt-6.1-sol` High implementation worker is complete; root integrated
-its code. Locked noneditable source passes 515 tests, Ruff and formatting.
-Numerical exits, the [actual-artifact model card](model-cards/genesis_modelcard_full_state_mlp_v0_1.md),
-[validation report](reports/2026-11-20-phase2b.md) and local reproduction guide are
-complete. Full-precision aggregate results and private report digests are in
-`experiments/mlp_baseline/results.json`. Current work: self-review/push the
-coherent draft PR, fresh exact-candidate independent review, then obtain the
-concrete human merge decision and verify the merged result. Live issue/PR
-receipts control subsequent review, merge and closure; this is an implementation
-checkpoint, not a claim those future exits have occurred. Poor fidelity does not
-authorize
-another architecture, seed search or protocol change. Every merge remains a
-concrete human decision. Stop after integrated 2B; do not begin 2C here.
+Next action: self-review/push one coherent draft PR, obtain fresh exact-candidate
+independent review, repair/verify findings, then perform a protected implementation
+merge under D-034 with immediate freshness and merged-result checks. The scheduled
+merged audit and final closeout remain outstanding.
+[D-034](DECISIONS.md#decision-d-034-bounded-2c-recommendations-and-merge-delegation)
+delegates sufficiently vetted 2C recommendations, including reviewed/check-passing
+implementation or repair merges. Final 2C closeout remains an explicit maintainer
+decision after all audit/repair exits. The [Qiosk and original-paper trace](../experiments/integration/GROUNDING.md)
+records the reaffirmed design lineage and deliberate nuclear adaptations.
+No silence, generic goal continuation or protocol acceptance grants merge authority.
+
+After acceptance, implement/check/report autonomously within that exact protocol.
+Reuse the frozen loader/model/scalers; preserve physical ordered 160 Y, recorded
+T9/rho, composition-derived Ye and native signed Y/s output. Frozen-model checks
+are train/validation pointwise/callable equivalence only. Synthetic fixtures verify
+integration; no real MLP rollout or new producer/reference execution. Model-based
+final-test access stays sealed; structural all-role loader checks are distinct.
+
+Keep one coherent PR unless a concrete reason requires a split. Follow self-review,
+draft PR, fresh exact-candidate independent review, repairs/focused verification,
+concrete human merge decision and merged-result checks. **Then** perform the
+already scheduled bounded fresh-context read-only `gpt-6.1-sol` High merged 2A–2C
+audit in #43. Preserve original audit findings/dispositions and route required
+repairs through reviewed PRs/human merges/merged checks. Do not auto-close #43 at
+first implementation merge. Keep the goal/issue incomplete through required audit
+exits; milestone #3 stays open. Stop after 2C. 2D/2E need separate authority.
 
 ## Scientific and execution boundary
 

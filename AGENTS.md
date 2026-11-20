@@ -12,12 +12,18 @@ migration are complete; [migration final receipt](https://github.com/jaharris87/
 records PR #40 merge/integration at `804fb75`. D-029 established the incremental Phase 2 sequence; 2A is complete through
 [PR #46](https://github.com/jaharris87/crucible-astro/pull/46) at `8b6cf71`, with
 [final receipt](https://github.com/jaharris87/crucible-astro/issues/41#issuecomment-7020463315).
-D-030 authorizes **Phase 2B only** under
-[issue #42](https://github.com/jaharris87/crucible-astro/issues/42): one small
-CPU-capable full-state MLP and deterministic zero-RHS comparator, with a concrete
-independently reviewed experiment accepted by the maintainer before fitting.
-Repository edits, dependencies, tests, commits, pushes and PR creation are authorized;
-merge remains human-owned. No final-test model predictions/evaluation in 2B.
+2B is complete through [PR #47](https://github.com/jaharris87/crucible-astro/pull/47)
+at `a81552e`, with [final receipt](https://github.com/jaharris87/crucible-astro/issues/42#issuecomment-7043899683).
+D-032 authorizes **Phase 2C only** under
+[issue #43](https://github.com/jaharris87/crucible-astro/issues/43): preserve the
+frozen 2B MLP/scalers/negative fidelity result; verify its callable pointwise
+contract on train/validation and synthetic integration against independent
+analytic/stiff solutions. A concrete independently reviewed protocol needs
+maintainer acceptance before the numerical campaign. Repository edits,
+project-local dependencies, tests, commits, pushes and PR creation are authorized;
+merge remains human-owned. No fitting, real MLP rollout or final-test model use.
+After human merge/merged checks, perform the scheduled bounded independent merged
+2A–2C audit in #43; keep issue/goal incomplete through blocking repairs/dispositions.
 [Milestone #3](https://github.com/jaharris87/crucible-astro/milestone/3) and
 [the single reconciled sequence](docs/PHASE_2_LAUNCH.md) track five increments.
 Each next sub-phase needs accepted scope and preceding integration. Native goals
@@ -68,7 +74,7 @@ plan for later separate authorization, and D-028 retains the real-rollout gate
 while staging the future baseline. The maintainer subsequently authorized execution of the accepted D-027 migration
 as the separate post-Phase-1 task in issue #39. See the
 [migration record](docs/process/DOCUMENTATION_MIGRATION.md) for the exact source,
-anchor map and frozen-source recovery. D-029 established incremental Phase 2; D-030 grants only the bounded 2B authority above.
+anchor map and frozen-source recovery. D-029 established incremental Phase 2; D-032 grants only the bounded 2C authority above.
 
 Make routine reversible choices within scope. Prepare concrete evidence before asking consequential scientific, scope or authority questions; use the interactive interface or D-### format in the workflow, recommendation first, meaningful alternatives, normally no more than three together and free-text answers. Record answers and apply them consistently. Silence is not approval; continue independent authorized work while required decisions remain pending.
 

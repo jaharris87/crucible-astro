@@ -1,0 +1,1569 @@
+{
+  "active_attempt": null,
+  "artifact_bytes_excluding_manifest": 168703,
+  "attempts": [
+    {
+      "absolute_limit": 0.0005,
+      "achieved_horizon": 5.0,
+      "artifact": {
+        "arrays": {
+          "accepted_t": {
+            "bytes": 160,
+            "dtype": "<f8",
+            "sha256": "789c050486138b39b3ecafe8d3d4ec9286f730b8339f106b7a0a3bfad4e64093",
+            "shape": [
+              20
+            ]
+          },
+          "accepted_y": {
+            "bytes": 320,
+            "dtype": "<f8",
+            "sha256": "c725f7fcbd8358f66e8a894647a81a6f7180a50306eb9ec8154d95fbf80f5508",
+            "shape": [
+              20,
+              2
+            ]
+          },
+          "errors": {
+            "bytes": 3216,
+            "dtype": "<f8",
+            "sha256": "7dfc71be04084b3ed6894f9c46626371fbcc304b2981a5385770f3b547f5a663",
+            "shape": [
+              201,
+              2
+            ]
+          },
+          "event_t": {
+            "bytes": 0,
+            "dtype": "<f8",
+            "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "shape": [
+              0
+            ]
+          },
+          "last_trial_y": {
+            "bytes": 16,
+            "dtype": "<f8",
+            "sha256": "b32e315d46775e08c390ff67faf47562957ac795f412be592022ab7cb542ca19",
+            "shape": [
+              2
+            ]
+          },
+          "oracle": {
+            "bytes": 3216,
+            "dtype": "<f8",
+            "sha256": "7e9303b9e510cdb8f2238b1b47c9bfb6f04c52ddcf7f5eb34db241a09352ed24",
+            "shape": [
+              201,
+              2
+            ]
+          },
+          "oracle_defined": {
+            "bytes": 201,
+            "dtype": "|b1",
+            "sha256": "e14e6efc585c2da5ff6283e333fe34edcf83bfbf102c027a5b0e7c552186e0cc",
+            "shape": [
+              201
+            ]
+          },
+          "output_y": {
+            "bytes": 3216,
+            "dtype": "<f8",
+            "sha256": "4fd7adc0c59cfa3ac0f8acac26b3ac37864c4f125c0083bb43c65a3df32c651b",
+            "shape": [
+              201,
+              2
+            ]
+          },
+          "present": {
+            "bytes": 201,
+            "dtype": "|b1",
+            "sha256": "e14e6efc585c2da5ff6283e333fe34edcf83bfbf102c027a5b0e7c552186e0cc",
+            "shape": [
+              201
+            ]
+          },
+          "requested_t": {
+            "bytes": 1608,
+            "dtype": "<f8",
+            "sha256": "32ae785c888957a86935fb02a6b3dffe53812fe8b304328ea51e4bbe4a5c9d9e",
+            "shape": [
+              201
+            ]
+          }
+        },
+        "bytes": 14678,
+        "file": "exchange-L0.npz",
+        "sha256": "78b8f9eba58e51b278820de674dbd3a09d173ece6dc8525e3b719ebfdc6112c6"
+      },
+      "atol": 1e-07,
+      "constraints": {
+        "accepted": {
+          "balance_violations": 0,
+          "max_balance_error": 2.220446049250313e-16,
+          "minimum_component": 0.0,
+          "positivity_violations": 0
+        },
+        "output": {
+          "balance_violations": 0,
+          "max_balance_error": 2.220446049250313e-16,
+          "minimum_component": 0.0,
+          "positivity_violations": 0
+        },
+        "passed": true
+      },
+      "contract": {
+        "components": [
+          "a",
+          "b"
+        ],
+        "conditions": [],
+        "rate_unit": "1/s",
+        "state_unit": "dimensionless",
+        "time_unit": "s"
+      },
+      "diagnostics": {
+        "callback_calls": 138,
+        "event_calls": 0,
+        "linear_solves": null,
+        "nfev": 135,
+        "njev": 1,
+        "nlu": 28,
+        "rejected_steps": null,
+        "unavailable_reason": "SciPy does not expose rejected-step/linear-solve counts"
+      },
+      "equations": "a'=-2*a+b; b'=2*a-b; coefficients 2/s,1/s",
+      "exception": null,
+      "expected": "complete",
+      "full_success": true,
+      "id": "exchange-L0",
+      "initial": [
+        1.0,
+        0.0
+      ],
+      "integration_seconds": 0.003679209010442719,
+      "last_trial_semantics": "trial callback, not accepted horizon",
+      "last_trial_t": 5.0,
+      "message": "The solver successfully reached the end of the integration interval.",
+      "metrics": {
+        "amplitude_scale": 2.0,
+        "component_amplitude_scaled_max_abs": [
+          2.1790870761428938e-06,
+          2.1790870762261605e-06
+        ],
+        "component_amplitude_scaled_rms": [
+          6.242942578173418e-07,
+          6.242942578178004e-07
+        ],
+        "component_final_error": [
+          4.727167762785811e-08,
+          -4.7271677794391564e-08
+        ],
+        "component_max_abs": [
+          4.3581741522857875e-06,
+          4.358174152452321e-06
+        ],
+        "component_rms": [
+          1.2485885156346836e-06,
+          1.2485885156356008e-06
+        ],
+        "exact_zero_count": 1,
+        "max_vector_l2": 6.163388993464184e-06,
+        "missing_rows": 0,
+        "oracle_defined_rows": 201,
+        "present_rows": 201,
+        "relative_nonzero_count": 401,
+        "relative_nonzero_max_abs": 1.0479759293684975e-05,
+        "relative_nonzero_rms": 2.813850844648684e-06,
+        "requested_rows": 201,
+        "scored_rows": 201,
+        "whole_amplitude_scaled_max_abs": 2.1790870762261605e-06,
+        "whole_amplitude_scaled_rms": 6.242942578175713e-07,
+        "whole_max_abs": 4.358174152452321e-06,
+        "whole_rms": 1.2485885156351425e-06,
+        "zero_max_abs_error": 0.0,
+        "zero_rms_error": 0.0
+      },
+      "outcome": "complete",
+      "passed": true,
+      "peak_rss_bytes": 78004224,
+      "persistence_seconds": 0.001230957976076752,
+      "rtol": 0.0001,
+      "status": 0
+    },
+    {
+      "absolute_limit": 5e-06,
+      "achieved_horizon": 5.0,
+      "artifact": {
+        "arrays": {
+          "accepted_t": {
+            "bytes": 424,
+            "dtype": "<f8",
+            "sha256": "bdf770b002426354c1796777e88b44b2b74f55def14e9ef7fc1c5e83219546cf",
+            "shape": [
+              53
+            ]
+          },
+          "accepted_y": {
+            "bytes": 848,
+            "dtype": "<f8",
+            "sha256": "ba7295744e3abff5d04fd4ce22bcc63d1fbf7e00500da09bd500756d6fab43bb",
+            "shape": [
+              53,
+              2
+            ]
+          },
+          "errors": {
+            "bytes": 3216,
+            "dtype": "<f8",
+            "sha256": "52852101884a465b24ed49496e4084d6609da0c0176fcbbe68b47647638f7b6e",
+            "shape": [
+              201,
+              2
+            ]
+          },
+          "event_t": {
+            "bytes": 0,
+            "dtype": "<f8",
+            "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "shape": [
+              0
+            ]
+          },
+          "last_trial_y": {
+            "bytes": 16,
+            "dtype": "<f8",
+            "sha256": "489553b03da8f9bdbf5f0dbbcd45e5e2508392176473906148f5f0b6148920e6",
+            "shape": [
+              2
+            ]
+          },
+          "oracle": {
+            "bytes": 3216,
+            "dtype": "<f8",
+            "sha256": "7e9303b9e510cdb8f2238b1b47c9bfb6f04c52ddcf7f5eb34db241a09352ed24",
+            "shape": [
+              201,
+              2
+            ]
+          },
+          "oracle_defined": {
+            "bytes": 201,
+            "dtype": "|b1",
+            "sha256": "e14e6efc585c2da5ff6283e333fe34edcf83bfbf102c027a5b0e7c552186e0cc",
+            "shape": [
+              201
+            ]
+          },
+          "output_y": {
+            "bytes": 3216,
+            "dtype": "<f8",
+            "sha256": "03c5e66ab099d834ddab1283fd23d8e2292ce9ad76b30e4caa9e4ed68bbbb17c",
+            "shape": [
+              201,
+              2
+            ]
+          },
+          "present": {
+            "bytes": 201,
+            "dtype": "|b1",
+            "sha256": "e14e6efc585c2da5ff6283e333fe34edcf83bfbf102c027a5b0e7c552186e0cc",
+            "shape": [
+              201
+            ]
+          },
+          "requested_t": {
+            "bytes": 1608,
+            "dtype": "<f8",
+            "sha256": "32ae785c888957a86935fb02a6b3dffe53812fe8b304328ea51e4bbe4a5c9d9e",
+            "shape": [
+              201
+            ]
+          }
+        },
+        "bytes": 15470,
+        "file": "exchange-L1.npz",
+        "sha256": "81d4cc78137f21e358d8bfbb3519a58ee57cbff9ca06a7274af805d58316b3d4"
+      },
+      "atol": 1e-09,
+      "constraints": {
+        "accepted": {
+          "balance_violations": 0,
+          "max_balance_error": 4.440892098500626e-16,
+          "minimum_component": 0.0,
+          "positivity_violations": 0
+        },
+        "output": {
+          "balance_violations": 0,
+          "max_balance_error": 4.440892098500626e-16,
+          "minimum_component": 0.0,
+          "positivity_violations": 0
+        },
+        "passed": true
+      },
+      "contract": {
+        "components": [
+          "a",
+          "b"
+        ],
+        "conditions": [],
+        "rate_unit": "1/s",
+        "state_unit": "dimensionless",
+        "time_unit": "s"
+      },
+      "diagnostics": {
+        "callback_calls": 377,
+        "event_calls": 0,
+        "linear_solves": null,
+        "nfev": 372,
+        "njev": 2,
+        "nlu": 42,
+        "rejected_steps": null,
+        "unavailable_reason": "SciPy does not expose rejected-step/linear-solve counts"
+      },
+      "equations": "a'=-2*a+b; b'=2*a-b; coefficients 2/s,1/s",
+      "exception": null,
+      "expected": "complete",
+      "full_success": true,
+      "id": "exchange-L1",
+      "initial": [
+        1.0,
+        0.0
+      ],
+      "integration_seconds": 0.008101083018118516,
+      "last_trial_semantics": "trial callback, not accepted horizon",
+      "last_trial_t": 5.0,
+      "message": "The solver successfully reached the end of the integration interval.",
+      "metrics": {
+        "amplitude_scale": 2.0,
+        "component_amplitude_scaled_max_abs": [
+          2.6685302190188054e-08,
+          2.6685302134676903e-08
+        ],
+        "component_amplitude_scaled_rms": [
+          8.631901149344549e-09,
+          8.631901154241926e-09
+        ],
+        "component_final_error": [
+          9.348088969574064e-10,
+          -9.348086749128015e-10
+        ],
+        "component_max_abs": [
+          5.337060438037611e-08,
+          5.3370604269353805e-08
+        ],
+        "component_rms": [
+          1.7263802298689097e-08,
+          1.7263802308483852e-08
+        ],
+        "exact_zero_count": 1,
+        "max_vector_l2": 7.547743246827219e-08,
+        "missing_rows": 0,
+        "oracle_defined_rows": 201,
+        "present_rows": 201,
+        "relative_nonzero_count": 401,
+        "relative_nonzero_max_abs": 1.1827832316049107e-07,
+        "relative_nonzero_rms": 3.94813941575927e-08,
+        "requested_rows": 201,
+        "scored_rows": 201,
+        "whole_amplitude_scaled_max_abs": 2.6685302190188054e-08,
+        "whole_amplitude_scaled_rms": 8.631901151793236e-09,
+        "whole_max_abs": 5.337060438037611e-08,
+        "whole_rms": 1.7263802303586473e-08,
+        "zero_max_abs_error": 0.0,
+        "zero_rms_error": 0.0
+      },
+      "outcome": "complete",
+      "passed": true,
+      "peak_rss_bytes": 78086144,
+      "persistence_seconds": 0.000993207999272272,
+      "rtol": 1e-06,
+      "status": 0
+    },
+    {
+      "absolute_limit": 5e-08,
+      "achieved_horizon": 5.0,
+      "artifact": {
+        "arrays": {
+          "accepted_t": {
+            "bytes": 1264,
+            "dtype": "<f8",
+            "sha256": "1f301b270a682db3a9a02229db9d724a0ac63405f004c5dda607d3d783f6afb5",
+            "shape": [
+              158
+            ]
+          },
+          "accepted_y": {
+            "bytes": 2528,
+            "dtype": "<f8",
+            "sha256": "02edd08f1f87bb095c063f4bfde8714764f457469c4f535068196055fd55cebd",
+            "shape": [
+              158,
+              2
+            ]
+          },
+          "errors": {
+            "bytes": 3216,
+            "dtype": "<f8",
+            "sha256": "a85ec2a3fca988b7e63c112b68ece6bbd4979a763da37b50bfc1a4cd8e494b05",
+            "shape": [
+              201,
+              2
+            ]
+          },
+          "event_t": {
+            "bytes": 0,
+            "dtype": "<f8",
+            "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "shape": [
+              0
+            ]
+          },
+          "last_trial_y": {
+            "bytes": 16,
+            "dtype": "<f8",
+            "sha256": "c9226af97c0064e83b9aa22e82befccc1a1e63935edf72d96c3e498c898b2b6f",
+            "shape": [
+              2
+            ]
+          },
+          "oracle": {
+            "bytes": 3216,
+            "dtype": "<f8",
+            "sha256": "7e9303b9e510cdb8f2238b1b47c9bfb6f04c52ddcf7f5eb34db241a09352ed24",
+            "shape": [
+              201,
+              2
+            ]
+          },
+          "oracle_defined": {
+            "bytes": 201,
+            "dtype": "|b1",
+            "sha256": "e14e6efc585c2da5ff6283e333fe34edcf83bfbf102c027a5b0e7c552186e0cc",
+            "shape": [
+              201
+            ]
+          },
+          "output_y": {
+            "bytes": 3216,
+            "dtype": "<f8",
+            "sha256": "1035e8d3c19a503eb18d25956784b7deb2b78ef3fa71553ff8d8375bdcf9c57a",
+            "shape": [
+              201,
+              2
+            ]
+          },
+          "present": {
+            "bytes": 201,
+            "dtype": "|b1",
+            "sha256": "e14e6efc585c2da5ff6283e333fe34edcf83bfbf102c027a5b0e7c552186e0cc",
+            "shape": [
+              201
+            ]
+          },
+          "requested_t": {
+            "bytes": 1608,
+            "dtype": "<f8",
+            "sha256": "32ae785c888957a86935fb02a6b3dffe53812fe8b304328ea51e4bbe4a5c9d9e",
+            "shape": [
+              201
+            ]
+          }
+        },
+        "bytes": 17990,
+        "file": "exchange-L2.npz",
+        "sha256": "6fd81fa6387d1eb63c1230e569cf534572dd12c8f471ae1923c76580028ada30"
+      },
+      "atol": 1e-11,
+      "constraints": {
+        "accepted": {
+          "balance_violations": 0,
+          "max_balance_error": 2.220446049250313e-16,
+          "minimum_component": 0.0,
+          "positivity_violations": 0
+        },
+        "output": {
+          "balance_violations": 0,
+          "max_balance_error": 2.220446049250313e-16,
+          "minimum_component": 0.0,
+          "positivity_violations": 0
+        },
+        "passed": true
+      },
+      "contract": {
+        "components": [
+          "a",
+          "b"
+        ],
+        "conditions": [],
+        "rate_unit": "1/s",
+        "state_unit": "dimensionless",
+        "time_unit": "s"
+      },
+      "diagnostics": {
+        "callback_calls": 1112,
+        "event_calls": 0,
+        "linear_solves": null,
+        "nfev": 1107,
+        "njev": 2,
+        "nlu": 52,
+        "rejected_steps": null,
+        "unavailable_reason": "SciPy does not expose rejected-step/linear-solve counts"
+      },
+      "equations": "a'=-2*a+b; b'=2*a-b; coefficients 2/s,1/s",
+      "exception": null,
+      "expected": "complete",
+      "full_success": true,
+      "id": "exchange-L2",
+      "initial": [
+        1.0,
+        0.0
+      ],
+      "integration_seconds": 0.01939000000129454,
+      "last_trial_semantics": "trial callback, not accepted horizon",
+      "last_trial_t": 5.0,
+      "message": "The solver successfully reached the end of the integration interval.",
+      "metrics": {
+        "amplitude_scale": 2.0,
+        "component_amplitude_scaled_max_abs": [
+          2.2434737401155758e-10,
+          2.2434726298925511e-10
+        ],
+        "component_amplitude_scaled_rms": [
+          9.567414297452748e-11,
+          9.567413771429545e-11
+        ],
+        "component_final_error": [
+          1.1060652393979353e-11,
+          -1.1060707905130585e-11
+        ],
+        "component_max_abs": [
+          4.4869474802311515e-10,
+          4.4869452597851023e-10
+        ],
+        "component_rms": [
+          1.9134828594905495e-10,
+          1.913482754285909e-10
+        ],
+        "exact_zero_count": 1,
+        "max_vector_l2": 6.345500410106414e-10,
+        "missing_rows": 0,
+        "oracle_defined_rows": 201,
+        "present_rows": 201,
+        "relative_nonzero_count": 401,
+        "relative_nonzero_max_abs": 1.27592757106851e-09,
+        "relative_nonzero_rms": 4.4852816153229136e-10,
+        "requested_rows": 201,
+        "scored_rows": 201,
+        "whole_amplitude_scaled_max_abs": 2.2434737401155758e-10,
+        "whole_amplitude_scaled_rms": 9.567414034441148e-11,
+        "whole_max_abs": 4.4869474802311515e-10,
+        "whole_rms": 1.9134828068882295e-10,
+        "zero_max_abs_error": 0.0,
+        "zero_rms_error": 0.0
+      },
+      "outcome": "complete",
+      "passed": true,
+      "peak_rss_bytes": 78168064,
+      "persistence_seconds": 0.0009241670195478946,
+      "rtol": 1e-08,
+      "status": 0
+    },
+    {
+      "absolute_limit": 0.0005,
+      "achieved_horizon": 6.283185307179586,
+      "artifact": {
+        "arrays": {
+          "accepted_t": {
+            "bytes": 352,
+            "dtype": "<f8",
+            "sha256": "d145b58ad5ca3f710d76df0c3d2562496d4a3bd78e4d7b12b046facd5ab9ec28",
+            "shape": [
+              44
+            ]
+          },
+          "accepted_y": {
+            "bytes": 704,
+            "dtype": "<f8",
+            "sha256": "0339902673cc9cdf457e670c7308cc5178813bd0ee2f328e49fa8b0e9da70c5f",
+            "shape": [
+              44,
+              2
+            ]
+          },
+          "errors": {
+            "bytes": 5712,
+            "dtype": "<f8",
+            "sha256": "50f9df34294d42f4f09d660e10fc27ce3ff4ace94dd77649046a3aafa17d81a6",
+            "shape": [
+              357,
+              2
+            ]
+          },
+          "event_t": {
+            "bytes": 0,
+            "dtype": "<f8",
+            "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "shape": [
+              0
+            ]
+          },
+          "last_trial_y": {
+            "bytes": 16,
+            "dtype": "<f8",
+            "sha256": "7d21f3dbb509142f535ae14a15ff6f2b0d3762b53f60eb5f0392e874e10bc6cf",
+            "shape": [
+              2
+            ]
+          },
+          "oracle": {
+            "bytes": 5712,
+            "dtype": "<f8",
+            "sha256": "fa5feb4ffacec26bc2b8d73ac0a753e7301b6963028d9cc1c142a917aac992c7",
+            "shape": [
+              357,
+              2
+            ]
+          },
+          "oracle_defined": {
+            "bytes": 357,
+            "dtype": "|b1",
+            "sha256": "bdd5450da6e9ce61f95af2b37e96d43aeb15e6e3679af5dd5b2c495b65b2ae87",
+            "shape": [
+              357
+            ]
+          },
+          "output_y": {
+            "bytes": 5712,
+            "dtype": "<f8",
+            "sha256": "3fd787b1d285bd58d3595156310be750534052e759006041172c788cc94e0198",
+            "shape": [
+              357,
+              2
+            ]
+          },
+          "present": {
+            "bytes": 357,
+            "dtype": "|b1",
+            "sha256": "bdd5450da6e9ce61f95af2b37e96d43aeb15e6e3679af5dd5b2c495b65b2ae87",
+            "shape": [
+              357
+            ]
+          },
+          "requested_t": {
+            "bytes": 2856,
+            "dtype": "<f8",
+            "sha256": "1e2a1640136cca929f180bafd72f62445e9240258e4363b0117702dbed8b23d9",
+            "shape": [
+              357
+            ]
+          }
+        },
+        "bytes": 24302,
+        "file": "forced_stiff-L0.npz",
+        "sha256": "9d36dcfe51616679f47ed7898af988de1f5155b3d07fe3f350582ad0d2082ebc"
+      },
+      "atol": 1e-07,
+      "constraints": null,
+      "contract": {
+        "components": [
+          "u",
+          "v"
+        ],
+        "conditions": [
+          [
+            "sin(t/(1 s))",
+            "1"
+          ],
+          [
+            "cos(t/(1 s))",
+            "1"
+          ]
+        ],
+        "rate_unit": "1/s",
+        "state_unit": "dimensionless",
+        "time_unit": "s"
+      },
+      "diagnostics": {
+        "callback_calls": 319,
+        "event_calls": 0,
+        "linear_solves": null,
+        "nfev": 315,
+        "njev": 2,
+        "nlu": 28,
+        "rejected_steps": null,
+        "unavailable_reason": "SciPy does not expose rejected-step/linear-solve counts"
+      },
+      "equations": "u'=-u; v'=-1000*(v-sin(t))+cos(t); rates 1/s,1000/s",
+      "exception": null,
+      "expected": "complete",
+      "full_success": true,
+      "id": "forced_stiff-L0",
+      "initial": [
+        1.0,
+        1.0
+      ],
+      "integration_seconds": 0.005816207994939759,
+      "last_trial_semantics": "trial callback, not accepted horizon",
+      "last_trial_t": 6.283185307179586,
+      "message": "The solver successfully reached the end of the integration interval.",
+      "metrics": {
+        "amplitude_scale": 2.0,
+        "component_amplitude_scaled_max_abs": [
+          6.060419590170341e-06,
+          1.2455913520670325e-05
+        ],
+        "component_amplitude_scaled_rms": [
+          1.0565305437886634e-06,
+          2.7486117344754873e-06
+        ],
+        "component_final_error": [
+          9.514546826187159e-09,
+          -6.738508589329279e-09
+        ],
+        "component_max_abs": [
+          1.2120839180340681e-05,
+          2.491182704134065e-05
+        ],
+        "component_rms": [
+          2.1130610875773268e-06,
+          5.4972234689509746e-06
+        ],
+        "exact_zero_count": 0,
+        "max_vector_l2": 2.491182704134065e-05,
+        "missing_rows": 0,
+        "oracle_defined_rows": 357,
+        "present_rows": 357,
+        "relative_nonzero_count": 714,
+        "relative_nonzero_max_abs": 14063128645.703327,
+        "relative_nonzero_rms": 526300369.3114094,
+        "requested_rows": 357,
+        "scored_rows": 357,
+        "whole_amplitude_scaled_max_abs": 1.2455913520670325e-05,
+        "whole_amplitude_scaled_rms": 2.0822011498477665e-06,
+        "whole_max_abs": 2.491182704134065e-05,
+        "whole_rms": 4.164402299695533e-06,
+        "zero_max_abs_error": null,
+        "zero_rms_error": null
+      },
+      "outcome": "complete",
+      "passed": true,
+      "peak_rss_bytes": 78331904,
+      "persistence_seconds": 0.0008482499979436398,
+      "rtol": 0.0001,
+      "status": 0
+    },
+    {
+      "absolute_limit": 5e-06,
+      "achieved_horizon": 6.283185307179586,
+      "artifact": {
+        "arrays": {
+          "accepted_t": {
+            "bytes": 1096,
+            "dtype": "<f8",
+            "sha256": "923347b3c13bac2a0405ed230768b1a668b23598b2afde0676b4330db4227aff",
+            "shape": [
+              137
+            ]
+          },
+          "accepted_y": {
+            "bytes": 2192,
+            "dtype": "<f8",
+            "sha256": "4069751ab7145514b1fa23ddb3e56735ae3f4677196d3616d8f61818fd1b11bf",
+            "shape": [
+              137,
+              2
+            ]
+          },
+          "errors": {
+            "bytes": 5712,
+            "dtype": "<f8",
+            "sha256": "ca43e3fe119b6d2f0d7722273c7a72db421799c91e00c9d79ae014cfa3358224",
+            "shape": [
+              357,
+              2
+            ]
+          },
+          "event_t": {
+            "bytes": 0,
+            "dtype": "<f8",
+            "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "shape": [
+              0
+            ]
+          },
+          "last_trial_y": {
+            "bytes": 16,
+            "dtype": "<f8",
+            "sha256": "7f09cd6e6a34df63751734f96b97c749a52dfb79a29d39e8be51033e6d753351",
+            "shape": [
+              2
+            ]
+          },
+          "oracle": {
+            "bytes": 5712,
+            "dtype": "<f8",
+            "sha256": "fa5feb4ffacec26bc2b8d73ac0a753e7301b6963028d9cc1c142a917aac992c7",
+            "shape": [
+              357,
+              2
+            ]
+          },
+          "oracle_defined": {
+            "bytes": 357,
+            "dtype": "|b1",
+            "sha256": "bdd5450da6e9ce61f95af2b37e96d43aeb15e6e3679af5dd5b2c495b65b2ae87",
+            "shape": [
+              357
+            ]
+          },
+          "output_y": {
+            "bytes": 5712,
+            "dtype": "<f8",
+            "sha256": "39044a34e0e41a5eb477a322523c1601d3d771ca2bfe6e4b1d46b812b85fde20",
+            "shape": [
+              357,
+              2
+            ]
+          },
+          "present": {
+            "bytes": 357,
+            "dtype": "|b1",
+            "sha256": "bdd5450da6e9ce61f95af2b37e96d43aeb15e6e3679af5dd5b2c495b65b2ae87",
+            "shape": [
+              357
+            ]
+          },
+          "requested_t": {
+            "bytes": 2856,
+            "dtype": "<f8",
+            "sha256": "1e2a1640136cca929f180bafd72f62445e9240258e4363b0117702dbed8b23d9",
+            "shape": [
+              357
+            ]
+          }
+        },
+        "bytes": 26534,
+        "file": "forced_stiff-L1.npz",
+        "sha256": "7f4b0cba7d963e458128d9c27b2453e9ef7333a568bdf7dd614b066275e108f4"
+      },
+      "atol": 1e-09,
+      "constraints": null,
+      "contract": {
+        "components": [
+          "u",
+          "v"
+        ],
+        "conditions": [
+          [
+            "sin(t/(1 s))",
+            "1"
+          ],
+          [
+            "cos(t/(1 s))",
+            "1"
+          ]
+        ],
+        "rate_unit": "1/s",
+        "state_unit": "dimensionless",
+        "time_unit": "s"
+      },
+      "diagnostics": {
+        "callback_calls": 970,
+        "event_calls": 0,
+        "linear_solves": null,
+        "nfev": 966,
+        "njev": 2,
+        "nlu": 38,
+        "rejected_steps": null,
+        "unavailable_reason": "SciPy does not expose rejected-step/linear-solve counts"
+      },
+      "equations": "u'=-u; v'=-1000*(v-sin(t))+cos(t); rates 1/s,1000/s",
+      "exception": null,
+      "expected": "complete",
+      "full_success": true,
+      "id": "forced_stiff-L1",
+      "initial": [
+        1.0,
+        1.0
+      ],
+      "integration_seconds": 0.01705454202601686,
+      "last_trial_semantics": "trial callback, not accepted horizon",
+      "last_trial_t": 6.283185307179586,
+      "message": "The solver successfully reached the end of the integration interval.",
+      "metrics": {
+        "amplitude_scale": 2.0,
+        "component_amplitude_scaled_max_abs": [
+          7.173860405718102e-08,
+          6.910127442472103e-08
+        ],
+        "component_amplitude_scaled_rms": [
+          1.1483890045817124e-08,
+          2.3918210913005763e-08
+        ],
+        "component_final_error": [
+          2.8840443488248324e-11,
+          -9.355763873313857e-11
+        ],
+        "component_max_abs": [
+          1.4347720811436204e-07,
+          1.3820254884944205e-07
+        ],
+        "component_rms": [
+          2.2967780091634248e-08,
+          4.7836421826011526e-08
+        ],
+        "exact_zero_count": 0,
+        "max_vector_l2": 1.4351222702775314e-07,
+        "missing_rows": 0,
+        "oracle_defined_rows": 357,
+        "present_rows": 357,
+        "relative_nonzero_count": 714,
+        "relative_nonzero_max_abs": 5032833.309939197,
+        "relative_nonzero_rms": 188890.75568591044,
+        "requested_rows": 357,
+        "scored_rows": 357,
+        "whole_amplitude_scaled_max_abs": 7.173860405718102e-08,
+        "whole_amplitude_scaled_rms": 1.8761137277140828e-08,
+        "whole_max_abs": 1.4347720811436204e-07,
+        "whole_rms": 3.7522274554281656e-08,
+        "zero_max_abs_error": null,
+        "zero_rms_error": null
+      },
+      "outcome": "complete",
+      "passed": true,
+      "peak_rss_bytes": 78413824,
+      "persistence_seconds": 0.0009011670190375298,
+      "rtol": 1e-06,
+      "status": 0
+    },
+    {
+      "absolute_limit": 5e-08,
+      "achieved_horizon": 6.283185307179586,
+      "artifact": {
+        "arrays": {
+          "accepted_t": {
+            "bytes": 3456,
+            "dtype": "<f8",
+            "sha256": "64f81789a32eb88d5e8a7a3bef78f92ae63785c992db04a58a304f1f84d60904",
+            "shape": [
+              432
+            ]
+          },
+          "accepted_y": {
+            "bytes": 6912,
+            "dtype": "<f8",
+            "sha256": "916a393eeae3fa5a286a4c3572706bcb4fc44f52482db88944344b74eef106f4",
+            "shape": [
+              432,
+              2
+            ]
+          },
+          "errors": {
+            "bytes": 5712,
+            "dtype": "<f8",
+            "sha256": "fe14013e5db5aaf34004dae14225201307bab24bfc459046b7e3bd7b245b93a1",
+            "shape": [
+              357,
+              2
+            ]
+          },
+          "event_t": {
+            "bytes": 0,
+            "dtype": "<f8",
+            "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "shape": [
+              0
+            ]
+          },
+          "last_trial_y": {
+            "bytes": 16,
+            "dtype": "<f8",
+            "sha256": "07439eb4309370d097c2d5549bb234ae89c501067d2b309f11a3dfc2879e25e1",
+            "shape": [
+              2
+            ]
+          },
+          "oracle": {
+            "bytes": 5712,
+            "dtype": "<f8",
+            "sha256": "fa5feb4ffacec26bc2b8d73ac0a753e7301b6963028d9cc1c142a917aac992c7",
+            "shape": [
+              357,
+              2
+            ]
+          },
+          "oracle_defined": {
+            "bytes": 357,
+            "dtype": "|b1",
+            "sha256": "bdd5450da6e9ce61f95af2b37e96d43aeb15e6e3679af5dd5b2c495b65b2ae87",
+            "shape": [
+              357
+            ]
+          },
+          "output_y": {
+            "bytes": 5712,
+            "dtype": "<f8",
+            "sha256": "599b826ac6346f337ba5bea1a598ec110d319bbaf19eaed48dd4c365d90dbf24",
+            "shape": [
+              357,
+              2
+            ]
+          },
+          "present": {
+            "bytes": 357,
+            "dtype": "|b1",
+            "sha256": "bdd5450da6e9ce61f95af2b37e96d43aeb15e6e3679af5dd5b2c495b65b2ae87",
+            "shape": [
+              357
+            ]
+          },
+          "requested_t": {
+            "bytes": 2856,
+            "dtype": "<f8",
+            "sha256": "1e2a1640136cca929f180bafd72f62445e9240258e4363b0117702dbed8b23d9",
+            "shape": [
+              357
+            ]
+          }
+        },
+        "bytes": 33614,
+        "file": "forced_stiff-L2.npz",
+        "sha256": "29dde3baf9dc85aa4c89e3dd1487271b15bde0dee9be4cb2f7b1c42b763a81e0"
+      },
+      "atol": 1e-11,
+      "constraints": null,
+      "contract": {
+        "components": [
+          "u",
+          "v"
+        ],
+        "conditions": [
+          [
+            "sin(t/(1 s))",
+            "1"
+          ],
+          [
+            "cos(t/(1 s))",
+            "1"
+          ]
+        ],
+        "rate_unit": "1/s",
+        "state_unit": "dimensionless",
+        "time_unit": "s"
+      },
+      "diagnostics": {
+        "callback_calls": 3035,
+        "event_calls": 0,
+        "linear_solves": null,
+        "nfev": 3031,
+        "njev": 2,
+        "nlu": 50,
+        "rejected_steps": null,
+        "unavailable_reason": "SciPy does not expose rejected-step/linear-solve counts"
+      },
+      "equations": "u'=-u; v'=-1000*(v-sin(t))+cos(t); rates 1/s,1000/s",
+      "exception": null,
+      "expected": "complete",
+      "full_success": true,
+      "id": "forced_stiff-L2",
+      "initial": [
+        1.0,
+        1.0
+      ],
+      "integration_seconds": 0.053851415985263884,
+      "last_trial_semantics": "trial callback, not accepted horizon",
+      "last_trial_t": 6.283185307179586,
+      "message": "The solver successfully reached the end of the integration interval.",
+      "metrics": {
+        "amplitude_scale": 2.0,
+        "component_amplitude_scaled_max_abs": [
+          7.161632953334163e-10,
+          6.280919118140105e-10
+        ],
+        "component_amplitude_scaled_rms": [
+          1.1340737263097224e-10,
+          2.438495146636871e-10
+        ],
+        "component_final_error": [
+          8.709612892010554e-14,
+          -1.4585568999750586e-12
+        ],
+        "component_max_abs": [
+          1.4323265906668325e-09,
+          1.256183823628021e-09
+        ],
+        "component_rms": [
+          2.2681474526194448e-10,
+          4.876990293273742e-10
+        ],
+        "exact_zero_count": 0,
+        "max_vector_l2": 1.4329188418618353e-09,
+        "missing_rows": 0,
+        "oracle_defined_rows": 357,
+        "present_rows": 357,
+        "relative_nonzero_count": 714,
+        "relative_nonzero_max_abs": 17891.36973312929,
+        "relative_nonzero_rms": 705.6824780510665,
+        "requested_rows": 357,
+        "scored_rows": 357,
+        "whole_amplitude_scaled_max_abs": 7.161632953334163e-10,
+        "whole_amplitude_scaled_rms": 1.9016284859137955e-10,
+        "whole_max_abs": 1.4323265906668325e-09,
+        "whole_rms": 3.803256971827591e-10,
+        "zero_max_abs_error": null,
+        "zero_rms_error": null
+      },
+      "outcome": "complete",
+      "passed": true,
+      "peak_rss_bytes": 78675968,
+      "persistence_seconds": 0.0010386249923612922,
+      "rtol": 1e-08,
+      "status": 0
+    },
+    {
+      "absolute_limit": null,
+      "achieved_horizon": 0.5,
+      "artifact": {
+        "arrays": {
+          "accepted_t": {
+            "bytes": 160,
+            "dtype": "<f8",
+            "sha256": "f9b5bb1397750b0c66126ea397dcb71f7fe3e1e3054ec7471d44e0e41a77c76f",
+            "shape": [
+              20
+            ]
+          },
+          "accepted_y": {
+            "bytes": 320,
+            "dtype": "<f8",
+            "sha256": "d6ee64f63f3d1219ca223eb9b49c80688fdef39ad6181360644c04d14c7aa4ec",
+            "shape": [
+              20,
+              2
+            ]
+          },
+          "errors": {
+            "bytes": 3216,
+            "dtype": "<f8",
+            "sha256": "002977d931fcecd8948c62ed08012c726d6c3c75cd4e3f8684c08c20b9c395b1",
+            "shape": [
+              201,
+              2
+            ]
+          },
+          "event_t": {
+            "bytes": 8,
+            "dtype": "<f8",
+            "sha256": "4cfa5b42ca669328764e67cd9a34bb8f90b16ed7ca8d85e8443783d7ccce15ed",
+            "shape": [
+              1
+            ]
+          },
+          "last_trial_y": {
+            "bytes": 16,
+            "dtype": "<f8",
+            "sha256": "e13e6ef3ae3c4ae8510986e4a56f0072b3af14338b4a9f7928d801894cce572c",
+            "shape": [
+              2
+            ]
+          },
+          "oracle": {
+            "bytes": 3216,
+            "dtype": "<f8",
+            "sha256": "7e9303b9e510cdb8f2238b1b47c9bfb6f04c52ddcf7f5eb34db241a09352ed24",
+            "shape": [
+              201,
+              2
+            ]
+          },
+          "oracle_defined": {
+            "bytes": 201,
+            "dtype": "|b1",
+            "sha256": "e14e6efc585c2da5ff6283e333fe34edcf83bfbf102c027a5b0e7c552186e0cc",
+            "shape": [
+              201
+            ]
+          },
+          "output_y": {
+            "bytes": 3216,
+            "dtype": "<f8",
+            "sha256": "9ee58d84a9654fc7aad9dd5d33cb7daa4d567641be27c116560e9f5472265fdb",
+            "shape": [
+              201,
+              2
+            ]
+          },
+          "present": {
+            "bytes": 201,
+            "dtype": "|b1",
+            "sha256": "83c0e3c507191291b4075a18ba559e0edd80422c90ba5d484a593ef4a0bb418f",
+            "shape": [
+              201
+            ]
+          },
+          "requested_t": {
+            "bytes": 1608,
+            "dtype": "<f8",
+            "sha256": "32ae785c888957a86935fb02a6b3dffe53812fe8b304328ea51e4bbe4a5c9d9e",
+            "shape": [
+              201
+            ]
+          }
+        },
+        "bytes": 14686,
+        "file": "exchange_terminal-L1.npz",
+        "sha256": "25e4fb74556d53b98c2799e52b456020ef1a6b5b93eae42b94fb7954caa683ab"
+      },
+      "atol": 1e-09,
+      "constraints": {
+        "accepted": {
+          "balance_violations": 0,
+          "max_balance_error": 2.220446049250313e-16,
+          "minimum_component": 0.0,
+          "positivity_violations": 0
+        },
+        "output": {
+          "balance_violations": 0,
+          "max_balance_error": 2.220446049250313e-16,
+          "minimum_component": 0.0,
+          "positivity_violations": 0
+        },
+        "passed": true
+      },
+      "contract": {
+        "components": [
+          "a",
+          "b"
+        ],
+        "conditions": [],
+        "rate_unit": "1/s",
+        "state_unit": "dimensionless",
+        "time_unit": "s"
+      },
+      "diagnostics": {
+        "callback_calls": 141,
+        "event_calls": 23,
+        "linear_solves": null,
+        "nfev": 138,
+        "njev": 1,
+        "nlu": 16,
+        "rejected_steps": null,
+        "unavailable_reason": "SciPy does not expose rejected-step/linear-solve counts"
+      },
+      "equations": "a'=-2*a+b; b'=2*a-b; coefficients 2/s,1/s",
+      "exception": null,
+      "expected": "terminal_event",
+      "full_success": false,
+      "id": "exchange_terminal-L1",
+      "initial": [
+        1.0,
+        0.0
+      ],
+      "integration_seconds": 0.0032650840003043413,
+      "last_trial_semantics": "trial callback, not accepted horizon",
+      "last_trial_t": 0.5144667951580978,
+      "message": "A termination event occurred.",
+      "metrics": {
+        "amplitude_scale": 2.0,
+        "component_amplitude_scaled_max_abs": [
+          2.6685302190188054e-08,
+          2.6685302134676903e-08
+        ],
+        "component_amplitude_scaled_rms": [
+          1.102249593028572e-08,
+          1.1022495933770564e-08
+        ],
+        "component_final_error": null,
+        "component_max_abs": [
+          5.337060438037611e-08,
+          5.3370604269353805e-08
+        ],
+        "component_rms": [
+          2.204499186057144e-08,
+          2.2044991867541127e-08
+        ],
+        "exact_zero_count": 1,
+        "max_vector_l2": 7.547743246827219e-08,
+        "missing_rows": 180,
+        "oracle_defined_rows": 201,
+        "present_rows": 21,
+        "relative_nonzero_count": 41,
+        "relative_nonzero_max_abs": 1.0810937423147375e-07,
+        "relative_nonzero_rms": 5.0239579952936464e-08,
+        "requested_rows": 201,
+        "scored_rows": 21,
+        "whole_amplitude_scaled_max_abs": 2.6685302190188054e-08,
+        "whole_amplitude_scaled_rms": 1.1022495932028144e-08,
+        "whole_max_abs": 5.337060438037611e-08,
+        "whole_rms": 2.2044991864056288e-08,
+        "zero_max_abs_error": 0.0,
+        "zero_rms_error": 0.0
+      },
+      "outcome": "terminal_event",
+      "passed": true,
+      "peak_rss_bytes": 78692352,
+      "persistence_seconds": 0.0008547499892301857,
+      "rtol": 1e-06,
+      "status": 1
+    },
+    {
+      "absolute_limit": null,
+      "achieved_horizon": 1.000000008006238,
+      "artifact": {
+        "arrays": {
+          "accepted_t": {
+            "bytes": 5336,
+            "dtype": "<f8",
+            "sha256": "09f2ec19111b3d8aa3d80ad0516f774315cef9d38d6aa82c9a4da6aa4c5961dc",
+            "shape": [
+              667
+            ]
+          },
+          "accepted_y": {
+            "bytes": 5336,
+            "dtype": "<f8",
+            "sha256": "ebed65202ee9607f6a684a84fc0ec01157aaa08f82551c2a2682d598ec566b8f",
+            "shape": [
+              667,
+              1
+            ]
+          },
+          "errors": {
+            "bytes": 1608,
+            "dtype": "<f8",
+            "sha256": "4e280655f252847b22b8d8446d3e56c19a46d5af1a60efa2ab4c6bf27eea0cae",
+            "shape": [
+              201,
+              1
+            ]
+          },
+          "event_t": {
+            "bytes": 0,
+            "dtype": "<f8",
+            "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "shape": [
+              0
+            ]
+          },
+          "last_trial_y": {
+            "bytes": 8,
+            "dtype": "<f8",
+            "sha256": "783e1e4eb9bdd03792f5ef08d6d04b7b23f8e3e4579478ac37069793dd190c4f",
+            "shape": [
+              1
+            ]
+          },
+          "oracle": {
+            "bytes": 1608,
+            "dtype": "<f8",
+            "sha256": "c63d71109b90813336d14db54d12de0d45d92c608ae9f089b76ffe7b620d53d7",
+            "shape": [
+              201,
+              1
+            ]
+          },
+          "oracle_defined": {
+            "bytes": 201,
+            "dtype": "|b1",
+            "sha256": "74874bd66439134b0578c7611efbce8235fad65bc314edfca8e5007ca3f99827",
+            "shape": [
+              201
+            ]
+          },
+          "output_y": {
+            "bytes": 1608,
+            "dtype": "<f8",
+            "sha256": "9d6a6ae8c834f7569a50c0fd7bfe9f07ff7f395049054bb248bf8f83ec693587",
+            "shape": [
+              201,
+              1
+            ]
+          },
+          "present": {
+            "bytes": 201,
+            "dtype": "|b1",
+            "sha256": "ac0f41c43df207ec00eee247db9df0f52ebbd0823cc7ca999cb98151ef9c27a7",
+            "shape": [
+              201
+            ]
+          },
+          "requested_t": {
+            "bytes": 1608,
+            "dtype": "<f8",
+            "sha256": "13fb3b2065c2462ffcac49450fcdf346a4300eb66ec2d295feffe1a263f9035d",
+            "shape": [
+              201
+            ]
+          }
+        },
+        "bytes": 20038,
+        "file": "singularity-L1.npz",
+        "sha256": "336afa5db0e4ae6593a0c5949f0199b2ee1ff4359631534f4e00d426ca96f8d7"
+      },
+      "atol": 1e-09,
+      "constraints": null,
+      "contract": {
+        "components": [
+          "z"
+        ],
+        "conditions": [],
+        "rate_unit": "1/s",
+        "state_unit": "dimensionless",
+        "time_unit": "s"
+      },
+      "diagnostics": {
+        "callback_calls": 5441,
+        "event_calls": 0,
+        "linear_solves": null,
+        "nfev": 5354,
+        "njev": 87,
+        "nlu": 270,
+        "rejected_steps": null,
+        "unavailable_reason": "SciPy does not expose rejected-step/linear-solve counts"
+      },
+      "equations": "z'=z*z; z(0)=1; truth undefined at/after 1 s",
+      "exception": null,
+      "expected": "failure",
+      "full_success": false,
+      "id": "singularity-L1",
+      "initial": [
+        1.0
+      ],
+      "integration_seconds": 0.09217487499699928,
+      "last_trial_semantics": "trial callback, not accepted horizon",
+      "last_trial_t": 1.0000000080062401,
+      "message": "Required step size is less than spacing between numbers.",
+      "metrics": {
+        "component_final_error": null,
+        "component_max_abs": [
+          8.565031973262194e-05
+        ],
+        "component_rms": [
+          8.924982742873901e-06
+        ],
+        "exact_zero_count": 0,
+        "max_vector_l2": 8.565031973262194e-05,
+        "missing_rows": 100,
+        "oracle_defined_rows": 100,
+        "present_rows": 101,
+        "relative_nonzero_count": 100,
+        "relative_nonzero_max_abs": 8.565031973262202e-07,
+        "relative_nonzero_rms": 1.325803065422663e-07,
+        "requested_rows": 201,
+        "scored_rows": 100,
+        "whole_max_abs": 8.565031973262194e-05,
+        "whole_rms": 8.924982742873901e-06,
+        "zero_max_abs_error": null,
+        "zero_rms_error": null
+      },
+      "outcome": "solver_failure",
+      "passed": true,
+      "peak_rss_bytes": 78970880,
+      "persistence_seconds": 0.0010599159868434072,
+      "rtol": 1e-06,
+      "status": -1
+    }
+  ],
+  "exchange_oracle_constraints": {
+    "max_balance_error": 2.220446049250313e-16,
+    "minimum_component": 0.0
+  },
+  "identities": {
+    "cpu_count": 16,
+    "distribution_metadata_sha256": {
+      "numpy": "f9e02739041e30d8f28c1d3a5fc8a9f23f12b0ea3c40c7e9966aab5587b37ae5",
+      "scipy": "d95b7aa2c03940de0bec301021a5753ff3577b5b7ce28e6342d59f9d8556258a",
+      "torch": "3af0b98ca045e16b722819de62030f3d79b8a3f540999482fa6e33a1b008d30b"
+    },
+    "executable": "private executable locator omitted; Python version retained",
+    "libraries": {
+      "numpy": "2.5.5",
+      "scipy": "1.18.1",
+      "torch": "2.9.1"
+    },
+    "lock_sha256": "c60980e138177d0e964fdfab69977030fece08bd476534083467ccb1cf73f9b3",
+    "machine": "arm64",
+    "platform": "macOS-26.7.3-arm64-arm-64bit",
+    "processor": "arm",
+    "protocol_sha256": "35bddc1edbffc1a60a86a863e161417aca0543a9d4754a94d3b18e2cb91fc6b2",
+    "python": "3.12.9 (main, May 19 2026, 11:53:05) [Clang 21.0.0 (clang-2100.0.123.102)]",
+    "source_commit": "f3a12a7128f0140b55a56f3f6feb02ae8b48c3f8",
+    "source_files": {
+      "src/crucible/integration.py": "7b2bfd7e068dcfdfcf03dfa7f14e8c7a127be7bac1792a637059c3a0548ed062",
+      "src/crucible/integration_verification.py": "f476848bab62836b6bb68be3ec4b0b2b9449ab850337051eaf9fa0632900715c"
+    },
+    "source_status": "",
+    "source_tree": "d9d982c064bfd73fb22894f5757134e4c57dddb0",
+    "thread_environment": {
+      "MKL_NUM_THREADS": "1",
+      "OMP_NUM_THREADS": "1",
+      "OPENBLAS_NUM_THREADS": "1",
+      "VECLIB_MAXIMUM_THREADS": "1"
+    },
+    "wheel_archive_identity": "unavailable after installation; distribution RECORD hashes retained"
+  },
+  "label": "accepted-campaign",
+  "passed": true,
+  "peak_rss_bytes": 78970880,
+  "peak_rss_semantics": "cumulative process high-water mark",
+  "public_copy": {
+    "change": "Only executable locator replaced; numeric artifacts/identities unchanged.",
+    "original_private_manifest_sha256": "04e59f75c56de470dc3994900563629d030413936d4984a909ddf440a5a2f363"
+  },
+  "refinement": {
+    "exchange": {
+      "L2_vs_L0_passed": true,
+      "adjacent_passed": [
+        true,
+        true
+      ],
+      "adjacent_ratios": [
+        0.012246092632701416,
+        0.008407151337939433
+      ],
+      "errors": [
+        4.358174152452321e-06,
+        5.337060438037611e-08,
+        4.4869474802311515e-10
+      ],
+      "nonmonotonic": [
+        false,
+        false
+      ],
+      "passed": true,
+      "roundoff_plateau": false
+    },
+    "forced_stiff": {
+      "L2_vs_L0_passed": true,
+      "adjacent_passed": [
+        true,
+        true
+      ],
+      "adjacent_ratios": [
+        0.005759401262551504,
+        0.009982955547372802
+      ],
+      "errors": [
+        2.491182704134065e-05,
+        1.4347720811436204e-07,
+        1.4323265906668325e-09
+      ],
+      "nonmonotonic": [
+        false,
+        false
+      ],
+      "passed": true,
+      "roundoff_plateau": false
+    }
+  },
+  "schema": 1,
+  "setup_peak_rss_bytes": 77414400,
+  "stage_seconds": {
+    "integration": 0.2033324170333799,
+    "loading_setup": 0.42882045899750665,
+    "persistence": 0.007851040980312973,
+    "total": 0.6529624170216266
+  },
+  "state": "complete"
+}

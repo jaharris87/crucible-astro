@@ -124,6 +124,33 @@ The CRUCIBLE maintainer is the artifact/data custodian. Real records, prediction
 weights, private paths and complete detailed reports remain local. Redistribution
 rights remain unresolved; BSD-3-Clause software publication grants no model/data
 release authority. See the [local reproduction guide](../../experiments/mlp_baseline/README.md).
-Update this card when its artifact, evaluation or limitations change. Phase 2C
-requires later accepted scope; its analytic integration checks and scheduled
-post-2C audit in #43 are not performed by this 2B artifact.
+Update this card when its artifact, evaluation or limitations change. The original
+2B source/results/review boundary remains the card's preceding evidence; the
+separate 2C capability check below does not relabel that work.
+
+## Phase 2C callable capability — 2026-11-20
+
+Under [D-033](../DECISIONS.md#decision-d-033-accept-the-reviewed-phase-2c-numerical-protocol),
+the adapter `crucible.frozen_rhs.load_frozen_rhs` checks the independently pinned
+original model/manifest and loader-derived full species/units/data contract. It
+accepts seconds, all 160 ordered physical Y components and declared positive T9/rho,
+applies the saved input scales, evaluates the unchanged network and inverts the
+saved target scales to return signed native Y/s. Time only selects conditions.
+No clipping, projection, imposed Ye or coordinate rescaling of the ODE.
+
+All 17,659 train and 3,220 validation records pass saved-batch and identical-one-row
+inference bit identity, exact time/condition forwarding and unchanged weight/scale
+bytes. Singleton-versus-original-batch arithmetic has zero violations of the
+predeclared normalized binary64 `2048*eps` allowance. Fresh-process serialization
+and clean locked reproduction pass within the separate declared tolerances.
+The [2C report](../reports/2026-11-20-phase2c.md) binds exact source/protocol,
+artifacts, complete metrics, reproduction and limitations. Ordinary PR review,
+merged checks and the scheduled integrated audit are tracked in #43 separately.
+
+These are callable/compatibility checks, **not new model fidelity or trajectory
+results**. Separate synthetic analytic/stiff integration verifies the wrapper,
+without integrating this learned model. Original weights, preprocessing, selected
+epoch and negative D-024 results remain unchanged. No fitting, new checkpoint,
+test-role model evaluation, real forcing/interpolation contract, astrophysical
+rollout or producer/reference execution. Finiteness/positive conditions do not
+qualify learned-domain coverage or physical safety; no model release is implied.
