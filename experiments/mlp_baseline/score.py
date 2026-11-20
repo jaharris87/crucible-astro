@@ -7,6 +7,7 @@ Real records, predictions and complete reports remain local.
 
 import argparse
 import hashlib
+import io
 import json
 import platform
 import resource
@@ -16,6 +17,8 @@ from pathlib import Path
 
 import numpy as np
 
+from crucible import mlp_baseline as mlp
+from crucible import rhs_data as wire
 from crucible.benchmark import NAME, VERSION, load_benchmark
 from crucible.native_fidelity import evaluate_native
 
@@ -63,6 +66,76 @@ def sample_documents(data, values, prediction_id):
     return dict(common, samples=reference_rows), dict(
         common, prediction_id=prediction_id, samples=prediction_rows
     )
+
+
+def bound_predictions(run_dir, split, data, receipt):
+    """Verify completed-run provenance without fitting or rerunning inference."""
+    result_bytes = (run_dir / "result.json").read_bytes()
+    result = wire.json_load(result_bytes)
+    wire.require(
+        result.get("schema") == "crucible.phase2b-mlp-result.v1"
+        and result.get("protocol") == mlp.PROTOCOL
+        and isinstance(result.get("selection"), dict)
+        and result["selection"].get("complete") is True,
+        "completed Phase 2B result schema/protocol/selection required",
+    )
+    artifacts = result["artifact_sha256"]
+
+    def read_artifact(name):
+        return wire.checked(
+            {"path": str((run_dir / name).resolve()), "sha256": artifacts[name]}
+        )
+
+    manifest = wire.json_load(read_artifact("model.json"))
+    read_artifact("model.npz")
+    wire.require(
+        manifest.get("schema") == mlp.SCHEMA
+        and manifest.get("protocol") == mlp.PROTOCOL
+        and manifest.get("npz_sha256") == artifacts["model.npz"]
+        and manifest.get("selection") == result["selection"]
+        and manifest.get("bindings") == result["bindings"]
+        and manifest.get("contract") == result["contract"],
+        "completed result/model identity or contract mismatch",
+    )
+    contract = result["contract"]
+    shared = contract["shared"]
+    rows = len(data["record_id"])
+    order_digest = hashlib.sha256(
+        mlp._json_bytes(data["record_id"].tolist())
+    ).hexdigest()
+    wire.require(
+        contract.get("feature_order") == ["Y[0:160]", "T9", "rho"]
+        and contract.get("target") == "fresh_rhs"
+        and {"ordered_species", "overlay_sha256", "payload_sha256", "membership_sha256"}
+        <= set(shared)
+        and all(data["metadata"].get(k) == v for k, v in shared.items())
+        and rows > 0
+        and result["prediction_rows"][split] == rows
+        and contract["roles"][split]
+        == {"rows": rows, "record_order_sha256": order_digest},
+        "completed result differs from loaded data/species/role/order",
+    )
+    prediction_bytes = read_artifact("predictions.npz")
+    receipt.update(
+        predictions_sha256=artifacts["predictions.npz"],
+        model_run={
+            "result_sha256": hashlib.sha256(result_bytes).hexdigest(),
+            "result_schema": result["schema"],
+            "protocol": result["protocol"],
+            "selection": result["selection"],
+            "model_npz_sha256": artifacts["model.npz"],
+            "model_manifest_sha256": artifacts["model.json"],
+            "weights_sha256": manifest["weights_sha256"],
+        },
+    )
+    # Load exactly the verified snapshot, even if the original path changes later.
+    with np.load(io.BytesIO(prediction_bytes), allow_pickle=False) as arrays:
+        values = arrays[f"{split}_prediction"]
+        if not np.array_equal(arrays[f"{split}_record_id"], data["record_id"]):
+            raise ValueError("prediction record order mismatch")
+        if arrays[f"{split}_target"].tobytes() != data["fresh_rhs"].tobytes():
+            raise ValueError("prediction target bits mismatch")
+    return values
 
 
 def score(access, run_dir, split, predictor, *, config_path):
@@ -117,16 +190,7 @@ def score(access, run_dir, split, predictor, *, config_path):
         if predictor == "zero":
             values = np.zeros_like(data["fresh_rhs"])
         else:
-            # The training artifact separately verifies model serialization. Here
-            # exact row and target bytes prevent scoring a permuted/stale output.
-            prediction_path = run_dir / "predictions.npz"
-            receipt["predictions_sha256"] = sha256(prediction_path)
-            with np.load(prediction_path, allow_pickle=False) as arrays:
-                values = arrays[f"{split}_prediction"]
-                if not np.array_equal(arrays[f"{split}_record_id"], data["record_id"]):
-                    raise ValueError("prediction record order mismatch")
-                if arrays[f"{split}_target"].tobytes() != data["fresh_rhs"].tobytes():
-                    raise ValueError("prediction target bits mismatch")
+            values = bound_predictions(run_dir, split, data, receipt)
         reference, prediction = sample_documents(
             data, values, f"phase2b:{predictor}:{split}"
         )

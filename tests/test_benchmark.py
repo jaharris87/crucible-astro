@@ -365,6 +365,14 @@ def test_relocation_uses_content_identity_and_config_relative_paths(
     relocated.mkdir()
     digest = overlay["payload"]["sha256"]
     shutil.move(root / "payload.h5", relocated / "renamed.h5")
+    with pytest.raises(ValueError, match=f"not found: payload.h5 \\(sha256 {digest}"):
+        bm.load_benchmark(
+            bm.NAME,
+            bm.VERSION,
+            use="rhs_training",
+            split="test",
+            config={"overlay": root / "overlay.json"},
+        )
     config = {
         "overlay": "overlay.json",
         "path_overrides": {digest: "elsewhere/renamed.h5"},
@@ -379,6 +387,37 @@ def test_relocation_uses_content_identity_and_config_relative_paths(
     )
     assert out["record_id"].tolist() == ["r14", "r15"]
     assert not (root / "payload.h5").exists()
+
+
+def test_overlay_digest_relocation_uses_relocated_parent_for_children(local_view):
+    root, _, _, _ = local_view
+    original = bm.load_benchmark(
+        bm.NAME,
+        bm.VERSION,
+        use="rhs_training",
+        split="train",
+        config={"overlay": root / "overlay.json"},
+    )
+    moved = root / "moved"
+    moved.mkdir()
+    for path in root.iterdir():
+        if path.is_file():
+            shutil.move(path, moved / path.name)
+    config = {
+        "overlay": "missing/overlay.json",
+        "path_overrides": {bm._OVERLAY_SHA256: "moved/overlay.json"},
+    }
+    (root / "access.json").write_bytes(encoded(config))
+    relocated = bm.load_benchmark(
+        bm.NAME,
+        bm.VERSION,
+        use="rhs_training",
+        split="train",
+        config=root / "access.json",
+    )
+    assert relocated["metadata"] == original["metadata"]
+    for name in ("record_id", "Y", "fresh_rhs", "T9", "rho"):
+        assert relocated[name].tobytes() == original[name].tobytes()
 
 
 @pytest.mark.parametrize(

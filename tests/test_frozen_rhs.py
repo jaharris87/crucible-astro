@@ -123,6 +123,8 @@ def test_bad_time_refuses(t):
         (1.0, 2.0, 3.0),
         (1j, 2.0),
         (np.float32(2), 1.0),
+        np.array(1.0),
+        np.ones((1, 2)),
     ],
 )
 def test_bad_conditions_refuse(conditions):
@@ -210,3 +212,11 @@ def test_wrapper_rejects_same_shape_reordered_species_before_model_call(monkeypa
             rtol=1e-6,
             atol=1e-9,
         )
+
+
+def test_non_cpu_model_refuses_before_numpy_conversion():
+    rhs = source()
+    # Meta tensors exercise the device check without a GPU or device transfer.
+    model = m.MLP().to("meta")
+    with pytest.raises(ValueError, match="model must reside on CPU"):
+        f.ModelRHS(model, rhs.x_scale, rhs.y_scale, rhs.contract, rhs.conditions)

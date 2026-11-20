@@ -10,7 +10,8 @@ scope. 2A is complete through PR #46 at `8b6cf71`; 2B is complete through
 D-032 invokes only 2C; its [concrete numerical protocol](https://github.com/jaharris87/crucible-astro/issues/43#issuecomment-7044234697)
 has an [independent scope/simplicity PASS](https://github.com/jaharris87/crucible-astro/issues/43#issuecomment-7044293163)
 and maintainer acceptance under D-033; its numerical exits and clean reproduction
-pass, with review/integration and the scheduled audit remaining.
+pass. PR #48 integrated the implementation at `505d556`; current audit-repair
+and closeout gates are recorded in [progress](PROGRESS.md) and [handoff](HANDOFF.md).
 The 2B [concrete MLP experiment](https://github.com/jaharris87/crucible-astro/issues/42#issuecomment-7042652534)
 received independent scope review and maintainer acceptance under D-031 before fitting.
 This is the single Phase 2 sequence; live issues hold execution detail.

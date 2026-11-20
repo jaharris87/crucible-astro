@@ -35,10 +35,23 @@ Do not change a digest to bless a different file.
 
 Relative paths in the configuration resolve beside that JSON file. For a Python
 mapping configuration they resolve from the working directory. Relative paths
-inside an accepted overlay resolve beside the configured overlay path; its
-absolute historical locators remain valid unless a digest override is supplied.
+inside an accepted overlay resolve beside its effective path, including an
+override of the overlay itself. Absolute historical locators are used unless a
+digest override is supplied; an old development checkout may no longer exist.
 The loader resolves paths before reading and checks exact file content and any
 declared byte length. Unknown configuration keys and malformed override maps fail.
+
+A missing bound file refusal names its file and SHA256. Recover the exact bytes
+and add that digest to `path_overrides`; do not rewrite the accepted overlay.
+For example, the scoring configuration is also committed at
+`configs/native_fidelity/primary_benchmark.json`. Its accepted digest is
+`f971e8cf75fdcf76f50f5a8bcce30e247b7fa0e332949c221f3fd9adebaf158e`:
+
+```json
+"path_overrides": {
+  "f971e8cf75fdcf76f50f5a8bcce30e247b7fa0e332949c221f3fd9adebaf158e": "/absolute/checkout/configs/native_fidelity/primary_benchmark.json"
+}
+```
 
 ## Scientist example
 

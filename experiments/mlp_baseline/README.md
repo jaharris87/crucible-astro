@@ -50,7 +50,15 @@ uv run --no-sync python -B experiments/mlp_baseline/score.py \
 ```
 
 Repeat that scoring command for `train mlp`, `validation zero` and `train zero`.
-It retains full per-component/per-species/history/group/category/regime detail,
+
+MLP scoring requires the completed run's `result.json`, matching model/manifest
+and prediction hashes, and the selected role's exact data contract, record order
+and target bytes. The receipt binds those identities before scoring the verified
+prediction snapshot. The zero comparator needs no model/run result. These
+[audit repairs](../../docs/reports/2026-11-20-phase2c-audit-assessment.md) leave
+the original frozen artifacts and D-026 scoring arithmetic unchanged.
+
+Scoring retains full per-component/per-species/history/group/category/regime detail,
 all D-024 profiles, native supplementary diagnostics and a cost/provenance receipt.
 There is no test role. A failed/nonfinite vector is a failed attempt, never a
 successful-case exclusion. Physical headline errors use the accepted `A*(p-f)`

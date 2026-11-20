@@ -63,7 +63,7 @@ def load_benchmark(name, version, *, use, split, config):
     _need(isinstance(use, str) and _USES.get(use) is True, "unqualified use")
     _need(isinstance(split, str) and split in partitions.ROLES, "unknown split")
     config, root, overrides = _configuration(config)
-    overlay_path = (root / config["overlay"]).resolve()
+    overlay_path = (root / overrides.get(_OVERLAY_SHA256, config["overlay"])).resolve()
     consumed = {}
 
     def read(entry, base):
@@ -77,6 +77,11 @@ def load_benchmark(name, version, *, use, split, config):
         path = (
             root / locator if locator is not None else base / entry["path"]
         ).resolve()
+        _need(
+            path.is_file(),
+            f"bound file not found: {path.name} (sha256 {entry['sha256']}); "
+            "if its exact bytes moved, add that sha256 to path_overrides",
+        )
         data = wire.checked({"path": str(path), "sha256": entry["sha256"]})
         _need("bytes" not in entry or entry["bytes"] == len(data), "file size mismatch")
         consumed[entry["sha256"]] = len(data)

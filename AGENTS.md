@@ -24,6 +24,10 @@ project-local dependencies, tests, commits, pushes and PR creation are authorize
 merge remains human-owned. No fitting, real MLP rollout or final-test model use.
 After human merge/merged checks, perform the scheduled bounded independent merged
 2A–2C audit in #43; keep issue/goal incomplete through blocking repairs/dispositions.
+PR #48 integrated the original 2C implementation at `505d556`; its scheduled audit
+is preserved. Current external-audit repair and reserved closeout gates are in
+[handoff](docs/HANDOFF.md) and [progress](docs/PROGRESS.md). D-034 delegates vetted
+reviewed/check-passing 2C repair merges; final closeout remains human-owned.
 [Milestone #3](https://github.com/jaharris87/crucible-astro/milestone/3) and
 [the single reconciled sequence](docs/PHASE_2_LAUNCH.md) track five increments.
 Each next sub-phase needs accepted scope and preceding integration. Native goals

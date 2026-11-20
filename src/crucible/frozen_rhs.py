@@ -123,6 +123,10 @@ class ModelRHS:
                 a = a.copy()
                 a.flags.writeable = False
                 object.__setattr__(self, name, a)
+        _require(
+            all(p.device.type == "cpu" for p in self.model.parameters()),
+            "model must reside on CPU",
+        )
         for name, a in mlp.model_arrays(self.model).items():
             _require(
                 a.dtype == np.float64
@@ -130,10 +134,6 @@ class ModelRHS:
                 and np.isfinite(a).all(),
                 "invalid model array " + name,
             )
-        _require(
-            all(p.device.type == "cpu" for p in self.model.parameters()),
-            "model must reside on CPU",
-        )
         self.model.eval()
         self.model.requires_grad_(False)
 
@@ -142,7 +142,11 @@ class ModelRHS:
         y = checked_vector(y, 160, "model state")
         conditions = self.conditions(t)
         _require(
-            isinstance(conditions, (tuple, list, np.ndarray)) and len(conditions) == 2,
+            (
+                isinstance(conditions, (tuple, list))
+                or (isinstance(conditions, np.ndarray) and conditions.ndim == 1)
+            )
+            and len(conditions) == 2,
             "conditions must return (T9, rho)",
         )
         t9, rho = (_scalar(v, name) for v, name in zip(conditions, ("T9", "rho")))

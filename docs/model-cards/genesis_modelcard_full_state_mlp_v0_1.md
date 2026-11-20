@@ -1,8 +1,9 @@
 # Full-state native-RHS MLP — model card 0.1.0
 
 **Actual artifact:** Phase 2B seed 20261120, selected epoch 407, CPU binary64.
-This is a reproducible **negative D-024 digital-fidelity result**. Code review, human merge and merged-result verification are tracked in
-[issue #42](https://github.com/jaharris87/crucible-astro/issues/42).
+This is a reproducible **negative D-024 digital-fidelity result**. Phase 2B review,
+human merge and merged checks are complete in its
+[final receipt](https://github.com/jaharris87/crucible-astro/issues/42#issuecomment-7043899683).
 This card describes a private local artifact; it is not a model release.
 
 ## Identity and intended use
@@ -57,6 +58,16 @@ epoch 407 has validation normalized MSE `0.00010598150261279192`. No search or
 additional selection candidate was run. The deterministic comparator returns 160
 exact zeros. Exact architecture/optimizer/stopping/failure rules remain in the
 accepted protocol, not imported from a chemical system.
+
+The scaled MSE objective weights native squared errors by the inverse squared
+training-column scales. It does not optimize D-024's nonzero relative error or
+exact-zero requirements. A bounded later audit diagnostic found 2,476/3,220
+validation records with at least one nonzero scaled target below 1e-15. This
+illustrates the dynamic-range challenge; binary64 spacing depends on magnitude,
+so it does **not** establish that whole-vector attainment is impossible for every
+model with this output representation. The [audit assessment](../reports/2026-11-20-phase2c-audit-assessment.md)
+qualifies the original audit's stronger claim and pointwise balance diagnostics.
+No objective, transform, weights, acceptance metric or historical result changed.
 
 Training/validation target scaling produced 145 /34 nonzero-to-zero binary64
 underflows; input underflows 0. These and nonexact round trips are counted under
