@@ -36,14 +36,20 @@ and [consolidated dispositions](reports/2026-11-20-phase2c-audit-assessment.md)
 record actual reproduction and limits. Work is on `codex/phase2c-audit-repairs`
 from that verified main; only the isolated scoring worker authored its two files.
 
-Next: complete repair-candidate checks, publish one coherent draft PR, obtain a
-fresh independent focused exact-candidate review, repair/verify findings and use
-normal protected integration under [D-034](DECISIONS.md#decision-d-034-bounded-2c-recommendations-and-merge-delegation).
-Verify the actual merge and update #43. The broad integrated audit is not repeated;
-the new review covers repairs and affected behavior. **Final 2C closeout remains
-the maintainer's reserved decision**, after all required exits. Keep issue/goal
-incomplete and milestone #3 open. No generic continuation or elapsed time grants
-that decision.
+Repair implementation at `d8917c9` passes a forced locked noneditable **651-test
+suite (zero skips)**, all eight synthetic attempts with 80/80 original arrays
+bitwise unchanged, and all 20,879 permitted frozen callbacks with unchanged
+prediction hash. Reload, numerical compare, original scoring provenance and
+preservation checks pass; the assessment records costs and limits.
+
+[Repair PR #49](https://github.com/jaharris87/crucible-astro/pull/49) and #43 carry
+the exact focused review, required CI, D-034 protected merge and merged-result
+receipts. That review must cover the actual final candidate and be separate from
+repair authors; no broad integrated-audit repetition is required. Follow the live
+receipts for lifecycle state. **The next human checkpoint is reserved final 2C
+closeout**, after required repairs, review, integration and checks. Keep issue/goal
+incomplete and milestone #3 open until that decision. No generic continuation or
+elapsed time grants it.
 
 Native goal (existing, not replaced):
 

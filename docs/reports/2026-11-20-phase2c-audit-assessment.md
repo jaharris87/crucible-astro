@@ -149,8 +149,10 @@ the two expected negative attempts remain incomplete horizons by design.
 Retained local logs include initial assessment/setup probes and formatting
 corrections; no repair-suite or accepted-protocol numerical failure occurred.
 
-Fresh focused independent review of the exact pushed candidate, protected
-integration and merged-result verification remain pending. Original manifests
+[PR #49](https://github.com/jaharris87/crucible-astro/pull/49) and #43 carry the
+fresh focused independent exact-candidate review, protected integration and
+merged-result receipts. These remain required gates beyond the local checks
+above; consult those live receipts for their actual disposition. Original manifests
 are unchanged; new receipts identify repaired source explicitly. No broad audit
 repetition, fitting, producer execution, real MLP trajectory, final-test model
 evaluation or new physical allowance. The original accepted negative 2B outcome

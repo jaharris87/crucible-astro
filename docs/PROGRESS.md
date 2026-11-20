@@ -14,11 +14,15 @@ Gemini audits supplied concrete counterevidence. The maintainer authorized their
 before final closeout. [Consolidated dispositions](reports/2026-11-20-phase2c-audit-assessment.md)
 preserve attribution, reproduced defects, rejected claims and deferred work.
 
-**Current work:** repair scoring provenance and initial-stop/failure accounting,
-improve narrow boundary refusals/relocation, remove repeated species hashing and
-refresh current guidance. Candidate verification, focused independent review,
-protected integration and merged checks remain pending. D-034 delegates vetted
-repair merges; **final 2C closeout remains reserved for the maintainer**. Keep #43
+**Repair evidence:** scoring provenance and initial-stop/failure accounting,
+narrow boundary refusals/relocation, repeated species hashing and current guidance
+are addressed in [PR #49](https://github.com/jaharris87/crucible-astro/pull/49).
+Forced locked noneditable suite: **651 passed, zero skips**; eight-attempt
+regression PASS with all 80 arrays bitwise unchanged; 20,879 frozen callbacks,
+reload/compare and original scoring bindings PASS. The PR and #43 carry focused
+independent review, protected integration and merged-result receipts; consult
+those live records for lifecycle state. D-034 delegates vetted repair merges;
+**final 2C closeout remains reserved for the maintainer**. Keep #43
 and the native 2C goal incomplete; milestone #3 remains open. No 2D execution.
 The accepted campaign and all 20,879 train/validation callable checks remain the
 original evidence, separately bound to their source. Frozen artifacts, negative
@@ -31,7 +35,7 @@ original evidence, separately bound to their source. Frozen artifacts, negative
 | 0A — Design | Reference investigation | Complete; [review](REVIEW.md), [transition](TRANSITION.md) |
 | 0B — Bootstrap | Adopted workflow/publication authority | Complete through audit `01f06d8`; [final receipt](https://github.com/jaharris87/crucible-astro/issues/4#issuecomment-6960154582), [milestone #1](https://github.com/jaharris87/crucible-astro/milestone/1) |
 | 1 — Qualification/benchmark | 0B; S01–S03 authority | D-025 accepted; actual [exit evidence](phase1/PHASE1_CLOSEOUT.md), [qualified data card](data-cards/genesis_datacard_ccsn_native_pointwise_qualified_v0_1.md), final closure in the live receipt |
-| 2 — Full-state baseline | D-029; qualified benchmark | 2A/2B integrated; negative 2B pointwise result preserved; 2C original implementation/audit integrated; external-audit repairs and reserved closeout pending; [incremental sequence](PHASE_2_LAUNCH.md), milestone #3 |
+| 2 — Full-state baseline | D-029; qualified benchmark | 2A/2B integrated; negative 2B pointwise result preserved; 2C original implementation/audit integrated; external-audit repair evidence in PR #49; reserved closeout pending; [incremental sequence](PHASE_2_LAUNCH.md), milestone #3 |
 | 3–5 — Reduction/comparison/prototype | Later accepted baselines/science/scope | Not started; no architecture or model selected |
 
 ## Active Phase 2 sequence
@@ -40,7 +44,7 @@ original evidence, separately bound to their source. Frozen artifacts, negative
 | --- | --- | --- |
 | [2A #41](https://github.com/jaharris87/crucible-astro/issues/41) | Qualified named-version/use/split arrays, example and tests | Complete at PR #46 / `8b6cf71`; 489 installed-package tests, merged CI and all-row structural checks in final receipt |
 | [2B #42](https://github.com/jaharris87/crucible-astro/issues/42) | Integrated 2A; frozen pointwise MLP/comparator and reproducible validation | Complete at PR #47 / `a81552e`; 515 installed-package tests, exact independent review, human merge, merged CI/reload/preservation checks in final receipt; negative D-024 result; final-test model outcomes sealed |
-| [2C #43](https://github.com/jaharris87/crucible-astro/issues/43) | Integrated 2B; checked callable adapter, independent analytic/stiff integration and scheduled merged 2A–2C audit | Active D-032/D-033; original implementation and scheduled audit complete at `505d556`; bounded external-audit repairs, focused review/integration and reserved closeout pending; no fitting, real MLP rollout or new XNet execution |
+| [2C #43](https://github.com/jaharris87/crucible-astro/issues/43) | Integrated 2B; checked callable adapter, independent analytic/stiff integration and scheduled merged 2A–2C audit | Active D-032/D-033; original implementation and scheduled audit complete at `505d556`; bounded external-audit repair/review/integration receipts in PR #49; reserved closeout pending; no fitting, real MLP rollout or new XNet execution |
 | [2D #44](https://github.com/jaharris87/crucible-astro/issues/44) | Integrated 2C; accepted real reference trajectories/protocol | Scope and scientific/producer-execution decisions pending |
 | [2E #45](https://github.com/jaharris87/crucible-astro/issues/45) | Integrated 2D; frozen pointwise/rollout/cost evaluation and report | Scope and final-test release pending; human baseline acceptance before milestone closure |
 
