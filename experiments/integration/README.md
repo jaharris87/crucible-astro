@@ -75,6 +75,12 @@ reports success. Exceptions retain their type/message and last **trial** callbac
 state/time. If SciPy raises, accepted history, horizon, numerical outputs and
 solver counters are explicitly unavailable; trial times never replace them.
 
+An event at the initial time is an intentional terminal stop with only the
+initial requested output present. A first-step solver failure likewise retains
+the known initial state without evaluating a zero-interval interpolant. Neither
+outcome completes the requested horizon. The [audit assessment](../../docs/reports/2026-11-20-phase2c-audit-assessment.md)
+records the corrections and their regression evidence.
+
 `nfev`, `njev`, `nlu` and actual callback/event invocation counts are retained.
 Rejected-step and linear-solve counts are unavailable through this API and are
 recorded as null. `nfev` need not include numerical Jacobian callback invocations.
@@ -131,3 +137,10 @@ protocol, lock/library identities, classifications, grids and masks; numeric
 state/oracle/error arrays use `atol=rtol=1e-12`. Counters and timings are reported,
 without requiring bitwise agreement. This does not replace analytic accuracy,
 constraint/refinement requirements, or the separate frozen callable checks.
+
+Exact-source comparison is deliberate. A repair at a different source revision
+requires a separately identified regression comparison; preserve the historical
+manifest rather than editing its source bindings. The private callable checker's
+automatic reload currently supports passing finite metric reports; a failed
+report containing nonfinite optional metrics needs manual retained-evidence
+inspection. It cannot be treated as a passing reproduction.

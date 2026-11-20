@@ -233,6 +233,7 @@ def _validated(pool, contract, groups):
             _require(q in histories, "unknown_parent", f"related history {q}")
             _require(group_of[p] == group_of[q], "related_crossover", f"{p} and {q}")
     records, canonical = {}, set()
+    species_sha256 = digest(species)
     for r in pool["records"]:
         rid, p, ordinal = r["record_id"], r["particle0"], r["ordinal"]
         _require(_text(rid) and rid not in records, "identity", f"record {rid}")
@@ -250,7 +251,7 @@ def _validated(pool, contract, groups):
         canonical.add(identity)
         _require(
             r.get("n_species") == len(species)
-            and r.get("species_sha256") == digest(species),
+            and r.get("species_sha256") == species_sha256,
             "species",
             f"record {rid}: ordered species/count differ",
         )

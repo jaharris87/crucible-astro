@@ -17,10 +17,12 @@ The documentation migration and Phase 2A qualified-data access are complete.
 Phase 2B is [complete](https://github.com/jaharris87/crucible-astro/issues/42#issuecomment-7043899683)
 at PR #47 / `a81552e`: the frozen full-state MLP and zero-RHS comparator reproduce,
 with zero D-024 whole-vector attainment at every profile. This negative fidelity
-result remains unchanged. Phase 2C is active under
-[issue #43](https://github.com/jaharris87/crucible-astro/issues/43), with a
-[passing accepted analytic campaign and frozen callable checks](docs/reports/2026-11-20-phase2c.md).
-Independent PR review, implementation integration and its scheduled audit remain. Physical application, energy, rollout accuracy and speedup remain
+result remains unchanged. The [2C analytic campaign and frozen callable checks](docs/reports/2026-11-20-phase2c.md)
+verify the numerical path separately from predictive fidelity. See current
+[progress](docs/PROGRESS.md) and [handoff](docs/HANDOFF.md) for integration,
+audit repairs and the reserved closeout decision under
+[issue #43](https://github.com/jaharris87/crucible-astro/issues/43).
+Physical application, energy, rollout accuracy and speedup remain
 **not evaluated**.
 Use [Progress](docs/PROGRESS.md) and [Handoff](docs/HANDOFF.md) for current work and
 the [final Phase 1 receipt](https://github.com/jaharris87/crucible-astro/issues/15#issuecomment-7014392482) for closure evidence.
@@ -66,6 +68,8 @@ For scientific use, follow these routes:
 | Understand what the accepted data can support | [Qualified data card](docs/data-cards/genesis_datacard_ccsn_native_pointwise_qualified_v0_1.md), then [finite benchmark and limitations](docs/science/benchmark/NATIVE_RHS.md#frozen-finite-task-and-bindings) |
 | Load the accepted data and inspect its splits | [Loading guide and runnable example](docs/science/data/LOADING.md); [HDF5 contract](docs/science/data/PRIMARY_RHS_DATASET.md) and [partition checks](docs/science/benchmark/PARTITIONS.md) for details |
 | Score an RHS prediction | [Native numerical profiles and reporting](docs/science/benchmark/NATIVE_RHS.md#accepted-profiles-and-exact-arithmetic), plus the runnable synthetic example below |
+| Reproduce the frozen full-state baseline | [Model card](docs/model-cards/genesis_modelcard_full_state_mlp_v0_1.md) and [2B experiment guide](experiments/mlp_baseline/README.md) |
+| Use the callable boundary or verify integration | [2C guide](experiments/integration/README.md), [numerical report](docs/reports/2026-11-20-phase2c.md) and [audit assessment](docs/reports/2026-11-20-phase2c-audit-assessment.md) |
 | Understand physical accuracy and unevaluated uses | [Qualification and validation](docs/science/VALIDATION.md), [physical error budgets](docs/science/validation/PHYSICAL_ERROR_BUDGETS.md); pointwise fidelity does not establish energy, rollout accuracy or speedup |
 | Trace scientific evidence or historical decisions | [Source evidence](docs/science/EVIDENCE.md), [decision register](docs/DECISIONS.md), [Phase 1 exit index](docs/phase1/PHASE1_CLOSEOUT.md) |
 | Resume development or find the next authorized action | [Handoff](docs/HANDOFF.md), [progress](docs/PROGRESS.md), [workflow](docs/process/WORKFLOW.md) |

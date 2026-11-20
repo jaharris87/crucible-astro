@@ -1,6 +1,8 @@
 """A small checked binary64 RHS integration path; no physical-model policy."""
 
+import math
 from dataclasses import dataclass
+from numbers import Real
 from time import perf_counter
 from typing import Callable
 
@@ -40,6 +42,16 @@ class RHSContract:
             or len({x[0] for x in self.conditions}) != len(self.conditions)
         ):
             raise ValueError("conditions must declare unique names and units")
+
+
+def _finite_real_scalar(value):
+    """A numeric scalar, excluding booleans and failed binary64 conversions."""
+    if isinstance(value, (bool, np.bool_)) or not isinstance(value, Real):
+        return False
+    try:
+        return math.isfinite(float(value))
+    except (OverflowError, TypeError, ValueError):
+        return False
 
 
 def checked_vector(value: object, size: int, name: str) -> np.ndarray:
@@ -123,12 +135,8 @@ def integrate_rhs(
             "requested times must be finite, increasing, with two endpoints"
         )
     if (
-        not np.isscalar(rtol)
-        or not np.isscalar(atol)
-        or not np.isreal(rtol)
-        or not np.isreal(atol)
-        or not np.isfinite(rtol)
-        or not np.isfinite(atol)
+        not _finite_real_scalar(rtol)
+        or not _finite_real_scalar(atol)
         or rtol <= 0
         or atol <= 0
     ):
@@ -141,14 +149,14 @@ def integrate_rhs(
     def checked(t, y):
         nonlocal calls, last_t, last_y
         calls += 1
-        last_t = float(t)
-        last_y = np.array(y, copy=True)
         try:
-            if not np.isscalar(t) or not np.isreal(t) or not np.isfinite(t):
+            if not _finite_real_scalar(t):
                 raise ValueError("callback time must be a finite scalar")
+            last_t = float(t)
+            last_y = np.array(y, copy=True)
             state = checked_vector(y, size, "callback state")
             state.flags.writeable = False
-            value = rhs(float(t), state)
+            value = rhs(last_t, state)
         except Exception as exc:
             raise _CallbackFailure("callback_exception", exc) from exc
         try:
@@ -159,11 +167,13 @@ def integrate_rhs(
     def event(t, y):
         nonlocal event_calls
         event_calls += 1
-        state = checked_vector(y, size, "event state")
-        state.flags.writeable = False
         try:
+            if not _finite_real_scalar(t):
+                raise ValueError("event time must be a finite scalar")
+            state = checked_vector(y, size, "event state")
+            state.flags.writeable = False
             value = terminal_event(float(t), state)
-            if not np.isscalar(value) or not np.isreal(value) or not np.isfinite(value):
+            if not _finite_real_scalar(value):
                 raise ValueError("event must return a finite real scalar")
             return float(value)
         except Exception as exc:
@@ -226,12 +236,25 @@ def integrate_rhs(
         # Retain even malformed returned history for diagnosis; never certify it.
         result.accepted_t = accepted_t.copy()
         result.accepted_y = accepted_y.copy()
+        # SciPy repeats the initial row when a terminal root is already at t0.
+        # Accept only that matching root, preserving the raw returned history.
+        initial_event_stop = (
+            solved.status == 1
+            and accepted_t.shape == (2,)
+            and np.all(accepted_t == grid[0])
+            and accepted_y.shape == (2, size)
+            and np.array_equal(accepted_y[0], initial)
+            and np.array_equal(accepted_y[1], initial)
+            and solved.t_events is not None
+            and len(solved.t_events) == 1
+            and np.array_equal(solved.t_events[0], grid[:1])
+        )
         if (
             accepted_t.dtype != np.float64
             or accepted_t.ndim != 1
             or len(accepted_t) < 1
             or not np.all(np.isfinite(accepted_t))
-            or not np.all(np.diff(accepted_t) > 0)
+            or (not np.all(np.diff(accepted_t) > 0) and not initial_event_stop)
             or accepted_t[0] != grid[0]
             or accepted_t[-1] > grid[-1]
             or accepted_y.dtype != np.float64
@@ -245,9 +268,14 @@ def integrate_rhs(
             if not np.all(np.isfinite(result.event_t)):
                 raise ValueError("nonfinite event times")
         available = (grid >= accepted_t[0]) & (grid <= accepted_t[-1])
-        if solved.sol is None:
-            raise ValueError("solver interpolant unavailable")
-        values = np.asarray(solved.sol(grid[available])).T
+        if accepted_t[-1] == grid[0] and solved.status in (-1, 1):
+            # No accepted interval exists. A real first-step failure may carry
+            # a non-None OdeSolution with zero segments, which cannot be called.
+            values = accepted_y[:1]
+        else:
+            if solved.sol is None:
+                raise ValueError("solver interpolant unavailable")
+            values = np.asarray(solved.sol(grid[available])).T
         if values.dtype != np.float64 or values.shape != (
             np.count_nonzero(available),
             size,

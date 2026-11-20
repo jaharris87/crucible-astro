@@ -151,6 +151,14 @@ def test_metrics_hand_calculated_and_missing_coverage():
     assert result["component_final_error"] is None
 
 
+def test_single_component_negative_errors_have_positive_l2_on_pinned_numpy():
+    # Regression for a rejected static-audit allegation: hypot has identity 0.
+    _, metrics = error_metrics(
+        np.array([[3.0], [5.0]]), np.array([[5.0], [10.0]]), np.array([True, True])
+    )
+    assert metrics["max_vector_l2"] == 5.0
+
+
 def retained_test_fixture(directory):
     fixture = fixtures()[0]
     result = integrate_rhs(
