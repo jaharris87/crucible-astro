@@ -6,18 +6,23 @@ CRUCIBLE develops reproducible learning and reduced modeling of astrophysical re
 
 The maintainer adopted the [development workflow](docs/process/WORKFLOW.md) and B01–B04 scope on 2026-11-17 (D-010). D-013 removes compute/resource caps and accounting; D-014 adds a narrow documentation lane after Phase 0B; D-015 retains canonical model policy in WORKFLOW. See [decisions](docs/DECISIONS.md). These choices grant no new task, scientific phase or purchase authority.
 
-**Current boundary (2026-11-19):** Phase 0A/0B are complete, including [final Phase 0B closeout](https://github.com/jaharris87/crucible-astro/issues/4#issuecomment-6960154582). The maintainer authorized Phase 1 S01–S03 in [the execution authority](docs/PHASE_1_AUTHORITY.md). D-025 accepts the exact 24,314-state / 380-history finite within-parent native-XNet pointwise benchmark, with D-019 reference, D-024 scoring and exact grouped memberships. Qualification is purpose-specific; physical application, energy and rollout accuracy remain unqualified. The [final integration receipt](https://github.com/jaharris87/crucible-astro/issues/15#issuecomment-7014392482), [handoff](docs/HANDOFF.md) and [milestone #2](https://github.com/jaharris87/crucible-astro/milestone/2) track actual closure. Every merge requires its concrete human decision or bounded delegation. D-017/D-020/D-023 executions and numerical verification are complete; all physical-call authority is exhausted. Preserve raw and quarantined artifacts; qualified uses resolve through the separate accepted overlay. Redistribution rights remain unresolved. No new producer execution, original reference changes, bulk conversion, paid
+**Current boundary (2026-11-20):** Phase 0A/0B are complete, including [final Phase 0B closeout](https://github.com/jaharris87/crucible-astro/issues/4#issuecomment-6960154582). The maintainer authorized Phase 1 S01–S03 in [the execution authority](docs/PHASE_1_AUTHORITY.md). D-025 accepts the exact 24,314-state / 380-history finite within-parent native-XNet pointwise benchmark, with D-019 reference, D-024 scoring and exact grouped memberships. Qualification is purpose-specific; physical application, energy and rollout accuracy remain unqualified. The [final integration receipt](https://github.com/jaharris87/crucible-astro/issues/15#issuecomment-7014392482), [handoff](docs/HANDOFF.md) and [milestone #2](https://github.com/jaharris87/crucible-astro/milestone/2) track actual closure. Every merge requires its concrete human decision or bounded delegation. D-017/D-020/D-023 executions and numerical verification are complete; all physical-call authority is exhausted. Preserve raw and quarantined artifacts; qualified uses resolve through the separate accepted overlay. Redistribution rights remain unresolved. No new producer execution, original reference changes, bulk conversion, paid
 service, data release or deployment is authorized. Phase 1 and D-027's documentation
 migration are complete; [migration final receipt](https://github.com/jaharris87/crucible-astro/issues/39#issuecomment-7019298012)
-records PR #40 merge/integration at `804fb75`. D-029 now authorizes **Phase 2A only**
-under [issue #41](https://github.com/jaharris87/crucible-astro/issues/41): a verified
-named-version/use/split benchmark loader, example, synthetic/local real checks,
-independent review and human-approved merge/integration. No training or fitted
-preprocessing in 2A. [Milestone #3](https://github.com/jaharris87/crucible-astro/milestone/3)
-tracks five incremental sub-phases; [the reconciled sequence](docs/PHASE_2_LAUNCH.md)
-replaces the former broad draft. Each next sub-phase needs accepted scope and
-preceding integration. Native goals cover the active sub-phase only. 2D needs
-scientific/producer authority; 2E needs frozen-protocol final-test release.
+records PR #40 merge/integration at `804fb75`. D-029 established the incremental Phase 2 sequence; 2A is complete through
+[PR #46](https://github.com/jaharris87/crucible-astro/pull/46) at `8b6cf71`, with
+[final receipt](https://github.com/jaharris87/crucible-astro/issues/41#issuecomment-7020463315).
+D-030 authorizes **Phase 2B only** under
+[issue #42](https://github.com/jaharris87/crucible-astro/issues/42): one small
+CPU-capable full-state MLP and deterministic zero-RHS comparator, with a concrete
+independently reviewed experiment accepted by the maintainer before fitting.
+Repository edits, dependencies, tests, commits, pushes and PR creation are authorized;
+merge remains human-owned. No final-test model predictions/evaluation in 2B.
+[Milestone #3](https://github.com/jaharris87/crucible-astro/milestone/3) and
+[the single reconciled sequence](docs/PHASE_2_LAUNCH.md) track five increments.
+Each next sub-phase needs accepted scope and preceding integration. Native goals
+cover the active sub-phase only. 2D needs scientific/producer authority; 2E needs
+frozen-protocol final-test release. The integrated audit stays after 2C in #43.
 No reduced methods, model-family comparison or Phase 3 is authorized.
 
 Accepted destination: public `jaharris87/crucible-astro`, BSD-3-Clause. Do not re-ask owner, visibility or license direction. The maintainer confirmed `Copyright (c) 2026 UT-Battelle, LLC.`, no additional institutional/government-rights notice, and release readiness for the portable seed and original bootstrap code on 2026-11-17. See D-001 and [licensing evidence](docs/TRANSITION.md#licensing-evidence).
@@ -63,7 +68,7 @@ plan for later separate authorization, and D-028 retains the real-rollout gate
 while staging the future baseline. The maintainer subsequently authorized execution of the accepted D-027 migration
 as the separate post-Phase-1 task in issue #39. See the
 [migration record](docs/process/DOCUMENTATION_MIGRATION.md) for the exact source,
-anchor map and frozen-source recovery. D-029 separately grants only the bounded 2A authority above.
+anchor map and frozen-source recovery. D-029 established incremental Phase 2; D-030 grants only the bounded 2B authority above.
 
 Make routine reversible choices within scope. Prepare concrete evidence before asking consequential scientific, scope or authority questions; use the interactive interface or D-### format in the workflow, recommendation first, meaningful alternatives, normally no more than three together and free-text answers. Record answers and apply them consistently. Silence is not approval; continue independent authorized work while required decisions remain pending.
 
