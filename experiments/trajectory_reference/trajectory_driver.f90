@@ -15,17 +15,16 @@ program trajectory_driver
   use xnet_integrate_be, only: solve_be
   use native_adapter
   implicit none
-  integer :: inp,output,ios,k,j,step,its(1),saved_maps,maps
+  integer :: inp,output,forcing_output,ios,k,j,step,its(1)
   integer(int32) :: header(8),magic
   integer(int8) :: endian(4)
-  integer(int64) :: file_size,file_position
+  integer(int64) :: file_size,file_position,setup_clock,physics_clock,finished_clock
   real(dp),allocatable :: forcing_time(:),forcing_t9(:),forcing_rho(:),requested(:),mesh(:)
   real(dp) :: input_z(160),input_a(160),initial(160),f(160),b0,baryon,charge,native_ye,total
   real(dp) :: input_time,input_temperature,input_density
   real(dp) :: abar,zbar,z2bar,zibar,target,remaining,h,clock_start,clock_stop,phase_start
   character(80) :: data_description
   character(160) :: reason
-  character(4096) :: map_line
   logical :: ok,active(1)
   call open_diagnostics()
   call cpu_time(clock_start)
@@ -111,6 +110,8 @@ program trajectory_driver
   write(log_unit,*) 'INITIAL_MOMENTS',b0,sum(zz*initial),yet(1),t9t(1),rhot(1)
   call cpu_time(phase_start)
   write(log_unit,*) 'SETUP_CPU_SECONDS',phase_start-clock_start
+  call system_clock(setup_clock)
+  if (wall_rate>0) write(log_unit,*) 'SETUP_WALL_SECONDS',real(setup_clock-wall_start,dp)/real(wall_rate,dp)
   select case(header(7))
   case(0)
     open(newunit=output,file='control.bin',status='new',access='stream',form='unformatted')
@@ -118,6 +119,7 @@ program trajectory_driver
     close(output)
   case(1)
     open(newunit=output,file='accepted.bin',status='new',access='stream',form='unformatted')
+    open(newunit=forcing_output,file='accepted-forcing.bin',status='new',access='stream',form='unformatted')
     call accepted_row()
     step=0
     do k=2,size(mesh)
@@ -152,21 +154,17 @@ program trajectory_driver
     enddo
     if (t(1)/=0.01_dp) call fail('incomplete horizon')
     close(output)
+    close(forcing_output)
   case(2)
     call directional_sweep(initial,input_time,input_temperature,input_density,header(8))
   end select
   call cpu_time(clock_stop)
   write(log_unit,*) 'PHYSICS_PHASE_CPU_SECONDS',clock_stop-phase_start
-  ! Retain actual loaded mappings after runtime-selected math kernels have run.
-  open(newunit=maps,file='/proc/self/maps',status='old',action='read',iostat=ios)
-  if (ios/=0) call fail('cannot read loaded library maps')
-  open(newunit=saved_maps,file='loaded-maps.txt',status='new',action='write')
-  do
-    read(maps,'(a)',iostat=ios) map_line
-    if (ios/=0) exit
-    write(saved_maps,'(a)') trim(map_line)
-  enddo
-  close(maps); close(saved_maps)
+  call system_clock(physics_clock)
+  if (wall_rate>0) write(log_unit,*) 'PHYSICS_PHASE_WALL_SECONDS',real(physics_clock-setup_clock,dp)/real(wall_rate,dp)
+  call snapshot_runtime()
+  call system_clock(finished_clock)
+  if (wall_rate>0) write(log_unit,*) 'PERSISTENCE_WALL_SECONDS',real(finished_clock-physics_clock,dp)/real(wall_rate,dp)
   call cpu_time(clock_stop)
   write(log_unit,*) 'CPU_SECONDS',clock_stop-clock_start
   flush(lun_diag); close(lun_diag)
@@ -181,6 +179,8 @@ contains
     write(output) t(1),y(:,1),ydot(:,1),final_residual,baryon,charge,native_yet, &
                   final_norm,final_l1,final_projection,cumulative_projection
     flush(output)
+    write(forcing_output) t(1),t9(1),rho(1)
+    flush(forcing_output)
   end subroutine accepted_row
   logical function same_bits(left,right)
     real(dp),intent(in) :: left(:),right(:)

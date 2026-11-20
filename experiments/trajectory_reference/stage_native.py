@@ -26,6 +26,8 @@ PUBLIC = (
     "phase2d_branch_state.f90",
     "synthetic_modules.f90",
     "synthetic_native.f90",
+    "forcing_stub.f90",
+    "forcing_synthetic.f90",
     "build.sh",
     "PROTOCOL.md",
 )

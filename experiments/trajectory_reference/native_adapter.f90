@@ -10,7 +10,7 @@ module native_adapter
   use xnet_integrate, only: cross_sect,yderiv
   use xnet_jacobian, only: dydotdy,jac,jacobian_scale,jacobian_decomp,jacobian_bksub
   use actual_eos_module, only: helm_density=>d,helm_temperature=>t
-  use phase2d_branch_state, only: branch_signature,branch_size,side,status_sink,log_sink,diagnostics_ready
+  use phase2d_branch_state, only: branch_signature,branch_size,side
   implicit none
   real(dp) :: nonlinear_atol=1e-13_dp,nonlinear_rtol=1e-11_dp
   real(dp) :: final_residual(160)=0,final_norm=0,final_l1=0,final_projection=0,cumulative_projection=0
@@ -19,17 +19,21 @@ module native_adapter
   integer(int64) :: projection_count=0,probe_count=0,accepted_count=0,attempt_count=0
   integer :: last_branch(branch_size)=0
   integer :: last_step=-1
-  logical :: opened=.false.
+  integer(int64) :: wall_start=0,wall_rate=0
+  real(dp) :: cpu_start=0
+  logical :: opened=.false.,runtime_saved=.false.
 contains
   subroutine open_diagnostics()
+    call system_clock(wall_start,wall_rate)
+    call cpu_time(cpu_start)
     open(newunit=log_unit,file='native.log',status='new',action='write')
     open(newunit=status_unit,file='status.txt',status='new',action='write')
     open(newunit=column_unit,file='fd-columns.bin',status='new',access='stream',form='unformatted')
     open(newunit=branch_unit,file='branch-events.bin',status='new',access='stream',form='unformatted')
     open(newunit=residual_unit,file='newton-residuals.bin',status='new',access='stream',form='unformatted')
     open(newunit=counter_unit,file='counter-events.bin',status='new',access='stream',form='unformatted')
-    status_sink=status_unit; log_sink=log_unit; diagnostics_ready=.true.
     opened=.true.
+    write(log_unit,*) 'WALL_START_COUNT_RATE',wall_start,wall_rate
     write(status_unit,'(a)') 'RUNNING'
     flush(status_unit)
     write(log_unit,'(a)') 'branch-events rows: call,time,index,old,new (all f64; 1-based index)'
@@ -66,9 +70,55 @@ contains
     flush(counter_unit)
   end subroutine checkpoint
 
+  subroutine snapshot_runtime()
+    integer :: input,output,ios,j
+    character(4096) :: line
+    character(20),parameter :: sources(2)=[character(20)::'/proc/self/maps','/proc/self/status']
+    character(20),parameter :: destinations(2)=[character(20)::'loaded-maps.txt','memory-status.txt']
+    if (runtime_saved) return
+    runtime_saved=.true.
+    do j=1,2
+      open(newunit=input,file=trim(sources(j)),status='old',action='read',iostat=ios)
+      if (ios/=0) then
+        write(log_unit,*) 'RUNTIME_SNAPSHOT_UNAVAILABLE',trim(sources(j)),ios
+        cycle
+      endif
+      open(newunit=output,file=trim(destinations(j)),status='new',action='write',iostat=ios)
+      if (ios/=0) then
+        write(log_unit,*) 'RUNTIME_SNAPSHOT_WRITE_UNAVAILABLE',trim(destinations(j)),ios
+        close(input)
+        cycle
+      endif
+      do
+        read(input,'(a)',iostat=ios) line
+        if (ios/=0) exit
+        write(output,'(a)',iostat=ios) trim(line)
+        if (ios/=0) exit
+      enddo
+      if (ios>0) write(log_unit,*) 'RUNTIME_SNAPSHOT_PARTIAL',trim(sources(j)),ios
+      close(input); close(output)
+    enddo
+    flush(log_unit)
+  end subroutine snapshot_runtime
+
+  subroutine elapsed_cost()
+    integer(int64) :: wall_end
+    real(dp) :: cpu_end
+    call system_clock(wall_end)
+    call cpu_time(cpu_end)
+    if (wall_rate>0) then
+      write(log_unit,*) 'WALL_SECONDS',real(wall_end-wall_start,dp)/real(wall_rate,dp)
+    else
+      write(log_unit,'(a)') 'WALL_SECONDS_UNAVAILABLE system_clock rate not positive'
+    endif
+    write(log_unit,*) 'TOTAL_CPU_SECONDS',cpu_end-cpu_start
+  end subroutine elapsed_cost
+
   subroutine fail(reason)
     character(*), intent(in) :: reason
     if (opened) then
+      call snapshot_runtime()
+      call elapsed_cost()
       write(log_unit,'(a)') 'FAILURE '//reason
       write(status_unit,'(a)') 'FAILURE '//reason
       flush(log_unit); flush(status_unit); flush(column_unit); flush(branch_unit); flush(residual_unit); flush(counter_unit)
@@ -78,7 +128,9 @@ contains
   end subroutine fail
 
   subroutine finish()
+    call snapshot_runtime()
     call counters()
+    call elapsed_cost()
     write(status_unit,'(a)') 'SUCCESS'
     flush(status_unit)
     close(log_unit); close(status_unit); close(column_unit); close(branch_unit); close(residual_unit); close(counter_unit)
@@ -411,3 +463,16 @@ contains
     close(output)
   end subroutine directional_sweep
 end module native_adapter
+
+! Called only on guarded native LAPACK failure; no source evaluation occurs here.
+subroutine native_linear_failure(code,name)
+  use, intrinsic :: iso_fortran_env, only: error_unit
+  use native_adapter, only: fail
+  implicit none
+  integer,intent(in) :: code
+  character(*),intent(in) :: name
+  character(160) :: reason
+  write(reason,'(a,a,a,i0)') 'LAPACK ',trim(name),' info=',code
+  write(error_unit,'(a)') trim(reason)
+  call fail(trim(reason))
+end subroutine native_linear_failure

@@ -6,6 +6,7 @@ python3 stage_native.py verify .
 test ! -e build.log
 test ! -e build
 test ! -e trajectory_driver
+test ! -e forcing_synthetic
 test ! -e trajectory_synthetic
 test ! -e executable.sha256
 mkdir build
@@ -63,7 +64,15 @@ h5pfc "${flags[@]}" -qmkl=sequential -c ../../synthetic_modules.f90 -o synthetic
 h5pfc "${flags[@]}" -c ../../native_adapter.f90 -o native_adapter.o
 h5pfc "${flags[@]}" -c ../../synthetic_native.f90 -o synthetic_native.o
 h5pfc "${flags[@]}" -o ../../trajectory_synthetic phase2d_branch_state.o synthetic_modules.o native_adapter.o synthetic_native.o -qmkl=sequential -lpthread -lm -ldl
+cd ..
+mkdir forcing-synthetic
+cd forcing-synthetic
+h5pfc "${flags[@]}" -c ../../forcing_stub.f90 -o forcing_stub.o
+h5pfc "${flags[@]}" -c ../../refs/producer/xnet_conditions.f90 -o xnet_conditions.o
+h5pfc "${flags[@]}" -c ../../forcing_synthetic.f90 -o forcing_synthetic.o
+h5pfc "${flags[@]}" -o ../../forcing_synthetic forcing_stub.o xnet_conditions.o forcing_synthetic.o
 cd ../..
+sha256sum forcing_synthetic > forcing-executable.sha256
 sha256sum trajectory_synthetic > synthetic-executable.sha256
 sha256sum trajectory_driver > executable.sha256
 sha256sum source-manifest.json
