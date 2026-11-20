@@ -1,0 +1,36 @@
+{
+  "activation": "tanh,tanh,linear",
+  "architecture": [
+    162,
+    64,
+    64,
+    160
+  ],
+  "batch_size": 256,
+  "device": "cpu",
+  "dtype": "float64",
+  "initialization": "xavier_uniform_gain_1_zero_bias_dedicated_generator",
+  "max_epochs": 500,
+  "optimizer": {
+    "amsgrad": false,
+    "betas": [
+      0.9,
+      0.999
+    ],
+    "capturable": false,
+    "decoupled_weight_decay": false,
+    "differentiable": false,
+    "eps": 1e-08,
+    "foreach": false,
+    "fused": false,
+    "lr": 0.001,
+    "maximize": false,
+    "weight_decay": 0
+  },
+  "patience": 30,
+  "proposal_sha256": "0ce78f0d008f3bf166b4efacabc923a633e7fe6d587fb0984de0b1ba3dba60d8",
+  "scaling": "train_only_column_maxabs_zero_to_one",
+  "schema": "crucible.phase2b-mlp-protocol.v1",
+  "seed": 20261120,
+  "selection": "strict_validation_pooled_normalized_mse_earliest_tie_epoch_0_eligible"
+}
