@@ -21,6 +21,7 @@ program trajectory_driver
   integer(int64) :: file_size,file_position
   real(dp),allocatable :: forcing_time(:),forcing_t9(:),forcing_rho(:),requested(:),mesh(:)
   real(dp) :: input_z(160),input_a(160),initial(160),f(160),b0,baryon,charge,native_ye,total
+  real(dp) :: input_time,input_temperature,input_density
   real(dp) :: abar,zbar,z2bar,zibar,target,remaining,h,clock_start,clock_stop,phase_start
   character(80) :: data_description
   character(160) :: reason
@@ -102,7 +103,8 @@ program trajectory_driver
   call t9rhofind(0,tt,ntt,t9t,rhot,mask_in=active)
   t9=t9t; t9o=t9t; rho=rhot; rhoo=rhot
   y(:,1)=initial; yo=y; yt=y
-  call fresh(initial,tt(1),t9t(1),rhot(1),f,ok,reason)
+  input_time=tt(1); input_temperature=t9t(1); input_density=rhot(1)
+  call fresh(initial,input_time,input_temperature,input_density,f,ok,reason)
   if (.not.ok) call fail('initial state '//trim(reason))
   ye=yet; yeo=yet
   b0=sum(aa*initial)
@@ -151,7 +153,7 @@ program trajectory_driver
     if (t(1)/=0.01_dp) call fail('incomplete horizon')
     close(output)
   case(2)
-    call directional_sweep(initial,tt(1),t9t(1),rhot(1),header(8))
+    call directional_sweep(initial,input_time,input_temperature,input_density,header(8))
   end select
   call cpu_time(clock_stop)
   write(log_unit,*) 'PHYSICS_PHASE_CPU_SECONDS',clock_stop-phase_start
