@@ -680,6 +680,13 @@ distinguishes that lineage, nuclear semantics and deliberate implementation
 choices. It is a later source check, not relabeling of the original review.
 No concrete contradiction requiring a D-033 protocol change was found.
 
+**Final 2C decision, 2026-11-20:** after the reconciled audit/repair checkpoint,
+the maintainer explicitly said **“I accept the closeout. Draft the Phase 2D prompt
+using the same template we've been using”** ([receipt](https://github.com/jaharris87/crucible-astro/issues/43#issuecomment-7047751430)).
+This accepts final 2C at repair merge `eaa9446` with passing merged checks and
+recorded dispositions. Close #43 and the native 2C goal; keep milestone #3 open.
+Drafting the next prompt is not 2D execution authority or an extension of D-034.
+
 ## Scientific decisions and current evidence gates
 
 The paragraph below preserves the initial ingestion decision; D-025 above is the

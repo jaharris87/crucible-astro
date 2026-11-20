@@ -14,25 +14,18 @@ records PR #40 merge/integration at `804fb75`. D-029 established the incremental
 [final receipt](https://github.com/jaharris87/crucible-astro/issues/41#issuecomment-7020463315).
 2B is complete through [PR #47](https://github.com/jaharris87/crucible-astro/pull/47)
 at `a81552e`, with [final receipt](https://github.com/jaharris87/crucible-astro/issues/42#issuecomment-7043899683).
-D-032 authorizes **Phase 2C only** under
-[issue #43](https://github.com/jaharris87/crucible-astro/issues/43): preserve the
-frozen 2B MLP/scalers/negative fidelity result; verify its callable pointwise
-contract on train/validation and synthetic integration against independent
-analytic/stiff solutions. A concrete independently reviewed protocol needs
-maintainer acceptance before the numerical campaign. Repository edits,
-project-local dependencies, tests, commits, pushes and PR creation are authorized;
-merge remains human-owned. No fitting, real MLP rollout or final-test model use.
-After human merge/merged checks, perform the scheduled bounded independent merged
-2A–2C audit in #43; keep issue/goal incomplete through blocking repairs/dispositions.
-PR #48 integrated the original 2C implementation at `505d556`; its scheduled audit
-is preserved. Current external-audit repair and reserved closeout gates are in
-[handoff](docs/HANDOFF.md) and [progress](docs/PROGRESS.md). D-034 delegates vetted
-reviewed/check-passing 2C repair merges; final closeout remains human-owned.
+D-032/D-033 authorized the bounded 2C protocol. Its implementation merged through
+PR #48 at `505d556`; scheduled audit and external-audit reconciliation/repairs
+completed through PR #49 at `eaa9446`. The maintainer [accepted final 2C closeout](https://github.com/jaharris87/crucible-astro/issues/43#issuecomment-7047751430)
+after passing merged checks. [Handoff](docs/HANDOFF.md) and
+[progress](docs/PROGRESS.md) record evidence and deferred triggers. Close #43 and
+the native 2C goal; milestone #3 stays open. The next request is to draft a 2D
+prompt, not execute it. D-034's bounded 2C delegation grants no 2D merge authority.
 [Milestone #3](https://github.com/jaharris87/crucible-astro/milestone/3) and
 [the single reconciled sequence](docs/PHASE_2_LAUNCH.md) track five increments.
 Each next sub-phase needs accepted scope and preceding integration. Native goals
 cover the active sub-phase only. 2D needs scientific/producer authority; 2E needs
-frozen-protocol final-test release. The integrated audit stays after 2C in #43.
+frozen-protocol final-test release. The completed integrated audit remains preserved in #43.
 No reduced methods, model-family comparison or Phase 3 is authorized.
 
 Accepted destination: public `jaharris87/crucible-astro`, BSD-3-Clause. Do not re-ask owner, visibility or license direction. The maintainer confirmed `Copyright (c) 2026 UT-Battelle, LLC.`, no additional institutional/government-rights notice, and release readiness for the portable seed and original bootstrap code on 2026-11-17. See D-001 and [licensing evidence](docs/TRANSITION.md#licensing-evidence).

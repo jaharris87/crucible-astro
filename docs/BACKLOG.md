@@ -2,12 +2,10 @@
 
 B01–B04 scope was adopted by the maintainer on 2026-11-17 (D-010); the maintainer separately authorized execution on 2026-11-17. B01–B04 are now [GitHub issues in the Phase 0B milestone](https://github.com/jaharris87/crucible-astro/milestone/1); [PROGRESS](PROGRESS.md) records current dependencies, status and PR links. D-013 supersedes D-011 resource caps and accounting; the linked section below preserves the policy transition. Phase 1 S01–S03 execution was authorized on 2026-11-17 ([authority](PHASE_1_AUTHORITY.md)); [milestone #2](https://github.com/jaharris87/crucible-astro/milestone/2) tracks its gates. Later scientific issues remain provisional. IDs remain stable when mapped to future issue numbers. All implementation follows [WORKFLOW](process/WORKFLOW.md); scientific checks follow [VALIDATION](science/VALIDATION.md). No dates are implied.
 
-Current work: 2A and [2B are integrated](https://github.com/jaharris87/crucible-astro/issues/42#issuecomment-7043899683).
-D-032 invokes only [2C #43](https://github.com/jaharris87/crucible-astro/issues/43):
-prepare/review/accept the concrete analytic integration protocol, then implement
-and verify it through human merge, merged checks and the scheduled bounded
-2A–2C audit. The frozen negative-fidelity MLP remains unchanged.
-[The existing sequence](PHASE_2_LAUNCH.md) owns later dependencies.
+Current boundary: **2A–2C are complete**, with [final 2C acceptance](https://github.com/jaharris87/crucible-astro/issues/43#issuecomment-7047751430).
+The frozen negative-fidelity MLP remains unchanged. The next requested work is a
+2D launch-prompt draft; reference/producer execution is not yet authorized.
+[The existing sequence](PHASE_2_LAUNCH.md) owns dependencies and scope gates.
 
 ## Bootstrap sequence
 
@@ -117,8 +115,9 @@ No model or numerical integration implementation is authorized by this addition.
 
 The [independent-audit assessment](https://github.com/jaharris87/crucible-astro/issues/36#issuecomment-7016554530)
 and accepted D-027/D-028 directions remain preserved. Phase 1 and the migration
-and 2A/2B are complete, with receipts linked from [handoff](HANDOFF.md). D-032 authorizes
-**2C only** within [milestone #3](https://github.com/jaharris87/crucible-astro/milestone/3).
+and 2A–2C are complete, with receipts linked from [handoff](HANDOFF.md).
+[Milestone #3](https://github.com/jaharris87/crucible-astro/milestone/3) remains open;
+2D needs its own invocation and accepted scientific/producer protocol.
 [The incremental execution sequence](PHASE_2_LAUNCH.md) replaces the former draft:
 #41 access → #42 pointwise baseline → #43 analytic integration → #44 real references
 → #45 frozen evaluation/cost. Later issues hold short summaries until prerequisites
