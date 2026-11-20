@@ -7,6 +7,43 @@ owns time stepping and diagnostics. The accepted 2C campaign integrates only
 mathematical fixtures. The frozen nuclear MLP is checked pointwise separately;
 this code does not load it or establish nuclear rollout validity.
 
+[Qiosk and original Zhang-paper grounding](GROUNDING.md) records the design
+lineage, source inspection and deliberate nuclear adaptations. Mathematical
+solver verification supports that callable source path; it does not replace the
+learned-source validation and later trajectory-reference gates.
+
+The frozen adapter `crucible.frozen_rhs.load_frozen_rhs` independently pins the
+accepted 2B NPZ/manifest, checks the loader-derived full species/units/data contract
+and returns a `ModelRHS` callable with a matching `RHSContract`. It evaluates saved
+input scaling, the unchanged network and inverse target scaling in binary64.
+The source state is physical molar Y and the return is native signed Y/s, with
+no clipping or projection. `conditions(t)` supplies positive finite T9/rho;
+time is not a network feature. This is callable compatibility, not learned-domain
+qualification or a real forcing/interpolation contract.
+
+Private all-record callable check (no test role, fitting, scoring or integration):
+
+```sh
+.venv/bin/python -B experiments/integration/check_frozen.py check \
+  /absolute/private/access.json /absolute/private/unique-callable-run \
+  --source-root "$PWD"
+.venv/bin/python -B experiments/integration/check_frozen.py reload \
+  /absolute/private/unique-callable-run
+.venv/bin/python -B experiments/integration/check_frozen.py compare \
+  /absolute/private/first-run /absolute/private/clean-repeat
+```
+
+The private access file has exactly `benchmark_access` (the existing loader
+configuration path) and `frozen_run` (the original 2B directory). Both paths are
+absolute and local. Train/validation load once each. The checker retains all
+20,879 singleton, one-row-reference and fixed-batch predictions/conditions and
+every discrepancy, refusal or failure locally. Fixed-batch saved predictions
+and same-row inference require bit identity; changed batch arithmetic uses the
+accepted normalized `2048*eps` component bound. The JSON report binds original
+file identities, scales/weights and exact role counts. Fresh reload checks hashes,
+array identities and recomputes discrepancy/violation metrics; clean numerical
+reproduction uses `atol=rtol=1e-12`. Do not publish these real arrays or local paths.
+
 The governing protocol is the exact accepted issue #43 proposal
 ([proposal](https://github.com/jaharris87/crucible-astro/issues/43#issuecomment-7044234697),
 [review](https://github.com/jaharris87/crucible-astro/issues/43#issuecomment-7044293163),

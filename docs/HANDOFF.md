@@ -52,8 +52,15 @@ main above. The [concrete numerical protocol](https://github.com/jaharris87/cruc
 received a [fresh-context read-only independent `gpt-6.1-sol` High PASS](https://github.com/jaharris87/crucible-astro/issues/43#issuecomment-7044293163),
 with no consequential findings or protocol edits. SHA256:
 `35bddc1edbffc1a60a86a863e161417aca0543a9d4754a94d3b18e2cb91fc6b2`.
-Maintainer protocol acceptance is pending in #43/the popup question. **No numerical campaign has run.**
-Next decision: accept the reviewed coherent protocol before its campaign.
+**The maintainer accepted the exact protocol in [D-033](DECISIONS.md#decision-d-033-accept-the-reviewed-phase-2c-numerical-protocol)**
+([receipt](https://github.com/jaharris87/crucible-astro/issues/43#issuecomment-7044376981)).
+Implementation is active; no accepted campaign has run yet. Next action: implement
+and verify the accepted protocol, then obtain ordinary exact-candidate review.
+[D-034](DECISIONS.md#decision-d-034-bounded-2c-recommendations-and-merge-delegation)
+delegates sufficiently vetted 2C recommendations, including reviewed/check-passing
+implementation or repair merges. Final 2C closeout remains an explicit maintainer
+decision after all audit/repair exits. The [Qiosk and original-paper trace](../experiments/integration/GROUNDING.md)
+records the reaffirmed design lineage and deliberate nuclear adaptations.
 No silence, generic goal continuation or protocol acceptance grants merge authority.
 
 After acceptance, implement/check/report autonomously within that exact protocol.

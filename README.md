@@ -33,6 +33,12 @@ CRUCIBLE will make reaction-network surrogates and reduction methods reproducibl
 comparable and callable, connecting physical composition, representations, kinetics,
 integration and scientific observables.
 
+The design adapts Qiosk's separation of representation, vector source learning
+and integrated evaluation to verified nuclear semantics. The current full-state
+path is the initial comparison control; the
+[Qiosk and Zhang-paper trace](experiments/integration/GROUNDING.md) explains this
+lineage and the deliberate adaptations.
+
 The framework must support the identity/full-state path and multiple reduction
 approaches, with **one potentially vector-valued physical kinetics source**.
 Reconstruction is part of the representation. Energy needs its own physical
