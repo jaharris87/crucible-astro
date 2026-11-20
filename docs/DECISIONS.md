@@ -720,8 +720,11 @@ compute caps. The [existing sequence](PHASE_2_LAUNCH.md) remains the sole Phase 
 
 ### Decision D-036: Reviewed 2D protocol and producer scope
 
-**Pending maintainer answer, 2026-11-20.** This is a concrete decision request,
-not accepted scientific/producer authority. The [v2 protocol](../experiments/trajectory_reference/PROTOCOL.md)
+**Accepted by the maintainer, 2026-11-20.** After the popup was redisplayed,
+the maintainer explicitly selected **“Accept protocol and producer scope
+(Recommended)”**. The question explicitly covered both scientific/numerical
+acceptance and concrete producer authority; the [actual acceptance receipt](https://github.com/jaharris87/crucible-astro/issues/44#issuecomment-7048371383)
+supersedes the pending decision packet. The [v2 protocol](../experiments/trajectory_reference/PROTOCOL.md)
 at `951d1f9f15e8246fe8d98886214070ebef44f7c4`, SHA256
 `966fbff8d2322ae8e6666063f35c1b87cced7d5ccbaf663ccae362613f98fdad`,
 and its exact private input annex are ready for acceptance.
@@ -742,10 +745,11 @@ restart rules. The native full-F numerical adaptation, projection/residual polic
 convergence/constraint/domain/output/reproduction criteria and private input hashes
 are explicit. Resource estimates are evidence, not compute caps.
 
-**Alternative:** revise before any producer execution. The acceptance popup is
-pending; silence or generic goal continuation is not approval. No producer build
-or physical evaluation has run. This proposed decision grants no merge approval,
-reference acceptance or 2E authority. Ordinary exact-candidate implementation
+The accepted protocol and its declared execution now proceed autonomously.
+No producer build or physical evaluation occurred before the answer. Changes to
+equations, forcing, cases, physics, criteria or execution scope remain explicit
+decisions. This decision grants no merge approval, reference acceptance or 2E
+authority. Ordinary exact-candidate implementation
 review and later human reference/merge/final decisions remain required.
 
 ## Scientific decisions and current evidence gates

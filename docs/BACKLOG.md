@@ -4,8 +4,8 @@ B01–B04 scope was adopted by the maintainer on 2026-11-17 (D-010); the maintai
 
 Current boundary: **2A–2C are complete**, with [final 2C acceptance](https://github.com/jaharris87/crucible-astro/issues/43#issuecomment-7047751430).
 The frozen negative-fidelity MLP remains unchanged. D-035 invokes 2D protocol
-preparation under #44; the concrete scientific/producer decision is pending,
-and no producer build or physical evaluation has run.
+preparation under #44; D-036 now accepts the concrete scientific/producer scope.
+Implementation and synthetic verification are active before the first build.
 [The existing sequence](PHASE_2_LAUNCH.md) owns dependencies and scope gates.
 
 ## Bootstrap sequence
@@ -118,7 +118,7 @@ The [independent-audit assessment](https://github.com/jaharris87/crucible-astro/
 and accepted D-027/D-028 directions remain preserved. Phase 1 and the migration
 and 2A–2C are complete, with receipts linked from [handoff](HANDOFF.md).
 [Milestone #3](https://github.com/jaharris87/crucible-astro/milestone/3) remains open;
-2D is invoked under D-035; its accepted scientific/producer protocol remains pending.
+2D is invoked under D-035; D-036 accepts its reviewed scientific/producer protocol.
 [The incremental execution sequence](PHASE_2_LAUNCH.md) replaces the former draft:
 #41 access → #42 pointwise baseline → #43 analytic integration → #44 real references
 → #45 frozen evaluation/cost. Later issues hold short summaries until prerequisites

@@ -29,7 +29,9 @@ One native goal covers 2D only. Read-only producer/input discovery and the
 [concrete two-case protocol](../experiments/trajectory_reference/PROTOCOL.md) are
 prepared; bounded independent protocol review and focused repairs pass.
 [D-036 / scientific and producer acceptance](https://github.com/jaharris87/crucible-astro/issues/44#issuecomment-7048328458)
-is pending in the popup; [draft PR #51](https://github.com/jaharris87/crucible-astro/pull/51) is incomplete. No producer build or physical evaluation has run.
+was [explicitly given](https://github.com/jaharris87/crucible-astro/issues/44#issuecomment-7048371383).
+Implementation/synthetic checks are active; [draft PR #51](https://github.com/jaharris87/crucible-astro/pull/51) is incomplete.
+No producer work occurred before the decision.
 D-034 does not delegate 2D merges. See [handoff](HANDOFF.md) for the next decision.
 
 ## Phase status
@@ -49,7 +51,7 @@ D-034 does not delegate 2D merges. See [handoff](HANDOFF.md) for the next decisi
 | [2A #41](https://github.com/jaharris87/crucible-astro/issues/41) | Qualified named-version/use/split arrays, example and tests | Complete at PR #46 / `8b6cf71`; 489 installed-package tests, merged CI and all-row structural checks in final receipt |
 | [2B #42](https://github.com/jaharris87/crucible-astro/issues/42) | Integrated 2A; frozen pointwise MLP/comparator and reproducible validation | Complete at PR #47 / `a81552e`; 515 installed-package tests, exact independent review, human merge, merged CI/reload/preservation checks in final receipt; negative D-024 result; final-test model outcomes sealed |
 | [2C #43](https://github.com/jaharris87/crucible-astro/issues/43) | Integrated 2B; checked callable adapter, independent analytic/stiff integration and scheduled merged 2A–2C audit | Complete: original PR #48 / `505d556`, scheduled audit and reconciled external audits, repair PR #49 / `eaa9446`, merged checks and explicit final acceptance; no fitting, real MLP rollout or new XNet execution |
-| [2D #44](https://github.com/jaharris87/crucible-astro/issues/44) | Integrated 2C; accepted real reference trajectories/protocol | Active under D-035; fixed two-case v2 proposal independently verified; D-036 protocol/producer decision pending; draft PR #51; no physical execution |
+| [2D #44](https://github.com/jaharris87/crucible-astro/issues/44) | Integrated 2C; accepted real reference trajectories/protocol | Active under D-035; fixed two-case v2 proposal independently verified; D-036 protocol/producer scope accepted; implementation/synthetic checks active; draft PR #51 |
 | [2E #45](https://github.com/jaharris87/crucible-astro/issues/45) | Integrated 2D; frozen pointwise/rollout/cost evaluation and report | Scope and final-test release pending; human baseline acceptance before milestone closure |
 
 D-027 migration #39 is closed at `804fb75`; its linked final receipt controls closure.

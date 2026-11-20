@@ -43,7 +43,7 @@ def accepted_rows(case, times):
 
 def load_campaign():
     path = (
-        Path(reference.__file__).resolve().parents[2]
+        Path(__file__).resolve().parents[1]
         / "experiments/trajectory_reference/campaign.py"
     )
     spec = importlib.util.spec_from_file_location("synthetic_phase2d_campaign", path)
