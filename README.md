@@ -14,13 +14,13 @@ selection and final evaluation. See the [benchmark contract](docs/science/benchm
 **Current status:** Phase 0A/0B and Phase 1 are complete. Qualification covers
 24,314 states from 380 histories for finite within-parent numerical emulation.
 The documentation migration and Phase 2A qualified-data access are complete.
-Phase 2B is active under [issue #42](https://github.com/jaharris87/crucible-astro/issues/42):
-one small full-state MLP and zero-RHS comparator under the reviewed,
-maintainer-accepted experiment protocol.
-The fit, fresh-process reload, bitwise clean refit and complete train/validation
-reports reproduce. D-024 whole-vector attainment is zero at every profile; this
-is an honest negative fidelity result. Review/merge/integration status is tracked
-in issue #42. Physical application, energy, rollout accuracy and speedup remain
+Phase 2B is [complete](https://github.com/jaharris87/crucible-astro/issues/42#issuecomment-7043899683)
+at PR #47 / `a81552e`: the frozen full-state MLP and zero-RHS comparator reproduce,
+with zero D-024 whole-vector attainment at every profile. This negative fidelity
+result remains unchanged. Phase 2C is active under
+[issue #43](https://github.com/jaharris87/crucible-astro/issues/43), preparing a
+reviewed numerical-verification protocol for maintainer acceptance before its
+analytic campaign. Physical application, energy, rollout accuracy and speedup remain
 **not evaluated**.
 Use [Progress](docs/PROGRESS.md) and [Handoff](docs/HANDOFF.md) for current work and
 the [final Phase 1 receipt](https://github.com/jaharris87/crucible-astro/issues/15#issuecomment-7014392482) for closure evidence.

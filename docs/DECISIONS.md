@@ -587,6 +587,49 @@ promise or search, final-test model evaluation, new producer/reference execution
 release, integration or later sub-phase is authorized. Merge remains a separate
 concrete human decision. Private real records/predictions/models stay local.
 
+### Decision D-032: Phase 2C launch and bounded numerical verification
+
+**Accepted execution scope, 2026-11-20:** the maintainer invoked only 2C under
+[issue #43](https://github.com/jaharris87/crucible-astro/issues/43), after completed
+2B / PR #47 at `a81552e9fc1c22ffb595936b5a0348a9f58fe766`
+([final receipt](https://github.com/jaharris87/crucible-astro/issues/42#issuecomment-7043899683)).
+Startup verified the clean merged base and preceding final receipts once.
+Preserve the exact frozen MLP, scalers, accepted data/memberships and negative
+2B fidelity outcome; no fitting, checkpoint change or final-test model evaluation.
+
+Prepare a concrete small callable/analytic-integration protocol in #43, obtain
+one brief fresh-context read-only independent `gpt-6.1-sol` High scope/simplicity
+review, preserve/disposition findings, then obtain maintainer acceptance **before
+the numerical campaign**. Protocol acceptance remains pending. It is separate
+from this launch and from every concrete human merge decision. Routine authorized
+repository edits, project-local dependencies, checks, commits, pushes and PR
+creation need no per-command permission. Protocol changes remain explicit decisions.
+
+Use physical ordered 160-species Y and signed native dY/dt for frozen-model
+train/validation callable equivalence only. Verify integration using independent
+analytic signed/stiff fixtures, relevant constraints, predeclared global-error/
+refinement criteria, Jacobian consistency where applicable, complete failure/
+horizon/diagnostic/resource accounting, fresh reload and clean reproduction.
+Do not introduce a solver framework or unused Jacobian implementation. Analytic
+accuracy is separate from model fidelity, real-rollout accuracy and performance.
+
+Keep the existing Phase 2 sequence/milestone and one native goal for active 2C
+only. Prefer one coherent implementation PR with ordinary exact-candidate review,
+human merge and merged-result checks. Then perform the already scheduled bounded
+fresh-context read-only `gpt-6.1-sol` High audit of exact merged 2A–2C code and
+actual artifacts. Preserve original findings/dispositions; necessary repairs
+retain reviewed PRs, concrete human merge decisions and merged checks. Do not
+auto-close #43 at first implementation merge. Goal/issue completion requires
+the audit and blocking repairs/dispositions too; milestone #3 stays open.
+
+No actual astrophysical/MLP rollout, real forcing/interpolation contract, new
+producer/XNet/reference execution, reference edit, bulk conversion, final-test
+model use, reduced method, family comparison, release, paid service, deployment
+or later sub-phase is authorized. Stop after 2C. 2D needs separately accepted
+real-trajectory protocol and scientific/producer authority; 2E needs frozen
+protocol and final-test release. D-013 estimates/measurements remain evidence,
+not resource caps or reservations.
+
 ## Scientific decisions and current evidence gates
 
 The paragraph below preserves the initial ingestion decision; D-025 above is the
