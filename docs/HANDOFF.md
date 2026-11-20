@@ -1,9 +1,10 @@
 # CRUCIBLE handoff
 
-Updated **2026-11-20**. Phase 1, the documentation migration, **2A and 2B are
-complete**. Phase **2C only** remains under [issue #43](https://github.com/jaharris87/crucible-astro/issues/43),
-[the single Phase 2 sequence](PHASE_2_LAUNCH.md) and open milestone #3.
-No 2D work is authorized.
+Updated **2026-11-20**. Phase 1, the documentation migration and **2A–2C are
+complete**. The maintainer explicitly [accepted final 2C closeout](https://github.com/jaharris87/crucible-astro/issues/43#issuecomment-7047751430)
+after all audit repairs and merged-result checks. [Milestone #3](https://github.com/jaharris87/crucible-astro/milestone/3)
+remains open; [the single Phase 2 sequence](PHASE_2_LAUNCH.md) owns dependencies.
+**Next requested action is drafting the 2D prompt; 2D execution is not authorized.**
 
 ## Verified integrated state
 
@@ -25,44 +26,32 @@ The [2B model card](model-cards/genesis_modelcard_full_state_mlp_v0_1.md),
 retain the frozen negative digital-fidelity baseline. Zero whole-vector attainment
 and unbounded binary64 relative RMS/max are accepted results, not repair authority.
 
-## Active audit reconciliation and next gate
+## Accepted audit reconciliation and next boundary
 
-The maintainer requested independent assessment of Codex, Claude and Gemini audits
-of exactly `505d556`, including their isolated uncommitted proposals. Original
-reports, complete patches, file snapshots and diagnostics remain unchanged, with
-local preservation inventories and public hashes. The
-[assessment receipt](https://github.com/jaharris87/crucible-astro/issues/43#issuecomment-7047204328)
-and [consolidated dispositions](reports/2026-11-20-phase2c-audit-assessment.md)
-record actual reproduction and limits. Work is on `codex/phase2c-audit-repairs`
-from that verified main; only the isolated scoring worker authored its two files.
+The maintainer requested assessment of Codex, Claude and Gemini audits of
+`505d556`. The [consolidated dispositions](reports/2026-11-20-phase2c-audit-assessment.md)
+preserve attribution, reproduced defects, qualified scientific claims and bounded
+deferrals. Original reports/proposals/checkouts remain unchanged.
 
-Repair implementation at `d8917c9` passes a forced locked noneditable **651-test
-suite (zero skips)**, all eight synthetic attempts with 80/80 original arrays
-bitwise unchanged, and all 20,879 permitted frozen callbacks with unchanged
-prediction hash. Reload, numerical compare, original scoring provenance and
-preservation checks pass; the assessment records costs and limits.
+[Repair PR #49](https://github.com/jaharris87/crucible-astro/pull/49) merged at
+**`eaa94463475e068c303b32f6a307f6f53ea5cc4e`** under D-034 after a fresh separate
+Sol High exact-candidate review and required CI. The merged tree equals the
+reviewed tree. Actual merged locked noneditable suite and Linux CI each pass
+**651 tests, zero skips**. All eight synthetic attempts pass with all 80 arrays
+bitwise unchanged; all 20,879 permitted callbacks, fresh reload/compare, original
+scoring provenance and preservation checks pass. The [merged receipt](https://github.com/jaharris87/crucible-astro/issues/43#issuecomment-7047719265)
+records exact checks/limits; the [final maintainer acceptance](https://github.com/jaharris87/crucible-astro/issues/43#issuecomment-7047751430)
+supplies the last reserved decision. No further broad 2A–2C audit is scheduled.
 
-[Repair PR #49](https://github.com/jaharris87/crucible-astro/pull/49) and #43 carry
-the exact focused review, required CI, D-034 protected merge and merged-result
-receipts. That review must cover the actual final candidate and be separate from
-repair authors; no broad integrated-audit repetition is required. Follow the live
-receipts for lifecycle state. **The next human checkpoint is reserved final 2C
-closeout**, after required repairs, review, integration and checks. Keep issue/goal
-incomplete and milestone #3 open until that decision. No generic continuation or
-elapsed time grants it.
+Close issue #43 and the existing native 2C goal through that accepted receipt;
+keep milestone #3 open. Draft the Phase 2D launch prompt using #44 and the existing
+sequence, without starting its work or creating a 2D goal. Its concrete real
+trajectory/forcing/reference protocol and producer execution still require
+separate acceptance. D-034's delegation does not carry into 2D.
 
-Native goal (existing, not replaced):
-
-> Complete CRUCIBLE Phase 2C: establish a small callable RHS and numerical
-> integration path with independent analytic and stiff-problem verification,
-> consistent state/units/Jacobians, complete failure and convergence evidence,
-> clean reproduction, independent review, human-approved merge, merged-result
-> verification, and the scheduled bounded post-integration 2A–2C code audit
-> with findings appropriately resolved or dispositioned.
-
-The native service currently retains its earlier blocked/waiting status; the
-new explicit repair instruction supplies work authority without completing the
-goal. Its final-closeout dependency remains outstanding.
+Deferred compatibility/scorer/callback/loading/nonlinear verification proposals
+retain their triggers in the assessment; they are not blanket prerequisites or
+approved redesigns. Preserve the frozen negative baseline and sealed final test.
 
 ## Evidence and reproduction boundaries
 
