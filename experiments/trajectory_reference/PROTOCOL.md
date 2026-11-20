@@ -1,4 +1,4 @@
-# Phase 2D proposed native-XNet trajectory protocol v1
+# Phase 2D proposed native-XNet trajectory protocol v2
 
 **PROPOSED, NOT ACCEPTED; no producer build or physical evaluation authorized.**
 Governing [issue #44](https://github.com/jaharris87/crucible-astro/issues/44),
@@ -244,9 +244,16 @@ Acceptance is requested for this exact scope, separately from merge approval:
 - Two fresh isolated builds (campaign and clean reproduction), plus at most two
   failed-build repair attempts; same declared toolchain/physics and protocol.
   No build, including syntax-only compilation, occurs before acceptance.
-- Two initial-state fresh RHS controls, compared with the original D-019 labels
-  at unchanged Y/T9/rho and same toolchain; require exact component bits. Mismatch
-  stops the physical campaign; do not loosen identity tolerances or substitute inputs.
+- Two initial-state fresh RHS controls **per campaign, four planned controls total**, before that
+  campaign's trajectories. Compare with the original D-019 labels at unchanged
+  Y/T9/rho and same toolchain; require exact component bits. Mismatch stops that
+  physical campaign; do not loosen identity tolerances or substitute inputs.
+  An infrastructure restart reuses that campaign's completed, hash-verified control
+  artifacts; if a control was interrupted without a complete result, its single
+  identical-input restart is covered by the campaign restart allowance below.
+  Retain both attempted control records; no completed control is reevaluated.
+  This permits at most six control attempts across both campaigns, including
+  up to one interrupted-control repeat per campaign under its shared restart rule.
 - **Ten trajectories per campaign:** each of the two cases at four fixed mesh
   levels plus one finest-mesh tighter-nonlinear run. Repeat those ten once in the
   fresh build/environment. No learned model is loaded/evaluated.
