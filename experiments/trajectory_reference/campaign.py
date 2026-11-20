@@ -138,7 +138,11 @@ def synthetic_checks(root):
             == ("SUCCESS" if executable == "trajectory_synthetic" else "PASS")
             if expected_failure is None
             else process.returncode > 0
-            and expected_failure in text
+            and (
+                expected_failure in terminal
+                if executable == "trajectory_synthetic"
+                else expected_failure in text
+            )
             and "UNEXPECTED" not in text
         )
         records.append(

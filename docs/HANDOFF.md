@@ -63,10 +63,19 @@ inspection found native coefficient lag, an incomplete full-F Jacobian and
 negative-iterate projection; the proposed small native adaptation makes these
 explicit. Original source, accepted data, model/scalers and evidence are unchanged.
 
-**Next action:** implement and synthetically verify the [accepted D-036 protocol](https://github.com/jaharris87/crucible-astro/issues/44#issuecomment-7048371383),
-then execute its bounded producer campaign. Native numerical adapter and Python
-runner/diagnostics are developed in isolated worktrees; exact sources/builds and
-all attempts will be retained. Original findings and focused PASS remain in #44;
+**Execution checkpoint:** the first native build at `c28c527` succeeded in
+job 61685010 (12.76 s wall, 9.83 s CPU, 91,044 KiB peak RSS). Preflight then
+stopped: the LU/nonfinite negative fixtures wrote the correct native failure
+statuses, but the runner incorrectly searched their console output. No physical
+evaluation started. Full raw preflight evidence is retained locally; archive
+SHA256 `f39ba5279ef648e62f0c4837623403901d75d8ac200b5fcfae2df738661f7f03`.
+The runner-only repair has public positive/wrong-reason regression tests.
+
+**Next action:** obtain focused review of the repair and the narrow D-037
+replacement-build decision before another build. The accepted D-036 equations,
+inputs, physics, physical-run counts and numerical criteria stay fixed. Ordinary
+exact-candidate code review is underway; reference evidence is still unavailable.
+Original protocol findings and focused PASS remain in #44;
 [draft PR #51](https://github.com/jaharris87/crucible-astro/pull/51) remains incomplete. This is not reference acceptance or merge approval; D-034 does not
 carry into 2D. Keep #44/native goal incomplete and milestone #3 open.
 
@@ -117,9 +126,9 @@ grouping, residual correlation and component-support gaps limit inference.
 Dataset redistribution rights remain unresolved. Original HDF5 quarantine masks
 remain false; permitted use resolves through the separate overlay.
 
-D-017/D-020/D-023 producer authority is exhausted. No new producer build/run or
-RHS/NSE/Jacobian/trajectory call is authorized until the D-035 protocol/execution
-decision. No original reference modification, bulk conversion, paid service,
+D-017/D-020/D-023 producer authority is exhausted. D-036 grants only the named
+2D protocol/execution scope; the concrete replacement-build amendment is pending.
+No original reference modification, bulk conversion, paid service,
 release or deployment is authorized. 2D requires its concrete
 scientific/reference execution decision; 2E requires frozen-protocol final-test
 release. No reduced modeling, model-family search or Phase 3 follows this authority.

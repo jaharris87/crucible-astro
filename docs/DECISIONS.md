@@ -752,6 +752,25 @@ decisions. This decision grants no merge approval, reference acceptance or 2E
 authority. Ordinary exact-candidate implementation
 review and later human reference/merge/final decisions remain required.
 
+### Decision D-037: Replace the preflight-stopped native build
+
+**Proposed, awaiting explicit maintainer answer.** D-036's first native build
+at `c28c527` succeeded, but a Python gate rejected two correctly failing synthetic
+fixtures before any physical evaluation. The repair reads the native failure
+status instead of requiring its text in console output; wrong-reason failure
+still refuses the campaign. No native source or accepted scientific contract
+changes. Full original evidence is retained, including the successful build.
+
+**Recommendation:** authorize one additional fresh isolated build to replace
+that preflight-stopped build: three successful fresh builds total including
+the retained first build, with the existing two failed-build repair allowances
+unchanged. The two physical campaigns, four planned initial controls, twenty
+trajectories, Jacobian diagnostics and restart rules remain exactly D-036.
+No extra physical evaluation, numerical retry or acceptance relaxation is proposed.
+The measured first build used 12.76 s wall, 9.83 s CPU and 91,044 KiB peak RSS;
+similar replacement costs are an estimate. The alternative is to retain this
+checkpoint and defer the campaign. This amendment grants no merge or 2E authority.
+
 ## Scientific decisions and current evidence gates
 
 The paragraph below preserves the initial ingestion decision; D-025 above is the

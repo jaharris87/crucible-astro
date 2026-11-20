@@ -23,7 +23,9 @@ follows status PR #50 at `75b2ec3`. D-035 invokes 2D protocol preparation under
 #44; the concrete v2 protocol passed independent review/focused repairs;
 D-036 scientific/producer execution acceptance is explicit in #44 comment7048371383.
 Implementation and its bounded campaign are authorized; merge/reference/final
-acceptance remain separate. No producer build or physical evaluation has run.
+acceptance remain separate. The first native build succeeded; a runner-only
+synthetic gate error stopped preflight before any physical evaluation. A narrow
+replacement-build decision is pending; see current handoff.
 One native goal covers 2D only; milestone #3 stays open. D-034's bounded 2C
 delegation grants no 2D merge authority.
 [Milestone #3](https://github.com/jaharris87/crucible-astro/milestone/3) and

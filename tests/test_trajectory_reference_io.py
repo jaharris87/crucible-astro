@@ -52,6 +52,55 @@ def load_campaign():
     return module
 
 
+@pytest.mark.parametrize("wrong_status", [False, True])
+def test_synthetic_gate_uses_native_failure_status_and_refuses_wrong_reason(
+    tmp_path, monkeypatch, wrong_status
+):
+    campaign = load_campaign()
+    bundle = tmp_path / "bundle"
+    bundle.mkdir()
+    for name in ("trajectory_synthetic", "forcing_synthetic"):
+        (bundle / name).write_bytes(b"public synthetic executable identity")
+
+    def fake_run(command, *, cwd, stdout, stderr):
+        executable, name = Path(command[0]).name, command[1]
+        if executable == "trajectory_synthetic":
+            status = "SUCCESS"
+            if name == "failed-lu":
+                status = "FAILURE LAPACK dgetrf info=1"
+            elif name == "nonfinite":
+                status = (
+                    "FAILURE another reason"
+                    if wrong_status
+                    else "FAILURE nonfinite computed physical F/assembly workspace"
+                )
+            (cwd / "status.txt").write_text(status + "\n")
+            # Intel's ERROR STOP console output need not contain the status text.
+            stdout.write(b"1\n" if status != "SUCCESS" else b"")
+            return SimpleNamespace(returncode=int(status != "SUCCESS"))
+        (cwd / "fixture-status.txt").write_text(
+            "PASS\n" if name == "forcing" else "RUNNING\n"
+        )
+        refusal = {
+            "outside": "Forcing outside closed coverage",
+            "nonfinite": "Nonfinite forcing time",
+            "nonincreasing": "Nonincreasing forcing",
+        }.get(name)
+        if refusal:
+            stdout.write(refusal.encode() + b"\n")
+        return SimpleNamespace(returncode=128 if refusal else 0)
+
+    monkeypatch.setattr(campaign.subprocess, "run", fake_run)
+    if wrong_status:
+        with pytest.raises(ValueError, match="synthetic prerequisite failed"):
+            campaign.synthetic_checks(tmp_path)
+    else:
+        assert campaign.synthetic_checks(tmp_path)["pass"]
+    record = json.loads((tmp_path / "synthetic.json").read_text())
+    assert len(record["scenarios"]) == 10
+    assert record["pass"] is (not wrong_status)
+
+
 def test_forcing_exact_stored_bits_at_every_knot_and_independent_linear_interior(case):
     reference.validate_case(case)
     for i, t in enumerate(case["time"]):

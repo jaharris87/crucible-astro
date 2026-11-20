@@ -32,6 +32,12 @@ prepared; bounded independent protocol review and focused repairs pass.
 was [explicitly given](https://github.com/jaharris87/crucible-astro/issues/44#issuecomment-7048371383).
 Implementation/synthetic checks are active; [draft PR #51](https://github.com/jaharris87/crucible-astro/pull/51) is incomplete.
 No producer work occurred before the decision.
+The first native build (`c28c527`, job 61685010) succeeded. All ten synthetic
+scenarios executed; two correct expected failures were falsely rejected because
+the runner searched console output instead of the native terminal status.
+No physical control, Jacobian or trajectory started. The runner repair passes
+62 public I/O tests. D-037 proposes one replacement fresh build; the original
+two-build allowance does not clearly cover this successfully built preflight.
 D-034 does not delegate 2D merges. See [handoff](HANDOFF.md) for the next decision.
 
 ## Phase status
