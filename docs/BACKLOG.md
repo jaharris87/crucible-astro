@@ -2,7 +2,7 @@
 
 B01–B04 scope was adopted by the maintainer on 2026-11-17 (D-010); the maintainer separately authorized execution on 2026-11-17. B01–B04 are now [GitHub issues in the Phase 0B milestone](https://github.com/jaharris87/crucible-astro/milestone/1); [PROGRESS](PROGRESS.md) records current dependencies, status and PR links. D-013 supersedes D-011 resource caps and accounting; the linked section below preserves the policy transition. Phase 1 S01–S03 execution was authorized on 2026-11-17 ([authority](PHASE_1_AUTHORITY.md)); [milestone #2](https://github.com/jaharris87/crucible-astro/milestone/2) tracks its gates. Later scientific issues remain provisional. IDs remain stable when mapped to future issue numbers. All implementation follows [WORKFLOW](process/WORKFLOW.md); scientific checks follow [VALIDATION](science/VALIDATION.md). No dates are implied.
 
-Current work: 2A is [integrated](https://github.com/jaharris87/crucible-astro/issues/41#issuecomment-7020463315); D-030 invokes only [2B #42](https://github.com/jaharris87/crucible-astro/issues/42), the selected small full-state MLP and zero-RHS comparator. Concrete experiment review/acceptance precedes fitting. [The existing sequence](PHASE_2_LAUNCH.md) owns later dependencies.
+Current work: 2A is [integrated](https://github.com/jaharris87/crucible-astro/issues/41#issuecomment-7020463315); D-030 invokes only [2B #42](https://github.com/jaharris87/crucible-astro/issues/42), the selected small full-state MLP and zero-RHS comparator. The exact concrete experiment received independent review and maintainer acceptance under D-031 before fitting. [The existing sequence](PHASE_2_LAUNCH.md) owns later dependencies.
 
 ## Bootstrap sequence
 

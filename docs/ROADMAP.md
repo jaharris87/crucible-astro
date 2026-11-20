@@ -63,7 +63,7 @@ guidance revision/access gaps. No trained-model card is created during Phase 1.
 
 **Non-goals:** mandatory compression, large hyperparameter sweep or proof of production usefulness. Finite-step modeling must use its own contract if chosen.
 
-**Dependencies/open decisions:** Phase 1 qualified labels and authorized experiment scope; accepted RHS-first baseline sequence (D-003) and qualified D-004 state/conditions; chosen CPU-capable tooling. Identity/full-state baseline is the selected starting path. Finite-step prediction is retained for later exploration with a separate contract. D-030 selects a small full-state MLP for 2B; its concrete experiment requires review and acceptance before fitting.
+**Dependencies/open decisions:** Phase 1 qualified labels and authorized experiment scope; accepted RHS-first baseline sequence (D-003) and qualified D-004 state/conditions; chosen CPU-capable tooling. Identity/full-state baseline is the selected starting path. Finite-step prediction is retained for later exploration with a separate contract. D-030 selects a small full-state MLP for 2B; D-031 accepts its exact independently reviewed experiment before fitting.
 
 **Accepted staging (D-028/D-029):** execute five bounded sub-phases under
 [one milestone](https://github.com/jaharris87/crucible-astro/milestone/3):
@@ -72,7 +72,7 @@ guidance revision/access gaps. No trained-model card is created during Phase 1.
 [2C analytic integration](https://github.com/jaharris87/crucible-astro/issues/43),
 [2D real references](https://github.com/jaharris87/crucible-astro/issues/44), then
 [2E frozen evaluation/cost](https://github.com/jaharris87/crucible-astro/issues/45).
-2A is complete; D-030 authorizes only 2B, with experiment acceptance before fitting. Each later boundary requires scope acceptance and
+2A is complete; D-030 authorizes only 2B; D-031 accepts its experiment. Each later boundary requires scope acceptance and
 preceding integration; [the execution sequence](PHASE_2_LAUNCH.md) defines these
 bounds. Before real rollouts, accept forcing/history, horizons/outputs, observables
 and a separately authorized pinned-XNet reference/convergence experiment.
