@@ -18,10 +18,14 @@ Phase 2B is [complete](https://github.com/jaharris87/crucible-astro/issues/42#is
 at PR #47 / `a81552e`: the frozen full-state MLP and zero-RHS comparator reproduce,
 with zero D-024 whole-vector attainment at every profile. This negative fidelity
 result remains unchanged. The [2C analytic campaign and frozen callable checks](docs/reports/2026-11-20-phase2c.md)
-verify the numerical path separately from predictive fidelity. See current
-[progress](docs/PROGRESS.md) and [handoff](docs/HANDOFF.md) for integration,
-audit repairs and the reserved closeout decision under
-[issue #43](https://github.com/jaharris87/crucible-astro/issues/43).
+verify the numerical path separately from predictive fidelity. 2C, its audit
+repairs and final closeout are complete through PR #50 / `75b2ec3`. Phase 2D
+native reference implementation is active under [issue #44](https://github.com/jaharris87/crucible-astro/issues/44);
+the reviewed protocol and bounded producer scope are accepted under D-036.
+2D is paused at the maintainer's request after primary numerical failures;
+no full-horizon reference has passed. See the
+[checkpoint](docs/reports/2026-11-20-phase2d-checkpoint.md) and current
+[progress](docs/PROGRESS.md) and [handoff](docs/HANDOFF.md).
 Physical application, energy, rollout accuracy and speedup remain
 **not evaluated**.
 Use [Progress](docs/PROGRESS.md) and [Handoff](docs/HANDOFF.md) for current work and

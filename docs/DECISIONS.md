@@ -687,6 +687,96 @@ This accepts final 2C at repair merge `eaa9446` with passing merged checks and
 recorded dispositions. Close #43 and the native 2C goal; keep milestone #3 open.
 Drafting the next prompt is not 2D execution authority or an extension of D-034.
 
+### Decision D-035: Phase 2D launch; concrete producer authority pending
+
+**Accepted launch scope, 2026-11-20:** the maintainer invoked only
+[2D / issue #44](https://github.com/jaharris87/crucible-astro/issues/44), after
+2A–2C and status PR #50 at `75b2ec32c7983e94a73e88c6b09250a9506eb2d0`.
+Startup checked the clean current merged main and preceding final receipts once;
+no historical qualification or broad audit was repeated. One native goal covers
+active 2D only; milestone #3 stays open.
+
+This launch authorizes read-only discovery, concrete protocol preparation,
+repository edits, local dependencies, synthetic tests, commits/pushes and PR
+creation. The [proposed protocol](../experiments/trajectory_reference/PROTOCOL.md)
+fixes two permitted development/validation forced IVPs, explicit state/forcing,
+a narrowly adapted native numerical path, convergence/failure/reproduction checks
+and a bounded build/run/diagnostic/retry envelope. The required independent
+fresh-context read-only Sol High review required two repairs; both passed focused
+verification. The actual human protocol/execution decision remains pending below.
+**No producer build, RHS/Jacobian/NSE evaluation or trajectory has run.**
+Before any producer build/evaluation, the maintainer must explicitly accept both
+the reviewed coherent scientific/numerical protocol and concrete execution scope.
+Those decisions do not approve a merge. D-034 does not extend to 2D. Human named
+reference acceptance, exact-candidate review, concrete merge decision, merged
+verification and final sub-phase acceptance remain required.
+
+Preserve accepted data/overlay/memberships, original reference artifacts, frozen
+2B weights/scalers and negative fidelity results. No learned rollout, fitting,
+model/scaler change, final-test evaluation, energy/heating extension, original
+reference modification, bulk conversion, release, paid service, deployment, 2E,
+reduced method or later phase is authorized. D-013 estimates are evidence, not
+compute caps. The [existing sequence](PHASE_2_LAUNCH.md) remains the sole Phase 2 plan.
+
+### Decision D-036: Reviewed 2D protocol and producer scope
+
+**Accepted by the maintainer, 2026-11-20.** After the popup was redisplayed,
+the maintainer explicitly selected **“Accept protocol and producer scope
+(Recommended)”**. The question explicitly covered both scientific/numerical
+acceptance and concrete producer authority; the [actual acceptance receipt](https://github.com/jaharris87/crucible-astro/issues/44#issuecomment-7048371383)
+supersedes the pending decision packet. The [v2 protocol](../experiments/trajectory_reference/PROTOCOL.md)
+at `951d1f9f15e8246fe8d98886214070ebef44f7c4`, SHA256
+`966fbff8d2322ae8e6666063f35c1b87cced7d5ccbaf663ccae362613f98fdad`,
+and its exact private input annex are ready for acceptance.
+
+The [original fresh-context read-only gpt-6.1-sol High review](https://github.com/jaharris87/crucible-astro/issues/44#issuecomment-7048285375)
+required P2D-PROP-001 (per-campaign initial-control authority) and P2D-PROP-002
+(Timmes DOI). [Dispositions](https://github.com/jaharris87/crucible-astro/issues/44#issuecomment-7048302947)
+and [focused independent PASS / decision packet](https://github.com/jaharris87/crucible-astro/issues/44#issuecomment-7048328458)
+preserve findings, exact candidates, checks and limits. Required proposal CI and
+local documentation/preservation checks pass. No numerical success is implied.
+
+**Recommendation:** accept the coherent scientific/numerical protocol AND its
+concrete producer envelope: two fixed permitted 10 ms forced IVPs, two fresh
+builds plus at most two failed-build repairs, per-campaign initial controls,
+four meshes plus a tighter nonlinear run per case (ten trajectories per campaign,
+repeated once), fixed Jacobian diagnostics and specified infrastructure-only
+restart rules. The native full-F numerical adaptation, projection/residual policy,
+convergence/constraint/domain/output/reproduction criteria and private input hashes
+are explicit. Resource estimates are evidence, not compute caps.
+
+The accepted protocol and its declared execution now proceed autonomously.
+No producer build or physical evaluation occurred before the answer. Changes to
+equations, forcing, cases, physics, criteria or execution scope remain explicit
+decisions. This decision grants no merge approval, reference acceptance or 2E
+authority. Ordinary exact-candidate implementation
+review and later human reference/merge/final decisions remain required.
+
+### Decision D-037: Replace the preflight-stopped native build
+
+**Accepted by the maintainer, 2026-11-20:** explicit popup answer
+**“Authorize replacement build (Recommended)”**, recorded in the
+[actual receipt](https://github.com/jaharris87/crucible-astro/issues/44#issuecomment-7050412199).
+The [focused independent repair review](https://github.com/jaharris87/crucible-astro/issues/44#issuecomment-7050398773)
+passed on exact pushed `a771930`; P2D-IMPL-001 is resolved, with all 120 public
+Phase 2D tests and an offline replay of all ten retained native fixtures passing.
+No physical reference claim follows. D-036's first native build
+at `c28c527` succeeded, but a Python gate rejected two correctly failing synthetic
+fixtures before any physical evaluation. The repair reads the native failure
+status instead of requiring its text in console output; wrong-reason failure
+still refuses the campaign. No native source or accepted scientific contract
+changes. Full original evidence is retained, including the successful build.
+
+**Accepted scope:** one additional fresh isolated build to replace
+that preflight-stopped build: three successful fresh builds total including
+the retained first build, with the existing two failed-build repair allowances
+unchanged. The two physical campaigns, four planned initial controls, twenty
+trajectories, Jacobian diagnostics and restart rules remain exactly D-036.
+No extra physical evaluation, numerical retry or acceptance relaxation is proposed.
+The measured first build used 12.76 s wall, 9.83 s CPU and 91,044 KiB peak RSS;
+similar replacement costs are an estimate. The alternative is to retain this
+checkpoint and defer the campaign. This amendment grants no merge or 2E authority.
+
 ## Scientific decisions and current evidence gates
 
 The paragraph below preserves the initial ingestion decision; D-025 above is the
