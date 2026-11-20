@@ -13,8 +13,10 @@ selection and final evaluation. See the [benchmark contract](docs/science/benchm
 
 **Current status:** Phase 0A/0B and Phase 1 are complete. Qualification covers
 24,314 states from 380 histories for finite within-parent numerical emulation.
-The documentation migration is complete; Phase 2A qualified-data access is now
-authorized under [issue #41](https://github.com/jaharris87/crucible-astro/issues/41).
+The documentation migration and Phase 2A qualified-data access are complete.
+Phase 2B is active under [issue #42](https://github.com/jaharris87/crucible-astro/issues/42):
+one small full-state MLP and zero-RHS comparator; its concrete experiment requires
+review and maintainer acceptance before fitting.
 No model has been trained; physical application, energy, rollout accuracy and
 speedup are **not evaluated**.
 Use [Progress](docs/PROGRESS.md) and [Handoff](docs/HANDOFF.md) for current work and

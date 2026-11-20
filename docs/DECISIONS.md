@@ -526,6 +526,44 @@ without per-command approval. Every merge remains a concrete human decision or
 explicit delegation. No paid services, data release, deployment, reduced methods,
 model-family comparisons or Phase 3 are authorized.
 
+### Decision D-030: Phase 2B launch and selected full-state MLP
+
+**Accepted execution scope, 2026-11-20:** the maintainer invoked only 2B under
+[issue #42](https://github.com/jaharris87/crucible-astro/issues/42), after completed
+2A / PR #46 at `8b6cf713969c4abdcc5353aa18141461bb509616`. One small CPU-capable
+full-state MLP is selected; do not reopen ridge versus MLP. Preserve the original
+ridge proposal/review as history, without extending that review to the MLP.
+
+Prepare a concrete architecture/transforms/loss/optimizer/seed/selection/stopping/
+failure/artifact/reproduction protocol, obtain one brief fresh-context read-only
+`gpt-6.1-sol` High scope/simplicity review, and obtain maintainer experiment
+acceptance **before fitting**. The [exact protocol](https://github.com/jaharris87/crucible-astro/issues/42#issuecomment-7042652534)
+received an [independent scope/simplicity PASS](https://github.com/jaharris87/crucible-astro/issues/42#issuecomment-7042701075),
+with no consequential findings or changes. Protocol SHA256:
+`0ce78f0d008f3bf166b4efacabc923a633e7fe6d587fb0984de0b1ba3dba60d8`.
+That protocol acceptance remains pending. Routine implementation, fitting and reporting of the accepted protocol then proceed
+without per-command permission; changes to scientific protocol require a decision.
+This launch authorizes repository edits, project-local dependencies, checks,
+commits, pushes and PR creation. Every merge needs a concrete human decision or
+explicit delegation. The sole native goal covers 2B through merged verification.
+
+Reuse `crucible.benchmark.load_benchmark` and accepted identities/memberships.
+Inputs: all ordered 160 Y components plus recorded T9/rho; targets: all 160 fresh
+native instantaneous signed RHS components. Ye stays composition-derived. Fit
+preprocessing on train only and verify held-out independence; develop on train/
+validation only, with **no final-test model predictions or performance evaluation**.
+Use D-024 metrics/D-026 actual scorer provenance separately from original
+qualification, retain failures and local artifacts, verify reload and clean
+reproduction, and create an actual-artifact Genesis-guided model card. No accuracy
+or speedup promise is required. Poor results do not authorize a sweep.
+
+Keep one coherent 2B PR unless a concrete reason requires a split; ordinary review
+includes scope/readability/maintainability. Preserve the existing post-2C integrated
+audit in #43. No reduction, family comparison, integration, new producer/reference
+execution, data release, paid service, deployment or later sub-phase is authorized.
+The reviewed coherent experiment is the next human decision; this launch is not
+its acceptance. Stop after actual 2B exits, leaving 2C scope for a later decision.
+
 ## Scientific decisions and current evidence gates
 
 The paragraph below preserves the initial ingestion decision; D-025 above is the

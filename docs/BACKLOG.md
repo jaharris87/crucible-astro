@@ -2,6 +2,8 @@
 
 B01–B04 scope was adopted by the maintainer on 2026-11-17 (D-010); the maintainer separately authorized execution on 2026-11-17. B01–B04 are now [GitHub issues in the Phase 0B milestone](https://github.com/jaharris87/crucible-astro/milestone/1); [PROGRESS](PROGRESS.md) records current dependencies, status and PR links. D-013 supersedes D-011 resource caps and accounting; the linked section below preserves the policy transition. Phase 1 S01–S03 execution was authorized on 2026-11-17 ([authority](PHASE_1_AUTHORITY.md)); [milestone #2](https://github.com/jaharris87/crucible-astro/milestone/2) tracks its gates. Later scientific issues remain provisional. IDs remain stable when mapped to future issue numbers. All implementation follows [WORKFLOW](process/WORKFLOW.md); scientific checks follow [VALIDATION](science/VALIDATION.md). No dates are implied.
 
+Current work: 2A is [integrated](https://github.com/jaharris87/crucible-astro/issues/41#issuecomment-7020463315); D-030 invokes only [2B #42](https://github.com/jaharris87/crucible-astro/issues/42), the selected small full-state MLP and zero-RHS comparator. Concrete experiment review/acceptance precedes fitting. [The existing sequence](PHASE_2_LAUNCH.md) owns later dependencies.
+
 ## Bootstrap sequence
 
 `Phase 0A accepted + new authority → B01 → B02 → B03 → B04 → Phase 0B exit`
@@ -110,30 +112,25 @@ No model or numerical integration implementation is authorized by this addition.
 
 The [independent-audit assessment](https://github.com/jaharris87/crucible-astro/issues/36#issuecomment-7016554530)
 and accepted D-027/D-028 directions remain preserved. Phase 1 and the migration
-are complete, with receipts linked from [handoff](HANDOFF.md). D-029 now authorizes
-**2A only** within [milestone #3](https://github.com/jaharris87/crucible-astro/milestone/3).
+and 2A are complete, with receipts linked from [handoff](HANDOFF.md). D-030 authorizes
+**2B only** within [milestone #3](https://github.com/jaharris87/crucible-astro/milestone/3).
 [The incremental execution sequence](PHASE_2_LAUNCH.md) replaces the former draft:
 #41 access → #42 pointwise baseline → #43 analytic integration → #44 real references
 → #45 frozen evaluation/cost. Later issues hold short summaries until prerequisites
 are understood; each requires scope acceptance and preceding integration.
 
-Before the first fit, S04 should implement ordinary named-version/use/split loading
-with mandatory payload/manifest, qualification receipt, ordered species/units and
-exact membership/use checks. Return arrays and the relevant identities/limitations.
-Test missing qualification, wrong use, tampered/coherently rebound inputs, physical
-input overlap and held-out independence of actual fitted preprocessing. Source-call
-digests and physical-input fingerprints are distinct. Preserve the accepted overlay
-and its pinned sources; document recovery/relocation through separate local config.
-The advisory loader patch failed synthetic qualification/leakage controls and is
-not an accepted implementation. A loader is first-experiment work, not a new Phase 1 exit.
+2A implemented named-version/use/split access with qualification, payload,
+ordered species/units, exact memberships, use and cross-role physical-input checks.
+Reuse that interface and separate local path configuration. 2B verifies the actual
+train-only preprocessing fit boundary by changing held-out values. The earlier
+advisory loader patch remains historical and is not the adopted implementation.
 
-Before full scoring, address detailed-report memory/I/O proportionately while
-preserving complete required counts/detail and history/group MSE weights; do not
-average chunk RMS values. Predeclare supplementary magnitude/reference-bound and
-distance-stratified diagnostics before model selection. Preserve D-024 headline
-metrics and D-025 roles. A new spatial sensitivity split needs its own identity
-and scientific decision. No empirical result justifies a latent dimension,
-framework/plugin hierarchy or new physical error floor now.
+Measure actual loading/scoring costs before adding caching, streaming or detail
+repairs. Preserve complete D-024 counts/detail and D-026 history/group MSE weights;
+never average chunk RMS values. Supplementary diagnostics must be predeclared and
+must not alter headline metrics or selection criteria. D-025 memberships and the
+sealed final test remain fixed. No extra split, latent architecture, plugin
+hierarchy or physical error floor is authorized.
 
 Real-rollout reference preparation must specify initial states, continuous forcing
 and interpolation, intervals/output grid, supported table/domain checks, retained
@@ -144,7 +141,7 @@ budgets, heating and application observables require their own evidence. Record
 RHS and end-to-end integration cost separately at matched accuracy, including
 failures and solver work, with training/setup costs explicit.
 
-After 2A integration, 2B should propose a coherent declared experiment and its routine
+With 2A integrated, 2B must propose a coherent declared experiment and its routine
 preparation/checks together, with validation-based stopping and all trials retained.
 Scientific scope/reference changes, final-test release/use and every merge remain
 human decisions under WORKFLOW. Use functions and small records for problem/reference,

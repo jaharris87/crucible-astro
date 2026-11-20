@@ -1,13 +1,15 @@
 # CRUCIBLE progress
 
-Updated **2026-11-19**. Phase 1 and the documentation migration are complete:
+Updated **2026-11-20**. Phase 1, the documentation migration and **2A are complete**:
 [Phase 1 receipt](https://github.com/jaharris87/crucible-astro/issues/15#issuecomment-7014392482),
-[migration receipt](https://github.com/jaharris87/crucible-astro/issues/39#issuecomment-7019298012).
-Incremental Phase 2 is authorized under [D-029](DECISIONS.md#decision-d-029-incremental-phase-2-and-2a-execution),
-with only **2A active**. [Milestone #3](https://github.com/jaharris87/crucible-astro/milestone/3)
-tracks the whole phase. The sole active native goal covers 2A through human merge
-and merged-result verification; [handoff](HANDOFF.md) records its exact objective
-and next decision. No model has been trained or evaluated.
+[migration receipt](https://github.com/jaharris87/crucible-astro/issues/39#issuecomment-7019298012),
+[2A receipt](https://github.com/jaharris87/crucible-astro/issues/41#issuecomment-7020463315).
+Verified merged main is `8b6cf713969c4abdcc5353aa18141461bb509616` (PR #46).
+[D-030](DECISIONS.md#decision-d-030-phase-2b-launch-and-selected-full-state-mlp)
+invokes **2B only** under existing milestone #3. The sole active native goal covers
+2B through human merge and merged verification; [handoff](HANDOFF.md) records its
+exact objective. No model has been trained or evaluated. The next decision is
+acceptance of the concrete independently reviewed MLP experiment before fitting.
 
 ## Phase status
 
@@ -16,24 +18,24 @@ and next decision. No model has been trained or evaluated.
 | 0A — Design | Reference investigation | Complete; [review](REVIEW.md), [transition](TRANSITION.md) |
 | 0B — Bootstrap | Adopted workflow/publication authority | Complete through audit `01f06d8`; [final receipt](https://github.com/jaharris87/crucible-astro/issues/4#issuecomment-6960154582), [milestone #1](https://github.com/jaharris87/crucible-astro/milestone/1) |
 | 1 — Qualification/benchmark | 0B; S01–S03 authority | D-025 accepted; actual [exit evidence](phase1/PHASE1_CLOSEOUT.md), [qualified data card](data-cards/genesis_datacard_ccsn_native_pointwise_qualified_v0_1.md), final closure in the live receipt |
-| 2 — Full-state baseline | D-029; qualified benchmark | 2A implementation active; [incremental sequence](PHASE_2_LAUNCH.md), milestone #3 |
+| 2 — Full-state baseline | D-029; qualified benchmark | 2A integrated; 2B reviewed proposal awaiting acceptance; [incremental sequence](PHASE_2_LAUNCH.md), milestone #3 |
 | 3–5 — Reduction/comparison/prototype | Later accepted baselines/science/scope | Not started; no architecture or model selected |
 
 ## Active Phase 2 sequence
 
 | Sub-phase | Dependency / deliverable | Status / next gate |
 | --- | --- | --- |
-| [2A #41](https://github.com/jaharris87/crucible-astro/issues/41) | Qualified named-version/use/split arrays, example and tests | Loader/example/tests implemented; final check/review and human merge/integration receipts in live issue/PR |
-| [2B #42](https://github.com/jaharris87/crucible-astro/issues/42) | Integrated 2A; one pointwise model/comparator proposal and reproducible validation | Scope acceptance pending; experiment acceptance before fitting; final-test outcomes sealed |
+| [2A #41](https://github.com/jaharris87/crucible-astro/issues/41) | Qualified named-version/use/split arrays, example and tests | Complete at PR #46 / `8b6cf71`; 489 installed-package tests, merged CI and all-row structural checks in final receipt |
+| [2B #42](https://github.com/jaharris87/crucible-astro/issues/42) | Integrated 2A; one pointwise model/comparator proposal and reproducible validation | Active D-030; selected small full-state MLP + zero comparator; [MLP protocol](https://github.com/jaharris87/crucible-astro/issues/42#issuecomment-7042652534) / [independent scope PASS](https://github.com/jaharris87/crucible-astro/issues/42#issuecomment-7042701075); experiment acceptance pending before fitting; final-test outcomes sealed |
 | [2C #43](https://github.com/jaharris87/crucible-astro/issues/43) | Integrated 2B; analytic integration/convergence/failure checks | Scope acceptance pending; no new XNet execution |
 | [2D #44](https://github.com/jaharris87/crucible-astro/issues/44) | Integrated 2C; accepted real reference trajectories/protocol | Scope and scientific/producer-execution decisions pending |
 | [2E #45](https://github.com/jaharris87/crucible-astro/issues/45) | Integrated 2D; frozen pointwise/rollout/cost evaluation and report | Scope and final-test release pending; human baseline acceptance before milestone closure |
 
 D-027 migration #39 is closed at `804fb75`; its linked final receipt controls closure.
-Later issues remain short dependency/deliverable summaries. Detail them only when
-prerequisites are understood. The next normal human checkpoint combines 2A merge
-with the proposed 2B scope where practical; no next sub-phase starts before acceptance
-and preceding integration.
+Later issues remain short dependency/deliverable summaries. The integrated audit
+stays after 2C integration in #43. No next sub-phase starts before scope acceptance
+and preceding integration. Current protocol, review and next decision remain in #42;
+its PR will carry execution/review/merge/integration receipts.
 
 ## Phase 1 issue dependencies and integrations
 
