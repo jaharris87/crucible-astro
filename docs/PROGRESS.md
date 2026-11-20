@@ -8,9 +8,11 @@ Verified merged main is `8b6cf713969c4abdcc5353aa18141461bb509616` (PR #46).
 [D-030](DECISIONS.md#decision-d-030-phase-2b-launch-and-selected-full-state-mlp)
 invokes **2B only** under existing milestone #3. The sole active native goal covers
 2B through human merge and merged verification; [handoff](HANDOFF.md) records its
-exact objective. No model has been trained or evaluated. The exact independently reviewed MLP experiment is accepted under
+exact objective. The model fit/reload/bitwise clean refit and all complete train/validation reports
+reproduce. The exact independently reviewed MLP experiment is accepted under
 [D-031](DECISIONS.md#decision-d-031-accept-the-reviewed-small-full-state-mlp-experiment).
-Implementation/checks are active; human merge remains a separate decision.
+Numerical reporting is complete; independent PR review and human merge/integration
+remain required.
 
 ## Phase status
 
@@ -19,7 +21,7 @@ Implementation/checks are active; human merge remains a separate decision.
 | 0A — Design | Reference investigation | Complete; [review](REVIEW.md), [transition](TRANSITION.md) |
 | 0B — Bootstrap | Adopted workflow/publication authority | Complete through audit `01f06d8`; [final receipt](https://github.com/jaharris87/crucible-astro/issues/4#issuecomment-6960154582), [milestone #1](https://github.com/jaharris87/crucible-astro/milestone/1) |
 | 1 — Qualification/benchmark | 0B; S01–S03 authority | D-025 accepted; actual [exit evidence](phase1/PHASE1_CLOSEOUT.md), [qualified data card](data-cards/genesis_datacard_ccsn_native_pointwise_qualified_v0_1.md), final closure in the live receipt |
-| 2 — Full-state baseline | D-029; qualified benchmark | 2A integrated; 2B accepted experiment implementation active; [incremental sequence](PHASE_2_LAUNCH.md), milestone #3 |
+| 2 — Full-state baseline | D-029; qualified benchmark | 2A integrated; 2B numerical exits pass; negative pointwise result; review/merge/integration in live issue; [incremental sequence](PHASE_2_LAUNCH.md), milestone #3 |
 | 3–5 — Reduction/comparison/prototype | Later accepted baselines/science/scope | Not started; no architecture or model selected |
 
 ## Active Phase 2 sequence
@@ -27,7 +29,7 @@ Implementation/checks are active; human merge remains a separate decision.
 | Sub-phase | Dependency / deliverable | Status / next gate |
 | --- | --- | --- |
 | [2A #41](https://github.com/jaharris87/crucible-astro/issues/41) | Qualified named-version/use/split arrays, example and tests | Complete at PR #46 / `8b6cf71`; 489 installed-package tests, merged CI and all-row structural checks in final receipt |
-| [2B #42](https://github.com/jaharris87/crucible-astro/issues/42) | Integrated 2A; one pointwise model/comparator proposal and reproducible validation | Active D-030; selected small full-state MLP + zero comparator; [MLP protocol](https://github.com/jaharris87/crucible-astro/issues/42#issuecomment-7042652534) / [independent scope PASS](https://github.com/jaharris87/crucible-astro/issues/42#issuecomment-7042701075); [experiment accepted](https://github.com/jaharris87/crucible-astro/issues/42#issuecomment-7042848745), implementation/checks active; final-test outcomes sealed |
+| [2B #42](https://github.com/jaharris87/crucible-astro/issues/42) | Integrated 2A; one pointwise model/comparator proposal and reproducible validation | Active D-030; selected small full-state MLP + zero comparator; [MLP protocol](https://github.com/jaharris87/crucible-astro/issues/42#issuecomment-7042652534) / [independent scope PASS](https://github.com/jaharris87/crucible-astro/issues/42#issuecomment-7042701075); [experiment accepted](https://github.com/jaharris87/crucible-astro/issues/42#issuecomment-7042848745), fit/reload/bitwise refit and all full scoring reports reproduce; [card](model-cards/genesis_modelcard_full_state_mlp_v0_1.md)/[report](reports/2026-11-20-phase2b.md); review/merge/integration tracked in live issue; final-test outcomes sealed |
 | [2C #43](https://github.com/jaharris87/crucible-astro/issues/43) | Integrated 2B; analytic integration/convergence/failure checks | Scope acceptance pending; no new XNet execution |
 | [2D #44](https://github.com/jaharris87/crucible-astro/issues/44) | Integrated 2C; accepted real reference trajectories/protocol | Scope and scientific/producer-execution decisions pending |
 | [2E #45](https://github.com/jaharris87/crucible-astro/issues/45) | Integrated 2D; frozen pointwise/rollout/cost evaluation and report | Scope and final-test release pending; human baseline acceptance before milestone closure |
@@ -61,8 +63,10 @@ Qualified view: **24,314 / 380 / 94** states/histories/operational groups, with
 17,659/3,220/3,435 states in train/validation/test. It supports only the named
 finite within-parent native numerical-emulation claim. Energy/rollouts, physical
 application accuracy, independent simulations and wider CCSN/NSM coverage remain
-unqualified. Model/reconstruction/rollout performance, scientific speedup and
-fitted preprocessing are **not evaluated**. Full NS1–NS3 are not completed here.
+unqualified. MLP fit/preprocessing/reload, bitwise clean reproduction and complete pointwise
+reports are verified. Validation whole-vector attainment is 0
+for every D-024 profile; nonzero relative RMS/max have unbounded binary64 reports.
+Reconstruction/rollout performance and scientific speedup remain **not evaluated**. Full NS1–NS3 are not completed here.
 
 [Handoff](HANDOFF.md) gives the stop/resumption boundary. Historical
 [Phase 1 start](reports/2026-11-17-phase1-start.md) and

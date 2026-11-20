@@ -39,7 +39,13 @@ with no consequential findings or changes. Proposal SHA256:
 ([receipt](https://github.com/jaharris87/crucible-astro/issues/42#issuecomment-7042848745)).
 The original ridge proposal and its review remain historical records in #42;
 their numerical choices and review coverage do not transfer to the MLP.
-No fitting or model-based performance evaluation has occurred.
+One accepted scientific trial and its clean exact refit completed on source
+`5ea61f157e7e38bbd2a106bf1b51d9560fcad55f`: epoch 407 selected, 437 epochs completed,
+patience stop. All weights/scales/train+validation predictions/epoch logs match
+bitwise. Fresh-process reload and actual validation-extrema mutation independence
+checks pass. All train/validation MLP and zero reports reproduce byte for byte,
+retaining every required component/species/stratum and diagnostic. Results are
+negative for D-024 whole-vector attainment; no fit/protocol change is authorized by that outcome.
 
 Reuse `crucible.benchmark.load_benchmark` and its scientist-facing contract.
 Load train/validation arrays once each per experiment process and reuse them;
@@ -55,10 +61,17 @@ and maintainability. Keep this goal incomplete while any required decision or
 integration exit remains. No broader Phase 2 goal or new tracker is created.
 The integrated 2A–2C audit remains after 2C integration in existing #43.
 
-Current work: one bounded `gpt-6.1-sol` High implementation worker uses an isolated
-worktree. Root integrates/verifies, runs the accepted real-data experiment and
-reports/scoring. Next action is implementation and meaningful synthetic checks,
-then the one accepted fit and exact reproduction. Poor fidelity does not authorize
+The isolated `gpt-6.1-sol` High implementation worker is complete; root integrated
+its code. Locked noneditable source passes 515 tests, Ruff and formatting.
+Numerical exits, the [actual-artifact model card](model-cards/genesis_modelcard_full_state_mlp_v0_1.md),
+[validation report](reports/2026-11-20-phase2b.md) and local reproduction guide are
+complete. Full-precision aggregate results and private report digests are in
+`experiments/mlp_baseline/results.json`. Current work: self-review/push the
+coherent draft PR, fresh exact-candidate independent review, then obtain the
+concrete human merge decision and verify the merged result. Live issue/PR
+receipts control subsequent review, merge and closure; this is an implementation
+checkpoint, not a claim those future exits have occurred. Poor fidelity does not
+authorize
 another architecture, seed search or protocol change. Every merge remains a
 concrete human decision. Stop after integrated 2B; do not begin 2C here.
 

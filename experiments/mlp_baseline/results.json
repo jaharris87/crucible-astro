@@ -1,0 +1,1543 @@
+{
+  "acceptance_receipt": "https://github.com/jaharris87/crucible-astro/issues/42#issuecomment-7042848745",
+  "actual_heldout_independence": {
+    "checkpoint_selection_may_depend_on_validation": true,
+    "independent_train_maxima_match_saved_scale_bits": true,
+    "matches_actual_trial_epoch_one_and_scales": true,
+    "mutated_fields": [
+      "Y",
+      "T9",
+      "rho",
+      "fresh_rhs"
+    ],
+    "training_values_fixed": true
+  },
+  "actual_scoring_successor": {
+    "adoption_receipt": "https://github.com/jaharris87/crucible-astro/pull/37#issuecomment-7017529239",
+    "arithmetic_identity": "crucible.native_fidelity.relative-decimal80.v1",
+    "source_sha256": "c287f873ede888c12128552046176fd6618556081dc907c4fccadb491bd056b7"
+  },
+  "all_full_scoring_reports_byte_identical": true,
+  "all_saved_arrays_bitwise_equal": true,
+  "arithmetic": {
+    "id": "crucible.native_fidelity.relative-decimal80.v1",
+    "physical_rms_precision": 70,
+    "predecessor_source_sha256": "a1d50fedc951dbe332d25bd09e7c32e0539024f6f0a8f193b271ed0253ca0df0",
+    "relative_mse_precision": 80,
+    "rounding": "ROUND_HALF_EVEN"
+  },
+  "attempts": {
+    "clean_reproduction_fits": 1,
+    "diagnostic_epoch_one": "actual held-out-independence probe only; not a selection candidate",
+    "excluded_records": 0,
+    "excluded_species": 0,
+    "failed_fits": 0,
+    "scientific_trials": 1,
+    "scoring_cost_probe": "first accepted validation history; retained and excluded from full-population totals to avoid double counting"
+  },
+  "best_runner_up_gap": 2.7189128261900395e-06,
+  "configuration_sha256": "e536dd811563b8e7957385272bedff41d3fe4378dc65f4833dcbb79ada1a45b6",
+  "dataset": {
+    "final_test": "NO_MODEL_PREDICTIONS_OR_EVALUATION",
+    "membership_sha256": "f5a99420101fb7b73e94d481d64aab2c279a5f04915d76f20b84edd2b98bdd3a",
+    "name": "ccsn-primary-native-rhs-pointwise",
+    "overlay_sha256": "e1bcd8b3cceabf252c1307ad008cdbc4a1da1cd556e84bf923d742ce3cf2ce0c",
+    "payload_sha256": "f4171d1600586f28b4a514071c8c029d1a84c7634f9f11ae8a6b4b25c6a0c980",
+    "reference": "D-019; exact native reference identities retained in bound private model manifest",
+    "version": "0.1.0"
+  },
+  "date": "2026-11-20",
+  "epoch_log_sha256": "4a3a75fff9178a07d14e5645caa32ae25be44e800d0949174d5c11a99b7d994e",
+  "issue": "https://github.com/jaharris87/crucible-astro/issues/42",
+  "limitations": [
+    "finite within-parent numerical emulation; one parent and operational groups with residual correlations",
+    "zero whole-vector attainment and unbounded binary64 relative reports; no physical accuracy acceptance",
+    "native tiny nonzero labels preserved for scoring despite counted optimization-coordinate underflows",
+    "physical application, energy, rollout and matched-accuracy speedup unqualified; no final-test model use",
+    "real records/predictions/model artifacts remain local; redistribution rights unresolved",
+    "BPSW current model-card template blob/raw redirect to sign-in; anonymous project API404 on2026-11-20; conformance unverified"
+  ],
+  "lock_sha256": "9327344976ae0568c6fb37565ccf5f5ecce10aa996a123b828765eefab479bd9",
+  "model_manifest_sha256": "3d11aca1efcff2e025fa196bf00352ac42477a44eba39f8cd464ac8c3188740e",
+  "model_npz_sha256": "4d048163a5bd4d256ad7e6ed90be15a48321587525ab94e33ae253bb6cfdd793",
+  "model_source_sha256": "d590d2031936af1394cf73c724f955371854850258404270d8c1e81433fe821f",
+  "original_qualification_scoring_source_sha256": "a1d50fedc951dbe332d25bd09e7c32e0539024f6f0a8f193b271ed0253ca0df0",
+  "physical_error_unit": "mass_fraction/s (accepted A-weighted errors); model outputs remain native molar_abundance_Y/s",
+  "predictions_npz_sha256": "70fc334c873a07791fdcad0a25e7e51f4a71e4235cbd43140ed234613a2c84db",
+  "private_detail": "full component/species/history/group/category/regime records and native supplementary diagnostics retained locally by the custodian, identified by report digests",
+  "proposal_sha256": "0ce78f0d008f3bf166b4efacabc923a633e7fe6d587fb0984de0b1ba3dba60d8",
+  "reproduction": {
+    "absolute_tolerance": 0,
+    "complete_epoch_log_bitwise_equal": true,
+    "data_contract_equal": true,
+    "environment_equal": true,
+    "relative_tolerance": 0,
+    "selection_equal": true
+  },
+  "resources": {
+    "clean_fit_peak_rss_bytes": 930136064,
+    "clean_fit_seconds": 30.34835395900882,
+    "cpu": "Apple M4 Max",
+    "deterministic_algorithms": true,
+    "environment": {
+      "h5py": "3.15.1",
+      "numpy": "2.5.5",
+      "platform": "macOS-26.7.3-arm64-arm-64bit",
+      "python": "3.12.9",
+      "torch": "2.9.1"
+    },
+    "fit_peak_rss_bytes": 929677312,
+    "fit_seconds": 29.01714904201799,
+    "inference": {
+      "train": {
+        "scope": "one fixed-batch input scaling+network+output inverse call, no model/data loading",
+        "seconds": 0.03236266699968837,
+        "states": 17659
+      },
+      "validation": {
+        "scope": "one fixed-batch input scaling+network+output inverse call, no model/data loading",
+        "seconds": 0.005847624997841194,
+        "states": 3220
+      }
+    },
+    "interop_threads": 1,
+    "intraop_threads": 1,
+    "logical_cpu_count": 16,
+    "model_device": "cpu",
+    "ram_bytes": 68719476736,
+    "timing_limit": "single calls under concurrent report jobs; not a matched-accuracy speedup benchmark",
+    "uv": "0.10.11"
+  },
+  "scaling_checks": {
+    "train_input": {
+      "max_absolute_roundtrip_error": 2.384185791015625e-07,
+      "nonexact_roundtrips": 220955,
+      "nonzero_to_zero_underflows": 0
+    },
+    "train_target": {
+      "max_absolute_roundtrip_error": 2.9802322387695312e-08,
+      "nonexact_roundtrips": 265218,
+      "nonzero_to_zero_underflows": 145
+    },
+    "validation_input": {
+      "max_absolute_roundtrip_error": 5.960464477539063e-08,
+      "nonexact_roundtrips": 38047,
+      "nonzero_to_zero_underflows": 0
+    },
+    "validation_target": {
+      "max_absolute_roundtrip_error": 2.9802322387695312e-08,
+      "nonexact_roundtrips": 47537,
+      "nonzero_to_zero_underflows": 34
+    }
+  },
+  "schema": "crucible.phase2b-aggregate-results.v1",
+  "scores": {
+    "mlp": {
+      "train": {
+        "clean_peak_rss_bytes": 6324764672,
+        "clean_scoring_seconds": 624.7597359170031,
+        "complete_clean_report_sha256_equal": true,
+        "groups": 66,
+        "histories": 274,
+        "load_seconds": 3.924886917026015,
+        "peak_rss_bytes": 6396837888,
+        "report_bytes": 923346989,
+        "report_sha256": "7e42fa17e1c938a7007564f114a897f1b00d96eafa36918c92b0855b3b8fab6b",
+        "scoring_seconds": 619.3295293329866,
+        "states": 17659,
+        "summary": {
+          "all": {
+            "attempted_components": 2825440,
+            "attempted_records": 17659,
+            "conditional_valid_statistics": true,
+            "failed_components": 0,
+            "failed_records": 0,
+            "macro": {
+              "conditional_valid_statistics": true,
+              "failed_components": 0,
+              "failed_records": 0,
+              "groups_without_population_components": 0,
+              "groups_without_valid_components": 0,
+              "histories_without_population_components": 0,
+              "histories_without_valid_components": 0,
+              "physical_equal_group_rms": {
+                "status": "FINITE",
+                "value": 3591313.827507704
+              },
+              "physical_equal_history_rms": {
+                "status": "FINITE",
+                "value": 3965377.0299729095
+              },
+              "reference_groups": 66,
+              "reference_histories": 274,
+              "relative_equal_group_rms": {
+                "status": "NOT_APPLICABLE",
+                "value": null
+              },
+              "relative_equal_history_rms": {
+                "status": "NOT_APPLICABLE",
+                "value": null
+              },
+              "total_reference_groups": 66,
+              "total_reference_histories": 274,
+              "valid_groups": 66,
+              "valid_histories": 274
+            },
+            "physical_absolute_max": {
+              "status": "FINITE",
+              "value": 1479612377.3593066
+            },
+            "physical_absolute_rms": {
+              "status": "FINITE",
+              "value": 4167149.2991243056
+            },
+            "physical_signed_max": {
+              "status": "FINITE",
+              "value": 1418426143.206936
+            },
+            "physical_signed_mean": {
+              "status": "FINITE",
+              "value": 34702.77831078261
+            },
+            "physical_signed_min": {
+              "status": "FINITE",
+              "value": -1479612377.3593066
+            },
+            "profiles": {
+              "0.1%": {
+                "component_exceedance_denominator_valid": 2825440,
+                "component_failed": 0,
+                "component_finite_violations": 2825116,
+                "component_fraction_exceeding_valid": 0.999885327594994,
+                "component_met": 324,
+                "component_met_fraction_attempted": 0.00011467240500594598,
+                "record_attained": 0,
+                "record_attainment_fraction_attempted": 0.0,
+                "record_failed": 0,
+                "record_finite_violations": 17659
+              },
+              "1%": {
+                "component_exceedance_denominator_valid": 2825440,
+                "component_failed": 0,
+                "component_finite_violations": 2821947,
+                "component_fraction_exceeding_valid": 0.9987637323744266,
+                "component_met": 3493,
+                "component_met_fraction_attempted": 0.001236267625573362,
+                "record_attained": 0,
+                "record_attainment_fraction_attempted": 0.0,
+                "record_failed": 0,
+                "record_finite_violations": 17659
+              },
+              "5%": {
+                "component_exceedance_denominator_valid": 2825440,
+                "component_failed": 0,
+                "component_finite_violations": 2809563,
+                "component_fraction_exceeding_valid": 0.9943806982275327,
+                "component_met": 15877,
+                "component_met_fraction_attempted": 0.005619301772467297,
+                "record_attained": 0,
+                "record_attainment_fraction_attempted": 0.0,
+                "record_failed": 0,
+                "record_finite_violations": 17659
+              }
+            },
+            "record_profile_scope": "whole_ordered_vector_for_records_with_selected_components",
+            "reference_components": 2825440,
+            "reference_records_with_components": 17659,
+            "relative_max": {
+              "status": "NOT_APPLICABLE",
+              "value": null
+            },
+            "relative_rms": {
+              "status": "NOT_APPLICABLE",
+              "value": null
+            },
+            "status": "EVALUATED",
+            "valid_components": 2825440,
+            "valid_records": 17659
+          },
+          "nonzero": {
+            "attempted_components": 2640062,
+            "attempted_records": 17659,
+            "conditional_valid_statistics": true,
+            "failed_components": 0,
+            "failed_records": 0,
+            "macro": {
+              "conditional_valid_statistics": true,
+              "failed_components": 0,
+              "failed_records": 0,
+              "groups_without_population_components": 0,
+              "groups_without_valid_components": 0,
+              "histories_without_population_components": 0,
+              "histories_without_valid_components": 0,
+              "physical_equal_group_rms": {
+                "status": "FINITE",
+                "value": 3695453.078130752
+              },
+              "physical_equal_history_rms": {
+                "status": "FINITE",
+                "value": 4069583.511520481
+              },
+              "reference_groups": 66,
+              "reference_histories": 274,
+              "relative_equal_group_rms": {
+                "status": "UNBOUNDED_BINARY64_REPORT",
+                "value": null
+              },
+              "relative_equal_history_rms": {
+                "status": "UNBOUNDED_BINARY64_REPORT",
+                "value": null
+              },
+              "total_reference_groups": 66,
+              "total_reference_histories": 274,
+              "valid_groups": 66,
+              "valid_histories": 274
+            },
+            "physical_absolute_max": {
+              "status": "FINITE",
+              "value": 1479612377.3593066
+            },
+            "physical_absolute_rms": {
+              "status": "FINITE",
+              "value": 4305160.96899222
+            },
+            "physical_signed_max": {
+              "status": "FINITE",
+              "value": 1418426143.206936
+            },
+            "physical_signed_mean": {
+              "status": "FINITE",
+              "value": 41092.560835652956
+            },
+            "physical_signed_min": {
+              "status": "FINITE",
+              "value": -1479612377.3593066
+            },
+            "profiles": {
+              "0.1%": {
+                "component_exceedance_denominator_valid": 2640062,
+                "component_failed": 0,
+                "component_finite_violations": 2639738,
+                "component_fraction_exceeding_valid": 0.9998772756094364,
+                "component_met": 324,
+                "component_met_fraction_attempted": 0.00012272439056355494,
+                "record_attained": 0,
+                "record_attainment_fraction_attempted": 0.0,
+                "record_failed": 0,
+                "record_finite_violations": 17659
+              },
+              "1%": {
+                "component_exceedance_denominator_valid": 2640062,
+                "component_failed": 0,
+                "component_finite_violations": 2636569,
+                "component_fraction_exceeding_valid": 0.9986769250116095,
+                "component_met": 3493,
+                "component_met_fraction_attempted": 0.0013230749883904242,
+                "record_attained": 0,
+                "record_attainment_fraction_attempted": 0.0,
+                "record_failed": 0,
+                "record_finite_violations": 17659
+              },
+              "5%": {
+                "component_exceedance_denominator_valid": 2640062,
+                "component_failed": 0,
+                "component_finite_violations": 2624185,
+                "component_fraction_exceeding_valid": 0.9939861260834025,
+                "component_met": 15877,
+                "component_met_fraction_attempted": 0.006013873916597413,
+                "record_attained": 0,
+                "record_attainment_fraction_attempted": 0.0,
+                "record_failed": 0,
+                "record_finite_violations": 17659
+              }
+            },
+            "record_profile_scope": "whole_ordered_vector_for_records_with_selected_components",
+            "reference_components": 2640062,
+            "reference_records_with_components": 17659,
+            "relative_max": {
+              "status": "UNBOUNDED_BINARY64_REPORT",
+              "value": null
+            },
+            "relative_rms": {
+              "status": "UNBOUNDED_BINARY64_REPORT",
+              "value": null
+            },
+            "status": "EVALUATED",
+            "valid_components": 2640062,
+            "valid_records": 17659
+          },
+          "zero": {
+            "attempted_components": 185378,
+            "attempted_records": 11256,
+            "conditional_valid_statistics": true,
+            "failed_components": 0,
+            "failed_records": 0,
+            "macro": {
+              "conditional_valid_statistics": true,
+              "failed_components": 0,
+              "failed_records": 0,
+              "groups_without_population_components": 0,
+              "groups_without_valid_components": 0,
+              "histories_without_population_components": 0,
+              "histories_without_valid_components": 0,
+              "physical_equal_group_rms": {
+                "status": "FINITE",
+                "value": 884130.7935262104
+              },
+              "physical_equal_history_rms": {
+                "status": "FINITE",
+                "value": 912095.3567118482
+              },
+              "reference_groups": 66,
+              "reference_histories": 274,
+              "relative_equal_group_rms": {
+                "status": "NOT_APPLICABLE",
+                "value": null
+              },
+              "relative_equal_history_rms": {
+                "status": "NOT_APPLICABLE",
+                "value": null
+              },
+              "total_reference_groups": 66,
+              "total_reference_histories": 274,
+              "valid_groups": 66,
+              "valid_histories": 274
+            },
+            "physical_absolute_max": {
+              "status": "FINITE",
+              "value": 46494800.295274585
+            },
+            "physical_absolute_rms": {
+              "status": "FINITE",
+              "value": 844308.853548491
+            },
+            "physical_signed_max": {
+              "status": "FINITE",
+              "value": 10283111.500561763
+            },
+            "physical_signed_mean": {
+              "status": "FINITE",
+              "value": -56297.351327978555
+            },
+            "physical_signed_min": {
+              "status": "FINITE",
+              "value": -46494800.295274585
+            },
+            "profiles": {
+              "0.1%": {
+                "component_exceedance_denominator_valid": 185378,
+                "component_failed": 0,
+                "component_finite_violations": 185378,
+                "component_fraction_exceeding_valid": 1.0,
+                "component_met": 0,
+                "component_met_fraction_attempted": 0.0,
+                "record_attained": 0,
+                "record_attainment_fraction_attempted": 0.0,
+                "record_failed": 0,
+                "record_finite_violations": 11256
+              },
+              "1%": {
+                "component_exceedance_denominator_valid": 185378,
+                "component_failed": 0,
+                "component_finite_violations": 185378,
+                "component_fraction_exceeding_valid": 1.0,
+                "component_met": 0,
+                "component_met_fraction_attempted": 0.0,
+                "record_attained": 0,
+                "record_attainment_fraction_attempted": 0.0,
+                "record_failed": 0,
+                "record_finite_violations": 11256
+              },
+              "5%": {
+                "component_exceedance_denominator_valid": 185378,
+                "component_failed": 0,
+                "component_finite_violations": 185378,
+                "component_fraction_exceeding_valid": 1.0,
+                "component_met": 0,
+                "component_met_fraction_attempted": 0.0,
+                "record_attained": 0,
+                "record_attainment_fraction_attempted": 0.0,
+                "record_failed": 0,
+                "record_finite_violations": 11256
+              }
+            },
+            "record_profile_scope": "whole_ordered_vector_for_records_with_selected_components",
+            "reference_components": 185378,
+            "reference_records_with_components": 11256,
+            "relative_max": {
+              "status": "NOT_APPLICABLE",
+              "value": null
+            },
+            "relative_rms": {
+              "status": "NOT_APPLICABLE",
+              "value": null
+            },
+            "status": "EVALUATED",
+            "valid_components": 185378,
+            "valid_records": 11256,
+            "zero_target_nonzero_fraction_valid": 1.0,
+            "zero_target_nonzero_predictions": 185378
+          }
+        },
+        "write_seconds": 32.370338750013616
+      },
+      "validation": {
+        "clean_peak_rss_bytes": 1491599360,
+        "clean_scoring_seconds": 110.38651433298946,
+        "complete_clean_report_sha256_equal": true,
+        "groups": 14,
+        "histories": 51,
+        "load_seconds": 3.935742499976186,
+        "peak_rss_bytes": 1486782464,
+        "report_bytes": 169474410,
+        "report_sha256": "5d73038c56a03a3bd677138c5fad4b43d9335a2d7b815208c4493fc5885b8b29",
+        "scoring_seconds": 108.96178045801935,
+        "states": 3220,
+        "summary": {
+          "all": {
+            "attempted_components": 515200,
+            "attempted_records": 3220,
+            "conditional_valid_statistics": true,
+            "failed_components": 0,
+            "failed_records": 0,
+            "macro": {
+              "conditional_valid_statistics": true,
+              "failed_components": 0,
+              "failed_records": 0,
+              "groups_without_population_components": 0,
+              "groups_without_valid_components": 0,
+              "histories_without_population_components": 0,
+              "histories_without_valid_components": 0,
+              "physical_equal_group_rms": {
+                "status": "FINITE",
+                "value": 4093918.7149008084
+              },
+              "physical_equal_history_rms": {
+                "status": "FINITE",
+                "value": 4576932.115513052
+              },
+              "reference_groups": 14,
+              "reference_histories": 51,
+              "relative_equal_group_rms": {
+                "status": "NOT_APPLICABLE",
+                "value": null
+              },
+              "relative_equal_history_rms": {
+                "status": "NOT_APPLICABLE",
+                "value": null
+              },
+              "total_reference_groups": 14,
+              "total_reference_histories": 51,
+              "valid_groups": 14,
+              "valid_histories": 51
+            },
+            "physical_absolute_max": {
+              "status": "FINITE",
+              "value": 1263678533.0537567
+            },
+            "physical_absolute_rms": {
+              "status": "FINITE",
+              "value": 4591539.195415232
+            },
+            "physical_signed_max": {
+              "status": "FINITE",
+              "value": 1097618364.3570173
+            },
+            "physical_signed_mean": {
+              "status": "FINITE",
+              "value": 29368.279281796535
+            },
+            "physical_signed_min": {
+              "status": "FINITE",
+              "value": -1263678533.0537567
+            },
+            "profiles": {
+              "0.1%": {
+                "component_exceedance_denominator_valid": 515200,
+                "component_failed": 0,
+                "component_finite_violations": 515160,
+                "component_fraction_exceeding_valid": 0.9999223602484472,
+                "component_met": 40,
+                "component_met_fraction_attempted": 7.763975155279503e-05,
+                "record_attained": 0,
+                "record_attainment_fraction_attempted": 0.0,
+                "record_failed": 0,
+                "record_finite_violations": 3220
+              },
+              "1%": {
+                "component_exceedance_denominator_valid": 515200,
+                "component_failed": 0,
+                "component_finite_violations": 514804,
+                "component_fraction_exceeding_valid": 0.9992313664596273,
+                "component_met": 396,
+                "component_met_fraction_attempted": 0.0007686335403726708,
+                "record_attained": 0,
+                "record_attainment_fraction_attempted": 0.0,
+                "record_failed": 0,
+                "record_finite_violations": 3220
+              },
+              "5%": {
+                "component_exceedance_denominator_valid": 515200,
+                "component_failed": 0,
+                "component_finite_violations": 513285,
+                "component_fraction_exceeding_valid": 0.9962829968944099,
+                "component_met": 1915,
+                "component_met_fraction_attempted": 0.0037170031055900623,
+                "record_attained": 0,
+                "record_attainment_fraction_attempted": 0.0,
+                "record_failed": 0,
+                "record_finite_violations": 3220
+              }
+            },
+            "record_profile_scope": "whole_ordered_vector_for_records_with_selected_components",
+            "reference_components": 515200,
+            "reference_records_with_components": 3220,
+            "relative_max": {
+              "status": "NOT_APPLICABLE",
+              "value": null
+            },
+            "relative_rms": {
+              "status": "NOT_APPLICABLE",
+              "value": null
+            },
+            "status": "EVALUATED",
+            "valid_components": 515200,
+            "valid_records": 3220
+          },
+          "nonzero": {
+            "attempted_components": 471445,
+            "attempted_records": 3220,
+            "conditional_valid_statistics": true,
+            "failed_components": 0,
+            "failed_records": 0,
+            "macro": {
+              "conditional_valid_statistics": true,
+              "failed_components": 0,
+              "failed_records": 0,
+              "groups_without_population_components": 0,
+              "groups_without_valid_components": 0,
+              "histories_without_population_components": 0,
+              "histories_without_valid_components": 0,
+              "physical_equal_group_rms": {
+                "status": "FINITE",
+                "value": 4255821.902432019
+              },
+              "physical_equal_history_rms": {
+                "status": "FINITE",
+                "value": 4764956.554904647
+              },
+              "reference_groups": 14,
+              "reference_histories": 51,
+              "relative_equal_group_rms": {
+                "status": "UNBOUNDED_BINARY64_REPORT",
+                "value": null
+              },
+              "relative_equal_history_rms": {
+                "status": "UNBOUNDED_BINARY64_REPORT",
+                "value": null
+              },
+              "total_reference_groups": 14,
+              "total_reference_histories": 51,
+              "valid_groups": 14,
+              "valid_histories": 51
+            },
+            "physical_absolute_max": {
+              "status": "FINITE",
+              "value": 1263678533.0537567
+            },
+            "physical_absolute_rms": {
+              "status": "FINITE",
+              "value": 4798201.481622885
+            },
+            "physical_signed_max": {
+              "status": "FINITE",
+              "value": 1097618364.3570173
+            },
+            "physical_signed_mean": {
+              "status": "FINITE",
+              "value": 31256.05440288769
+            },
+            "physical_signed_min": {
+              "status": "FINITE",
+              "value": -1263678533.0537567
+            },
+            "profiles": {
+              "0.1%": {
+                "component_exceedance_denominator_valid": 471445,
+                "component_failed": 0,
+                "component_finite_violations": 471405,
+                "component_fraction_exceeding_valid": 0.9999151544718896,
+                "component_met": 40,
+                "component_met_fraction_attempted": 8.484552811038403e-05,
+                "record_attained": 0,
+                "record_attainment_fraction_attempted": 0.0,
+                "record_failed": 0,
+                "record_finite_violations": 3220
+              },
+              "1%": {
+                "component_exceedance_denominator_valid": 471445,
+                "component_failed": 0,
+                "component_finite_violations": 471049,
+                "component_fraction_exceeding_valid": 0.9991600292717072,
+                "component_met": 396,
+                "component_met_fraction_attempted": 0.0008399707282928019,
+                "record_attained": 0,
+                "record_attainment_fraction_attempted": 0.0,
+                "record_failed": 0,
+                "record_finite_violations": 3220
+              },
+              "5%": {
+                "component_exceedance_denominator_valid": 471445,
+                "component_failed": 0,
+                "component_finite_violations": 469530,
+                "component_fraction_exceeding_valid": 0.9959380203417154,
+                "component_met": 1915,
+                "component_met_fraction_attempted": 0.004061979658284635,
+                "record_attained": 0,
+                "record_attainment_fraction_attempted": 0.0,
+                "record_failed": 0,
+                "record_finite_violations": 3220
+              }
+            },
+            "record_profile_scope": "whole_ordered_vector_for_records_with_selected_components",
+            "reference_components": 471445,
+            "reference_records_with_components": 3220,
+            "relative_max": {
+              "status": "UNBOUNDED_BINARY64_REPORT",
+              "value": null
+            },
+            "relative_rms": {
+              "status": "UNBOUNDED_BINARY64_REPORT",
+              "value": null
+            },
+            "status": "EVALUATED",
+            "valid_components": 471445,
+            "valid_records": 3220
+          },
+          "zero": {
+            "attempted_components": 43755,
+            "attempted_records": 2195,
+            "conditional_valid_statistics": true,
+            "failed_components": 0,
+            "failed_records": 0,
+            "macro": {
+              "conditional_valid_statistics": true,
+              "failed_components": 0,
+              "failed_records": 0,
+              "groups_without_population_components": 0,
+              "groups_without_valid_components": 0,
+              "histories_without_population_components": 0,
+              "histories_without_valid_components": 0,
+              "physical_equal_group_rms": {
+                "status": "FINITE",
+                "value": 451360.39194587513
+              },
+              "physical_equal_history_rms": {
+                "status": "FINITE",
+                "value": 421729.3128559411
+              },
+              "reference_groups": 14,
+              "reference_histories": 51,
+              "relative_equal_group_rms": {
+                "status": "NOT_APPLICABLE",
+                "value": null
+              },
+              "relative_equal_history_rms": {
+                "status": "NOT_APPLICABLE",
+                "value": null
+              },
+              "total_reference_groups": 14,
+              "total_reference_histories": 51,
+              "valid_groups": 14,
+              "valid_histories": 51
+            },
+            "physical_absolute_max": {
+              "status": "FINITE",
+              "value": 9882752.407735735
+            },
+            "physical_absolute_rms": {
+              "status": "FINITE",
+              "value": 417083.4764661445
+            },
+            "physical_signed_max": {
+              "status": "FINITE",
+              "value": 9882752.407735735
+            },
+            "physical_signed_mean": {
+              "status": "FINITE",
+              "value": 9028.154908289036
+            },
+            "physical_signed_min": {
+              "status": "FINITE",
+              "value": -8678226.367022663
+            },
+            "profiles": {
+              "0.1%": {
+                "component_exceedance_denominator_valid": 43755,
+                "component_failed": 0,
+                "component_finite_violations": 43755,
+                "component_fraction_exceeding_valid": 1.0,
+                "component_met": 0,
+                "component_met_fraction_attempted": 0.0,
+                "record_attained": 0,
+                "record_attainment_fraction_attempted": 0.0,
+                "record_failed": 0,
+                "record_finite_violations": 2195
+              },
+              "1%": {
+                "component_exceedance_denominator_valid": 43755,
+                "component_failed": 0,
+                "component_finite_violations": 43755,
+                "component_fraction_exceeding_valid": 1.0,
+                "component_met": 0,
+                "component_met_fraction_attempted": 0.0,
+                "record_attained": 0,
+                "record_attainment_fraction_attempted": 0.0,
+                "record_failed": 0,
+                "record_finite_violations": 2195
+              },
+              "5%": {
+                "component_exceedance_denominator_valid": 43755,
+                "component_failed": 0,
+                "component_finite_violations": 43755,
+                "component_fraction_exceeding_valid": 1.0,
+                "component_met": 0,
+                "component_met_fraction_attempted": 0.0,
+                "record_attained": 0,
+                "record_attainment_fraction_attempted": 0.0,
+                "record_failed": 0,
+                "record_finite_violations": 2195
+              }
+            },
+            "record_profile_scope": "whole_ordered_vector_for_records_with_selected_components",
+            "reference_components": 43755,
+            "reference_records_with_components": 2195,
+            "relative_max": {
+              "status": "NOT_APPLICABLE",
+              "value": null
+            },
+            "relative_rms": {
+              "status": "NOT_APPLICABLE",
+              "value": null
+            },
+            "status": "EVALUATED",
+            "valid_components": 43755,
+            "valid_records": 2195,
+            "zero_target_nonzero_fraction_valid": 1.0,
+            "zero_target_nonzero_predictions": 43755
+          }
+        },
+        "write_seconds": 5.9934103340201546
+      }
+    },
+    "zero": {
+      "train": {
+        "clean_peak_rss_bytes": 6010863616,
+        "clean_scoring_seconds": 568.7848199170257,
+        "complete_clean_report_sha256_equal": true,
+        "groups": 66,
+        "histories": 274,
+        "load_seconds": 3.3679072909872048,
+        "peak_rss_bytes": 6081724416,
+        "report_bytes": 887773339,
+        "report_sha256": "be383970102e6c239d7356438222269c537d35cc8b6fe7b49180d0c9ba05f428",
+        "scoring_seconds": 481.0256811250001,
+        "states": 17659,
+        "summary": {
+          "all": {
+            "attempted_components": 2825440,
+            "attempted_records": 17659,
+            "conditional_valid_statistics": true,
+            "failed_components": 0,
+            "failed_records": 0,
+            "macro": {
+              "conditional_valid_statistics": true,
+              "failed_components": 0,
+              "failed_records": 0,
+              "groups_without_population_components": 0,
+              "groups_without_valid_components": 0,
+              "histories_without_population_components": 0,
+              "histories_without_valid_components": 0,
+              "physical_equal_group_rms": {
+                "status": "FINITE",
+                "value": 26703498.453783933
+              },
+              "physical_equal_history_rms": {
+                "status": "FINITE",
+                "value": 27072264.780598458
+              },
+              "reference_groups": 66,
+              "reference_histories": 274,
+              "relative_equal_group_rms": {
+                "status": "NOT_APPLICABLE",
+                "value": null
+              },
+              "relative_equal_history_rms": {
+                "status": "NOT_APPLICABLE",
+                "value": null
+              },
+              "total_reference_groups": 66,
+              "total_reference_histories": 274,
+              "valid_groups": 66,
+              "valid_histories": 274
+            },
+            "physical_absolute_max": {
+              "status": "FINITE",
+              "value": 3613336273.087509
+            },
+            "physical_absolute_rms": {
+              "status": "FINITE",
+              "value": 26901591.618483625
+            },
+            "physical_signed_max": {
+              "status": "FINITE",
+              "value": 3139320425.0041094
+            },
+            "physical_signed_mean": {
+              "status": "FINITE",
+              "value": 4.099184306519685e-09
+            },
+            "physical_signed_min": {
+              "status": "FINITE",
+              "value": -3613336273.087509
+            },
+            "profiles": {
+              "0.1%": {
+                "component_exceedance_denominator_valid": 2825440,
+                "component_failed": 0,
+                "component_finite_violations": 2640062,
+                "component_fraction_exceeding_valid": 0.9343896879778016,
+                "component_met": 185378,
+                "component_met_fraction_attempted": 0.06561031202219832,
+                "record_attained": 0,
+                "record_attainment_fraction_attempted": 0.0,
+                "record_failed": 0,
+                "record_finite_violations": 17659
+              },
+              "1%": {
+                "component_exceedance_denominator_valid": 2825440,
+                "component_failed": 0,
+                "component_finite_violations": 2640062,
+                "component_fraction_exceeding_valid": 0.9343896879778016,
+                "component_met": 185378,
+                "component_met_fraction_attempted": 0.06561031202219832,
+                "record_attained": 0,
+                "record_attainment_fraction_attempted": 0.0,
+                "record_failed": 0,
+                "record_finite_violations": 17659
+              },
+              "5%": {
+                "component_exceedance_denominator_valid": 2825440,
+                "component_failed": 0,
+                "component_finite_violations": 2640062,
+                "component_fraction_exceeding_valid": 0.9343896879778016,
+                "component_met": 185378,
+                "component_met_fraction_attempted": 0.06561031202219832,
+                "record_attained": 0,
+                "record_attainment_fraction_attempted": 0.0,
+                "record_failed": 0,
+                "record_finite_violations": 17659
+              }
+            },
+            "record_profile_scope": "whole_ordered_vector_for_records_with_selected_components",
+            "reference_components": 2825440,
+            "reference_records_with_components": 17659,
+            "relative_max": {
+              "status": "NOT_APPLICABLE",
+              "value": null
+            },
+            "relative_rms": {
+              "status": "NOT_APPLICABLE",
+              "value": null
+            },
+            "status": "EVALUATED",
+            "valid_components": 2825440,
+            "valid_records": 17659
+          },
+          "nonzero": {
+            "attempted_components": 2640062,
+            "attempted_records": 17659,
+            "conditional_valid_statistics": true,
+            "failed_components": 0,
+            "failed_records": 0,
+            "macro": {
+              "conditional_valid_statistics": true,
+              "failed_components": 0,
+              "failed_records": 0,
+              "groups_without_population_components": 0,
+              "groups_without_valid_components": 0,
+              "histories_without_population_components": 0,
+              "histories_without_valid_components": 0,
+              "physical_equal_group_rms": {
+                "status": "FINITE",
+                "value": 27708858.040710323
+              },
+              "physical_equal_history_rms": {
+                "status": "FINITE",
+                "value": 28063509.951521136
+              },
+              "reference_groups": 66,
+              "reference_histories": 274,
+              "relative_equal_group_rms": {
+                "status": "FINITE",
+                "value": 1.0
+              },
+              "relative_equal_history_rms": {
+                "status": "FINITE",
+                "value": 1.0
+              },
+              "total_reference_groups": 66,
+              "total_reference_histories": 274,
+              "valid_groups": 66,
+              "valid_histories": 274
+            },
+            "physical_absolute_max": {
+              "status": "FINITE",
+              "value": 3613336273.087509
+            },
+            "physical_absolute_rms": {
+              "status": "FINITE",
+              "value": 27830048.11167934
+            },
+            "physical_signed_max": {
+              "status": "FINITE",
+              "value": 3139320425.0041094
+            },
+            "physical_signed_mean": {
+              "status": "FINITE",
+              "value": 4.387017921174949e-09
+            },
+            "physical_signed_min": {
+              "status": "FINITE",
+              "value": -3613336273.087509
+            },
+            "profiles": {
+              "0.1%": {
+                "component_exceedance_denominator_valid": 2640062,
+                "component_failed": 0,
+                "component_finite_violations": 2640062,
+                "component_fraction_exceeding_valid": 1.0,
+                "component_met": 0,
+                "component_met_fraction_attempted": 0.0,
+                "record_attained": 0,
+                "record_attainment_fraction_attempted": 0.0,
+                "record_failed": 0,
+                "record_finite_violations": 17659
+              },
+              "1%": {
+                "component_exceedance_denominator_valid": 2640062,
+                "component_failed": 0,
+                "component_finite_violations": 2640062,
+                "component_fraction_exceeding_valid": 1.0,
+                "component_met": 0,
+                "component_met_fraction_attempted": 0.0,
+                "record_attained": 0,
+                "record_attainment_fraction_attempted": 0.0,
+                "record_failed": 0,
+                "record_finite_violations": 17659
+              },
+              "5%": {
+                "component_exceedance_denominator_valid": 2640062,
+                "component_failed": 0,
+                "component_finite_violations": 2640062,
+                "component_fraction_exceeding_valid": 1.0,
+                "component_met": 0,
+                "component_met_fraction_attempted": 0.0,
+                "record_attained": 0,
+                "record_attainment_fraction_attempted": 0.0,
+                "record_failed": 0,
+                "record_finite_violations": 17659
+              }
+            },
+            "record_profile_scope": "whole_ordered_vector_for_records_with_selected_components",
+            "reference_components": 2640062,
+            "reference_records_with_components": 17659,
+            "relative_max": {
+              "status": "FINITE",
+              "value": 1.0
+            },
+            "relative_rms": {
+              "status": "FINITE",
+              "value": 1.0
+            },
+            "status": "EVALUATED",
+            "valid_components": 2640062,
+            "valid_records": 17659
+          },
+          "zero": {
+            "attempted_components": 185378,
+            "attempted_records": 11256,
+            "conditional_valid_statistics": true,
+            "failed_components": 0,
+            "failed_records": 0,
+            "macro": {
+              "conditional_valid_statistics": true,
+              "failed_components": 0,
+              "failed_records": 0,
+              "groups_without_population_components": 0,
+              "groups_without_valid_components": 0,
+              "histories_without_population_components": 0,
+              "histories_without_valid_components": 0,
+              "physical_equal_group_rms": {
+                "status": "FINITE",
+                "value": 0.0
+              },
+              "physical_equal_history_rms": {
+                "status": "FINITE",
+                "value": 0.0
+              },
+              "reference_groups": 66,
+              "reference_histories": 274,
+              "relative_equal_group_rms": {
+                "status": "NOT_APPLICABLE",
+                "value": null
+              },
+              "relative_equal_history_rms": {
+                "status": "NOT_APPLICABLE",
+                "value": null
+              },
+              "total_reference_groups": 66,
+              "total_reference_histories": 274,
+              "valid_groups": 66,
+              "valid_histories": 274
+            },
+            "physical_absolute_max": {
+              "status": "FINITE",
+              "value": 0.0
+            },
+            "physical_absolute_rms": {
+              "status": "FINITE",
+              "value": 0.0
+            },
+            "physical_signed_max": {
+              "status": "FINITE",
+              "value": 0.0
+            },
+            "physical_signed_mean": {
+              "status": "FINITE",
+              "value": 0.0
+            },
+            "physical_signed_min": {
+              "status": "FINITE",
+              "value": 0.0
+            },
+            "profiles": {
+              "0.1%": {
+                "component_exceedance_denominator_valid": 185378,
+                "component_failed": 0,
+                "component_finite_violations": 0,
+                "component_fraction_exceeding_valid": 0.0,
+                "component_met": 185378,
+                "component_met_fraction_attempted": 1.0,
+                "record_attained": 0,
+                "record_attainment_fraction_attempted": 0.0,
+                "record_failed": 0,
+                "record_finite_violations": 11256
+              },
+              "1%": {
+                "component_exceedance_denominator_valid": 185378,
+                "component_failed": 0,
+                "component_finite_violations": 0,
+                "component_fraction_exceeding_valid": 0.0,
+                "component_met": 185378,
+                "component_met_fraction_attempted": 1.0,
+                "record_attained": 0,
+                "record_attainment_fraction_attempted": 0.0,
+                "record_failed": 0,
+                "record_finite_violations": 11256
+              },
+              "5%": {
+                "component_exceedance_denominator_valid": 185378,
+                "component_failed": 0,
+                "component_finite_violations": 0,
+                "component_fraction_exceeding_valid": 0.0,
+                "component_met": 185378,
+                "component_met_fraction_attempted": 1.0,
+                "record_attained": 0,
+                "record_attainment_fraction_attempted": 0.0,
+                "record_failed": 0,
+                "record_finite_violations": 11256
+              }
+            },
+            "record_profile_scope": "whole_ordered_vector_for_records_with_selected_components",
+            "reference_components": 185378,
+            "reference_records_with_components": 11256,
+            "relative_max": {
+              "status": "NOT_APPLICABLE",
+              "value": null
+            },
+            "relative_rms": {
+              "status": "NOT_APPLICABLE",
+              "value": null
+            },
+            "status": "EVALUATED",
+            "valid_components": 185378,
+            "valid_records": 11256,
+            "zero_target_nonzero_fraction_valid": 0.0,
+            "zero_target_nonzero_predictions": 0
+          }
+        },
+        "write_seconds": 31.971482624998316
+      },
+      "validation": {
+        "clean_peak_rss_bytes": 1432649728,
+        "clean_scoring_seconds": 98.98773316599545,
+        "complete_clean_report_sha256_equal": true,
+        "groups": 14,
+        "histories": 51,
+        "load_seconds": 3.24148312502075,
+        "peak_rss_bytes": 1434238976,
+        "report_bytes": 162652239,
+        "report_sha256": "110ae184d48e6725f1cf8ee9be61a28867593b84176d29bebdd63af7364f35fc",
+        "scoring_seconds": 77.93685145801282,
+        "states": 3220,
+        "summary": {
+          "all": {
+            "attempted_components": 515200,
+            "attempted_records": 3220,
+            "conditional_valid_statistics": true,
+            "failed_components": 0,
+            "failed_records": 0,
+            "macro": {
+              "conditional_valid_statistics": true,
+              "failed_components": 0,
+              "failed_records": 0,
+              "groups_without_population_components": 0,
+              "groups_without_valid_components": 0,
+              "histories_without_population_components": 0,
+              "histories_without_valid_components": 0,
+              "physical_equal_group_rms": {
+                "status": "FINITE",
+                "value": 21075807.103888016
+              },
+              "physical_equal_history_rms": {
+                "status": "FINITE",
+                "value": 22165857.05730903
+              },
+              "reference_groups": 14,
+              "reference_histories": 51,
+              "relative_equal_group_rms": {
+                "status": "NOT_APPLICABLE",
+                "value": null
+              },
+              "relative_equal_history_rms": {
+                "status": "NOT_APPLICABLE",
+                "value": null
+              },
+              "total_reference_groups": 14,
+              "total_reference_histories": 51,
+              "valid_groups": 14,
+              "valid_histories": 51
+            },
+            "physical_absolute_max": {
+              "status": "FINITE",
+              "value": 3260093706.8238373
+            },
+            "physical_absolute_rms": {
+              "status": "FINITE",
+              "value": 21757462.437253535
+            },
+            "physical_signed_max": {
+              "status": "FINITE",
+              "value": 2876147611.478153
+            },
+            "physical_signed_mean": {
+              "status": "FINITE",
+              "value": -1.365476528702564e-10
+            },
+            "physical_signed_min": {
+              "status": "FINITE",
+              "value": -3260093706.8238373
+            },
+            "profiles": {
+              "0.1%": {
+                "component_exceedance_denominator_valid": 515200,
+                "component_failed": 0,
+                "component_finite_violations": 471445,
+                "component_fraction_exceeding_valid": 0.9150718167701863,
+                "component_met": 43755,
+                "component_met_fraction_attempted": 0.08492818322981366,
+                "record_attained": 0,
+                "record_attainment_fraction_attempted": 0.0,
+                "record_failed": 0,
+                "record_finite_violations": 3220
+              },
+              "1%": {
+                "component_exceedance_denominator_valid": 515200,
+                "component_failed": 0,
+                "component_finite_violations": 471445,
+                "component_fraction_exceeding_valid": 0.9150718167701863,
+                "component_met": 43755,
+                "component_met_fraction_attempted": 0.08492818322981366,
+                "record_attained": 0,
+                "record_attainment_fraction_attempted": 0.0,
+                "record_failed": 0,
+                "record_finite_violations": 3220
+              },
+              "5%": {
+                "component_exceedance_denominator_valid": 515200,
+                "component_failed": 0,
+                "component_finite_violations": 471445,
+                "component_fraction_exceeding_valid": 0.9150718167701863,
+                "component_met": 43755,
+                "component_met_fraction_attempted": 0.08492818322981366,
+                "record_attained": 0,
+                "record_attainment_fraction_attempted": 0.0,
+                "record_failed": 0,
+                "record_finite_violations": 3220
+              }
+            },
+            "record_profile_scope": "whole_ordered_vector_for_records_with_selected_components",
+            "reference_components": 515200,
+            "reference_records_with_components": 3220,
+            "relative_max": {
+              "status": "NOT_APPLICABLE",
+              "value": null
+            },
+            "relative_rms": {
+              "status": "NOT_APPLICABLE",
+              "value": null
+            },
+            "status": "EVALUATED",
+            "valid_components": 515200,
+            "valid_records": 3220
+          },
+          "nonzero": {
+            "attempted_components": 471445,
+            "attempted_records": 3220,
+            "conditional_valid_statistics": true,
+            "failed_components": 0,
+            "failed_records": 0,
+            "macro": {
+              "conditional_valid_statistics": true,
+              "failed_components": 0,
+              "failed_records": 0,
+              "groups_without_population_components": 0,
+              "groups_without_valid_components": 0,
+              "histories_without_population_components": 0,
+              "histories_without_valid_components": 0,
+              "physical_equal_group_rms": {
+                "status": "FINITE",
+                "value": 22019815.09249655
+              },
+              "physical_equal_history_rms": {
+                "status": "FINITE",
+                "value": 23100738.370814517
+              },
+              "reference_groups": 14,
+              "reference_histories": 51,
+              "relative_equal_group_rms": {
+                "status": "FINITE",
+                "value": 1.0
+              },
+              "relative_equal_history_rms": {
+                "status": "FINITE",
+                "value": 1.0
+              },
+              "total_reference_groups": 14,
+              "total_reference_histories": 51,
+              "valid_groups": 14,
+              "valid_histories": 51
+            },
+            "physical_absolute_max": {
+              "status": "FINITE",
+              "value": 3260093706.8238373
+            },
+            "physical_absolute_rms": {
+              "status": "FINITE",
+              "value": 22744723.02415743
+            },
+            "physical_signed_max": {
+              "status": "FINITE",
+              "value": 2876147611.478153
+            },
+            "physical_signed_mean": {
+              "status": "FINITE",
+              "value": -1.4922069543373267e-10
+            },
+            "physical_signed_min": {
+              "status": "FINITE",
+              "value": -3260093706.8238373
+            },
+            "profiles": {
+              "0.1%": {
+                "component_exceedance_denominator_valid": 471445,
+                "component_failed": 0,
+                "component_finite_violations": 471445,
+                "component_fraction_exceeding_valid": 1.0,
+                "component_met": 0,
+                "component_met_fraction_attempted": 0.0,
+                "record_attained": 0,
+                "record_attainment_fraction_attempted": 0.0,
+                "record_failed": 0,
+                "record_finite_violations": 3220
+              },
+              "1%": {
+                "component_exceedance_denominator_valid": 471445,
+                "component_failed": 0,
+                "component_finite_violations": 471445,
+                "component_fraction_exceeding_valid": 1.0,
+                "component_met": 0,
+                "component_met_fraction_attempted": 0.0,
+                "record_attained": 0,
+                "record_attainment_fraction_attempted": 0.0,
+                "record_failed": 0,
+                "record_finite_violations": 3220
+              },
+              "5%": {
+                "component_exceedance_denominator_valid": 471445,
+                "component_failed": 0,
+                "component_finite_violations": 471445,
+                "component_fraction_exceeding_valid": 1.0,
+                "component_met": 0,
+                "component_met_fraction_attempted": 0.0,
+                "record_attained": 0,
+                "record_attainment_fraction_attempted": 0.0,
+                "record_failed": 0,
+                "record_finite_violations": 3220
+              }
+            },
+            "record_profile_scope": "whole_ordered_vector_for_records_with_selected_components",
+            "reference_components": 471445,
+            "reference_records_with_components": 3220,
+            "relative_max": {
+              "status": "FINITE",
+              "value": 1.0
+            },
+            "relative_rms": {
+              "status": "FINITE",
+              "value": 1.0
+            },
+            "status": "EVALUATED",
+            "valid_components": 471445,
+            "valid_records": 3220
+          },
+          "zero": {
+            "attempted_components": 43755,
+            "attempted_records": 2195,
+            "conditional_valid_statistics": true,
+            "failed_components": 0,
+            "failed_records": 0,
+            "macro": {
+              "conditional_valid_statistics": true,
+              "failed_components": 0,
+              "failed_records": 0,
+              "groups_without_population_components": 0,
+              "groups_without_valid_components": 0,
+              "histories_without_population_components": 0,
+              "histories_without_valid_components": 0,
+              "physical_equal_group_rms": {
+                "status": "FINITE",
+                "value": 0.0
+              },
+              "physical_equal_history_rms": {
+                "status": "FINITE",
+                "value": 0.0
+              },
+              "reference_groups": 14,
+              "reference_histories": 51,
+              "relative_equal_group_rms": {
+                "status": "NOT_APPLICABLE",
+                "value": null
+              },
+              "relative_equal_history_rms": {
+                "status": "NOT_APPLICABLE",
+                "value": null
+              },
+              "total_reference_groups": 14,
+              "total_reference_histories": 51,
+              "valid_groups": 14,
+              "valid_histories": 51
+            },
+            "physical_absolute_max": {
+              "status": "FINITE",
+              "value": 0.0
+            },
+            "physical_absolute_rms": {
+              "status": "FINITE",
+              "value": 0.0
+            },
+            "physical_signed_max": {
+              "status": "FINITE",
+              "value": 0.0
+            },
+            "physical_signed_mean": {
+              "status": "FINITE",
+              "value": 0.0
+            },
+            "physical_signed_min": {
+              "status": "FINITE",
+              "value": 0.0
+            },
+            "profiles": {
+              "0.1%": {
+                "component_exceedance_denominator_valid": 43755,
+                "component_failed": 0,
+                "component_finite_violations": 0,
+                "component_fraction_exceeding_valid": 0.0,
+                "component_met": 43755,
+                "component_met_fraction_attempted": 1.0,
+                "record_attained": 0,
+                "record_attainment_fraction_attempted": 0.0,
+                "record_failed": 0,
+                "record_finite_violations": 2195
+              },
+              "1%": {
+                "component_exceedance_denominator_valid": 43755,
+                "component_failed": 0,
+                "component_finite_violations": 0,
+                "component_fraction_exceeding_valid": 0.0,
+                "component_met": 43755,
+                "component_met_fraction_attempted": 1.0,
+                "record_attained": 0,
+                "record_attainment_fraction_attempted": 0.0,
+                "record_failed": 0,
+                "record_finite_violations": 2195
+              },
+              "5%": {
+                "component_exceedance_denominator_valid": 43755,
+                "component_failed": 0,
+                "component_finite_violations": 0,
+                "component_fraction_exceeding_valid": 0.0,
+                "component_met": 43755,
+                "component_met_fraction_attempted": 1.0,
+                "record_attained": 0,
+                "record_attainment_fraction_attempted": 0.0,
+                "record_failed": 0,
+                "record_finite_violations": 2195
+              }
+            },
+            "record_profile_scope": "whole_ordered_vector_for_records_with_selected_components",
+            "reference_components": 43755,
+            "reference_records_with_components": 2195,
+            "relative_max": {
+              "status": "NOT_APPLICABLE",
+              "value": null
+            },
+            "relative_rms": {
+              "status": "NOT_APPLICABLE",
+              "value": null
+            },
+            "status": "EVALUATED",
+            "valid_components": 43755,
+            "valid_records": 2195,
+            "zero_target_nonzero_fraction_valid": 0.0,
+            "zero_target_nonzero_predictions": 0
+          }
+        },
+        "write_seconds": 5.065392582997447
+      }
+    }
+  },
+  "selection": {
+    "complete": true,
+    "completed_epochs": 437,
+    "epoch": 407,
+    "stopping_reason": "patience",
+    "untrained": false,
+    "validation_normalized_mse": 0.00010598150261279192
+  },
+  "source_commit": "5ea61f157e7e38bbd2a106bf1b51d9560fcad55f",
+  "status": "REPRODUCIBLE_NEGATIVE_DIGITAL_FIDELITY_RESULT_PENDING_REVIEW_MERGE",
+  "weighting": "selection: pooled normalized MSE; report: pooled, equal-history, history-first equal-group MSE before RMS"
+}
