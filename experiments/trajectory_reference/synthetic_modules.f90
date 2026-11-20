@@ -78,6 +78,7 @@ contains
   end subroutine
 end module
 module xnet_jacobian
+  use phase2d_branch_state, only: abort_linear
   use xnet_types
   implicit none
   real(dp) :: dydotdy(160,160,1)=0,jac(160,160,1)=0
@@ -99,7 +100,7 @@ contains
     integer :: info
     if (force_bad_lu) jac=0
     call dgetrf(160,160,jac(:,:,1),160,pivots,info)
-    if (info/=0) error stop 'synthetic LAPACK dgetrf info /= 0'
+    if (info/=0) call abort_linear(info,'dgetrf')
   end subroutine
   subroutine jacobian_bksub(step,rhs,dy,t9rhs,dt9,mask_in)
     integer,intent(in) :: step
@@ -109,6 +110,6 @@ contains
     integer :: info
     dy=rhs; dt9=0
     call dgetrs('N',160,1,jac(:,:,1),160,pivots,dy,160,info)
-    if (info/=0) error stop 'synthetic LAPACK dgetrs info /= 0'
+    if (info/=0) call abort_linear(info,'dgetrs')
   end subroutine
 end module

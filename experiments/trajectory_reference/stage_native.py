@@ -118,6 +118,11 @@ def adapt(name, text):
       Call step_be(kstep,inr)""",
         )
     elif name.endswith("xnet_jacobian_dense.f90"):
+        text = replace_once(
+            text,
+            "\nModule xnet_jacobian\n",
+            "\nModule xnet_jacobian\n  Use phase2d_branch_state, Only: abort_linear\n",
+        )
         for call in ("dgesv", "dgetrf", "dgetrs"):
             lines = text.splitlines(keepends=True)
             hits = [i for i, line in enumerate(lines) if f"Call {call}(" in line]
@@ -126,7 +131,7 @@ def adapt(name, text):
             i = hits[0]
             lines.insert(
                 i + 1,
-                f"        If (info(izb)/=0) Error Stop 'LAPACK {call} info /= 0'\n",
+                f"        If (info(izb)/=0) Call abort_linear(info(izb),'{call}')\n",
             )
             text = "".join(lines)
     elif name.endswith("xnet_ffn.f90"):

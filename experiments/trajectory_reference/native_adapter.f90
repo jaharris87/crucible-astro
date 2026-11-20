@@ -10,7 +10,7 @@ module native_adapter
   use xnet_integrate, only: cross_sect,yderiv
   use xnet_jacobian, only: dydotdy,jac,jacobian_scale,jacobian_decomp,jacobian_bksub
   use actual_eos_module, only: helm_density=>d,helm_temperature=>t
-  use phase2d_branch_state, only: branch_signature,branch_size,side
+  use phase2d_branch_state, only: branch_signature,branch_size,side,status_sink,log_sink,diagnostics_ready
   implicit none
   real(dp) :: nonlinear_atol=1e-13_dp,nonlinear_rtol=1e-11_dp
   real(dp) :: final_residual(160)=0,final_norm=0,final_l1=0,final_projection=0,cumulative_projection=0
@@ -28,6 +28,7 @@ contains
     open(newunit=branch_unit,file='branch-events.bin',status='new',access='stream',form='unformatted')
     open(newunit=residual_unit,file='newton-residuals.bin',status='new',access='stream',form='unformatted')
     open(newunit=counter_unit,file='counter-events.bin',status='new',access='stream',form='unformatted')
+    status_sink=status_unit; log_sink=log_unit; diagnostics_ready=.true.
     opened=.true.
     write(status_unit,'(a)') 'RUNNING'
     flush(status_unit)
