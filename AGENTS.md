@@ -18,9 +18,12 @@ D-032/D-033 authorized the bounded 2C protocol. Its implementation merged throug
 PR #48 at `505d556`; scheduled audit and external-audit reconciliation/repairs
 completed through PR #49 at `eaa9446`. The maintainer [accepted final 2C closeout](https://github.com/jaharris87/crucible-astro/issues/43#issuecomment-7047751430)
 after passing merged checks. [Handoff](docs/HANDOFF.md) and
-[progress](docs/PROGRESS.md) record evidence and deferred triggers. Close #43 and
-the native 2C goal; milestone #3 stays open. The next request is to draft a 2D
-prompt, not execute it. D-034's bounded 2C delegation grants no 2D merge authority.
+[progress](docs/PROGRESS.md) record evidence and deferred triggers. The [final 2C closure](https://github.com/jaharris87/crucible-astro/issues/43#issuecomment-7047856713)
+follows status PR #50 at `75b2ec3`. D-035 invokes 2D protocol preparation under
+#44; independent protocol review and explicit scientific/producer execution
+acceptance remain pending. No producer build or physical evaluation has run.
+One native goal covers 2D only; milestone #3 stays open. D-034's bounded 2C
+delegation grants no 2D merge authority.
 [Milestone #3](https://github.com/jaharris87/crucible-astro/milestone/3) and
 [the single reconciled sequence](docs/PHASE_2_LAUNCH.md) track five increments.
 Each next sub-phase needs accepted scope and preceding integration. Native goals

@@ -13,7 +13,10 @@ and maintainer acceptance under D-033; its numerical exits and clean reproductio
 pass. PR #48 integrated the implementation at `505d556`; reviewed audit repairs
 merged through PR #49 at `eaa9446`. The maintainer [accepted final 2C closeout](https://github.com/jaharris87/crucible-astro/issues/43#issuecomment-7047751430).
 Current boundaries are recorded in [progress](PROGRESS.md) and [handoff](HANDOFF.md);
-2D remains uninvoked.
+D-035 invokes 2D protocol preparation after verified PR #50 / `75b2ec3` closure.
+Its [two-case proposal](../experiments/trajectory_reference/PROTOCOL.md) is pending
+independent review and explicit scientific/producer acceptance; no physical
+execution or merge approval is inferred.
 The 2B [concrete MLP experiment](https://github.com/jaharris87/crucible-astro/issues/42#issuecomment-7042652534)
 received independent scope review and maintainer acceptance under D-031 before fitting.
 This is the single Phase 2 sequence; live issues hold execution detail.

@@ -687,6 +687,36 @@ This accepts final 2C at repair merge `eaa9446` with passing merged checks and
 recorded dispositions. Close #43 and the native 2C goal; keep milestone #3 open.
 Drafting the next prompt is not 2D execution authority or an extension of D-034.
 
+### Decision D-035: Phase 2D launch; concrete producer authority pending
+
+**Accepted launch scope, 2026-11-20:** the maintainer invoked only
+[2D / issue #44](https://github.com/jaharris87/crucible-astro/issues/44), after
+2A–2C and status PR #50 at `75b2ec32c7983e94a73e88c6b09250a9506eb2d0`.
+Startup checked the clean current merged main and preceding final receipts once;
+no historical qualification or broad audit was repeated. One native goal covers
+active 2D only; milestone #3 stays open.
+
+This launch authorizes read-only discovery, concrete protocol preparation,
+repository edits, local dependencies, synthetic tests, commits/pushes and PR
+creation. The [proposed protocol](../experiments/trajectory_reference/PROTOCOL.md)
+fixes two permitted development/validation forced IVPs, explicit state/forcing,
+a narrowly adapted native numerical path, convergence/failure/reproduction checks
+and a bounded build/run/diagnostic/retry envelope. Its required independent
+fresh-context read-only Sol High review and human decision are pending.
+**No producer build, RHS/Jacobian/NSE evaluation or trajectory has run.**
+Before any producer build/evaluation, the maintainer must explicitly accept both
+the reviewed coherent scientific/numerical protocol and concrete execution scope.
+Those decisions do not approve a merge. D-034 does not extend to 2D. Human named
+reference acceptance, exact-candidate review, concrete merge decision, merged
+verification and final sub-phase acceptance remain required.
+
+Preserve accepted data/overlay/memberships, original reference artifacts, frozen
+2B weights/scalers and negative fidelity results. No learned rollout, fitting,
+model/scaler change, final-test evaluation, energy/heating extension, original
+reference modification, bulk conversion, release, paid service, deployment, 2E,
+reduced method or later phase is authorized. D-013 estimates are evidence, not
+compute caps. The [existing sequence](PHASE_2_LAUNCH.md) remains the sole Phase 2 plan.
+
 ## Scientific decisions and current evidence gates
 
 The paragraph below preserves the initial ingestion decision; D-025 above is the
