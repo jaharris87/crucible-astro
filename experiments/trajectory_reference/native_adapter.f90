@@ -23,6 +23,12 @@ module native_adapter
   real(dp) :: cpu_start=0
   logical :: opened=.false.,runtime_saved=.false.,workspace_ready=.false.,failure_state_saved=.false.
   integer :: physical_phase=0
+  ! Native retry cleanup mutates yt/tt/t9t/rhot/yet after a failed step, while
+  ! F/coefficient/assembly workspaces retain their last physical evaluation.
+  ! Keep its inputs and EOS outputs together without reevaluating any physics.
+  real(dp) :: last_evaluated_state(160),last_evaluated_conditions(3),last_evaluated_eos(4)
+  integer :: last_evaluated_iweak
+  integer(int64) :: matrix_jacobian_id=0
 contains
   subroutine open_diagnostics()
     call system_clock(wall_start,wall_rate)
@@ -144,11 +150,14 @@ contains
       write(log_unit,'(a)') 'FAILURE_WORKSPACE_UNAVAILABLE physical workspaces not initialized'
       return
     endif
-    if (.not.failure_state_saved) call save_failure_state(yt(:,1),tt(1),t9t(1),rhot(1))
+    if (.not.failure_state_saved) call save_failure_state(last_evaluated_state,last_evaluated_conditions(1), &
+                                                       last_evaluated_conditions(2),last_evaluated_conditions(3))
+    write(log_unit,*) 'FAILURE_WORKSPACE_LAST_EVALUATION',physical_phase,last_evaluated_conditions
+    write(log_unit,*) 'FAILURE_WORKSPACE_JACOBIAN_BASE',matrix_jacobian_id
     header=[int(z'43524657',int32),1_int32,int(ny,int32),int(size(csect1),int32), &
             int(size(csect2),int32),int(size(csect3),int32),int(size(csect4),int32), &
             int(size(b1),int32),int(size(b2),int32),int(size(b3),int32),int(size(b4),int32), &
-            int(size(jac,1),int32),int(size(jac,2),int32),int(physical_phase,int32),int(iweak(1),int32)]
+            int(size(jac,1),int32),int(size(jac,2),int32),int(physical_phase,int32),int(last_evaluated_iweak,int32)]
     open(newunit=unit,file='failure-workspace.bin',status='new',access='stream',form='unformatted',iostat=ios)
     if (ios/=0) then
       write(log_unit,*) 'FAILURE_WORKSPACE_UNAVAILABLE',ios
@@ -156,7 +165,7 @@ contains
     endif
     nan=ieee_value(0.0_dp,ieee_quiet_nan)
     write(unit,iostat=ios) header
-    if (ios==0) write(unit,iostat=ios) tt,t9t,rhot,yet,cv,etae,detaedt9,yt
+    if (ios==0) write(unit,iostat=ios) last_evaluated_conditions,last_evaluated_eos,last_evaluated_state
     if (physical_phase==2) then
       if (ios==0) write(unit,iostat=ios) ydot,csect1,csect2,csect3,csect4,b1,b2,b3,b4,jac
     else
@@ -251,9 +260,15 @@ contains
     endif
     active=.true.
     yt(:,1)=state; tt(1)=time; t9t(1)=temp; rhot(1)=density
-    workspace_ready=.true.; physical_phase=1
+    last_evaluated_state=state
+    last_evaluated_conditions=[time,temp,density]
+    ! EOS/weak outputs are captured only after cross_sect returns below.
+    workspace_ready=.false.; physical_phase=1
     coefficient_count=coefficient_count+1
     call cross_sect(mask_in=active)
+    last_evaluated_eos=[yet(1),cv(1),etae(1),detaedt9(1)]
+    last_evaluated_iweak=iweak(1)
+    workspace_ready=.true.
     ok=all(ieee_is_finite(csect1)).and.all(ieee_is_finite(csect2)) &
        .and.all(ieee_is_finite(csect3)).and.all(ieee_is_finite(csect4)) &
        .and.all(ieee_is_finite(yet)).and.all(ieee_is_finite(cv)).and.all(ieee_is_finite(etae)) &
@@ -412,6 +427,7 @@ contains
       call full_jacobian(iterate,time,temp,density,f,matrix)
       dydotdy(:,:,1)=matrix
       call jacobian_scale(rdt,mult,mask_in=active)
+      matrix_jacobian_id=jacobian_count
       if (.not.all(ieee_is_finite(jac))) call fail('nonfinite I/h-J matrix')
       lu_count=lu_count+1
       call checkpoint()

@@ -7,6 +7,7 @@ on the pinned compiler before any physical control is evaluated.
 
 import importlib.util
 import json
+import re
 from pathlib import Path
 
 import pytest
@@ -103,3 +104,105 @@ def test_unrecognized_pinned_source_transform_fails_closed(staging):
             "refs/producer/xnet_ffn.f90",
             "Module xnet_ffn\n! changed source\nEnd Module\n",
         )
+
+
+NATIVE_SOURCE = (
+    Path(__file__).resolve().parents[1]
+    / "experiments/trajectory_reference/native_adapter.f90"
+)
+
+
+def _subroutine(source, name):
+    return re.search(
+        rf"^  subroutine {name}\(.*?^  end subroutine {name}$",
+        source,
+        re.MULTILINE | re.DOTALL,
+    ).group()
+
+
+def _assert_evaluated_snapshot_dataflow(source):
+    """Static invariant only: no compiler, native fixture or physical source runs.
+
+    Follow the actual Fortran capture assignments into the serialized prefix.
+    A cleanup mutation must not become a snapshot's evaluated physical input.
+    """
+    fresh = _subroutine(source, "fresh")
+    writer = _subroutine(source, "save_failure_workspace")
+    captures = []
+    for expression in (
+        r"state",
+        r"\[time,temp,density\]",
+        r"\[yet\(1\),cv\(1\),etae\(1\),detaedt9\(1\)\]",
+        r"iweak\(1\)",
+    ):
+        capture = re.search(rf"^    (\w+)\s*=\s*{expression}$", fresh, re.MULTILINE)
+        assert capture is not None, f"Missing retained physical field: {expression}"
+        captures.append(capture)
+    state, conditions, eos, weak = [capture[1] for capture in captures]
+    cross = fresh.index("call cross_sect(")
+    derivative = fresh.index("call yderiv(")
+    assert captures[0].end() < cross
+    assert captures[1].end() < cross
+    assert cross < captures[2].start() < captures[3].end() < derivative
+    # An interrupted coefficient call must not expose uninitialized EOS buffers.
+    assert cross < fresh.index("workspace_ready=.true.") < derivative
+    prefix = re.search(r"if \(ios==0\) write\(unit,iostat=ios\) ([^\n]+)", writer)[1]
+    assert prefix.replace(" ", "").split(",") == [conditions, eos, state]
+    assert re.search(rf"save_failure_state\({state},{conditions}\(1\)", writer)
+    assert f"int({weak},int32)" in writer
+
+
+def test_failure_workspace_uses_evaluated_inputs_after_retry_reset():
+    _assert_evaluated_snapshot_dataflow(NATIVE_SOURCE.read_text())
+
+
+@pytest.mark.parametrize("mutation", ["reset_prefix", "reset_fallback", "early_eos"])
+def test_snapshot_dataflow_rejects_original_cleanup_regressions(mutation):
+    source = NATIVE_SOURCE.read_text()
+    if mutation == "reset_prefix":
+        source = source.replace(
+            "last_evaluated_conditions,last_evaluated_eos,last_evaluated_state",
+            "tt,t9t,rhot,yet,cv,etae,detaedt9,yt",
+        )
+    elif mutation == "reset_fallback":
+        source = source.replace(
+            "save_failure_state(last_evaluated_state,last_evaluated_conditions(1),",
+            "save_failure_state(yt(:,1),last_evaluated_conditions(1),",
+        )
+    else:
+        assignment = "    last_evaluated_eos=[yet(1),cv(1),etae(1),detaedt9(1)]\n"
+        source = source.replace(assignment, "").replace(
+            "    call cross_sect(mask_in=active)\n",
+            assignment + "    call cross_sect(mask_in=active)\n",
+        )
+    with pytest.raises(AssertionError):
+        _assert_evaluated_snapshot_dataflow(source)
+
+
+def test_native_retention_fixture_checks_tenth_cleanup_and_exact_wire_prefix():
+    # This checks fixture coverage only. Its actual execution requires separately
+    # authorized native compilation and is not replaced by these Python checks.
+    fixture = (NATIVE_SOURCE.parent / "synthetic_native.f90").read_text()
+    scenario = fixture.split("case('retry-snapshot')", 1)[1].split("  case(", 1)[0]
+    loop = scenario.split("do trial=1,10", 1)[1].split("    enddo", 1)[0]
+    for field in ("yt(:,1)", "tt(1)", "t9t(1)", "rhot(1)", "yet(1)"):
+        assert re.search(rf"{re.escape(field)}\s*=", loop)
+    assert scenario.index("    enddo") < scenario.index("call save_failure_workspace()")
+    assert "same_bits(saved_state,[expected_conditions,evaluated])" in scenario
+    assert (
+        "same_bits(saved_workspace,[expected_conditions,expected_eos,evaluated,expected_f])"
+        in scenario
+    )
+
+
+def test_snapshot_matrix_baseline_tracks_matrix_formation_not_started_fd_build():
+    source = NATIVE_SOURCE.read_text()
+    step = _subroutine(source, "adapted_step")
+    writer = _subroutine(source, "save_failure_workspace")
+    assert (
+        step.index("call jacobian_scale(")
+        < step.index("matrix_jacobian_id=jacobian_count")
+        < step.index("call jacobian_decomp(")
+    )
+    assert "matrix_jacobian_id=" not in _subroutine(source, "full_jacobian")
+    assert "'FAILURE_WORKSPACE_JACOBIAN_BASE',matrix_jacobian_id" in writer

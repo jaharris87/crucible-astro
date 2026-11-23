@@ -30,6 +30,7 @@ PUBLIC = (
     "forcing_synthetic.f90",
     "build.sh",
     "PROTOCOL.md",
+    "FORENSIC_RETENTION.md",
 )
 
 
