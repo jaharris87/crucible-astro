@@ -268,6 +268,31 @@ def test_accepted_binary_stream_refuses_truncation_or_trailing_bytes(raw):
         reference.decode_accepted(raw)
 
 
+@pytest.mark.parametrize("trailing", [b"", b"partial row"])
+def test_interrupted_stream_summary_counts_only_complete_records(
+    case, tmp_path, trailing
+):
+    times = np.array([0.0, 0.0001, 0.0002])
+    raw = accepted_rows(case, times).tobytes() + trailing
+    (tmp_path / "accepted.bin").write_bytes(raw)
+    result = reference.retained_trajectory_summary(tmp_path, case["requested_time"])
+    assert result["diagnostic_only"] and result["complete_records"] == 3
+    assert result["trailing_bytes"] == len(trailing)
+    assert result["last_retained_time"] == 0.0002
+    np.testing.assert_array_equal(result["accepted_times"], times)
+    assert result["requested_output_occurrences"].tolist() == [1] + [0] * 11
+    assert not result["requested_output_complete"]
+    assert result["accepted_stream_sha256"] == reference.digest_bytes(raw)
+    assert (tmp_path / "accepted.bin").read_bytes() == raw
+
+
+def test_interrupted_stream_without_complete_row_has_no_achieved_time(case, tmp_path):
+    (tmp_path / "accepted.bin").write_bytes(b"incomplete initial row")
+    result = reference.retained_trajectory_summary(tmp_path, case["requested_time"])
+    assert result["complete_records"] == 0 and result["last_retained_time"] is None
+    assert not result["requested_output_complete"]
+
+
 def test_domain_uses_Q_over_actual_nonunit_B_and_not_raw_Q(case):
     y = case["Y0"].copy()
     # Q=.3, B=.4 -> rho*Ye=15 passes; treating Q as Ye gives6 and fails.

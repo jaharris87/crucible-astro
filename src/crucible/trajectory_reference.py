@@ -446,6 +446,34 @@ def prepare(config_path, destination, source_root):
     return record
 
 
+def retained_trajectory_summary(work, requested):
+    """Describe complete retained records without certifying process success.
+
+    An interrupted stream may end within a record. Preserve its byte identity,
+    count the trailing bytes, and inspect only its complete prefix.
+    """
+    path = Path(work) / "accepted.bin"
+    raw = path.read_bytes()
+    width = (3 * N + 8) * 8
+    count, trailing = divmod(len(raw), width)
+    times = (
+        decode_accepted(raw[: count * width])["accepted_t"]
+        if count
+        else np.empty(0)
+    )
+    occurrences = np.array([np.count_nonzero(times == t) for t in requested])
+    return {
+        "diagnostic_only": True,
+        "accepted_stream_sha256": digest_bytes(raw),
+        "complete_records": count,
+        "trailing_bytes": trailing,
+        "accepted_times": times,
+        "last_retained_time": float(times[-1]) if count else None,
+        "requested_output_occurrences": occurrences,
+        "requested_output_complete": bool(np.all(occurrences == 1)),
+    }
+
+
 def analyze(root):
     from crucible import trajectory_metrics as metrics
 
@@ -488,9 +516,19 @@ def analyze(root):
         levels, all_runs = [], {}
         for spec in [s for s in prepared["attempts"] if s["case"] == label]:
             work = root / "attempts" / spec["name"]
-            result = {"pass": False, "mode": spec["mode"]}
+            result = {
+                "pass": False,
+                "mode": spec["mode"],
+                "attempted": work.is_dir(),
+            }
+            if spec["mode"] == 1 and (work / "accepted.bin").exists():
+                result["retained_output"] = retained_trajectory_summary(
+                    work, case["requested_time"]
+                )
             try:
                 record = json.loads((work / "attempt.json").read_text())
+                result["process"] = record
+                result["process_completed"] = record.get("completed") is True
                 inventory = {
                     str(p.relative_to(work))
                     for p in work.rglob("*")
@@ -507,7 +545,8 @@ def analyze(root):
                     else []
                 )
                 native_complete = (
-                    record["returncode"] == 0
+                    record.get("completed") is True
+                    and record.get("returncode") == 0
                     and bool(statuses)
                     and statuses[-1] == "SUCCESS"
                 )
