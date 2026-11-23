@@ -808,6 +808,13 @@ frozen proposal-header bytes are changed to record acceptance. The actual receip
 controls authority. This decision authorizes neither reference acceptance, merge,
 Phase 2E nor a later trajectory rerun. Those remain separate concrete checkpoints.
 
+**Actual D-038 outcome:** one fresh build, all eleven synthetic prerequisites and
+all nine native processes completed; 4,384 RHS calls, zero trajectory steps and
+no repair/restart. [The completed diagnostic report](reports/2026-11-23-phase2d-diagnostics.md)
+preserves numerical results, four refused directional samples, identities,
+measured costs, fresh reload and independent bounded artifact PASS. These results
+do not qualify a reference or authorize another numerical source/trajectory run.
+
 ## Scientific decisions and current evidence gates
 
 The paragraph below preserves the initial ingestion decision; D-025 above is the

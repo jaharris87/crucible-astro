@@ -2,8 +2,11 @@
 
 **D-038 was explicitly accepted on 2026-11-23.** The [actual receipt](https://github.com/jaharris87/crucible-astro/issues/44#issuecomment-7107405775)
 authorizes the exact [protocol](DIAGNOSTIC_PROTOCOL.md) and bounded producer
-envelope. Its proposal-time header remains frozen evidence. Preparation and
-Python tests are offline; only the accepted diagnostic campaign may execute.
+envelope. Its proposal-time header remains frozen evidence. The single authorized
+campaign completed; see the [actual diagnostic report](../../docs/reports/2026-11-23-phase2d-diagnostics.md).
+The commands below document reproduction within an explicitly accepted execution
+scope; they grant no completed-process repeat or new build/evaluation. Offline
+verification/reload of the retained evidence remains available.
 This guide grants no trajectory rerun, reference acceptance, merge or Phase 2E.
 
 The original two initial states and chronological development L0 Jacobian baseline

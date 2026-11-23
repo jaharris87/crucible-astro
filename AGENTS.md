@@ -30,7 +30,10 @@ a pause; that campaign is cancelled with numerical failures and partial validati
 retained. On 2026-11-23 the maintainer resumed offline diagnosis and repository
 work. D-038 was explicitly accepted on 2026-11-23 for the reviewed three-state
 diagnostic protocol and its bounded builds/evaluations only; actual acceptance is
-recorded in #44 comment7107405775. It grants no trajectory rerun, reference,
+recorded in #44 comment7107405775. That campaign completed: nine processes,
+4,384 RHS calls, no trajectory step; frozen-state verification and independent
+artifact assessment pass. The diagnostic report is linked from current handoff.
+It grants no trajectory rerun, reference,
 merge or Phase 2E acceptance. Later trajectory execution needs a separate decision;
 see current handoff and live #44.
 One native goal covers 2D only; milestone #3 stays open. D-034's bounded 2C

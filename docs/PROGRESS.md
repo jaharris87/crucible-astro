@@ -52,8 +52,13 @@ On resumption, D-038 protocol review and focused repair verification pass at
 `ae69715` (P2D-DIAG-001 mass-weighted reporting fix). All 909 installed tests,
 Linux CI and required checks pass. The [concrete decision packet](https://github.com/jaharris87/crucible-astro/issues/44#issuecomment-7106057047)
 received [explicit scientific/producer acceptance](https://github.com/jaharris87/crucible-astro/issues/44#issuecomment-7107405775)
-in chat (“approved”) before any diagnostic build/call. Execution is limited to
-that diagnostic envelope; no trajectory rerun or later phase is authorized.
+in chat (“approved”) before any diagnostic build/call. The accepted campaign now completed: one build, eleven synthetic fixtures, nine
+processes and 4,384 RHS calls; no repair/restart/trajectory step. The [diagnostic
+report](reports/2026-11-23-phase2d-diagnostics.md) records passing identity,
+repeatability, twelve complete Jacobians and 36 directional agreement checks,
+with four refused directional samples retained. Conditional assembly error is
+material but does not explain the full stalled residual. Fresh reload and bounded
+independent artifact assessment pass. No trajectory rerun or later phase is authorized.
 D-034 does not delegate 2D merges. See [handoff](HANDOFF.md) for the next decision.
 
 ## Phase status
@@ -73,14 +78,14 @@ D-034 does not delegate 2D merges. See [handoff](HANDOFF.md) for the next decisi
 | [2A #41](https://github.com/jaharris87/crucible-astro/issues/41) | Qualified named-version/use/split arrays, example and tests | Complete at PR #46 / `8b6cf71`; 489 installed-package tests, merged CI and all-row structural checks in final receipt |
 | [2B #42](https://github.com/jaharris87/crucible-astro/issues/42) | Integrated 2A; frozen pointwise MLP/comparator and reproducible validation | Complete at PR #47 / `a81552e`; 515 installed-package tests, exact independent review, human merge, merged CI/reload/preservation checks in final receipt; negative D-024 result; final-test model outcomes sealed |
 | [2C #43](https://github.com/jaharris87/crucible-astro/issues/43) | Integrated 2B; checked callable adapter, independent analytic/stiff integration and scheduled merged 2A–2C audit | Complete: original PR #48 / `505d556`, scheduled audit and reconciled external audits, repair PR #49 / `eaa9446`, merged checks and explicit final acceptance; no fitting, real MLP rollout or new XNet execution |
-| [2D #44](https://github.com/jaharris87/crucible-astro/issues/44) | Integrated 2C; accepted real reference trajectories/protocol | Active offline diagnosis after failed/interrupted D-036 campaign; D-038 bounded diagnostic protocol/producer scope accepted; no full-horizon reference; draft PR #51 |
+| [2D #44](https://github.com/jaharris87/crucible-astro/issues/44) | Integrated 2C; accepted real reference trajectories/protocol | Active: D-038 diagnostics complete with independent artifact PASS; next numerical/source protocol and producer decision pending; original failed/interrupted campaign preserved; no full-horizon reference; draft PR #51 |
 | [2E #45](https://github.com/jaharris87/crucible-astro/issues/45) | Integrated 2D; frozen pointwise/rollout/cost evaluation and report | Scope and final-test release pending; human baseline acceptance before milestone closure |
 
 D-027 migration #39 is closed at `804fb75`; its linked final receipt controls closure.
 Later issues remain short dependency/deliverable summaries. No next sub-phase
 starts before scope acceptance and preceding integration. The completed 2C audit,
 repair and acceptance records remain in #43 and its PRs; original reports and
-dispositions are preserved. The next gate is a reviewed bounded diagnostic protocol
+dispositions are preserved. The next gate is a reviewed numerical/source proposal
 and concrete producer decision; the required passing 2D reference set remains incomplete.
 
 ## Phase 1 issue dependencies and integrations

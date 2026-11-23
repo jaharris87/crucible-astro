@@ -72,15 +72,17 @@ SHA256 `f39ba5279ef648e62f0c4837623403901d75d8ac200b5fcfae2df738661f7f03`.
 The runner-only repair has public positive/wrong-reason regression tests.
 
 **Resumed on explicit maintainer request, 2026-11-23.** Offline diagnosis and
-repository repairs are authorized; no new producer execution has occurred.
+repository repairs were authorized; the separately accepted D-038 campaign has now completed.
 The [diagnosis](reports/2026-11-23-phase2d-diagnosis.md) rechecks the full retained
 population and proposes [D-038](../experiments/trajectory_reference/DIAGNOSTIC_PROTOCOL.md).
 The protocol and focused implementation repair review pass at `ae69715`;
 [D-038 scientific/producer acceptance](https://github.com/jaharris87/crucible-astro/issues/44#issuecomment-7107405775)
 was explicitly given in chat (“approved”). Exact repaired installed suite: 909 tests, zero skips; Linux CI,
 Ruff lint/format, documentation and whitespace checks pass. Private preparation
-003 binds that source/tree and all 92 immutable identities; no build or physical
-evaluation has run. Earlier unexecuted preparations remain preserved.
+003 binds that source/tree and all 92 immutable identities. Job 61864997 completed
+one fresh build, eleven synthetic prerequisites and all nine diagnostic processes,
+with 4,384 RHS calls and no trajectory step, repair build or restart. Earlier
+unexecuted preparations remain preserved.
 The prior pause remains preserved. Job 61689197 is terminal CANCELLED;
 no campaign or reproduction job is left running. The [pause checkpoint](reports/2026-11-20-phase2d-checkpoint.md)
 and [actual receipt](https://github.com/jaharris87/crucible-astro/issues/44#issuecomment-7050616078)
@@ -90,12 +92,25 @@ convergence. Validation L0 was interrupted at 25.4 microseconds of 10 ms.
 No full-horizon reference passed. Direction two is inadmissible for both initial
 states at every multiplier; exhaustion snapshots need consistent state/F retention.
 
-**Next action:** execute and assess only the accepted D-038 frozen-state diagnostic
-envelope. The source-bound private archive and job script have been transferred
-for its fresh build and nine-process campaign; live #44 records the job/outcome.
-Original failure analysis and the reviewed forensic retention repair are preserved.
-Later trajectory execution still needs a separate accepted numerical protocol.
-No automatic infrastructure restart or numerical retry is approved.
+**D-038 result:** [the diagnostic report](reports/2026-11-23-phase2d-diagnostics.md)
+records passing identity/repeatability, all twelve full-F Jacobians and all 36
+prescribed directional agreement checks. Four of 81 directional samples were
+explicitly refused; stable adjacent windows remain. Exact conditional arithmetic
+shows material assembly cancellation, but removing that discrepancy does not
+remove the dominant frozen Newton residual. All four frozen linear solves complete;
+small normwise backward errors do not establish componentwise forward accuracy.
+Fresh offline verification/reload passes all 7,070 derived arrays. Fresh-context
+read-only Sol High artifact assessment gives bounded PASS without blockers.
+Raw archive SHA256 is
+`02f2c62ade306d21f8cd5c584577fc215e1df34f646114559f5f05efcc8523bd`.
+Measured job wall is 55 s / total CPU 42.546 s; complete costs and artifact hashes
+are in the report. No full-horizon reference has passed.
+
+**Next action:** prepare and independently review a concrete numerical/source
+proposal. A higher-precision product-and-sum assembly would be a new numerical RHS,
+not unchanged D-019. It needs explicit scientific acceptance and bounded producer
+authority before any build/evaluation; D-038 does not authorize trajectory reruns.
+Original failures and the reviewed forensic retention repair remain preserved.
 The stopped campaign used exact reviewed `a771930`,
 submitted after [explicit D-037 acceptance](https://github.com/jaharris87/crucible-astro/issues/44#issuecomment-7050412199).
 Focused independent review passes the repair, all 120 Phase 2D Python tests and
