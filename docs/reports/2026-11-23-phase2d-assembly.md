@@ -101,7 +101,12 @@ finite scope; unused authority does not permit postphysical reruns.
 Neither process completes the requested 1e-4 s interval. No 10 ms trajectory,
 same-output-grid refinement comparison, global numerical convergence or clean
 trajectory reproduction is established. Higher-precision assembly alone did not
-remove the development solvability blocker. Solver-control refinement cannot
+remove the development solvability blocker. Independent offline analysis of its
+final Newton record finds all 160 pre/post Y and F values bitwise identical.
+Every correction is below half an ULP of the stored state (maximum 0.4992807772,
+median 0.2228237840); the exact-rational normalized residual is 4.430184552543388.
+This identifies local binary64 update stagnation, without proving that no other
+representable root exists or authorizing changed controls. Solver-control refinement cannot
 establish physical forcing accuracy or recover unresolved forcing history.
 
 ## Reporting, reproduction and cost
@@ -119,7 +124,15 @@ Versioned offline verification passes software/provenance/failure-accounting
 checks, with qualification and trajectory-reference flags false. Fresh-process
 reload/recomputation also passes all 255 arrays by dtype, shape and bytes. This
 is serialization and offline numerical-recomputation evidence, not clean trajectory
-reproduction. Independent actual-artifact assessment is in progress.
+reproduction. Fresh-context read-only **gpt-6.1-sol High** actual-artifact and
+reporting-repair assessment gives **bounded PASS, no blocking findings**, against
+report candidate `6ee876f1280bafd7c8a6df563cbfa597d9cac322`. The reviewer independently
+rehashes raw identities, reconstructs all five workspaces' exact arithmetic,
+recomputes all 81 directional samples and 513 Newton residual/projection norms,
+scans all physical rows and IEEE records, verifies repeatability, host/build
+identities, costs and the report table, runs eighteen reporting tests and fresh
+reload, and confirms the final-state stagnation observation. No producer/build,
+SSH, physical call or edit occurs in that review. It is not final full-PR review.
 Public synthetic tests cover arithmetic, nonlinear/failure records and malformed
 or substituted identity evidence without private CI dependencies: **1,010 tests
 pass, zero skips**; lint/format and frozen-documentation checks pass.
@@ -134,9 +147,8 @@ Scopes overlap and are not additive wall times. Raw campaign storage is
 2,737,088 / 2,032,226 bytes. Persistence/diagnostic overhead is included in these
 measurements; no matched-accuracy speedup is claimed.
 
-D-039 permits no further producer build or physical evaluation. Complete the
-artifact assessment and prepare the smallest evidence-backed next numerical
-proposal. Any new execution or changed numerical contract needs a separate explicit
+D-039 permits no further producer build or physical evaluation. The bounded artifact assessment is complete. Prepare the smallest evidence-backed
+next numerical proposal. Any new execution or changed numerical contract needs a separate explicit
 decision. Full 2D references, reference acceptance, exact integration-candidate
 review, human-approved merge and merged-result verification remain outstanding.
 Keep #44, the native 2D goal and milestone #3 open. Phase 2E remains excluded.

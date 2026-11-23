@@ -127,10 +127,13 @@ match retained compute-process identities through an explicit hash-bound read-on
 receipt; retained build/executable identities are also verified locally. Scientific
 criteria and executed gates are unchanged. All 1,010 public tests, lint/format and
 frozen-documentation checks pass. Fresh-process reload/recomputation passes all 255 arrays; independent actual-artifact
-assessment is in progress; the report records exact scope and remaining limits.
+assessment gives bounded PASS without blocking findings. The independent review
+also confirms final development updates are entirely lost to binary64 rounding;
+this is local stagnation, not proof that no other representable root exists.
+The report records exact scope and remaining limits.
 
-**Next authorized action:** finish offline artifact assessment/reporting, diagnose
-the retained development failure and prepare a concrete next numerical proposal.
+**Next authorized action:** prepare a concrete next numerical proposal from the
+verified retained development failure. D-039 reporting/artifact assessment is complete.
 New producer execution requires a separate reviewed protocol and explicit decision.
 The [guide](../experiments/trajectory_reference/ASSEMBLY_QUALIFICATION.md) and
 [wire formats](../experiments/trajectory_reference/ASSEMBLY_WIRE.md) retain original/
