@@ -106,8 +106,9 @@ Raw archive SHA256 is
 Measured job wall is 55 s / total CPU 42.546 s; complete costs and artifact hashes
 are in the report. No full-horizon reference has passed.
 
-**Next action:** prepare and independently review a concrete numerical/source
-proposal. A higher-precision product-and-sum assembly would be a new numerical RHS,
+**Next action:** independently review the concrete [D-039 qualification proposal](../experiments/trajectory_reference/ASSEMBLY_QUALIFICATION_PROTOCOL.md),
+then obtain its explicit scientific/source and producer decision. The proposed
+higher-precision product-and-sum assembly would be a new numerical RHS,
 not unchanged D-019. It needs explicit scientific acceptance and bounded producer
 authority before any build/evaluation; D-038 does not authorize trajectory reruns.
 Original failures and the reviewed forensic retention repair remain preserved.

@@ -85,8 +85,9 @@ D-027 migration #39 is closed at `804fb75`; its linked final receipt controls cl
 Later issues remain short dependency/deliverable summaries. No next sub-phase
 starts before scope acceptance and preceding integration. The completed 2C audit,
 repair and acceptance records remain in #43 and its PRs; original reports and
-dispositions are preserved. The next gate is a reviewed numerical/source proposal
-and concrete producer decision; the required passing 2D reference set remains incomplete.
+dispositions are preserved. The next gate is independent review and explicit acceptance of the
+[D-039 numerical/source proposal](../experiments/trajectory_reference/ASSEMBLY_QUALIFICATION_PROTOCOL.md)
+and its concrete producer scope; the required passing 2D reference set remains incomplete.
 
 ## Phase 1 issue dependencies and integrations
 

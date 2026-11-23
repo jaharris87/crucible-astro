@@ -815,6 +815,35 @@ preserves numerical results, four refused directional samples, identities,
 measured costs, fresh reload and independent bounded artifact PASS. These results
 do not qualify a reference or authorize another numerical source/trajectory run.
 
+### Decision D-039: Distinct assembly source and bounded qualification
+
+**PROPOSED; not accepted.** The [completed D-038 report](reports/2026-11-23-phase2d-diagnostics.md)
+shows material conditional assembly discrepancy, but it does not explain the
+entire stalled residual or prove original-F integration impossible. The concrete
+[qualification proposal](../experiments/trajectory_reference/ASSEMBLY_QUALIFICATION_PROTOCOL.md)
+asks whether to investigate separately named `native-XNet-b64-productsum113-b64-v1`:
+promote native binary64 b/Y before products, accumulate in verified binary128,
+return binary64 F, preserving native coefficients/physics and original D-019.
+This changes numerical RHS identity; the frozen MLP's compatibility with it is
+unestablished. Original-F data, controls, weights/scalers and failures remain intact.
+
+Recommendation: accept this distinct source/claim and bounded producer scope only
+after independent protocol review. One fresh build plus at most two prephysical
+build/preflight repairs; six identity and three frozen derivative processes; two
+original standard first-step attempts, then two tight counterparts only if both
+standard attempts pass. No trajectory continuation or automatic restart. The
+conservative finite-loop bound is 10,398,034 full-F calls, with expected usage much
+smaller; it is execution scope, not a D-013 resource cap. Local controls, initial
+states, forcing, physics, constraints and derivative criteria stay fixed.
+
+Alternative: retain the original digital F as the required source and continue
+offline numerical-method analysis, without authorizing this new source. A human
+answer is required because this proposal changes numerical reference meaning and
+authorizes new physical execution. Even passing qualification would establish
+only initial-step solvability; a full reference campaign still needs its explicit
+protocol/producer decision. No reference/merge/final 2D acceptance or 2E is proposed.
+Independent review and actual human response are pending; no build/evaluation.
+
 ## Scientific decisions and current evidence gates
 
 The paragraph below preserves the initial ingestion decision; D-025 above is the
