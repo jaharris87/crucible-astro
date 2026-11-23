@@ -89,7 +89,10 @@ Other states provide neither file and execute no linear stage.
 For each complete matrix, `linear-factor-N.bin` contains five int32 values
 `[0x4352444c,1,160,LU_info,solve_info]`, then
 `[h,Y160,Yold160,F160,M160x160,RHS160,LU160x160,correction160]`, then 160 int32
-pivots. `solve_info=-999` means not called; its correction is unavailable NaN.
+pivots. `solve_info=-999` means not called. Any nonzero solve status leaves
+the correction unavailable NaN; returned values from an unsuccessful solve are
+not tested or published as a correction. A successful status with nonfinite
+computed correction remains fatal.
 Native `jacobian_scale`, decomposition and back-substitution form the actual
 system/solution. Optional diagnostic status outputs preserve each LAPACK result;
 legacy calls without that option still abort on nonzero info. Finite LU failures

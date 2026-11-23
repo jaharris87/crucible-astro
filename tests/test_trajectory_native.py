@@ -276,3 +276,48 @@ def test_diagnostic_incomplete_matrix_is_optional_and_restores_baseline():
     assert "complete=.false." in full
     assert full.index("complete=.false.") < full.rindex("call fresh(base,")
     assert "if (present(increment_factor)) delta=delta*increment_factor" in full
+
+
+def _assert_linear_failure_keeps_unavailable_correction(source):
+    """Static status/dataflow contract; no LAPACK or native execution."""
+    linear = _subroutine(source, "diagnostic_linear")
+    solve = linear.index("call jacobian_bksub(")
+    unavailable = "delta=ieee_value(0.0_dp,ieee_quiet_nan)"
+    assert unavailable in linear
+    assert linear.index(unavailable) < solve
+    assert linear.index("correction=ieee_value(0.0_dp,ieee_quiet_nan)") < solve
+    success = re.search(
+        r"if \(solve_info\(1\)==0\) then\s+"
+        r"if \(\.not\.all\(ieee_is_finite\(correction\)\)\) call fail\([^\n]+\)\s+"
+        r"delta=correction\(:,1\)\s+endif",
+        linear,
+    )
+    assert success is not None
+    assert solve < success.start()
+    assert linear.count("delta=correction(:,1)") == 1
+
+
+def test_failed_diagnostic_solve_persists_nan_and_success_checks_finiteness():
+    source = (NATIVE_SOURCE.parent / "diagnostic_native.f90").read_text()
+    _assert_linear_failure_keeps_unavailable_correction(source)
+
+
+@pytest.mark.parametrize(
+    "mutation", ["copy_after_failure", "drop_finite_check", "drop_nan_init"]
+)
+def test_linear_failure_dataflow_rejects_invalid_correction_publication(mutation):
+    source = (NATIVE_SOURCE.parent / "diagnostic_native.f90").read_text()
+    if mutation == "copy_after_failure":
+        source = source.replace("        delta=correction(:,1)\n", "").replace(
+            "    ok=lu_info(1)==0.and.solve_info(1)==0",
+            "    delta=correction(:,1)\n    ok=lu_info(1)==0.and.solve_info(1)==0",
+        )
+    elif mutation == "drop_finite_check":
+        source = source.replace(
+            "        if (.not.all(ieee_is_finite(correction))) call fail('nonfinite diagnostic Newton correction')\n",
+            "",
+        )
+    else:
+        source = source.replace("    delta=ieee_value(0.0_dp,ieee_quiet_nan)\n", "")
+    with pytest.raises(AssertionError):
+        _assert_linear_failure_keeps_unavailable_correction(source)

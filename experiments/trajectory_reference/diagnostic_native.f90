@@ -279,6 +279,7 @@ contains
     if (.not.all(ieee_is_finite(rhs))) call fail('nonfinite frozen Newton RHS')
     lu_info=-999; solve_info=-999; dummy_rhs=0; dummy_delta=0
     delta=ieee_value(0.0_dp,ieee_quiet_nan)
+    correction=ieee_value(0.0_dp,ieee_quiet_nan)
     lu_count=lu_count+1
     call checkpoint()
     call jacobian_decomp(0,mask_in=active,status_out=lu_info)
@@ -287,8 +288,10 @@ contains
       solve_count=solve_count+1
       call checkpoint()
       call jacobian_bksub(0,rhs,correction,dummy_rhs,dummy_delta,mask_in=active,status_out=solve_info)
-      if (.not.all(ieee_is_finite(correction))) call fail('nonfinite diagnostic Newton correction')
-      delta=correction(:,1)
+      if (solve_info(1)==0) then
+        if (.not.all(ieee_is_finite(correction))) call fail('nonfinite diagnostic Newton correction')
+        delta=correction(:,1)
+      endif
     endif
     ok=lu_info(1)==0.and.solve_info(1)==0
     write(filename,'(a,i1,a)') 'linear-factor-',ordinal,'.bin'
