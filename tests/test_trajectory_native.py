@@ -232,6 +232,56 @@ End Module xnet_jacobian
     assert adapted.count("info(izb)/=0.and..not.present(status_out)") == 2
     assert "If (info(izb)/=0) Call abort_linear(info(izb),'dgesv')" in adapted
 
+    # Compare the independently maintained synthetic module with the staged
+    # producer API and the adapter's actual keyword calls. Both runtime branches
+    # must resolve during compilation, even when assembly_enabled is false.
+    synthetic = (NATIVE_SOURCE.parent / "synthetic_modules.f90").read_text()
+    adapter = NATIVE_SOURCE.read_text().lower().replace("&\n", "")
+    compact_stub = re.sub(r"\s+", "", synthetic.lower())
+    pivot_declaration = re.search(r"integer::indx\(([^)]+)\)=", compact_stub)
+    assert pivot_declaration is not None
+    assert pivot_declaration[1].split(",") == ["160", "1"]
+    for routine, lapack in (
+        ("jacobian_decomp", "dgetrf"),
+        ("jacobian_bksub", "dgetrs"),
+    ):
+        signatures = []
+        for source in (adapted, synthetic):
+            procedure = re.search(
+                rf"subroutine {routine}\((.*?)\)(.*?)end subroutine",
+                source.lower(),
+                re.S,
+            )
+            arguments = procedure[1].replace(" ", "").split(",")
+            declaration = re.search(
+                r"integer([^\n]*?)::\s*status_out\(([^)]*)\)", procedure[2]
+            )
+            assert declaration is not None
+            attributes = declaration[1].replace(" ", "")
+            assert "optional" in attributes and "intent(out)" in attributes
+            assert len(declaration[2].split(",")) == 1
+            signatures.append(
+                (
+                    len(arguments),
+                    arguments.index("mask_in"),
+                    arguments.index("status_out"),
+                )
+            )
+        assert signatures[0] == signatures[1]
+        keyword_call = re.search(rf"call {routine}\([^\n]+status_out=\w+\)", adapter)
+        assert keyword_call is not None
+        body = (
+            synthetic.lower()
+            .split(f"subroutine {routine}(", 1)[1]
+            .split("end subroutine", 1)[0]
+        )
+        assert re.search(rf"call {lapack}\([^\n]+indx\(:,1\)", body)
+        assert "if (present(status_out)) status_out=info" in body
+        assert (
+            f"if (info/=0.and..not.present(status_out)) call abort_linear(info,'{lapack}')"
+            in body
+        )
+
 
 def test_diagnostic_path_preserves_legacy_direction_and_never_advances_solver():
     adapter = NATIVE_SOURCE.read_text()

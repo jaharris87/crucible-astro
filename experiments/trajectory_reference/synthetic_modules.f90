@@ -87,7 +87,7 @@ module xnet_jacobian
   use xnet_types
   implicit none
   real(dp) :: dydotdy(160,160,1)=0,jac(160,160,1)=0
-  integer :: pivots(160)=0
+  integer :: indx(160,1)=0
   logical :: force_bad_lu=.false.
 contains
   subroutine jacobian_scale(diag,mult,mask_in)
@@ -99,22 +99,26 @@ contains
       jac(i,i,1)=jac(i,i,1)+diag(1)
     enddo
   end subroutine
-  subroutine jacobian_decomp(step,mask_in)
+  subroutine jacobian_decomp(step,mask_in,status_out)
     integer,intent(in) :: step
     logical,intent(in) :: mask_in(:)
+    integer,optional,intent(out) :: status_out(:)
     integer :: info
     if (force_bad_lu) jac=0
-    call dgetrf(160,160,jac(:,:,1),160,pivots,info)
-    if (info/=0) call abort_linear(info,'dgetrf')
+    call dgetrf(160,160,jac(:,:,1),160,indx(:,1),info)
+    if (present(status_out)) status_out=info
+    if (info/=0.and..not.present(status_out)) call abort_linear(info,'dgetrf')
   end subroutine
-  subroutine jacobian_bksub(step,rhs,dy,t9rhs,dt9,mask_in)
+  subroutine jacobian_bksub(step,rhs,dy,t9rhs,dt9,mask_in,status_out)
     integer,intent(in) :: step
     real(dp),intent(in) :: rhs(:,:),t9rhs(:)
     real(dp),intent(out) :: dy(:,:),dt9(:)
     logical,intent(in) :: mask_in(:)
+    integer,optional,intent(out) :: status_out(:)
     integer :: info
     dy=rhs; dt9=0
-    call dgetrs('N',160,1,jac(:,:,1),160,pivots,dy,160,info)
-    if (info/=0) call abort_linear(info,'dgetrs')
+    call dgetrs('N',160,1,jac(:,:,1),160,indx(:,1),dy,160,info)
+    if (present(status_out)) status_out=info
+    if (info/=0.and..not.present(status_out)) call abort_linear(info,'dgetrs')
   end subroutine
 end module
