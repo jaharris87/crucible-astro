@@ -777,6 +777,27 @@ The measured first build used 12.76 s wall, 9.83 s CPU and 91,044 KiB peak RSS;
 similar replacement costs are an estimate. The alternative is to retain this
 checkpoint and defer the campaign. This amendment grants no merge or 2E authority.
 
+### Decision D-038: Bounded frozen-state numerical diagnosis
+
+**Proposed, not accepted; 2026-11-23.** The maintainer resumed the existing 2D
+goal for offline diagnosis and repository work. The resumed task does not grant
+new producer authority. The [offline report](reports/2026-11-23-phase2d-diagnosis.md)
+preserves the actual failures, interruption, reload evidence and limitations.
+
+**Recommendation:** accept the coherent [diagnostic protocol](../experiments/trajectory_reference/DIAGNOSTIC_PROTOCOL.md)
+and its explicit producer scope after independent review: exactly the original
+two initial states and chronological development L0 Jacobian-baseline record 300;
+one fresh diagnostic build, with at most two build/prephysical-preflight repair
+builds; six repeatability and three derivative processes; the bounded four-factor
+FD study, conditional arithmetic and frozen linear/Newton checks. No trajectory
+advance or new local/global trajectory tolerance is proposed. The original D-036
+and failed artifacts remain unchanged. Resource estimates are evidence, not caps.
+
+Fresh exact-candidate review, its dispositions and a concrete human answer are
+pending. The alternative is to continue offline-only work and retain the unresolved
+numerical cause. This decision will authorize neither reference acceptance, merge,
+Phase 2E nor a later trajectory rerun. Those remain separate concrete checkpoints.
+
 ## Scientific decisions and current evidence gates
 
 The paragraph below preserves the initial ingestion decision; D-025 above is the

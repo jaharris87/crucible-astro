@@ -9,8 +9,9 @@ and its concrete producer envelope. Its preparation-time proposed header is
 preserved as frozen evidence; the receipt records actual acceptance. This does
 not grant a merge, named-reference acceptance, final 2D acceptance or Phase 2E.
 
-**Paused incomplete:** the maintainer requested a stop after primary numerical
-failures. No full-horizon reference is accepted. Read the
+**Incomplete, diagnosis resumed 2026-11-23:** no full-horizon reference is
+accepted. The [bounded diagnostic proposal](DIAGNOSTIC_PROTOCOL.md) needs new
+scientific/producer acceptance. Read the
 [checkpoint](../../docs/reports/2026-11-20-phase2d-checkpoint.md) before using the
 commands below: further execution requires revised accepted protocol/producer
 authority, not an automatic retry of the failed campaign.

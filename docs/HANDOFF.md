@@ -1,6 +1,6 @@
 # CRUCIBLE handoff
 
-Updated **2026-11-20**. Phase 1, the documentation migration and **2A–2C are
+Updated **2026-11-23**. Phase 1, the documentation migration and **2A–2C are
 complete**. The maintainer explicitly [accepted final 2C closeout](https://github.com/jaharris87/crucible-astro/issues/43#issuecomment-7047751430)
 after all audit repairs and merged-result checks. [Milestone #3](https://github.com/jaharris87/crucible-astro/milestone/3)
 remains open; [the single Phase 2 sequence](PHASE_2_LAUNCH.md) owns dependencies.
@@ -71,7 +71,12 @@ evaluation started. Full raw preflight evidence is retained locally; archive
 SHA256 `f39ba5279ef648e62f0c4837623403901d75d8ac200b5fcfae2df738661f7f03`.
 The runner-only repair has public positive/wrong-reason regression tests.
 
-**Paused on explicit maintainer request.** Job 61689197 is terminal CANCELLED;
+**Resumed on explicit maintainer request, 2026-11-23.** Offline diagnosis and
+repository repairs are authorized; no new producer execution has occurred.
+The [diagnosis](reports/2026-11-23-phase2d-diagnosis.md) rechecks the full retained
+population and proposes [D-038](../experiments/trajectory_reference/DIAGNOSTIC_PROTOCOL.md).
+Its new scientific protocol/producer acceptance and independent review are pending.
+The prior pause remains preserved. Job 61689197 is terminal CANCELLED;
 no campaign or reproduction job is left running. The [pause checkpoint](reports/2026-11-20-phase2d-checkpoint.md)
 and [actual receipt](https://github.com/jaharris87/crucible-astro/issues/44#issuecomment-7050616078)
 record completed/failed/interrupted/unattempted work and raw identities.

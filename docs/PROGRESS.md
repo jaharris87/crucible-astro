@@ -1,6 +1,6 @@
 # CRUCIBLE progress
 
-Updated **2026-11-20**. Phase 1, the documentation migration, **2A–2C are complete**:
+Updated **2026-11-23**. Phase 1, the documentation migration, **2A–2C are complete**:
 [Phase 1 receipt](https://github.com/jaharris87/crucible-astro/issues/15#issuecomment-7014392482),
 [migration receipt](https://github.com/jaharris87/crucible-astro/issues/39#issuecomment-7019298012),
 [2A receipt](https://github.com/jaharris87/crucible-astro/issues/41#issuecomment-7020463315),
@@ -30,7 +30,9 @@ One native goal covers 2D only. Read-only producer/input discovery and the
 prepared; bounded independent protocol review and focused repairs pass.
 [D-036 / scientific and producer acceptance](https://github.com/jaharris87/crucible-astro/issues/44#issuecomment-7048328458)
 was [explicitly given](https://github.com/jaharris87/crucible-astro/issues/44#issuecomment-7048371383).
-Work is paused on maintainer request; [draft PR #51](https://github.com/jaharris87/crucible-astro/pull/51) is incomplete.
+Work resumed on explicit maintainer request, 2026-11-23, for offline diagnosis,
+repository repairs and a bounded revised diagnostic proposal. New producer
+execution is not yet authorized; [draft PR #51](https://github.com/jaharris87/crucible-astro/pull/51) is incomplete.
 No producer work occurred before the decision.
 The first native build (`c28c527`, job 61685010) succeeded. All ten synthetic
 scenarios executed; two correct expected failures were falsely rejected because
