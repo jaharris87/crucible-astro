@@ -61,6 +61,10 @@ material but does not explain the full stalled residual. Fresh reload and bounde
 independent artifact assessment pass. No trajectory rerun or later phase is authorized.
 D-034 does not delegate 2D merges. See [handoff](HANDOFF.md) for the next decision.
 
+**Paused on maintainer request, 2026-11-23:** D-039 reporting and independent
+assessment complete; no running producer job. Resume with the next reviewed
+numerical proposal and explicit authority decision; full 2D remains incomplete.
+
 ## Phase status
 
 | Phase | Dependency | Status / evidence |

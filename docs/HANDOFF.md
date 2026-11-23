@@ -12,6 +12,13 @@ for explicit scientific/producer acceptance, now [given](https://github.com/jaha
 Implementation and synthetic verification are active; no producer work occurred
 before that answer.
 
+**Maintainer pause, 2026-11-23:** paused after completed D-039 execution,
+verification/reload and independent artifact/reporting assessment. No producer job
+is running. The final reviewed evidence candidate is `4eb547d08769395c6d49e5d62bea542168639a73`;
+the physical source remains `245ed95`. Resume with read-only state/issue inspection
+and the next concrete numerical proposal. No further build/evaluation/run, merge
+or Phase 2E is authorized. The 2D objective remains incomplete.
+
 ## Verified integrated state
 
 The original 2C implementation was independently reviewed and merged through
