@@ -77,5 +77,13 @@ arithmetic, four fixed finite-difference increments and frozen linear/Newton alg
 It does not integrate a trajectory or select new solver controls. The proposal
 and implementation require fresh exact-candidate independent review, then explicit
 scientific and producer-scope acceptance before any build or physical call.
-A later trajectory protocol and authority remain separate. No learned-model
+A later trajectory protocol and authority remain separate. Subsequent exact
+protocol and focused repair review pass at `ae69715`; the [decision packet](https://github.com/jaharris87/crucible-astro/issues/44#issuecomment-7106057047)
+records the missing-A reporting finding/fix, 909 passing installed tests and CI.
+Human D-038 acceptance and native runtime evidence remain pending. The verifier
+formatting repair was rechecked offline: fresh save/reload passes, all 236 numeric
+detail arrays match the earlier record byte for byte, and numerical acceptance
+remains false. The separately retained updated verification JSON SHA256 is
+`f06498d3fa47a946dea274165eff24d5894eccc634534bdab930a6c886055403`;
+the earlier source-bound record remains unchanged. No learned-model
 rollout, fitting, changed preprocessing, final-test outcomes or Phase 2E is included.

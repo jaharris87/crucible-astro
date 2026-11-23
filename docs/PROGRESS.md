@@ -48,6 +48,10 @@ No reproduction build was submitted. [Pause checkpoint](reports/2026-11-20-phase
 and [live receipt](https://github.com/jaharris87/crucible-astro/issues/44#issuecomment-7050616078)
 preserve results, raw identities, independently confirmed diagnostic protocol
 defect and next review/authority boundary. No reference set is accepted.
+On resumption, D-038 protocol review and focused repair verification pass at
+`ae69715` (P2D-DIAG-001 mass-weighted reporting fix). All 909 installed tests,
+Linux CI and required checks pass. The [concrete decision packet](https://github.com/jaharris87/crucible-astro/issues/44#issuecomment-7106057047)
+awaits explicit scientific/producer acceptance before any diagnostic build/call.
 D-034 does not delegate 2D merges. See [handoff](HANDOFF.md) for the next decision.
 
 ## Phase status

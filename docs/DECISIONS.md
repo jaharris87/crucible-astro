@@ -793,8 +793,13 @@ FD study, conditional arithmetic and frozen linear/Newton checks. No trajectory
 advance or new local/global trajectory tolerance is proposed. The original D-036
 and failed artifacts remain unchanged. Resource estimates are evidence, not caps.
 
-Fresh exact-candidate review, its dispositions and a concrete human answer are
-pending. The alternative is to continue offline-only work and retain the unresolved
+Fresh independent Sol High protocol review passes; implementation review found
+P2D-DIAG-001 (missing A in normalized assembly contribution), preserved in the
+[original finding](https://github.com/jaharris87/crucible-astro/issues/44#issuecomment-7105958049).
+Repair and focused independent verification pass at `ae69715`, with 909 installed
+tests and Linux CI passing in the [exact decision packet](https://github.com/jaharris87/crucible-astro/issues/44#issuecomment-7106057047).
+The concrete human protocol/producer answer is pending. The alternative is to
+continue offline-only work and retain the unresolved
 numerical cause. This decision will authorize neither reference acceptance, merge,
 Phase 2E nor a later trajectory rerun. Those remain separate concrete checkpoints.
 
