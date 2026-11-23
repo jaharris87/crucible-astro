@@ -9,14 +9,19 @@ and its concrete producer envelope. Its preparation-time proposed header is
 preserved as frozen evidence; the receipt records actual acceptance. This does
 not grant a merge, named-reference acceptance, final 2D acceptance or Phase 2E.
 
-**Incomplete, diagnosis resumed 2026-11-23:** no full-horizon reference is
-accepted. The [bounded diagnostic proposal](DIAGNOSTIC_PROTOCOL.md) needs new
-scientific/producer acceptance. Read the
-[checkpoint](../../docs/reports/2026-11-20-phase2d-checkpoint.md) before using the
-commands below: further execution requires revised accepted protocol/producer
-authority, not an automatic retry of the failed campaign.
-The [diagnostic guide](DIAGNOSTICS.md) describes the proposed fixed-state work
-separately from the original trajectory commands below.
+**Incomplete, 2026-11-23:** no full-horizon reference is accepted. D-038 diagnostics
+completed with [retained numerical evidence and independent artifact review](../../docs/reports/2026-11-23-phase2d-diagnostics.md).
+The maintainer subsequently [accepted D-039](https://github.com/jaharris87/crucible-astro/issues/44#issuecomment-7109353327)
+for a **distinct numerical RHS and bounded first-step qualification**. Its
+[runnable guide](ASSEMBLY_QUALIFICATION.md) and [wire formats](ASSEMBLY_WIRE.md)
+describe the current implementation. Exact-candidate review precedes its approved
+build/evaluations. No full trajectory continuation is authorized.
+
+The [diagnostic guide](DIAGNOSTICS.md) records the completed D-038 procedure.
+The commands below preserve the original D-036 procedure; they are not an
+automatic retry grant. Inspect the [checkpoint](../../docs/reports/2026-11-20-phase2d-checkpoint.md)
+and original pinned source/preparation (`a771930`), not the current D-039 source,
+when interpreting that historical run. Original artifacts remain unchanged.
 
 Two fixed saved states and their prescribed sparse T9/rho interpolants define
 new 10 ms IVPs. They do not reproduce the original hydro trajectories. Keep all
@@ -25,7 +30,7 @@ is loaded and no fitting, learned rollout, heating or final-test use occurs.
 [Grounding](GROUNDING.md) distinguishes representation, one vector kinetics
 source, native integration and evaluation, with multiple original Zhang papers.
 
-## Prepare and run the accepted campaign
+## Original D-036 procedure — no restart authority
 
 Use a clean committed checkout and the locked noneditable installation from
 [Contributing](../../CONTRIBUTING.md). The ignored private configuration contains

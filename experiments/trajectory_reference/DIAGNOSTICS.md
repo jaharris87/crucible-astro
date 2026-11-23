@@ -8,6 +8,10 @@ The commands below document reproduction within an explicitly accepted execution
 scope; they grant no completed-process repeat or new build/evaluation. Offline
 verification/reload of the retained evidence remains available.
 This guide grants no trajectory rerun, reference acceptance, merge or Phase 2E.
+The next separately [accepted D-039 work](ASSEMBLY_QUALIFICATION.md) qualifies a
+distinct assembly source; it does not repeat D-038. Use D-038's pinned `ae69715`
+source/preparation for its retained evidence; current native sources include
+the D-039 implementation and carry their own identities.
 
 The original two initial states and chronological development L0 Jacobian baseline
 300 define three diagnostic states. Six repeatability processes precede three

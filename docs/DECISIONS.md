@@ -853,11 +853,13 @@ finding, at `8bcdb8f698023d5bade7dd41c5e0036c40851d47` against main `75b2ec3`.
 The reviewer independently checked raw D-038 evidence, input/derived-file hashes,
 conditional arithmetic, original producer/adapter semantics, the gamma/conversion
 bounds and finite execution counts, failure coverage, scope and simplicity.
-No compiler/producer/remote/physical work or edits were performed. No D-039
-implementation yet exists; its exact code still requires review before execution.
+No compiler/producer/remote/physical work or edits were performed by that reviewer.
+No D-039 implementation existed at protocol review. The current implementation
+and public verification are now prepared; exact code review still precedes execution.
 The protocol bytes are unchanged after review/acceptance. Routine implementation
-and checks are active; the pushed exact implementation must pass independent
-review before the accepted build/evaluations. No new build/physical call has run.
+and checks are authorized; 1,006 installed public tests and lint/format pass. The
+pushed exact implementation must pass independent review before the accepted
+build/evaluations. No D-039 compiler build or physical call has run.
 Acceptance grants no full trajectory campaign, reference, merge or Phase 2E.
 
 ## Scientific decisions and current evidence gates

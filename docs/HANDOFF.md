@@ -110,9 +110,14 @@ are in the report. No full-horizon reference has passed.
 Fresh-context read-only Sol High protocol review passed at `8bcdb8f`, without
 blocking findings. The maintainer explicitly approved its distinct numerical RHS
 AND bounded qualification scope in the [actual receipt](https://github.com/jaharris87/crucible-astro/issues/44#issuecomment-7109353327).
-Routine isolated implementation/public tests are active; push and independently
-review the exact implementation before its approved fresh build and campaign.
-No D-039 build or physical call has run. The new numerical RHS is separately named,
+The distinct native module, fixed gated runner, independent exact-arithmetic
+verification and report/reload boundary are implemented. The locked noneditable
+suite passes 1,006 tests with zero skips; Ruff lint/format and source syntax checks
+pass. The [runnable guide](../experiments/trajectory_reference/ASSEMBLY_QUALIFICATION.md)
+and [wire formats](../experiments/trajectory_reference/ASSEMBLY_WIRE.md) separate
+original/variant F and retain every attempted/conditional result. Push and obtain
+fresh exact-candidate independent implementation review, then execute the accepted
+fresh build and qualification. No D-039 compiler build or physical call has run. The new numerical RHS is separately named,
 preserving D-019 and frozen artifacts; frozen-MLP compatibility is unestablished.
 Only first-step qualification is authorized, with no full trajectory continuation,
 postphysical rebuild or infrastructure restart. Full reference generation, reference

@@ -78,7 +78,7 @@ D-034 does not delegate 2D merges. See [handoff](HANDOFF.md) for the next decisi
 | [2A #41](https://github.com/jaharris87/crucible-astro/issues/41) | Qualified named-version/use/split arrays, example and tests | Complete at PR #46 / `8b6cf71`; 489 installed-package tests, merged CI and all-row structural checks in final receipt |
 | [2B #42](https://github.com/jaharris87/crucible-astro/issues/42) | Integrated 2A; frozen pointwise MLP/comparator and reproducible validation | Complete at PR #47 / `a81552e`; 515 installed-package tests, exact independent review, human merge, merged CI/reload/preservation checks in final receipt; negative D-024 result; final-test model outcomes sealed |
 | [2C #43](https://github.com/jaharris87/crucible-astro/issues/43) | Integrated 2B; checked callable adapter, independent analytic/stiff integration and scheduled merged 2A–2C audit | Complete: original PR #48 / `505d556`, scheduled audit and reconciled external audits, repair PR #49 / `eaa9446`, merged checks and explicit final acceptance; no fitting, real MLP rollout or new XNet execution |
-| [2D #44](https://github.com/jaharris87/crucible-astro/issues/44) | Integrated 2C; accepted real reference trajectories/protocol | Active: D-038 diagnostics complete with independent artifact PASS; D-039 distinct source/qualification explicitly accepted, implementation active; original failed/interrupted campaign preserved; no full-horizon reference; draft PR #51 |
+| [2D #44](https://github.com/jaharris87/crucible-astro/issues/44) | Integrated 2C; accepted real reference trajectories/protocol | Active: D-038 diagnostics complete with independent artifact PASS; D-039 distinct source/qualification accepted, implementation checked and independent candidate review next; original failed/interrupted campaign preserved; no full-horizon reference; draft PR #51 |
 | [2E #45](https://github.com/jaharris87/crucible-astro/issues/45) | Integrated 2D; frozen pointwise/rollout/cost evaluation and report | Scope and final-test release pending; human baseline acceptance before milestone closure |
 
 D-027 migration #39 is closed at `804fb75`; its linked final receipt controls closure.
@@ -88,9 +88,10 @@ repair and acceptance records remain in #43 and its PRs; original reports and
 dispositions are preserved. Fresh-context read-only Sol High protocol review of
 [D-039](../experiments/trajectory_reference/ASSEMBLY_QUALIFICATION_PROTOCOL.md)
 passes at `8bcdb8f` without blockers. The maintainer [explicitly accepted](https://github.com/jaharris87/crucible-astro/issues/44#issuecomment-7109353327)
-its distinct numerical RHS and bounded qualification scope. Implement/public-test,
-then independently review the exact pushed candidate before its approved execution;
-no D-039 build/call yet. The required passing 2D reference set remains incomplete.
+its distinct numerical RHS and bounded qualification scope. Implementation and
+1,006 installed public tests pass; native syntax and Python lint/format checks
+pass. Fresh exact-candidate implementation review precedes approved execution;
+no D-039 compiler build or physical call yet. The required passing 2D reference set remains incomplete.
 
 ## Phase 1 issue dependencies and integrations
 
