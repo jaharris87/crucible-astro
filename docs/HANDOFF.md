@@ -106,15 +106,17 @@ Raw archive SHA256 is
 Measured job wall is 55 s / total CPU 42.546 s; complete costs and artifact hashes
 are in the report. No full-horizon reference has passed.
 
-**Next decision:** the concrete [D-039 qualification proposal](../experiments/trajectory_reference/ASSEMBLY_QUALIFICATION_PROTOCOL.md)
-passed fresh-context read-only Sol High protocol review at `8bcdb8f`, with no
-blocking finding. Obtain explicit acceptance of its distinct numerical source/claim
-AND bounded producer scope before implementation execution. No D-039 code has yet
-been implemented or built; exact implementation review will precede execution.
-The proposed
-higher-precision product-and-sum assembly would be a new numerical RHS,
-not unchanged D-019. It needs explicit scientific acceptance and bounded producer
-authority before any build/evaluation; D-038 does not authorize trajectory reruns.
+**Next authorized action:** implement the [accepted D-039 qualification protocol](../experiments/trajectory_reference/ASSEMBLY_QUALIFICATION_PROTOCOL.md).
+Fresh-context read-only Sol High protocol review passed at `8bcdb8f`, without
+blocking findings. The maintainer explicitly approved its distinct numerical RHS
+AND bounded qualification scope in the [actual receipt](https://github.com/jaharris87/crucible-astro/issues/44#issuecomment-7109353327).
+Routine isolated implementation/public tests are active; push and independently
+review the exact implementation before its approved fresh build and campaign.
+No D-039 build or physical call has run. The new numerical RHS is separately named,
+preserving D-019 and frozen artifacts; frozen-MLP compatibility is unestablished.
+Only first-step qualification is authorized, with no full trajectory continuation,
+postphysical rebuild or infrastructure restart. Full reference generation, reference
+acceptance, merge and Phase 2E remain separate decisions.
 Original failures and the reviewed forensic retention repair remain preserved.
 The stopped campaign used exact reviewed `a771930`,
 submitted after [explicit D-037 acceptance](https://github.com/jaharris87/crucible-astro/issues/44#issuecomment-7050412199).

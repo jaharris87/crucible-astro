@@ -8,8 +8,8 @@ preparation under #44; D-036 now accepts the concrete scientific/producer scope.
 The primary campaign has numerical failures and interrupted validation; no
 full-horizon reference passed. The accepted D-038 diagnostics completed with
 bounded verification and independent artifact PASS; [the report](reports/2026-11-23-phase2d-diagnostics.md)
-preserves unresolved nonlinear limits. D-039 proposes distinct-source qualification;
-new producer execution needs explicit scientific/scope acceptance.
+preserves unresolved nonlinear limits. D-039 distinct-source qualification is
+explicitly accepted; exact implementation review precedes its bounded execution.
 [The existing sequence](PHASE_2_LAUNCH.md) owns dependencies and scope gates.
 
 ## Bootstrap sequence

@@ -25,8 +25,9 @@ the reviewed protocol and bounded producer scope are accepted under D-036.
 2D resumed on 2026-11-23 with offline diagnosis after primary numerical failures;
 D-038 diagnostics completed with passing frozen-state verification and independent
 artifact assessment; [the report](docs/reports/2026-11-23-phase2d-diagnostics.md)
-retains the unresolved nonlinear limits. D-039 proposes a distinct assembly source
-and bounded qualification; no new execution is authorized. Later trajectories
+retains the unresolved nonlinear limits. D-039 explicitly accepts a distinct
+assembly source and bounded qualification; implementation is active, with exact
+candidate review required before its approved execution. Later trajectories
 need a separate accepted protocol; no full-horizon reference has passed. See the [diagnosis](docs/reports/2026-11-23-phase2d-diagnosis.md),
 [checkpoint](docs/reports/2026-11-20-phase2d-checkpoint.md) and current
 [progress](docs/PROGRESS.md) and [handoff](docs/HANDOFF.md).

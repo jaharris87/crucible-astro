@@ -817,7 +817,13 @@ do not qualify a reference or authorize another numerical source/trajectory run.
 
 ### Decision D-039: Distinct assembly source and bounded qualification
 
-**PROPOSED; not accepted.** The [completed D-038 report](reports/2026-11-23-phase2d-diagnostics.md)
+**Accepted by the maintainer, 2026-11-23:** explicit chat answer
+“Approved. Proceed with D-039’s distinct numerical RHS and bounded qualification
+scope.” The [actual acceptance receipt](https://github.com/jaharris87/crucible-astro/issues/44#issuecomment-7109353327)
+accepts BOTH the distinct numerical source/claim and reviewed producer envelope.
+The protocol SHA256 remains
+`ff5515f04ecfdb9cb75f284882dc88d5beef30a25d1a4a8b9e9a18ba741abf02`;
+its proposal-time header remains frozen evidence. The [completed D-038 report](reports/2026-11-23-phase2d-diagnostics.md)
 shows material conditional assembly discrepancy, but it does not explain the
 entire stalled residual or prove original-F integration impossible. The concrete
 [qualification proposal](../experiments/trajectory_reference/ASSEMBLY_QUALIFICATION_PROTOCOL.md)
@@ -827,8 +833,8 @@ return binary64 F, preserving native coefficients/physics and original D-019.
 This changes numerical RHS identity; the frozen MLP's compatibility with it is
 unestablished. Original-F data, controls, weights/scalers and failures remain intact.
 
-Recommendation: accept this distinct source/claim and bounded producer scope only
-after independent protocol review. One fresh build plus at most two prephysical
+Accepted execution scope after independent protocol review: one fresh build plus
+at most two prephysical
 build/preflight repairs; six identity and three frozen derivative processes; two
 original standard first-step attempts, then two tight counterparts only if both
 standard attempts pass. No trajectory continuation or automatic restart. The
@@ -837,8 +843,8 @@ smaller; it is execution scope, not a D-013 resource cap. Local controls, initia
 states, forcing, physics, constraints and derivative criteria stay fixed.
 
 Alternative: retain the original digital F as the required source and continue
-offline numerical-method analysis, without authorizing this new source. A human
-answer is required because this proposal changes numerical reference meaning and
+offline numerical-method analysis, without authorizing this new source. The explicit human
+answer was required because this proposal changes numerical reference meaning and
 authorizes new physical execution. Even passing qualification would establish
 only initial-step solvability; a full reference campaign still needs its explicit
 protocol/producer decision. No reference/merge/final 2D acceptance or 2E is proposed.
@@ -849,8 +855,10 @@ conditional arithmetic, original producer/adapter semantics, the gamma/conversio
 bounds and finite execution counts, failure coverage, scope and simplicity.
 No compiler/producer/remote/physical work or edits were performed. No D-039
 implementation yet exists; its exact code still requires review before execution.
-The protocol bytes are unchanged after this review. Actual human response remains
-pending; no new build/evaluation is authorized.
+The protocol bytes are unchanged after review/acceptance. Routine implementation
+and checks are active; the pushed exact implementation must pass independent
+review before the accepted build/evaluations. No new build/physical call has run.
+Acceptance grants no full trajectory campaign, reference, merge or Phase 2E.
 
 ## Scientific decisions and current evidence gates
 
