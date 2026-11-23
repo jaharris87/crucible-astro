@@ -19,8 +19,8 @@ independent review/focused repairs; D-036 scientific/producer scope was
 [explicitly accepted](https://github.com/jaharris87/crucible-astro/issues/44#issuecomment-7048371383).
 The first campaign has numerical failures and an interrupted validation run;
 no full-horizon reference passed. Offline diagnosis resumed on 2026-11-23;
-[D-038](../experiments/trajectory_reference/DIAGNOSTIC_PROTOCOL.md) proposes bounded
-frozen-state diagnostics requiring new scientific/producer acceptance.
+[D-038](../experiments/trajectory_reference/DIAGNOSTIC_PROTOCOL.md) now authorizes bounded
+frozen-state diagnostics after explicit scientific/producer acceptance.
 Merge approval remains separate.
 The 2B [concrete MLP experiment](https://github.com/jaharris87/crucible-astro/issues/42#issuecomment-7042652534)
 received independent scope review and maintainer acceptance under D-031 before fitting.

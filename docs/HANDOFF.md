@@ -76,8 +76,8 @@ repository repairs are authorized; no new producer execution has occurred.
 The [diagnosis](reports/2026-11-23-phase2d-diagnosis.md) rechecks the full retained
 population and proposes [D-038](../experiments/trajectory_reference/DIAGNOSTIC_PROTOCOL.md).
 The protocol and focused implementation repair review pass at `ae69715`;
-[D-038 scientific/producer acceptance](https://github.com/jaharris87/crucible-astro/issues/44#issuecomment-7106057047)
-is pending. Exact repaired installed suite: 909 tests, zero skips; Linux CI,
+[D-038 scientific/producer acceptance](https://github.com/jaharris87/crucible-astro/issues/44#issuecomment-7107405775)
+was explicitly given in chat (“approved”). Exact repaired installed suite: 909 tests, zero skips; Linux CI,
 Ruff lint/format, documentation and whitespace checks pass. Private preparation
 003 binds that source/tree and all 92 immutable identities; no build or physical
 evaluation has run. Earlier unexecuted preparations remain preserved.
@@ -90,9 +90,9 @@ convergence. Validation L0 was interrupted at 25.4 microseconds of 10 ms.
 No full-horizon reference passed. Direction two is inadmissible for both initial
 states at every multiplier; exhaustion snapshots need consistent state/F retention.
 
-**Next action:** obtain the explicit D-038 protocol/producer answer, then execute
-only that accepted frozen-state diagnostic envelope. Source-bound private archive
-and job script are prepared locally; neither has been submitted for execution.
+**Next action:** execute and assess only the accepted D-038 frozen-state diagnostic
+envelope. The source-bound private archive and job script have been transferred
+for its fresh build and nine-process campaign; live #44 records the job/outcome.
 Original failure analysis and the reviewed forensic retention repair are preserved.
 Later trajectory execution still needs a separate accepted numerical protocol.
 No automatic infrastructure restart or numerical retry is approved.

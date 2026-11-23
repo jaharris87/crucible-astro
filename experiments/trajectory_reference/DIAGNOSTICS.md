@@ -1,10 +1,10 @@
 # Frozen-state diagnostic guide
 
-**D-038 is proposed, not accepted.** Preparation and Python tests are offline.
-Do not build or execute the native commands until the maintainer accepts the exact
-[protocol](DIAGNOSTIC_PROTOCOL.md) and producer envelope in
-[issue #44](https://github.com/jaharris87/crucible-astro/issues/44). This guide does
-not grant execution authority or replace the original trajectory protocol.
+**D-038 was explicitly accepted on 2026-11-23.** The [actual receipt](https://github.com/jaharris87/crucible-astro/issues/44#issuecomment-7107405775)
+authorizes the exact [protocol](DIAGNOSTIC_PROTOCOL.md) and bounded producer
+envelope. Its proposal-time header remains frozen evidence. Preparation and
+Python tests are offline; only the accepted diagnostic campaign may execute.
+This guide grants no trajectory rerun, reference acceptance, merge or Phase 2E.
 
 The original two initial states and chronological development L0 Jacobian baseline
 300 define three diagnostic states. Six repeatability processes precede three

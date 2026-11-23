@@ -7,7 +7,8 @@ The frozen negative-fidelity MLP remains unchanged. D-035 invokes 2D protocol
 preparation under #44; D-036 now accepts the concrete scientific/producer scope.
 The primary campaign has numerical failures and interrupted validation; no
 full-horizon reference passed. Resumed offline diagnosis and the D-038 bounded
-diagnostic proposal require new scientific/producer acceptance before execution.
+diagnostic scope are accepted under D-038; later trajectory execution needs a
+separate accepted numerical protocol.
 [The existing sequence](PHASE_2_LAUNCH.md) owns dependencies and scope gates.
 
 ## Bootstrap sequence

@@ -75,8 +75,8 @@ guidance revision/access gaps. No trained-model card is created during Phase 1.
 2A–2C are complete, including the scheduled audit, reconciled repairs and explicit
 final acceptance linked from [handoff](HANDOFF.md). 2D is active under D-035, with D-036 acceptance of its reviewed concrete
 scientific/producer protocol. Its failed/interrupted campaign establishes no
-full-horizon reference. Offline diagnosis and a bounded D-038 proposal are active;
-new producer execution requires that revised decision. Each
+full-horizon reference. D-038 authorizes the bounded frozen-state diagnostics;
+later trajectory execution needs a separate accepted numerical protocol. Each
 later boundary requires scope acceptance and
 preceding integration; [the execution sequence](PHASE_2_LAUNCH.md) defines these
 bounds. Before real rollouts, accept forcing/history, horizons/outputs, observables

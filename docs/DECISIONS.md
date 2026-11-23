@@ -779,13 +779,17 @@ checkpoint and defer the campaign. This amendment grants no merge or 2E authorit
 
 ### Decision D-038: Bounded frozen-state numerical diagnosis
 
-**Proposed, not accepted; 2026-11-23.** The maintainer resumed the existing 2D
-goal for offline diagnosis and repository work. The resumed task does not grant
-new producer authority. The [offline report](reports/2026-11-23-phase2d-diagnosis.md)
+**Accepted by the maintainer, 2026-11-23:** explicit chat answer **“approved”**
+to the reviewed scientific-protocol AND producer-scope decision, recorded in the
+[actual acceptance receipt](https://github.com/jaharris87/crucible-astro/issues/44#issuecomment-7107405775).
+The exact diagnostic source is `ae6971522ba1333f550664ac793be6b662e3dae4`;
+protocol SHA256 is `ea722cbabf71d79453a30c35f6f07de7a2c065fe14a9a2e1f442160ada4be7a1`.
+Resumption alone granted no new producer authority; this separate answer does.
+The [offline report](reports/2026-11-23-phase2d-diagnosis.md)
 preserves the actual failures, interruption, reload evidence and limitations.
 
-**Recommendation:** accept the coherent [diagnostic protocol](../experiments/trajectory_reference/DIAGNOSTIC_PROTOCOL.md)
-and its explicit producer scope after independent review: exactly the original
+**Accepted scope:** the coherent [diagnostic protocol](../experiments/trajectory_reference/DIAGNOSTIC_PROTOCOL.md)
+and its explicit reviewed producer scope: exactly the original
 two initial states and chronological development L0 Jacobian-baseline record 300;
 one fresh diagnostic build, with at most two build/prephysical-preflight repair
 builds; six repeatability and three derivative processes; the bounded four-factor
@@ -798,9 +802,10 @@ P2D-DIAG-001 (missing A in normalized assembly contribution), preserved in the
 [original finding](https://github.com/jaharris87/crucible-astro/issues/44#issuecomment-7105958049).
 Repair and focused independent verification pass at `ae69715`, with 909 installed
 tests and Linux CI passing in the [exact decision packet](https://github.com/jaharris87/crucible-astro/issues/44#issuecomment-7106057047).
-The concrete human protocol/producer answer is pending. The alternative is to
-continue offline-only work and retain the unresolved
-numerical cause. This decision will authorize neither reference acceptance, merge,
+The concrete human answer now authorizes the bounded diagnostic campaign and
+routine implementation/checking within that envelope. No original artifact or
+frozen proposal-header bytes are changed to record acceptance. The actual receipt
+controls authority. This decision authorizes neither reference acceptance, merge,
 Phase 2E nor a later trajectory rerun. Those remain separate concrete checkpoints.
 
 ## Scientific decisions and current evidence gates
