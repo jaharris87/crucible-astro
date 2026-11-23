@@ -1,5 +1,6 @@
 #!/bin/bash
-# Bounded fresh build only; D-036 authority is recorded separately by the lead.
+# Fresh build recipe; staging never invokes it.
+# Requires concrete accepted producer scope; the D-038 proposal grants no authority.
 set -euo pipefail
 cd "$(dirname "$0")"
 python3 stage_native.py verify .
@@ -48,10 +49,11 @@ for name in xnet_eos_starkiller xnet_screening xnet_integrate xnet_jacobian_dens
   h5pfc "${flags[@]}" -qmkl=sequential -c "../refs/producer/${name}.f90" -o "${name}.o"
 done
 h5pfc "${flags[@]}" -c ../native_adapter.f90 -o native_adapter.o
+h5pfc "${flags[@]}" -c ../diagnostic_native.f90 -o diagnostic_native.o
 h5pfc "${flags[@]}" -c ../refs/producer/xnet_integrate_be.f90 -o xnet_integrate_be.o
 h5pfc "${flags[@]}" -c ../trajectory_driver.f90 -o trajectory_driver.o
 objects=(phase2d_branch_state.o)
-for name in "${sources[@]}" eos_type actual_eos xnet_eos_starkiller xnet_screening xnet_integrate xnet_jacobian_dense native_adapter xnet_integrate_be trajectory_driver; do
+for name in "${sources[@]}" eos_type actual_eos xnet_eos_starkiller xnet_screening xnet_integrate xnet_jacobian_dense native_adapter diagnostic_native xnet_integrate_be trajectory_driver; do
   objects+=("${name}.o")
 done
 h5pfc "${flags[@]}" -o ../trajectory_driver "${objects[@]}" -qmkl=sequential -lpthread -lm -ldl

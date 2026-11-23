@@ -206,3 +206,73 @@ def test_snapshot_matrix_baseline_tracks_matrix_formation_not_started_fd_build()
     )
     assert "matrix_jacobian_id=" not in _subroutine(source, "full_jacobian")
     assert "'FAILURE_WORKSPACE_JACOBIAN_BASE',matrix_jacobian_id" in writer
+
+
+def test_diagnostic_lapack_status_retains_default_fatal_guards(staging):
+    stage, _, _ = staging
+    # Minimal independent source fixture exercises both optional-status patches
+    # and the untouched dgesv guard without requiring proprietary producer code.
+    dense = """
+Module xnet_jacobian
+  Subroutine jacobian_solve(kstep,mask_in)
+        Call dgesv(n,nrhs,m,n,p,r,n,info(izb))
+  End Subroutine jacobian_solve
+  Subroutine jacobian_decomp(kstep,mask_in)
+    Logical, Optional, Target, Intent(in) :: mask_in(zb_lo:zb_hi)
+        Call dgetrf(n,n,m,n,p,info(izb))
+  End Subroutine jacobian_decomp
+  Subroutine jacobian_bksub(kstep,yrhs,dy,t9rhs,dt9,mask_in)
+    Logical, Optional, Target, Intent(in) :: mask_in(zb_lo:zb_hi)
+        Call dgetrs('N',n,1,m,n,p,r,n,info(izb))
+  End Subroutine jacobian_bksub
+End Module xnet_jacobian
+"""
+    adapted = stage.adapt("refs/producer/xnet_jacobian_dense.f90", dense)
+    assert adapted.count("If (present(status_out)) status_out(izb)=info(izb)") == 2
+    assert adapted.count("info(izb)/=0.and..not.present(status_out)") == 2
+    assert "If (info(izb)/=0) Call abort_linear(info(izb),'dgesv')" in adapted
+
+
+def test_diagnostic_path_preserves_legacy_direction_and_never_advances_solver():
+    adapter = NATIVE_SOURCE.read_text()
+    legacy = _subroutine(adapter, "directional_sweep")
+    diagnostic = (NATIVE_SOURCE.parent / "diagnostic_native.f90").read_text()
+    driver = (NATIVE_SOURCE.parent / "trajectory_driver.f90").read_text()
+    assert "if (mod(i,2)==0.and.base(i)>0) v(i)=-v(i)" in legacy
+    assert "do i=2,160,2\n          v(i)=0" in diagnostic
+    assert "call solve_be" not in diagnostic.lower()
+    assert "call adapted_step" not in diagnostic.lower()
+    assert "call directional_sweep(initial," in driver
+    assert "diagnostic commands require input mode zero" in driver
+
+
+def test_diagnostic_factor_grid_and_single_unprojected_candidate_are_frozen():
+    diagnostic = (NATIVE_SOURCE.parent / "diagnostic_native.f90").read_text()
+    run = _subroutine(diagnostic, "run_native_diagnostic")
+    assert "factors(4)=[0.1_dp,1.0_dp,10.0_dp,100.0_dp]" in run
+    assert "f=base+deltas(:,2)" in run
+    assert run.count("call candidate_evaluation(") == 1
+    assert "if (.not.domain(f,temp,density,reason))" in run
+    assert "max(" not in run[run.index("f=base+deltas(:,2)") :]
+    assert "min(" not in run[run.index("f=base+deltas(:,2)") :]
+
+
+def test_fd_probe_audit_ids_precede_branch_refusal_and_link_raw_f():
+    column = _subroutine(NATIVE_SOURCE.read_text(), "column_probe")
+    for number, why in ((1, "why1"), (2, "why2")):
+        call = column.index(f"call fresh(p{number},")
+        capture = column.index(f"probe_id{number}=rhs_count")
+        branch = column.index(f"ok{number}=.false.; {why}='branch crossing'")
+        assert call < capture < branch
+    assert "real(probe_id1,dp),real(probe_id2,dp)" in column
+    assert "probe_id1=0; probe_id2=0" in column
+
+
+def test_diagnostic_incomplete_matrix_is_optional_and_restores_baseline():
+    full = _subroutine(NATIVE_SOURCE.read_text(), "full_jacobian")
+    failure = full[full.index("if (.not.found) then") :]
+    assert "if (present(complete)) then" in failure
+    assert "else\n          call fail(" in failure
+    assert "complete=.false." in full
+    assert full.index("complete=.false.") < full.rindex("call fresh(base,")
+    assert "if (present(increment_factor)) delta=delta*increment_factor" in full

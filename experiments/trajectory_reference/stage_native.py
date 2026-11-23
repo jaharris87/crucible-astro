@@ -22,6 +22,9 @@ EXTRA = {
 PUBLIC = (
     "stage_native.py",
     "native_adapter.f90",
+    "diagnostic_native.f90",
+    "DIAGNOSTIC_PROTOCOL.md",
+    "DIAGNOSTIC_WIRE.md",
     "trajectory_driver.f90",
     "phase2d_branch_state.f90",
     "synthetic_modules.f90",
@@ -137,6 +140,32 @@ def adapt(name, text):
                 f"        If (info(izb)/=0) Call abort_linear(info(izb),'{call}')\n",
             )
             text = "".join(lines)
+        for routine, lapack in (
+            ("jacobian_decomp", "dgetrf"),
+            ("jacobian_bksub", "dgetrs"),
+        ):
+            start = text.index(f"  Subroutine {routine}(")
+            end = text.index(f"  End Subroutine {routine}", start)
+            part = text[start:end]
+            signature = part.splitlines()[0]
+            part = replace_once(part, signature, signature[:-1] + ",status_out)")
+            declaration = (
+                "    Logical, Optional, Target, Intent(in) :: mask_in(zb_lo:zb_hi)"
+            )
+            part = replace_once(
+                part,
+                declaration,
+                declaration
+                + "\n    Integer, Optional, Intent(out) :: status_out(zb_lo:zb_hi)",
+            )
+            guard = f"        If (info(izb)/=0) Call abort_linear(info(izb),'{lapack}')"
+            part = replace_once(
+                part,
+                guard,
+                "        If (present(status_out)) status_out(izb)=info(izb)\n"
+                + f"        If (info(izb)/=0.and..not.present(status_out)) Call abort_linear(info(izb),'{lapack}')",
+            )
+            text = text[:start] + part + text[end:]
     elif name.endswith("xnet_ffn.f90"):
         text = replace_once(
             text,

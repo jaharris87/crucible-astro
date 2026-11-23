@@ -2,6 +2,8 @@
 module native_adapter
   use, intrinsic :: iso_fortran_env, only: int32,int64,real64
   use, intrinsic :: ieee_arithmetic
+  use, intrinsic :: ieee_exceptions, only: ieee_get_flag,ieee_invalid,ieee_divide_by_zero, &
+                                          ieee_overflow,ieee_underflow,ieee_inexact
   use xnet_types, only: dp
   use nuclear_data, only: ny,aa,zz
   use xnet_abundances, only: y,yt,ydot,y_moment
@@ -29,6 +31,8 @@ module native_adapter
   real(dp) :: last_evaluated_state(160),last_evaluated_conditions(3),last_evaluated_eos(4)
   integer :: last_evaluated_iweak
   integer(int64) :: matrix_jacobian_id=0
+  logical :: evaluation_stream_enabled=.false.
+  integer :: evaluation_unit,ieee_unit,fd_attempt_unit
 contains
   subroutine open_diagnostics()
     call system_clock(wall_start,wall_rate)
@@ -49,6 +53,38 @@ contains
     write(log_unit,'(a)') 'counter-events rows: 14 int64 in counters.json key order'
     write(log_unit,'(a)') 'PROJECTION step iteration species before after signed_delta A_abs_delta'
   end subroutine open_diagnostics
+
+  subroutine enable_evaluation_stream()
+    open(newunit=evaluation_unit,file='diagnostic-evaluations.bin',status='new',access='stream',form='unformatted')
+    open(newunit=ieee_unit,file='diagnostic-ieee.bin',status='new',access='stream',form='unformatted')
+    open(newunit=fd_attempt_unit,file='fd-probe-attempts.bin',status='new',access='stream',form='unformatted')
+    evaluation_stream_enabled=.true.
+  end subroutine enable_evaluation_stream
+
+  subroutine observe_ieee(nearest_flag,gradual_flag,supported_flag)
+    integer(int64),intent(out) :: nearest_flag,gradual_flag,supported_flag
+    type(ieee_round_type) :: rounding
+    logical :: gradual
+    call ieee_get_rounding_mode(rounding)
+    nearest_flag=merge(1_int64,0_int64,rounding==ieee_nearest)
+    supported_flag=merge(1_int64,0_int64,ieee_support_underflow_control())
+    gradual_flag=-1
+    if (supported_flag==1) then
+      call ieee_get_underflow_mode(gradual)
+      gradual_flag=merge(1_int64,0_int64,gradual)
+    endif
+  end subroutine observe_ieee
+
+  logical function unchanged_real_bits(left,right)
+    real(dp),intent(in) :: left(:),right(:)
+    integer :: j
+    unchanged_real_bits=.false.
+    if (size(left)/=size(right)) return
+    do j=1,size(left)
+      if (transfer(left(j),0_int64)/=transfer(right(j),0_int64)) return
+    enddo
+    unchanged_real_bits=.true.
+  end function unchanged_real_bits
 
   subroutine counters()
     integer :: unit
@@ -189,6 +225,9 @@ contains
       write(status_unit,'(a)') 'FAILURE '//reason
       flush(log_unit); flush(status_unit); flush(column_unit); flush(branch_unit); flush(residual_unit); flush(counter_unit)
       flush(base_unit)
+      if (evaluation_stream_enabled) then
+        flush(evaluation_unit); flush(ieee_unit); flush(fd_attempt_unit)
+      endif
       call counters()
     endif
     error stop 1
@@ -198,6 +237,9 @@ contains
     call snapshot_runtime()
     call counters()
     call elapsed_cost()
+    if (evaluation_stream_enabled) then
+      close(evaluation_unit); close(ieee_unit); close(fd_attempt_unit)
+    endif
     write(status_unit,'(a)') 'SUCCESS'
     flush(status_unit)
     close(log_unit); close(status_unit); close(column_unit); close(branch_unit); close(residual_unit); close(counter_unit)
@@ -242,7 +284,9 @@ contains
     character(*), intent(out) :: reason
     logical, optional, intent(in) :: is_probe
     logical :: active(1),probe
-    integer :: j
+    integer :: j,mutation_unit,mutation_ios
+    integer(int64) :: nearest_before,nearest_after,gradual_before,gradual_after,support_before,support_after
+    logical :: flags(5)
     real(dp), parameter :: eta_cuts(7)=[-2.0_dp,0.0_dp,2.0_dp,5.0_dp,10.0_dp,20.0_dp,40.0_dp]
     f=ieee_value(0.0_dp,ieee_quiet_nan)
     probe=.false.
@@ -264,6 +308,10 @@ contains
     last_evaluated_conditions=[time,temp,density]
     ! EOS/weak outputs are captured only after cross_sect returns below.
     workspace_ready=.false.; physical_phase=1
+    if (evaluation_stream_enabled) then
+      call observe_ieee(nearest_before,gradual_before,support_before)
+      if (nearest_before/=1) call fail('diagnostic requires IEEE nearest rounding')
+    endif
     coefficient_count=coefficient_count+1
     call cross_sect(mask_in=active)
     last_evaluated_eos=[yet(1),cv(1),etae(1),detaedt9(1)]
@@ -285,6 +333,28 @@ contains
       reason='nonfinite computed physical F/assembly workspace'
       call save_failure_state(state,time,temp,density)
       call fail(trim(reason))
+    endif
+    if (evaluation_stream_enabled) then
+      call observe_ieee(nearest_after,gradual_after,support_after)
+      call ieee_get_flag([ieee_invalid,ieee_divide_by_zero,ieee_overflow,ieee_underflow,ieee_inexact],flags)
+      write(ieee_unit) rhs_count,nearest_before,nearest_after,support_after,gradual_before,gradual_after, &
+                       merge(1_int64,0_int64,flags)
+      flush(ieee_unit)
+      if (nearest_after/=1.or.support_before/=support_after.or.gradual_before/=gradual_after) &
+        call fail('diagnostic IEEE mode changed')
+      if (.not.unchanged_real_bits(state,yt(:,1)).or. &
+          .not.unchanged_real_bits([time,temp,density],[tt(1),t9t(1),rhot(1)])) then
+        open(newunit=mutation_unit,file='diagnostic-input-mutation.bin',status='new', &
+             access='stream',form='unformatted',iostat=mutation_ios)
+        if (mutation_ios==0) then
+          write(mutation_unit,iostat=mutation_ios) time,temp,density,state,tt(1),t9t(1),rhot(1),yt(:,1)
+          close(mutation_unit,iostat=mutation_ios)
+        endif
+        if (mutation_ios/=0) write(log_unit,*) 'DIAGNOSTIC_MUTATION_SNAPSHOT_UNAVAILABLE',mutation_ios
+        call fail('diagnostic physical evaluation mutated supplied input')
+      endif
+      write(evaluation_unit) real(rhs_count,dp),time,temp,density,state,ydot(:,1)
+      flush(evaluation_unit)
     endif
     branch_signature(10020)=iweak(1)
     do j=1,7
@@ -322,6 +392,7 @@ contains
     logical,intent(out) :: ok
     real(dp) :: p1(size(base)),p2(size(base))
     logical :: ok1,ok2
+    integer(int64) :: probe_id1,probe_id2,count_before
     character(160) :: why1,why2
     p1=base; p2=base
     select case(stencil)
@@ -337,33 +408,54 @@ contains
     if (d1==0.or.d2==0.or.d1==d2) then
       ok=.false.
       write(log_unit,*) 'FD_REFUSAL increment',jacobian_count,column,stencil,delta,d1,d2,p1(column),p2(column)
+      if (evaluation_stream_enabled) write(fd_attempt_unit) real(jacobian_count,dp),real(column,dp),real(stencil,dp), &
+                                                    delta,d1,d2,p1(column),p2(column),0.0_dp,0.0_dp,0.0_dp,0.0_dp
       return
     endif
+    probe_id1=0; probe_id2=0; count_before=rhs_count
     call fresh(p1,time,temp,density,f1,ok1,why1,.true.)
+    if (rhs_count>count_before) probe_id1=rhs_count
     if (ok1) then
       if (any(branch_signature/=base_branch)) then
         ok1=.false.; why1='branch crossing'
       endif
     endif
+    count_before=rhs_count
     call fresh(p2,time,temp,density,f2,ok2,why2,.true.)
+    if (rhs_count>count_before) probe_id2=rhs_count
     if (ok2) then
       if (any(branch_signature/=base_branch)) then
         ok2=.false.; why2='branch crossing'
       endif
     endif
     ok=ok1.and.ok2
+    if (evaluation_stream_enabled) then
+      write(fd_attempt_unit) real(jacobian_count,dp),real(column,dp),real(stencil,dp),delta,d1,d2, &
+                             p1(column),p2(column),merge(1.0_dp,0.0_dp,ok1),merge(1.0_dp,0.0_dp,ok2), &
+                             real(probe_id1,dp),real(probe_id2,dp)
+      flush(fd_attempt_unit)
+    endif
     if (.not.ok) write(log_unit,*) 'FD_REFUSAL domain/branch',jacobian_count,column,stencil, &
                                           delta,d1,d2,p1(column),p2(column),trim(why1),' / ',trim(why2)
   end subroutine column_probe
 
-  subroutine full_jacobian(base,time,temp,density,f0,matrix)
+  subroutine full_jacobian(base,time,temp,density,f0,matrix,increment_factor,complete)
     real(dp),intent(in) :: base(:),time,temp,density
     real(dp),intent(out) :: f0(:),matrix(:,:)
+    real(dp),optional,intent(in) :: increment_factor
+    logical,optional,intent(out) :: complete
     real(dp) :: delta,scale,f1(size(base)),f2(size(base)),w(3),d1,d2
     integer :: column,reduction,stencil,k,base_branch(branch_size)
     integer,parameter :: stencils(3)=[0,1,-1]
     logical :: ok,weights_ok,found
     character(160) :: reason
+    if (present(complete)) then
+      complete=.true.
+      matrix=ieee_value(0.0_dp,ieee_quiet_nan)
+    endif
+    if (present(increment_factor)) then
+      if (.not.any(increment_factor==[0.1_dp,1.0_dp,10.0_dp,100.0_dp])) call fail('undeclared diagnostic increment factor')
+    endif
     jacobian_count=jacobian_count+1
     write(base_unit) real(jacobian_count,dp),time,temp,density,base
     flush(base_unit)
@@ -373,6 +465,7 @@ contains
     do column=1,size(base)
       scale=max(abs(base(column)),1e-8_dp/aa(column))
       delta=epsilon(1.0_dp)**(1.0_dp/3.0_dp)*scale
+      if (present(increment_factor)) delta=delta*increment_factor
       ! If addition rounded away, the nearest successor supplies a nonzero ULP.
       if (base(column)+delta==base(column)) delta=nearest(base(column),1.0_dp)-base(column)
       found=.false.
@@ -393,7 +486,14 @@ contains
         if (found) exit
         delta=delta/2.0_dp
       enddo
-      if (.not.found) call fail('no admissible same-branch finite-difference column after eight halvings')
+      if (.not.found) then
+        if (present(complete)) then
+          complete=.false.
+          write(log_unit,*) 'DIAGNOSTIC_COLUMN_INCOMPLETE',jacobian_count,column
+        else
+          call fail('no admissible same-branch finite-difference column after eight halvings')
+        endif
+      endif
     enddo
     ! Physical workspace restoration is a real fresh evaluation, never assignment
     ! of saved F alone: EOS, coefficients, b and ydot must all match the baseline.

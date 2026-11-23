@@ -14,6 +14,7 @@ program trajectory_driver
   use xnet_jacobian, only: read_jacobian_data
   use xnet_integrate_be, only: solve_be
   use native_adapter
+  use diagnostic_native, only: read_linear_inputs,run_native_diagnostic
   implicit none
   integer :: inp,output,forcing_output,ios,k,j,step,its(1)
   integer(int32) :: header(8),magic
@@ -23,10 +24,27 @@ program trajectory_driver
   real(dp) :: input_z(160),input_a(160),initial(160),f(160),b0,baryon,charge,native_ye,total
   real(dp) :: input_time,input_temperature,input_density
   real(dp) :: abar,zbar,z2bar,zibar,target,remaining,h,clock_start,clock_stop,phase_start
+  character(24) :: native_command
+  real(dp) :: diagnostic_old(160),diagnostic_h
+  logical :: diagnostic_linear_enabled
   character(80) :: data_description
   character(160) :: reason
   logical :: ok,active(1)
   call open_diagnostics()
+  native_command=''
+  if (command_argument_count()>1) call fail('expected at most one native diagnostic command')
+  if (command_argument_count()==1) then
+    call get_command_argument(1,length=k,status=ios)
+    if (ios/=0.or.k>len(native_command)) call fail('invalid native diagnostic command length')
+    call get_command_argument(1,native_command,status=ios)
+    if (ios/=0) call fail('cannot read native diagnostic command')
+    select case(trim(native_command))
+    case('repeat-3','repeat-1','diagnose')
+      call enable_evaluation_stream()
+    case default
+      call fail('unknown native diagnostic command')
+    end select
+  endif
   call cpu_time(clock_start)
   if (storage_size(1)/=32.or.storage_size(1.0)/=64.or.dp/=real64) call fail('required int32/defaultreal64')
   magic=int(z'01020304',int32); endian=transfer(magic,endian)
@@ -62,6 +80,7 @@ program trajectory_driver
   if (header(4)<2.or.header(4)>50000.or.header(5)<1.or.header(5)>50000 &
       .or.header(6)<1.or.header(6)>1000000) call fail('input dimensions outside bounded structural limits')
   if (header(7)<0.or.header(7)>2.or.header(8)<1.or.header(8)>160) call fail('input mode/direction coordinate')
+  if (len_trim(native_command)>0.and.header(7)/=0) call fail('diagnostic commands require input mode zero')
   allocate(forcing_time(header(4)),forcing_t9(header(4)),forcing_rho(header(4)))
   allocate(requested(header(5)),mesh(header(6)))
   read(inp,iostat=ios) nonlinear_atol,nonlinear_rtol,input_z,input_a,initial, &
@@ -103,6 +122,8 @@ program trajectory_driver
   t9=t9t; t9o=t9t; rho=rhot; rhoo=rhot
   y(:,1)=initial; yo=y; yt=y
   input_time=tt(1); input_temperature=t9t(1); input_density=rhot(1)
+  if (len_trim(native_command)>0) &
+    call read_linear_inputs(diagnostic_linear_enabled,diagnostic_old,diagnostic_h,input_time)
   call fresh(initial,input_time,input_temperature,input_density,f,ok,reason)
   if (.not.ok) call fail('initial state '//trim(reason))
   ye=yet; yeo=yet
@@ -112,6 +133,10 @@ program trajectory_driver
   write(log_unit,*) 'SETUP_CPU_SECONDS',phase_start-clock_start
   call system_clock(setup_clock)
   if (wall_rate>0) write(log_unit,*) 'SETUP_WALL_SECONDS',real(setup_clock-wall_start,dp)/real(wall_rate,dp)
+  if (len_trim(native_command)>0) then
+    call run_native_diagnostic(trim(native_command),initial,input_time,input_temperature,input_density,f, &
+                               header(8),diagnostic_linear_enabled,diagnostic_old,diagnostic_h)
+  else
   select case(header(7))
   case(0)
     open(newunit=output,file='control.bin',status='new',access='stream',form='unformatted')
@@ -158,6 +183,7 @@ program trajectory_driver
   case(2)
     call directional_sweep(initial,input_time,input_temperature,input_density,header(8))
   end select
+  endif
   call cpu_time(clock_stop)
   write(log_unit,*) 'PHYSICS_PHASE_CPU_SECONDS',clock_stop-phase_start
   call system_clock(physics_clock)
