@@ -14,7 +14,8 @@ program trajectory_driver
   use xnet_jacobian, only: read_jacobian_data
   use xnet_integrate_be, only: solve_be
   use native_adapter
-  use diagnostic_native, only: read_linear_inputs,run_native_diagnostic
+  use diagnostic_native, only: read_linear_inputs,run_native_diagnostic,export_maps
+  use assembly_qualification, only: run_assembly_qualification
   implicit none
   integer :: inp,output,forcing_output,ios,k,j,step,its(1)
   integer(int32) :: header(8),magic
@@ -26,12 +27,12 @@ program trajectory_driver
   real(dp) :: abar,zbar,z2bar,zibar,target,remaining,h,clock_start,clock_stop,phase_start
   character(24) :: native_command
   real(dp) :: diagnostic_old(160),diagnostic_h
-  logical :: diagnostic_linear_enabled
+  logical :: diagnostic_linear_enabled,assembly_command
   character(80) :: data_description
   character(160) :: reason
   logical :: ok,active(1)
   call open_diagnostics()
-  native_command=''
+  native_command=''; assembly_command=.false.
   if (command_argument_count()>1) call fail('expected at most one native diagnostic command')
   if (command_argument_count()==1) then
     call get_command_argument(1,length=k,status=ios)
@@ -40,6 +41,9 @@ program trajectory_driver
     if (ios/=0) call fail('cannot read native diagnostic command')
     select case(trim(native_command))
     case('repeat-3','repeat-1','diagnose')
+      call enable_evaluation_stream()
+    case('assembly-repeat-3','assembly-repeat-1','assembly-diagnose','assembly-step')
+      assembly_command=.true.
       call enable_evaluation_stream()
     case default
       call fail('unknown native diagnostic command')
@@ -80,7 +84,11 @@ program trajectory_driver
   if (header(4)<2.or.header(4)>50000.or.header(5)<1.or.header(5)>50000 &
       .or.header(6)<1.or.header(6)>1000000) call fail('input dimensions outside bounded structural limits')
   if (header(7)<0.or.header(7)>2.or.header(8)<1.or.header(8)>160) call fail('input mode/direction coordinate')
-  if (len_trim(native_command)>0.and.header(7)/=0) call fail('diagnostic commands require input mode zero')
+  if (native_command=='assembly-step') then
+    if (header(7)/=1) call fail('assembly first step requires original L0 mode one')
+  elseif (len_trim(native_command)>0.and.header(7)/=0) then
+    call fail('diagnostic commands require input mode zero')
+  endif
   allocate(forcing_time(header(4)),forcing_t9(header(4)),forcing_rho(header(4)))
   allocate(requested(header(5)),mesh(header(6)))
   read(inp,iostat=ios) nonlinear_atol,nonlinear_rtol,input_z,input_a,initial, &
@@ -113,6 +121,10 @@ program trajectory_driver
       endif
     enddo
   endif
+  if (native_command=='assembly-step') then
+    if (size(mesh)<2) call fail('assembly first step missing first interval')
+    if (mesh(1)/=0.0_dp.or.mesh(2)/=1e-4_dp) call fail('assembly first step requires fixed L0 interval')
+  endif
   nh=size(forcing_time)
   allocate(th(nh(1),1),t9h(nh(1),1),rhoh(nh(1),1))
   th(:,1)=forcing_time; t9h(:,1)=forcing_t9; rhoh(:,1)=forcing_rho
@@ -122,7 +134,8 @@ program trajectory_driver
   t9=t9t; t9o=t9t; rho=rhot; rhoo=rhot
   y(:,1)=initial; yo=y; yt=y
   input_time=tt(1); input_temperature=t9t(1); input_density=rhot(1)
-  if (len_trim(native_command)>0) &
+  if (assembly_command) call enable_assembly_source()
+  if (len_trim(native_command)>0.and..not.assembly_command) &
     call read_linear_inputs(diagnostic_linear_enabled,diagnostic_old,diagnostic_h,input_time)
   call fresh(initial,input_time,input_temperature,input_density,f,ok,reason)
   if (.not.ok) call fail('initial state '//trim(reason))
@@ -133,7 +146,11 @@ program trajectory_driver
   write(log_unit,*) 'SETUP_CPU_SECONDS',phase_start-clock_start
   call system_clock(setup_clock)
   if (wall_rate>0) write(log_unit,*) 'SETUP_WALL_SECONDS',real(setup_clock-wall_start,dp)/real(wall_rate,dp)
-  if (len_trim(native_command)>0) then
+  if (native_command=='assembly-step') then
+    call qualification_first_step()
+  elseif (assembly_command) then
+    call run_assembly_qualification(trim(native_command),initial,input_time,input_temperature,input_density,f,header(8))
+  elseif (len_trim(native_command)>0) then
     call run_native_diagnostic(trim(native_command),initial,input_time,input_temperature,input_density,f, &
                                header(8),diagnostic_linear_enabled,diagnostic_old,diagnostic_h)
   else
@@ -197,6 +214,37 @@ program trajectory_driver
   call parallel_finalize()
   call finish()
 contains
+  subroutine qualification_first_step()
+    integer :: summary
+    logical :: passed
+    call export_maps()
+    call save_assembly_workspace('baseline-001.bin','assembly-baseline-001.bin')
+    open(newunit=output,file='accepted.bin',status='new',access='stream',form='unformatted')
+    open(newunit=forcing_output,file='accepted-forcing.bin',status='new',access='stream',form='unformatted')
+    call accepted_row()
+    tt=1e-4_dp; tdel=tt-t
+    call t9rhofind(1,tt,ntt,t9t,rhot,mask_in=active)
+    yt=y; its=0
+    call solve_be(1,its)
+    passed=its(1)==0
+    if (passed) then
+      accepted_count=1
+      baryon=sum(aa*y(:,1))
+      if (.not.ieee_is_finite(baryon).or.abs(baryon-b0)>1e-10_dp*max(1.0_dp,abs(b0))) &
+        call fail('assembly accepted-state baryon drift bound')
+      if (t(1)<=0.0_dp.or.t(1)>1e-4_dp) call fail('assembly first-step achieved time outside request')
+      call accepted_row()
+      call save_assembly_workspace('baseline-accepted.bin','assembly-accepted.bin')
+    endif
+    close(output); close(forcing_output)
+    open(newunit=summary,file='first-step.bin',status='new',access='stream',form='unformatted')
+    write(summary) int(z'43524153',int32),1_int32,160_int32,0_int32
+    write(summary) 1e-4_dp,t(1),merge(1.0_dp,0.0_dp,passed),real(attempt_count,dp),final_norm,final_projection,y(:,1)
+    close(summary)
+    call checkpoint()
+    if (.not.passed) call fail('first native step failed')
+  end subroutine qualification_first_step
+
   subroutine accepted_row()
     real(dp) :: native_yet
     call y_moment(y(:,1),native_yet,total,abar,zbar,z2bar,zibar)

@@ -224,10 +224,14 @@ contains
             h1=-m; h2=-2*m
           end select
           p1=base+h1*v; p2=base+h2*v
+          if (assembly_enabled) then
+            assembly_role=7; assembly_context=100*direction+10*mi+stencil+1
+          endif
           call fresh(p1,time,temp,density,f1,ok1,why1,.true.)
           if (ok1.and.any(branch_signature/=base_branch)) then
             ok1=.false.; why1='branch crossing'
           endif
+          if (assembly_enabled) assembly_role=8
           call fresh(p2,time,temp,density,f2,ok2,why2,.true.)
           if (ok2.and.any(branch_signature/=base_branch)) then
             ok2=.false.; why2='branch crossing'
@@ -251,6 +255,9 @@ contains
         flush(output)
       enddo
     enddo
+    if (assembly_enabled) then
+      assembly_role=9; assembly_context=0
+    endif
     call fresh(base,time,temp,density,restore_f,ok,why1)
     if (.not.ok) call fail('diagnostic directional restore '//trim(why1))
     if (.not.unchanged_real_bits(restore_f,f0)) call fail('diagnostic directional restore changed baseline F')

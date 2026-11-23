@@ -45,6 +45,8 @@ end module
 module reaction_data
   use xnet_types
   implicit none
+  integer,allocatable :: la(:,:),le(:,:),n11(:),n21(:),n22(:),n31(:),n32(:),n33(:)
+  integer,allocatable :: n41(:),n42(:),n43(:),n44(:)
   real(dp) :: csect1(1,1)=1,csect2(1,1)=1,csect3(1,1)=1,csect4(1,1)=1
   real(dp) :: b1(1,1)=1,b2(1,1)=1,b3(1,1)=1,b4(1,1)=1
 end module

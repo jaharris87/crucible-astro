@@ -22,6 +22,10 @@ EXTRA = {
 PUBLIC = (
     "stage_native.py",
     "native_adapter.f90",
+    "assembly113_math.f90",
+    "assembly_qualification.f90",
+    "assembly_synthetic.f90",
+    "ASSEMBLY_QUALIFICATION_PROTOCOL.md",
     "diagnostic_native.f90",
     "DIAGNOSTIC_PROTOCOL.md",
     "DIAGNOSTIC_WIRE.md",

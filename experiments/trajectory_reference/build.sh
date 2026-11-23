@@ -6,6 +6,7 @@ cd "$(dirname "$0")"
 python3 stage_native.py verify .
 test ! -e build.log
 test ! -e build
+test ! -e assembly_synthetic
 test ! -e trajectory_driver
 test ! -e forcing_synthetic
 test ! -e trajectory_synthetic
@@ -38,6 +39,7 @@ cd build
 set -x
 flags=(-g -O0 -traceback -qopenmp-stubs -real-size 64 -integer-size 32)
 h5pfc "${flags[@]}" -c ../phase2d_branch_state.f90 -o phase2d_branch_state.o
+h5pfc "${flags[@]}" -fp-model strict -c ../assembly113_math.f90 -o assembly113_math.o
 sources=(xnet_types xnet_constants xnet_parallel xnet_util xnet_controls xnet_conditions xnet_ffn xnet_nnu xnet_data xnet_abundances xnet_timers xnet_fd)
 for name in "${sources[@]}"; do
   h5pfc "${flags[@]}" -c "../refs/producer/${name}.f90" -o "${name}.o"
@@ -50,10 +52,11 @@ for name in xnet_eos_starkiller xnet_screening xnet_integrate xnet_jacobian_dens
 done
 h5pfc "${flags[@]}" -c ../native_adapter.f90 -o native_adapter.o
 h5pfc "${flags[@]}" -c ../diagnostic_native.f90 -o diagnostic_native.o
+h5pfc "${flags[@]}" -c ../assembly_qualification.f90 -o assembly_qualification.o
 h5pfc "${flags[@]}" -c ../refs/producer/xnet_integrate_be.f90 -o xnet_integrate_be.o
 h5pfc "${flags[@]}" -c ../trajectory_driver.f90 -o trajectory_driver.o
-objects=(phase2d_branch_state.o)
-for name in "${sources[@]}" eos_type actual_eos xnet_eos_starkiller xnet_screening xnet_integrate xnet_jacobian_dense native_adapter diagnostic_native xnet_integrate_be trajectory_driver; do
+objects=(phase2d_branch_state.o assembly113_math.o)
+for name in "${sources[@]}" eos_type actual_eos xnet_eos_starkiller xnet_screening xnet_integrate xnet_jacobian_dense native_adapter diagnostic_native assembly_qualification xnet_integrate_be trajectory_driver; do
   objects+=("${name}.o")
 done
 h5pfc "${flags[@]}" -o ../trajectory_driver "${objects[@]}" -qmkl=sequential -lpthread -lm -ldl
@@ -63,9 +66,10 @@ mkdir synthetic
 cd synthetic
 h5pfc "${flags[@]}" -c ../../phase2d_branch_state.f90 -o phase2d_branch_state.o
 h5pfc "${flags[@]}" -qmkl=sequential -c ../../synthetic_modules.f90 -o synthetic_modules.o
+h5pfc "${flags[@]}" -fp-model strict -c ../../assembly113_math.f90 -o assembly113_math.o
 h5pfc "${flags[@]}" -c ../../native_adapter.f90 -o native_adapter.o
 h5pfc "${flags[@]}" -c ../../synthetic_native.f90 -o synthetic_native.o
-h5pfc "${flags[@]}" -o ../../trajectory_synthetic phase2d_branch_state.o synthetic_modules.o native_adapter.o synthetic_native.o -qmkl=sequential -lpthread -lm -ldl
+h5pfc "${flags[@]}" -o ../../trajectory_synthetic phase2d_branch_state.o assembly113_math.o synthetic_modules.o native_adapter.o synthetic_native.o -qmkl=sequential -lpthread -lm -ldl
 cd ..
 mkdir forcing-synthetic
 cd forcing-synthetic
@@ -73,7 +77,14 @@ h5pfc "${flags[@]}" -c ../../forcing_stub.f90 -o forcing_stub.o
 h5pfc "${flags[@]}" -c ../../refs/producer/xnet_conditions.f90 -o xnet_conditions.o
 h5pfc "${flags[@]}" -c ../../forcing_synthetic.f90 -o forcing_synthetic.o
 h5pfc "${flags[@]}" -o ../../forcing_synthetic forcing_stub.o xnet_conditions.o forcing_synthetic.o
+cd ..
+mkdir assembly-synthetic
+cd assembly-synthetic
+h5pfc "${flags[@]}" -fp-model strict -c ../../assembly113_math.f90 -o assembly113_math.o
+h5pfc "${flags[@]}" -c ../../assembly_synthetic.f90 -o assembly_synthetic.o
+h5pfc "${flags[@]}" -o ../../assembly_synthetic assembly113_math.o assembly_synthetic.o
 cd ../..
+sha256sum assembly_synthetic > assembly-executable.sha256
 sha256sum forcing_synthetic > forcing-executable.sha256
 sha256sum trajectory_synthetic > synthetic-executable.sha256
 sha256sum trajectory_driver > executable.sha256
