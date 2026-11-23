@@ -106,8 +106,12 @@ Raw archive SHA256 is
 Measured job wall is 55 s / total CPU 42.546 s; complete costs and artifact hashes
 are in the report. No full-horizon reference has passed.
 
-**Next action:** independently review the concrete [D-039 qualification proposal](../experiments/trajectory_reference/ASSEMBLY_QUALIFICATION_PROTOCOL.md),
-then obtain its explicit scientific/source and producer decision. The proposed
+**Next decision:** the concrete [D-039 qualification proposal](../experiments/trajectory_reference/ASSEMBLY_QUALIFICATION_PROTOCOL.md)
+passed fresh-context read-only Sol High protocol review at `8bcdb8f`, with no
+blocking finding. Obtain explicit acceptance of its distinct numerical source/claim
+AND bounded producer scope before implementation execution. No D-039 code has yet
+been implemented or built; exact implementation review will precede execution.
+The proposed
 higher-precision product-and-sum assembly would be a new numerical RHS,
 not unchanged D-019. It needs explicit scientific acceptance and bounded producer
 authority before any build/evaluation; D-038 does not authorize trajectory reruns.

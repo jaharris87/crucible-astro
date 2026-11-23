@@ -23,8 +23,11 @@ repairs and final closeout are complete through PR #50 / `75b2ec3`. Phase 2D
 native reference implementation is active under [issue #44](https://github.com/jaharris87/crucible-astro/issues/44);
 the reviewed protocol and bounded producer scope are accepted under D-036.
 2D resumed on 2026-11-23 with offline diagnosis after primary numerical failures;
-D-038 now authorizes bounded frozen-state diagnostics. Later trajectory execution
-needs a separate accepted protocol; no full-horizon reference has passed. See the [diagnosis](docs/reports/2026-11-23-phase2d-diagnosis.md),
+D-038 diagnostics completed with passing frozen-state verification and independent
+artifact assessment; [the report](docs/reports/2026-11-23-phase2d-diagnostics.md)
+retains the unresolved nonlinear limits. D-039 proposes a distinct assembly source
+and bounded qualification; no new execution is authorized. Later trajectories
+need a separate accepted protocol; no full-horizon reference has passed. See the [diagnosis](docs/reports/2026-11-23-phase2d-diagnosis.md),
 [checkpoint](docs/reports/2026-11-20-phase2d-checkpoint.md) and current
 [progress](docs/PROGRESS.md) and [handoff](docs/HANDOFF.md).
 Physical application, energy, rollout accuracy and speedup remain

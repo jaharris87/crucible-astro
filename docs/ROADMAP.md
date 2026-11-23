@@ -75,8 +75,10 @@ guidance revision/access gaps. No trained-model card is created during Phase 1.
 2A–2C are complete, including the scheduled audit, reconciled repairs and explicit
 final acceptance linked from [handoff](HANDOFF.md). 2D is active under D-035, with D-036 acceptance of its reviewed concrete
 scientific/producer protocol. Its failed/interrupted campaign establishes no
-full-horizon reference. D-038 authorizes the bounded frozen-state diagnostics;
-later trajectory execution needs a separate accepted numerical protocol. Each
+full-horizon reference. D-038 frozen-state diagnostics and independent artifact
+assessment pass within their bounded claim; [the report](reports/2026-11-23-phase2d-diagnostics.md)
+preserves unresolved nonlinear limits. D-039 source qualification is proposed,
+not accepted; later execution needs its explicit numerical/producer decision. Each
 later boundary requires scope acceptance and
 preceding integration; [the execution sequence](PHASE_2_LAUNCH.md) defines these
 bounds. Before real rollouts, accept forcing/history, horizons/outputs, observables
