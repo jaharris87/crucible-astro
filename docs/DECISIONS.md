@@ -858,8 +858,11 @@ No D-039 implementation existed at protocol review. The current implementation
 and public verification are now prepared; exact code review still precedes execution.
 The protocol bytes are unchanged after review/acceptance. Routine implementation
 and checks are authorized; 1,006 installed public tests and lint/format pass. The
-pushed exact implementation must pass independent review before the accepted
-build/evaluations. No D-039 compiler build or physical call has run.
+implementation passed fresh independent review and focused P2D-ASM-001 repair
+verification at `245ed95`; 1,006 installed tests and Linux CI pass. The [first
+qualification job 61873636](https://github.com/jaharris87/crucible-astro/issues/44#issuecomment-7110527361)
+was submitted only after that review. Native/compiler/numerical outcomes remain
+unobserved at this checkpoint. Execution stays bound to the reviewed source.
 Acceptance grants no full trajectory campaign, reference, merge or Phase 2E.
 
 ## Scientific decisions and current evidence gates

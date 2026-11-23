@@ -110,14 +110,24 @@ are in the report. No full-horizon reference has passed.
 Fresh-context read-only Sol High protocol review passed at `8bcdb8f`, without
 blocking findings. The maintainer explicitly approved its distinct numerical RHS
 AND bounded qualification scope in the [actual receipt](https://github.com/jaharris87/crucible-astro/issues/44#issuecomment-7109353327).
-The distinct native module, fixed gated runner, independent exact-arithmetic
-verification and report/reload boundary are implemented. The locked noneditable
-suite passes 1,006 tests with zero skips; Ruff lint/format and source syntax checks
-pass. The [runnable guide](../experiments/trajectory_reference/ASSEMBLY_QUALIFICATION.md)
-and [wire formats](../experiments/trajectory_reference/ASSEMBLY_WIRE.md) separate
-original/variant F and retain every attempted/conditional result. Push and obtain
-fresh exact-candidate independent implementation review, then execute the accepted
-fresh build and qualification. No D-039 compiler build or physical call has run. The new numerical RHS is separately named,
+The distinct native module, gated runner, exact-arithmetic verification and
+report/reload boundary are implemented. Fresh independent Sol High review found
+P2D-ASM-001 (synthetic Jacobian API mismatch); the original finding and focused
+repair PASS are preserved in the [review receipt](https://github.com/jaharris87/crucible-astro/issues/44#issuecomment-7110481577).
+Exact reviewed executable/analysis source is `245ed9525ee9877653beab80eaf91bdd5493800c`.
+Its installed suite and Linux CI pass 1,006 tests, zero skips; lint/format,
+documentation, Bash syntax and whitespace pass. Unexecuted preparation001 is
+preserved; preparation002 binds the repaired source/tree and all 120 immutable
+identities, independently verified locally and on the host.
+
+**Current execution:** follow the single [submitted D-039 job 61873636](https://github.com/jaharris87/crucible-astro/issues/44#issuecomment-7110527361).
+It is the first fresh build, with no prephysical repair build used. Build/precision
+and raw science gates precede the fixed physical work. Outcomes have not yet been
+observed; do not resubmit after an observation timeout. The [runnable guide](../experiments/trajectory_reference/ASSEMBLY_QUALIFICATION.md)
+and [wire formats](../experiments/trajectory_reference/ASSEMBLY_WIRE.md) retain
+original/variant F, every failure and all conditional outcomes. This status-only
+update does not relabel execution to a later source head.
+The new numerical RHS is separately named,
 preserving D-019 and frozen artifacts; frozen-MLP compatibility is unestablished.
 Only first-step qualification is authorized, with no full trajectory continuation,
 postphysical rebuild or infrastructure restart. Full reference generation, reference
