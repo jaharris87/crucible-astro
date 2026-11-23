@@ -5,7 +5,9 @@ B01–B04 scope was adopted by the maintainer on 2026-11-17 (D-010); the maintai
 Current boundary: **2A–2C are complete**, with [final 2C acceptance](https://github.com/jaharris87/crucible-astro/issues/43#issuecomment-7047751430).
 The frozen negative-fidelity MLP remains unchanged. D-035 invokes 2D protocol
 preparation under #44; D-036 now accepts the concrete scientific/producer scope.
-Implementation and synthetic verification are active before the first build.
+The primary campaign has numerical failures and interrupted validation; no
+full-horizon reference passed. Resumed offline diagnosis and the D-038 bounded
+diagnostic proposal require new scientific/producer acceptance before execution.
 [The existing sequence](PHASE_2_LAUNCH.md) owns dependencies and scope gates.
 
 ## Bootstrap sequence

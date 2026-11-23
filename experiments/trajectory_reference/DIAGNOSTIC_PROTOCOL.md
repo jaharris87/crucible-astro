@@ -108,6 +108,24 @@ using two adjacent admissible multipliers and unchanged componentwise threshold
 Also compare the native fixed-coefficient monomial matrix against the exact
 independent derivative of the exported fixed-b polynomial; it is not the full-F J.
 
+Serialization/recomputation checks are separate from that scientific agreement
+criterion. Let e be binary64 epsilon and Nmin the minimum normal binary64 value.
+For a two-probe quotient with weights w1,w2 and terms
+t1=w1*(F1-F0), t2=w2*(F2-F0), allow
+`512*e*(abs(t1)+abs(t2))+32*Nmin*(abs(w1)+abs(w2)+1)` componentwise.
+Require nonzero normal offsets, their difference/products and weights, and finite
+differences/products/sums. Otherwise mark the arithmetic envelope unsupported.
+The Nmin terms cover DAZ/FTZ losses amplified by the quotient weights; an
+unamplified subnormal constant is insufficient. The relative term conservatively
+covers the short nearest-rounding weight/subtraction/product/sum chains.
+For Jv use `512*e*sum(abs(J_ij*v_j))+32*160*Nmin`; every nonzero fixed v must be
+normal and at most one. For M use `512*e*(abs(J)+I/h)+32*Nmin`, and for the native
+Newton RHS use `512*e*(abs((Yold-Y)/h)+abs(F))+32*Nmin*(1+1/h)`; h and its
+reciprocal must be normal and finite. These operation-count/flush allowances
+check saved arithmetic, not derivative adequacy or physical error. Exact-rational
+conditional assembly, derivative and residual checks additionally retain their
+own operand/count-derived bounds and unsupported masks.
+
 **D — Frozen linear/Newton algebra.** Only at state 3, for every complete matrix
 form M=I/h-J and the unchanged native right-hand side (Yold-Y)/h+F. Retain unfactored
 M, RHS, LU/pivots/info and correction. Require native LAPACK info=0; report other

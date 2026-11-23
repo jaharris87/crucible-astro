@@ -20,7 +20,7 @@ from pathlib import Path
 
 HERE = Path(__file__).resolve().parent
 ANNEX_SHA256 = "dbb954afac144d9305a87e483c0c08833a8cdf2487d390f2d6532e5e72a814eb"
-PROTOCOL_SHA256 = "b73fa9e449935f425517c9b68f5fbc0002d0ea9f59d81cc13797c16c048268a8"
+PROTOCOL_SHA256 = "ea722cbabf71d79453a30c35f6f07de7a2c065fe14a9a2e1f442160ada4be7a1"
 NEWTON_Y_SHA256 = "5d571931e428b4ede04e61c7d3b8bb0d940d3fabb35da0e8363e1cc5b4ce4c39"
 STATES = ("development-initial", "validation-initial", "development-newton300")
 NC = (683, 1345, 16, 4)

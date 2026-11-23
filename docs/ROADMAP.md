@@ -74,7 +74,9 @@ guidance revision/access gaps. No trained-model card is created during Phase 1.
 [2E frozen evaluation/cost](https://github.com/jaharris87/crucible-astro/issues/45).
 2A–2C are complete, including the scheduled audit, reconciled repairs and explicit
 final acceptance linked from [handoff](HANDOFF.md). 2D is active under D-035, with D-036 acceptance of its reviewed concrete
-scientific/producer protocol. Implementation and its bounded campaign follow. Each
+scientific/producer protocol. Its failed/interrupted campaign establishes no
+full-horizon reference. Offline diagnosis and a bounded D-038 proposal are active;
+new producer execution requires that revised decision. Each
 later boundary requires scope acceptance and
 preceding integration; [the execution sequence](PHASE_2_LAUNCH.md) defines these
 bounds. Before real rollouts, accept forcing/history, horizons/outputs, observables

@@ -17,7 +17,11 @@ D-035 invokes 2D protocol preparation after verified PR #50 / `75b2ec3` closure.
 Its [two-case v2 proposal](../experiments/trajectory_reference/PROTOCOL.md) passed
 independent review/focused repairs; D-036 scientific/producer scope was
 [explicitly accepted](https://github.com/jaharris87/crucible-astro/issues/44#issuecomment-7048371383).
-Its bounded implementation/campaign is active; merge approval remains separate.
+The first campaign has numerical failures and an interrupted validation run;
+no full-horizon reference passed. Offline diagnosis resumed on 2026-11-23;
+[D-038](../experiments/trajectory_reference/DIAGNOSTIC_PROTOCOL.md) proposes bounded
+frozen-state diagnostics requiring new scientific/producer acceptance.
+Merge approval remains separate.
 The 2B [concrete MLP experiment](https://github.com/jaharris87/crucible-astro/issues/42#issuecomment-7042652534)
 received independent scope review and maintainer acceptance under D-031 before fitting.
 This is the single Phase 2 sequence; live issues hold execution detail.

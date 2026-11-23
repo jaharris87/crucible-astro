@@ -15,6 +15,8 @@ scientific/producer acceptance. Read the
 [checkpoint](../../docs/reports/2026-11-20-phase2d-checkpoint.md) before using the
 commands below: further execution requires revised accepted protocol/producer
 authority, not an automatic retry of the failed campaign.
+The [diagnostic guide](DIAGNOSTICS.md) describes the proposed fixed-state work
+separately from the original trajectory commands below.
 
 Two fixed saved states and their prescribed sparse T9/rho interpolants define
 new 10 ms IVPs. They do not reproduce the original hydro trajectories. Keep all
