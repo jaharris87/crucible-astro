@@ -21,6 +21,7 @@ HERE = Path(__file__).resolve().parent
 DECISIONS = ("pass", "software_pass", "fatal", "ordinary_numerical_failure")
 UNATTEMPTED = {"UNATTEMPTED", "CONDITIONALLY_UNATTEMPTED"}
 REPORT = "assembly-verification.json"
+HOST_IDENTITIES = "host-identity-verification.json"
 
 
 def require(condition, message):
@@ -58,6 +59,76 @@ def numeric_details(value):
                 return array.copy()
         return [numeric_details(item) for item in value]
     return value
+
+
+def verify_retained_build(root, prepared, campaign, contract, expected_host_sha):
+    """Verify local retained bytes and a hash-bound live execution-host recheck.
+
+    Vendor paths are neither remapped nor silently skipped. The separate receipt
+    rechecks those files on their actual host using the unchanged executed checker.
+    """
+    require(
+        isinstance(expected_host_sha, str)
+        and re.fullmatch(r"[0-9a-f]{64}", expected_host_sha),
+        "explicit execution-host identity receipt SHA256 required",
+    )
+    proof = json.loads(artifacts.checked(root / HOST_IDENTITIES, expected_host_sha))
+    helper = load_module(
+        "_assembly_report_host_identities", HERE / "assembly_host_identities.py"
+    )
+    build = campaign["build"]
+    expected, attempts = helper.expected_library_files(campaign)
+    require(
+        proof.get("schema") == "crucible.phase2d.assembly-host-identities.v1"
+        and proof.get("numerical_source") == contract.SOURCE_NAME
+        and proof.get("source_commit") == prepared["source_commit"]
+        and proof.get("source_tree") == prepared["source_tree"]
+        and proof.get("prepared_sha256") == contract.digest(root / "prepared.json")
+        and proof.get("campaign_sha256") == contract.digest(root / "campaign.json")
+        and proof.get("collector_sha256")
+        == contract.digest(HERE / "assembly_host_identities.py")
+        and proof.get("build") == build
+        and proof.get("checked_files") == expected
+        and proof.get("completed_attempts") == attempts,
+        "execution-host identity proof differs from retained campaign",
+    )
+    require(
+        all(
+            Path(name).is_absolute() and re.fullmatch(r"[0-9a-f]{64}", h)
+            for name, h in expected.items()
+        ),
+        "invalid retained library identity",
+    )
+    require(
+        json.loads((root / "bundle/linked-library-hashes.json").read_text())
+        == build["libraries"],
+        "linked library receipt differs",
+    )
+    for name, identity in build["build_files"].items():
+        require(
+            contract.digest(contract.diag.safe_file(root, name)) == identity,
+            "retained build file identity differs",
+        )
+    for name, receipt in (
+        ("trajectory_driver", "executable.sha256"),
+        ("trajectory_synthetic", "synthetic-executable.sha256"),
+        ("forcing_synthetic", "forcing-executable.sha256"),
+        ("assembly_synthetic", "assembly-executable.sha256"),
+    ):
+        fields = (root / "bundle" / receipt).read_text().split()
+        require(
+            len(fields) == 2
+            and Path(fields[1]).name == name
+            and fields[0]
+            == build["executables"][name]
+            == contract.digest(root / "bundle" / name),
+            "retained executable identity differs",
+        )
+    return {
+        "sha256": expected_host_sha,
+        "checked_files": len(expected),
+        "scope": "actual execution-host recheck plus retained build/runtime receipts",
+    }
 
 
 def _stage_checks(prepared, campaign, outcomes):
@@ -162,7 +233,7 @@ def _capture_workspaces(root, prepared, gates):
     return captured, matrices, unavailable
 
 
-def analyze(root):
+def analyze(root, host_identity_sha=None):
     root = Path(root).resolve()
     gates = load_module("_assembly_report_arithmetic", HERE / "assembly_arithmetic.py")
     gates.WORKSPACES.clear()
@@ -186,6 +257,7 @@ def analyze(root):
         "attempts": {},
         "errors": [],
         "call_counts_complete": False,
+        "host_identity_verification_sha256": host_identity_sha,
         "analysis_environment": {
             "python": platform.python_version(),
             "numpy": np.__version__,
@@ -196,6 +268,7 @@ def analyze(root):
                 "assembly_report.py",
                 "assembly_arithmetic.py",
                 "assembly_campaign.py",
+                "assembly_host_identities.py",
             )
         },
     }
@@ -263,9 +336,8 @@ def analyze(root):
                 == report["analysis_code_sha256"][name],
                 "offline arithmetic dependency differs from executed gate",
             )
-        require(
-            contract.build_identities(root) == campaign["build"],
-            "build identity differs",
+        report["host_identity_verification"] = verify_retained_build(
+            root, prepared, campaign, contract, host_identity_sha
         )
         for spec, record in zip(
             prepared["attempts"], campaign["attempts"], strict=True
@@ -384,9 +456,9 @@ def analyze(root):
     return numeric_details(report)
 
 
-def reload_report(root):
+def reload_report(root, report_name=REPORT):
     root = Path(root).resolve()
-    saved = json.loads((root / REPORT).read_text())
+    saved = json.loads((root / report_name).read_text())
     manifest = saved.pop("array_artifact")
     name = Path(manifest["path"])
     require(
@@ -407,7 +479,9 @@ def reload_report(root):
             and artifacts.digest_bytes(array.tobytes()) == expected["sha256"],
             "derived array identity differs",
         )
-    report = analyze(root)
+    report = analyze(
+        root, host_identity_sha=saved.get("host_identity_verification_sha256")
+    )
     metadata, recomputed = artifacts.split_report(report)
     require(
         metadata == saved and set(arrays) == set(recomputed),
@@ -428,13 +502,24 @@ def main():
     parser = argparse.ArgumentParser(description=__doc__)
     sub = parser.add_subparsers(dest="command", required=True)
     for command in ("verify", "reload"):
-        sub.add_parser(command).add_argument("root", type=Path)
+        child = sub.add_parser(command)
+        child.add_argument("root", type=Path)
+        child.add_argument("--report-name", default=REPORT)
+        if command == "verify":
+            child.add_argument("--host-identity-sha256", required=True)
     args = parser.parse_args()
+    require(
+        Path(args.report_name).name == args.report_name
+        and args.report_name.endswith(".json"),
+        "report name must be a JSON basename",
+    )
     report = (
-        analyze(args.root) if args.command == "verify" else reload_report(args.root)
+        analyze(args.root, args.host_identity_sha256)
+        if args.command == "verify"
+        else reload_report(args.root, args.report_name)
     )
     if args.command == "verify":
-        artifacts.artifact_report(args.root / REPORT, report)
+        artifacts.artifact_report(args.root / args.report_name, report)
     print(
         json.dumps(
             {

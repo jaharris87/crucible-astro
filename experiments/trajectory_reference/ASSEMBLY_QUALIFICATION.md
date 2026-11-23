@@ -109,12 +109,38 @@ original/variant F, binary128 workspaces, physical-call IDs and Newton phases.
 Retain the last evaluated workspace separately from retry-reset arguments and
 the Jacobian baseline. Forensic exports must not call the producer again.
 
+Recheck retained build files and the actual recorded vendor-library paths on the
+execution system with the read-only collector below. It uses the unchanged,
+source-bound build checker and hashes the union of build-linked and actually
+mapped runtime files. It invokes no compiler or producer. Its recorded hostname
+distinguishes this later check from the original compute processes. Any identity
+change refuses verification; paths are never remapped to local substitutes.
+
+```sh
+python3 -S -B /absolute/public/assembly_host_identities.py \
+  /absolute/private/assembly-attempt-001 \
+  /absolute/private/host-identity-verification.json
+```
+
+Preserve that receipt alongside the extracted campaign as
+`host-identity-verification.json`; record its SHA256 separately before analysis.
+The local report requires that explicit hash and verifies retained executables,
+build files, library receipts and their agreement with the execution-system check.
+It does not require cluster libraries to exist on the analysis machine.
+
 ```sh
 .venv/bin/python -B experiments/trajectory_reference/assembly_report.py verify \
-  /absolute/private/assembly-attempt-001
+  /absolute/private/assembly-attempt-001 \
+  --host-identity-sha256 "$RECORDED_HOST_RECEIPT_SHA256" \
+  --report-name assembly-verification-v2.json
 .venv/bin/python -B experiments/trajectory_reference/assembly_report.py reload \
-  /absolute/private/assembly-attempt-001
+  /absolute/private/assembly-attempt-001 \
+  --report-name assembly-verification-v2.json
 ```
+
+Use a new report basename after a reporting repair; preserve unsuccessful derived
+reports and the raw archive. The reporting source identity is separate from the
+source that executed the physical campaign.
 
 Offline analysis checks immutable identities, complete attempted/conditional work,
 precision and exact arithmetic bounds, derivative windows, Newton/LU associations,

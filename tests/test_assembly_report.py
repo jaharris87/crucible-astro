@@ -132,7 +132,7 @@ def test_fresh_reload_preserves_numeric_bits_and_refuses_overwrite(
     tmp_path, monkeypatch
 ):
     report = load_report()
-    monkeypatch.setattr(report, "analyze", lambda root: oracle())
+    monkeypatch.setattr(report, "analyze", lambda root, **kwargs: oracle())
     report.artifacts.artifact_report(tmp_path / report.REPORT, oracle())
     actual = report.reload_report(tmp_path)
     assert actual["values"].tobytes() == oracle()["values"].tobytes()
@@ -145,7 +145,7 @@ def test_updated_serialization_hashes_do_not_replace_raw_recomputation(
     tmp_path, monkeypatch
 ):
     report = load_report()
-    monkeypatch.setattr(report, "analyze", lambda root: oracle())
+    monkeypatch.setattr(report, "analyze", lambda root, **kwargs: oracle())
     report.artifacts.artifact_report(tmp_path / report.REPORT, oracle())
     path = tmp_path / report.REPORT
     metadata = json.loads(path.read_text())
@@ -166,7 +166,7 @@ def test_updated_serialization_hashes_do_not_replace_raw_recomputation(
 
 def test_saved_claim_cannot_promote_unqualified_result(tmp_path, monkeypatch):
     report = load_report()
-    monkeypatch.setattr(report, "analyze", lambda root: oracle())
+    monkeypatch.setattr(report, "analyze", lambda root, **kwargs: oracle())
     report.artifacts.artifact_report(tmp_path / report.REPORT, oracle())
     path = tmp_path / report.REPORT
     metadata = json.loads(path.read_text())
@@ -266,6 +266,9 @@ def test_report_aggregates_all_plans_and_keeps_software_separate_from_qualificat
         "load_module",
         lambda name, path: gates if path.name == "assembly_arithmetic.py" else contract,
     )
+    monkeypatch.setattr(
+        report, "verify_retained_build", lambda *args: {"checked_files": 1}
+    )
     actual = report.analyze(tmp_path)
     if dependency_tamper:
         assert actual["software_pass"] is actual["qualification_pass"] is False
@@ -283,4 +286,90 @@ def test_report_aggregates_all_plans_and_keeps_software_separate_from_qualificat
         assert (
             actual["attempts"]["validation-tight"]["status"]
             == "CONDITIONALLY_UNATTEMPTED"
+        )
+
+
+@pytest.mark.parametrize("tamper", [None, "binary", "proof", "receipt_hash"])
+def test_vendor_receipts_are_rechecked_without_local_path_substitution(
+    tmp_path, tamper
+):
+    report = load_report()
+
+    def digest(path):
+        return hashlib.sha256(Path(path).read_bytes()).hexdigest()
+
+    vendor = "/execution-system-only/not-on-this-machine/vendor.so"
+    vendor_sha = hashlib.sha256(b"public synthetic vendor identity").hexdigest()
+    prepared = {"source_commit": "1" * 40, "source_tree": "2" * 40}
+    (tmp_path / "prepared.json").write_text(json.dumps(prepared))
+    bundle = tmp_path / "bundle"
+    bundle.mkdir()
+    executables = {}
+    for name, receipt in (
+        ("trajectory_driver", "executable.sha256"),
+        ("trajectory_synthetic", "synthetic-executable.sha256"),
+        ("forcing_synthetic", "forcing-executable.sha256"),
+        ("assembly_synthetic", "assembly-executable.sha256"),
+    ):
+        # Byte-identity fixture only; these files are never executable programs.
+        (bundle / name).write_bytes(b"synthetic identity oracle: " + name.encode())
+        executables[name] = digest(bundle / name)
+        (bundle / receipt).write_text(executables[name] + "  " + name + "\n")
+    libraries = {vendor: vendor_sha}
+    (bundle / "linked-library-hashes.json").write_text(json.dumps(libraries))
+    build = {
+        "executables": executables,
+        "libraries": libraries,
+        "build_files": {
+            str(p.relative_to(tmp_path)): digest(p) for p in bundle.iterdir()
+        },
+    }
+    campaign = {
+        "build": build,
+        "attempts": [
+            {
+                "name": "one-completed-process",
+                "completed": True,
+                "loaded_library_unavailable_reason": None,
+                "loaded_library_hashes": libraries,
+            }
+        ],
+    }
+    (tmp_path / "campaign.json").write_text(json.dumps(campaign))
+    source = "native-XNet-b64-productsum113-b64-v1"
+    proof = {
+        "schema": "crucible.phase2d.assembly-host-identities.v1",
+        "numerical_source": source,
+        **prepared,
+        "prepared_sha256": digest(tmp_path / "prepared.json"),
+        "campaign_sha256": digest(tmp_path / "campaign.json"),
+        "collector_sha256": digest(report.HERE / "assembly_host_identities.py"),
+        "build": build,
+        "checked_files": dict(libraries),
+        "completed_attempts": ["one-completed-process"],
+    }
+    if tamper == "proof":
+        proof["checked_files"][vendor] = "0" * 64
+    path = tmp_path / report.HOST_IDENTITIES
+    path.write_text(json.dumps(proof))
+    expected = digest(path) if tamper != "receipt_hash" else "0" * 64
+    if tamper == "binary":
+        (bundle / "trajectory_driver").write_bytes(b"changed same role, wrong binary")
+    contract = SimpleNamespace(
+        SOURCE_NAME=source,
+        digest=digest,
+        diag=SimpleNamespace(safe_file=lambda root, name: root / name),
+    )
+    if tamper:
+        with pytest.raises(ValueError, match="identity|proof|SHA256"):
+            report.verify_retained_build(
+                tmp_path, prepared, campaign, contract, expected
+            )
+    else:
+        assert not Path(vendor).exists()
+        assert (
+            report.verify_retained_build(
+                tmp_path, prepared, campaign, contract, expected
+            )["checked_files"]
+            == 1
         )
