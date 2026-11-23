@@ -78,7 +78,7 @@ def diagnostic_input(template, accepted, when, target):
     target.write_bytes(data)
 
 
-def synthetic_checks(root):
+def synthetic_checks(root, *, extra_scenarios=()):
     """Exercise the actual compiled numerical adapter before physical controls."""
     scenarios = [
         ("trajectory_synthetic", name, None)
@@ -96,9 +96,15 @@ def synthetic_checks(root):
         ("forcing_synthetic", "nonfinite", "Nonfinite forcing time"),
         ("forcing_synthetic", "nonincreasing", "Nonincreasing forcing"),
     ]
+    scenarios += list(extra_scenarios)
     record_path = root / "synthetic.json"
     if record_path.exists():
         result = json.loads(record_path.read_text())
+        if [
+            (r["executable"], r["name"], r["expected_failure"])
+            for r in result["scenarios"]
+        ] != scenarios:
+            raise ValueError("synthetic prerequisite population differs")
         for scenario in result["scenarios"]:
             if (
                 digest(root / "bundle" / scenario["executable"])
@@ -174,7 +180,9 @@ def synthetic_checks(root):
     return result
 
 
-def run_attempt(root, spec, executable, launcher, *, resume):
+def run_attempt(
+    root, spec, executable, launcher, *, resume, arguments=(), companions=()
+):
     work = root / "attempts" / spec["name"]
     record_path = work / "attempt.json"
     if record_path.exists():
@@ -193,6 +201,13 @@ def run_attempt(root, spec, executable, launcher, *, resume):
     if digest(source) != spec["input_sha256"]:
         raise ValueError("prepared input identity changed")
     (work / "input.bin").write_bytes(source.read_bytes())
+    for name, source_name, identity in companions:
+        if Path(name).name != name or name in {"input.bin", "attempt.json"}:
+            raise ValueError("unsafe companion name")
+        payload = root / source_name
+        if digest(payload) != identity:
+            raise ValueError("prepared companion identity changed")
+        (work / name).write_bytes(payload.read_bytes())
     for name in ("network", "helm_table.dat"):
         (work / name).symlink_to(Path("../../bundle") / name)
     record = {
@@ -204,13 +219,18 @@ def run_attempt(root, spec, executable, launcher, *, resume):
         "completed": False,
         "status": "RUNNING",
     }
+    if arguments:
+        record["arguments"] = list(arguments)
     save(record_path, record)
     start = time.perf_counter()
     cpu = time.process_time()
     with (work / "process.log").open("xb") as log:
         try:
             result = subprocess.run(
-                [*launcher, str(executable)], cwd=work, stdout=log, stderr=log
+                [*launcher, str(executable), *arguments],
+                cwd=work,
+                stdout=log,
+                stderr=log,
             )
             record["returncode"] = result.returncode
             record["status"] = "RETURNED" if result.returncode == 0 else "FAILED"
