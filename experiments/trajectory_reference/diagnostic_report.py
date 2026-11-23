@@ -696,6 +696,14 @@ def qpack(values):
     }
 
 
+def normalized_assembly_contribution(A, h, differences, scales):
+    """Signed A*h*dF contribution to D-036's mass-weighted BE residual scale."""
+    return qpack(
+        Fraction(float(a)) * Fraction(float(h)) * d / s
+        for a, d, s in zip(A, differences, scales, strict=True)
+    )
+
+
 def verify_linear(record, J, base, old, h, A):
     require(
         record["h"] == h
@@ -1284,19 +1292,18 @@ def _attempt(root, spec, record, state, expected_maps, output):
         require(
             h == state["state"]["time"] == 1.953125e-7, "frozen linear h/time differs"
         )
-        effect = [
-            Fraction(h) * d / s
-            for d, s in zip(
+        output["signed_h_assembly_difference_over_D036_scale"] = (
+            normalized_assembly_contribution(
+                A,
+                h,
                 qvalues(conditioned["assembly"]["native_F_minus_exact"]),
                 qvalues(
                     arithmetic.exact_be_residual(old, base["Y"], base["F"], h, A)[
                         "nonlinear_scale"
                     ]
                 ),
-                strict=True,
             )
-        ]
-        output["signed_h_assembly_difference_over_D036_scale"] = qpack(effect)
+        )
         for k in range(4):
             path = work / f"linear-factor-{k + 1}.bin"
             require(

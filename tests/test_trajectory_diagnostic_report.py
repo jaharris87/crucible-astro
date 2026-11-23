@@ -22,6 +22,28 @@ report = importlib.util.module_from_spec(SPEC)
 SPEC.loader.exec_module(report)
 
 
+def test_assembly_effect_matches_mass_weighted_BE_residual_for_nonunit_A():
+    masses = np.array([1.0, 56.0])
+    h = 1.953125e-7
+    y = np.zeros(2)
+    rates = np.array([-1.0, 1.0])
+    residual = report.arithmetic.exact_be_residual(y, y, rates, h, masses)
+    contribution = report.normalized_assembly_contribution(
+        masses,
+        h,
+        [Q(-1), Q(1)],
+        report.qvalues(residual["nonlinear_scale"]),
+    )
+    signed = report.qvalues(contribution)
+    # Equal-magnitude Y/s errors contribute 56 times as much to the A=56
+    # component. Independently compare with the full BE residual calculation.
+    assert signed[1] == -56 * signed[0]
+    assert [abs(q) for q in signed] == report.qvalues(
+        residual["normalized_absolute_residual"]
+    )
+    assert signed[1] == 56 * Q(h) / Q(1e-13)
+
+
 def baseline_bytes(call=1):
     count = 10 + 320 + sum(report.NC) + sum(report.NB)
     values = np.zeros(count, dtype="<f8")

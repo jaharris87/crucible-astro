@@ -457,9 +457,7 @@ def retained_trajectory_summary(work, requested):
     width = (3 * N + 8) * 8
     count, trailing = divmod(len(raw), width)
     times = (
-        decode_accepted(raw[: count * width])["accepted_t"]
-        if count
-        else np.empty(0)
+        decode_accepted(raw[: count * width])["accepted_t"] if count else np.empty(0)
     )
     occurrences = np.array([np.count_nonzero(times == t) for t in requested])
     return {
