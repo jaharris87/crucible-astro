@@ -245,6 +245,7 @@ def coefficient_conditioned(groups, A, Y, F):
     species_indices = [[] for _ in masses]
     operands = [[] for _ in masses]
     jacobian = [[Q(0) for _ in masses] for _ in masses]
+    jacobian_operands = [[[] for _ in masses] for _ in masses]
     reaction_base = 0
     for gi, group in enumerate(groups):
         # Retrieve validated rational combinatorial factors in native species order.
@@ -278,9 +279,12 @@ def coefficient_conditioned(groups, A, Y, F):
             term_values.append(term)
             for position, reactant in enumerate(reactants):
                 # Remove one factor, not divide by Y: repeated/zero reactants work.
-                jacobian[species][reactant - 1] += b * math.prod(
-                    yy[i - 1] for j, i in enumerate(reactants) if j != position
-                )
+                derivative_factors = [
+                    b,
+                    *(yy[i - 1] for j, i in enumerate(reactants) if j != position),
+                ]
+                jacobian[species][reactant - 1] += math.prod(derivative_factors)
+                jacobian_operands[species][reactant - 1].append(derivative_factors)
         reaction_base += len(group["participants"])
     exact, bounds, supported, positive, negative, absolute, cancellation, rankings = (
         [],
@@ -320,6 +324,12 @@ def coefficient_conditioned(groups, A, Y, F):
     differences = [
         actual - expected for actual, expected in zip(ff, exact, strict=True)
     ]
+    jacobian_bounds, jacobian_supported = [], []
+    for row in jacobian_operands:
+        for contributions in row:
+            _, bound, valid = _sum_envelope(contributions)
+            jacobian_bounds.append(bound)
+            jacobian_supported.append(valid)
     baryon_exact = sum((m * v for m, v in zip(masses, exact, strict=True)), Q(0))
     baryon_native = sum((m * v for m, v in zip(masses, ff, strict=True)), Q(0))
     return {
@@ -370,6 +380,15 @@ def coefficient_conditioned(groups, A, Y, F):
         },
         "terms": {"entries": entries, "exact_fixed_b_values": _quantity(term_values)},
         "fixed_b_jacobian": _quantity((v for row in jacobian for v in row), (n, n)),
+        "fixed_b_jacobian_arithmetic": {
+            "roundoff_bound": _quantity(jacobian_bounds, (n, n)),
+            "bound_supported": np.array(jacobian_supported, dtype=bool).reshape(n, n),
+            "operation_counts": [
+                [_operation_counts(contributions) for contributions in row]
+                for row in jacobian_operands
+            ],
+            "scope": "native fixed-b monomial derivative only; each repeated reactant contributes separately; no coefficient derivatives",
+        },
         "baryon": {
             "exact_fixed_b_rate": _rational(baryon_exact),
             "native_rate": _rational(baryon_native),

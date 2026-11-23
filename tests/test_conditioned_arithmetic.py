@@ -510,3 +510,56 @@ def test_malformed_participant_container_is_a_validation_error(participants):
         arithmetic.coefficient_conditioned(
             [group], np.ones(2), np.array([0.25, 0.75]), np.array([-1.0, 1.0])
         )
+
+
+def test_fixed_b_jacobian_roundoff_bound_covers_native_addition_cancellation():
+    report = arithmetic.coefficient_conditioned(
+        [cancellation_group()], np.ones(2), np.ones(2), np.zeros(2)
+    )
+    exact = values(report["fixed_b_jacobian"])
+    # Two native derivative contributions 2^54 then1 round to2^54.
+    rounded_native = [Q(-(2**54)), Q(2**54), Q(2**54), Q(-(2**54))]
+    assert exact == [-(2**54), 2**54 + 1, 2**54, -(2**54 + 1)]
+    arithmetic_report = report["fixed_b_jacobian_arithmetic"]
+    bounds = values(arithmetic_report["roundoff_bound"])
+    assert all(
+        abs(actual - reference) <= bound
+        for actual, reference, bound in zip(rounded_native, exact, bounds, strict=True)
+    )
+    assert arithmetic_report["bound_supported"].all()
+    assert arithmetic_report["roundoff_bound"]["shape"] == [2, 2]
+    assert arithmetic_report["operation_counts"][0][1]["summation_additions"] == 2
+
+
+def test_fixed_b_jacobian_repeated_reactant_counts_and_DAZ_amplification():
+    rate = 1e300
+    group = {
+        "order": 2,
+        "participants": [(1, 1, 1, 2, 0, 0)],
+        "extended": [(1, 0, -1.0), (1, 0, 0.5), (2, 0, 0.5)],
+        "csect": np.array([rate]),
+        "b": np.array([-rate, rate / 2, rate / 2]),
+    }
+    report = arithmetic.coefficient_conditioned(
+        [group], np.ones(2), np.array([1e-320, 1.0]), np.zeros(2)
+    )
+    exact, bounds = (
+        values(report["fixed_b_jacobian"]),
+        values(report["fixed_b_jacobian_arithmetic"]["roundoff_bound"]),
+    )
+    assert abs(exact[0]) > Q(1e-21)
+    assert all(abs(v) <= b for v, b in zip(exact, bounds, strict=True))
+    counts = report["fixed_b_jacobian_arithmetic"]["operation_counts"][0][0]
+    assert counts == {
+        "product_multiplications": 4,
+        "product_operand_occurrences": 8,
+        "product_flush_allowance_events": 32,
+        "summation_additions": 4,
+        "summation_flush_allowance_events": 16,
+    }
+    assert (
+        report["fixed_b_jacobian_arithmetic"]["operation_counts"][0][1][
+            "summation_additions"
+        ]
+        == 0
+    )
