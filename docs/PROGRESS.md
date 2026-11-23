@@ -31,8 +31,8 @@ prepared; bounded independent protocol review and focused repairs pass.
 [D-036 / scientific and producer acceptance](https://github.com/jaharris87/crucible-astro/issues/44#issuecomment-7048328458)
 was [explicitly given](https://github.com/jaharris87/crucible-astro/issues/44#issuecomment-7048371383).
 Work resumed on explicit maintainer request, 2026-11-23, for offline diagnosis,
-repository repairs and a bounded revised diagnostic proposal. New producer
-execution is limited to accepted D-038 diagnostics; [draft PR #51](https://github.com/jaharris87/crucible-astro/pull/51) is incomplete.
+repository repairs and a bounded revised diagnostic proposal. D-038 and D-039 bounded producer campaigns are complete; no further producer
+execution is authorized; [draft PR #51](https://github.com/jaharris87/crucible-astro/pull/51) is incomplete.
 No producer work occurred before the decision.
 The first native build (`c28c527`, job 61685010) succeeded. All ten synthetic
 scenarios executed; two correct expected failures were falsely rejected because
@@ -78,7 +78,7 @@ D-034 does not delegate 2D merges. See [handoff](HANDOFF.md) for the next decisi
 | [2A #41](https://github.com/jaharris87/crucible-astro/issues/41) | Qualified named-version/use/split arrays, example and tests | Complete at PR #46 / `8b6cf71`; 489 installed-package tests, merged CI and all-row structural checks in final receipt |
 | [2B #42](https://github.com/jaharris87/crucible-astro/issues/42) | Integrated 2A; frozen pointwise MLP/comparator and reproducible validation | Complete at PR #47 / `a81552e`; 515 installed-package tests, exact independent review, human merge, merged CI/reload/preservation checks in final receipt; negative D-024 result; final-test model outcomes sealed |
 | [2C #43](https://github.com/jaharris87/crucible-astro/issues/43) | Integrated 2B; checked callable adapter, independent analytic/stiff integration and scheduled merged 2A–2C audit | Complete: original PR #48 / `505d556`, scheduled audit and reconciled external audits, repair PR #49 / `eaa9446`, merged checks and explicit final acceptance; no fitting, real MLP rollout or new XNet execution |
-| [2D #44](https://github.com/jaharris87/crucible-astro/issues/44) | Integrated 2C; accepted real reference trajectories/protocol | Active: D-038 diagnostics complete with independent artifact PASS; D-039 source/qualification accepted and independently reviewed, first job61873636 submitted with outcomes pending; original failed/interrupted campaign preserved; no full-horizon reference; draft PR #51 |
+| [2D #44](https://github.com/jaharris87/crucible-astro/issues/44) | Integrated 2C; accepted real reference trajectories/protocol | Active: D-038 diagnostics complete with independent artifact PASS; D-039 completed: arithmetic/derivatives pass, development first-step fails, validation reduced step only; artifact assessment in progress; original failed/interrupted campaign preserved; no full-horizon reference; draft PR #51 |
 | [2E #45](https://github.com/jaharris87/crucible-astro/issues/45) | Integrated 2D; frozen pointwise/rollout/cost evaluation and report | Scope and final-test release pending; human baseline acceptance before milestone closure |
 
 D-027 migration #39 is closed at `804fb75`; its linked final receipt controls closure.
@@ -90,10 +90,18 @@ dispositions are preserved. Fresh-context read-only Sol High protocol review of
 passes at `8bcdb8f` without blockers. The maintainer [explicitly accepted](https://github.com/jaharris87/crucible-astro/issues/44#issuecomment-7109353327)
 its distinct numerical RHS and bounded qualification scope. Exact-candidate
 implementation review and focused P2D-ASM-001 repair verification pass at `245ed95`;
-1,006 installed tests, Linux CI and required checks pass. The first [approved job
-61873636](https://github.com/jaharris87/crucible-astro/issues/44#issuecomment-7110527361)
-is submitted with all 120 host input/source identities verified. Outcomes are not
-yet observed; follow that job, without restart or full trajectory continuation. The required passing 2D reference set remains incomplete.
+1,006 installed tests, Linux CI and required checks passed before execution.
+Job61873636 completed one build, sixteen compiled prerequisites and eleven physical
+processes; both tight runs are correctly conditionally unattempted. The [actual
+report](reports/2026-11-23-phase2d-assembly.md) retains 177,347 RHS calls, passing
+arithmetic/derivative checks, development's ten failed first-step attempts and
+validation's accepted 0.78125 microsecond endpoint. No requested interval or full
+10 ms trajectory completes. Offline reporting portability repair passes 1,010 tests
+and verification; fresh reload passes all 255 arrays and independent artifact
+assessment is in progress.
+Next: complete that assessment and prepare an evidence-backed numerical proposal.
+No further producer execution or full trajectory continuation is authorized. The
+required passing 2D reference set remains incomplete.
 
 ## Phase 1 issue dependencies and integrations
 

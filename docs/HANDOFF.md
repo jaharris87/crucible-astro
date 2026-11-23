@@ -106,32 +106,38 @@ Raw archive SHA256 is
 Measured job wall is 55 s / total CPU 42.546 s; complete costs and artifact hashes
 are in the report. No full-horizon reference has passed.
 
-**Next authorized action:** implement the [accepted D-039 qualification protocol](../experiments/trajectory_reference/ASSEMBLY_QUALIFICATION_PROTOCOL.md).
-Fresh-context read-only Sol High protocol review passed at `8bcdb8f`, without
-blocking findings. The maintainer explicitly approved its distinct numerical RHS
-AND bounded qualification scope in the [actual receipt](https://github.com/jaharris87/crucible-astro/issues/44#issuecomment-7109353327).
-The distinct native module, gated runner, exact-arithmetic verification and
-report/reload boundary are implemented. Fresh independent Sol High review found
-P2D-ASM-001 (synthetic Jacobian API mismatch); the original finding and focused
-repair PASS are preserved in the [review receipt](https://github.com/jaharris87/crucible-astro/issues/44#issuecomment-7110481577).
-Exact reviewed executable/analysis source is `245ed9525ee9877653beab80eaf91bdd5493800c`.
-Its installed suite and Linux CI pass 1,006 tests, zero skips; lint/format,
-documentation, Bash syntax and whitespace pass. Unexecuted preparation001 is
-preserved; preparation002 binds the repaired source/tree and all 120 immutable
-identities, independently verified locally and on the host.
+**D-039 completed:** the [distinct-source qualification report](reports/2026-11-23-phase2d-assembly.md)
+records the [explicitly accepted](https://github.com/jaharris87/crucible-astro/issues/44#issuecomment-7109353327)
+bounded campaign. Exact physical source `245ed9525ee9877653beab80eaf91bdd5493800c`
+passed independent review/focused P2D-ASM-001 repair verification before execution.
+Preparation002 binds all 120 immutable identities. Job 61873636 is terminal
+COMPLETED, with one build, sixteen compiled synthetic prerequisites and eleven
+physical processes; two tight processes are conditionally unattempted. All identity,
+arithmetic and three frozen full-F Jacobian / nine directional checks pass.
+Development failed all ten first-step attempts (300 Newton iterations, final norm
+4.430184552); validation accepted only 0.78125 microseconds (213 iterations),
+completing neither its requested 100 microseconds nor the original 10 ms horizon.
+The campaign used 177,347 physical RHS calls / 187,855 guarded requests. Raw archive
+SHA256 `6b44f97052abaa407931994948819b1f99f9a073aaa72e51fc494bc0fd875580`.
+No postphysical build, restart, process repeat or continuation is authorized.
 
-**Current execution:** follow the single [submitted D-039 job 61873636](https://github.com/jaharris87/crucible-astro/issues/44#issuecomment-7110527361).
-It is the first fresh build, with no prephysical repair build used. Build/precision
-and raw science gates precede the fixed physical work. Outcomes have not yet been
-observed; do not resubmit after an observation timeout. The [runnable guide](../experiments/trajectory_reference/ASSEMBLY_QUALIFICATION.md)
-and [wire formats](../experiments/trajectory_reference/ASSEMBLY_WIRE.md) retain
-original/variant F, every failure and all conditional outcomes. This status-only
-update does not relabel execution to a later source head.
-The new numerical RHS is separately named,
-preserving D-019 and frozen artifacts; frozen-MLP compatibility is unestablished.
-Only first-step qualification is authorized, with no full trajectory continuation,
-postphysical rebuild or infrastructure restart. Full reference generation, reference
-acceptance, merge and Phase 2E remain separate decisions.
+Offline report verification passes after reporting-only repair `e5cfa62`: the
+original failed report is preserved. All 68 actual execution-system library files
+match retained compute-process identities through an explicit hash-bound read-only
+receipt; retained build/executable identities are also verified locally. Scientific
+criteria and executed gates are unchanged. All 1,010 public tests, lint/format and
+frozen-documentation checks pass. Fresh-process reload/recomputation passes all 255 arrays; independent actual-artifact
+assessment is in progress; the report records exact scope and remaining limits.
+
+**Next authorized action:** finish offline artifact assessment/reporting, diagnose
+the retained development failure and prepare a concrete next numerical proposal.
+New producer execution requires a separate reviewed protocol and explicit decision.
+The [guide](../experiments/trajectory_reference/ASSEMBLY_QUALIFICATION.md) and
+[wire formats](../experiments/trajectory_reference/ASSEMBLY_WIRE.md) retain original/
+variant F and all failures. The distinct numerical RHS preserves D-019 and frozen
+artifacts; frozen-MLP compatibility is unestablished. No full-horizon reference or
+global convergence/clean trajectory reproduction exists. Reference acceptance,
+merge, final 2D acceptance and Phase 2E remain separate decisions.
 Original failures and the reviewed forensic retention repair remain preserved.
 The stopped campaign used exact reviewed `a771930`,
 submitted after [explicit D-037 acceptance](https://github.com/jaharris87/crucible-astro/issues/44#issuecomment-7050412199).

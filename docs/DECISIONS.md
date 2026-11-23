@@ -861,8 +861,14 @@ and checks are authorized; 1,006 installed public tests and lint/format pass. Th
 implementation passed fresh independent review and focused P2D-ASM-001 repair
 verification at `245ed95`; 1,006 installed tests and Linux CI pass. The [first
 qualification job 61873636](https://github.com/jaharris87/crucible-astro/issues/44#issuecomment-7110527361)
-was submitted only after that review. Native/compiler/numerical outcomes remain
-unobserved at this checkpoint. Execution stays bound to the reviewed source.
+was submitted only after that review. It completed one build, all sixteen compiled
+prerequisites and eleven physical processes, with both tight counterparts correctly
+conditionally unattempted. Arithmetic and frozen derivatives pass; development
+first-step qualification fails, while validation accepts only a reduced endpoint.
+The [actual report](reports/2026-11-23-phase2d-assembly.md) retains failures,
+identities, numerical results and verification status. Execution stays bound to
+`245ed95`; later reporting repairs do not replace that physical source. D-039
+producer execution is exhausted: no postphysical rebuild, repeat or continuation.
 Acceptance grants no full trajectory campaign, reference, merge or Phase 2E.
 
 ## Scientific decisions and current evidence gates

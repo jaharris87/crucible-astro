@@ -14,8 +14,10 @@ completed with [retained numerical evidence and independent artifact review](../
 The maintainer subsequently [accepted D-039](https://github.com/jaharris87/crucible-astro/issues/44#issuecomment-7109353327)
 for a **distinct numerical RHS and bounded first-step qualification**. Its
 [runnable guide](ASSEMBLY_QUALIFICATION.md) and [wire formats](ASSEMBLY_WIRE.md)
-describe the current implementation. Exact-candidate review precedes its approved
-build/evaluations. No full trajectory continuation is authorized.
+describe the implementation. The [completed campaign](../../docs/reports/2026-11-23-phase2d-assembly.md)
+passes arithmetic/derivatives but fails development first-step qualification;
+validation accepts only a reduced step. No further producer execution or full
+trajectory continuation is authorized.
 
 The [diagnostic guide](DIAGNOSTICS.md) records the completed D-038 procedure.
 The commands below preserve the original D-036 procedure; they are not an
