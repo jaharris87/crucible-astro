@@ -47,7 +47,137 @@ module native_adapter
   real(dp) :: an_scalars(8),an_old(160),an_pre(160),an_fv(160),an_fo(160),an_j(160,160),an_m(160,160)
   real(dp) :: an_rhs(160),an_lu(160,160),an_delta(160),an_unprojected(160),an_post(160)
   real(dp) :: an_weights(160),an_residual(160),an_projection(160)
+  ! D-040 is opt-in: historical modes retain their original streams and gate.
+  logical :: correction_enabled=.false.,correction_forensic=.false.,correction_iteration_active=.false.
+  logical :: correction_record_written=.false.
+  logical :: correction_logging=.false.
+  real(dp) :: correction_atol=1e-15_dp,correction_rtol=1e-13_dp
+  real(dp) :: previous_delta(160)=0,current_weights(160),current_ratio,previous_ratio
+  integer :: correction_unit,correction_accepted_unit,correction_phase=0,buffer_count=0
+  integer,parameter :: max_iteration_evaluations=8643
+  real(dp),allocatable :: evaluation_buffer(:,:)
+  real(dp) :: previous_for_record(160),applied_update(160)
+  ! Four phases are buffered only for the current iteration (about 2.5 MiB).
+  integer(int64) :: phase_ids(10,4)
+  integer(int32) :: phase_pivots(160,4)
+  real(dp) :: phase_values(78568,4)
+  type :: correction_workspace
+    integer(int32) :: original_header(12),assembly_header(9),branches(branch_size)
+    real(dp),allocatable :: original_values(:)
+    real(dp) :: assembly_values(490)
+    real(qp),allocatable :: quad_values(:)
+    logical :: available=.false.
+  end type correction_workspace
+  type(correction_workspace) :: correction_baseline,correction_post
 contains
+  subroutine enable_correction_source(forensic)
+    logical,intent(in) :: forensic
+    correction_enabled=.true.; correction_forensic=forensic
+    correction_logging=.true.
+    correction_atol=nonlinear_atol; correction_rtol=nonlinear_rtol
+    nonlinear_atol=1e-13_dp; nonlinear_rtol=1e-11_dp
+    allocate(evaluation_buffer(496,max_iteration_evaluations))
+    open(newunit=correction_unit,file='correction-newton.bin',status='new',access='stream',form='unformatted')
+    write(correction_unit) int(z'4352434e',int32),1_int32,160_int32,1936_int32,12_int32,0_int32,0_int32,0_int32
+    open(newunit=correction_accepted_unit,file='correction-accepted.bin',status='new', &
+         access='stream',form='unformatted')
+    write(correction_accepted_unit) int(z'43524341',int32),1_int32,160_int32,496_int32,0_int32,0_int32,0_int32,0_int32
+  end subroutine enable_correction_source
+
+  logical function full_retention()
+    full_retention=.not.correction_enabled
+    if (correction_enabled) full_retention=correction_forensic.or.last_step==1
+  end function full_retention
+
+  subroutine retain_correction_workspace(prefix)
+    character(*),intent(in) :: prefix
+    character(160) :: original_name,variant_name
+    write(original_name,'(a,a,i12.12,a)') trim(prefix),'-original-',rhs_count,'.bin'
+    write(variant_name,'(a,a,i12.12,a)') trim(prefix),'-assembly-',rhs_count,'.bin'
+    call save_assembly_workspace(trim(original_name),trim(variant_name))
+  end subroutine retain_correction_workspace
+
+  subroutine buffer_correction_workspace(saved)
+    use reaction_data, only: csect1,csect2,csect3,csect4,b1,b2,b3,b4
+    type(correction_workspace),intent(inout) :: saved
+    saved%original_header=[int(z'43524442',int32),1_int32,160_int32,int(size(csect1),int32), &
+      int(size(csect2),int32),int(size(csect3),int32),int(size(csect4),int32),int(size(b1),int32), &
+      int(size(b2),int32),int(size(b3),int32),int(size(b4),int32),int(branch_size,int32)]
+    saved%assembly_header=[int(z'43524157',int32),1_int32,160_int32,int(size(b1),int32),int(size(b2),int32), &
+      int(size(b3),int32),int(size(b4),int32),int(960+2*size(aq_products),int32), &
+      merge(1_int32,0_int32,assembly_math_ok)]
+    saved%original_values=[real(last_assembly_call,dp),last_evaluated_conditions, &
+      sum(aa*last_evaluated_state),sum(zz*last_evaluated_state),last_evaluated_eos, &
+      last_evaluated_state,last_original_rhs,csect1(:,1),csect2(:,1),csect3(:,1),csect4(:,1), &
+      b1(:,1),b2(:,1),b3(:,1),b4(:,1)]
+    saved%assembly_values=[real(last_assembly_call,dp),last_evaluated_conditions, &
+      sum(aa*last_evaluated_state),sum(zz*last_evaluated_state),last_evaluated_eos, &
+      last_evaluated_state,last_original_rhs,last_variant_rhs]
+    saved%quad_values=[aq_totals,reshape(aq_classes,[640]),aq_products,aq_running,aq_absolute]
+    saved%branches=int(branch_signature,int32); saved%available=.true.
+  end subroutine buffer_correction_workspace
+
+  subroutine write_buffered_workspace(prefix,saved)
+    character(*),intent(in) :: prefix
+    type(correction_workspace),intent(in) :: saved
+    integer :: unit
+    if (.not.saved%available) return
+    open(newunit=unit,file=trim(prefix)//'-original.bin',status='new',access='stream',form='unformatted')
+    write(unit) saved%original_header,saved%original_values,saved%branches
+    close(unit)
+    open(newunit=unit,file=trim(prefix)//'-assembly.bin',status='new',access='stream',form='unformatted')
+    write(unit) saved%assembly_header,saved%assembly_values,saved%quad_values
+    close(unit)
+  end subroutine write_buffered_workspace
+
+  subroutine write_correction_iteration(phase)
+    integer,intent(in) :: phase
+    real(dp) :: values(1936)
+    real(dp) :: post_variant(160),post_original(160)
+    integer(int64) :: ids(12)
+    ids=[an_ids(1:9),int(phase,int64),attempt_count,merge(1_int64,0_int64,unchanged_real_bits(an_pre,an_post))]
+    post_variant=ieee_value(0.0_dp,ieee_quiet_nan); post_original=post_variant
+    if (phase==4) then
+      post_variant=last_variant_rhs; post_original=last_original_rhs
+    endif
+    values=[an_scalars,correction_atol,correction_rtol,current_ratio,previous_ratio, &
+      maxval(abs(aa*an_delta)),sum(abs(aa*an_delta)),maxval(abs(aa*applied_update)), &
+      sum(abs(aa*applied_update)),an_old,an_pre,an_unprojected,an_post,an_delta,previous_for_record, &
+      applied_update,current_weights,an_residual,an_projection,post_variant,post_original]
+    write(correction_unit) ids,values
+    flush(correction_unit)
+    correction_record_written=.true.
+  end subroutine write_correction_iteration
+
+  subroutine flush_correction_failure()
+    integer :: i
+    if (.not.correction_logging) return
+    if (.not.full_retention()) then
+      do i=1,buffer_count
+        write(assembly_eval_unit) evaluation_buffer(:,i)
+      enddo
+      call write_buffered_workspace('failure-iteration-baseline',correction_baseline)
+      call write_buffered_workspace('failure-iteration-post',correction_post)
+      do i=1,correction_phase
+        write(assembly_newton_unit) phase_ids(:,i),phase_values(:,i),phase_pivots(:,i)
+      enddo
+    endif
+    if (correction_iteration_active.and..not.correction_record_written) call write_correction_iteration(correction_phase)
+  end subroutine flush_correction_failure
+
+  subroutine correction_norms(old,post,delta,previous,atol,rtol,weights,current,prior)
+    real(dp),intent(in) :: old(160),post(160),delta(160),previous(160),atol,rtol
+    real(dp),intent(out) :: weights(160),current,prior
+    weights=atol+rtol*max(abs(aa*old),abs(aa*post))
+    current=maxval(abs(aa*delta)/weights)
+    prior=ieee_value(0.0_dp,ieee_quiet_nan)
+    if (all(ieee_is_finite(previous))) prior=maxval(abs(aa*previous)/weights)
+  end subroutine correction_norms
+
+  subroutine require_complete_horizon(time)
+    real(dp),intent(in) :: time
+    if (time/=0.01_dp) call fail('incomplete horizon')
+  end subroutine require_complete_horizon
   subroutine enable_assembly_source()
     use reaction_data, only: b1,b2,b3,b4,la,le,n11,n21,n22,n31,n32,n33,n41,n42,n43,n44
     integer :: offsets(4),counts(4),o
@@ -103,12 +233,27 @@ contains
     call assembly_modes(after_nearest,after_gradual)
     if (after_nearest/=1.or.after_gradual/=1) call fail('assembly arithmetic mode after evaluation')
     assembly_calls=assembly_calls+1
-    write(assembly_eval_unit) real(rhs_count,dp),real(assembly_role,dp),real(assembly_context,dp), &
-      last_evaluated_conditions,sum(aa*last_evaluated_state),sum(zz*last_evaluated_state),last_evaluated_eos, &
-      real(before_nearest,dp),real(after_nearest,dp),real(before_gradual,dp),real(after_gradual,dp), &
-      last_evaluated_state,last_original_rhs,last_variant_rhs
-    flush(assembly_eval_unit)
+    if (correction_enabled.and.correction_iteration_active) then
+      if (buffer_count>=max_iteration_evaluations) call fail('correction evaluation buffer exceeded declared bound')
+      buffer_count=buffer_count+1
+      evaluation_buffer(:,buffer_count)=[real(rhs_count,dp),real(assembly_role,dp),real(assembly_context,dp), &
+        last_evaluated_conditions,sum(aa*last_evaluated_state),sum(zz*last_evaluated_state),last_evaluated_eos, &
+        real(before_nearest,dp),real(after_nearest,dp),real(before_gradual,dp),real(after_gradual,dp), &
+        last_evaluated_state,last_original_rhs,last_variant_rhs]
+    endif
+    if (full_retention().or..not.correction_iteration_active) then
+      write(assembly_eval_unit) real(rhs_count,dp),real(assembly_role,dp),real(assembly_context,dp), &
+        last_evaluated_conditions,sum(aa*last_evaluated_state),sum(zz*last_evaluated_state),last_evaluated_eos, &
+        real(before_nearest,dp),real(after_nearest,dp),real(before_gradual,dp),real(after_gradual,dp), &
+        last_evaluated_state,last_original_rhs,last_variant_rhs
+      flush(assembly_eval_unit)
+    endif
     ydot(:,1)=last_variant_rhs
+    if (correction_enabled.and.(assembly_role==1.or.assembly_role==3.or.assembly_role==10)) then
+      if (full_retention().or.assembly_role==1) call retain_correction_workspace('forensic')
+      if (assembly_role==3) call buffer_correction_workspace(correction_baseline)
+      if (assembly_role==10) call buffer_correction_workspace(correction_post)
+    endif
   end subroutine evaluate_assembly_source
 
   subroutine save_assembly_workspace(original_filename,assembly_filename)
@@ -168,11 +313,27 @@ contains
     an_old=old; an_pre=pre; an_fv=unavailable; an_fo=unavailable; an_j=unavailable; an_m=unavailable
     an_rhs=unavailable; an_lu=unavailable; an_delta=unavailable; an_unprojected=unavailable
     an_post=unavailable; an_weights=unavailable; an_residual=unavailable; an_projection=unavailable; an_pivots=0
+    if (correction_enabled) then
+      buffer_count=0; correction_phase=0; correction_iteration_active=.true.
+      correction_record_written=.false.
+      current_ratio=unavailable; previous_ratio=unavailable
+      current_weights=unavailable; applied_update=unavailable
+      previous_for_record=previous_delta
+      correction_baseline%available=.false.; correction_post%available=.false.
+    endif
   end subroutine begin_assembly_newton
 
   subroutine write_assembly_newton(phase)
     integer,intent(in) :: phase
     an_ids(10)=phase
+    if (correction_enabled) then
+      correction_phase=phase
+      phase_ids(:,phase)=an_ids; phase_pivots(:,phase)=an_pivots
+      phase_values(:,phase)=[an_scalars,an_old,an_pre,an_fv,an_fo,reshape(an_j,[25600]), &
+        reshape(an_m,[25600]),an_rhs,reshape(an_lu,[25600]),an_delta,an_unprojected,an_post, &
+        an_weights,an_residual,an_projection]
+      if (.not.full_retention()) return
+    endif
     write(assembly_newton_unit) an_ids,an_scalars,an_old,an_pre,an_fv,an_fo,an_j,an_m,an_rhs,an_lu, &
       an_delta,an_unprojected,an_post,an_weights,an_residual,an_projection,an_pivots
     flush(assembly_newton_unit)
@@ -370,6 +531,7 @@ contains
   subroutine fail(reason)
     character(*), intent(in) :: reason
     if (opened) then
+      call flush_correction_failure()
       if (assembly_enabled) call save_assembly_workspace('baseline-failure.bin','assembly-failure.bin')
       call save_failure_workspace()
       call snapshot_runtime()
@@ -393,6 +555,9 @@ contains
     call snapshot_runtime()
     call counters()
     call elapsed_cost()
+    if (correction_logging) then
+      close(correction_unit); close(correction_accepted_unit)
+    endif
     if (evaluation_stream_enabled) then
       close(evaluation_unit); close(ieee_unit); close(fd_attempt_unit)
     endif
@@ -518,8 +683,10 @@ contains
         if (mutation_ios/=0) write(log_unit,*) 'DIAGNOSTIC_MUTATION_SNAPSHOT_UNAVAILABLE',mutation_ios
         call fail('diagnostic physical evaluation mutated supplied input')
       endif
-      write(evaluation_unit) real(rhs_count,dp),time,temp,density,state,ydot(:,1)
-      flush(evaluation_unit)
+      if (full_retention().or..not.correction_iteration_active) then
+        write(evaluation_unit) real(rhs_count,dp),time,temp,density,state,ydot(:,1)
+        flush(evaluation_unit)
+      endif
     endif
     branch_signature(10020)=iweak(1)
     do j=1,7
@@ -695,6 +862,7 @@ contains
     if (kstep==last_step) retry_count=retry_count+1
     last_step=kstep
     old=y(:,1); iterate=yt(:,1)
+    if (correction_enabled) previous_delta=ieee_value(0.0_dp,ieee_quiet_nan)
     h=tdel(1); time=tt(1); temp=t9t(1); density=rhot(1)
     if (.not.ieee_is_finite(h).or.h<=0) call fail('nonpositive/nonfinite step')
     write(log_unit,*) 'STEP_ATTEMPT',kstep,attempt_count,time,h
@@ -779,6 +947,7 @@ contains
       enddo
       if (assembly_enabled) then
         an_post=iterate; an_projection=iterate-an_unprojected; an_scalars(5)=projection
+        if (correction_enabled) applied_update=iterate-an_pre
         call write_assembly_newton(3)
         assembly_role=10; assembly_context=newton_count
       endif
@@ -800,13 +969,29 @@ contains
       write(log_unit,*) 'NEWTON',kstep,iteration,final_norm,final_l1,projection
       flush(log_unit)
       call checkpoint()
-      if (final_norm<=1) then
+      if (correction_enabled) then
+        call correction_norms(old,iterate,correction(:,1),previous_delta,correction_atol,correction_rtol, &
+          current_weights,current_ratio,previous_ratio)
+        if (.not.all(ieee_is_finite(current_weights)).or..not.ieee_is_finite(current_ratio)) &
+          call fail('nonfinite correction weights or ratio')
+        if (iteration>=2) then
+          if (.not.ieee_is_finite(previous_ratio)) call fail('nonfinite previous correction ratio')
+        endif
+        if (correction_logging) call write_correction_iteration(4)
+        ok=.false.
+        if (iteration>=2) ok=current_ratio<=1.and.previous_ratio<=1
+        previous_delta=correction(:,1)
+      else
+        ok=final_norm<=1
+      endif
+      if (ok) then
         if (projection>1e-12_dp) call fail('final Newton projection exceeds per-step bound')
         if (cumulative_projection+projection>1e-10_dp) call fail('cumulative final projection exceeds bound')
         final_projection=projection
         cumulative_projection=cumulative_projection+projection
         yt(:,1)=iterate
         inr(1)=iteration
+        if (correction_enabled) correction_iteration_active=.false.
         return
       endif
     enddo

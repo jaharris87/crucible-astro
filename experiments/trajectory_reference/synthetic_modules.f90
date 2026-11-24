@@ -79,6 +79,15 @@ contains
       ydot(2,1)=60.0_dp
     case(2)
       ydot(1,1)=ieee_value(0.0_dp,ieee_quiet_nan)
+    case(3)
+      ! Scalar affine stiff equation, exact BE root independently computable.
+      ! Its nearest binary64 equilibrium has zero F but nonzero BE residual.
+      ydot(1,1)=-1e20_dp*(yt(1,1)-1.0_dp/3.0_dp)
+    case(4)
+      ! Raw h*F=1e-17 rounds away when added to Y1=0.5.
+      ydot(1,1)=1e-15_dp
+    case(5)
+      ydot=0
     end select
   end subroutine
 end module

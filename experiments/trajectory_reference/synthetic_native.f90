@@ -16,6 +16,9 @@ program synthetic_native
   integer(int32) :: workspace_header(15)
   real(dp) :: evaluated(160),expected_f(160),expected_conditions(3),expected_eos(4)
   real(dp) :: saved_state(163),saved_workspace(327),initial_ye
+  real(dp) :: previous(160),delta(160),weights(160),current,prior,rounded(160)
+  real(qp) :: exact_stiff
+  integer(int64) :: before_newton
   call get_command_argument(1,scenario)
   call open_diagnostics()
   allocate(helm_density(2),helm_temperature(2))
@@ -23,6 +26,60 @@ program synthetic_native
   state=0; state(1)=0.5_dp; state(2)=0.25_dp
   y(:,1)=state; yt=y; original=state
   select case(trim(scenario))
+  case('correction-nonlinear')
+    correction_enabled=.true.; inr=0
+    call adapted_step(1,inr)
+    exact=1.0_dp/(1.0_dp+sqrt(21.0_dp))
+    if (inr(1)<2.or.abs(yt(1,1)-exact)>1e-13_dp) call fail('correction nonlinear exact root')
+    if (abs(sum(yt(:,1))-0.75_dp)>1e-12_dp) call fail('correction nonlinear inventory')
+    if (current_ratio>1.or.previous_ratio>1) call fail('correction nonlinear consecutive pair')
+  case('correction-stiff')
+    correction_enabled=.true.; synthetic_case=3; inr=0
+    exact_stiff=(real(original(1),qp)+real(tdel(1),qp)*real(1e20_dp,qp)*real(1.0_dp/3.0_dp,qp)) &
+      /(1.0_qp+real(tdel(1),qp)*real(1e20_dp,qp))
+    call adapted_step(1,inr)
+    if (inr(1)<2) call fail('correction stiff did not accept consecutive pair')
+    if (abs(real(yt(1,1),qp)-exact_stiff)>real(spacing(yt(1,1)),qp)) call fail('correction stiff BE oracle')
+    if (final_norm<=1) call fail('correction stiff fixture lacks residual rounding floor')
+    if (current_ratio>1.or.previous_ratio>1) call fail('correction stiff raw pair')
+  case('correction-rounded')
+    correction_enabled=.true.; correction_atol=1e-20_dp; correction_rtol=0
+    synthetic_case=4; inr=0
+    call adapted_step(1,inr)
+    if (inr(1)/=0.or.newton_count/=30) call fail('rounded applied update manufactured convergence')
+    if (.not.unchanged_real_bits(yt(:,1),original)) call fail('rounded fixture did not stagnate')
+    if (current_ratio<=1) call fail('rounded fixture raw correction not detected')
+  case('correction-current')
+    ! Both corrections must use current weights, not weights at the prior state.
+    delta=0; previous=0; rounded=original
+    rounded(1)=0.01_dp; state(1)=0.01_dp
+    previous(1)=1e-3_dp; delta(1)=1e-6_dp
+    call correction_norms(state,rounded,delta,previous,1e-8_dp,1e-2_dp,weights,current,prior)
+    if (current>=1.or.prior<=1) call fail('current weights did not reject previous correction')
+    if (abs(prior-1e-3_dp/(1e-8_dp+1e-4_dp))>1e-12_dp) call fail('current weights numeric oracle')
+    call correction_norms(original,original,delta,previous,1e-8_dp,1e-2_dp,weights,current,prior)
+    if (prior>=1) call fail('fixture does not distinguish stale previous weights')
+  case('correction-retry')
+    correction_enabled=.true.; correction_atol=1e-20_dp; correction_rtol=0
+    synthetic_case=4; inr=0
+    call adapted_step(1,inr)
+    if (inr(1)/=0) call fail('retry setup unexpectedly converged')
+    synthetic_case=5; yt=y; inr=0; before_newton=newton_count
+    call adapted_step(1,inr)
+    if (inr(1)/=2.or.newton_count-before_newton/=2.or.retry_count/=1) call fail('retry correction history reset')
+    if (current_ratio/=0.or.previous_ratio/=0) call fail('retry history retained failed correction')
+  case('correction-projection')
+    correction_enabled=.true.; synthetic_case=1; inr=0
+    call adapted_step(1,inr)
+    if (inr(1)/=0.or.projection_count==0.or.current_ratio<=1) call fail('correction projection false convergence')
+  case('correction-projection-bound')
+    correction_enabled=.true.; correction_atol=1.0_dp; correction_rtol=0
+    synthetic_case=1; inr=0
+    call adapted_step(1,inr)
+    call fail('UNEXPECTED excessive final projection accepted')
+  case('correction-incomplete')
+    call require_complete_horizon(0.005_dp)
+    call fail('UNEXPECTED incomplete horizon accepted')
   case('polynomial')
     do k=1,3
       call three_weights(offsets(1,k),offsets(2,k),w,ok)

@@ -27,12 +27,12 @@ program trajectory_driver
   real(dp) :: abar,zbar,z2bar,zibar,target,remaining,h,clock_start,clock_stop,phase_start
   character(24) :: native_command
   real(dp) :: diagnostic_old(160),diagnostic_h
-  logical :: diagnostic_linear_enabled,assembly_command
+  logical :: diagnostic_linear_enabled,assembly_command,correction_command
   character(80) :: data_description
   character(160) :: reason
   logical :: ok,active(1)
   call open_diagnostics()
-  native_command=''; assembly_command=.false.
+  native_command=''; assembly_command=.false.; correction_command=.false.
   if (command_argument_count()>1) call fail('expected at most one native diagnostic command')
   if (command_argument_count()==1) then
     call get_command_argument(1,length=k,status=ios)
@@ -44,6 +44,9 @@ program trajectory_driver
       call enable_evaluation_stream()
     case('assembly-repeat-3','assembly-repeat-1','assembly-diagnose','assembly-step')
       assembly_command=.true.
+      call enable_evaluation_stream()
+    case('correction-control','correction-trajectory','correction-diagnose')
+      correction_command=.true.
       call enable_evaluation_stream()
     case default
       call fail('unknown native diagnostic command')
@@ -84,7 +87,9 @@ program trajectory_driver
   if (header(4)<2.or.header(4)>50000.or.header(5)<1.or.header(5)>50000 &
       .or.header(6)<1.or.header(6)>1000000) call fail('input dimensions outside bounded structural limits')
   if (header(7)<0.or.header(7)>2.or.header(8)<1.or.header(8)>160) call fail('input mode/direction coordinate')
-  if (native_command=='assembly-step') then
+  if (native_command=='correction-trajectory') then
+    if (header(7)/=1) call fail('correction trajectory requires mode one')
+  elseif (native_command=='assembly-step') then
     if (header(7)/=1) call fail('assembly first step requires original L0 mode one')
   elseif (len_trim(native_command)>0.and.header(7)/=0) then
     call fail('diagnostic commands require input mode zero')
@@ -98,8 +103,14 @@ program trajectory_driver
   if (file_position/=file_size+1) call fail('trailing input bytes')
   close(inp)
   if (.not.same_bits(input_z,zz).or..not.same_bits(input_a,aa)) call fail('ordered species identity mismatch')
-  if (.not.((nonlinear_atol==1e-13_dp.and.nonlinear_rtol==1e-11_dp).or. &
-             (nonlinear_atol==1e-14_dp.and.nonlinear_rtol==1e-12_dp))) call fail('unapproved nonlinear controls')
+  if (correction_command) then
+    if (.not.((nonlinear_atol==1e-15_dp.and.nonlinear_rtol==1e-13_dp).or. &
+               (nonlinear_atol==1e-16_dp.and.nonlinear_rtol==1e-14_dp))) call fail('unapproved correction controls')
+    call enable_correction_source(native_command/='correction-trajectory')
+  else
+    if (.not.((nonlinear_atol==1e-13_dp.and.nonlinear_rtol==1e-11_dp).or. &
+               (nonlinear_atol==1e-14_dp.and.nonlinear_rtol==1e-12_dp))) call fail('unapproved nonlinear controls')
+  endif
   if (.not.all(ieee_is_finite(forcing_time)).or..not.all(ieee_is_finite(forcing_t9)) &
       .or..not.all(ieee_is_finite(forcing_rho))) call fail('nonfinite forcing inputs')
   if (any(forcing_time(2:)<=forcing_time(:size(forcing_time)-1))) call fail('nonincreasing forcing inputs')
@@ -134,23 +145,37 @@ program trajectory_driver
   t9=t9t; t9o=t9t; rho=rhot; rhoo=rhot
   y(:,1)=initial; yo=y; yt=y
   input_time=tt(1); input_temperature=t9t(1); input_density=rhot(1)
-  if (assembly_command) call enable_assembly_source()
-  if (len_trim(native_command)>0.and..not.assembly_command) &
+  if (assembly_command.or.correction_command) call enable_assembly_source()
+  if (len_trim(native_command)>0.and..not.assembly_command.and..not.correction_command) &
     call read_linear_inputs(diagnostic_linear_enabled,diagnostic_old,diagnostic_h,input_time)
   call fresh(initial,input_time,input_temperature,input_density,f,ok,reason)
   if (.not.ok) call fail('initial state '//trim(reason))
   ye=yet; yeo=yet
   b0=sum(aa*initial)
+  if (correction_command.and.native_command/='correction-diagnose') then
+    call export_maps()
+    call save_assembly_workspace('baseline-001.bin','assembly-baseline-001.bin')
+  endif
   write(log_unit,*) 'INITIAL_MOMENTS',b0,sum(zz*initial),yet(1),t9t(1),rhot(1)
   call cpu_time(phase_start)
   write(log_unit,*) 'SETUP_CPU_SECONDS',phase_start-clock_start
   call system_clock(setup_clock)
   if (wall_rate>0) write(log_unit,*) 'SETUP_WALL_SECONDS',real(setup_clock-wall_start,dp)/real(wall_rate,dp)
-  if (native_command=='assembly-step') then
+  if (native_command=='correction-control') then
+    open(newunit=output,file='control.bin',status='new',access='stream',form='unformatted')
+    write(output) f
+    close(output)
+    open(newunit=output,file='control-original.bin',status='new',access='stream',form='unformatted')
+    write(output) last_original_rhs
+    close(output)
+  elseif (native_command=='correction-diagnose') then
+    ! The D-039 helper uses one factor-one production J and nonnegative odd support.
+    call run_assembly_qualification('assembly-diagnose',initial,input_time,input_temperature,input_density,f,header(8))
+  elseif (native_command=='assembly-step') then
     call qualification_first_step()
   elseif (assembly_command) then
     call run_assembly_qualification(trim(native_command),initial,input_time,input_temperature,input_density,f,header(8))
-  elseif (len_trim(native_command)>0) then
+  elseif (len_trim(native_command)>0.and..not.correction_command) then
     call run_native_diagnostic(trim(native_command),initial,input_time,input_temperature,input_density,f, &
                                header(8),diagnostic_linear_enabled,diagnostic_old,diagnostic_h)
   else
@@ -194,7 +219,8 @@ program trajectory_driver
       enddo
       if (t(1)/=target) call fail('mesh target not reached exactly')
     enddo
-    if (t(1)/=0.01_dp) call fail('incomplete horizon')
+    call require_complete_horizon(t(1))
+    if (correction_enabled) call save_assembly_workspace('baseline-accepted.bin','assembly-accepted.bin')
     close(output)
     close(forcing_output)
   case(2)
@@ -255,6 +281,12 @@ contains
     flush(output)
     write(forcing_output) t(1),t9(1),rho(1)
     flush(forcing_output)
+    if (correction_enabled) then
+      write(correction_accepted_unit) real(rhs_count,dp),11.0_dp,real(accepted_count,dp), &
+        t(1),t9(1),rho(1),baryon,charge,last_evaluated_eos,1.0_dp,1.0_dp,1.0_dp,1.0_dp, &
+        y(:,1),last_original_rhs,last_variant_rhs
+      flush(correction_accepted_unit)
+    endif
   end subroutine accepted_row
   logical function same_bits(left,right)
     real(dp),intent(in) :: left(:),right(:)
