@@ -32,8 +32,12 @@ On 2026-11-24 the maintainer [accepted D-040](https://github.com/jaharris87/cruc
 correction-controlled native trajectories with unchanged global convergence gates.
 The [implementation and focused repairs passed independent review](https://github.com/jaharris87/crucible-astro/issues/44#issuecomment-7141977684)
 at pinned producer source `dd07cc1`; [Build A job 61935889 is submitted](https://github.com/jaharris87/crucible-astro/issues/44#issuecomment-7142064795).
-Build B requires complete A verification and fresh-process reload/release.
-No full-horizon reference result is inferred from submission. See the [diagnosis](docs/reports/2026-11-23-phase2d-diagnosis.md),
+The maintainer then [requested a pause](docs/reports/2026-11-24-phase2d-pause.md):
+one development L0 trajectory completes 10 ms with passing per-run checks;
+validation is interrupted, and refinement/clean reproduction remain unattempted.
+The job is terminal CANCELLED. No converged/reproduced reference set is accepted.
+Build B requires complete A verification and fresh-process reload/release after
+an explicitly accepted resumption. See the [diagnosis](docs/reports/2026-11-23-phase2d-diagnosis.md),
 [checkpoint](docs/reports/2026-11-20-phase2d-checkpoint.md) and current
 [progress](docs/PROGRESS.md) and [handoff](docs/HANDOFF.md).
 Physical application, energy, rollout accuracy and speedup remain

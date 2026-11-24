@@ -5,6 +5,15 @@ Updated **2026-11-24**. Phase 1, the documentation migration, **2A–2C are comp
 [migration receipt](https://github.com/jaharris87/crucible-astro/issues/39#issuecomment-7019298012),
 [2A receipt](https://github.com/jaharris87/crucible-astro/issues/41#issuecomment-7020463315),
 [2B receipt](https://github.com/jaharris87/crucible-astro/issues/42#issuecomment-7043899683).
+
+**Paused on explicit maintainer request, 2026-11-24.** Job61935889 is terminal
+CANCELLED. Build A, all 24 compiled prerequisites and both controls pass;
+development L0 standard completes 10 ms and passes per-run checks. Validation L0
+was interrupted at 0.808989 ms; all remaining refinement/tight/diagnostic and Build B
+work is unattempted. [Pause record](reports/2026-11-24-phase2d-pause.md) retains raw
+archive identity, counters, costs and exact gaps. No converged/reproduced reference
+set exists. Resume requires explicit reconciliation of the human pause with the
+bounded producer scope; no automatic infrastructure restart. Milestone #3 stays open.
 The original 2C implementation is merged through [PR #48](https://github.com/jaharris87/crucible-astro/pull/48)
 at `505d5562040ec7733ec7903c7123f86921653186`; [merged checks](https://github.com/jaharris87/crucible-astro/issues/43#issuecomment-7045039634)
 and the scheduled [independent integrated audit](https://github.com/jaharris87/crucible-astro/issues/43#issuecomment-7045144994)
@@ -71,7 +80,8 @@ global convergence gates. Fresh independent Sol High protocol review passes at
 Next: implementation/checks, fresh exact implementation review, then its conditional
 campaign only. [The resumption record](reports/2026-11-24-phase2d-resumption.md)
 also retains model-scaling/log/PCA/AE/width feedback for later scope. The one 2D
-goal is active; full 2D remains incomplete, with no accepted trajectory reference.
+goal was active at resumption and is now paused as recorded above; full 2D
+remains incomplete, with no accepted trajectory reference.
 
 The D-040 implementation at `ba9f66e` passes 1,108 installed public tests plus
 lint/format/docs checks; original inputs and all preparation identities verify

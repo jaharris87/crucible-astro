@@ -46,7 +46,13 @@ Fresh independent Sol High protocol review passes at d5bbe89; new explicit
 scientific/producer acceptance was explicitly given in #44 comment7140960473.
 Routine implementation/checks and only its conditional campaign are authorized;
 exact implementation review passed at dd07cc1 (receipt44#7141977684). Build A
-job61935889 is submitted under that conditional envelope; Build B requires A's
+job61935889 was submitted under that conditional envelope. On explicit maintainer
+pause request, it is now terminal CANCELLED: build/24 compiled fixtures/both
+controls pass; development L0 standard completes 10 ms with passing per-run checks;
+validation L0 is interrupted at 0.808989 ms. Remaining A and all B work is
+unattempted. Preserve the checkpoint; no converged/reproduced reference is accepted.
+Human-pause resumption needs an explicit bounded decision; do not use the
+infrastructure-only restart allowance for it. Build B still requires A's
 complete verification and fresh-process reload/release. No numerical result is
 inferred from submission; see live #44 for actual status. Resumption and
 modeling feedback alone grant no new scope or training authority.

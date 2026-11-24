@@ -12,7 +12,19 @@ for explicit scientific/producer acceptance, now [given](https://github.com/jaha
 Implementation and synthetic verification are active; no producer work occurred
 before that answer.
 
-**Resumed on explicit maintainer request, 2026-11-24:** one native goal is active
+**Maintainer pause, 2026-11-24:** job **61935889 is terminal CANCELLED**;
+no producer job is continuing. The [pause record](reports/2026-11-24-phase2d-pause.md)
+preserves one successful fresh build, all 24 compiled prerequisites, both passing
+controls and the first complete **development L0 standard 10 ms trajectory**
+(per-run checks pass). Validation L0 was interrupted at 0.808989 ms; sixteen
+remaining A processes and all Build B work are unattempted. Raw archive SHA256
+`845185dc506a1a8f72e3b003d7713d43b7fac6772c80acf0dc86181cc6c19645`.
+No convergence, clean reproduction or accepted reference set is claimed. This
+human pause is not an infrastructure restart. Resume with read-only verification
+and an explicit bounded resumption decision; do not rerun completed work or submit
+Build B automatically. The 2D objective remains incomplete.
+
+**Earlier resumption on explicit maintainer request, 2026-11-24:** one native goal was active
 for 2D only. Read-only state/issue inspection confirms the preserved checkpoint;
 main remains `75b2ec3`, draft PR #51 / #44 are open. The
 [resumption record](reports/2026-11-24-phase2d-resumption.md) retains meeting
@@ -166,10 +178,10 @@ also confirms final development updates are entirely lost to binary64 rounding;
 this is local stagnation, not proof that no other representable root exists.
 The report records exact scope and remaining limits.
 
-**Next authorized action:** monitor/verify Build A under the reviewed D-040
-conditional envelope, preserving all outcomes. Only a fully passing independent
-A verification and fresh-process reload can release the fresh Build B and its
-matched runs. Maintain the pinned source while keeping current status here/#44.
+**Next action after the requested pause:** read-only verification of the preserved
+D-040 checkpoint and a concrete bounded human-pause resumption decision. Do not
+mislabel the stop as infrastructure failure or invoke its retry allowance. Only
+complete A verification and fresh-process reload could later release Build B.
 D-039 reporting/artifact assessment is complete. The proposal retains its RHS,
 states/forcing and global gates, explicitly changing local nonlinear stopping;
 no full-horizon result is inferred from offline saved-correction calculations.
