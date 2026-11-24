@@ -23,6 +23,16 @@ review passes at `d5bbe89`, without consequential findings. The maintainer
 Routine implementation/checks may proceed; exact implementation review precedes
 producer execution. The frozen baseline remains unchanged.
 
+**Implementation checkpoint:** `ba9f66e` passes 1,108 installed public tests and
+required static/documentation checks. Offline preparation001 verifies all original
+inputs and 148 immutable artifacts / 84 staged sources, without a build or physical
+call. Fresh independent Sol High implementation review found a restart-provenance
+bug (P2D-CORR-IMPL-001) and runnable guide suffixes (002). Repair `f697adb` and
+real runner-to-verifier regressions are prepared; focused repair verification must
+pass before the accepted campaign. The [resumption record](reports/2026-11-24-phase2d-resumption.md#implementation-checks-and-independent-review)
+preserves findings, dispositions and the explicit retained-probe limitation.
+Live #44 holds subsequent exact review/run receipts; no reference result is inferred.
+
 **Preserved maintainer pause, 2026-11-23:** paused after completed D-039 execution,
 verification/reload and independent artifact/reporting assessment. No producer job
 is running. The final reviewed evidence candidate is `4eb547d08769395c6d49e5d62bea542168639a73`;

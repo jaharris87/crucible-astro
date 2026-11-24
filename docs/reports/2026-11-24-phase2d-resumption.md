@@ -70,7 +70,51 @@ and matrices will be unavailable for retrospective forensic verification under
 the explicitly proposed compact retention. Original failures, physical limits,
 unestablished frozen-MLP compatibility and human decision gates remain visible.
 The review grants no producer/reference/merge/final acceptance. Issue #44 holds
-the decision presentation and actual subsequent answer, if supplied.
+the decision presentation and the actual acceptance receipt above.
+
+## Implementation checks and independent review
+
+D-040 implementation candidate `ba9f66ef71671e6b9a4c3009a8bdbcb8b1c71236`, tree
+`7cb12f96bba672197172d35eb41a7db50c3d0d1d`, passed **1,108 installed public
+tests, zero skips**, Ruff lint/format, documentation/frozen/navigation and
+whitespace checks. Preparation001 independently verifies 148 immutable artifacts,
+84 staged source files and all twenty per-build plans; manifest SHA256
+`86a8060c6b1a4ac6ed732cbeb9a73f33f4d460bcc984e2bdfe490448ead575c4`.
+No producer build, compiled fixture, physical evaluation or job submission has
+occurred. This preparation is retained unexecuted while review repairs are made.
+
+Fresh-context read-only **gpt-6.1-sol High** exact-candidate review returned
+**CHANGES REQUIRED** on that candidate against main `75b2ec3`. The reviewer
+independently passed all 1,108 tests and source/preparation checks, reproduced the
+four offline prefixes and both retained initial derivative checks, and confirmed
+the assembly113 module, D-039 diagnostic helper and build recipe are unchanged.
+No native compilation/execution, remote compute, source edit or posting occurred.
+
+| Finding | Original evidence / consequence | Disposition and verification |
+| --- | --- | --- |
+| P2D-CORR-IMPL-001, P2/high | `correction_campaign.py` at candidate lines 1064–1079 rebuilds a resumed specification and loses `restart_of`, created near line 953. Actual synthetic runner interrupt/resume can report qualification while real `correction_report.verify_interrupted` refuses `restart predecessor differs`. A permitted restart therefore cannot release Build B. | Fix: preserve the predecessor through active/completed records. Isolated repair `9280b99`, integrated as `f697adb`, adds the real runner-to-verifier regression with a missing-link negative control. Lead also connects controller-kill recovery to the real verifier. Focused independent repair verification is required before execution. |
+| P2D-CORR-IMPL-002, P3/high | Runnable guide lines 163/166/197 omit the `.json` suffix required by `write_report`; direct reproduction raises `new JSON/NPZ destinations required`. | Same repair uses matching `.json` analyze/reload/compare examples and preserves `.release.json` naming. Focused verification required. |
+
+Independent retention disposition: no additional blocker under the protocol's
+explicit delegation of exact persistence schemas. Retained probes have exact
+input/original F/variant F; complete coefficient/113-bit polynomial workspaces
+are retained at named initial, Newton baseline/post and terminal evaluations.
+**This is not per-probe coefficient/quad retention or verification.** The
+[wire contract](../../experiments/trajectory_reference/CORRECTION_WIRE.md) and
+[guide](../../experiments/trajectory_reference/CORRECTION.md) state this before
+execution. Ordinary successful-step probe F/matrices are also unavailable for
+retrospective forensic checks. All actually written raw outputs remain preserved.
+No numerical criterion or physical execution scope changes through this clarification.
+
+The new decoder/checker independently replays the original standard-run prefixes
+under counterfactual correction weights, reaching pairs at 6/6/6/7 iterations.
+Replay JSON SHA256
+`6542a97960db547223744da36025247f12e82c59db2512068b597472660d2f52`
+binds raw archive, checker bytes and derived prefix streams. These are offline
+software checks, not new standard/tight executions or full-trajectory evidence.
+Actual native fixtures and the approved campaign remain to be executed only
+after exact repair verification passes. The live issue retains the exact latest
+candidate, dispositions, subsequent review and execution receipts.
 
 ## Maintainer modeling feedback retained for the next proposal
 

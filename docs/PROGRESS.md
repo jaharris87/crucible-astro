@@ -73,6 +73,14 @@ campaign only. [The resumption record](reports/2026-11-24-phase2d-resumption.md)
 also retains model-scaling/log/PCA/AE/width feedback for later scope. The one 2D
 goal is active; full 2D remains incomplete, with no accepted trajectory reference.
 
+The D-040 implementation at `ba9f66e` passes 1,108 installed public tests plus
+lint/format/docs checks; original inputs and all preparation identities verify
+offline. Fresh independent implementation review requires repairs to restart
+provenance and guide output names. Repair `f697adb` plus actual controller/runner-
+to-verifier regressions are prepared for focused verification. No native build,
+compiled fixture or physical evaluation has run under D-040. See the linked
+resumption record and #44 for exact subsequent candidate/review/run receipts.
+
 ## Phase status
 
 | Phase | Dependency | Status / evidence |

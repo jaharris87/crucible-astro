@@ -847,6 +847,11 @@ def test_controller_kill_recovery_preserves_original_receipts(
         "original_receipts"
     ].items():
         assert runner.digest(root / name) == identity
+    report = runner.load_module(
+        "real_correction_controller_recovery_verifier",
+        Path(runner.__file__).parent / "correction_report.py",
+    )
+    assert len(report.verify_interrupted(root, prepared, result, runner)) == 1
 
 
 def test_no_physical_attempt_is_needed_for_build_library_receipt(

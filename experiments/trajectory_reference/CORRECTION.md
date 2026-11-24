@@ -139,6 +139,14 @@ define the compact ordinary stream and retained first-step/failure/diagnostic
 workspaces. Forensic capture must use buffered values, never new physical calls.
 Derived JSON/NPZ artifacts remain separate, versioned and loaded without pickle.
 
+For retained first-step, diagnostic and failing-iteration probes, keep exact
+inputs and original/variant F. Complete coefficient/113-bit polynomial workspaces
+are retained at the named initial, Newton baseline/post and terminal evaluations.
+This does **not** provide per-probe coefficient/quad retention or verification.
+Ordinary successful-step probe F and matrices are unavailable retrospectively;
+their declared compact/attempt/IEEE/branch records remain. Implementation review
+confirmed this granularity under the protocol's explicit schema delegation.
+
 On the execution host, collect a fresh read-only identity receipt:
 
 ```sh
