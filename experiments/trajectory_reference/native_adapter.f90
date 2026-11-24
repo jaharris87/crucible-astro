@@ -89,6 +89,27 @@ contains
     if (correction_enabled) full_retention=correction_forensic.or.last_step==1
   end function full_retention
 
+  subroutine retain_assembly_record(record)
+    real(dp),intent(in) :: record(496)
+    if (correction_enabled.and.correction_iteration_active) then
+      if (buffer_count>=max_iteration_evaluations) call fail('correction evaluation buffer exceeded declared bound')
+      buffer_count=buffer_count+1
+      evaluation_buffer(:,buffer_count)=record
+    endif
+    if (full_retention().or..not.correction_iteration_active) then
+      write(assembly_eval_unit) record
+      flush(assembly_eval_unit)
+    endif
+  end subroutine retain_assembly_record
+
+  subroutine write_correction_accepted(state,time,temp,density,baryon,charge)
+    real(dp),intent(in) :: state(160),time,temp,density,baryon,charge
+    write(correction_accepted_unit) real(rhs_count,dp),11.0_dp,real(accepted_count,dp), &
+      time,temp,density,baryon,charge,last_evaluated_eos,1.0_dp,1.0_dp,1.0_dp,1.0_dp, &
+      state,last_original_rhs,last_variant_rhs
+    flush(correction_accepted_unit)
+  end subroutine write_correction_accepted
+
   subroutine retain_correction_workspace(prefix)
     character(*),intent(in) :: prefix
     character(160) :: original_name,variant_name
@@ -216,6 +237,7 @@ contains
     integer :: before_nearest,after_nearest,before_gradual,after_gradual
     logical :: flags_before(5),flags_after(5)
     character(160) :: reason
+    real(dp) :: record(496)
     last_original_rhs=ydot(:,1); last_assembly_call=rhs_count; assembly_math_ok=.false.
     last_variant_rhs=ieee_value(0.0_dp,ieee_quiet_nan)
     aq_totals=ieee_value(0.0_qp,ieee_quiet_nan); aq_classes=aq_totals(1)
@@ -233,21 +255,11 @@ contains
     call assembly_modes(after_nearest,after_gradual)
     if (after_nearest/=1.or.after_gradual/=1) call fail('assembly arithmetic mode after evaluation')
     assembly_calls=assembly_calls+1
-    if (correction_enabled.and.correction_iteration_active) then
-      if (buffer_count>=max_iteration_evaluations) call fail('correction evaluation buffer exceeded declared bound')
-      buffer_count=buffer_count+1
-      evaluation_buffer(:,buffer_count)=[real(rhs_count,dp),real(assembly_role,dp),real(assembly_context,dp), &
-        last_evaluated_conditions,sum(aa*last_evaluated_state),sum(zz*last_evaluated_state),last_evaluated_eos, &
-        real(before_nearest,dp),real(after_nearest,dp),real(before_gradual,dp),real(after_gradual,dp), &
-        last_evaluated_state,last_original_rhs,last_variant_rhs]
-    endif
-    if (full_retention().or..not.correction_iteration_active) then
-      write(assembly_eval_unit) real(rhs_count,dp),real(assembly_role,dp),real(assembly_context,dp), &
-        last_evaluated_conditions,sum(aa*last_evaluated_state),sum(zz*last_evaluated_state),last_evaluated_eos, &
-        real(before_nearest,dp),real(after_nearest,dp),real(before_gradual,dp),real(after_gradual,dp), &
-        last_evaluated_state,last_original_rhs,last_variant_rhs
-      flush(assembly_eval_unit)
-    endif
+    record=[real(rhs_count,dp),real(assembly_role,dp),real(assembly_context,dp), &
+      last_evaluated_conditions,sum(aa*last_evaluated_state),sum(zz*last_evaluated_state),last_evaluated_eos, &
+      real(before_nearest,dp),real(after_nearest,dp),real(before_gradual,dp),real(after_gradual,dp), &
+      last_evaluated_state,last_original_rhs,last_variant_rhs]
+    call retain_assembly_record(record)
     ydot(:,1)=last_variant_rhs
     if (correction_enabled.and.(assembly_role==1.or.assembly_role==3.or.assembly_role==10)) then
       if (full_retention().or.assembly_role==1) call retain_correction_workspace('forensic')

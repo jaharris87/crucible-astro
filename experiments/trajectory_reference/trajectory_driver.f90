@@ -281,12 +281,7 @@ contains
     flush(output)
     write(forcing_output) t(1),t9(1),rho(1)
     flush(forcing_output)
-    if (correction_enabled) then
-      write(correction_accepted_unit) real(rhs_count,dp),11.0_dp,real(accepted_count,dp), &
-        t(1),t9(1),rho(1),baryon,charge,last_evaluated_eos,1.0_dp,1.0_dp,1.0_dp,1.0_dp, &
-        y(:,1),last_original_rhs,last_variant_rhs
-      flush(correction_accepted_unit)
-    endif
+    if (correction_enabled) call write_correction_accepted(y(:,1),t(1),t9(1),rho(1),baryon,charge)
   end subroutine accepted_row
   logical function same_bits(left,right)
     real(dp),intent(in) :: left(:),right(:)

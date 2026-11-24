@@ -158,4 +158,13 @@ protocol settings. `correction-projection-bound` must fail with
 `final Newton projection exceeds per-step bound`; `correction-incomplete` must
 fail with `incomplete horizon`. All sixteen historical prerequisites remain.
 
+The existing `correction-current` scenario also exercises actual compact Newton
+and accepted writers, four-phase matrix buffering, ordinary probe buffering,
+failure flush, first-step direct retention and baseline/post original/quad
+workspace serialization. Binary readback checks headers, exact bytes/field
+offsets, call IDs, phase availability and row counts. Its affine-BE inputs and
+distinct original/variant payloads, polynomial workspace sentinels and IDs are
+constructed synthetic records, not native assembly evidence. It makes no fresh
+or producer request; final process counters report zero actual calls.
+
 These fixtures are source only until the exact implementation review passes.
