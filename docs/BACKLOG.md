@@ -3,8 +3,20 @@
 B01–B04 scope was adopted by the maintainer on 2026-11-17 (D-010); the maintainer separately authorized execution on 2026-11-17. B01–B04 are now [GitHub issues in the Phase 0B milestone](https://github.com/jaharris87/crucible-astro/milestone/1); [PROGRESS](PROGRESS.md) records current dependencies, status and PR links. D-013 supersedes D-011 resource caps and accounting; the linked section below preserves the policy transition. Phase 1 S01–S03 execution was authorized on 2026-11-17 ([authority](PHASE_1_AUTHORITY.md)); [milestone #2](https://github.com/jaharris87/crucible-astro/milestone/2) tracks its gates. Later scientific issues remain provisional. IDs remain stable when mapped to future issue numbers. All implementation follows [WORKFLOW](process/WORKFLOW.md); scientific checks follow [VALIDATION](science/VALIDATION.md). No dates are implied.
 
 Current boundary: **2A–2C are complete**, with [final 2C acceptance](https://github.com/jaharris87/crucible-astro/issues/43#issuecomment-7047751430).
-The frozen negative-fidelity MLP remains unchanged. The next requested work is a
-2D launch-prompt draft; reference/producer execution is not yet authorized.
+The frozen negative-fidelity MLP remains unchanged. D-035 invokes 2D protocol
+preparation under #44; D-036 now accepts the concrete scientific/producer scope.
+The primary campaign has numerical failures and interrupted validation; no
+full-horizon reference passed. The accepted D-038 diagnostics completed with
+bounded verification and independent artifact PASS; [the report](reports/2026-11-23-phase2d-diagnostics.md)
+preserves unresolved nonlinear limits. D-039's reviewed campaign completed:
+arithmetic/derivatives pass, first-step qualification fails, and its producer
+authority is exhausted. On explicit 2026-11-24 resumption, [D-040](../experiments/trajectory_reference/CORRECTION_PROTOCOL.md)
+proposes correction-controlled trajectories; independent protocol review passes,
+and the maintainer explicitly accepted its scientific/producer scope. Exact
+implementation review precedes the accepted conditional campaign.
+The [resumption record](reports/2026-11-24-phase2d-resumption.md) retains scaling,
+log-feature, wider-MLP and PCA/AE priorities for the next accepted model/S05
+proposal. It selects no architecture or reduction and authorizes no training.
 [The existing sequence](PHASE_2_LAUNCH.md) owns dependencies and scope gates.
 
 ## Bootstrap sequence
@@ -117,7 +129,7 @@ The [independent-audit assessment](https://github.com/jaharris87/crucible-astro/
 and accepted D-027/D-028 directions remain preserved. Phase 1 and the migration
 and 2A–2C are complete, with receipts linked from [handoff](HANDOFF.md).
 [Milestone #3](https://github.com/jaharris87/crucible-astro/milestone/3) remains open;
-2D needs its own invocation and accepted scientific/producer protocol.
+2D is invoked under D-035; D-036 accepts its reviewed scientific/producer protocol.
 [The incremental execution sequence](PHASE_2_LAUNCH.md) replaces the former draft:
 #41 access → #42 pointwise baseline → #43 analytic integration → #44 real references
 → #45 frozen evaluation/cost. Later issues hold short summaries until prerequisites

@@ -687,6 +687,221 @@ This accepts final 2C at repair merge `eaa9446` with passing merged checks and
 recorded dispositions. Close #43 and the native 2C goal; keep milestone #3 open.
 Drafting the next prompt is not 2D execution authority or an extension of D-034.
 
+### Decision D-035: Phase 2D launch; concrete producer authority pending
+
+**Accepted launch scope, 2026-11-20:** the maintainer invoked only
+[2D / issue #44](https://github.com/jaharris87/crucible-astro/issues/44), after
+2A–2C and status PR #50 at `75b2ec32c7983e94a73e88c6b09250a9506eb2d0`.
+Startup checked the clean current merged main and preceding final receipts once;
+no historical qualification or broad audit was repeated. One native goal covers
+active 2D only; milestone #3 stays open.
+
+This launch authorizes read-only discovery, concrete protocol preparation,
+repository edits, local dependencies, synthetic tests, commits/pushes and PR
+creation. The [proposed protocol](../experiments/trajectory_reference/PROTOCOL.md)
+fixes two permitted development/validation forced IVPs, explicit state/forcing,
+a narrowly adapted native numerical path, convergence/failure/reproduction checks
+and a bounded build/run/diagnostic/retry envelope. The required independent
+fresh-context read-only Sol High review required two repairs; both passed focused
+verification. The actual human protocol/execution decision remains pending below.
+**No producer build, RHS/Jacobian/NSE evaluation or trajectory has run.**
+Before any producer build/evaluation, the maintainer must explicitly accept both
+the reviewed coherent scientific/numerical protocol and concrete execution scope.
+Those decisions do not approve a merge. D-034 does not extend to 2D. Human named
+reference acceptance, exact-candidate review, concrete merge decision, merged
+verification and final sub-phase acceptance remain required.
+
+Preserve accepted data/overlay/memberships, original reference artifacts, frozen
+2B weights/scalers and negative fidelity results. No learned rollout, fitting,
+model/scaler change, final-test evaluation, energy/heating extension, original
+reference modification, bulk conversion, release, paid service, deployment, 2E,
+reduced method or later phase is authorized. D-013 estimates are evidence, not
+compute caps. The [existing sequence](PHASE_2_LAUNCH.md) remains the sole Phase 2 plan.
+
+### Decision D-036: Reviewed 2D protocol and producer scope
+
+**Accepted by the maintainer, 2026-11-20.** After the popup was redisplayed,
+the maintainer explicitly selected **“Accept protocol and producer scope
+(Recommended)”**. The question explicitly covered both scientific/numerical
+acceptance and concrete producer authority; the [actual acceptance receipt](https://github.com/jaharris87/crucible-astro/issues/44#issuecomment-7048371383)
+supersedes the pending decision packet. The [v2 protocol](../experiments/trajectory_reference/PROTOCOL.md)
+at `951d1f9f15e8246fe8d98886214070ebef44f7c4`, SHA256
+`966fbff8d2322ae8e6666063f35c1b87cced7d5ccbaf663ccae362613f98fdad`,
+and its exact private input annex are ready for acceptance.
+
+The [original fresh-context read-only gpt-6.1-sol High review](https://github.com/jaharris87/crucible-astro/issues/44#issuecomment-7048285375)
+required P2D-PROP-001 (per-campaign initial-control authority) and P2D-PROP-002
+(Timmes DOI). [Dispositions](https://github.com/jaharris87/crucible-astro/issues/44#issuecomment-7048302947)
+and [focused independent PASS / decision packet](https://github.com/jaharris87/crucible-astro/issues/44#issuecomment-7048328458)
+preserve findings, exact candidates, checks and limits. Required proposal CI and
+local documentation/preservation checks pass. No numerical success is implied.
+
+**Recommendation:** accept the coherent scientific/numerical protocol AND its
+concrete producer envelope: two fixed permitted 10 ms forced IVPs, two fresh
+builds plus at most two failed-build repairs, per-campaign initial controls,
+four meshes plus a tighter nonlinear run per case (ten trajectories per campaign,
+repeated once), fixed Jacobian diagnostics and specified infrastructure-only
+restart rules. The native full-F numerical adaptation, projection/residual policy,
+convergence/constraint/domain/output/reproduction criteria and private input hashes
+are explicit. Resource estimates are evidence, not compute caps.
+
+The accepted protocol and its declared execution now proceed autonomously.
+No producer build or physical evaluation occurred before the answer. Changes to
+equations, forcing, cases, physics, criteria or execution scope remain explicit
+decisions. This decision grants no merge approval, reference acceptance or 2E
+authority. Ordinary exact-candidate implementation
+review and later human reference/merge/final decisions remain required.
+
+### Decision D-037: Replace the preflight-stopped native build
+
+**Accepted by the maintainer, 2026-11-20:** explicit popup answer
+**“Authorize replacement build (Recommended)”**, recorded in the
+[actual receipt](https://github.com/jaharris87/crucible-astro/issues/44#issuecomment-7050412199).
+The [focused independent repair review](https://github.com/jaharris87/crucible-astro/issues/44#issuecomment-7050398773)
+passed on exact pushed `a771930`; P2D-IMPL-001 is resolved, with all 120 public
+Phase 2D tests and an offline replay of all ten retained native fixtures passing.
+No physical reference claim follows. D-036's first native build
+at `c28c527` succeeded, but a Python gate rejected two correctly failing synthetic
+fixtures before any physical evaluation. The repair reads the native failure
+status instead of requiring its text in console output; wrong-reason failure
+still refuses the campaign. No native source or accepted scientific contract
+changes. Full original evidence is retained, including the successful build.
+
+**Accepted scope:** one additional fresh isolated build to replace
+that preflight-stopped build: three successful fresh builds total including
+the retained first build, with the existing two failed-build repair allowances
+unchanged. The two physical campaigns, four planned initial controls, twenty
+trajectories, Jacobian diagnostics and restart rules remain exactly D-036.
+No extra physical evaluation, numerical retry or acceptance relaxation is proposed.
+The measured first build used 12.76 s wall, 9.83 s CPU and 91,044 KiB peak RSS;
+similar replacement costs are an estimate. The alternative is to retain this
+checkpoint and defer the campaign. This amendment grants no merge or 2E authority.
+
+### Decision D-038: Bounded frozen-state numerical diagnosis
+
+**Accepted by the maintainer, 2026-11-23:** explicit chat answer **“approved”**
+to the reviewed scientific-protocol AND producer-scope decision, recorded in the
+[actual acceptance receipt](https://github.com/jaharris87/crucible-astro/issues/44#issuecomment-7107405775).
+The exact diagnostic source is `ae6971522ba1333f550664ac793be6b662e3dae4`;
+protocol SHA256 is `ea722cbabf71d79453a30c35f6f07de7a2c065fe14a9a2e1f442160ada4be7a1`.
+Resumption alone granted no new producer authority; this separate answer does.
+The [offline report](reports/2026-11-23-phase2d-diagnosis.md)
+preserves the actual failures, interruption, reload evidence and limitations.
+
+**Accepted scope:** the coherent [diagnostic protocol](../experiments/trajectory_reference/DIAGNOSTIC_PROTOCOL.md)
+and its explicit reviewed producer scope: exactly the original
+two initial states and chronological development L0 Jacobian-baseline record 300;
+one fresh diagnostic build, with at most two build/prephysical-preflight repair
+builds; six repeatability and three derivative processes; the bounded four-factor
+FD study, conditional arithmetic and frozen linear/Newton checks. No trajectory
+advance or new local/global trajectory tolerance is proposed. The original D-036
+and failed artifacts remain unchanged. Resource estimates are evidence, not caps.
+
+Fresh independent Sol High protocol review passes; implementation review found
+P2D-DIAG-001 (missing A in normalized assembly contribution), preserved in the
+[original finding](https://github.com/jaharris87/crucible-astro/issues/44#issuecomment-7105958049).
+Repair and focused independent verification pass at `ae69715`, with 909 installed
+tests and Linux CI passing in the [exact decision packet](https://github.com/jaharris87/crucible-astro/issues/44#issuecomment-7106057047).
+The concrete human answer now authorizes the bounded diagnostic campaign and
+routine implementation/checking within that envelope. No original artifact or
+frozen proposal-header bytes are changed to record acceptance. The actual receipt
+controls authority. This decision authorizes neither reference acceptance, merge,
+Phase 2E nor a later trajectory rerun. Those remain separate concrete checkpoints.
+
+**Actual D-038 outcome:** one fresh build, all eleven synthetic prerequisites and
+all nine native processes completed; 4,384 RHS calls, zero trajectory steps and
+no repair/restart. [The completed diagnostic report](reports/2026-11-23-phase2d-diagnostics.md)
+preserves numerical results, four refused directional samples, identities,
+measured costs, fresh reload and independent bounded artifact PASS. These results
+do not qualify a reference or authorize another numerical source/trajectory run.
+
+### Decision D-039: Distinct assembly source and bounded qualification
+
+**Accepted by the maintainer, 2026-11-23:** explicit chat answer
+“Approved. Proceed with D-039’s distinct numerical RHS and bounded qualification
+scope.” The [actual acceptance receipt](https://github.com/jaharris87/crucible-astro/issues/44#issuecomment-7109353327)
+accepts BOTH the distinct numerical source/claim and reviewed producer envelope.
+The protocol SHA256 remains
+`ff5515f04ecfdb9cb75f284882dc88d5beef30a25d1a4a8b9e9a18ba741abf02`;
+its proposal-time header remains frozen evidence. The [completed D-038 report](reports/2026-11-23-phase2d-diagnostics.md)
+shows material conditional assembly discrepancy, but it does not explain the
+entire stalled residual or prove original-F integration impossible. The concrete
+[qualification proposal](../experiments/trajectory_reference/ASSEMBLY_QUALIFICATION_PROTOCOL.md)
+asks whether to investigate separately named `native-XNet-b64-productsum113-b64-v1`:
+promote native binary64 b/Y before products, accumulate in verified binary128,
+return binary64 F, preserving native coefficients/physics and original D-019.
+This changes numerical RHS identity; the frozen MLP's compatibility with it is
+unestablished. Original-F data, controls, weights/scalers and failures remain intact.
+
+Accepted execution scope after independent protocol review: one fresh build plus
+at most two prephysical
+build/preflight repairs; six identity and three frozen derivative processes; two
+original standard first-step attempts, then two tight counterparts only if both
+standard attempts pass. No trajectory continuation or automatic restart. The
+conservative finite-loop bound is 10,398,034 full-F calls, with expected usage much
+smaller; it is execution scope, not a D-013 resource cap. Local controls, initial
+states, forcing, physics, constraints and derivative criteria stay fixed.
+
+Alternative: retain the original digital F as the required source and continue
+offline numerical-method analysis, without authorizing this new source. The explicit human
+answer was required because this proposal changes numerical reference meaning and
+authorizes new physical execution. Even passing qualification would establish
+only initial-step solvability; a full reference campaign still needs its explicit
+protocol/producer decision. No reference/merge/final 2D acceptance or 2E is proposed.
+Fresh-context read-only gpt-6.1-sol High protocol review **PASS**, no blocking
+finding, at `8bcdb8f698023d5bade7dd41c5e0036c40851d47` against main `75b2ec3`.
+The reviewer independently checked raw D-038 evidence, input/derived-file hashes,
+conditional arithmetic, original producer/adapter semantics, the gamma/conversion
+bounds and finite execution counts, failure coverage, scope and simplicity.
+No compiler/producer/remote/physical work or edits were performed by that reviewer.
+No D-039 implementation existed at protocol review. The current implementation
+and public verification are now prepared; exact code review still precedes execution.
+The protocol bytes are unchanged after review/acceptance. Routine implementation
+and checks are authorized; 1,006 installed public tests and lint/format pass. The
+implementation passed fresh independent review and focused P2D-ASM-001 repair
+verification at `245ed95`; 1,006 installed tests and Linux CI pass. The [first
+qualification job 61873636](https://github.com/jaharris87/crucible-astro/issues/44#issuecomment-7110527361)
+was submitted only after that review. It completed one build, all sixteen compiled
+prerequisites and eleven physical processes, with both tight counterparts correctly
+conditionally unattempted. Arithmetic and frozen derivatives pass; development
+first-step qualification fails, while validation accepts only a reduced endpoint.
+The [actual report](reports/2026-11-23-phase2d-assembly.md) retains failures,
+identities, numerical results and verification status. Execution stays bound to
+`245ed95`; later reporting repairs do not replace that physical source. D-039
+producer execution is exhausted: no postphysical rebuild, repeat or continuation.
+Acceptance grants no full trajectory campaign, reference, merge or Phase 2E.
+
+### Decision D-040: Correction-controlled trajectory proposal
+
+**Accepted — 2026-11-24.** The maintainer explicitly answered “Accept protocol
+and producer scope (Recommended)” to the reviewed D-040 popup. The
+[actual receipt](https://github.com/jaharris87/crucible-astro/issues/44#issuecomment-7140960473)
+records acceptance of BOTH science and the entire conditional producer envelope.
+The maintainer had explicitly resumed 2D;
+that continuation does not renew exhausted producer authority. The
+[concrete protocol](../experiments/trajectory_reference/CORRECTION_PROTOCOL.md)
+proposes two small raw Newton corrections as the local stopping test, replacing
+D-036's raw residual gate explicitly while retaining the D-039 RHS, binary64 Y,
+original cases/forcing/physics and global mesh/nonlinear/reproduction criteria.
+Raw residuals remain fully reported; no retroactive historical pass is claimed.
+
+The coherent conditional envelope proposes two fresh builds, at most two total
+prephysical replacement builds, four initial controls, 24 trajectories and twelve
+fixed-state Jacobian diagnostic processes; at most one identical infrastructure-
+interrupted process restart per build. Early joint failure gates stop dependent
+stages. Alternative: retain strict residual stopping and develop a new higher-
+precision state/source contract separately. Fresh-context read-only gpt-6.1-sol
+High protocol review **PASS**, no consequential findings, at pushed
+`d5bbe8967d3039859a44566d8629f0efc9c32c15`; protocol SHA256
+`a7eac47716dc710780469b4f107adec59e3fd6e60d435cd62ef60560f13be0a8`.
+The reviewer independently checked retained records, identities, actual native
+semantics, counts, convergence/failures, scope and simplicity; no build/evaluation
+or edits. Routine implementation/checks and the accepted producer envelope are
+authorized; exact-candidate implementation review precedes any build/evaluation.
+No reference/merge/final acceptance or Phase 2E is granted.
+The [resumption record](reports/2026-11-24-phase2d-resumption.md) retains actual
+offline evidence and later modeling feedback without changing frozen artifacts.
+
 ## Scientific decisions and current evidence gates
 
 The paragraph below preserves the initial ingestion decision; D-025 above is the

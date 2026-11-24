@@ -1,10 +1,62 @@
 # CRUCIBLE handoff
 
-Updated **2026-11-20**. Phase 1, the documentation migration and **2A–2C are
+Updated **2026-11-24**. Phase 1, the documentation migration and **2A–2C are
 complete**. The maintainer explicitly [accepted final 2C closeout](https://github.com/jaharris87/crucible-astro/issues/43#issuecomment-7047751430)
 after all audit repairs and merged-result checks. [Milestone #3](https://github.com/jaharris87/crucible-astro/milestone/3)
 remains open; [the single Phase 2 sequence](PHASE_2_LAUNCH.md) owns dependencies.
-**Next requested action is drafting the 2D prompt; 2D execution is not authorized.**
+**2D is active under the maintainer’s 2026-11-20 launch / D-035.** Read-only
+source/input discovery and a concrete [protocol](../experiments/trajectory_reference/PROTOCOL.md)
+are prepared. Independent protocol review and focused repairs pass;
+[D-036](DECISIONS.md#decision-d-036-reviewed-2d-protocol-and-producer-scope) asks
+for explicit scientific/producer acceptance, now [given](https://github.com/jaharris87/crucible-astro/issues/44#issuecomment-7048371383).
+Implementation and synthetic verification are active; no producer work occurred
+before that answer.
+
+**Maintainer pause, 2026-11-24:** job **61935889 is terminal CANCELLED**;
+no producer job is continuing. The [pause record](reports/2026-11-24-phase2d-pause.md)
+preserves one successful fresh build, all 24 compiled prerequisites, both passing
+controls and the first complete **development L0 standard 10 ms trajectory**
+(per-run checks pass). Validation L0 was interrupted at 0.808989 ms; sixteen
+remaining A processes and all Build B work are unattempted. Raw archive SHA256
+`845185dc506a1a8f72e3b003d7713d43b7fac6772c80acf0dc86181cc6c19645`.
+No convergence, clean reproduction or accepted reference set is claimed. This
+human pause is not an infrastructure restart. Resume with read-only verification
+and an explicit bounded resumption decision; do not rerun completed work or submit
+Build B automatically. The 2D objective remains incomplete.
+
+**Earlier resumption on explicit maintainer request, 2026-11-24:** one native goal was active
+for 2D only. Read-only state/issue inspection confirms the preserved checkpoint;
+main remains `75b2ec3`, draft PR #51 / #44 are open. The
+[resumption record](reports/2026-11-24-phase2d-resumption.md) retains meeting
+feedback and the concrete [D-040 proposal](../experiments/trajectory_reference/CORRECTION_PROTOCOL.md).
+At initial resumption no new producer build/evaluation had occurred. Fresh
+independent Sol High protocol review passed at `d5bbe89`, without consequential findings. The maintainer
+[explicitly accepted BOTH protocol and producer scope](https://github.com/jaharris87/crucible-astro/issues/44#issuecomment-7140960473).
+Routine implementation/checks may proceed; exact implementation review precedes
+producer execution. The frozen baseline remains unchanged.
+
+**Implementation checkpoint:** `ba9f66e` passes 1,108 installed public tests and
+required static/documentation checks. Offline preparation001 verifies all original
+inputs and 148 immutable artifacts / 84 staged sources, without a build or physical
+call. Fresh independent Sol High implementation review found a restart-provenance
+bug (P2D-CORR-IMPL-001) and runnable guide suffixes (002). Repair `f697adb` and
+real runner/controller-to-verifier regressions pass focused independent review
+at **`dd07cc1194ffe4771e900678f1de636152876bfd`**; the [PASS receipt](https://github.com/jaharris87/crucible-astro/issues/44#issuecomment-7141977684)
+records final coverage. The [resumption record](reports/2026-11-24-phase2d-resumption.md#implementation-checks-and-independent-review)
+preserves findings, dispositions and the explicit retained-probe limitation.
+Preparation002 binds that physical source/tree and all 148 immutable artifacts;
+job **61935889** is [submitted for Build A and its conditional campaign](https://github.com/jaharris87/crucible-astro/issues/44#issuecomment-7142064795).
+Build B remains conditional on complete A verification and fresh-process reload.
+The producer source stays pinned independently of current status-document updates.
+Live #44 holds actual subsequent run/verification receipts; submission is no
+reference result. No merge, reference/final acceptance or Phase 2E is granted.
+
+**Preserved maintainer pause, 2026-11-23:** paused after completed D-039 execution,
+verification/reload and independent artifact/reporting assessment. No producer job
+is running. The final reviewed evidence candidate is `4eb547d08769395c6d49e5d62bea542168639a73`;
+the physical source remains `245ed95`. Resume with read-only state/issue inspection
+and the next concrete numerical proposal. No further build/evaluation/run, merge
+or Phase 2E is authorized. The 2D objective remains incomplete.
 
 ## Verified integrated state
 
@@ -43,11 +95,118 @@ scoring provenance and preservation checks pass. The [merged receipt](https://gi
 records exact checks/limits; the [final maintainer acceptance](https://github.com/jaharris87/crucible-astro/issues/43#issuecomment-7047751430)
 supplies the last reserved decision. No further broad 2A–2C audit is scheduled.
 
-Close issue #43 and the existing native 2C goal through that accepted receipt;
-keep milestone #3 open. Draft the Phase 2D launch prompt using #44 and the existing
-sequence, without starting its work or creating a 2D goal. Its concrete real
-trajectory/forcing/reference protocol and producer execution still require
-separate acceptance. D-034's delegation does not carry into 2D.
+[Status PR #50](https://github.com/jaharris87/crucible-astro/pull/50) merged at
+`75b2ec32c7983e94a73e88c6b09250a9506eb2d0`; the [final 2C receipt](https://github.com/jaharris87/crucible-astro/issues/43#issuecomment-7047856713)
+records closure. Startup verified current main at that SHA with a clean checkout;
+no completed 2C goal was resumed. One native goal now covers active 2D only.
+
+Under [D-035](DECISIONS.md#decision-d-035-phase-2d-launch-concrete-producer-authority-pending),
+branch `codex/phase2d-trajectory-references` prepares one coherent #44 candidate.
+Two fixed permitted initial states and saved T9/rho forcing were recovered and
+verified through the existing loader. They define new 10 ms forced IVPs, not
+hydrodynamic reproduction. All private inputs remain local. Read-only source
+inspection found native coefficient lag, an incomplete full-F Jacobian and
+negative-iterate projection; the proposed small native adaptation makes these
+explicit. Original source, accepted data, model/scalers and evidence are unchanged.
+
+**Execution checkpoint:** the first native build at `c28c527` succeeded in
+job 61685010 (12.76 s wall, 9.83 s CPU, 91,044 KiB peak RSS). Preflight then
+stopped: the LU/nonfinite negative fixtures wrote the correct native failure
+statuses, but the runner incorrectly searched their console output. No physical
+evaluation started. Full raw preflight evidence is retained locally; archive
+SHA256 `f39ba5279ef648e62f0c4837623403901d75d8ac200b5fcfae2df738661f7f03`.
+The runner-only repair has public positive/wrong-reason regression tests.
+
+**Resumed on explicit maintainer request, 2026-11-23.** Offline diagnosis and
+repository repairs were authorized; the separately accepted D-038 campaign has now completed.
+The [diagnosis](reports/2026-11-23-phase2d-diagnosis.md) rechecks the full retained
+population and proposes [D-038](../experiments/trajectory_reference/DIAGNOSTIC_PROTOCOL.md).
+The protocol and focused implementation repair review pass at `ae69715`;
+[D-038 scientific/producer acceptance](https://github.com/jaharris87/crucible-astro/issues/44#issuecomment-7107405775)
+was explicitly given in chat (“approved”). Exact repaired installed suite: 909 tests, zero skips; Linux CI,
+Ruff lint/format, documentation and whitespace checks pass. Private preparation
+003 binds that source/tree and all 92 immutable identities. Job 61864997 completed
+one fresh build, eleven synthetic prerequisites and all nine diagnostic processes,
+with 4,384 RHS calls and no trajectory step, repair build or restart. Earlier
+unexecuted preparations remain preserved.
+The prior pause remains preserved. Job 61689197 is terminal CANCELLED;
+no campaign or reproduction job is left running. The [pause checkpoint](reports/2026-11-20-phase2d-checkpoint.md)
+and [actual receipt](https://github.com/jaharris87/crucible-astro/issues/44#issuecomment-7050616078)
+record completed/failed/interrupted/unattempted work and raw identities.
+Both controls passed; all five development runs failed first-step residual
+convergence. Validation L0 was interrupted at 25.4 microseconds of 10 ms.
+No full-horizon reference passed. Direction two is inadmissible for both initial
+states at every multiplier; exhaustion snapshots need consistent state/F retention.
+
+**D-038 result:** [the diagnostic report](reports/2026-11-23-phase2d-diagnostics.md)
+records passing identity/repeatability, all twelve full-F Jacobians and all 36
+prescribed directional agreement checks. Four of 81 directional samples were
+explicitly refused; stable adjacent windows remain. Exact conditional arithmetic
+shows material assembly cancellation, but removing that discrepancy does not
+remove the dominant frozen Newton residual. All four frozen linear solves complete;
+small normwise backward errors do not establish componentwise forward accuracy.
+Fresh offline verification/reload passes all 7,070 derived arrays. Fresh-context
+read-only Sol High artifact assessment gives bounded PASS without blockers.
+Raw archive SHA256 is
+`02f2c62ade306d21f8cd5c584577fc215e1df34f646114559f5f05efcc8523bd`.
+Measured job wall is 55 s / total CPU 42.546 s; complete costs and artifact hashes
+are in the report. No full-horizon reference has passed.
+
+**D-039 completed:** the [distinct-source qualification report](reports/2026-11-23-phase2d-assembly.md)
+records the [explicitly accepted](https://github.com/jaharris87/crucible-astro/issues/44#issuecomment-7109353327)
+bounded campaign. Exact physical source `245ed9525ee9877653beab80eaf91bdd5493800c`
+passed independent review/focused P2D-ASM-001 repair verification before execution.
+Preparation002 binds all 120 immutable identities. Job 61873636 is terminal
+COMPLETED, with one build, sixteen compiled synthetic prerequisites and eleven
+physical processes; two tight processes are conditionally unattempted. All identity,
+arithmetic and three frozen full-F Jacobian / nine directional checks pass.
+Development failed all ten first-step attempts (300 Newton iterations, final norm
+4.430184552); validation accepted only 0.78125 microseconds (213 iterations),
+completing neither its requested 100 microseconds nor the original 10 ms horizon.
+The campaign used 177,347 physical RHS calls / 187,855 guarded requests. Raw archive
+SHA256 `6b44f97052abaa407931994948819b1f99f9a073aaa72e51fc494bc0fd875580`.
+No postphysical build, restart, process repeat or continuation is authorized.
+
+Offline report verification passes after reporting-only repair `e5cfa62`: the
+original failed report is preserved. All 68 actual execution-system library files
+match retained compute-process identities through an explicit hash-bound read-only
+receipt; retained build/executable identities are also verified locally. Scientific
+criteria and executed gates are unchanged. All 1,010 public tests, lint/format and
+frozen-documentation checks pass. Fresh-process reload/recomputation passes all 255 arrays; independent actual-artifact
+assessment gives bounded PASS without blocking findings. The independent review
+also confirms final development updates are entirely lost to binary64 rounding;
+this is local stagnation, not proof that no other representable root exists.
+The report records exact scope and remaining limits.
+
+**Next action after the requested pause:** read-only verification of the preserved
+D-040 checkpoint and a concrete bounded human-pause resumption decision. Do not
+mislabel the stop as infrastructure failure or invoke its retry allowance. Only
+complete A verification and fresh-process reload could later release Build B.
+D-039 reporting/artifact assessment is complete. The proposal retains its RHS,
+states/forcing and global gates, explicitly changing local nonlinear stopping;
+no full-horizon result is inferred from offline saved-correction calculations.
+New producer execution is limited to the explicitly accepted D-040 protocol
+after exact implementation review.
+The [guide](../experiments/trajectory_reference/ASSEMBLY_QUALIFICATION.md) and
+[wire formats](../experiments/trajectory_reference/ASSEMBLY_WIRE.md) retain original/
+variant F and all failures. The distinct numerical RHS preserves D-019 and frozen
+artifacts; frozen-MLP compatibility is unestablished. No full-horizon reference or
+global convergence/clean trajectory reproduction exists. Reference acceptance,
+merge, final 2D acceptance and Phase 2E remain separate decisions.
+Original failures and the reviewed forensic retention repair remain preserved.
+The stopped campaign used exact reviewed `a771930`,
+submitted after [explicit D-037 acceptance](https://github.com/jaharris87/crucible-astro/issues/44#issuecomment-7050412199).
+Focused independent review passes the repair, all 120 Phase 2D Python tests and
+offline replay of ten native fixture results. CI also passes at that candidate.
+For that original stopped campaign, D-036 equations,
+inputs, physics, physical-run counts and numerical criteria stayed fixed. Ordinary
+exact-candidate code review passes with P2D-IMPL-001 resolved; physical artifact
+review and reference evidence are still outstanding. The independently prepared
+reproduction has identical source/tree/protocol/annex and all 94 immutable hashes;
+do not submit it as a resumed campaign; new execution needs the revised decision above.
+Original protocol findings and focused PASS remain in #44;
+[draft PR #51](https://github.com/jaharris87/crucible-astro/pull/51) remains incomplete. This is not reference acceptance or merge approval; D-034 does not
+carry into 2D. Keep #44/native goal incomplete and milestone #3 open.
 
 Deferred compatibility/scorer/callback/loading/nonlinear verification proposals
 retain their triggers in the assessment; they are not blanket prerequisites or
@@ -96,8 +255,9 @@ grouping, residual correlation and component-support gaps limit inference.
 Dataset redistribution rights remain unresolved. Original HDF5 quarantine masks
 remain false; permitted use resolves through the separate overlay.
 
-D-017/D-020/D-023 producer authority is exhausted. No new producer build/run,
-RHS/NSE/Jacobian/trajectory call, raw/reference modification, bulk conversion,
-paid service, release or deployment is authorized. 2D requires its concrete
+D-017/D-020/D-023 producer authority is exhausted. D-036 grants only the named
+2D protocol/execution scope; D-037 adds only the named replacement fresh build.
+No original reference modification, bulk conversion, paid service,
+release or deployment is authorized. 2D requires its concrete
 scientific/reference execution decision; 2E requires frozen-protocol final-test
 release. No reduced modeling, model-family search or Phase 3 follows this authority.

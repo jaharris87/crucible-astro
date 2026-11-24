@@ -13,7 +13,24 @@ and maintainer acceptance under D-033; its numerical exits and clean reproductio
 pass. PR #48 integrated the implementation at `505d556`; reviewed audit repairs
 merged through PR #49 at `eaa9446`. The maintainer [accepted final 2C closeout](https://github.com/jaharris87/crucible-astro/issues/43#issuecomment-7047751430).
 Current boundaries are recorded in [progress](PROGRESS.md) and [handoff](HANDOFF.md);
-2D remains uninvoked.
+D-035 invokes 2D protocol preparation after verified PR #50 / `75b2ec3` closure.
+Its [two-case v2 proposal](../experiments/trajectory_reference/PROTOCOL.md) passed
+independent review/focused repairs; D-036 scientific/producer scope was
+[explicitly accepted](https://github.com/jaharris87/crucible-astro/issues/44#issuecomment-7048371383).
+The first campaign has numerical failures and an interrupted validation run;
+no full-horizon reference passed. Offline diagnosis resumed on 2026-11-23;
+[D-038](../experiments/trajectory_reference/DIAGNOSTIC_PROTOCOL.md) completed after
+explicit scientific/producer acceptance, with bounded verification and independent
+artifact PASS in the [diagnostic report](reports/2026-11-23-phase2d-diagnostics.md).
+[D-039](../experiments/trajectory_reference/ASSEMBLY_QUALIFICATION_PROTOCOL.md)
+distinct-source qualification completed under explicit acceptance and exact review:
+arithmetic/derivatives pass but first-step qualification fails. Its producer scope
+is exhausted. The maintainer resumed 2D on 2026-11-24;
+[D-040](../experiments/trajectory_reference/CORRECTION_PROTOCOL.md) proposes
+correction-controlled trajectories, with independent protocol PASS and
+[explicit scientific/producer acceptance](https://github.com/jaharris87/crucible-astro/issues/44#issuecomment-7140960473).
+Only that conditional campaign is authorized after exact implementation review.
+Merge approval remains separate.
 The 2B [concrete MLP experiment](https://github.com/jaharris87/crucible-astro/issues/42#issuecomment-7042652534)
 received independent scope review and maintainer acceptance under D-031 before fitting.
 This is the single Phase 2 sequence; live issues hold execution detail.

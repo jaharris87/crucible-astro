@@ -18,9 +18,46 @@ D-032/D-033 authorized the bounded 2C protocol. Its implementation merged throug
 PR #48 at `505d556`; scheduled audit and external-audit reconciliation/repairs
 completed through PR #49 at `eaa9446`. The maintainer [accepted final 2C closeout](https://github.com/jaharris87/crucible-astro/issues/43#issuecomment-7047751430)
 after passing merged checks. [Handoff](docs/HANDOFF.md) and
-[progress](docs/PROGRESS.md) record evidence and deferred triggers. Close #43 and
-the native 2C goal; milestone #3 stays open. The next request is to draft a 2D
-prompt, not execute it. D-034's bounded 2C delegation grants no 2D merge authority.
+[progress](docs/PROGRESS.md) record evidence and deferred triggers. The [final 2C closure](https://github.com/jaharris87/crucible-astro/issues/43#issuecomment-7047856713)
+follows status PR #50 at `75b2ec3`. D-035 invokes 2D protocol preparation under
+#44; the concrete v2 protocol passed independent review/focused repairs;
+D-036 scientific/producer execution acceptance is explicit in #44 comment7048371383.
+Implementation and its bounded campaign are authorized; merge/reference/final
+acceptance remain separate. The first native build succeeded; a runner-only
+synthetic gate error stopped preflight before any physical evaluation. D-037
+explicitly authorized its replacement build. The maintainer subsequently requested
+a pause; that campaign is cancelled with numerical failures and partial validation
+retained. On 2026-11-23 the maintainer resumed offline diagnosis and repository
+work. D-038 was explicitly accepted on 2026-11-23 for the reviewed three-state
+diagnostic protocol and its bounded builds/evaluations only; actual acceptance is
+recorded in #44 comment7107405775. That campaign completed: nine processes,
+4,384 RHS calls, no trajectory step; frozen-state verification and independent
+artifact assessment pass. The diagnostic report is linked from current handoff.
+It grants no trajectory rerun, reference,
+merge or Phase 2E acceptance. D-039 was explicitly accepted on 2026-11-23 for the
+reviewed distinct numerical RHS and bounded first-step qualification scope; receipt
+#44 comment7109353327. The independently reviewed campaign completed: arithmetic/derivative checks pass,
+development first-step qualification fails and validation accepts only a reduced
+endpoint. Its producer scope is exhausted. See the actual report in handoff.
+It grants no further build/evaluation, full trajectory campaign, reference/merge/final acceptance or Phase 2E;
+see current handoff and live #44. On 2026-11-24 the maintainer resumed 2D;
+D-040 proposes correction-controlled trajectories with unchanged global gates.
+Fresh independent Sol High protocol review passes at d5bbe89; new explicit
+scientific/producer acceptance was explicitly given in #44 comment7140960473.
+Routine implementation/checks and only its conditional campaign are authorized;
+exact implementation review passed at dd07cc1 (receipt44#7141977684). Build A
+job61935889 was submitted under that conditional envelope. On explicit maintainer
+pause request, it is now terminal CANCELLED: build/24 compiled fixtures/both
+controls pass; development L0 standard completes 10 ms with passing per-run checks;
+validation L0 is interrupted at 0.808989 ms. Remaining A and all B work is
+unattempted. Preserve the checkpoint; no converged/reproduced reference is accepted.
+Human-pause resumption needs an explicit bounded decision; do not use the
+infrastructure-only restart allowance for it. Build B still requires A's
+complete verification and fresh-process reload/release. No numerical result is
+inferred from submission; see live #44 for actual status. Resumption and
+modeling feedback alone grant no new scope or training authority.
+One native goal covers 2D only; milestone #3 stays open. D-034's bounded 2C
+delegation grants no 2D merge authority.
 [Milestone #3](https://github.com/jaharris87/crucible-astro/milestone/3) and
 [the single reconciled sequence](docs/PHASE_2_LAUNCH.md) track five increments.
 Each next sub-phase needs accepted scope and preceding integration. Native goals

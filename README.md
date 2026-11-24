@@ -18,10 +18,28 @@ Phase 2B is [complete](https://github.com/jaharris87/crucible-astro/issues/42#is
 at PR #47 / `a81552e`: the frozen full-state MLP and zero-RHS comparator reproduce,
 with zero D-024 whole-vector attainment at every profile. This negative fidelity
 result remains unchanged. The [2C analytic campaign and frozen callable checks](docs/reports/2026-11-20-phase2c.md)
-verify the numerical path separately from predictive fidelity. See current
-[progress](docs/PROGRESS.md) and [handoff](docs/HANDOFF.md) for integration,
-audit repairs and the reserved closeout decision under
-[issue #43](https://github.com/jaharris87/crucible-astro/issues/43).
+verify the numerical path separately from predictive fidelity. 2C, its audit
+repairs and final closeout are complete through PR #50 / `75b2ec3`. Phase 2D
+native reference implementation is active under [issue #44](https://github.com/jaharris87/crucible-astro/issues/44);
+the reviewed protocol and bounded producer scope are accepted under D-036.
+2D resumed on 2026-11-23 with offline diagnosis after primary numerical failures;
+D-038 diagnostics completed with passing frozen-state verification and independent
+artifact assessment; [the report](docs/reports/2026-11-23-phase2d-diagnostics.md)
+retains the unresolved nonlinear limits. D-039 explicitly accepts a distinct
+assembly source and bounded qualification; the [completed campaign](docs/reports/2026-11-23-phase2d-assembly.md)
+passes arithmetic/derivative checks but fails development first-step qualification.
+On 2026-11-24 the maintainer [accepted D-040](https://github.com/jaharris87/crucible-astro/issues/44#issuecomment-7140960473):
+correction-controlled native trajectories with unchanged global convergence gates.
+The [implementation and focused repairs passed independent review](https://github.com/jaharris87/crucible-astro/issues/44#issuecomment-7141977684)
+at pinned producer source `dd07cc1`; [Build A job 61935889 is submitted](https://github.com/jaharris87/crucible-astro/issues/44#issuecomment-7142064795).
+The maintainer then [requested a pause](docs/reports/2026-11-24-phase2d-pause.md):
+one development L0 trajectory completes 10 ms with passing per-run checks;
+validation is interrupted, and refinement/clean reproduction remain unattempted.
+The job is terminal CANCELLED. No converged/reproduced reference set is accepted.
+Build B requires complete A verification and fresh-process reload/release after
+an explicitly accepted resumption. See the [diagnosis](docs/reports/2026-11-23-phase2d-diagnosis.md),
+[checkpoint](docs/reports/2026-11-20-phase2d-checkpoint.md) and current
+[progress](docs/PROGRESS.md) and [handoff](docs/HANDOFF.md).
 Physical application, energy, rollout accuracy and speedup remain
 **not evaluated**.
 Use [Progress](docs/PROGRESS.md) and [Handoff](docs/HANDOFF.md) for current work and
