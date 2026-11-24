@@ -17,8 +17,8 @@ for 2D only. Read-only state/issue inspection confirms the preserved checkpoint;
 main remains `75b2ec3`, draft PR #51 / #44 are open. The
 [resumption record](reports/2026-11-24-phase2d-resumption.md) retains meeting
 feedback and the concrete [D-040 proposal](../experiments/trajectory_reference/CORRECTION_PROTOCOL.md).
-No new producer build/evaluation has occurred. Fresh independent Sol High protocol
-review passes at `d5bbe89`, without consequential findings. The maintainer
+At initial resumption no new producer build/evaluation had occurred. Fresh
+independent Sol High protocol review passed at `d5bbe89`, without consequential findings. The maintainer
 [explicitly accepted BOTH protocol and producer scope](https://github.com/jaharris87/crucible-astro/issues/44#issuecomment-7140960473).
 Routine implementation/checks may proceed; exact implementation review precedes
 producer execution. The frozen baseline remains unchanged.
