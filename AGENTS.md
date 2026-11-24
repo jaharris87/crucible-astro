@@ -42,7 +42,8 @@ endpoint. Its producer scope is exhausted. See the actual report in handoff.
 It grants no further build/evaluation, full trajectory campaign, reference/merge/final acceptance or Phase 2E;
 see current handoff and live #44. On 2026-11-24 the maintainer resumed 2D;
 D-040 proposes correction-controlled trajectories with unchanged global gates.
-Protocol review and new explicit scientific/producer acceptance are pending;
+Fresh independent Sol High protocol review passes at d5bbe89; new explicit
+scientific/producer acceptance is pending;
 resumption and modeling feedback grant no build/evaluation/training authority.
 One native goal covers 2D only; milestone #3 stays open. D-034's bounded 2C
 delegation grants no 2D merge authority.

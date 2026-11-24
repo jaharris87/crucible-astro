@@ -11,7 +11,8 @@ bounded verification and independent artifact PASS; [the report](reports/2026-11
 preserves unresolved nonlinear limits. D-039's reviewed campaign completed:
 arithmetic/derivatives pass, first-step qualification fails, and its producer
 authority is exhausted. On explicit 2026-11-24 resumption, [D-040](../experiments/trajectory_reference/CORRECTION_PROTOCOL.md)
-proposes correction-controlled trajectories; review and new acceptance are pending.
+proposes correction-controlled trajectories; independent protocol review passes,
+and new explicit scientific/producer acceptance is pending.
 The [resumption record](reports/2026-11-24-phase2d-resumption.md) retains scaling,
 log-feature, wider-MLP and PCA/AE priorities for the next accepted model/S05
 proposal. It selects no architecture or reduction and authorizes no training.

@@ -17,8 +17,9 @@ for 2D only. Read-only state/issue inspection confirms the preserved checkpoint;
 main remains `75b2ec3`, draft PR #51 / #44 are open. The
 [resumption record](reports/2026-11-24-phase2d-resumption.md) retains meeting
 feedback and the concrete [D-040 proposal](../experiments/trajectory_reference/CORRECTION_PROTOCOL.md).
-No new producer build/evaluation has occurred; reviewed protocol acceptance and
-explicit new producer authority are required. The frozen baseline remains unchanged.
+No new producer build/evaluation has occurred. Fresh independent Sol High protocol
+review passes at `d5bbe89`, without consequential findings; explicit scientific
+acceptance and new producer authority are required. The frozen baseline remains unchanged.
 
 **Preserved maintainer pause, 2026-11-23:** paused after completed D-039 execution,
 verification/reload and independent artifact/reporting assessment. No producer job
@@ -147,8 +148,8 @@ also confirms final development updates are entirely lost to binary64 rounding;
 this is local stagnation, not proof that no other representable root exists.
 The report records exact scope and remaining limits.
 
-**Next authorized action:** independently review the concrete D-040 correction-
-controlled trajectory proposal, then obtain explicit scientific/producer acceptance.
+**Next authorized action:** obtain explicit scientific/producer acceptance of the
+independently reviewed D-040 correction-controlled trajectory proposal.
 D-039 reporting/artifact assessment is complete. The proposal retains its RHS,
 states/forcing and global gates, explicitly changing local nonlinear stopping;
 no full-horizon result is inferred from offline saved-correction calculations.

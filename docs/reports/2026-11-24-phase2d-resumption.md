@@ -35,7 +35,38 @@ local derived calculation JSON SHA256 is
 These observations motivate a pilot; they predict neither later steps nor global
 accuracy. The protocol proposes a single conditional 24-trajectory envelope with
 two fresh builds, early joint failure gates and fixed diagnostics. No execution
-is authorized by its preparation. Fresh protocol review is pending.
+is authorized by its preparation. Fresh independent protocol review passes as
+recorded below; explicit scientific/producer acceptance is pending.
+
+## Independent protocol review
+
+Fresh-context **gpt-6.1-sol High**, separate from the author and numerical advisor,
+reviewed exact pushed `d5bbe8967d3039859a44566d8629f0efc9c32c15` against main
+`75b2ec32c7983e94a73e88c6b09250a9506eb2d0`, immediate delta from `b6c8c8f`.
+Workflow substantive revision is `41b9f631bb88476b9e96108d1f2fe81d22780b62`.
+Protocol SHA256 is
+`a7eac47716dc710780469b4f107adec59e3fd6e60d435cd62ef60560f13be0a8`.
+**Result: bounded protocol PASS, no consequential findings or required repairs.**
+
+The reviewer independently checked governing issue/PR metadata, requirements,
+original/adapted solver and corrected directional semantics, raw archive and
+inherited protocol/annex/input/source hashes. They decoded all 513 final-phase
+Newton records, exactly reproduced all four counterfactual first pairs and
+confirmed zero projection, small inventory drift and final development rounding
+stagnation. They reconstructed 101/105 base intervals, 9,888 requested intervals
+across the proposed run set, diagnostic request arithmetic, staged authority,
+retention, failure coverage and reproduction criteria. Scope, readability and
+simplicity were included; `git diff --check` passed. The official CVODE source
+supports the state-error distinction but does not confer its solver guarantees.
+
+The review was read-only: no edits, build/compilation, physical evaluation,
+remote compute, training, commit or posting. It reviewed a protocol, not an
+implementation or new trajectory evidence. Ordinary successful-step probe F
+and matrices will be unavailable for retrospective forensic verification under
+the explicitly proposed compact retention. Original failures, physical limits,
+unestablished frozen-MLP compatibility and human decision gates remain visible.
+The review grants no producer/reference/merge/final acceptance. Issue #44 holds
+the decision presentation and actual subsequent answer, if supplied.
 
 ## Maintainer modeling feedback retained for the next proposal
 

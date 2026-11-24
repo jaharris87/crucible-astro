@@ -27,7 +27,7 @@ distinct-source qualification completed under explicit acceptance and exact revi
 arithmetic/derivatives pass but first-step qualification fails. Its producer scope
 is exhausted. The maintainer resumed 2D on 2026-11-24;
 [D-040](../experiments/trajectory_reference/CORRECTION_PROTOCOL.md) proposes
-correction-controlled trajectories, pending independent review and new explicit
+correction-controlled trajectories, with independent protocol PASS and pending explicit
 scientific/producer acceptance. Full trajectory generation remains a decision.
 Merge approval remains separate.
 The 2B [concrete MLP experiment](https://github.com/jaharris87/crucible-astro/issues/42#issuecomment-7042652534)
