@@ -1062,6 +1062,8 @@ def execute(root, *, srun=False, infrastructure_restart=None):
                     "source/build changed during campaign",
                 )
                 spec = bind_diagnostic(root, prepared, prepared["attempts"][index])
+                if "restart_of" in original:
+                    spec = {**spec, "restart_of": original["restart_of"]}
                 manifest["attempts"][index] = {
                     **spec,
                     "status": "STARTING",

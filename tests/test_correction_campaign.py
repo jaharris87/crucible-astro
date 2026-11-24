@@ -268,6 +268,20 @@ def test_one_restart_reuses_completed_artifacts_and_identical_original_input(
         runner.execute(root)
     before = (root / "attempts/development-L0-standard/attempt.json").read_bytes()
     continued, _ = fake_processes(runner, monkeypatch)
+    launch = runner.common.run_attempt
+    active_restarts = []
+
+    def verify_active_restart(root, spec, *args, **kwargs):
+        active = next(
+            a
+            for a in json.loads((root / "campaign.json").read_text())["attempts"]
+            if a["name"] == spec["name"]
+        )
+        if spec["name"] == "validation-L0-standard":
+            active_restarts.append(active.get("restart_of"))
+        return launch(root, spec, *args, **kwargs)
+
+    monkeypatch.setattr(runner.common, "run_attempt", verify_active_restart)
     result = runner.execute(
         root,
         infrastructure_restart="scheduler node interruption, original logs retained",
@@ -289,6 +303,21 @@ def test_one_restart_reuses_completed_artifacts_and_identical_original_input(
     # restart; no false claim of full request accounting may be introduced.
     assert not result["call_accounting_complete"]
     assert result["qualification_pass"] and result["attempt_accounting_complete"]
+    report = runner.load_module(
+        "real_correction_restart_verifier",
+        Path(runner.__file__).parent / "correction_report.py",
+    )
+    verified = report.verify_interrupted(root, prepared, result, runner)
+    assert len(verified) == 1
+    expected_predecessor = result["interrupted_attempts"][0]["directory"]
+    assert active_restarts == [expected_predecessor]
+    replacement = next(
+        a for a in result["attempts"] if a["name"] == "validation-L0-standard"
+    )
+    assert replacement["restart_of"] == expected_predecessor
+    replacement.pop("restart_of")
+    with pytest.raises(ValueError, match="restart predecessor differs"):
+        report.verify_interrupted(root, prepared, result, runner)
 
 
 def test_second_infrastructure_restart_is_refused(campaign, runner, monkeypatch):

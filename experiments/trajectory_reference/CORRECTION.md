@@ -160,10 +160,10 @@ On the analysis machine, with the complete raw archive and host receipt:
 
 ```sh
 .venv/bin/python -B experiments/trajectory_reference/correction_report.py analyze \
-  /absolute/private/correction-build-A /absolute/private/A-verification \
+  /absolute/private/correction-build-A /absolute/private/A-verification.json \
   --host-identity-sha EXACT_HOST_RECEIPT_SHA256
 .venv/bin/python -B experiments/trajectory_reference/correction_report.py reload \
-  /absolute/private/correction-build-A /absolute/private/A-verification \
+  /absolute/private/correction-build-A /absolute/private/A-verification.json \
   --host-identity-sha EXACT_HOST_RECEIPT_SHA256
 ```
 
@@ -194,7 +194,7 @@ analysis/reload procedure. Both builds must independently pass. Then compare:
 ```sh
 .venv/bin/python -B experiments/trajectory_reference/correction_report.py compare \
   /absolute/private/correction-build-A /absolute/private/correction-build-B \
-  /absolute/private/AB-comparison \
+  /absolute/private/AB-comparison.json \
   --a-host-identity-sha EXACT_A_HOST_RECEIPT_SHA256 \
   --b-host-identity-sha EXACT_B_HOST_RECEIPT_SHA256
 ```
