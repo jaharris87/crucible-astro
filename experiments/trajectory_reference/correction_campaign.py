@@ -849,6 +849,52 @@ def _resume(root, manifest, prepared, reason):
         isinstance(reason, str) and reason.strip(),
         "infrastructure restart requires recorded reason",
     )
+    # A killed Python/controller cannot run its finally block. An explicit,
+    # externally audited restart request can recover exactly one stale active
+    # record, while preserving the original receipts before any metadata update.
+    stale = [a for a in manifest["attempts"] if a["status"] == "STARTING"]
+    if manifest.get("stop_kind") is None and len(stale) == 1:
+        require(
+            not manifest.get("interrupted_attempts"),
+            "only one infrastructure-interrupted process restart per build",
+        )
+        active = root / "attempts" / stale[0]["name"]
+        require(
+            not _terminal(active).startswith(("SUCCESS", "FAILURE")),
+            "completed/numerical failure cannot restart",
+        )
+        record_path = active / "attempt.json"
+        if record_path.exists():
+            record = json.loads(record_path.read_text())
+            require(not record.get("completed"), "completed process cannot restart")
+        originals = {}
+        for source, target in (
+            (root / "campaign.json", root / "campaign-before-recovery.json"),
+            (root / "campaign.pending", root / "campaign-before-recovery.pending"),
+            (record_path, active / "attempt-before-recovery.json"),
+            (active / "attempt.pending", active / "attempt-before-recovery.pending"),
+        ):
+            if source.exists():
+                require(
+                    not target.exists(),
+                    "existing recovery snapshot cannot be overwritten",
+                )
+                target.write_bytes(source.read_bytes())
+                originals[str(target.relative_to(root))] = digest(target)
+        _interrupt_record(root, manifest)
+        require(
+            any(
+                a["status"] in ("INTERRUPTED", "INTERRUPTED_BEFORE_LAUNCH")
+                for a in manifest["attempts"]
+            ),
+            "stale record is not infrastructure-restartable",
+        )
+        manifest["stop_kind"] = "INFRASTRUCTURE_INTERRUPTION"
+        manifest["infrastructure_recovery"] = {
+            "reason": reason.strip(),
+            "quiescence_basis": "LEAD_VERIFIED_PRODUCER_AND_CONTROLLER_TERMINAL",
+            "original_receipts": originals,
+        }
     require(
         manifest.get("stop_kind") == "INFRASTRUCTURE_INTERRUPTION"
         and not manifest.get("interrupted_attempts"),
@@ -880,6 +926,15 @@ def _resume(root, manifest, prepared, reason):
         retained.parent.mkdir(exist_ok=True)
         work.rename(retained)
         directory = str(retained.relative_to(root))
+        recovery = manifest.get("infrastructure_recovery")
+        if recovery is not None:
+            old_prefix = "attempts/" + interrupted["name"] + "/"
+            recovery["original_receipts"] = {
+                (directory + "/" + name[len(old_prefix) :])
+                if name.startswith(old_prefix)
+                else name: identity
+                for name, identity in recovery["original_receipts"].items()
+            }
     else:
         directory = None
     manifest["interrupted_attempts"] = [

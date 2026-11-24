@@ -114,6 +114,11 @@ python3 -S -B /absolute/private/correction-build-A/correction_campaign.py \
   --infrastructure-restart 'specific infrastructure reason; retained scheduler evidence'
 ```
 
+Independently verify the old producer and controller are terminal before this
+restart. If the controller itself was killed, the runner preserves the original
+campaign/attempt receipts before recovering the single stale active record.
+Native terminal `SUCCESS`/`FAILURE` records cannot be relabelled or repeated.
+
 The runner preserves the partial attempt under `interrupted/`, verifies completed
 artifacts and resumes only the interrupted named process from its identical
 original input in a new process. It refuses completed-process repeats, numerical
@@ -139,11 +144,15 @@ On the execution host, collect a fresh read-only identity receipt:
 ```sh
 python3 -S -B /absolute/private/correction-build-A/correction_host_identities.py \
   /absolute/private/correction-build-A \
-  /absolute/private/correction-build-A/host-identity-verification.json
+  /absolute/private/correction-build-A/host-identity-verification.json --quiescent
 sha256sum /absolute/private/correction-build-A/host-identity-verification.json
 ```
 
-The collector hashes actual recorded execution-host runtime libraries and retained
+The `--quiescent` flag records the lead’s independently verified terminal
+producer/controller state; do not collect while a process can still write outputs.
+A failed or incomplete terminal snapshot may also be collected, with incomplete
+accounting explicit and no inferred qualification. Changed campaign/artifact bytes
+refuse collection. The collector hashes actual recorded execution-host runtime libraries and retained
 build files. It does not remap vendor paths onto the analysis machine or invoke
 any executable. Retain its explicit SHA256 for portable offline verification.
 

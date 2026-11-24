@@ -717,7 +717,12 @@ def test_host_library_inventory_includes_interrupted_known_hashes(
             }
         ],
         "interrupted_attempts": [
-            {"record": {"loaded_library_hashes": {str(second): other}}}
+            {
+                "record": {
+                    "name": "interrupted",
+                    "loaded_library_hashes": {str(second): other},
+                }
+            }
         ],
     }
     expected, completed = host_identities.expected_library_files(campaign)
@@ -741,6 +746,7 @@ def test_host_interrupted_maps_are_read_only_later_observations(
     maps = work / "loaded-maps.txt"
     maps.write_text("1000-2000 r-xp 00000000 00:00 123 " + str(library) + "\n")
     campaign = {
+        "attempts": [],
         "interrupted_attempts": [
             {
                 "directory": "interrupted/example-attempt-1",
@@ -749,7 +755,7 @@ def test_host_interrupted_maps_are_read_only_later_observations(
                     "files": {"loaded-maps.txt": {"sha256": runner.digest(maps)}},
                 },
             }
-        ]
+        ],
     }
     before = maps.read_bytes()
     evidence = host_identities.interrupted_mapping_evidence(tmp_path, campaign, runner)[
@@ -763,3 +769,66 @@ def test_host_interrupted_maps_are_read_only_later_observations(
     maps.write_text("corrupted interrupted raw mapping")
     with pytest.raises(ValueError, match="mapping changed"):
         host_identities.interrupted_mapping_evidence(tmp_path, campaign, runner)
+
+
+def test_controller_kill_recovery_preserves_original_receipts(
+    campaign, runner, monkeypatch
+):
+    root, prepared = campaign
+    launched, _ = fake_processes(runner, monkeypatch, interrupt_at=3)
+    with pytest.raises(KeyboardInterrupt):
+        runner.execute(root)
+    manifest = json.loads((root / "campaign.json").read_text())
+    # Model a controller killed before its finally block, leaving the original
+    # STARTING/RUNNING receipts rather than the normal handled interruption.
+    manifest.pop("stop_kind")
+    manifest.pop("exception")
+    manifest["attempts"][2] = {
+        **prepared["attempts"][2],
+        "status": "STARTING",
+        "completed": False,
+    }
+    save(root / "campaign.json", manifest)
+    active = root / "attempts" / prepared["attempts"][2]["name"]
+    save(
+        active / "attempt.json",
+        {
+            "name": prepared["attempts"][2]["name"],
+            "status": "RUNNING",
+            "completed": False,
+        },
+    )
+    old_campaign = (root / "campaign.json").read_bytes()
+    old_attempt = (active / "attempt.json").read_bytes()
+    continued, _ = fake_processes(runner, monkeypatch)
+    result = runner.execute(
+        root,
+        infrastructure_restart="scheduler confirms both old controller and native process terminated",
+    )
+    assert len(launched) == 3 and len(continued) == 18
+    assert result["qualification_pass"] and not result["call_accounting_complete"]
+    assert (root / "campaign-before-recovery.json").read_bytes() == old_campaign
+    preserved = (
+        root
+        / result["interrupted_attempts"][0]["directory"]
+        / "attempt-before-recovery.json"
+    )
+    assert preserved.read_bytes() == old_attempt
+    for name, identity in result["infrastructure_recovery"][
+        "original_receipts"
+    ].items():
+        assert runner.digest(root / name) == identity
+
+
+def test_no_physical_attempt_is_needed_for_build_library_receipt(
+    host_identities, tmp_path
+):
+    library = str(tmp_path / "linked.so")
+    expected, completed = host_identities.expected_library_files(
+        {
+            "build": {"libraries": {library: "a" * 64}},
+            "attempts": [],
+            "interrupted_attempts": [],
+        }
+    )
+    assert expected == {library: "a" * 64} and completed == []

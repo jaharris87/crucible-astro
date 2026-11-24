@@ -20,14 +20,38 @@ def load(name, path):
     return module
 
 
+def partial_attempts(campaign):
+    """Archived interruptions and terminally quiescent unfinished current records."""
+    entries = list(campaign.get("interrupted_attempts", []))
+    archived = {entry["record"]["name"] for entry in entries}
+    for record in campaign["attempts"]:
+        if (
+            record["name"] not in archived
+            and not record.get("completed")
+            and record.get("status") not in ("UNATTEMPTED", "CONDITIONALLY_UNATTEMPTED")
+        ):
+            entries.append(
+                {
+                    "record": record,
+                    "directory": None
+                    if record["status"] == "INTERRUPTED_BEFORE_LAUNCH"
+                    else "attempts/" + record["name"],
+                }
+            )
+    return entries
+
+
 def expected_library_files(campaign):
     """Known process-time hashes, including available interrupted-process records."""
     helper = load(
         "_correction_library_inventory",
         Path(__file__).parent / "assembly_host_identities.py",
     )
-    expected, attempts = helper.expected_library_files(campaign)
-    for entry in campaign.get("interrupted_attempts", []):
+    if any(a.get("completed") for a in campaign["attempts"]):
+        expected, attempts = helper.expected_library_files(campaign)
+    else:
+        expected, attempts = dict(campaign["build"]["libraries"]), []
+    for entry in partial_attempts(campaign):
         for name, identity in entry["record"].get("loaded_library_hashes", {}).items():
             if identity is None:
                 continue
@@ -44,7 +68,7 @@ def expected_library_files(campaign):
 def interrupted_mapping_evidence(root, campaign, contract):
     """Recover last-flushed map paths, distinguishing later hashes from run hashes."""
     evidence = []
-    for entry in campaign.get("interrupted_attempts", []):
+    for entry in partial_attempts(campaign):
         record, directory = entry["record"], entry.get("directory")
         detail = {
             "name": record["name"],
@@ -73,10 +97,15 @@ def interrupted_mapping_evidence(root, campaign, contract):
             )
         else:
             inventory = record.get("files", {}).get("loaded-maps.txt")
-            contract.require(
-                inventory is not None and contract.digest(maps) == inventory["sha256"],
-                "interrupted runtime mapping changed",
-            )
+            if inventory is not None:
+                contract.require(
+                    contract.digest(maps) == inventory["sha256"],
+                    "interrupted runtime mapping changed",
+                )
+            else:
+                detail["unavailable"].append(
+                    "No process-time mapping inventory was flushed; mapping hash is a later quiescent raw snapshot."
+                )
             detail["mapping_sha256"] = contract.digest(maps)
             paths = set()
             for line in maps.read_text().splitlines():
@@ -110,15 +139,17 @@ def interrupted_mapping_evidence(root, campaign, contract):
     return evidence
 
 
-def collect(root):
+def collect(root, *, quiescent=False):
     root = Path(root).resolve()
     contract = load("_correction_identity_contract", root / "correction_campaign.py")
+    contract.require(
+        quiescent is True,
+        "lead must verify all producers/controllers terminal before identity collection",
+    )
+    initial_campaign_sha = contract.digest(root / "campaign.json")
     prepared = json.loads((root / "prepared.json").read_text())
     campaign = json.loads((root / "campaign.json").read_text())
     contract.validate_prepared(root, prepared)
-    contract.require(
-        campaign.get("complete") is True, "campaign accounting not complete"
-    )
     contract.require(
         campaign["prepared_sha256"] == contract.digest(root / "prepared.json"),
         "campaign/preparation differs",
@@ -145,8 +176,25 @@ def collect(root):
         )
         checked[name] = contract.digest(path)
         contract.require(checked[name] == identity, "execution-host library changed")
+    contract.require(
+        contract.digest(root / "campaign.json") == initial_campaign_sha,
+        "campaign changed during identity collection",
+    )
+    for record in campaign["attempts"]:
+        if record.get("completed"):
+            contract.verify_attempt_files(root, record)
+    for entry in partial_attempts(campaign):
+        if (
+            entry.get("directory") is not None
+            and entry["record"].get("files") is not None
+        ):
+            contract.verify_attempt_files(
+                root, entry["record"], directory=entry["directory"]
+            )
     return {
         "schema": "crucible.phase2d.correction-host-identities.v1",
+        "campaign_accounting_complete": campaign.get("complete") is True,
+        "producer_quiescence_basis": "LEAD_VERIFIED_PRODUCERS_AND_CONTROLLER_TERMINAL",
         "numerical_source": contract.SOURCE_NAME,
         "protocol_sha256": contract.PROTOCOL_SHA256,
         "build_label": prepared["build_label"],
@@ -169,8 +217,14 @@ def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("root", type=Path)
     parser.add_argument("output", type=Path)
+    parser.add_argument(
+        "--quiescent",
+        action="store_true",
+        required=True,
+        help="confirm independently verified terminal producers/controller",
+    )
     args = parser.parse_args()
-    record = collect(args.root)
+    record = collect(args.root, quiescent=args.quiescent)
     with args.output.open("x") as stream:
         stream.write(json.dumps(record, indent=2, allow_nan=False) + "\n")
     print(
