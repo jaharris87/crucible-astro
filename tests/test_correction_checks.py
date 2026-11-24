@@ -209,3 +209,48 @@ def test_short_horizon_cannot_be_trajectory_success(tmp_path):
     data = constant_trajectory(tmp_path, [0, 0.005, 0.009])
     with pytest.raises(ValueError, match="accepted horizon"):
         checks.trajectory_data(tmp_path, data, validate=False)
+
+
+@pytest.mark.parametrize(
+    "reason",
+    [
+        "FAILURE ten native step attempts exhausted",
+        "FAILURE final Newton projection exceeds per-step bound",
+        "FAILURE assembly native factorization info /= 0",
+    ],
+)
+def test_declared_numerical_stops_remain_case_failures(reason):
+    assert checks.ordinary_native_failure(reason)
+
+
+@pytest.mark.parametrize(
+    "reason",
+    [
+        "FAILURE nonfinite Newton correction",
+        "FAILURE changed BE numerical controls",
+        "FAILURE unknown reason",
+        "UNAVAILABLE",
+    ],
+)
+def test_unexpected_or_nonfinite_failure_cannot_launch_other_case(reason):
+    assert not checks.ordinary_native_failure(reason)
+
+
+def test_historical_fixture_pass_cannot_qualify_new_protocol(tmp_path):
+    import json
+
+    # A saved true flag and old fixture population cannot bypass new prerequisites.
+    (tmp_path / "synthetic.json").write_text(
+        json.dumps(
+            {
+                "pass": True,
+                "scenarios": [
+                    {"executable": "trajectory_synthetic", "name": "polynomial"}
+                ],
+                "files": {},
+            }
+        )
+    )
+    gate = checks.precision_gate(tmp_path)
+    assert not gate["pass"] and gate["identity_failure"]
+    assert "population" in gate["reason"]

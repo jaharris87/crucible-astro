@@ -33,6 +33,22 @@ def require(condition, message):
         raise ValueError("correction reference: " + message)
 
 
+def ordinary_native_failure(terminal):
+    """Case-specific numerical stops; unknown/nonfinite failures stop globally."""
+    if "nonfinite" in terminal.lower():
+        return False
+    return terminal in {
+        "FAILURE ten native step attempts exhausted",
+        "FAILURE accepted-state baryon drift bound",
+        "FAILURE final Newton projection exceeds per-step bound",
+        "FAILURE cumulative final projection exceeds bound",
+        "FAILURE no admissible same-branch finite-difference column after eight halvings",
+        "FAILURE assembly native factorization info /= 0",
+        "FAILURE assembly native linear solve info /= 0",
+        "FAILURE unrepresentable forward time",
+    } or terminal.startswith("FAILURE post-update composition domain")
+
+
 def digest(path):
     h = hashlib.sha256()
     with Path(path).open("rb") as stream:
@@ -43,6 +59,140 @@ def digest(path):
 
 def read_json(path):
     return json.loads(Path(path).read_text())
+
+
+def precision_gate(root):
+    """Independently audit all 24 prephysical fixtures and precision operands."""
+    root = Path(root)
+    output = {"pass": False, "passed": False, "identity_failure": True}
+    try:
+        expected = {
+            ("trajectory_synthetic", name): None
+            for name in (
+                "polynomial",
+                "nonlinear",
+                "boundary",
+                "projection",
+                "retry-snapshot",
+            )
+        }
+        expected.update(
+            {
+                ("trajectory_synthetic", "failed-lu"): "FAILURE LAPACK dgetrf info=",
+                (
+                    "trajectory_synthetic",
+                    "nonfinite",
+                ): "FAILURE nonfinite computed physical F/assembly workspace",
+                ("forcing_synthetic", "forcing"): None,
+                ("forcing_synthetic", "outside"): "Forcing outside closed coverage",
+                ("forcing_synthetic", "nonfinite"): "Nonfinite forcing time",
+                ("forcing_synthetic", "nonincreasing"): "Nonincreasing forcing",
+            }
+        )
+        expected.update(
+            {
+                ("assembly_synthetic", name): None
+                for name in (
+                    "precision",
+                    "arithmetic",
+                    "malformed",
+                    "nonfinite",
+                    "overflow",
+                )
+            }
+        )
+        expected.update(
+            {
+                ("trajectory_synthetic", "correction-" + name): None
+                for name in (
+                    "nonlinear",
+                    "stiff",
+                    "rounded",
+                    "current",
+                    "retry",
+                    "projection",
+                )
+            }
+        )
+        expected.update(
+            {
+                (
+                    "trajectory_synthetic",
+                    "correction-projection-bound",
+                ): "FAILURE final Newton projection exceeds per-step bound",
+                (
+                    "trajectory_synthetic",
+                    "correction-incomplete",
+                ): "FAILURE incomplete horizon",
+            }
+        )
+        saved = read_json(root / "synthetic.json")
+        records = saved["scenarios"]
+        require(
+            saved.get("pass") is True
+            and len(records) == len(expected) == 24
+            and {(r["executable"], r["name"]) for r in records} == set(expected),
+            "compiled prerequisite population differs",
+        )
+        inventory = {
+            str(p.relative_to(root))
+            for p in (root / "synthetic").rglob("*")
+            if p.is_file()
+        }
+        require(inventory == set(saved["files"]), "compiled fixture inventory differs")
+        for name, identity in saved["files"].items():
+            require(
+                digest(root / name) == identity, "compiled fixture artifact changed"
+            )
+        for record in records:
+            executable, name = record["executable"], record["name"]
+            work = root / "synthetic" / (executable + "-" + name)
+            status = work / (
+                "status.txt"
+                if executable == "trajectory_synthetic"
+                else "fixture-status.txt"
+            )
+            terminal = (
+                status.read_text().splitlines()[-1] if status.exists() else "MISSING"
+            )
+            text = (work / "process.log").read_text(errors="replace")
+            failure = expected[(executable, name)]
+            require(
+                record["executable_sha256"] == digest(root / "bundle" / executable)
+                and record["expected_failure"] == failure
+                and record["terminal_status"] == terminal,
+                "fixture executable/expectation/status changed",
+            )
+            if failure is None:
+                passed = record["returncode"] == 0 and terminal == (
+                    "SUCCESS" if executable == "trajectory_synthetic" else "PASS"
+                )
+            else:
+                passed = (
+                    record["returncode"] > 0
+                    and failure
+                    in (terminal if executable == "trajectory_synthetic" else text)
+                    and "UNEXPECTED" not in text
+                )
+            require(
+                passed and record.get("pass") is True,
+                "compiled fixture did not pass its exact oracle",
+            )
+        precision = assembly.precision_values_gate(
+            root / "synthetic/assembly_synthetic-precision"
+        )
+        output.update(precision)
+        output.update(
+            {
+                "pass": True,
+                "passed": True,
+                "identity_failure": False,
+                "compiled_fixtures": 24,
+            }
+        )
+    except (OSError, ValueError, KeyError, IndexError, TypeError, struct.error) as exc:
+        output["reason"] = str(exc)
+    return output
 
 
 def same(left, right):
@@ -141,7 +291,10 @@ def newton_rows(path, *, partial=False):
 def verify_newton(row, a, controls, previous=None):
     """Independently check one completed raw update, never a rounded-change test."""
     ids, scalars = row["ids"], row["scalars"]
-    require(ids[9] == 4 and ids[7:9] == (0, 0), "incomplete/failed Newton solve")
+    require(
+        ids[9] == 4 and ids[7:9] == (0, 0) and 1 <= ids[2] <= 30,
+        "incomplete/failed Newton solve",
+    )
     require(
         all(math.isfinite(v) for v in scalars[:11] + scalars[12:])
         and all(
@@ -471,6 +624,28 @@ def verify_work_counters(work, counters):
         if row[4] != 0 and row[5] != 0 and row[4] != row[5]:
             guarded_probes += 2
     require(guarded_probes == counters["probe"], "FD guarded-probe counter differs")
+    attempted_steps = {}
+    number = 0
+    for row in rows(work / "native-step-attempts.bin", 7, header=(0x43524154, 1, 7, 0)):
+        number += 1
+        require(
+            all(math.isfinite(v) for v in row)
+            and row[0] == int(row[0])
+            and row[0] >= 1
+            and row[1] == number
+            and row[3] > 0
+            and row[2] >= row[3],
+            "native step-attempt metadata differs",
+        )
+        step = int(row[0])
+        attempted_steps[step] = attempted_steps.get(step, 0) + 1
+        require(attempted_steps[step] <= 10, "native step exceeded ten attempts")
+    require(
+        number == counters["step_attempt"]
+        and len(attempted_steps) == counters["accepted"]
+        and counters["retry"] == number - len(attempted_steps),
+        "step/retry accounting differs",
+    )
     signature = [0] * 10240
     last_call = 0
     for call, time, index, before, after in rows(work / "branch-events.bin", 5):
@@ -623,11 +798,28 @@ def control_check(root, spec, work, static):
 def derivative_check(work, static, counts, requests):
     same_branch, hashes = assembly._check_streams(work, static, counts, requests)
     require(counts["jacobian"] == 1, "diagnostic must use exactly one full Jacobian")
+    require(
+        all(
+            counts[key] == 0
+            for key in (
+                "lu",
+                "linear_solve",
+                "newton",
+                "retry",
+                "step_attempt",
+                "projection",
+                "accepted",
+            )
+        ),
+        "undeclared diagnostic evolution/linear work",
+    )
     matrix = list(assembly._rows(work / "jacobian-factor-1.bin", N * N))
     statuses = list(assembly._rows(work / "matrix-status.bin", 5))
     require(
-        len(matrix) == len(statuses) == 1 and statuses[0][:3] == (1, 1, 1),
-        "incomplete diagnostic matrix",
+        len(matrix) == len(statuses) == 1
+        and statuses[0][:2] == (1, 1)
+        and statuses[0][2] in (0, 1),
+        "diagnostic matrix/status population differs",
     )
     with assembly.Evaluations(work / "assembly-evaluations.bin") as evaluations:
         check, variant, _ = assembly._workspace_check(
@@ -669,15 +861,22 @@ def derivative_check(work, static, counts, requests):
             direction["next_call"] == evaluations.count + 1,
             "undeclared diagnostic evaluations",
         )
+        require(
+            fd["complete"] == bool(statuses[0][2]),
+            "diagnostic completeness status differs",
+        )
     require(
         requests["fresh_requests"]
         == 4 + fd["probe_requests"] + direction["probe_requests"],
         "diagnostic guarded-request accounting differs",
     )
     require(
-        fd["complete"] and direction["pass"], "Jacobian directional agreement fails"
+        counts["probe"] == requests["fresh_requests"] - 4,
+        "diagnostic probe accounting differs",
     )
+    passed = fd["complete"] and direction["pass"]
     return {
+        "pass": passed,
         "arithmetic": check,
         "finite_difference": fd,
         "directional": direction,
@@ -695,10 +894,13 @@ def attempt_gate(root, spec, result):
             completed=record.get("completed") is True,
         )
         if not success:
+            native_terminal = terminal[-1] if terminal else "UNAVAILABLE"
+            ordinary = ordinary_native_failure(native_terminal)
             return {
                 **summary,
                 "reason": "native process did not complete successfully",
-                "ordinary_numerical_failure": True,
+                "ordinary_numerical_failure": ordinary,
+                "fatal": not ordinary,
             }
         counts = read_json(work / "counters.json")
         requests = read_json(work / "assembly-counters.json")
@@ -735,7 +937,14 @@ def attempt_gate(root, spec, result):
             assembly._check_streams(work, static, counts, requests)
             summary["complete_control_streams_verified"] = True
         elif spec["stage"] == "derivative":
-            summary.update(derivative_check(work, static, counts, requests))
+            derivative = derivative_check(work, static, counts, requests)
+            summary.update(derivative)
+            if not derivative["pass"]:
+                return {
+                    **summary,
+                    "ordinary_numerical_failure": True,
+                    "reason": "Jacobian directional agreement fails",
+                }
         else:
             summary["work_coverage"] = verify_work_counters(work, counts)
             data = trajectory_data(work, static["input"])
@@ -750,6 +959,11 @@ def attempt_gate(root, spec, result):
             require(
                 counts["accepted"] == len(data["times"]) - 1,
                 "accepted-step accounting differs",
+            )
+            require(
+                requests["fresh_requests"]
+                == 1 + 3 * counts["newton"] + counts["probe"],
+                "trajectory guarded-request equation differs",
             )
             summary.update(
                 {
