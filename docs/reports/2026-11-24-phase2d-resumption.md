@@ -4,8 +4,10 @@
 2026-11-23 pause. Actual checkout is `codex/phase2d-trajectory-references`, starting
 at `b6c8c8f`; remote main remains `75b2ec3`, draft PR #51 and issue #44 are open.
 D-038/D-039 evidence and their independent assessments are complete. Their
-producer allowances are exhausted; **no new build or physical evaluation has
-occurred on this resumption**. No full-horizon reference qualifies.
+producer allowances were exhausted at resumption, before any new build or
+physical evaluation. No full-horizon reference qualified at that checkpoint.
+The subsequent D-040 acceptance, implementation and execution receipts below
+record later work separately; they do not change the D-039 result.
 
 ## Next numerical decision
 
@@ -112,9 +114,25 @@ Replay JSON SHA256
 `6542a97960db547223744da36025247f12e82c59db2512068b597472660d2f52`
 binds raw archive, checker bytes and derived prefix streams. These are offline
 software checks, not new standard/tight executions or full-trajectory evidence.
-Actual native fixtures and the approved campaign remain to be executed only
-after exact repair verification passes. The live issue retains the exact latest
-candidate, dispositions, subsequent review and execution receipts.
+Focused independent gpt-6.1-sol High verification **PASS** covers exact final
+producer source `dd07cc1194ffe4771e900678f1de636152876bfd`, tree
+`38f0c4c96e12a68281d36cbb9eea5de11c61a259`. Both findings resolve; 98 correction-
+focused tests, lint/format and whitespace checks independently pass, including
+the original reproduction, both interruption paths and the missing-link negative
+control. No remaining finding or material repair risk is reported. Lead's repaired
+full installed suite again passes all 1,108 tests. The [actual review receipt](https://github.com/jaharris87/crucible-astro/issues/44#issuecomment-7141977684)
+precedes any producer execution.
+
+Preparation002 verifies all 148 immutable artifacts, 84 source files and twenty
+per-build plans at that exact source/tree; manifest SHA256
+`38e94025679e191c205c5500fa6aa111e30a6c7b64c15fa21febbddd48b62912`.
+Preparation001 remains unexecuted and unchanged, with a separate supersession
+receipt. The [Build A submission receipt](https://github.com/jaharris87/crucible-astro/issues/44#issuecomment-7142064795)
+records job **61935889**, submitted only after review and remote identity checks.
+Native build/fixture/numerical outcomes remain unclaimed at submission; the live
+issue retains actual subsequent outcomes. Build B is conditional on A's complete
+verification and fresh-process reload/release. Status-document updates do not
+change the pinned producer source. No reference/merge/final acceptance or 2E.
 
 ## Maintainer modeling feedback retained for the next proposal
 

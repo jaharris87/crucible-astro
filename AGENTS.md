@@ -45,7 +45,10 @@ D-040 proposes correction-controlled trajectories with unchanged global gates.
 Fresh independent Sol High protocol review passes at d5bbe89; new explicit
 scientific/producer acceptance was explicitly given in #44 comment7140960473.
 Routine implementation/checks and only its conditional campaign are authorized;
-exact implementation review precedes any build/physical call. Resumption and
+exact implementation review passed at dd07cc1 (receipt44#7141977684). Build A
+job61935889 is submitted under that conditional envelope; Build B requires A's
+complete verification and fresh-process reload/release. No numerical result is
+inferred from submission; see live #44 for actual status. Resumption and
 modeling feedback alone grant no new scope or training authority.
 One native goal covers 2D only; milestone #3 stays open. D-034's bounded 2C
 delegation grants no 2D merge authority.

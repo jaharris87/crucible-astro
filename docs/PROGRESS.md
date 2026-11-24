@@ -77,9 +77,12 @@ The D-040 implementation at `ba9f66e` passes 1,108 installed public tests plus
 lint/format/docs checks; original inputs and all preparation identities verify
 offline. Fresh independent implementation review requires repairs to restart
 provenance and guide output names. Repair `f697adb` plus actual controller/runner-
-to-verifier regressions are prepared for focused verification. No native build,
-compiled fixture or physical evaluation has run under D-040. See the linked
-resumption record and #44 for exact subsequent candidate/review/run receipts.
+to-verifier regressions pass [focused independent verification](https://github.com/jaharris87/crucible-astro/issues/44#issuecomment-7141977684)
+at pinned producer source `dd07cc1`. Preparation002 passes all identities;
+job **61935889** is [submitted for Build A and conditional stages](https://github.com/jaharris87/crucible-astro/issues/44#issuecomment-7142064795).
+No D-040 numerical outcome is yet claimed; Build B requires complete A evidence
+and fresh-process reload/release. See the linked resumption record and #44 for
+actual subsequent run/verification receipts. The 2D goal remains incomplete.
 
 ## Phase status
 

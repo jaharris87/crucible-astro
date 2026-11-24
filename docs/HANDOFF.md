@@ -28,10 +28,16 @@ required static/documentation checks. Offline preparation001 verifies all origin
 inputs and 148 immutable artifacts / 84 staged sources, without a build or physical
 call. Fresh independent Sol High implementation review found a restart-provenance
 bug (P2D-CORR-IMPL-001) and runnable guide suffixes (002). Repair `f697adb` and
-real runner-to-verifier regressions are prepared; focused repair verification must
-pass before the accepted campaign. The [resumption record](reports/2026-11-24-phase2d-resumption.md#implementation-checks-and-independent-review)
+real runner/controller-to-verifier regressions pass focused independent review
+at **`dd07cc1194ffe4771e900678f1de636152876bfd`**; the [PASS receipt](https://github.com/jaharris87/crucible-astro/issues/44#issuecomment-7141977684)
+records final coverage. The [resumption record](reports/2026-11-24-phase2d-resumption.md#implementation-checks-and-independent-review)
 preserves findings, dispositions and the explicit retained-probe limitation.
-Live #44 holds subsequent exact review/run receipts; no reference result is inferred.
+Preparation002 binds that physical source/tree and all 148 immutable artifacts;
+job **61935889** is [submitted for Build A and its conditional campaign](https://github.com/jaharris87/crucible-astro/issues/44#issuecomment-7142064795).
+Build B remains conditional on complete A verification and fresh-process reload.
+The producer source stays pinned independently of current status-document updates.
+Live #44 holds actual subsequent run/verification receipts; submission is no
+reference result. No merge, reference/final acceptance or Phase 2E is granted.
 
 **Preserved maintainer pause, 2026-11-23:** paused after completed D-039 execution,
 verification/reload and independent artifact/reporting assessment. No producer job
@@ -160,9 +166,10 @@ also confirms final development updates are entirely lost to binary64 rounding;
 this is local stagnation, not proof that no other representable root exists.
 The report records exact scope and remaining limits.
 
-**Next authorized action:** implement/check the accepted D-040 correction-controlled
-trajectory protocol, obtain fresh exact-candidate independent review, then execute
-only its conditional producer envelope.
+**Next authorized action:** monitor/verify Build A under the reviewed D-040
+conditional envelope, preserving all outcomes. Only a fully passing independent
+A verification and fresh-process reload can release the fresh Build B and its
+matched runs. Maintain the pinned source while keeping current status here/#44.
 D-039 reporting/artifact assessment is complete. The proposal retains its RHS,
 states/forcing and global gates, explicitly changing local nonlinear stopping;
 no full-horizon result is inferred from offline saved-correction calculations.
