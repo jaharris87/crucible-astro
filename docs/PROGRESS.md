@@ -66,8 +66,10 @@ assessment are complete; no new producer work has occurred. The preserved
 2026-11-23 pause remains historical. [D-040's concrete proposal](../experiments/trajectory_reference/CORRECTION_PROTOCOL.md)
 explicitly changes nonlinear stopping while retaining D-039's RHS and original
 global convergence gates. Fresh independent Sol High protocol review passes at
-`d5bbe89` without consequential findings; next is the explicit scientific/producer
-decision. [The resumption record](reports/2026-11-24-phase2d-resumption.md)
+`d5bbe89` without consequential findings; the maintainer has
+[accepted BOTH scientific protocol and producer scope](https://github.com/jaharris87/crucible-astro/issues/44#issuecomment-7140960473).
+Next: implementation/checks, fresh exact implementation review, then its conditional
+campaign only. [The resumption record](reports/2026-11-24-phase2d-resumption.md)
 also retains model-scaling/log/PCA/AE/width feedback for later scope. The one 2D
 goal is active; full 2D remains incomplete, with no accepted trajectory reference.
 

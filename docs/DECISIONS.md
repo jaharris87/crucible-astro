@@ -873,7 +873,11 @@ Acceptance grants no full trajectory campaign, reference, merge or Phase 2E.
 
 ### Decision D-040: Correction-controlled trajectory proposal
 
-**Proposed, not accepted — 2026-11-24.** The maintainer explicitly resumed 2D;
+**Accepted — 2026-11-24.** The maintainer explicitly answered “Accept protocol
+and producer scope (Recommended)” to the reviewed D-040 popup. The
+[actual receipt](https://github.com/jaharris87/crucible-astro/issues/44#issuecomment-7140960473)
+records acceptance of BOTH science and the entire conditional producer envelope.
+The maintainer had explicitly resumed 2D;
 that continuation does not renew exhausted producer authority. The
 [concrete protocol](../experiments/trajectory_reference/CORRECTION_PROTOCOL.md)
 proposes two small raw Newton corrections as the local stopping test, replacing
@@ -892,8 +896,9 @@ High protocol review **PASS**, no consequential findings, at pushed
 `a7eac47716dc710780469b4f107adec59e3fd6e60d435cd62ef60560f13be0a8`.
 The reviewer independently checked retained records, identities, actual native
 semantics, counts, convergence/failures, scope and simplicity; no build/evaluation
-or edits. Explicit human acceptance of BOTH science and producer scope is pending.
-No build/evaluation, reference/merge/final acceptance or Phase 2E is granted.
+or edits. Routine implementation/checks and the accepted producer envelope are
+authorized; exact-candidate implementation review precedes any build/evaluation.
+No reference/merge/final acceptance or Phase 2E is granted.
 The [resumption record](reports/2026-11-24-phase2d-resumption.md) retains actual
 offline evidence and later modeling feedback without changing frozen artifacts.
 

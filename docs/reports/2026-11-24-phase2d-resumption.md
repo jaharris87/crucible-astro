@@ -36,7 +36,11 @@ These observations motivate a pilot; they predict neither later steps nor global
 accuracy. The protocol proposes a single conditional 24-trajectory envelope with
 two fresh builds, early joint failure gates and fixed diagnostics. No execution
 is authorized by its preparation. Fresh independent protocol review passes as
-recorded below; explicit scientific/producer acceptance is pending.
+recorded below. The maintainer then explicitly answered **“Accept protocol and
+producer scope (Recommended)”**; [the actual receipt](https://github.com/jaharris87/crucible-astro/issues/44#issuecomment-7140960473)
+accepts BOTH the exact reviewed protocol and its producer envelope. No physical
+work preceded that answer. Implementation/checks and fresh exact implementation
+review come before executing the accepted conditional campaign.
 
 ## Independent protocol review
 

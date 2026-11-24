@@ -18,8 +18,10 @@ main remains `75b2ec3`, draft PR #51 / #44 are open. The
 [resumption record](reports/2026-11-24-phase2d-resumption.md) retains meeting
 feedback and the concrete [D-040 proposal](../experiments/trajectory_reference/CORRECTION_PROTOCOL.md).
 No new producer build/evaluation has occurred. Fresh independent Sol High protocol
-review passes at `d5bbe89`, without consequential findings; explicit scientific
-acceptance and new producer authority are required. The frozen baseline remains unchanged.
+review passes at `d5bbe89`, without consequential findings. The maintainer
+[explicitly accepted BOTH protocol and producer scope](https://github.com/jaharris87/crucible-astro/issues/44#issuecomment-7140960473).
+Routine implementation/checks may proceed; exact implementation review precedes
+producer execution. The frozen baseline remains unchanged.
 
 **Preserved maintainer pause, 2026-11-23:** paused after completed D-039 execution,
 verification/reload and independent artifact/reporting assessment. No producer job
@@ -148,12 +150,14 @@ also confirms final development updates are entirely lost to binary64 rounding;
 this is local stagnation, not proof that no other representable root exists.
 The report records exact scope and remaining limits.
 
-**Next authorized action:** obtain explicit scientific/producer acceptance of the
-independently reviewed D-040 correction-controlled trajectory proposal.
+**Next authorized action:** implement/check the accepted D-040 correction-controlled
+trajectory protocol, obtain fresh exact-candidate independent review, then execute
+only its conditional producer envelope.
 D-039 reporting/artifact assessment is complete. The proposal retains its RHS,
 states/forcing and global gates, explicitly changing local nonlinear stopping;
 no full-horizon result is inferred from offline saved-correction calculations.
-New producer execution requires a separate reviewed protocol and explicit decision.
+New producer execution is limited to the explicitly accepted D-040 protocol
+after exact implementation review.
 The [guide](../experiments/trajectory_reference/ASSEMBLY_QUALIFICATION.md) and
 [wire formats](../experiments/trajectory_reference/ASSEMBLY_WIRE.md) retain original/
 variant F and all failures. The distinct numerical RHS preserves D-019 and frozen

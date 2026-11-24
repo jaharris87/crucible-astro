@@ -43,8 +43,10 @@ It grants no further build/evaluation, full trajectory campaign, reference/merge
 see current handoff and live #44. On 2026-11-24 the maintainer resumed 2D;
 D-040 proposes correction-controlled trajectories with unchanged global gates.
 Fresh independent Sol High protocol review passes at d5bbe89; new explicit
-scientific/producer acceptance is pending;
-resumption and modeling feedback grant no build/evaluation/training authority.
+scientific/producer acceptance was explicitly given in #44 comment7140960473.
+Routine implementation/checks and only its conditional campaign are authorized;
+exact implementation review precedes any build/physical call. Resumption and
+modeling feedback alone grant no new scope or training authority.
 One native goal covers 2D only; milestone #3 stays open. D-034's bounded 2C
 delegation grants no 2D merge authority.
 [Milestone #3](https://github.com/jaharris87/crucible-astro/milestone/3) and

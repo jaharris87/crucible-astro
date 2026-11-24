@@ -12,16 +12,17 @@ not grant a merge, named-reference acceptance, final 2D acceptance or Phase 2E.
 **Incomplete, 2026-11-24:** no full-horizon reference is accepted. The maintainer
 resumed protocol preparation; [D-040](CORRECTION_PROTOCOL.md) proposes a new local
 correction stopping policy with unchanged global convergence/reproduction gates.
-Independent protocol review passes; explicit scientific/producer acceptance is
-pending. D-038 diagnostics
+Independent protocol review passes; the maintainer
+[accepted BOTH science and producer scope](https://github.com/jaharris87/crucible-astro/issues/44#issuecomment-7140960473).
+Implementation/checks and exact review precede execution. D-038 diagnostics
 completed with [retained numerical evidence and independent artifact review](../../docs/reports/2026-11-23-phase2d-diagnostics.md).
 The maintainer subsequently [accepted D-039](https://github.com/jaharris87/crucible-astro/issues/44#issuecomment-7109353327)
 for a **distinct numerical RHS and bounded first-step qualification**. Its
 [runnable guide](ASSEMBLY_QUALIFICATION.md) and [wire formats](ASSEMBLY_WIRE.md)
 describe the implementation. The [completed campaign](../../docs/reports/2026-11-23-phase2d-assembly.md)
 passes arithmetic/derivatives but fails development first-step qualification;
-validation accepts only a reduced step. No further producer execution or full
-trajectory continuation is authorized.
+validation accepts only a reduced step. D-039 itself grants no further execution;
+only the newly accepted D-040 conditional campaign is authorized after review.
 
 The [diagnostic guide](DIAGNOSTICS.md) records the completed D-038 procedure.
 The commands below preserve the original D-036 procedure; they are not an
