@@ -9,7 +9,10 @@ and its concrete producer envelope. Its preparation-time proposed header is
 preserved as frozen evidence; the receipt records actual acceptance. This does
 not grant a merge, named-reference acceptance, final 2D acceptance or Phase 2E.
 
-**Incomplete, 2026-11-23:** no full-horizon reference is accepted. D-038 diagnostics
+**Incomplete, 2026-11-24:** no full-horizon reference is accepted. The maintainer
+resumed protocol preparation; [D-040](CORRECTION_PROTOCOL.md) proposes a new local
+correction stopping policy with unchanged global convergence/reproduction gates.
+Review and explicit scientific/producer acceptance are pending. D-038 diagnostics
 completed with [retained numerical evidence and independent artifact review](../../docs/reports/2026-11-23-phase2d-diagnostics.md).
 The maintainer subsequently [accepted D-039](https://github.com/jaharris87/crucible-astro/issues/44#issuecomment-7109353327)
 for a **distinct numerical RHS and bounded first-step qualification**. Its

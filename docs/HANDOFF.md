@@ -1,6 +1,6 @@
 # CRUCIBLE handoff
 
-Updated **2026-11-23**. Phase 1, the documentation migration and **2A–2C are
+Updated **2026-11-24**. Phase 1, the documentation migration and **2A–2C are
 complete**. The maintainer explicitly [accepted final 2C closeout](https://github.com/jaharris87/crucible-astro/issues/43#issuecomment-7047751430)
 after all audit repairs and merged-result checks. [Milestone #3](https://github.com/jaharris87/crucible-astro/milestone/3)
 remains open; [the single Phase 2 sequence](PHASE_2_LAUNCH.md) owns dependencies.
@@ -12,7 +12,15 @@ for explicit scientific/producer acceptance, now [given](https://github.com/jaha
 Implementation and synthetic verification are active; no producer work occurred
 before that answer.
 
-**Maintainer pause, 2026-11-23:** paused after completed D-039 execution,
+**Resumed on explicit maintainer request, 2026-11-24:** one native goal is active
+for 2D only. Read-only state/issue inspection confirms the preserved checkpoint;
+main remains `75b2ec3`, draft PR #51 / #44 are open. The
+[resumption record](reports/2026-11-24-phase2d-resumption.md) retains meeting
+feedback and the concrete [D-040 proposal](../experiments/trajectory_reference/CORRECTION_PROTOCOL.md).
+No new producer build/evaluation has occurred; reviewed protocol acceptance and
+explicit new producer authority are required. The frozen baseline remains unchanged.
+
+**Preserved maintainer pause, 2026-11-23:** paused after completed D-039 execution,
 verification/reload and independent artifact/reporting assessment. No producer job
 is running. The final reviewed evidence candidate is `4eb547d08769395c6d49e5d62bea542168639a73`;
 the physical source remains `245ed95`. Resume with read-only state/issue inspection
@@ -139,8 +147,11 @@ also confirms final development updates are entirely lost to binary64 rounding;
 this is local stagnation, not proof that no other representable root exists.
 The report records exact scope and remaining limits.
 
-**Next authorized action:** prepare a concrete next numerical proposal from the
-verified retained development failure. D-039 reporting/artifact assessment is complete.
+**Next authorized action:** independently review the concrete D-040 correction-
+controlled trajectory proposal, then obtain explicit scientific/producer acceptance.
+D-039 reporting/artifact assessment is complete. The proposal retains its RHS,
+states/forcing and global gates, explicitly changing local nonlinear stopping;
+no full-horizon result is inferred from offline saved-correction calculations.
 New producer execution requires a separate reviewed protocol and explicit decision.
 The [guide](../experiments/trajectory_reference/ASSEMBLY_QUALIFICATION.md) and
 [wire formats](../experiments/trajectory_reference/ASSEMBLY_WIRE.md) retain original/
@@ -153,12 +164,12 @@ The stopped campaign used exact reviewed `a771930`,
 submitted after [explicit D-037 acceptance](https://github.com/jaharris87/crucible-astro/issues/44#issuecomment-7050412199).
 Focused independent review passes the repair, all 120 Phase 2D Python tests and
 offline replay of ten native fixture results. CI also passes at that candidate.
-The accepted D-036 equations,
-inputs, physics, physical-run counts and numerical criteria stay fixed. Ordinary
+For that original stopped campaign, D-036 equations,
+inputs, physics, physical-run counts and numerical criteria stayed fixed. Ordinary
 exact-candidate code review passes with P2D-IMPL-001 resolved; physical artifact
 review and reference evidence are still outstanding. The independently prepared
 reproduction has identical source/tree/protocol/annex and all 94 immutable hashes;
-do not submit it under this pause; new execution needs the revised decision above.
+do not submit it as a resumed campaign; new execution needs the revised decision above.
 Original protocol findings and focused PASS remain in #44;
 [draft PR #51](https://github.com/jaharris87/crucible-astro/pull/51) remains incomplete. This is not reference acceptance or merge approval; D-034 does not
 carry into 2D. Keep #44/native goal incomplete and milestone #3 open.

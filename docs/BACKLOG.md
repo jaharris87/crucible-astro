@@ -8,8 +8,13 @@ preparation under #44; D-036 now accepts the concrete scientific/producer scope.
 The primary campaign has numerical failures and interrupted validation; no
 full-horizon reference passed. The accepted D-038 diagnostics completed with
 bounded verification and independent artifact PASS; [the report](reports/2026-11-23-phase2d-diagnostics.md)
-preserves unresolved nonlinear limits. D-039 distinct-source qualification is
-explicitly accepted; exact implementation review precedes its bounded execution.
+preserves unresolved nonlinear limits. D-039's reviewed campaign completed:
+arithmetic/derivatives pass, first-step qualification fails, and its producer
+authority is exhausted. On explicit 2026-11-24 resumption, [D-040](../experiments/trajectory_reference/CORRECTION_PROTOCOL.md)
+proposes correction-controlled trajectories; review and new acceptance are pending.
+The [resumption record](reports/2026-11-24-phase2d-resumption.md) retains scaling,
+log-feature, wider-MLP and PCA/AE priorities for the next accepted model/S05
+proposal. It selects no architecture or reduction and authorizes no training.
 [The existing sequence](PHASE_2_LAUNCH.md) owns dependencies and scope gates.
 
 ## Bootstrap sequence

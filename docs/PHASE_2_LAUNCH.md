@@ -23,8 +23,12 @@ no full-horizon reference passed. Offline diagnosis resumed on 2026-11-23;
 explicit scientific/producer acceptance, with bounded verification and independent
 artifact PASS in the [diagnostic report](reports/2026-11-23-phase2d-diagnostics.md).
 [D-039](../experiments/trajectory_reference/ASSEMBLY_QUALIFICATION_PROTOCOL.md)
-distinct-source qualification is explicitly accepted; exact implementation review
-precedes its bounded execution. Full trajectory generation remains a later decision.
+distinct-source qualification completed under explicit acceptance and exact review:
+arithmetic/derivatives pass but first-step qualification fails. Its producer scope
+is exhausted. The maintainer resumed 2D on 2026-11-24;
+[D-040](../experiments/trajectory_reference/CORRECTION_PROTOCOL.md) proposes
+correction-controlled trajectories, pending independent review and new explicit
+scientific/producer acceptance. Full trajectory generation remains a decision.
 Merge approval remains separate.
 The 2B [concrete MLP experiment](https://github.com/jaharris87/crucible-astro/issues/42#issuecomment-7042652534)
 received independent scope review and maintainer acceptance under D-031 before fitting.

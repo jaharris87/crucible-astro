@@ -871,6 +871,27 @@ identities, numerical results and verification status. Execution stays bound to
 producer execution is exhausted: no postphysical rebuild, repeat or continuation.
 Acceptance grants no full trajectory campaign, reference, merge or Phase 2E.
 
+### Decision D-040: Correction-controlled trajectory proposal
+
+**Proposed, not accepted — 2026-11-24.** The maintainer explicitly resumed 2D;
+that continuation does not renew exhausted producer authority. The
+[concrete protocol](../experiments/trajectory_reference/CORRECTION_PROTOCOL.md)
+proposes two small raw Newton corrections as the local stopping test, replacing
+D-036's raw residual gate explicitly while retaining the D-039 RHS, binary64 Y,
+original cases/forcing/physics and global mesh/nonlinear/reproduction criteria.
+Raw residuals remain fully reported; no retroactive historical pass is claimed.
+
+The coherent conditional envelope proposes two fresh builds, at most two total
+prephysical replacement builds, four initial controls, 24 trajectories and twelve
+fixed-state Jacobian diagnostic processes; at most one identical infrastructure-
+interrupted process restart per build. Early joint failure gates stop dependent
+stages. Alternative: retain strict residual stopping and develop a new higher-
+precision state/source contract separately. Fresh independent protocol review
+and explicit human acceptance of BOTH science and producer scope are pending.
+No build/evaluation, reference/merge/final acceptance or Phase 2E is granted.
+The [resumption record](reports/2026-11-24-phase2d-resumption.md) retains actual
+offline evidence and later modeling feedback without changing frozen artifacts.
+
 ## Scientific decisions and current evidence gates
 
 The paragraph below preserves the initial ingestion decision; D-025 above is the

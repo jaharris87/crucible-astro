@@ -1,6 +1,6 @@
 # CRUCIBLE progress
 
-Updated **2026-11-23**. Phase 1, the documentation migration, **2A–2C are complete**:
+Updated **2026-11-24**. Phase 1, the documentation migration, **2A–2C are complete**:
 [Phase 1 receipt](https://github.com/jaharris87/crucible-astro/issues/15#issuecomment-7014392482),
 [migration receipt](https://github.com/jaharris87/crucible-astro/issues/39#issuecomment-7019298012),
 [2A receipt](https://github.com/jaharris87/crucible-astro/issues/41#issuecomment-7020463315),
@@ -61,9 +61,14 @@ material but does not explain the full stalled residual. Fresh reload and bounde
 independent artifact assessment pass. No trajectory rerun or later phase is authorized.
 D-034 does not delegate 2D merges. See [handoff](HANDOFF.md) for the next decision.
 
-**Paused on maintainer request, 2026-11-23:** D-039 reporting and independent
-assessment complete; no running producer job. Resume with the next reviewed
-numerical proposal and explicit authority decision; full 2D remains incomplete.
+**Resumed on maintainer request, 2026-11-24:** D-039 reporting and independent
+assessment are complete; no new producer work has occurred. The preserved
+2026-11-23 pause remains historical. [D-040's concrete proposal](../experiments/trajectory_reference/CORRECTION_PROTOCOL.md)
+explicitly changes nonlinear stopping while retaining D-039's RHS and original
+global convergence gates. Next: independent protocol review and explicit
+scientific/producer decision. [The resumption record](reports/2026-11-24-phase2d-resumption.md)
+also retains model-scaling/log/PCA/AE/width feedback for later scope. The one 2D
+goal is active; full 2D remains incomplete, with no accepted trajectory reference.
 
 ## Phase status
 

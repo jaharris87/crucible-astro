@@ -40,7 +40,10 @@ reviewed distinct numerical RHS and bounded first-step qualification scope; rece
 development first-step qualification fails and validation accepts only a reduced
 endpoint. Its producer scope is exhausted. See the actual report in handoff.
 It grants no further build/evaluation, full trajectory campaign, reference/merge/final acceptance or Phase 2E;
-see current handoff and live #44.
+see current handoff and live #44. On 2026-11-24 the maintainer resumed 2D;
+D-040 proposes correction-controlled trajectories with unchanged global gates.
+Protocol review and new explicit scientific/producer acceptance are pending;
+resumption and modeling feedback grant no build/evaluation/training authority.
 One native goal covers 2D only; milestone #3 stays open. D-034's bounded 2C
 delegation grants no 2D merge authority.
 [Milestone #3](https://github.com/jaharris87/crucible-astro/milestone/3) and
